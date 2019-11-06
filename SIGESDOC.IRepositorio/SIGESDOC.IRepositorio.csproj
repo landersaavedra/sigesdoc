@@ -1,0 +1,881 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{8E979F20-00A9-421D-9E03-8944A017A775}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>SIGESDOC.IRepositorio</RootNamespace>
+    <AssemblyName>SIGESDOC.IRepositorio</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Base\IBaseRepositorio.cs" />
+    <Compile Include="Base\IContext.cs" />
+    <Compile Include="IActaInspeccionDsfpaRepositorio.cs">
+      <DependentUpon>IRepositorioObjects.tt</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="IActividadProtocoloRepositorio.cs">
+      <DependentUpon>IRepositorioObjects.tt</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="IArchivadorDhcpaRepositorio.cs">
+      <DependentUpon>IRepositorioObjects.tt</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ICheckListInspeccionDsfpaRepositorio.cs">
+      <DependentUpon>IRepositorioObjects.tt</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="IClasificacionTramiteRepositorio.cs">
+      <DependentUpon>IRepositorioObjects.tt</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="IConstanciaHaccpRepositorio.cs">
+      <DependentUpon>IRepositorioObjects.tt</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="IConsultaDbGeneralMaeFacturaRepositorio.cs">
+      <DependentUpon>IRepositorioObjects.tt</DependentUpon>
+    </Compile>
+    <Compile Include="IConsultaDbGeneralMaeOperacionRepositorio.cs">
+      <DependentUpon>IRepositorioObjects.tt</DependentUpon>
+    </Compile>
+    <Compile Include="IConsultaDbGeneralMaeTipoFacturaRepositorio.cs">
+      <DependentUpon>IRepositorioObjects.tt</DependentUpon>
+    </Compile>
+    <Compile Include="IConsultaDbGeneralMaeValorFacturadoExpRepositorio.cs">
+      <DependentUpon>IRepositorioObjects.tt</DependentUpon>
+    </Compile>
+    <Compile Include="IConsultaEmbarcacionesRepositorio.cs">
+      <DependentUpon>IRepositorioObjects.tt</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="IConsultaEmbarcacionesRepositorio_Partial.cs" />
+    <Compile Include="IConsultaFacturasRepositorio.cs">
+      <DependentUpon>IRepositorioObjects.tt</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="IConsultaFacturasRepositorio_Partial.cs" />
+    <Compile Include="IConsultaPendientesSanipesDetalleRepositorio.cs">
+      <DependentUpon>IRepositorioObjects.tt</DependentUpon>
+    </Compile>
+    <Compile Include="IConsultaPersonaReciboSerie1Repositorio.cs">
+      <DependentUpon>IRepositorioObjects.tt</DependentUpon>
+    </Compile>
+    <Compile Include="IConsultaProtocolosAiRepositorio.cs">
+      <DependentUpon>IRepositorioObjects.tt</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="IConsultaProtocolosLoRepositorio.cs">
+      <DependentUpon>IRepositorioObjects.tt</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="IConsultarActvAlmacenRepositorio.cs">
+      <DependentUpon>IRepositorioObjects.tt</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="IConsultarActvEmbarcacionRepositorio.cs">
+      <DependentUpon>IRepositorioObjects.tt</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="IConsultarCodHabAlmacenRepositorio.cs">
+      <DependentUpon>IRepositorioObjects.tt</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="IConsultarCodHabEmbarcacionRepositorio.cs">
+      <DependentUpon>IRepositorioObjects.tt</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="IConsultarDbGeneralMaeAlmacenSedeRepositorio.cs">
+      <DependentUpon>IRepositorioObjects.tt</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="IConsultarDbGeneralMaeAlmacenSedeRepositorio_Partial.cs" />
+    <Compile Include="IConsultarDbGeneralMaeAreaProduccionRepositorio.cs">
+      <DependentUpon>IRepositorioObjects.tt</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="IConsultarDbGeneralMaeConcesionRepositorio.cs">
+      <DependentUpon>IRepositorioObjects.tt</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="IConsultarDbGeneralMaeConcesionRepositorio_Partial.cs" />
+    <Compile Include="IConsultarDbGeneralMaeTipoConcesionRepositorio.cs">
+      <DependentUpon>IRepositorioObjects.tt</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="IConsultarDbGeneralMaeZonaProduccionRepositorio.cs">
+      <DependentUpon>IRepositorioObjects.tt</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="IConsultarDepartamentoRepositorio.cs">
+      <DependentUpon>IRepositorioObjects.tt</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="IConsultarDireccionRepositorio.cs">
+      <DependentUpon>IRepositorioObjects.tt</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="IConsultarDniPersonalLegalRepositorio.cs">
+      <DependentUpon>IRepositorioObjects.tt</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="IConsultarDniRepositorio.cs">
+      <DependentUpon>IRepositorioObjects.tt</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="IConsultarDniRepositorio_Partial.cs" />
+    <Compile Include="IConsultaReciboSerie1Repositorio.cs">
+      <DependentUpon>IRepositorioObjects.tt</DependentUpon>
+    </Compile>
+    <Compile Include="IConsultarEmpresaPersonaLegalRepositorio.cs">
+      <DependentUpon>IRepositorioObjects.tt</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="IConsultaReporteDiarioSerie1Repositorio.cs">
+      <DependentUpon>IRepositorioObjects.tt</DependentUpon>
+    </Compile>
+    <Compile Include="IConsultarEspeciesCategoriasRepositorio.cs">
+      <DependentUpon>IRepositorioObjects.tt</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="IConsultarEspeciesRepositorio.cs">
+      <DependentUpon>IRepositorioObjects.tt</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="IConsultarOficinaDireccionLegalRepositorio.cs">
+      <DependentUpon>IRepositorioObjects.tt</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="IConsultarOficinaRepositorio.cs">
+      <DependentUpon>IRepositorioObjects.tt</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="IConsultarOficinaRepositorio_Partial.cs" />
+    <Compile Include="IConsultarPendientesHtParaAdjuntar20190104Repositorio.cs">
+      <DependentUpon>IRepositorioObjects.tt</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="IConsultarPersonalRepositorio.cs">
+      <DependentUpon>IRepositorioObjects.tt</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="IConsultarPersonaTelefonoRepositorio.cs">
+      <DependentUpon>IRepositorioObjects.tt</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="IConsultarPlantasRepositorio.cs">
+      <DependentUpon>IRepositorioObjects.tt</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="IConsultarPlantasRepositorio_Partial.cs" />
+    <Compile Include="IConsultarProvinciaRepositorio.cs">
+      <DependentUpon>IRepositorioObjects.tt</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="IConsultarRucRepositorio.cs">
+      <DependentUpon>IRepositorioObjects.tt</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="IConsultarSedeOficinaRepositorio.cs">
+      <DependentUpon>IRepositorioObjects.tt</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="IConsultarTipoActividadPlantaRepositorio.cs">
+      <DependentUpon>IRepositorioObjects.tt</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="IConsultarTipoDocumentoIdentidadRepositorio.cs">
+      <DependentUpon>IRepositorioObjects.tt</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="IConsultarTipoFurgonTransporteRepositorio.cs">
+      <DependentUpon>IRepositorioObjects.tt</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="IConsultarTipoPlantaRepositorio.cs">
+      <DependentUpon>IRepositorioObjects.tt</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="IConsultarUbigeoRepositorio.cs">
+      <DependentUpon>IRepositorioObjects.tt</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="IConsultarUsuarioRepositorio.cs">
+      <DependentUpon>IRepositorioObjects.tt</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="IConsultarUsuarioRepositorio_Partial.cs" />
+    <Compile Include="IConsultaSolicitudInspeccionOdRepositorio.cs">
+      <DependentUpon>IRepositorioObjects.tt</DependentUpon>
+    </Compile>
+    <Compile Include="IConsultaSolicitudInspeccionOdRepositorio_Partial.cs" />
+    <Compile Include="IConsultaTipoEmbarcacionesRepositorio.cs">
+      <DependentUpon>IRepositorioObjects.tt</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="IDbGeneralMaeCodigoDesembarcaderoRepositorio.cs">
+      <DependentUpon>IRepositorioObjects.tt</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="IDbGeneralMaeDesembarcaderoRepositorio.cs">
+      <DependentUpon>IRepositorioObjects.tt</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="IDbGeneralMaeDesembarcaderoRepositorio_Partial.cs" />
+    <Compile Include="IDbGeneralMaeTipoCarroceriaRepositorio.cs">
+      <DependentUpon>IRepositorioObjects.tt</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="IDbGeneralMaeTipoDesembarcaderoRepositorio.cs">
+      <DependentUpon>IRepositorioObjects.tt</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="IDbGeneralMaeTransporteRepositorio.cs">
+      <DependentUpon>IRepositorioObjects.tt</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="IDbGeneralMaeTransporteRepositorio_Partial.cs" />
+    <Compile Include="IDbGeneralMaeUnidadMedidaRepositorio.cs">
+      <DependentUpon>IRepositorioObjects.tt</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="IDestinoSolicitudInspeccionRepositorio.cs">
+      <DependentUpon>IRepositorioObjects.tt</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="IDetDocFactRepositorio.cs">
+      <DependentUpon>IRepositorioObjects.tt</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="IDetSegDocDhcpaRepositorio.cs">
+      <DependentUpon>IRepositorioObjects.tt</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="IDetSegDocRepositorio.cs">
+      <DependentUpon>IRepositorioObjects.tt</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="IDetSegEvaluadorRepositorio.cs">
+      <DependentUpon>IRepositorioObjects.tt</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="IDocDetObservacionesRepositorio.cs">
+      <DependentUpon>IRepositorioObjects.tt</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="IDocumentoAnexoRepositorio.cs">
+      <DependentUpon>IRepositorioObjects.tt</DependentUpon>
+    </Compile>
+    <Compile Include="IDocumentoDetalleRepositorio.cs">
+      <DependentUpon>IRepositorioObjects.tt</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="IDocumentoDhcpaDetalleRepositorio.cs">
+      <DependentUpon>IRepositorioObjects.tt</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="IDocumentoDhcpaRepositorio.cs">
+      <DependentUpon>IRepositorioObjects.tt</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="IDocumentoIndicadorRepositorio.cs">
+      <DependentUpon>IRepositorioObjects.tt</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="IDocumentoRepositorio.cs">
+      <DependentUpon>IRepositorioObjects.tt</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="IDocumentoSeguimientoAdjuntoRepositorio.cs">
+      <DependentUpon>IRepositorioObjects.tt</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="IDocumentoSeguimientoRepositorio.cs">
+      <DependentUpon>IRepositorioObjects.tt</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="IDocumentoSeguimientoRepositorio_Partial.cs" />
+    <Compile Include="IEspeciesHabilitacionesRepositorio.cs">
+      <DependentUpon>IRepositorioObjects.tt</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="IEspeciesHabilitacionesRepositorio_Partial.cs" />
+    <Compile Include="IEstadosDelProtocoloRepositorio.cs">
+      <DependentUpon>IRepositorioObjects.tt</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="IEstadoSeguimientoDhcpaRepositorio.cs">
+      <DependentUpon>IRepositorioObjects.tt</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="IEstadoTramiteRepositorio.cs">
+      <DependentUpon>IRepositorioObjects.tt</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="IExpedientesRepositorio.cs">
+      <DependentUpon>IRepositorioObjects.tt</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="IExpedientesRepositorio_Partial.cs" />
+    <Compile Include="IExpedienteUnicoRepositorio.cs">
+      <DependentUpon>IRepositorioObjects.tt</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="IFilialDhcpaRepositorio.cs">
+      <DependentUpon>IRepositorioObjects.tt</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="IFirmasSdhpaRepositorio.cs">
+      <DependentUpon>IRepositorioObjects.tt</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="IHojaTramiteRepositorio.cs">
+      <DependentUpon>IRepositorioObjects.tt</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="IHojaTramiteRepositorio_Partial.cs" />
+    <Compile Include="IHtExternoRepositorio.cs">
+      <DependentUpon>IRepositorioObjects.tt</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="IHtInternoRepositorio.cs">
+      <DependentUpon>IRepositorioObjects.tt</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="IIndicadoresTramiteRepositorio.cs">
+      <DependentUpon>IRepositorioObjects.tt</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="IIndicadorProtocoloEspecieRepositorio.cs">
+      <DependentUpon>IRepositorioObjects.tt</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="IInformeInspeccionDsfpaRepositorio.cs">
+      <DependentUpon>IRepositorioObjects.tt</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="IInformeTecnicoEvalRepositorio.cs">
+      <DependentUpon>IRepositorioObjects.tt</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ILogDesarchivoDesatendidoRepositorio.cs">
+      <DependentUpon>IRepositorioObjects.tt</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="IProtocoloAlmacenRepositorio.cs">
+      <DependentUpon>IRepositorioObjects.tt</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="IProtocoloAutorizacionInstalacionRepositorio.cs">
+      <DependentUpon>IRepositorioObjects.tt</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="IProtocoloAutorizacionInstalacionRepositorio_Partial.cs" />
+    <Compile Include="IProtocoloConcesionRepositorio.cs">
+      <DependentUpon>IRepositorioObjects.tt</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="IProtocoloDesembarcaderoRepositorio.cs">
+      <DependentUpon>IRepositorioObjects.tt</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="IProtocoloEmbarcacionRepositorio.cs">
+      <DependentUpon>IRepositorioObjects.tt</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="IProtocoloEspecieRepositorio.cs">
+      <DependentUpon>IRepositorioObjects.tt</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="IProtocoloLicenciaOperacionRepositorio.cs">
+      <DependentUpon>IRepositorioObjects.tt</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="IProtocoloLicenciaOperacionRepositorio_Partial.cs" />
+    <Compile Include="IProtocoloPlantaRepositorio.cs">
+      <DependentUpon>IRepositorioObjects.tt</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="IProtocoloRepositorio.cs">
+      <DependentUpon>IRepositorioObjects.tt</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="IProtocoloRepositorio_Partial.cs" />
+    <Compile Include="Base\IUnitOfWork.cs" />
+    <Compile Include="IProtocoloTransporteRepositorio.cs">
+      <DependentUpon>IRepositorioObjects.tt</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="IPruebaInspeccionDsfpaRepositorio.cs">
+      <DependentUpon>IRepositorioObjects.tt</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="IPtocoloTransporteXIdTransporte2018V1Repositorio.cs">
+      <DependentUpon>IRepositorioObjects.tt</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="IReporteComprobanteXMesConsultaRepositorio.cs">
+      <DependentUpon>IRepositorioObjects.tt</DependentUpon>
+    </Compile>
+    <Compile Include="IRepositorioObjects.cs">
+      <DependentUpon>IRepositorioObjects.tt</DependentUpon>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+    </Compile>
+    <Compile Include="ISeguimientoDhcpaObservacionesRepositorio.cs">
+      <DependentUpon>IRepositorioObjects.tt</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ISeguimientoDhcpaRepositorio.cs">
+      <DependentUpon>IRepositorioObjects.tt</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ISeguimientoDhcpaRepositorio_Partial.cs" />
+    <Compile Include="IServicioDhcpaRepositorio.cs">
+      <DependentUpon>IRepositorioObjects.tt</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ISolicitudInspeccionRepositorio.cs">
+      <DependentUpon>IRepositorioObjects.tt</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ISubTupaRepositorio.cs">
+      <DependentUpon>IRepositorioObjects.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ITipoActividadConcesionRepositorio.cs">
+      <DependentUpon>IRepositorioObjects.tt</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ITipoAtencionInspeccionRepositorio.cs">
+      <DependentUpon>IRepositorioObjects.tt</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ITipoAutorizacionInstalacionRepositorio.cs">
+      <DependentUpon>IRepositorioObjects.tt</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ITipoCamaraTransporteRepositorio.cs">
+      <DependentUpon>IRepositorioObjects.tt</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ITipoConsumoHumanoRepositorio.cs">
+      <DependentUpon>IRepositorioObjects.tt</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ITipoDocumentoRepositorio.cs">
+      <DependentUpon>IRepositorioObjects.tt</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ITipoDocumentoSeguimientoAdjuntoRepositorio.cs">
+      <DependentUpon>IRepositorioObjects.tt</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ITipoExpedienteRepositorio.cs">
+      <DependentUpon>IRepositorioObjects.tt</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ITipoLicenciaOperacionRepositorio.cs">
+      <DependentUpon>IRepositorioObjects.tt</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ITipoPedidoSigaRepositorio.cs">
+      <DependentUpon>IRepositorioObjects.tt</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ITipoProcedimientoRepositorio.cs">
+      <DependentUpon>IRepositorioObjects.tt</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ITipoProtocoloEmbarcacionRepositorio.cs">
+      <DependentUpon>IRepositorioObjects.tt</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ITipoSeguimientoRepositorio.cs">
+      <DependentUpon>IRepositorioObjects.tt</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ITipoServicioHabilitacionRepositorio.cs">
+      <DependentUpon>IRepositorioObjects.tt</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ITipoTramiteRepositorio.cs">
+      <DependentUpon>IRepositorioObjects.tt</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ITipoTupaRepositorio.cs">
+      <DependentUpon>IRepositorioObjects.tt</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ITupaRepositorio.cs">
+      <DependentUpon>IRepositorioObjects.tt</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="IVerPedientesGesdocRepositorio.cs">
+      <DependentUpon>IRepositorioObjects.tt</DependentUpon>
+    </Compile>
+    <Compile Include="IVersionSolicitudRepositorio.cs">
+      <DependentUpon>IRepositorioObjects.tt</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="p_ACTUALIZA_PERSONA_Result.cs">
+      <DependentUpon>IRepositorioObjects.tt</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="P_ASIGNA_OFICINA_PERSONA_Result.cs">
+      <DependentUpon>IRepositorioObjects.tt</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="p_CAMBIO_CONTRASEÑA_Result.cs">
+      <DependentUpon>IRepositorioObjects.tt</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="P_CONSULTAR_MAE_ALMACEN_SEDE_Result.cs">
+      <DependentUpon>IRepositorioObjects.tt</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="P_CREA_EMBARCACIONES_Result.cs">
+      <DependentUpon>IRepositorioObjects.tt</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="P_CREA_FACTURAS_Result.cs">
+      <DependentUpon>IRepositorioObjects.tt</DependentUpon>
+    </Compile>
+    <Compile Include="p_CREA_OFICINA_DIRECCION_Result.cs">
+      <DependentUpon>IRepositorioObjects.tt</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="p_CREA_OFICINA_PRINCIPAL_Result.cs">
+      <DependentUpon>IRepositorioObjects.tt</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="p_CREA_PERSONAL_Result.cs">
+      <DependentUpon>IRepositorioObjects.tt</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="p_CREA_SEDE_SECUNDARIA_Result.cs">
+      <DependentUpon>IRepositorioObjects.tt</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="P_DESACTIVA_OFICINA_PERSONA_Result.cs">
+      <DependentUpon>IRepositorioObjects.tt</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="p_GENERA_DATA_PROTOCOLO_ALMACEN_Result.cs">
+      <DependentUpon>IRepositorioObjects.tt</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="p_GENERA_DATA_PROTOCOLO_AUTORIZACION_INSTALACION_Result.cs">
+      <DependentUpon>IRepositorioObjects.tt</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="p_GENERA_DATA_PROTOCOLO_CONCESION_Result.cs">
+      <DependentUpon>IRepositorioObjects.tt</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="p_GENERA_DATA_PROTOCOLO_DESEMBARCADERO_Result.cs">
+      <DependentUpon>IRepositorioObjects.tt</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="p_GENERA_DATA_PROTOCOLO_EMBARCACION_Result.cs">
+      <DependentUpon>IRepositorioObjects.tt</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="p_GENERA_DATA_PROTOCOLO_LICENCIA_OPERACION_Result.cs">
+      <DependentUpon>IRepositorioObjects.tt</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="p_GENERA_DATA_PROTOCOLO_PLANTA_Result.cs">
+      <DependentUpon>IRepositorioObjects.tt</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="P_GUARDAR_OFICINA_Result.cs">
+      <DependentUpon>IRepositorioObjects.tt</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="P_INSERT_PERSONA_TELEFONO_Result.cs">
+      <DependentUpon>IRepositorioObjects.tt</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="P_INSERT_UPDATE_DAT_DET_OPERACION_FACTURA_Result.cs">
+      <DependentUpon>IRepositorioObjects.tt</DependentUpon>
+    </Compile>
+    <Compile Include="P_INSERT_UPDATE_DB_GENERAL_MAE_CONCESION_Result.cs">
+      <DependentUpon>IRepositorioObjects.tt</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="P_INSERT_UPDATE_DB_GENERAL_MAE_DESEMBARCADERO_Result.cs">
+      <DependentUpon>IRepositorioObjects.tt</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="P_INSERT_UPDATE_MAE_ALMACEN_SEDE_Result.cs">
+      <DependentUpon>IRepositorioObjects.tt</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="P_INSERT_UPDATE_MAE_DNI_PERSONA_LEGAL_Result.cs">
+      <DependentUpon>IRepositorioObjects.tt</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="P_INSERT_UPDATE_MAE_ENTIDAD_PERSONA_LEGAL_Result.cs">
+      <DependentUpon>IRepositorioObjects.tt</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="P_INSERT_UPDATE_MAE_OFICINA_DIRECCION_LEGAL_Result.cs">
+      <DependentUpon>IRepositorioObjects.tt</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="P_INSERT_UPDATE_MAE_OPERACION_Result.cs">
+      <DependentUpon>IRepositorioObjects.tt</DependentUpon>
+    </Compile>
+    <Compile Include="P_INSERT_UPDATE_MAE_VALOR_FACTURADO_EXP_Result.cs">
+      <DependentUpon>IRepositorioObjects.tt</DependentUpon>
+    </Compile>
+    <Compile Include="p_MODIFICAR_CONTRASEÑA_Result.cs">
+      <DependentUpon>IRepositorioObjects.tt</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="P_RELACION_PROTOCOLO_SEGUIMIENTO_PLANTA_Result.cs">
+      <DependentUpon>IRepositorioObjects.tt</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="P_RELACION_PROTOCOLO_SEGUIMIENTO_Result.cs">
+      <DependentUpon>IRepositorioObjects.tt</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="P_RELACION_PROTOCOLO_SOLICITUD_Result.cs">
+      <DependentUpon>IRepositorioObjects.tt</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="P_SEGURIDAD_CONSULTAR_USUARIO_Result.cs">
+      <DependentUpon>IRepositorioObjects.tt</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="P_UPDATE_MAE_OPERACION_Result.cs">
+      <DependentUpon>IRepositorioObjects.tt</DependentUpon>
+    </Compile>
+    <Compile Include="P_VER_PROTO_SEGUIMIENTO_Result.cs">
+      <DependentUpon>IRepositorioObjects.tt</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="SP_ACTUALIZAR_DB_GENERAL_MAE_TRANSPORTE_Result.cs">
+      <DependentUpon>IRepositorioObjects.tt</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="SP_ACTUALIZA_NOM_EMPRESA_Result.cs">
+      <DependentUpon>IRepositorioObjects.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SP_ACTUALIZA_PLANTA_Result.cs">
+      <DependentUpon>IRepositorioObjects.tt</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="SP_CONSULTAR_ACTA_CHKL_INFO_PRU_SI_Result.cs">
+      <DependentUpon>IRepositorioObjects.tt</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="SP_CONSULTAR_CORREO_OD_POR_FILIAL_DHCPA_Result.cs">
+      <DependentUpon>IRepositorioObjects.tt</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="SP_CONSULTAR_DOCUMENTOS_PENDIENTES_DETALLE_DESAGREGADO_Result.cs">
+      <DependentUpon>IRepositorioObjects.tt</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="SP_CONSULTAR_DOCUMENTOS_PENDIENTES_DETALLE_Result.cs">
+      <DependentUpon>IRepositorioObjects.tt</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="SP_CONSULTAR_DOCUMENTOS_PENDIENTES_Result.cs">
+      <DependentUpon>IRepositorioObjects.tt</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="SP_CONSULTAR_DOC_X_OFICINA_X_TUPA_Result.cs">
+      <DependentUpon>IRepositorioObjects.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SP_CONSULTAR_EXPEDIENTES_X_DOCUMENTO_HABILITACIONES_OD_Result.cs">
+      <DependentUpon>IRepositorioObjects.tt</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="SP_CONSULTAR_EXPEDIENTES_X_DOCUMENTO_HABILITACIONES_RECEP_Result.cs">
+      <DependentUpon>IRepositorioObjects.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SP_CONSULTAR_EXPEDIENTES_X_DOCUMENTO_HABILITACIONES_Result.cs">
+      <DependentUpon>IRepositorioObjects.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SP_CONSULTAR_HT_GENERAL_Result.cs">
+      <DependentUpon>IRepositorioObjects.tt</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="SP_CONSULTAR_HT_GENERAL_X_OFICINA_DESTINO_X_TUPA_Result.cs">
+      <DependentUpon>IRepositorioObjects.tt</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="SP_CONSULTAR_PRUEBAS_IMAGENES_SI_Result.cs">
+      <DependentUpon>IRepositorioObjects.tt</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="SP_CONSULTAR_REGISTRO_DE_USUARIO_Result.cs">
+      <DependentUpon>IRepositorioObjects.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SP_CONSULTAR_TRANSPORTES_CON_PROTOCOLO_HABILITADO_Result.cs">
+      <DependentUpon>IRepositorioObjects.tt</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="SP_CONSULTA_HISTORIAL_EVALUADOR_Result.cs">
+      <DependentUpon>IRepositorioObjects.tt</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="SP_CONSULTA_HISTORIAL_HT_Result.cs">
+      <DependentUpon>IRepositorioObjects.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SP_CONSULTA_HOJA_TRAMITE_X_PEDIDO_Result.cs">
+      <DependentUpon>IRepositorioObjects.tt</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="SP_CORREO_ALERTA_GENERA_SI_Result.cs">
+      <DependentUpon>IRepositorioObjects.tt</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="SP_CREA_PLANTA_Result.cs">
+      <DependentUpon>IRepositorioObjects.tt</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="SP_DB_PROTOCOLO_ANTIGUO_HAB_EMPRESA_INSERT_Result.cs">
+      <DependentUpon>IRepositorioObjects.tt</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="SP_DB_PROTOCOLO_ANTIGUO_HAB_PLANTA_INSERT_Result.cs">
+      <DependentUpon>IRepositorioObjects.tt</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="SP_DB_PROTOCOLO_ANTIGUO_HAB_PLANTA_PROTOCOLO_INSERT_Result.cs">
+      <DependentUpon>IRepositorioObjects.tt</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="SP_EDITA_DB_GENERAL_MAE_SEDE_Result.cs">
+      <DependentUpon>IRepositorioObjects.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SP_EDITA_DB_SEGURIDAD_PERSONA_Result.cs">
+      <DependentUpon>IRepositorioObjects.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SP_EJECUTA_COMPROBANTE_X_MES_CONSULTA_Result.cs">
+      <DependentUpon>IRepositorioObjects.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SP_EXCEL_HT_ARCHIVADOS_ATENDIDOS_Result.cs">
+      <DependentUpon>IRepositorioObjects.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SP_EXCEL_HT_ENVIADAS_Result.cs">
+      <DependentUpon>IRepositorioObjects.tt</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="SP_EXCEL_HT_PENDIENTES_POR_ATENDER_Result.cs">
+      <DependentUpon>IRepositorioObjects.tt</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="SP_EXCEL_HT_PENDIENTES_POR_RECIBIR_Result.cs">
+      <DependentUpon>IRepositorioObjects.tt</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="SP_GENERA_CLAVE_Result.cs">
+      <DependentUpon>IRepositorioObjects.tt</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="SP_GENERA_DATA_PROTOCOLO_TRANSPORTE_Result.cs">
+      <DependentUpon>IRepositorioObjects.tt</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="SP_GENERA_PROTOCOLO_TRANSPORTE_Result.cs">
+      <DependentUpon>IRepositorioObjects.tt</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="SP_HABILITA_PLANTA_Result.cs">
+      <DependentUpon>IRepositorioObjects.tt</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="SP_INSERTAR_DB_GENERAL_MAE_TRANSPORTE_Result.cs">
+      <DependentUpon>IRepositorioObjects.tt</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="SP_PLANTA_PROTOCOLO_EXCEL_Result.cs">
+      <DependentUpon>IRepositorioObjects.tt</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="SP_RECIBIR_MAE_SOLICITUD_INSPECCION_Result.cs">
+      <DependentUpon>IRepositorioObjects.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SP_RECIBIR_MAE_SOLICITUD_INSPECCION_X_INSPECTOR_Result.cs">
+      <DependentUpon>IRepositorioObjects.tt</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="IRepositorioObjects.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>IRepositorioObjects.cs</LastGenOutput>
+    </None>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\SIGESDOC.Contexto\SIGESDOC.Contexto.csproj">
+      <Project>{6585b09f-5165-4d11-8978-d3d1d7120880}</Project>
+      <Name>SIGESDOC.Contexto</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SIGESDOC.Entidades\SIGESDOC.Entidades.csproj">
+      <Project>{39060f56-7098-4cfb-902c-1c16a0256f2c}</Project>
+      <Name>SIGESDOC.Entidades</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SIGESDOC.Response\SIGESDOC.Response.csproj">
+      <Project>{89d6d533-4a64-45aa-bbfd-75e69015725f}</Project>
+      <Name>SIGESDOC.Response</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

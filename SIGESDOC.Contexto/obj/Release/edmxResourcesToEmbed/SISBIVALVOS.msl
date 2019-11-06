@@ -1,0 +1,721 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="DB_BIVALVOSModelStoreContainer" CdmEntityContainer="DB_BIVALVOSEntities">
+    <EntitySetMapping Name="DAT_DER">
+      <EntityTypeMapping TypeName="DB_BIVALVOSModel.DAT_DER">
+        <MappingFragment StoreEntitySet="DAT_DER">
+          <ScalarProperty Name="id_der" ColumnName="id_der" />
+          <ScalarProperty Name="cod_area_produccion" ColumnName="cod_area_produccion" />
+          <ScalarProperty Name="cod_desembarcadero" ColumnName="cod_desembarcadero" />
+          <ScalarProperty Name="id_destino" ColumnName="id_destino" />
+          <ScalarProperty Name="reinstalacion" ColumnName="reinstalacion" />
+          <ScalarProperty Name="id_mercado_mayorista" ColumnName="id_mercado_mayorista" />
+          <ScalarProperty Name="id_tipo_planta" ColumnName="id_tipo_planta" />
+          <ScalarProperty Name="id_planta_proceso" ColumnName="id_planta_proceso" />
+          <ScalarProperty Name="fecha_hora_descarga" ColumnName="fecha_hora_descarga" />
+          <ScalarProperty Name="inmovilizado" ColumnName="inmovilizado" />
+          <ScalarProperty Name="fecha_hora_inmovilizado" ColumnName="fecha_hora_inmovilizado" />
+          <ScalarProperty Name="usuario_inmovilizado" ColumnName="usuario_inmovilizado" />
+          <ScalarProperty Name="id_estado" ColumnName="id_estado" />
+          <ScalarProperty Name="fecha_hora_registro" ColumnName="fecha_hora_registro" />
+          <ScalarProperty Name="usuario_registro" ColumnName="usuario_registro" />
+          <ScalarProperty Name="fecha_hora_recibido" ColumnName="fecha_hora_recibido" />
+          <ScalarProperty Name="usuario_recibido" ColumnName="usuario_recibido" />
+          <ScalarProperty Name="autorizado" ColumnName="autorizado" />
+          <ScalarProperty Name="codigo_union_europea" ColumnName="codigo_union_europea" />
+          <ScalarProperty Name="union_europea" ColumnName="union_europea" />
+          <ScalarProperty Name="motivo_inmovilizacion" ColumnName="motivo_inmovilizacion" />
+          <ScalarProperty Name="num_fisico" ColumnName="num_fisico" />
+          <ScalarProperty Name="dni" ColumnName="dni" />
+          <ScalarProperty Name="id_concesion" ColumnName="id_concesion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DAT_DER_DETALLE">
+      <EntityTypeMapping TypeName="DB_BIVALVOSModel.DAT_DER_DETALLE">
+        <MappingFragment StoreEntitySet="DAT_DER_DETALLE">
+          <ScalarProperty Name="id_der_detalle" ColumnName="id_der_detalle" />
+          <ScalarProperty Name="id_der" ColumnName="id_der" />
+          <ScalarProperty Name="cod_matricula" ColumnName="cod_matricula" />
+          <ScalarProperty Name="id_unidad_medida_der" ColumnName="id_unidad_medida_der" />
+          <ScalarProperty Name="fecha_hora_ini_extr" ColumnName="fecha_hora_ini_extr" />
+          <ScalarProperty Name="fecha_hora_fin_extr" ColumnName="fecha_hora_fin_extr" />
+          <ScalarProperty Name="cantidad_unidad_medida" ColumnName="cantidad_unidad_medida" />
+          <ScalarProperty Name="cantidad_equivalencia" ColumnName="cantidad_equivalencia" />
+          <ScalarProperty Name="id_especie" ColumnName="id_especie" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DAT_DER_DETALLE_ESPEJO">
+      <EntityTypeMapping TypeName="DB_BIVALVOSModel.DAT_DER_DETALLE_ESPEJO">
+        <MappingFragment StoreEntitySet="DAT_DER_DETALLE_ESPEJO">
+          <ScalarProperty Name="id_der_detalle_espejo" ColumnName="id_der_detalle_espejo" />
+          <ScalarProperty Name="id_der_detalle" ColumnName="id_der_detalle" />
+          <ScalarProperty Name="id_der" ColumnName="id_der" />
+          <ScalarProperty Name="cod_matricula" ColumnName="cod_matricula" />
+          <ScalarProperty Name="id_unidad_medida_der" ColumnName="id_unidad_medida_der" />
+          <ScalarProperty Name="fecha_hora_ini_extr" ColumnName="fecha_hora_ini_extr" />
+          <ScalarProperty Name="fecha_hora_fin_extr" ColumnName="fecha_hora_fin_extr" />
+          <ScalarProperty Name="cantidad_unidad_medida" ColumnName="cantidad_unidad_medida" />
+          <ScalarProperty Name="cantidad_equivalencia" ColumnName="cantidad_equivalencia" />
+          <ScalarProperty Name="id_especie" ColumnName="id_especie" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DAT_DER_ESPEJO">
+      <EntityTypeMapping TypeName="DB_BIVALVOSModel.DAT_DER_ESPEJO">
+        <MappingFragment StoreEntitySet="DAT_DER_ESPEJO">
+          <ScalarProperty Name="id_der_espejo" ColumnName="id_der_espejo" />
+          <ScalarProperty Name="id_der" ColumnName="id_der" />
+          <ScalarProperty Name="cod_area_produccion" ColumnName="cod_area_produccion" />
+          <ScalarProperty Name="cod_desembarcadero" ColumnName="cod_desembarcadero" />
+          <ScalarProperty Name="id_destino" ColumnName="id_destino" />
+          <ScalarProperty Name="reinstalacion" ColumnName="reinstalacion" />
+          <ScalarProperty Name="id_mercado_mayorista" ColumnName="id_mercado_mayorista" />
+          <ScalarProperty Name="id_tipo_planta" ColumnName="id_tipo_planta" />
+          <ScalarProperty Name="id_planta_proceso" ColumnName="id_planta_proceso" />
+          <ScalarProperty Name="fecha_hora_descarga" ColumnName="fecha_hora_descarga" />
+          <ScalarProperty Name="inmovilizado" ColumnName="inmovilizado" />
+          <ScalarProperty Name="fecha_hora_inmovilizado" ColumnName="fecha_hora_inmovilizado" />
+          <ScalarProperty Name="usuario_inmovilizado" ColumnName="usuario_inmovilizado" />
+          <ScalarProperty Name="id_estado" ColumnName="id_estado" />
+          <ScalarProperty Name="fecha_hora_registro" ColumnName="fecha_hora_registro" />
+          <ScalarProperty Name="usuario_registro" ColumnName="usuario_registro" />
+          <ScalarProperty Name="fecha_hora_recibido" ColumnName="fecha_hora_recibido" />
+          <ScalarProperty Name="usuario_recibido" ColumnName="usuario_recibido" />
+          <ScalarProperty Name="id_concesion" ColumnName="id_concesion" />
+          <ScalarProperty Name="autorizado" ColumnName="autorizado" />
+          <ScalarProperty Name="codigo_union_europea" ColumnName="codigo_union_europea" />
+          <ScalarProperty Name="union_europea" ColumnName="union_europea" />
+          <ScalarProperty Name="motivo_inmovilizacion" ColumnName="motivo_inmovilizacion" />
+          <ScalarProperty Name="num_fisico" ColumnName="num_fisico" />
+          <ScalarProperty Name="dni" ColumnName="dni" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DAT_LOTE_EXPORTACION">
+      <EntityTypeMapping TypeName="DB_BIVALVOSModel.DAT_LOTE_EXPORTACION">
+        <MappingFragment StoreEntitySet="DAT_LOTE_EXPORTACION">
+          <ScalarProperty Name="id_lote_exportacion" ColumnName="id_lote_exportacion" />
+          <ScalarProperty Name="id_entidad_apoyo" ColumnName="id_entidad_apoyo" />
+          <ScalarProperty Name="id_exportador" ColumnName="id_exportador" />
+          <ScalarProperty Name="id_estado" ColumnName="id_estado" />
+          <ScalarProperty Name="inmovilizado" ColumnName="inmovilizado" />
+          <ScalarProperty Name="fecha_hora_emitido" ColumnName="fecha_hora_emitido" />
+          <ScalarProperty Name="usuario_emitido" ColumnName="usuario_emitido" />
+          <ScalarProperty Name="fecha_hora_rechazado" ColumnName="fecha_hora_rechazado" />
+          <ScalarProperty Name="usuario_rechazado" ColumnName="usuario_rechazado" />
+          <ScalarProperty Name="fecha_hora_certificado" ColumnName="fecha_hora_certificado" />
+          <ScalarProperty Name="usuario_certificado" ColumnName="usuario_certificado" />
+          <ScalarProperty Name="fecha_hora_inmovilizado" ColumnName="fecha_hora_inmovilizado" />
+          <ScalarProperty Name="usuario_inmovilizado" ColumnName="usuario_inmovilizado" />
+          <ScalarProperty Name="union_europea" ColumnName="union_europea" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DAT_LOTE_EXPORTACION_DETALLE">
+      <EntityTypeMapping TypeName="DB_BIVALVOSModel.DAT_LOTE_EXPORTACION_DETALLE">
+        <MappingFragment StoreEntitySet="DAT_LOTE_EXPORTACION_DETALLE">
+          <ScalarProperty Name="id_lote_exportacion_detalle" ColumnName="id_lote_exportacion_detalle" />
+          <ScalarProperty Name="id_lote_exportacion" ColumnName="id_lote_exportacion" />
+          <ScalarProperty Name="id_packing_list" ColumnName="id_packing_list" />
+          <ScalarProperty Name="id_packing_list_detalle" ColumnName="id_packing_list_detalle" />
+          <ScalarProperty Name="cantidad_exportar" ColumnName="cantidad_exportar" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DAT_PACKING_LIST">
+      <EntityTypeMapping TypeName="DB_BIVALVOSModel.DAT_PACKING_LIST">
+        <MappingFragment StoreEntitySet="DAT_PACKING_LIST">
+          <ScalarProperty Name="id_packing_list" ColumnName="id_packing_list" />
+          <ScalarProperty Name="id_entidad_apoyo" ColumnName="id_entidad_apoyo" />
+          <ScalarProperty Name="id_exportador" ColumnName="id_exportador" />
+          <ScalarProperty Name="id_planta_proceso" ColumnName="id_planta_proceso" />
+          <ScalarProperty Name="id_estado" ColumnName="id_estado" />
+          <ScalarProperty Name="vigencia" ColumnName="vigencia" />
+          <ScalarProperty Name="inmovilizacion" ColumnName="inmovilizacion" />
+          <ScalarProperty Name="fecha_hora_registro" ColumnName="fecha_hora_registro" />
+          <ScalarProperty Name="usuario_registro" ColumnName="usuario_registro" />
+          <ScalarProperty Name="fecha_hora_emision" ColumnName="fecha_hora_emision" />
+          <ScalarProperty Name="usuario_emision" ColumnName="usuario_emision" />
+          <ScalarProperty Name="fecha_hora_evaluacion" ColumnName="fecha_hora_evaluacion" />
+          <ScalarProperty Name="usuario_evaluacion" ColumnName="usuario_evaluacion" />
+          <ScalarProperty Name="fecha_hora_rechazo" ColumnName="fecha_hora_rechazo" />
+          <ScalarProperty Name="usuario_rechazo" ColumnName="usuario_rechazo" />
+          <ScalarProperty Name="fecha_hora_aprobacion" ColumnName="fecha_hora_aprobacion" />
+          <ScalarProperty Name="usuario_aprobacion" ColumnName="usuario_aprobacion" />
+          <ScalarProperty Name="fecha_hora_inmovilizacion" ColumnName="fecha_hora_inmovilizacion" />
+          <ScalarProperty Name="usuario_inmovilizacion" ColumnName="usuario_inmovilizacion" />
+          <ScalarProperty Name="union_europea" ColumnName="union_europea" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DAT_PACKING_LIST_DETALLE">
+      <EntityTypeMapping TypeName="DB_BIVALVOSModel.DAT_PACKING_LIST_DETALLE">
+        <MappingFragment StoreEntitySet="DAT_PACKING_LIST_DETALLE">
+          <ScalarProperty Name="id_packing_list_detalle" ColumnName="id_packing_list_detalle" />
+          <ScalarProperty Name="id_packing_list" ColumnName="id_packing_list" />
+          <ScalarProperty Name="id_proceso_industrial" ColumnName="id_proceso_industrial" />
+          <ScalarProperty Name="id_det_proceso_industrial" ColumnName="id_det_proceso_industrial" />
+          <ScalarProperty Name="cantidad_inspeccionar" ColumnName="cantidad_inspeccionar" />
+          <ScalarProperty Name="cantidad_exportador" ColumnName="cantidad_exportador" />
+          <ScalarProperty Name="cantidad_certificada" ColumnName="cantidad_certificada" />
+          <ScalarProperty Name="saldo" ColumnName="saldo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DAT_PROCESO_INDUSTRIAL">
+      <EntityTypeMapping TypeName="DB_BIVALVOSModel.DAT_PROCESO_INDUSTRIAL">
+        <MappingFragment StoreEntitySet="DAT_PROCESO_INDUSTRIAL">
+          <ScalarProperty Name="id_proceso_industrial" ColumnName="id_proceso_industrial" />
+          <ScalarProperty Name="id_planta_proceso" ColumnName="id_planta_proceso" />
+          <ScalarProperty Name="id_der" ColumnName="id_der" />
+          <ScalarProperty Name="id_tipo_proceso_industrial" ColumnName="id_tipo_proceso_industrial" />
+          <ScalarProperty Name="id_proceso_industrial_re_tr" ColumnName="id_proceso_industrial_re_tr" />
+          <ScalarProperty Name="id_planta_destino" ColumnName="id_planta_destino" />
+          <ScalarProperty Name="fecha_hora_envio" ColumnName="fecha_hora_envio" />
+          <ScalarProperty Name="usuario_envio" ColumnName="usuario_envio" />
+          <ScalarProperty Name="fecha_hora_recibido" ColumnName="fecha_hora_recibido" />
+          <ScalarProperty Name="usuario_recibido" ColumnName="usuario_recibido" />
+          <ScalarProperty Name="id_estado" ColumnName="id_estado" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DAT_PROCESO_INDUSTRIAL_DETALLE">
+      <EntityTypeMapping TypeName="DB_BIVALVOSModel.DAT_PROCESO_INDUSTRIAL_DETALLE">
+        <MappingFragment StoreEntitySet="DAT_PROCESO_INDUSTRIAL_DETALLE">
+          <ScalarProperty Name="id_det_proceso_industrial" ColumnName="id_det_proceso_industrial" />
+          <ScalarProperty Name="id_proceso_industrial" ColumnName="id_proceso_industrial" />
+          <ScalarProperty Name="id_presentacion_prpr" ColumnName="id_presentacion_prpr" />
+          <ScalarProperty Name="proceso_industrial_final" ColumnName="proceso_industrial_final" />
+          <ScalarProperty Name="cantidad_inicial" ColumnName="cantidad_inicial" />
+          <ScalarProperty Name="porcentaje" ColumnName="porcentaje" />
+          <ScalarProperty Name="cantidad_final" ColumnName="cantidad_final" />
+          <ScalarProperty Name="observacion" ColumnName="observacion" />
+          <ScalarProperty Name="cantidad_inmovilizada" ColumnName="cantidad_inmovilizada" />
+          <ScalarProperty Name="cantidad_inspeccionada" ColumnName="cantidad_inspeccionada" />
+          <ScalarProperty Name="saldo" ColumnName="saldo" />
+          <ScalarProperty Name="proceso_utilizado" ColumnName="proceso_utilizado" />
+          <ScalarProperty Name="fecha_hora_registro" ColumnName="fecha_hora_registro" />
+          <ScalarProperty Name="usuario_registro" ColumnName="usuario_registro" />
+          <ScalarProperty Name="fecha_hora_inmovilizado" ColumnName="fecha_hora_inmovilizado" />
+          <ScalarProperty Name="usuario_inmovilizado" ColumnName="usuario_inmovilizado" />
+          <ScalarProperty Name="cantidad_contenedor1" ColumnName="cantidad_contenedor1" />
+          <ScalarProperty Name="tipo_contenedor1" ColumnName="tipo_contenedor1" />
+          <ScalarProperty Name="detalle_contenedor1" ColumnName="detalle_contenedor1" />
+          <ScalarProperty Name="cantidad_contenedor2" ColumnName="cantidad_contenedor2" />
+          <ScalarProperty Name="tipo_contenedor2" ColumnName="tipo_contenedor2" />
+          <ScalarProperty Name="detalle_contenedor2" ColumnName="detalle_contenedor2" />
+          <ScalarProperty Name="id_especie" ColumnName="id_especie" />
+          <ScalarProperty Name="detalle_contenedor1lb" ColumnName="detalle_contenedor1lb" />
+          <ScalarProperty Name="detalle_contenedor2lb" ColumnName="detalle_contenedor2lb" />
+          <ScalarProperty Name="unidad_medida" ColumnName="unidad_medida" />
+          <ScalarProperty Name="cant_saldo" ColumnName="cant_saldo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DAT_PROCESO_PRIMARIO">
+      <EntityTypeMapping TypeName="DB_BIVALVOSModel.DAT_PROCESO_PRIMARIO">
+        <MappingFragment StoreEntitySet="DAT_PROCESO_PRIMARIO">
+          <ScalarProperty Name="id_proceso_primario" ColumnName="id_proceso_primario" />
+          <ScalarProperty Name="id_planta_proceso" ColumnName="id_planta_proceso" />
+          <ScalarProperty Name="id_der" ColumnName="id_der" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DAT_PROCESO_PRIMARIO_DETALLE">
+      <EntityTypeMapping TypeName="DB_BIVALVOSModel.DAT_PROCESO_PRIMARIO_DETALLE">
+        <MappingFragment StoreEntitySet="DAT_PROCESO_PRIMARIO_DETALLE">
+          <ScalarProperty Name="id_prpr_detalle" ColumnName="id_prpr_detalle" />
+          <ScalarProperty Name="id_proceso_primario" ColumnName="id_proceso_primario" />
+          <ScalarProperty Name="id_presentacion_prpr" ColumnName="id_presentacion_prpr" />
+          <ScalarProperty Name="cantidad" ColumnName="cantidad" />
+          <ScalarProperty Name="id_destino" ColumnName="id_destino" />
+          <ScalarProperty Name="id_mercado_mayorista" ColumnName="id_mercado_mayorista" />
+          <ScalarProperty Name="id_tipo_planta" ColumnName="id_tipo_planta" />
+          <ScalarProperty Name="id_planta_proceso" ColumnName="id_planta_proceso" />
+          <ScalarProperty Name="id_estado" ColumnName="id_estado" />
+          <ScalarProperty Name="fecha_hora_envio" ColumnName="fecha_hora_envio" />
+          <ScalarProperty Name="usuario_envio" ColumnName="usuario_envio" />
+          <ScalarProperty Name="fecha_hora_recibio" ColumnName="fecha_hora_recibio" />
+          <ScalarProperty Name="usuario_recibio" ColumnName="usuario_recibio" />
+          <ScalarProperty Name="inmovilizado" ColumnName="inmovilizado" />
+          <ScalarProperty Name="fecha_hora_inmovilizado" ColumnName="fecha_hora_inmovilizado" />
+          <ScalarProperty Name="usuario_inmovilizado" ColumnName="usuario_inmovilizado" />
+          <ScalarProperty Name="cantidad_recibida" ColumnName="cantidad_recibida" />
+          <ScalarProperty Name="observacion" ColumnName="observacion" />
+          <ScalarProperty Name="id_especie" ColumnName="id_especie" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MAE_AREA_PRODUCCION">
+      <EntityTypeMapping TypeName="DB_BIVALVOSModel.MAE_AREA_PRODUCCION">
+        <MappingFragment StoreEntitySet="MAE_AREA_PRODUCCION">
+          <ScalarProperty Name="cod_area_produccion" ColumnName="cod_area_produccion" />
+          <ScalarProperty Name="cod_zona_produccion" ColumnName="cod_zona_produccion" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="union_europea" ColumnName="union_europea" />
+          <ScalarProperty Name="codigo_union_europea" ColumnName="codigo_union_europea" />
+          <ScalarProperty Name="id_estado" ColumnName="id_estado" />
+          <ScalarProperty Name="activo" ColumnName="activo" />
+          <ScalarProperty Name="id_tipo_area_prod" ColumnName="id_tipo_area_prod" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MAE_AREA_PRODUCCION_ACTIVIDAD">
+      <EntityTypeMapping TypeName="DB_BIVALVOSModel.MAE_AREA_PRODUCCION_ACTIVIDAD">
+        <MappingFragment StoreEntitySet="MAE_AREA_PRODUCCION_ACTIVIDAD">
+          <ScalarProperty Name="id_actividad" ColumnName="id_actividad" />
+          <ScalarProperty Name="cod_area_produccion" ColumnName="cod_area_produccion" />
+          <ScalarProperty Name="activo" ColumnName="activo" />
+          <ScalarProperty Name="observacion" ColumnName="observacion" />
+          <ScalarProperty Name="fecha_actividad" ColumnName="fecha_actividad" />
+          <ScalarProperty Name="usuario_actividad" ColumnName="usuario_actividad" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MAE_AREA_PRODUCCION_MOV">
+      <EntityTypeMapping TypeName="DB_BIVALVOSModel.MAE_AREA_PRODUCCION_MOV">
+        <MappingFragment StoreEntitySet="MAE_AREA_PRODUCCION_MOV">
+          <ScalarProperty Name="id_area_prod_mov" ColumnName="id_area_prod_mov" />
+          <ScalarProperty Name="cod_area_produccion" ColumnName="cod_area_produccion" />
+          <ScalarProperty Name="observacion" ColumnName="observacion" />
+          <ScalarProperty Name="activo" ColumnName="activo" />
+          <ScalarProperty Name="fecha_registro" ColumnName="fecha_registro" />
+          <ScalarProperty Name="usuario_registro" ColumnName="usuario_registro" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MAE_CONCESION">
+      <EntityTypeMapping TypeName="DB_BIVALVOSModel.MAE_CONCESION">
+        <MappingFragment StoreEntitySet="MAE_CONCESION">
+          <ScalarProperty Name="id_concesion" ColumnName="id_concesion" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="activo" ColumnName="activo" />
+          <ScalarProperty Name="ruc" ColumnName="ruc" />
+          <ScalarProperty Name="direccion" ColumnName="direccion" />
+          <ScalarProperty Name="asociacion" ColumnName="asociacion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MAE_CONCESION_ACTIVIDAD">
+      <EntityTypeMapping TypeName="DB_BIVALVOSModel.MAE_CONCESION_ACTIVIDAD">
+        <MappingFragment StoreEntitySet="MAE_CONCESION_ACTIVIDAD">
+          <ScalarProperty Name="id_actividad" ColumnName="id_actividad" />
+          <ScalarProperty Name="id_concesion" ColumnName="id_concesion" />
+          <ScalarProperty Name="activo" ColumnName="activo" />
+          <ScalarProperty Name="observacion" ColumnName="observacion" />
+          <ScalarProperty Name="fecha_actividad" ColumnName="fecha_actividad" />
+          <ScalarProperty Name="usuario_actividad" ColumnName="usuario_actividad" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MAE_DECLARANTE">
+      <EntityTypeMapping TypeName="DB_BIVALVOSModel.MAE_DECLARANTE">
+        <MappingFragment StoreEntitySet="MAE_DECLARANTE">
+          <ScalarProperty Name="dni" ColumnName="dni" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="direccion" ColumnName="direccion" />
+          <ScalarProperty Name="id_concesion" ColumnName="id_concesion" />
+          <ScalarProperty Name="activo" ColumnName="activo" />
+          <ScalarProperty Name="cod_area_produccion" ColumnName="cod_area_produccion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MAE_DECLARANTE_ACTIVIDAD">
+      <EntityTypeMapping TypeName="DB_BIVALVOSModel.MAE_DECLARANTE_ACTIVIDAD">
+        <MappingFragment StoreEntitySet="MAE_DECLARANTE_ACTIVIDAD">
+          <ScalarProperty Name="id_actividad" ColumnName="id_actividad" />
+          <ScalarProperty Name="activo" ColumnName="activo" />
+          <ScalarProperty Name="observacion" ColumnName="observacion" />
+          <ScalarProperty Name="fecha_actividad" ColumnName="fecha_actividad" />
+          <ScalarProperty Name="usuario_actividad" ColumnName="usuario_actividad" />
+          <ScalarProperty Name="dni" ColumnName="dni" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MAE_DESEMBARCADERO">
+      <EntityTypeMapping TypeName="DB_BIVALVOSModel.MAE_DESEMBARCADERO">
+        <MappingFragment StoreEntitySet="MAE_DESEMBARCADERO">
+          <ScalarProperty Name="cod_desembarcadero" ColumnName="cod_desembarcadero" />
+          <ScalarProperty Name="establecimiento" ColumnName="establecimiento" />
+          <ScalarProperty Name="activo" ColumnName="activo" />
+          <ScalarProperty Name="ubicacion" ColumnName="ubicacion" />
+          <ScalarProperty Name="codigo_ubigeo" ColumnName="codigo_ubigeo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MAE_DESEMBARCADERO_ACTIVIDAD">
+      <EntityTypeMapping TypeName="DB_BIVALVOSModel.MAE_DESEMBARCADERO_ACTIVIDAD">
+        <MappingFragment StoreEntitySet="MAE_DESEMBARCADERO_ACTIVIDAD">
+          <ScalarProperty Name="id_actividad" ColumnName="id_actividad" />
+          <ScalarProperty Name="cod_desembarcadero" ColumnName="cod_desembarcadero" />
+          <ScalarProperty Name="activo" ColumnName="activo" />
+          <ScalarProperty Name="observacion" ColumnName="observacion" />
+          <ScalarProperty Name="fecha_actividad" ColumnName="fecha_actividad" />
+          <ScalarProperty Name="usuario_actividad" ColumnName="usuario_actividad" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MAE_DESEMBARCADERO_PROTOCOLO">
+      <EntityTypeMapping TypeName="DB_BIVALVOSModel.MAE_DESEMBARCADERO_PROTOCOLO">
+        <MappingFragment StoreEntitySet="MAE_DESEMBARCADERO_PROTOCOLO">
+          <ScalarProperty Name="id_desemb_prot" ColumnName="id_desemb_prot" />
+          <ScalarProperty Name="cod_desembarcadero" ColumnName="cod_desembarcadero" />
+          <ScalarProperty Name="protocolo" ColumnName="protocolo" />
+          <ScalarProperty Name="fecha_ini" ColumnName="fecha_ini" />
+          <ScalarProperty Name="fecha_fin" ColumnName="fecha_fin" />
+          <ScalarProperty Name="activo" ColumnName="activo" />
+          <ScalarProperty Name="fecha_registro" ColumnName="fecha_registro" />
+          <ScalarProperty Name="usuario_registro" ColumnName="usuario_registro" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MAE_EMBARCACION">
+      <EntityTypeMapping TypeName="DB_BIVALVOSModel.MAE_EMBARCACION">
+        <MappingFragment StoreEntitySet="MAE_EMBARCACION">
+          <ScalarProperty Name="cod_matricula" ColumnName="cod_matricula" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="activo" ColumnName="activo" />
+          <ScalarProperty Name="ID_EMB" ColumnName="ID_EMB" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MAE_EMBARCACION_ACTIVIDAD">
+      <EntityTypeMapping TypeName="DB_BIVALVOSModel.MAE_EMBARCACION_ACTIVIDAD">
+        <MappingFragment StoreEntitySet="MAE_EMBARCACION_ACTIVIDAD">
+          <ScalarProperty Name="id_actividad" ColumnName="id_actividad" />
+          <ScalarProperty Name="cod_matricula" ColumnName="cod_matricula" />
+          <ScalarProperty Name="activo" ColumnName="activo" />
+          <ScalarProperty Name="observacion" ColumnName="observacion" />
+          <ScalarProperty Name="fecha_actividad" ColumnName="fecha_actividad" />
+          <ScalarProperty Name="usuario_actividad" ColumnName="usuario_actividad" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MAE_EMBARCACION_PROTOCOLO">
+      <EntityTypeMapping TypeName="DB_BIVALVOSModel.MAE_EMBARCACION_PROTOCOLO">
+        <MappingFragment StoreEntitySet="MAE_EMBARCACION_PROTOCOLO">
+          <ScalarProperty Name="id_emb_protocolo" ColumnName="id_emb_protocolo" />
+          <ScalarProperty Name="cod_matricula" ColumnName="cod_matricula" />
+          <ScalarProperty Name="fecha_ini" ColumnName="fecha_ini" />
+          <ScalarProperty Name="fecha_fin" ColumnName="fecha_fin" />
+          <ScalarProperty Name="fecha_registro" ColumnName="fecha_registro" />
+          <ScalarProperty Name="usuario_registro" ColumnName="usuario_registro" />
+          <ScalarProperty Name="activo" ColumnName="activo" />
+          <ScalarProperty Name="protocolo" ColumnName="protocolo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MAE_ENTIDAD_APOYO">
+      <EntityTypeMapping TypeName="DB_BIVALVOSModel.MAE_ENTIDAD_APOYO">
+        <MappingFragment StoreEntitySet="MAE_ENTIDAD_APOYO">
+          <ScalarProperty Name="id_entidad_apoyo" ColumnName="id_entidad_apoyo" />
+          <ScalarProperty Name="ruc" ColumnName="ruc" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="ubicacion" ColumnName="ubicacion" />
+          <ScalarProperty Name="activo" ColumnName="activo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MAE_EXPORTADOR">
+      <EntityTypeMapping TypeName="DB_BIVALVOSModel.MAE_EXPORTADOR">
+        <MappingFragment StoreEntitySet="MAE_EXPORTADOR">
+          <ScalarProperty Name="id_exportador" ColumnName="id_exportador" />
+          <ScalarProperty Name="ruc" ColumnName="ruc" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="ubicacion" ColumnName="ubicacion" />
+          <ScalarProperty Name="activo" ColumnName="activo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MAE_MERCADO_MAYORISTA">
+      <EntityTypeMapping TypeName="DB_BIVALVOSModel.MAE_MERCADO_MAYORISTA">
+        <MappingFragment StoreEntitySet="MAE_MERCADO_MAYORISTA">
+          <ScalarProperty Name="id_mercado_mayorista" ColumnName="id_mercado_mayorista" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="licencia_funcionamiento" ColumnName="licencia_funcionamiento" />
+          <ScalarProperty Name="ubicacion" ColumnName="ubicacion" />
+          <ScalarProperty Name="activo" ColumnName="activo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MAE_MERCADO_MAYORISTA_ACTIVIDAD">
+      <EntityTypeMapping TypeName="DB_BIVALVOSModel.MAE_MERCADO_MAYORISTA_ACTIVIDAD">
+        <MappingFragment StoreEntitySet="MAE_MERCADO_MAYORISTA_ACTIVIDAD">
+          <ScalarProperty Name="id_actividad" ColumnName="id_actividad" />
+          <ScalarProperty Name="id_mercado_mayorista" ColumnName="id_mercado_mayorista" />
+          <ScalarProperty Name="activo" ColumnName="activo" />
+          <ScalarProperty Name="observacion" ColumnName="observacion" />
+          <ScalarProperty Name="fecha_actividad" ColumnName="fecha_actividad" />
+          <ScalarProperty Name="usuario_actividad" ColumnName="usuario_actividad" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MAE_PLANTA_PROCESO">
+      <EntityTypeMapping TypeName="DB_BIVALVOSModel.MAE_PLANTA_PROCESO">
+        <MappingFragment StoreEntitySet="MAE_PLANTA_PROCESO">
+          <ScalarProperty Name="id_planta_proceso" ColumnName="id_planta_proceso" />
+          <ScalarProperty Name="ruc" ColumnName="ruc" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="ubicacion" ColumnName="ubicacion" />
+          <ScalarProperty Name="id_tipo_planta" ColumnName="id_tipo_planta" />
+          <ScalarProperty Name="proc_depuracion" ColumnName="proc_depuracion" />
+          <ScalarProperty Name="proc_primario" ColumnName="proc_primario" />
+          <ScalarProperty Name="proc_industrial" ColumnName="proc_industrial" />
+          <ScalarProperty Name="activo" ColumnName="activo" />
+          <ScalarProperty Name="ID_PLAPRO" ColumnName="ID_PLAPRO" />
+          <ScalarProperty Name="union_europea" ColumnName="union_europea" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MAE_PLANTA_PROCESO_ACTIVIDAD">
+      <EntityTypeMapping TypeName="DB_BIVALVOSModel.MAE_PLANTA_PROCESO_ACTIVIDAD">
+        <MappingFragment StoreEntitySet="MAE_PLANTA_PROCESO_ACTIVIDAD">
+          <ScalarProperty Name="id_actividad" ColumnName="id_actividad" />
+          <ScalarProperty Name="id_planta_proceso" ColumnName="id_planta_proceso" />
+          <ScalarProperty Name="activo" ColumnName="activo" />
+          <ScalarProperty Name="observacion" ColumnName="observacion" />
+          <ScalarProperty Name="fecha_actividad" ColumnName="fecha_actividad" />
+          <ScalarProperty Name="usuario_actividad" ColumnName="usuario_actividad" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MAE_ZONA_PRODUCCION">
+      <EntityTypeMapping TypeName="DB_BIVALVOSModel.MAE_ZONA_PRODUCCION">
+        <MappingFragment StoreEntitySet="MAE_ZONA_PRODUCCION">
+          <ScalarProperty Name="cod_zona_produccion" ColumnName="cod_zona_produccion" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="union_europea" ColumnName="union_europea" />
+          <ScalarProperty Name="codigo_union_europea" ColumnName="codigo_union_europea" />
+          <ScalarProperty Name="activo" ColumnName="activo" />
+          <ScalarProperty Name="codigo_ubigeo" ColumnName="codigo_ubigeo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MAE_ZONA_PRODUCCION_ACTIVIDAD">
+      <EntityTypeMapping TypeName="DB_BIVALVOSModel.MAE_ZONA_PRODUCCION_ACTIVIDAD">
+        <MappingFragment StoreEntitySet="MAE_ZONA_PRODUCCION_ACTIVIDAD">
+          <ScalarProperty Name="id_actividad" ColumnName="id_actividad" />
+          <ScalarProperty Name="cod_zona_produccion" ColumnName="cod_zona_produccion" />
+          <ScalarProperty Name="activo" ColumnName="activo" />
+          <ScalarProperty Name="observacion" ColumnName="observacion" />
+          <ScalarProperty Name="fecha_actividad" ColumnName="fecha_actividad" />
+          <ScalarProperty Name="usuario_actividad" ColumnName="usuario_actividad" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TIPO_AREA_PROD">
+      <EntityTypeMapping TypeName="DB_BIVALVOSModel.TIPO_AREA_PROD">
+        <MappingFragment StoreEntitySet="TIPO_AREA_PROD">
+          <ScalarProperty Name="id_tipo_area_prod" ColumnName="id_tipo_area_prod" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TIPO_CULTIVO">
+      <EntityTypeMapping TypeName="DB_BIVALVOSModel.TIPO_CULTIVO">
+        <MappingFragment StoreEntitySet="TIPO_CULTIVO">
+          <ScalarProperty Name="id_tipo_cultivo" ColumnName="id_tipo_cultivo" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TIPO_DESTINO">
+      <EntityTypeMapping TypeName="DB_BIVALVOSModel.TIPO_DESTINO">
+        <MappingFragment StoreEntitySet="TIPO_DESTINO">
+          <ScalarProperty Name="id_destino" ColumnName="id_destino" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="activo" ColumnName="activo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TIPO_ESTADO">
+      <EntityTypeMapping TypeName="DB_BIVALVOSModel.TIPO_ESTADO">
+        <MappingFragment StoreEntitySet="TIPO_ESTADO">
+          <ScalarProperty Name="id_estado" ColumnName="id_estado" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="flPackingList" ColumnName="flPackingList" />
+          <ScalarProperty Name="flLoteExportacion" ColumnName="flLoteExportacion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TIPO_PLANTA">
+      <EntityTypeMapping TypeName="DB_BIVALVOSModel.TIPO_PLANTA">
+        <MappingFragment StoreEntitySet="TIPO_PLANTA">
+          <ScalarProperty Name="id_tipo_planta" ColumnName="id_tipo_planta" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="activo" ColumnName="activo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TIPO_PRESENTACION_PRPR">
+      <EntityTypeMapping TypeName="DB_BIVALVOSModel.TIPO_PRESENTACION_PRPR">
+        <MappingFragment StoreEntitySet="TIPO_PRESENTACION_PRPR">
+          <ScalarProperty Name="id_presentacion_prpr" ColumnName="id_presentacion_prpr" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="activo" ColumnName="activo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TIPO_PROC_INDUSTRIAL">
+      <EntityTypeMapping TypeName="DB_BIVALVOSModel.TIPO_PROC_INDUSTRIAL">
+        <MappingFragment StoreEntitySet="TIPO_PROC_INDUSTRIAL">
+          <ScalarProperty Name="id_tipo_proceso_industrial" ColumnName="id_tipo_proceso_industrial" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="activo" ColumnName="activo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TIPO_UNIDAD_MEDIDA_DER">
+      <EntityTypeMapping TypeName="DB_BIVALVOSModel.TIPO_UNIDAD_MEDIDA_DER">
+        <MappingFragment StoreEntitySet="TIPO_UNIDAD_MEDIDA_DER">
+          <ScalarProperty Name="id_unidad_medida_der" ColumnName="id_unidad_medida_der" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="equivalencia" ColumnName="equivalencia" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="vw_CONSULTAR_DEPARTAMENTO">
+      <EntityTypeMapping TypeName="DB_BIVALVOSModel.vw_CONSULTAR_DEPARTAMENTO">
+        <MappingFragment StoreEntitySet="vw_CONSULTAR_DEPARTAMENTO">
+          <ScalarProperty Name="CODIGO_DEPARTAMENTO" ColumnName="CODIGO_DEPARTAMENTO" />
+          <ScalarProperty Name="DEPARTAMENTO" ColumnName="DEPARTAMENTO" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="vw_CONSULTAR_DISTRITO">
+      <EntityTypeMapping TypeName="DB_BIVALVOSModel.vw_CONSULTAR_DISTRITO">
+        <MappingFragment StoreEntitySet="vw_CONSULTAR_DISTRITO">
+          <ScalarProperty Name="ID_DISTRITO" ColumnName="ID_DISTRITO" />
+          <ScalarProperty Name="CODIGO_PROVINCIA" ColumnName="CODIGO_PROVINCIA" />
+          <ScalarProperty Name="CODIGO_DISTRITO" ColumnName="CODIGO_DISTRITO" />
+          <ScalarProperty Name="DISTRITO" ColumnName="DISTRITO" />
+          <ScalarProperty Name="LATITUD" ColumnName="LATITUD" />
+          <ScalarProperty Name="LONGITUD" ColumnName="LONGITUD" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="vw_CONSULTAR_EMBARCACION">
+      <EntityTypeMapping TypeName="DB_BIVALVOSModel.vw_CONSULTAR_EMBARCACION">
+        <MappingFragment StoreEntitySet="vw_CONSULTAR_EMBARCACION">
+          <ScalarProperty Name="ID_EMB" ColumnName="ID_EMB" />
+          <ScalarProperty Name="COD_MATRICULA" ColumnName="COD_MATRICULA" />
+          <ScalarProperty Name="NOMBRE" ColumnName="NOMBRE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="vw_CONSULTAR_EMPRESA">
+      <EntityTypeMapping TypeName="DB_BIVALVOSModel.vw_CONSULTAR_EMPRESA">
+        <MappingFragment StoreEntitySet="vw_CONSULTAR_EMPRESA">
+          <ScalarProperty Name="RAZON_SOCIAL" ColumnName="RAZON SOCIAL" />
+          <ScalarProperty Name="RUC" ColumnName="RUC" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="vw_CONSULTAR_ESPECIE">
+      <EntityTypeMapping TypeName="DB_BIVALVOSModel.vw_CONSULTAR_ESPECIE">
+        <MappingFragment StoreEntitySet="vw_CONSULTAR_ESPECIE">
+          <ScalarProperty Name="Nombre_Cientifico" ColumnName="Nombre_Cientifico" />
+          <ScalarProperty Name="nombre_comun" ColumnName="nombre_comun" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="vw_CONSULTAR_PLANTASPROC">
+      <EntityTypeMapping TypeName="DB_BIVALVOSModel.vw_CONSULTAR_PLANTASPROC">
+        <MappingFragment StoreEntitySet="vw_CONSULTAR_PLANTASPROC">
+          <ScalarProperty Name="NOMBRE" ColumnName="NOMBRE" />
+          <ScalarProperty Name="SITUACION_LEGAL" ColumnName="SITUACION_LEGAL" />
+          <ScalarProperty Name="ID_PLAPRO" ColumnName="ID_PLAPRO" />
+          <ScalarProperty Name="ESTADO" ColumnName="ESTADO" />
+          <ScalarProperty Name="RUC" ColumnName="RUC" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="vw_CONSULTAR_PROVINCIA">
+      <EntityTypeMapping TypeName="DB_BIVALVOSModel.vw_CONSULTAR_PROVINCIA">
+        <MappingFragment StoreEntitySet="vw_CONSULTAR_PROVINCIA">
+          <ScalarProperty Name="ID_PROVINCIA" ColumnName="ID_PROVINCIA" />
+          <ScalarProperty Name="CODIGO_DEPARTAMENTO" ColumnName="CODIGO_DEPARTAMENTO" />
+          <ScalarProperty Name="CODIGO_PROVINCIA" ColumnName="CODIGO_PROVINCIA" />
+          <ScalarProperty Name="PROVINCIA" ColumnName="PROVINCIA" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="vw_CONSULTAR_UBIGEO">
+      <EntityTypeMapping TypeName="DB_BIVALVOSModel.vw_CONSULTAR_UBIGEO">
+        <MappingFragment StoreEntitySet="vw_CONSULTAR_UBIGEO">
+          <ScalarProperty Name="DEPARTAMENTO" ColumnName="DEPARTAMENTO" />
+          <ScalarProperty Name="PROVINCIA" ColumnName="PROVINCIA" />
+          <ScalarProperty Name="DISTRITO" ColumnName="DISTRITO" />
+          <ScalarProperty Name="UBIGEO" ColumnName="UBIGEO" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="p_CONSULTAR_EMPRESA" FunctionName="DB_BIVALVOSModel.Store.p_CONSULTAR_EMPRESA">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="DB_BIVALVOSModel.p_CONSULTAR_EMPRESA_Result">
+          <ScalarProperty Name="NUMRUC" ColumnName="NUMRUC" />
+          <ScalarProperty Name="NOMBRE" ColumnName="NOMBRE" />
+          <ScalarProperty Name="UBIGEO" ColumnName="UBIGEO" />
+          <ScalarProperty Name="NOMVIA" ColumnName="NOMVIA" />
+          <ScalarProperty Name="NUMER1" ColumnName="NUMER1" />
+          <ScalarProperty Name="INTER1" ColumnName="INTER1" />
+          <ScalarProperty Name="NOMZON" ColumnName="NOMZON" />
+          <ScalarProperty Name="REFER1" ColumnName="REFER1" />
+          <ScalarProperty Name="TIPVIA" ColumnName="TIPVIA" />
+          <ScalarProperty Name="TIPZON" ColumnName="TIPZON" />
+          <ScalarProperty Name="DEPARTA" ColumnName="DEPARTA" />
+          <ScalarProperty Name="PROVIN" ColumnName="PROVIN" />
+          <ScalarProperty Name="DISTRI" ColumnName="DISTRI" />
+          <ScalarProperty Name="VIA" ColumnName="VIA" />
+          <ScalarProperty Name="ZONA" ColumnName="ZONA" />
+          <ScalarProperty Name="TELEF1" ColumnName="TELEF1" />
+          <ScalarProperty Name="TELEF2" ColumnName="TELEF2" />
+          <ScalarProperty Name="TELEF3" ColumnName="TELEF3" />
+          <ScalarProperty Name="NUMFAX" ColumnName="NUMFAX" />
+          <ScalarProperty Name="PASAPO" ColumnName="PASAPO" />
+          <ScalarProperty Name="LICENC" ColumnName="LICENC" />
+          <ScalarProperty Name="CONSTI" ColumnName="CONSTI" />
+          <ScalarProperty Name="FICHA" ColumnName="FICHA" />
+          <ScalarProperty Name="INICIO" ColumnName="INICIO" />
+          <ScalarProperty Name="DOCIDE" ColumnName="DOCIDE" />
+          <ScalarProperty Name="NRODOC" ColumnName="NRODOC" />
+          <ScalarProperty Name="SEXO" ColumnName="SEXO" />
+          <ScalarProperty Name="CIIU" ColumnName="CIIU" />
+          <ScalarProperty Name="FLAG22" ColumnName="FLAG22" />
+          <ScalarProperty Name="CIIU_PERSONA" ColumnName="CIIU_PERSONA" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <EntitySetMapping Name="vw_CONSULTAR_USUARIO">
+      <EntityTypeMapping TypeName="DB_BIVALVOSModel.vw_CONSULTAR_USUARIO">
+        <MappingFragment StoreEntitySet="vw_CONSULTAR_USUARIO">
+          <ScalarProperty Name="perfil" ColumnName="perfil" />
+          <ScalarProperty Name="persona" ColumnName="persona" />
+          <ScalarProperty Name="razon_social" ColumnName="razon_social" />
+          <ScalarProperty Name="empresa" ColumnName="empresa" />
+          <ScalarProperty Name="ID_PERFIL" ColumnName="ID_PERFIL" />
+          <ScalarProperty Name="clave" ColumnName="clave" />
+          <ScalarProperty Name="dni" ColumnName="dni" />
+          <ScalarProperty Name="ruc" ColumnName="ruc" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="p_MODIFICAR_CONTRASEÑA" FunctionName="DB_BIVALVOSModel.Store.p_MODIFICAR_CONTRASEÑA">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="DB_BIVALVOSModel.p_MODIFICAR_CONTRASEÑA_Result">
+          <ScalarProperty Name="ruc" ColumnName="ruc" />
+          <ScalarProperty Name="dni" ColumnName="dni" />
+          <ScalarProperty Name="clave" ColumnName="clave" />
+          <ScalarProperty Name="ID_PERFIL" ColumnName="ID_PERFIL" />
+          <ScalarProperty Name="empresa" ColumnName="empresa" />
+          <ScalarProperty Name="razon_social" ColumnName="razon_social" />
+          <ScalarProperty Name="persona" ColumnName="persona" />
+          <ScalarProperty Name="perfil" ColumnName="perfil" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+  </EntityContainerMapping>
+</Mapping>

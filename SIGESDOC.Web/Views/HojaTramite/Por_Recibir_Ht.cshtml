@@ -1,0 +1,603 @@
+﻿@using SIGESDOC.Web.Seguridad
+
+@model IEnumerable<SIGESDOC.Response.DocumentoDetalleResponse>
+@{
+    //WebGrid grid = new WebGrid(rowsPerPage: ServiceConfiguration.PageSize, ajaxUpdateContainerId: "grid");    grid.Bind(Model, autoSortAndPage: false, rowCount: ViewBag.TotalRows);
+    ViewBag.Title = "Recibir Hoja de Trámite";
+}
+
+<ol class="breadcrumb" style="margin-bottom: 5px;">
+    <li><a href="#">Movimiento</a></li>
+    <li class="active">Recibir Hoja de Trámite</li>
+</ol>
+
+<div class="bs-callout bs-callout-info">
+    <h4>Recibir Hoja de Trámite</h4>
+    <p>En esta sección usted puede recepcionar las hojas de trámite enviadas a su oficina</p>
+</div>
+
+<div class="modal fade" id="mdldetalle" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-width">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title" id="myModalLabel">Detalle</h4>
+            </div>
+            <div class="modal-body">
+                <div class="form-horizontal">
+                    <div class="form-group">
+                        @Html.Label("Acciones: ", new { @class = "col-md-2 control-label" })
+                        <div class="col-md-3">
+                            @Html.TextBox("V_IND", "", new { @class = "form-control input-sm", @readonly = "readonly" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        @Html.Label("Observación: ", new { @class = "col-md-2 control-label" })
+                        <div class="col-md-8">
+                            @Html.TextArea("V_OBS", "", new { @class = "form-control input-sm", @readonly = "readonly" })
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default btn-sm" data-dismiss="modal">Salir</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="mdlConformidad" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title" id="myModalLabel">Aviso</h4>
+            </div>
+            <div class="modal-body">
+                <div id="mensajesPopup"></div>
+                <div id="progress" class="progress hidden">
+                    <div class="progress progress-striped active">
+                        <div class="progress-bar" style="width: 100%">
+                            <p>Procesando</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="menssage">
+                    <span id="conformidad"></span>
+                    <p>¿Está seguro de recibir la hoja de trámite?.</p>
+                    <input type="text" id="txtId" class="hidden" />
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary btn-sm" id="bntConfirmar">Si</button>
+                <button type="button" class="btn btn-default btn-sm" data-dismiss="modal">No</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="panel panel-primary">
+    <div class="panel-body">
+        <div class="row">
+            <div class="col-lg-12 text-center">
+                <button type="button" class="btn btn-default btn-sm" id="BTN_POR_RECIBIR" disabled="disabled">POR RECIBIR</button>
+                <button type="button" class="btn btn-primary btn-sm" id="BTN_RECIBIDOS">RECIBIDOS</button>
+                <button type="button" class="btn btn-primary btn-sm" id="BTN_ENVIADOS">ENVIADOS</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="modal fade" id="mdl_detalle_3" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-width">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title" id="myModalLabel">Lista de Documentos <label id="titulo_100">  </label> </h4>
+
+            </div>
+
+            <div class="modal-body">
+                <div class="form-horizontal">
+
+                    <label class="control-label" style="font-weight: bold;">Listado de Documentos</label>
+
+                    <div class="row">
+
+                        <div id="grid_documentos">
+                            <table class="table table-striped table-hover table-condensed tabla small" data-swhgajax="true" data-swhgcontainer="grid" data-swhgcallback="" id="tbl_lista_documentos">
+                                <thead>
+                                    <tr class="cabecera">
+                                        <th scope="col">Fecha Registro</th>
+                                        <th scope="col">Documento</th>
+                                        <th scope="col">Folios</th>
+                                        <th scope="col">Anexos</th>
+                                    </tr>
+                                </thead>
+                                <tbody></tbody>
+                            </table>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default btn-sm" data-dismiss="modal">Salir</button>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="mdloficina" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title" id="myModalLabel">Oficina</h4>
+            </div>
+            <form method="post" id="formoficina">
+                <div class="modal-body">
+                    <div class="form-horizontal">
+
+
+                        <div class="form-group">
+                            <div class="col-md-2">
+                                <label class="control-label" for="cmbsede_destino">Sede:</label>
+                            </div>
+                            <div class="col-md-10">
+                                @Html.DropDownList("cmbsede_destino", (IEnumerable<SelectListItem>)ViewBag.lstsede_destino, new { @class = "form-control input-sm" })
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="col-md-2">
+                                <label class="control-label" for="cmdoficina_destino">Oficina:</label>
+                            </div>
+                            <div class="col-md-10">
+                                @Html.DropDownList("cmdoficina_destino", (IEnumerable<SelectListItem>)ViewBag.lstOficina_destino, new { @class = "form-control input-sm" })
+                                <label id="lbl_valida_oficina" style="color: #B44D4D">  </label>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary btn-sm" id="btnAceptar_oficina">Aceptar</button>
+                    <button type="button" class="btn btn-default btn-sm" data-dismiss="modal">Cancelar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+<div class="panel panel-primary">
+    <div class="panel-heading panet-heading-sm">Búsqueda de hoja de trámite pendientes</div>
+    <div class="panel-body">
+        @using (Ajax.BeginForm(new AjaxOptions { HttpMethod = "Get" }))
+        {
+            <div class="row">
+
+                <div class="col-lg-6">
+                    <div class="input-group input-group-sm">
+                        <span class="input-group-addon">TUPA: </span>
+                        @Html.DropDownList("cmbtupa", (IEnumerable<SelectListItem>)ViewBag.lst_tupa, new { @class = "form-control input-sm" })
+                    </div>
+                </div>
+
+                <div class="col-md-6">
+                    <div class="input-group input-group-sm">
+                        <span class="input-group-addon">Entidad/Persona Natural</span>
+                        @Html.TextBox("Empresa", null, new { @class = "form-control input-sm", @maxlength = "500" })
+                    </div>
+                </div>
+            </div>
+            <br />
+            <div class="row">
+
+                <div class="col-md-2">
+                    <div class="input-group input-group-sm">
+                        <span class="input-group-addon">Hoja Trámite</span>
+                        @Html.TextBox("HT", null, new { @class = "form-control input-sm", @maxlength = "11" })
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="input-group input-group-sm">
+                        <span class="input-group-addon">Asunto</span>
+                        @Html.TextBox("Asunto", null, new { @class = "form-control input-sm", @maxlength = "500" })
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="input-group input-group-sm">
+                        <span class="input-group-addon" style="padding-bottom: 2px; padding-top: 2px;">
+                            <button type="button" data-toggle="modal" data-target="#mdloficina">Oficina que deríva</button>
+                        </span>
+                        @Html.TextBox("id_ofi_dir", 0, new { @class = "form-control input-sm hidden" })
+                        @Html.TextBox("ofi_dir", null, new { @class = "form-control input-sm", @readonly = "readonly" })
+                        <span class="input-group-addon" style="padding-bottom: 2px; padding-top: 2px;">
+                            <button type="button" id="btn_limpiar_oficina">Limpiar</button>
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <br />
+
+            <div class="row">
+                <div class="col-md-1">
+                    <input type="submit" id="btnBuscar" class="btn btn-primary btn-sm pull-left" value="Actualizar" />
+                </div>
+            </div>
+        }
+    </div>
+</div>
+
+<button id="export_excel" type="button" style="background-color:green; border:1px solid white; color:white;"> Exportar Excel</button>
+<br />
+<br />
+
+
+
+<div id="grid">
+    <table id="grid_HT_x_recibir" class="table table-striped table-hover table-condensed table-bordered tabla small">
+        <thead>
+            <tr class="cabecera text-center">
+                <th scope="col">Nro HT</th>
+                <th scope="col" class="visible-lg">Externa/Interna</th>
+                <th scope="col" class="visible-lg">Tupa</th>
+                <th scope="col" class="visible-lg">Fecha Derivo</th>
+                <th scope="col" class="visible-lg visible-md">Dirigido a</th>
+                <th scope="col" class="visible-lg">Documento</th>
+                <th scope="col">Asunto</th>
+                <th scope="col" class="visible-lg visible-md">Entidad/Persona Natural</th>
+                <th scope="col" class="visible-lg visible-md">Oficina Derivo</th>
+                <th scope="col" class="visible-lg">Folios</th>
+                <th class="hidden"></th>
+                <th></th>
+                <th scope="col">Opciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            @if (ViewData["HT_POR_RECIBIR"] != null)
+            {
+                foreach (System.Data.DataRow dr in (ViewData["HT_POR_RECIBIR"] as System.Data.DataTable).Rows)
+                {
+                    <tr>
+                        <td style=" text-align:center;"> @dr["HOJA_TRAMITE"] </td>
+                        <td class="visible-lg" style=" text-align:center;"> @dr["TIPO_HOJA_TRAMITE"] </td>
+                        <td class="visible-lg" style=" text-align:center;"> @dr["TUPA"] </td>
+                        <td class="visible-lg"> @dr["FECHA_DERIVADO"] </td>
+                        <td class="visible-lg visible-md"> @dr["DIRIGIDO_A"] </td>
+
+                        @*@if ((string)dr["ID_TIPO_DOCUMENTO"] == "177")
+                            {
+                            <td style="text-align:left;"><ul class="list-inline" style="margin-bottom:0"><li><a class="ver_pdf_orden_ensayo">@dr["DOCUMENTO"]</a></li></ul></td>
+                            }
+                            else
+                            {
+                                if ((string)dr["VER_DOCU_PDF"] == "1")
+                                {
+                                    <td style="text-align:left;"><ul class="list-inline" style="margin-bottom:0"><li><a class="ver_pdf_docu" id=@dr["ID_DOCUMENTO"]>@dr["DOCUMENTO"]</a></li></ul></td>
+                                }
+                                else
+                                {
+                                    <td class="visible-lg"> @dr["DOCUMENTO"] </td>
+                                }
+                            }*@
+
+                        @if ((string)dr["VER_DOCU_PDF"] == "1")
+                        {
+                            <td style="text-align:left;"><ul class="list-inline" style="margin-bottom:0"><li><a class="ver_pdf_docu" id=@dr["ID_DOCUMENTO"]>@dr["DOCUMENTO"]</a></li></ul></td>
+                        }
+                        else
+                        {
+                            <td class="visible-lg"> @dr["DOCUMENTO"] </td>
+                        }
+                        <td> @dr["ASUNTO"] </td>
+                        <td class="visible-lg visible-md"> @dr["EXTERNO"] </td>
+                        <td class="visible-lg visible-md"> @dr["OFICINA_DERIVA"] </td>
+                        <td class="visible-lg"> @dr["FOLIOS"] </td>
+                        <td class="hidden">
+                            <input type="hidden" id="chck_recib" name="chck_recib" value=@dr["ID_DET_DOCUMENTO"]>
+                        </td>
+                        <td>
+                            <input name="chckrec" type="checkbox">
+                        </td>
+                        <td style="text-align:center;">
+                            <ul class="list-inline" style="margin-bottom:0">
+                                <li>
+                                    <a class="Imprimir" id=@dr["NRO_HOJA_TRAMITE"] href="#" title="Imprimir">
+                                        <i class="blue glyphicon glyphicon-print"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="Detalle" id=@dr["OBSERVACION_INDICADORES"] href="#" title="Detalle">
+                                        <i class="blue glyphicon glyphicon-list-alt"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="Imprimir_History" id=@dr["NRO_HOJA_TRAMITE"] href="#" title="Historial">
+                                        <i class="blue glyphicon glyphicon-th-list"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="ver_documentos" id=@dr["NUMERO_ID_HT_TEXTO"] href="#" title="Listado de Documentos">
+                                        <i class="red glyphicon glyphicon-th-list"></i>
+                                    </a>
+                                </li>
+                            </ul>
+                        </td>
+                    </tr>
+                }
+            }
+        </tbody>
+
+    </table>
+</div>
+
+@*<div id="grid">    @grid.GetHtml(        tableStyle: "table table-striped table-hover table-condensed tabla small",        headerStyle: "cabecera",        columns: new[] {            grid.Column(null, header:"Nro HT",format: p=> p.documento.hoja_tramite.hoja_tramite),            grid.Column(null, header:"Externa/Interna",format: p=>(p.documento.hoja_tramite.nombre_tipo_tramite)),            grid.Column(null, header:"Fecha Derivo", format: p=> p.fecha_derivado),            grid.Column(null, header:"Dirigido a", format: p=> p.nombre_encargado),            grid.Column(null, header:"Documento",format: p=>p.documento.nom_doc),            grid.Column(null, header:"Asunto",format: p=>p.documento.hoja_tramite.asunto),            grid.Column(null, header:"Entidad/Persona Natural",format: p=>p.documento.hoja_tramite.nombre_oficina),            grid.Column(null, header:"Oficina Derivo",format: p=>p.documento.siglas_oficina),            grid.Column(null, header:"Folios",format: p=>p.documento.folios.ToString()),            grid.Column(null,null, format: @<text> <input type="hidden" id="chck_recib" name="chck_recib" value="@item.id_det_documento.ToString()" /> </text>),            grid.Column(null, header: "", format: @<text><input name="chckrec" type="checkbox" /></text>),            grid.Column(null, header:"Opciones",format: p => MvcHtmlString.Create("<ul class='list-inline' style='margin-bottom:0'><li>"+                            Html.IconlinkItem("Imprimir", "Imprimir", (string)p.documento.hoja_tramite.numero.ToString(), "glyphicon glyphicon-print", "blue", true).ToString()  + "</li><li>" +                            Html.IconlinkItem("Detalle", "Detalle", (string)p.observacion.ToString()+'|'+(string)p.indicadores.ToString(), "glyphicon glyphicon-list-alt", "blue", true).ToString() + "</li><li>" +                            Html.IconlinkItem("PDF", "Ver_PDF", (string)p.documento.hoja_tramite.hoja_tramite.ToString(), "glyphicon glyphicon-file", "blue", (bool)p.documento.hoja_tramite.ver_pdf).ToString()+ "</li></ul>")                       )        }                                 , footerStyle: "hidden"                                 )    @if (Model.Count() == 0)    {        <div class="row">            <div class="col-lg-12 text-center">                <div class="well well-sm">                    No se encontraron registros                </div>            </div>        </div>    }    else    {        <div class="row">            <div id="paginator" class="col-lg-12">                @grid.PagerList(mode: WebGridPagerModes.All, firstText: "Primero", previousText: "Anterior", nextText: "Siguiente", lastText: "Último")            </div>        </div>    }</div>*@
+
+<button type="button" class="btn btn-primary btn-sm" id="btnrecibir">Recibir</button>
+
+<script type="text/javascript">
+
+    function IsNumeric(dato) {
+        var valor = dato.indexOf(".");
+        if ((window.event.keyCode > 47 && window.event.keyCode < 58) || window.event.keyCode == 13) {
+            window.event.returnValue = true;
+        }
+        else {
+            window.event.returnValue = false;
+        }
+    }
+
+    $(document).ready(function () {
+
+
+        $(document).on('click', '.Imprimir_History', function () {
+            var hoja_tramite = $(this).attr('id');
+            var url = "/Hojatramite/Imprimir_History/" + hoja_tramite;
+            window.location.href = url;
+        });
+
+
+        $(document).on('click', '.ver_documentos', function () {
+
+            $('#mdl_detalle_3').modal('show');
+            var datos_ht = $(this).attr('id').split('|');
+            document.getElementById('titulo_100').innerHTML = " - " + datos_ht[1];
+
+            $("#tbl_lista_documentos td").remove();
+
+            $.ajax({
+                cache: false,
+                type: "GET",
+                url: "@(Url.RouteUrl("llenar_documentos_hoja_tramite"))",
+                data: { "numero_ht": datos_ht[0] },
+                success: function (data) {
+
+                    $.each(data, function (id, option) {
+                        var nuevoTD = '<tr>';
+                        nuevoTD += '<td style="text-align:center;">' + option.fecha_texto_corto + '</td>';
+                        if (option.ruta_pdf == "" || option.ruta_pdf == null) {
+                            nuevoTD += '<td style="text-align:center;">' + option.documento_completo + '</td>';
+                        } else {
+                            nuevoTD += '<td style="text-align:center;"><ul class="list-inline" style="margin-bottom:0"><li><a href="#" class="ver_pdf_docu" id="' + option.id_documento + '" >' + option.documento_completo + '</a></li></ul></td>';
+                        }
+                        nuevoTD += '<td style="text-align:center;">' + option.folios + '</td>';
+                        if (option.ruta_pdf == "" || option.ruta_pdf == null) {
+                            nuevoTD += '<td></td>';
+                        }
+                        else {
+                            nuevoTD += '<td>' + option.anexos + '</td>';
+                        }
+                        nuevoTD += '</tr>';
+                        jQuery("#tbl_lista_documentos").append(nuevoTD);
+                    });
+                },
+                error: function (xhr, ajaxOptions, thrownError) {
+                    alert('Failed to retrieve states.');
+                }
+            });
+
+        });
+
+
+        $('#btnAceptar_oficina').click(function () {
+
+            document.getElementById('lbl_valida_oficina').innerHTML = "";
+
+            if ($("#cmdoficina_destino").val() == "0") {
+                document.getElementById('lbl_valida_oficina').innerHTML = "Seleccionar Oficina";
+                return;
+            }
+
+            $('#mdloficina').modal('hide');
+            $("#id_ofi_dir").val($("#cmdoficina_destino").val());
+            $("#ofi_dir").val($("#cmdoficina_destino option:selected").text());
+
+        });
+
+
+        $("#cmbsede_destino").change(function () {
+            var Selectsede = $(this).val();
+            var ddloficina = $("#cmdoficina_destino");
+            var prim = 0;
+            $.ajax({
+                cache: false,
+                type: "GET",
+                url: "@(Url.RouteUrl("Llenar_oficina_sede_externo"))",
+                data: { "id_sede": Selectsede },
+                success: function (data) {
+
+                    ddloficina.html('');
+                    $.each(data, function (id, option) {
+                        ddloficina.append($('<option></option>').val(option.Value).html(option.Text));
+                    });
+                },
+                error: function (xhr, ajaxOptions, thrownError) {
+                    alert('Failed to retrieve states.');
+                }
+            });
+        });
+
+        $('#BTN_RECIBIDOS').click(function () {
+            var url = "/HojaTramite/Recibidos_HT/";
+            window.location.href = url;
+        });
+
+        $('#BTN_ENVIADOS').click(function () {
+            var url = "/HojaTramite/Salida_HT/";
+            window.location.href = url;
+        });
+
+        //$(function () {            $('#paginator ul li a').click(function () {                var url = $(this).attr('href') + '&' + $('form').serialize();                $(this).attr('href', url);            });        });
+
+        $("#grid_HT_x_recibir").DataTable({
+            "ordering": false,
+            "lengthChange": false,
+            "searching": false,
+            //"info": false,
+            "language": {
+                "paginate": {
+                    "previous": "Anterior",
+                    "next": "Siguiente"
+                }
+            }
+        });
+
+
+        $('#btn_limpiar_oficina').click(function () {
+            $("#id_ofi_dir").val("0")
+            $("#ofi_dir").val("")
+        });
+
+        $('#btnrecibir').click(function () {
+
+            var id = "";
+            $("#grid table td input:checked").each(function (index) {
+                var tr = $(this).parents('tr:first');
+                if (id == "") {
+                    id = tr.find("#chck_recib").val();
+                }
+                else {
+                    id = id + "|" + tr.find("#chck_recib").val();
+                }
+            });
+            if (id.length > 0) {
+                $('#btnrecibir').attr("disabled", "disabled");
+                $('#bntConfirmar').removeAttr("disabled", "disabled");
+                $('#btnCancelar').removeAttr("disabled", "disabled");
+                $('#txtId').val(id);
+                $('#mdlConformidad').modal();
+            }
+            else {
+                return;
+            }
+        });
+
+        $(document).on('click', '.Imprimir', function () {
+            var hoja_tramite = $(this).attr('id');
+            var url = "/Hojatramite/Imprimir_Vacia/" + hoja_tramite;
+            window.location.href = url;
+        });
+
+        $(document).on('click', '.Detalle', function () {
+            var detalle_doc = $(this).attr('id').split('|');
+            $('#V_OBS').val(detalle_doc[0]);
+            $('#V_IND').val(detalle_doc[1]);
+            $('#mdldetalle').modal();
+        });
+
+        $('#bntConfirmar').click(function () {
+
+            $.ajax({
+                cache: false,
+                type: "GET",
+                url: "/HojaTramite/HT_Por_Recibir",
+                data: { "id": $('#txtId').val() },
+                beforeSend: function () {
+                    $('#menssage').removeClass("show").addClass("hidden");
+                    $('#progress').removeClass("hidden").addClass("show");
+                    $('#bntConfirmar').attr("disabled", "disabled");
+                    $('#btnCancelar').attr("disabled", "disabled");
+                },
+                complete: function () {
+                    $('#progress').removeClass("show").addClass("hidden");
+                },
+                success: function (result) {
+                    $('.field-validation-error').each(function () {
+                        $(this).removeClass("field-validation-error").addClass("field-validation-valid");
+                        $(this).html('');
+                    });
+                    $("#mensajesPopup").html(result).hide();
+                    $("#mensajesPopup").slideDown(500, function () { });
+                    setTimeout(function () {
+                        $('#btnrecibir').removeAttr("disabled", "disabled");
+                        $('#txtId').val('');
+                        $("#mensajesPopup").hide();
+                        $('#mdlConformidad').modal('hide');
+                        $('#btnBuscar').trigger("click");
+                    }, 1000);
+                },
+                error: function (result) {
+                    if (result.status == 500) {
+                        $("#mensajesPopup").html(result.responseText).hide();
+                        $("#mensajesPopup").slideDown(500, function () { });
+                    }
+                    else if (result.status == 400) {
+                        $('.field-validation-error').each(function () {
+                            $(this).removeClass("field-validation-error").addClass("field-validation-valid");
+                            $(this).html('');
+                        });
+                        $.each(result.responseJSON.errors, function (key, value) {
+                            if (value != null) {
+                                var container = $('span[data-valmsg-for="' + key + '"]');
+                                container.removeClass("field-validation-valid").addClass("field-validation-error");
+                                container.html(value);
+                            }
+                        });
+                        $("#mensajesPopup").html(result.responseJSON.summary).hide();
+                        if (result.responseJSON.summary != "") {
+                            $("#mensajesPopup").slideDown(500, function () { });
+                        }
+                    }
+                }
+            });
+        });
+
+        $('#export_excel').click(function () {
+            var url = "/HojaTramite/Export_Excel_documentos_ht_pendientes_por_recibir";
+            var win = window.open(url, '_blank');
+        });
+
+        $(document).on('click', '.ver_pdf_docu', function () {
+            var docu = $(this).attr('id');
+            var url = "/Hojatramite/Ver_docu_ht_PDF/" + docu;
+            window.open(url, '_blank');
+        });
+
+        $(document).on('click', '.ver_pdf_orden_ensayo', function () {
+            var url = "/Hojatramite/Imprimir_Orden_Ensayo/";
+            window.open(url, '_blank');
+        });
+
+        $('#btnBuscar').click(function () {
+            /*
+            var num_bus = "000000" + $("#HT").val();
+            var fecha = new Date();
+            var ano = fecha.getFullYear();
+            if ($("#HT").val().toString().trim().length > 0 && $("#HT").val().toString().trim().length < 7) {
+
+                $("#HT").val(ano.toString() + num_bus.toString().substring((num_bus.toString().length - 6), num_bus.toString().length));
+            }
+            */
+            return true;
+        });
+    });
+</script>

@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+  <metadata>
+    <id>bootstrap-timerpicker</id>
+    <version>0.2.6</version>
+    <authors>York Yao(nuget package only)</authors>
+    <owners>York Yao(nuget package only)</owners>
+    <licenseUrl>https://github.com/jdewit/bootstrap-timepicker/blob/gh-pages/LICENSE</licenseUrl>
+    <projectUrl>https://github.com/jdewit/bootstrap-timepicker</projectUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>A simple timepicker component for Twitter Bootstrap</description>
+    <tags>bootstrap timepicker time</tags>
+    <dependencies>
+      <dependency id="bootstrap" version="2.3.1" />
+    </dependencies>
+  </metadata>
+</package>

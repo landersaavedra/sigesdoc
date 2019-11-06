@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="DB_BIVALVOSModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'DB_BIVALVOS.dbo.vw_CONSULTAR_DEPARTAMENTO' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'DB_BIVALVOS.dbo.vw_CONSULTAR_DISTRITO' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'DB_BIVALVOS.dbo.vw_CONSULTAR_EMBARCACION' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'DB_BIVALVOS.dbo.vw_CONSULTAR_EMPRESA' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'DB_BIVALVOS.dbo.vw_CONSULTAR_ESPECIE' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'DB_BIVALVOS.dbo.vw_CONSULTAR_PLANTASPROC' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'DB_BIVALVOS.dbo.vw_CONSULTAR_PROVINCIA' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'DB_BIVALVOS.dbo.vw_CONSULTAR_UBIGEO' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'DB_BIVALVOS.dbo.vw_CONSULTAR_USUARIO' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <Function Name="p_CONSULTAR_EMPRESA" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ruc" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="p_MODIFICAR_CONTRASEÑA" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ruc" Type="varchar" Mode="In" />
+    <Parameter Name="dni" Type="varchar" Mode="In" />
+    <Parameter Name="clave_ini" Type="varchar" Mode="In" />
+    <Parameter Name="clave_fin" Type="varchar" Mode="In" />
+  </Function>
+  <EntityContainer Name="DB_BIVALVOSModelStoreContainer" />
+</Schema>

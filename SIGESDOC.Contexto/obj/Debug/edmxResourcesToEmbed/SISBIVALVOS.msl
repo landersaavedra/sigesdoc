@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="DB_BIVALVOSModelStoreContainer" CdmEntityContainer="DB_BIVALVOSEntities">
+    <FunctionImportMapping FunctionImportName="p_CONSULTAR_EMPRESA" FunctionName="DB_BIVALVOSModel.Store.p_CONSULTAR_EMPRESA">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="DB_BIVALVOSModel.p_CONSULTAR_EMPRESA_Result">
+          <ScalarProperty Name="NUMRUC" ColumnName="NUMRUC" />
+          <ScalarProperty Name="NOMBRE" ColumnName="NOMBRE" />
+          <ScalarProperty Name="UBIGEO" ColumnName="UBIGEO" />
+          <ScalarProperty Name="NOMVIA" ColumnName="NOMVIA" />
+          <ScalarProperty Name="NUMER1" ColumnName="NUMER1" />
+          <ScalarProperty Name="INTER1" ColumnName="INTER1" />
+          <ScalarProperty Name="NOMZON" ColumnName="NOMZON" />
+          <ScalarProperty Name="REFER1" ColumnName="REFER1" />
+          <ScalarProperty Name="TIPVIA" ColumnName="TIPVIA" />
+          <ScalarProperty Name="TIPZON" ColumnName="TIPZON" />
+          <ScalarProperty Name="DEPARTA" ColumnName="DEPARTA" />
+          <ScalarProperty Name="PROVIN" ColumnName="PROVIN" />
+          <ScalarProperty Name="DISTRI" ColumnName="DISTRI" />
+          <ScalarProperty Name="VIA" ColumnName="VIA" />
+          <ScalarProperty Name="ZONA" ColumnName="ZONA" />
+          <ScalarProperty Name="TELEF1" ColumnName="TELEF1" />
+          <ScalarProperty Name="TELEF2" ColumnName="TELEF2" />
+          <ScalarProperty Name="TELEF3" ColumnName="TELEF3" />
+          <ScalarProperty Name="NUMFAX" ColumnName="NUMFAX" />
+          <ScalarProperty Name="PASAPO" ColumnName="PASAPO" />
+          <ScalarProperty Name="LICENC" ColumnName="LICENC" />
+          <ScalarProperty Name="CONSTI" ColumnName="CONSTI" />
+          <ScalarProperty Name="FICHA" ColumnName="FICHA" />
+          <ScalarProperty Name="INICIO" ColumnName="INICIO" />
+          <ScalarProperty Name="DOCIDE" ColumnName="DOCIDE" />
+          <ScalarProperty Name="NRODOC" ColumnName="NRODOC" />
+          <ScalarProperty Name="SEXO" ColumnName="SEXO" />
+          <ScalarProperty Name="CIIU" ColumnName="CIIU" />
+          <ScalarProperty Name="FLAG22" ColumnName="FLAG22" />
+          <ScalarProperty Name="CIIU_PERSONA" ColumnName="CIIU_PERSONA" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="p_MODIFICAR_CONTRASEÑA" FunctionName="DB_BIVALVOSModel.Store.p_MODIFICAR_CONTRASEÑA">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="DB_BIVALVOSModel.p_MODIFICAR_CONTRASEÑA_Result">
+          <ScalarProperty Name="ruc" ColumnName="ruc" />
+          <ScalarProperty Name="dni" ColumnName="dni" />
+          <ScalarProperty Name="clave" ColumnName="clave" />
+          <ScalarProperty Name="ID_PERFIL" ColumnName="ID_PERFIL" />
+          <ScalarProperty Name="empresa" ColumnName="empresa" />
+          <ScalarProperty Name="razon_social" ColumnName="razon_social" />
+          <ScalarProperty Name="persona" ColumnName="persona" />
+          <ScalarProperty Name="perfil" ColumnName="perfil" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+  </EntityContainerMapping>
+</Mapping>

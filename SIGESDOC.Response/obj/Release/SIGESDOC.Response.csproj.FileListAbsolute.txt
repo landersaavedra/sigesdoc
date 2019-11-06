@@ -1,0 +1,8 @@
+C:\Users\Administrator\Desktop\SIGESDOC_SANIPES\SIGESDOC.Response\bin\Release\SIGESDOC.Response.dll
+C:\Users\Administrator\Desktop\SIGESDOC_SANIPES\SIGESDOC.Response\bin\Release\SIGESDOC.Response.pdb
+C:\Users\Administrator\Desktop\SIGESDOC_SANIPES\SIGESDOC.Response\obj\Release\SIGESDOC.Response.dll
+C:\Users\Administrator\Desktop\SIGESDOC_SANIPES\SIGESDOC.Response\obj\Release\SIGESDOC.Response.pdb
+C:\Users\Administrador\Desktop\SISTEMAS\SIGESDOC - SISTEMA DE GESTION DE DOCUMENTOS\SIGESDOC_SANIPES\SIGESDOC.Response\bin\Release\SIGESDOC.Response.dll
+C:\Users\Administrador\Desktop\SISTEMAS\SIGESDOC - SISTEMA DE GESTION DE DOCUMENTOS\SIGESDOC_SANIPES\SIGESDOC.Response\bin\Release\SIGESDOC.Response.pdb
+C:\Users\Administrador\Desktop\SISTEMAS\SIGESDOC - SISTEMA DE GESTION DE DOCUMENTOS\SIGESDOC_SANIPES\SIGESDOC.Response\obj\Release\SIGESDOC.Response.dll
+C:\Users\Administrador\Desktop\SISTEMAS\SIGESDOC - SISTEMA DE GESTION DE DOCUMENTOS\SIGESDOC_SANIPES\SIGESDOC.Response\obj\Release\SIGESDOC.Response.pdb

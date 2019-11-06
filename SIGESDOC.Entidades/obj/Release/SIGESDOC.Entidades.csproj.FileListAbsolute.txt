@@ -1,0 +1,10 @@
+C:\Users\Administrator\Desktop\SIGESDOC_SANIPES\SIGESDOC.Entidades\bin\Release\SIGESDOC.Entidades.dll
+C:\Users\Administrator\Desktop\SIGESDOC_SANIPES\SIGESDOC.Entidades\bin\Release\SIGESDOC.Entidades.pdb
+C:\Users\Administrator\Desktop\SIGESDOC_SANIPES\SIGESDOC.Entidades\obj\Release\SIGESDOC.Entidades.csprojResolveAssemblyReference.cache
+C:\Users\Administrator\Desktop\SIGESDOC_SANIPES\SIGESDOC.Entidades\obj\Release\SIGESDOC.Entidades.dll
+C:\Users\Administrator\Desktop\SIGESDOC_SANIPES\SIGESDOC.Entidades\obj\Release\SIGESDOC.Entidades.pdb
+C:\Users\Administrador\Desktop\SISTEMAS\SIGESDOC - SISTEMA DE GESTION DE DOCUMENTOS\SIGESDOC_SANIPES\SIGESDOC.Entidades\bin\Release\SIGESDOC.Entidades.dll
+C:\Users\Administrador\Desktop\SISTEMAS\SIGESDOC - SISTEMA DE GESTION DE DOCUMENTOS\SIGESDOC_SANIPES\SIGESDOC.Entidades\bin\Release\SIGESDOC.Entidades.pdb
+C:\Users\Administrador\Desktop\SISTEMAS\SIGESDOC - SISTEMA DE GESTION DE DOCUMENTOS\SIGESDOC_SANIPES\SIGESDOC.Entidades\obj\Release\SIGESDOC.Entidades.csprojResolveAssemblyReference.cache
+C:\Users\Administrador\Desktop\SISTEMAS\SIGESDOC - SISTEMA DE GESTION DE DOCUMENTOS\SIGESDOC_SANIPES\SIGESDOC.Entidades\obj\Release\SIGESDOC.Entidades.dll
+C:\Users\Administrador\Desktop\SISTEMAS\SIGESDOC - SISTEMA DE GESTION DE DOCUMENTOS\SIGESDOC_SANIPES\SIGESDOC.Entidades\obj\Release\SIGESDOC.Entidades.pdb

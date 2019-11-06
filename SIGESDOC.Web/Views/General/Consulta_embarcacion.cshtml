@@ -1,0 +1,130 @@
+﻿@using SIGESDOC.Web.Seguridad
+
+@model IEnumerable<SIGESDOC.Response.ConsultaEmbarcacionesResponse>
+@{
+    //WebGrid grid = new WebGrid(rowsPerPage: ServiceConfiguration.PageSize, ajaxUpdateContainerId: "grid");    grid.Bind(Model, autoSortAndPage: false, rowCount: ViewBag.TotalRows);
+    ViewBag.Title = "Consulta Embarcaciones";
+}
+
+<ol class="breadcrumb" style="margin-bottom: 5px;">
+    <li><a href="#">Mantenimiento</a></li>
+    <li class="active">Embarcaciones</li>
+</ol>
+
+<div class="bs-callout bs-callout-info">
+    <h4>Consulta de Embarcaciones</h4>
+    <p>En esta sección usted puede consultar las embarcaciones creadas</p>
+</div>
+
+<div class="panel panel-primary">
+    <div class="panel-heading panet-heading-sm">Búsqueda de Embarcaciones registradas</div>
+    <div class="panel-body">
+        @using (Ajax.BeginForm(new AjaxOptions { HttpMethod = "Get" }))
+        {
+            <div class="row">
+                <div class="col-lg-3">
+                    <div class="input-group input-group-sm">
+                        <span class="input-group-addon">Matricula</span>
+                        @Html.TextBox("var_matricula", null, new { @class = "form-control input-sm", @maxlength = "100" })
+                    </div>
+                </div>
+
+                <div class="col-lg-3">
+                    <div class="input-group input-group-sm">
+                        <span class="input-group-addon">Nombre</span>
+                        @Html.TextBox("var_nombre", null, new { @class = "form-control input-sm", @maxlength = "500" })
+                    </div>
+                </div>
+
+            </div>
+            <br />
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="input-group input-group-sm">
+                        <span class="input-group-addon">Actividad</span>
+                        @Html.DropDownList("cmb_actividad", (IEnumerable<SelectListItem>)ViewBag.lst_actividad, new { @class = "form-control input-sm" })
+                    </div>
+                </div>
+            </div>
+            <br />
+            <div class="row">
+                <div class="col-lg-1">
+                    <input type="submit" id="btnBuscar" class="btn btn-primary btn-sm pull-left" value="Actualizar" />
+                </div>
+                <button id="btnNuevaembarcacion" type="button" class="btn btn-primary btn-sm">Nueva Embarcación</button>
+            </div>
+        }
+    </div>
+</div>
+
+<div id="grid">
+    <table id="grid_embarcacion" class="table table-striped table-hover table-condensed tabla small">
+        <thead>
+            <tr class="cabecera text-center">
+                <th scope="col" class="visible-lg visible-md">Id</th>
+                <th scope="col">Matricula</th>
+                <th scope="col">Nombre de la Embarcación</th>
+                <th scope="col">Tipo de embarcación</th>    
+                <th scope="col" class="visible-lg visible-md">actividad</th>    
+                <th scope="col" class="visible-lg visible-md">codigo habilitante</th>   
+            </tr>
+        </thead>
+        <tbody>
+            @if (ViewData["Embarcacion_Tabla"] != null)
+            {
+                foreach (System.Data.DataRow dr in (ViewData["Embarcacion_Tabla"] as System.Data.DataTable).Rows)
+                {
+                    <tr>
+                        <td class="visible-lg visible-md" style=" text-align:center;"> @dr["ID_EMBARCACION"] </td>
+                        <td style=" text-align:center;"> @dr["MATRICULA"] </td>
+                        <td> @dr["NOMBRE_EMBARCACION"] </td>
+                        <td style=" text-align:center;"> @dr["TIPO_EMBARCACION"] </td>
+                        <td class="visible-lg visible-md" style=" text-align:center;"> @dr["ACTIVIDAD"] </td>
+                        <td class="visible-lg visible-md" style=" text-align:center;"> @dr["CODIGO_HABILITANTE"] </td>
+                    </tr>
+                }
+            }
+        </tbody>
+
+    </table>
+</div>
+
+
+@*<div id="grid">    @grid.GetHtml(        tableStyle: "table table-striped table-hover table-condensed tabla small",        headerStyle: "cabecera",        columns: new[] {            grid.Column(null, header:"Id Embarcación",format: p=> p.id_embarcacion),            grid.Column(null, header:"Matricula",format: p=> p.matricula),            grid.Column(null, header:"Nombre de la Embarcación", format: p=> p.nombre)        }                                         , footerStyle: "hidden"                                         )    @if (Model.Count() == 0)    {        <div class="row">            <div class="col-lg-12 text-center">                <div class="well well-sm">                    No se encontraron registros                </div>            </div>        </div>    }    else    {        <div class="row">            <div id="paginator" class="col-lg-12">                @grid.PagerList(mode: WebGridPagerModes.All, firstText: "Primero", previousText: "Anterior", nextText: "Siguiente", lastText: "Último")            </div>        </div>    }</div>*@
+
+<script type="text/javascript">
+
+    $(document).ready(function () {
+
+        $("#grid_embarcacion").DataTable({
+            "lengthChange": false,
+            "ordering": false,
+            "searching": false,
+            "info": false,
+            "language": {
+                "paginate": {
+                    "previous": "Anterior",
+                    "next": "Siguiente"
+                }
+            }
+        });
+
+
+        $("#grid_embarcacion thead tr th").eq(0).css({ "width": 40 });
+        $("#grid_embarcacion thead tr th").eq(1).css({ "width": 100 });
+        $("#grid_embarcacion thead tr th").eq(2).css({ "width": 200 });
+        $("#grid_embarcacion thead tr th").eq(3).css({ "width": 200 });
+        $("#grid_embarcacion thead tr th").eq(4).css({ "width": 120 });
+        $("#grid_embarcacion thead tr th").eq(5).css({ "width": 80 });
+
+        $('#btnNuevaembarcacion').click(function () {
+            var url = "/General/Nueva_Embarcacion/";
+            window.location.href = url;
+        });
+
+        //$(function () {            $('#paginator ul li a').click(function () {                var url = $(this).attr('href') + '&' + $('form').serialize();                $(this).attr('href', url);            });        });
+
+
+
+    });
+</script>

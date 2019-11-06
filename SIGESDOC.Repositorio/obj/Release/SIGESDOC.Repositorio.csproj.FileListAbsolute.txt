@@ -1,0 +1,36 @@
+C:\Users\Administrator\Desktop\SIGESDOC_SANIPES\SIGESDOC.Repositorio\bin\Release\SIGESDOC.Repositorio.dll.config
+C:\Users\Administrator\Desktop\SIGESDOC_SANIPES\SIGESDOC.Repositorio\bin\Release\SIGESDOC.Repositorio.dll
+C:\Users\Administrator\Desktop\SIGESDOC_SANIPES\SIGESDOC.Repositorio\bin\Release\SIGESDOC.Repositorio.pdb
+C:\Users\Administrator\Desktop\SIGESDOC_SANIPES\SIGESDOC.Repositorio\bin\Release\EntityFramework.dll
+C:\Users\Administrator\Desktop\SIGESDOC_SANIPES\SIGESDOC.Repositorio\bin\Release\EntityFramework.SqlServer.dll
+C:\Users\Administrator\Desktop\SIGESDOC_SANIPES\SIGESDOC.Repositorio\bin\Release\SIGESDOC.Contexto.dll
+C:\Users\Administrator\Desktop\SIGESDOC_SANIPES\SIGESDOC.Repositorio\bin\Release\SIGESDOC.Entidades.dll
+C:\Users\Administrator\Desktop\SIGESDOC_SANIPES\SIGESDOC.Repositorio\bin\Release\SIGESDOC.IRepositorio.dll
+C:\Users\Administrator\Desktop\SIGESDOC_SANIPES\SIGESDOC.Repositorio\bin\Release\SIGESDOC.Response.dll
+C:\Users\Administrator\Desktop\SIGESDOC_SANIPES\SIGESDOC.Repositorio\bin\Release\SIGESDOC.Contexto.pdb
+C:\Users\Administrator\Desktop\SIGESDOC_SANIPES\SIGESDOC.Repositorio\bin\Release\SIGESDOC.Entidades.pdb
+C:\Users\Administrator\Desktop\SIGESDOC_SANIPES\SIGESDOC.Repositorio\bin\Release\SIGESDOC.IRepositorio.pdb
+C:\Users\Administrator\Desktop\SIGESDOC_SANIPES\SIGESDOC.Repositorio\bin\Release\SIGESDOC.Response.pdb
+C:\Users\Administrator\Desktop\SIGESDOC_SANIPES\SIGESDOC.Repositorio\bin\Release\EntityFramework.xml
+C:\Users\Administrator\Desktop\SIGESDOC_SANIPES\SIGESDOC.Repositorio\bin\Release\EntityFramework.SqlServer.xml
+C:\Users\Administrator\Desktop\SIGESDOC_SANIPES\SIGESDOC.Repositorio\obj\Release\SIGESDOC.Repositorio.csprojResolveAssemblyReference.cache
+C:\Users\Administrator\Desktop\SIGESDOC_SANIPES\SIGESDOC.Repositorio\obj\Release\SIGESDOC.Repositorio.dll
+C:\Users\Administrator\Desktop\SIGESDOC_SANIPES\SIGESDOC.Repositorio\obj\Release\SIGESDOC.Repositorio.pdb
+C:\Users\Administrador\Desktop\SISTEMAS\SIGESDOC - SISTEMA DE GESTION DE DOCUMENTOS\SIGESDOC_SANIPES\SIGESDOC.Repositorio\bin\Release\SIGESDOC.Repositorio.dll.config
+C:\Users\Administrador\Desktop\SISTEMAS\SIGESDOC - SISTEMA DE GESTION DE DOCUMENTOS\SIGESDOC_SANIPES\SIGESDOC.Repositorio\bin\Release\SIGESDOC.Repositorio.dll
+C:\Users\Administrador\Desktop\SISTEMAS\SIGESDOC - SISTEMA DE GESTION DE DOCUMENTOS\SIGESDOC_SANIPES\SIGESDOC.Repositorio\bin\Release\SIGESDOC.Repositorio.pdb
+C:\Users\Administrador\Desktop\SISTEMAS\SIGESDOC - SISTEMA DE GESTION DE DOCUMENTOS\SIGESDOC_SANIPES\SIGESDOC.Repositorio\bin\Release\EntityFramework.dll
+C:\Users\Administrador\Desktop\SISTEMAS\SIGESDOC - SISTEMA DE GESTION DE DOCUMENTOS\SIGESDOC_SANIPES\SIGESDOC.Repositorio\bin\Release\EntityFramework.SqlServer.dll
+C:\Users\Administrador\Desktop\SISTEMAS\SIGESDOC - SISTEMA DE GESTION DE DOCUMENTOS\SIGESDOC_SANIPES\SIGESDOC.Repositorio\bin\Release\SIGESDOC.Contexto.dll
+C:\Users\Administrador\Desktop\SISTEMAS\SIGESDOC - SISTEMA DE GESTION DE DOCUMENTOS\SIGESDOC_SANIPES\SIGESDOC.Repositorio\bin\Release\SIGESDOC.Entidades.dll
+C:\Users\Administrador\Desktop\SISTEMAS\SIGESDOC - SISTEMA DE GESTION DE DOCUMENTOS\SIGESDOC_SANIPES\SIGESDOC.Repositorio\bin\Release\SIGESDOC.IRepositorio.dll
+C:\Users\Administrador\Desktop\SISTEMAS\SIGESDOC - SISTEMA DE GESTION DE DOCUMENTOS\SIGESDOC_SANIPES\SIGESDOC.Repositorio\bin\Release\SIGESDOC.Response.dll
+C:\Users\Administrador\Desktop\SISTEMAS\SIGESDOC - SISTEMA DE GESTION DE DOCUMENTOS\SIGESDOC_SANIPES\SIGESDOC.Repositorio\bin\Release\SIGESDOC.Contexto.pdb
+C:\Users\Administrador\Desktop\SISTEMAS\SIGESDOC - SISTEMA DE GESTION DE DOCUMENTOS\SIGESDOC_SANIPES\SIGESDOC.Repositorio\bin\Release\SIGESDOC.Entidades.pdb
+C:\Users\Administrador\Desktop\SISTEMAS\SIGESDOC - SISTEMA DE GESTION DE DOCUMENTOS\SIGESDOC_SANIPES\SIGESDOC.Repositorio\bin\Release\SIGESDOC.IRepositorio.pdb
+C:\Users\Administrador\Desktop\SISTEMAS\SIGESDOC - SISTEMA DE GESTION DE DOCUMENTOS\SIGESDOC_SANIPES\SIGESDOC.Repositorio\bin\Release\SIGESDOC.Response.pdb
+C:\Users\Administrador\Desktop\SISTEMAS\SIGESDOC - SISTEMA DE GESTION DE DOCUMENTOS\SIGESDOC_SANIPES\SIGESDOC.Repositorio\bin\Release\EntityFramework.xml
+C:\Users\Administrador\Desktop\SISTEMAS\SIGESDOC - SISTEMA DE GESTION DE DOCUMENTOS\SIGESDOC_SANIPES\SIGESDOC.Repositorio\bin\Release\EntityFramework.SqlServer.xml
+C:\Users\Administrador\Desktop\SISTEMAS\SIGESDOC - SISTEMA DE GESTION DE DOCUMENTOS\SIGESDOC_SANIPES\SIGESDOC.Repositorio\obj\Release\SIGESDOC.Repositorio.csprojResolveAssemblyReference.cache
+C:\Users\Administrador\Desktop\SISTEMAS\SIGESDOC - SISTEMA DE GESTION DE DOCUMENTOS\SIGESDOC_SANIPES\SIGESDOC.Repositorio\obj\Release\SIGESDOC.Repositorio.dll
+C:\Users\Administrador\Desktop\SISTEMAS\SIGESDOC - SISTEMA DE GESTION DE DOCUMENTOS\SIGESDOC_SANIPES\SIGESDOC.Repositorio\obj\Release\SIGESDOC.Repositorio.pdb

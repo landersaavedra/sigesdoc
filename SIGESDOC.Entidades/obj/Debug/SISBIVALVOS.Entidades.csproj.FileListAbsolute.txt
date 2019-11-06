@@ -1,0 +1,14 @@
+C:\Users\PC_NET\Desktop\PROYECTOS\SISBIVALVOS_SANIPES\SISBIVALVOS.Entidades\bin\Debug\SISBIVALVOS.Entidades.dll
+C:\Users\PC_NET\Desktop\PROYECTOS\SISBIVALVOS_SANIPES\SISBIVALVOS.Entidades\bin\Debug\SISBIVALVOS.Entidades.pdb
+C:\Users\PC_NET\Desktop\PROYECTOS\SISBIVALVOS_SANIPES\SISBIVALVOS.Entidades\obj\Debug\SISBIVALVOS.Entidades.dll
+C:\Users\PC_NET\Desktop\PROYECTOS\SISBIVALVOS_SANIPES\SISBIVALVOS.Entidades\obj\Debug\SISBIVALVOS.Entidades.pdb
+C:\Users\Administrator\Desktop\SISBIVALVOS_SANIPES\SISBIVALVOS.Entidades\bin\Debug\SISBIVALVOS.Entidades.dll
+C:\Users\Administrator\Desktop\SISBIVALVOS_SANIPES\SISBIVALVOS.Entidades\bin\Debug\SISBIVALVOS.Entidades.pdb
+C:\Users\Administrator\Desktop\SISBIVALVOS_SANIPES\SISBIVALVOS.Entidades\obj\Debug\SISBIVALVOS.Entidades.csprojResolveAssemblyReference.cache
+C:\Users\Administrator\Desktop\SISBIVALVOS_SANIPES\SISBIVALVOS.Entidades\obj\Debug\SISBIVALVOS.Entidades.dll
+C:\Users\Administrator\Desktop\SISBIVALVOS_SANIPES\SISBIVALVOS.Entidades\obj\Debug\SISBIVALVOS.Entidades.pdb
+C:\Users\Administrator\Desktop\SIGESDOC_SANIPES\SISBIVALVOS.Entidades\bin\Debug\SISBIVALVOS.Entidades.dll
+C:\Users\Administrator\Desktop\SIGESDOC_SANIPES\SISBIVALVOS.Entidades\bin\Debug\SISBIVALVOS.Entidades.pdb
+C:\Users\Administrator\Desktop\SIGESDOC_SANIPES\SISBIVALVOS.Entidades\obj\Debug\SISBIVALVOS.Entidades.csprojResolveAssemblyReference.cache
+C:\Users\Administrator\Desktop\SIGESDOC_SANIPES\SISBIVALVOS.Entidades\obj\Debug\SISBIVALVOS.Entidades.dll
+C:\Users\Administrator\Desktop\SIGESDOC_SANIPES\SISBIVALVOS.Entidades\obj\Debug\SISBIVALVOS.Entidades.pdb

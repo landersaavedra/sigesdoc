@@ -1,0 +1,256 @@
+﻿@model IEnumerable<SIGESDOC.Response.ProtocoloResponse>
+
+@{
+    ViewBag.Title = "Publicar Protocolos";
+}
+
+<div class="form-group">
+    <div class="col-md-12">
+        <input id="btn_public_planta" type="button" value="Publicar Planta" class="btn btn-primary btn-sm" />
+        <br />
+        <h2></h2>
+        <input id="btn_public_embarcacion" type="button" value="Publicar Embarcacion" class="btn btn-primary btn-sm" />
+        <br />
+        <h2></h2>
+        <input id="btn_public_almacen" type="button" value="Publicar Almacen" class="btn btn-primary btn-sm" />
+        <br />
+        <h2></h2>
+        <input id="btn_public_concesiones" type="button" value="Publicar Concesiones / Centros de Cultivo / Hatchery" class="btn btn-primary btn-sm" />
+        <br />
+        <h2></h2>
+        <input id="btn_public_desembarcaderos" type="button" value="Publicar Desembarcaderos / Puntos de Descarga / Muelles de Descarga / Sistema de Descarga" class="btn btn-primary btn-sm" />
+        <br />
+        <h2></h2>
+        <input id="btn_public_licencia_operacion" type="button" value="Publicar Licencia de Operación" class="btn btn-primary btn-sm" />
+        <br />
+        <h2></h2>
+        <input id="btn_public_autorizacion_instalacion" type="button" value="Publicar Autorización de Instalación" class="btn btn-primary btn-sm" />
+        <br />
+        <h2></h2>
+        <input id="btn_public_transporte" type="button" value="Publicar Transporte" class="btn btn-primary btn-sm" />
+    </div>
+</div>
+
+<div class="modal fade" id="mdlConformidad" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title" id="myModalLabel">Mensaje</h4>
+            </div>
+            <div class="modal-body">
+                <span id="conformidad"></span>
+                <p>Presione aceptar para continuar.</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary btn-sm" data-dismiss="modal">Aceptar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+
+    function deshabilitar_botones()
+    {
+        $('#btn_public_planta').attr("disabled", "disabled");
+        $('#btn_public_embarcacion').attr("disabled", "disabled");
+        $('#btn_public_almacen').attr("disabled", "disabled");
+        $('#btn_public_concesiones').attr("disabled", "disabled");
+        $('#btn_public_desembarcaderos').attr("disabled", "disabled");
+        $('#btn_public_licencia_operacion').attr("disabled", "disabled");
+        $('#btn_public_autorizacion_instalacion').attr("disabled", "disabled");
+        $('#btn_public_transporte').attr("disabled", "disabled");
+    }
+
+    function habilitar_botones() {
+        $('#btn_public_planta').removeAttr("disabled", "disabled");
+        $('#btn_public_embarcacion').removeAttr("disabled", "disabled");
+        $('#btn_public_almacen').removeAttr("disabled", "disabled");
+        $('#btn_public_concesiones').removeAttr("disabled", "disabled");
+        $('#btn_public_desembarcaderos').removeAttr("disabled", "disabled");
+        $('#btn_public_licencia_operacion').removeAttr("disabled", "disabled");
+        $('#btn_public_autorizacion_instalacion').removeAttr("disabled", "disabled");
+        $('#btn_public_transporte').removeAttr("disabled", "disabled");
+    }
+
+    $(document).ready(function () {
+
+        $('#btn_public_transporte').click(function () {
+            deshabilitar_botones()
+            $.ajax({
+                cache: false,
+                type: "GET",
+                url: "@(Url.RouteUrl("Generar_data_transporte"))",
+                data: {},
+                success: function (result) {
+                    habilitar_botones()
+                    $('.field-validation-error').each(function () {
+                        $(this).removeClass("field-validation-error").addClass("field-validation-valid");
+                        $(this).html('');
+                    });
+                    $("#conformidad").html(result)
+                    $('#mdlConformidad').modal();
+                },
+            });
+        });
+
+        $('#btn_public_autorizacion_instalacion').click(function () {
+
+            deshabilitar_botones()
+
+            $.ajax({
+                cache: false,
+                type: "GET",
+                url: "@(Url.RouteUrl("Generar_data_autorizacion_instalacion"))",
+                data: { },
+
+                success: function (result) {
+
+                    habilitar_botones()
+                    $('.field-validation-error').each(function () {
+                        $(this).removeClass("field-validation-error").addClass("field-validation-valid");
+                        $(this).html('');
+                    });
+                    $("#conformidad").html(result)
+                    $('#mdlConformidad').modal();
+                },
+            });
+        });
+
+
+        $('#btn_public_licencia_operacion').click(function () {
+
+            deshabilitar_botones()
+
+            $.ajax({
+                cache: false,
+                type: "GET",
+                url: "@(Url.RouteUrl("Generar_data_licencia_operacion"))",
+                data: { },
+
+                success: function (result) {
+
+                    habilitar_botones()
+                    $('.field-validation-error').each(function () {
+                        $(this).removeClass("field-validation-error").addClass("field-validation-valid");
+                        $(this).html('');
+                    });
+                    $("#conformidad").html(result)
+                    $('#mdlConformidad').modal();
+                },
+            });
+        });
+        $('#btn_public_planta').click(function () {
+
+            deshabilitar_botones()
+
+            $.ajax({
+                cache: false,
+                type: "GET",
+                url: "@(Url.RouteUrl("Generar_data_planta"))",
+                data: { },
+
+                success: function (result) {
+
+                    habilitar_botones()
+                    $('.field-validation-error').each(function () {
+                        $(this).removeClass("field-validation-error").addClass("field-validation-valid");
+                        $(this).html('');
+                    });
+                    $("#conformidad").html(result)
+                    $('#mdlConformidad').modal();
+                },
+            });
+        });
+
+
+        $('#btn_public_embarcacion').click(function () {
+
+            deshabilitar_botones()
+
+            $.ajax({
+                cache: false,
+                type: "GET",
+                url: "@(Url.RouteUrl("Generar_data_embarcacion"))",
+                data: { },
+
+                success: function (result) {
+                    habilitar_botones()
+                    $('.field-validation-error').each(function () {
+                        $(this).removeClass("field-validation-error").addClass("field-validation-valid");
+                        $(this).html('');
+                    });
+                    $("#conformidad").html(result)
+                    $('#mdlConformidad').modal();
+                },
+            });
+        });
+
+        $('#btn_public_almacen').click(function () {
+
+            deshabilitar_botones()
+
+            $.ajax({
+                cache: false,
+                type: "GET",
+                url: "@(Url.RouteUrl("Generar_data_almacen"))",
+                data: { },
+
+                success: function (result) {
+                    habilitar_botones()
+                    $('.field-validation-error').each(function () {
+                        $(this).removeClass("field-validation-error").addClass("field-validation-valid");
+                        $(this).html('');
+                    });
+                    $("#conformidad").html(result)
+                    $('#mdlConformidad').modal();
+                },
+            });
+        });
+
+        $('#btn_public_concesiones').click(function () {
+
+            deshabilitar_botones()
+
+            $.ajax({
+                cache: false,
+                type: "GET",
+                url: "@(Url.RouteUrl("Generar_data_concesiones"))",
+                data: { },
+
+                success: function (result) {
+                    habilitar_botones()
+                    $('.field-validation-error').each(function () {
+                        $(this).removeClass("field-validation-error").addClass("field-validation-valid");
+                        $(this).html('');
+                    });
+                    $("#conformidad").html(result)
+                    $('#mdlConformidad').modal();
+                },
+            });
+        });
+
+        $('#btn_public_desembarcaderos').click(function () {
+
+            deshabilitar_botones()
+
+            $.ajax({
+                cache: false,
+                type: "GET",
+                url: "@(Url.RouteUrl("Generar_data_desembarcadero"))",
+                data: { },
+
+                success: function (result) {
+                    habilitar_botones()
+                    $('.field-validation-error').each(function () {
+                        $(this).removeClass("field-validation-error").addClass("field-validation-valid");
+                        $(this).html('');
+                    });
+                    $("#conformidad").html(result)
+                    $('#mdlConformidad').modal();
+                },
+            });
+        });
+        });
+    </script>

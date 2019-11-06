@@ -1,0 +1,666 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{39060F56-7098-4CFB-902C-1C16A0256F2C}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>SIGESDOC.Entidades</RootNamespace>
+    <AssemblyName>SIGESDOC.Entidades</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Consultar_ptocolo_transporte_x_id_transporte_2018_v1.cs">
+      <DependentUpon>SIGESDOC.tt</DependentUpon>
+    </Compile>
+    <Compile Include="COUNT_EXPEDIENTE_UNICO.cs">
+      <DependentUpon>SIGESDOC.tt</DependentUpon>
+    </Compile>
+    <Compile Include="COUNT_HT_EXTERNO.cs">
+      <DependentUpon>SIGESDOC.tt</DependentUpon>
+    </Compile>
+    <Compile Include="COUNT_HT_INTERNO.cs">
+      <DependentUpon>SIGESDOC.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAT_DET_DOC_FACT.cs">
+      <DependentUpon>SIGESDOC.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAT_DET_SEG_DOC.cs">
+      <DependentUpon>SIGESDOC.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAT_DET_SEG_DOC_DHCPA.cs">
+      <DependentUpon>SIGESDOC.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAT_DET_SEG_EVALUADOR.cs">
+      <DependentUpon>SIGESDOC.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAT_DOCUMENTO_DETALLE.cs">
+      <DependentUpon>SIGESDOC.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAT_DOCUMENTO_DHCPA_DETALLE.cs">
+      <DependentUpon>SIGESDOC.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAT_DOC_DET_OBSERVACIONES.cs">
+      <DependentUpon>SIGESDOC.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAT_ESPECIES_HABILITACIONES.cs">
+      <DependentUpon>SIGESDOC.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAT_LOG_DESARCHIVO_DESATENDIDO.cs">
+      <DependentUpon>SIGESDOC.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAT_PROTOCOLO_ALMACEN.cs">
+      <DependentUpon>SIGESDOC.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAT_PROTOCOLO_AUTORIZACION_INSTALACION.cs">
+      <DependentUpon>SIGESDOC.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAT_PROTOCOLO_CONCESION.cs">
+      <DependentUpon>SIGESDOC.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAT_PROTOCOLO_DESEMBARCADERO.cs">
+      <DependentUpon>SIGESDOC.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAT_PROTOCOLO_EMBARCACION.cs">
+      <DependentUpon>SIGESDOC.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAT_PROTOCOLO_ESPECIE.cs">
+      <DependentUpon>SIGESDOC.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAT_PROTOCOLO_LICENCIA_OPERACION.cs">
+      <DependentUpon>SIGESDOC.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAT_PROTOCOLO_PLANTA.cs">
+      <DependentUpon>SIGESDOC.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAT_PROTOCOLO_TRANSPORTE.cs">
+      <DependentUpon>SIGESDOC.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MAE_ACTA_INSPECCION_DSFPA.cs">
+      <DependentUpon>SIGESDOC.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MAE_ACTIVIDAD_PROTOCOLO.cs">
+      <DependentUpon>SIGESDOC.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MAE_ARCHIVADOR_DHCPA.cs">
+      <DependentUpon>SIGESDOC.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MAE_CHECK_LIST_INSPECCION_DSFPA.cs">
+      <DependentUpon>SIGESDOC.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MAE_CLASIFICACION_TRAMITE.cs">
+      <DependentUpon>SIGESDOC.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MAE_CONSTANCIA_HACCP.cs">
+      <DependentUpon>SIGESDOC.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MAE_DESTINO_SOLICITUD_INSPECCION.cs">
+      <DependentUpon>SIGESDOC.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MAE_DOCUMENTO.cs">
+      <DependentUpon>SIGESDOC.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MAE_DOCUMENTO_ANEXO.cs">
+      <DependentUpon>SIGESDOC.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MAE_DOCUMENTO_DHCPA.cs">
+      <DependentUpon>SIGESDOC.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MAE_DOCUMENTO_INDICADOR.cs">
+      <DependentUpon>SIGESDOC.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MAE_DOCUMENTO_SEGUIMIENTO.cs">
+      <DependentUpon>SIGESDOC.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MAE_DOCUMENTO_SEGUIMIENTO_ADJUNTO.cs">
+      <DependentUpon>SIGESDOC.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MAE_ESTADOS_DEL_PROTOCOLO.cs">
+      <DependentUpon>SIGESDOC.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MAE_ESTADO_SEGUIMIENTO_DHCPA.cs">
+      <DependentUpon>SIGESDOC.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MAE_ESTADO_TRAMITE.cs">
+      <DependentUpon>SIGESDOC.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MAE_EXPEDIENTES.cs">
+      <DependentUpon>SIGESDOC.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MAE_FILIAL_DHCPA.cs">
+      <DependentUpon>SIGESDOC.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MAE_FIRMAS_SDHPA.cs">
+      <DependentUpon>SIGESDOC.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MAE_HOJA_TRAMITE.cs">
+      <DependentUpon>SIGESDOC.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MAE_INDICADORES_TRAMITE.cs">
+      <DependentUpon>SIGESDOC.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MAE_INDICADOR_PROTOCOLO_ESPECIE.cs">
+      <DependentUpon>SIGESDOC.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MAE_INFORME_INSPECCION_DSFPA.cs">
+      <DependentUpon>SIGESDOC.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MAE_INFORME_TECNICO_EVAL.cs">
+      <DependentUpon>SIGESDOC.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MAE_PROTOCOLO.cs">
+      <DependentUpon>SIGESDOC.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MAE_PRUEBA_INSPECCION_DSFPA.cs">
+      <DependentUpon>SIGESDOC.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MAE_REPORTE_COMPROBANTE_X_MES_CONSULTA.cs">
+      <DependentUpon>SIGESDOC.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MAE_SEGUIMIENTO_DHCPA.cs">
+      <DependentUpon>SIGESDOC.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MAE_SEGUIMIENTO_DHCPA_OBSERVACIONES.cs">
+      <DependentUpon>SIGESDOC.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MAE_SERVICIO_DHCPA.cs">
+      <DependentUpon>SIGESDOC.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MAE_SOLICITUD_INSPECCION.cs">
+      <DependentUpon>SIGESDOC.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MAE_SUB_TUPA.cs">
+      <DependentUpon>SIGESDOC.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MAE_TIPO_ACTIVIDAD_CONCESION.cs">
+      <DependentUpon>SIGESDOC.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MAE_TIPO_ATENCION_INSPECCION.cs">
+      <DependentUpon>SIGESDOC.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MAE_TIPO_AUTORIZACION_INSTALACION.cs">
+      <DependentUpon>SIGESDOC.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MAE_TIPO_CAMARA_TRANSPORTE.cs">
+      <DependentUpon>SIGESDOC.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MAE_TIPO_CONSUMO_HUMANO.cs">
+      <DependentUpon>SIGESDOC.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MAE_TIPO_DOCUMENTO.cs">
+      <DependentUpon>SIGESDOC.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MAE_TIPO_DOCUMENTO_SEGUIMIENTO_ADJUNTO.cs">
+      <DependentUpon>SIGESDOC.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MAE_TIPO_EXPEDIENTE.cs">
+      <DependentUpon>SIGESDOC.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MAE_TIPO_LICENCIA_OPERACION.cs">
+      <DependentUpon>SIGESDOC.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MAE_TIPO_PEDIDO_SIGA.cs">
+      <DependentUpon>SIGESDOC.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MAE_TIPO_PROCEDIMIENTO.cs">
+      <DependentUpon>SIGESDOC.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MAE_TIPO_PROTOCOLO_EMBARCACION.cs">
+      <DependentUpon>SIGESDOC.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MAE_TIPO_SEGUIMIENTO.cs">
+      <DependentUpon>SIGESDOC.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MAE_TIPO_SERVICIO_HABILITACION.cs">
+      <DependentUpon>SIGESDOC.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MAE_TIPO_TRAMITE.cs">
+      <DependentUpon>SIGESDOC.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MAE_TIPO_TUPA.cs">
+      <DependentUpon>SIGESDOC.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MAE_TUPA.cs">
+      <DependentUpon>SIGESDOC.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MAE_VERSION_SOLICITUD.cs">
+      <DependentUpon>SIGESDOC.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="p_ACTUALIZA_PERSONA_Result.cs">
+      <DependentUpon>SIGESDOC.tt</DependentUpon>
+    </Compile>
+    <Compile Include="P_ASIGNA_OFICINA_PERSONA_Result.cs">
+      <DependentUpon>SIGESDOC.tt</DependentUpon>
+    </Compile>
+    <Compile Include="p_CAMBIO_CONTRASEÑA_Result.cs">
+      <DependentUpon>SIGESDOC.tt</DependentUpon>
+    </Compile>
+    <Compile Include="P_CONSULTAR_MAE_ALMACEN_SEDE_Result.cs">
+      <DependentUpon>SIGESDOC.tt</DependentUpon>
+    </Compile>
+    <Compile Include="P_CREA_EMBARCACIONES_Result.cs">
+      <DependentUpon>SIGESDOC.tt</DependentUpon>
+    </Compile>
+    <Compile Include="P_CREA_FACTURAS_Result.cs">
+      <DependentUpon>SIGESDOC.tt</DependentUpon>
+    </Compile>
+    <Compile Include="p_CREA_OFICINA_DIRECCION_Result.cs">
+      <DependentUpon>SIGESDOC.tt</DependentUpon>
+    </Compile>
+    <Compile Include="p_CREA_OFICINA_PRINCIPAL_Result.cs">
+      <DependentUpon>SIGESDOC.tt</DependentUpon>
+    </Compile>
+    <Compile Include="p_CREA_PERSONAL_Result.cs">
+      <DependentUpon>SIGESDOC.tt</DependentUpon>
+    </Compile>
+    <Compile Include="p_CREA_SEDE_SECUNDARIA_Result.cs">
+      <DependentUpon>SIGESDOC.tt</DependentUpon>
+    </Compile>
+    <Compile Include="P_DESACTIVA_OFICINA_PERSONA_Result.cs">
+      <DependentUpon>SIGESDOC.tt</DependentUpon>
+    </Compile>
+    <Compile Include="p_GENERA_DATA_PROTOCOLO_ALMACEN_Result.cs">
+      <DependentUpon>SIGESDOC.tt</DependentUpon>
+    </Compile>
+    <Compile Include="p_GENERA_DATA_PROTOCOLO_AUTORIZACION_INSTALACION_Result.cs">
+      <DependentUpon>SIGESDOC.tt</DependentUpon>
+    </Compile>
+    <Compile Include="p_GENERA_DATA_PROTOCOLO_CONCESION_Result.cs">
+      <DependentUpon>SIGESDOC.tt</DependentUpon>
+    </Compile>
+    <Compile Include="p_GENERA_DATA_PROTOCOLO_DESEMBARCADERO_Result.cs">
+      <DependentUpon>SIGESDOC.tt</DependentUpon>
+    </Compile>
+    <Compile Include="p_GENERA_DATA_PROTOCOLO_EMBARCACION_Result.cs">
+      <DependentUpon>SIGESDOC.tt</DependentUpon>
+    </Compile>
+    <Compile Include="p_GENERA_DATA_PROTOCOLO_LICENCIA_OPERACION_Result.cs">
+      <DependentUpon>SIGESDOC.tt</DependentUpon>
+    </Compile>
+    <Compile Include="p_GENERA_DATA_PROTOCOLO_PLANTA_Result.cs">
+      <DependentUpon>SIGESDOC.tt</DependentUpon>
+    </Compile>
+    <Compile Include="P_GUARDAR_OFICINA_Result.cs">
+      <DependentUpon>SIGESDOC.tt</DependentUpon>
+    </Compile>
+    <Compile Include="P_INSERT_PERSONA_TELEFONO_Result.cs">
+      <DependentUpon>SIGESDOC.tt</DependentUpon>
+    </Compile>
+    <Compile Include="P_INSERT_UPDATE_DAT_DET_OPERACION_FACTURA_Result.cs">
+      <DependentUpon>SIGESDOC.tt</DependentUpon>
+    </Compile>
+    <Compile Include="P_INSERT_UPDATE_DB_GENERAL_MAE_CONCESION_Result.cs">
+      <DependentUpon>SIGESDOC.tt</DependentUpon>
+    </Compile>
+    <Compile Include="P_INSERT_UPDATE_DB_GENERAL_MAE_DESEMBARCADERO_Result.cs">
+      <DependentUpon>SIGESDOC.tt</DependentUpon>
+    </Compile>
+    <Compile Include="P_INSERT_UPDATE_MAE_ALMACEN_SEDE_Result.cs">
+      <DependentUpon>SIGESDOC.tt</DependentUpon>
+    </Compile>
+    <Compile Include="P_INSERT_UPDATE_MAE_DNI_PERSONA_LEGAL_Result.cs">
+      <DependentUpon>SIGESDOC.tt</DependentUpon>
+    </Compile>
+    <Compile Include="P_INSERT_UPDATE_MAE_ENTIDAD_PERSONA_LEGAL_Result.cs">
+      <DependentUpon>SIGESDOC.tt</DependentUpon>
+    </Compile>
+    <Compile Include="P_INSERT_UPDATE_MAE_OFICINA_DIRECCION_LEGAL_Result.cs">
+      <DependentUpon>SIGESDOC.tt</DependentUpon>
+    </Compile>
+    <Compile Include="P_INSERT_UPDATE_MAE_OPERACION_Result.cs">
+      <DependentUpon>SIGESDOC.tt</DependentUpon>
+    </Compile>
+    <Compile Include="P_INSERT_UPDATE_MAE_VALOR_FACTURADO_EXP_Result.cs">
+      <DependentUpon>SIGESDOC.tt</DependentUpon>
+    </Compile>
+    <Compile Include="p_MODIFICAR_CONTRASEÑA_Result.cs">
+      <DependentUpon>SIGESDOC.tt</DependentUpon>
+    </Compile>
+    <Compile Include="P_RELACION_PROTOCOLO_SEGUIMIENTO_PLANTA_Result.cs">
+      <DependentUpon>SIGESDOC.tt</DependentUpon>
+    </Compile>
+    <Compile Include="P_RELACION_PROTOCOLO_SEGUIMIENTO_Result.cs">
+      <DependentUpon>SIGESDOC.tt</DependentUpon>
+    </Compile>
+    <Compile Include="P_RELACION_PROTOCOLO_SOLICITUD_Result.cs">
+      <DependentUpon>SIGESDOC.tt</DependentUpon>
+    </Compile>
+    <Compile Include="P_SEGURIDAD_CONSULTAR_USUARIO_Result.cs">
+      <DependentUpon>SIGESDOC.tt</DependentUpon>
+    </Compile>
+    <Compile Include="P_UPDATE_MAE_OPERACION_Result.cs">
+      <DependentUpon>SIGESDOC.tt</DependentUpon>
+    </Compile>
+    <Compile Include="P_VER_PROTO_SEGUIMIENTO_Result.cs">
+      <DependentUpon>SIGESDOC.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SIGESDOC.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SIGESDOC.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SP_ACTUALIZAR_DB_GENERAL_MAE_TRANSPORTE_Result.cs">
+      <DependentUpon>SIGESDOC.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SP_ACTUALIZA_NOM_EMPRESA_Result.cs">
+      <DependentUpon>SIGESDOC.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SP_ACTUALIZA_PLANTA_Result.cs">
+      <DependentUpon>SIGESDOC.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SP_CONSULTAR_ACTA_CHKL_INFO_PRU_SI_Result.cs">
+      <DependentUpon>SIGESDOC.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SP_CONSULTAR_CORREO_OD_POR_FILIAL_DHCPA_Result.cs">
+      <DependentUpon>SIGESDOC.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SP_CONSULTAR_DOCUMENTOS_PENDIENTES_DETALLE_DESAGREGADO_Result.cs">
+      <DependentUpon>SIGESDOC.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SP_CONSULTAR_DOCUMENTOS_PENDIENTES_DETALLE_Result.cs">
+      <DependentUpon>SIGESDOC.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SP_CONSULTAR_DOCUMENTOS_PENDIENTES_Result.cs">
+      <DependentUpon>SIGESDOC.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SP_CONSULTAR_DOC_X_OFICINA_X_TUPA_Result.cs">
+      <DependentUpon>SIGESDOC.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SP_CONSULTAR_EXPEDIENTES_X_DOCUMENTO_HABILITACIONES_OD_Result.cs">
+      <DependentUpon>SIGESDOC.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SP_CONSULTAR_EXPEDIENTES_X_DOCUMENTO_HABILITACIONES_RECEP_Result.cs">
+      <DependentUpon>SIGESDOC.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SP_CONSULTAR_EXPEDIENTES_X_DOCUMENTO_HABILITACIONES_Result.cs">
+      <DependentUpon>SIGESDOC.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SP_CONSULTAR_HT_GENERAL_Result.cs">
+      <DependentUpon>SIGESDOC.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SP_CONSULTAR_HT_GENERAL_X_OFICINA_DESTINO_X_TUPA_Result.cs">
+      <DependentUpon>SIGESDOC.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SP_CONSULTAR_PRUEBAS_IMAGENES_SI_Result.cs">
+      <DependentUpon>SIGESDOC.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SP_CONSULTAR_REGISTRO_DE_USUARIO_Result.cs">
+      <DependentUpon>SIGESDOC.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SP_CONSULTAR_TRANSPORTES_CON_PROTOCOLO_HABILITADO_Result.cs">
+      <DependentUpon>SIGESDOC.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SP_CONSULTA_HISTORIAL_EVALUADOR_Result.cs">
+      <DependentUpon>SIGESDOC.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SP_CONSULTA_HISTORIAL_HT_Result.cs">
+      <DependentUpon>SIGESDOC.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SP_CONSULTA_HOJA_TRAMITE_X_PEDIDO_Result.cs">
+      <DependentUpon>SIGESDOC.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SP_CORREO_ALERTA_GENERA_SI_Result.cs">
+      <DependentUpon>SIGESDOC.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SP_CREA_PLANTA_Result.cs">
+      <DependentUpon>SIGESDOC.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SP_DB_PROTOCOLO_ANTIGUO_HAB_EMPRESA_INSERT_Result.cs">
+      <DependentUpon>SIGESDOC.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SP_DB_PROTOCOLO_ANTIGUO_HAB_PLANTA_INSERT_Result.cs">
+      <DependentUpon>SIGESDOC.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SP_DB_PROTOCOLO_ANTIGUO_HAB_PLANTA_PROTOCOLO_INSERT_Result.cs">
+      <DependentUpon>SIGESDOC.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SP_EDITA_DB_GENERAL_MAE_SEDE_Result.cs">
+      <DependentUpon>SIGESDOC.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SP_EDITA_DB_SEGURIDAD_PERSONA_Result.cs">
+      <DependentUpon>SIGESDOC.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SP_EJECUTA_COMPROBANTE_X_MES_CONSULTA_Result.cs">
+      <DependentUpon>SIGESDOC.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SP_EXCEL_HT_ARCHIVADOS_ATENDIDOS_Result.cs">
+      <DependentUpon>SIGESDOC.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SP_EXCEL_HT_ENVIADAS_Result.cs">
+      <DependentUpon>SIGESDOC.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SP_EXCEL_HT_PENDIENTES_POR_ATENDER_Result.cs">
+      <DependentUpon>SIGESDOC.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SP_EXCEL_HT_PENDIENTES_POR_RECIBIR_Result.cs">
+      <DependentUpon>SIGESDOC.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SP_GENERA_CLAVE_Result.cs">
+      <DependentUpon>SIGESDOC.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SP_GENERA_DATA_PROTOCOLO_TRANSPORTE_Result.cs">
+      <DependentUpon>SIGESDOC.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SP_GENERA_PROTOCOLO_TRANSPORTE_Result.cs">
+      <DependentUpon>SIGESDOC.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SP_HABILITA_PLANTA_Result.cs">
+      <DependentUpon>SIGESDOC.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SP_INSERTAR_DB_GENERAL_MAE_TRANSPORTE_Result.cs">
+      <DependentUpon>SIGESDOC.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SP_PLANTA_PROTOCOLO_EXCEL_Result.cs">
+      <DependentUpon>SIGESDOC.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SP_RECIBIR_MAE_SOLICITUD_INSPECCION_Result.cs">
+      <DependentUpon>SIGESDOC.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SP_RECIBIR_MAE_SOLICITUD_INSPECCION_X_INSPECTOR_Result.cs">
+      <DependentUpon>SIGESDOC.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VISTA_DB_GENERAL_MAE_TIPO_CARROCERIA.cs">
+      <DependentUpon>SIGESDOC.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VISTA_DB_GENERAL_MAE_TRANSPORTE.cs">
+      <DependentUpon>SIGESDOC.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VISTA_DB_GENERAL_MAE_UNIDAD_MEDIDA.cs">
+      <DependentUpon>SIGESDOC.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vw_CONSULTAR_ACTV_ALMACEN.cs">
+      <DependentUpon>SIGESDOC.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vw_CONSULTAR_ACTV_EMBARCACION.cs">
+      <DependentUpon>SIGESDOC.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vw_CONSULTAR_COD_HAB_ALMACEN.cs">
+      <DependentUpon>SIGESDOC.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vw_CONSULTAR_COD_HAB_EMBARCACION.cs">
+      <DependentUpon>SIGESDOC.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vw_CONSULTAR_DB_GENERAL_MAE_ALMACEN_SEDE.cs">
+      <DependentUpon>SIGESDOC.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VW_CONSULTAR_DB_GENERAL_MAE_AREA_PRODUCCION.cs">
+      <DependentUpon>SIGESDOC.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VW_CONSULTAR_DB_GENERAL_MAE_CONCESION.cs">
+      <DependentUpon>SIGESDOC.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VW_CONSULTAR_DB_GENERAL_MAE_TIPO_CONCESION.cs">
+      <DependentUpon>SIGESDOC.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VW_CONSULTAR_DB_GENERAL_MAE_ZONA_PRODUCCION.cs">
+      <DependentUpon>SIGESDOC.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vw_CONSULTAR_DEPARTAMENTO.cs">
+      <DependentUpon>SIGESDOC.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vw_CONSULTAR_DIRECCION.cs">
+      <DependentUpon>SIGESDOC.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vw_CONSULTAR_DNI.cs">
+      <DependentUpon>SIGESDOC.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VW_CONSULTAR_DNI_PERSONAL_LEGAL.cs">
+      <DependentUpon>SIGESDOC.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VW_CONSULTAR_EMPRESA_PERSONA_LEGAL.cs">
+      <DependentUpon>SIGESDOC.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VW_CONSULTAR_ESPECIES.cs">
+      <DependentUpon>SIGESDOC.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VW_CONSULTAR_ESPECIES_CATEGORIAS.cs">
+      <DependentUpon>SIGESDOC.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vw_CONSULTAR_OFICINA.cs">
+      <DependentUpon>SIGESDOC.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VW_CONSULTAR_OFICINA_DIRECCION_LEGAL.cs">
+      <DependentUpon>SIGESDOC.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VW_CONSULTAR_PENDIENTES_HT_PARA_ADJUNTAR_20190104.cs">
+      <DependentUpon>SIGESDOC.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vw_CONSULTAR_PERSONAL.cs">
+      <DependentUpon>SIGESDOC.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VW_CONSULTAR_PERSONA_TELEFONO.cs">
+      <DependentUpon>SIGESDOC.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vw_CONSULTAR_PLANTAS.cs">
+      <DependentUpon>SIGESDOC.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vw_CONSULTAR_PROVINCIA.cs">
+      <DependentUpon>SIGESDOC.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VW_CONSULTAR_RUC.cs">
+      <DependentUpon>SIGESDOC.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vw_CONSULTAR_SEDE_OFICINA.cs">
+      <DependentUpon>SIGESDOC.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vw_CONSULTAR_TIPO_ACTIVIDAD_PLANTA.cs">
+      <DependentUpon>SIGESDOC.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vw_CONSULTAR_TIPO_DOCUMENTO_IDENTIDAD.cs">
+      <DependentUpon>SIGESDOC.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VW_CONSULTAR_TIPO_FURGON_TRANSPORTE.cs">
+      <DependentUpon>SIGESDOC.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vw_CONSULTAR_TIPO_PLANTA.cs">
+      <DependentUpon>SIGESDOC.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vw_CONSULTAR_UBIGEO.cs">
+      <DependentUpon>SIGESDOC.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vw_CONSULTAR_USUARIO.cs">
+      <DependentUpon>SIGESDOC.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VW_CONSULTA_DB_GENERAL_MAE_FACTURA.cs">
+      <DependentUpon>SIGESDOC.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VW_CONSULTA_DB_GENERAL_MAE_OPERACION.cs">
+      <DependentUpon>SIGESDOC.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vw_consulta_db_general_mae_tipo_factura.cs">
+      <DependentUpon>SIGESDOC.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VW_CONSULTA_DB_GENERAL_MAE_VALOR_FACTURADO_EXP.cs">
+      <DependentUpon>SIGESDOC.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VW_CONSULTA_EMBARCACIONES.cs">
+      <DependentUpon>SIGESDOC.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VW_CONSULTA_FACTURAS.cs">
+      <DependentUpon>SIGESDOC.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VW_CONSULTA_PENDIENTES_SANIPES_DETALLE.cs">
+      <DependentUpon>SIGESDOC.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VW_CONSULTA_PERSONA_RECIBO_SERIE1.cs">
+      <DependentUpon>SIGESDOC.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VW_CONSULTA_PROTOCOLOS_AI.cs">
+      <DependentUpon>SIGESDOC.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VW_CONSULTA_PROTOCOLOS_LO.cs">
+      <DependentUpon>SIGESDOC.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VW_CONSULTA_RECIBO_SERIE1.cs">
+      <DependentUpon>SIGESDOC.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VW_CONSULTA_REPORTE_DIARIO_SERIE1.cs">
+      <DependentUpon>SIGESDOC.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VW_CONSULTA_SOLICITUD_INSPECCION_OD.cs">
+      <DependentUpon>SIGESDOC.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VW_CONSULTA_TIPO_EMBARCACIONES.cs">
+      <DependentUpon>SIGESDOC.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VW_DB_GENERAL_MAE_CODIGO_DESEMBARCADERO.cs">
+      <DependentUpon>SIGESDOC.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VW_DB_GENERAL_MAE_DESEMBARCADERO.cs">
+      <DependentUpon>SIGESDOC.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VW_DB_GENERAL_MAE_TIPO_DESEMBARCADERO.cs">
+      <DependentUpon>SIGESDOC.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VW_VER_PEDIENTES_GESDOC.cs">
+      <DependentUpon>SIGESDOC.tt</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="SIGESDOC.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>SIGESDOC.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

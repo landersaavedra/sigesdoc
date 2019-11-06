@@ -1,0 +1,666 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{5B483D46-9461-48DF-9DDD-73B6B5A2E792}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>SIGESDOC.Request</RootNamespace>
+    <AssemblyName>SIGESDOC.Request</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ActaInspeccionDsfpaRequest.cs">
+      <DependentUpon>RequestObjects.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ActividadProtocoloRequest.cs">
+      <DependentUpon>RequestObjects.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ArchivadorDhcpaRequest.cs">
+      <DependentUpon>RequestObjects.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CheckListInspeccionDsfpaRequest.cs">
+      <DependentUpon>RequestObjects.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ClasificacionTramiteRequest.cs">
+      <DependentUpon>RequestObjects.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ConstanciaHaccpRequest.cs">
+      <DependentUpon>RequestObjects.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ConsultaDbGeneralMaeFacturaRequest.cs">
+      <DependentUpon>RequestObjects.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ConsultaDbGeneralMaeOperacionRequest.cs">
+      <DependentUpon>RequestObjects.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ConsultaDbGeneralMaeTipoFacturaRequest.cs">
+      <DependentUpon>RequestObjects.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ConsultaDbGeneralMaeValorFacturadoExpRequest.cs">
+      <DependentUpon>RequestObjects.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ConsultaEmbarcacionesRequest.cs">
+      <DependentUpon>RequestObjects.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ConsultaFacturasRequest.cs">
+      <DependentUpon>RequestObjects.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ConsultaPendientesSanipesDetalleRequest.cs">
+      <DependentUpon>RequestObjects.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ConsultaPersonaReciboSerie1Request.cs">
+      <DependentUpon>RequestObjects.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ConsultaProtocolosAiRequest.cs">
+      <DependentUpon>RequestObjects.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ConsultaProtocolosLoRequest.cs">
+      <DependentUpon>RequestObjects.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ConsultarActvAlmacenRequest.cs">
+      <DependentUpon>RequestObjects.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ConsultarActvEmbarcacionRequest.cs">
+      <DependentUpon>RequestObjects.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ConsultarCodHabAlmacenRequest.cs">
+      <DependentUpon>RequestObjects.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ConsultarCodHabEmbarcacionRequest.cs">
+      <DependentUpon>RequestObjects.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ConsultarDbGeneralMaeAlmacenSedeRequest.cs">
+      <DependentUpon>RequestObjects.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ConsultarDbGeneralMaeAreaProduccionRequest.cs">
+      <DependentUpon>RequestObjects.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ConsultarDbGeneralMaeConcesionRequest.cs">
+      <DependentUpon>RequestObjects.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ConsultarDbGeneralMaeTipoConcesionRequest.cs">
+      <DependentUpon>RequestObjects.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ConsultarDbGeneralMaeZonaProduccionRequest.cs">
+      <DependentUpon>RequestObjects.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ConsultarDepartamentoRequest.cs">
+      <DependentUpon>RequestObjects.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ConsultarDireccionRequest.cs">
+      <DependentUpon>RequestObjects.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ConsultarDniPersonalLegalRequest.cs">
+      <DependentUpon>RequestObjects.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ConsultarDniRequest.cs">
+      <DependentUpon>RequestObjects.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ConsultaReciboSerie1Request.cs">
+      <DependentUpon>RequestObjects.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ConsultarEmpresaPersonaLegalRequest.cs">
+      <DependentUpon>RequestObjects.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ConsultaReporteDiarioSerie1Request.cs">
+      <DependentUpon>RequestObjects.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ConsultarEspeciesCategoriasRequest.cs">
+      <DependentUpon>RequestObjects.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ConsultarEspeciesRequest.cs">
+      <DependentUpon>RequestObjects.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ConsultarOficinaDireccionLegalRequest.cs">
+      <DependentUpon>RequestObjects.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ConsultarOficinaRequest.cs">
+      <DependentUpon>RequestObjects.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ConsultarPendientesHtParaAdjuntar20190104Request.cs">
+      <DependentUpon>RequestObjects.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ConsultarPersonalRequest.cs">
+      <DependentUpon>RequestObjects.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ConsultarPersonaTelefonoRequest.cs">
+      <DependentUpon>RequestObjects.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ConsultarPlantasRequest.cs">
+      <DependentUpon>RequestObjects.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ConsultarProvinciaRequest.cs">
+      <DependentUpon>RequestObjects.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ConsultarRucRequest.cs">
+      <DependentUpon>RequestObjects.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ConsultarSedeOficinaRequest.cs">
+      <DependentUpon>RequestObjects.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ConsultarTipoActividadPlantaRequest.cs">
+      <DependentUpon>RequestObjects.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ConsultarTipoDocumentoIdentidadRequest.cs">
+      <DependentUpon>RequestObjects.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ConsultarTipoFurgonTransporteRequest.cs">
+      <DependentUpon>RequestObjects.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ConsultarTipoPlantaRequest.cs">
+      <DependentUpon>RequestObjects.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ConsultarUbigeoRequest.cs">
+      <DependentUpon>RequestObjects.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ConsultarUsuarioRequest.cs">
+      <DependentUpon>RequestObjects.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ConsultaSolicitudInspeccionOdRequest.cs">
+      <DependentUpon>RequestObjects.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ConsultaTipoEmbarcacionesRequest.cs">
+      <DependentUpon>RequestObjects.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DbGeneralMaeCodigoDesembarcaderoRequest.cs">
+      <DependentUpon>RequestObjects.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DbGeneralMaeDesembarcaderoRequest.cs">
+      <DependentUpon>RequestObjects.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DbGeneralMaeTipoCarroceriaRequest.cs">
+      <DependentUpon>RequestObjects.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DbGeneralMaeTipoDesembarcaderoRequest.cs">
+      <DependentUpon>RequestObjects.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DbGeneralMaeTransporteRequest.cs">
+      <DependentUpon>RequestObjects.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DbGeneralMaeUnidadMedidaRequest.cs">
+      <DependentUpon>RequestObjects.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DestinoSolicitudInspeccionRequest.cs">
+      <DependentUpon>RequestObjects.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DetDocFactRequest.cs">
+      <DependentUpon>RequestObjects.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DetSegDocDhcpaRequest.cs">
+      <DependentUpon>RequestObjects.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DetSegDocRequest.cs">
+      <DependentUpon>RequestObjects.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DetSegEvaluadorRequest.cs">
+      <DependentUpon>RequestObjects.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DocDetObservacionesRequest.cs">
+      <DependentUpon>RequestObjects.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DocumentoAnexoRequest.cs">
+      <DependentUpon>RequestObjects.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DocumentoDetalleRequest.cs">
+      <DependentUpon>RequestObjects.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DocumentoDhcpaDetalleRequest.cs">
+      <DependentUpon>RequestObjects.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DocumentoDhcpaRequest.cs">
+      <DependentUpon>RequestObjects.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DocumentoIndicadorRequest.cs">
+      <DependentUpon>RequestObjects.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DocumentoRequest.cs">
+      <DependentUpon>RequestObjects.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DocumentoSeguimientoAdjuntoRequest.cs">
+      <DependentUpon>RequestObjects.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DocumentoSeguimientoRequest.cs">
+      <DependentUpon>RequestObjects.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EspeciesHabilitacionesRequest.cs">
+      <DependentUpon>RequestObjects.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EstadosDelProtocoloRequest.cs">
+      <DependentUpon>RequestObjects.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EstadoSeguimientoDhcpaRequest.cs">
+      <DependentUpon>RequestObjects.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EstadoTramiteRequest.cs">
+      <DependentUpon>RequestObjects.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ExpedientesRequest.cs">
+      <DependentUpon>RequestObjects.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ExpedienteUnicoRequest.cs">
+      <DependentUpon>RequestObjects.tt</DependentUpon>
+    </Compile>
+    <Compile Include="FilialDhcpaRequest.cs">
+      <DependentUpon>RequestObjects.tt</DependentUpon>
+    </Compile>
+    <Compile Include="FirmasSdhpaRequest.cs">
+      <DependentUpon>RequestObjects.tt</DependentUpon>
+    </Compile>
+    <Compile Include="HojaTramiteRequest.cs">
+      <DependentUpon>RequestObjects.tt</DependentUpon>
+    </Compile>
+    <Compile Include="HtExternoRequest.cs">
+      <DependentUpon>RequestObjects.tt</DependentUpon>
+    </Compile>
+    <Compile Include="HtInternoRequest.cs">
+      <DependentUpon>RequestObjects.tt</DependentUpon>
+    </Compile>
+    <Compile Include="IndicadoresTramiteRequest.cs">
+      <DependentUpon>RequestObjects.tt</DependentUpon>
+    </Compile>
+    <Compile Include="IndicadorProtocoloEspecieRequest.cs">
+      <DependentUpon>RequestObjects.tt</DependentUpon>
+    </Compile>
+    <Compile Include="InformeInspeccionDsfpaRequest.cs">
+      <DependentUpon>RequestObjects.tt</DependentUpon>
+    </Compile>
+    <Compile Include="InformeTecnicoEvalRequest.cs">
+      <DependentUpon>RequestObjects.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LogDesarchivoDesatendidoRequest.cs">
+      <DependentUpon>RequestObjects.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ProtocoloAlmacenRequest.cs">
+      <DependentUpon>RequestObjects.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ProtocoloAutorizacionInstalacionRequest.cs">
+      <DependentUpon>RequestObjects.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ProtocoloConcesionRequest.cs">
+      <DependentUpon>RequestObjects.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ProtocoloDesembarcaderoRequest.cs">
+      <DependentUpon>RequestObjects.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ProtocoloEmbarcacionRequest.cs">
+      <DependentUpon>RequestObjects.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ProtocoloEspecieRequest.cs">
+      <DependentUpon>RequestObjects.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ProtocoloLicenciaOperacionRequest.cs">
+      <DependentUpon>RequestObjects.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ProtocoloPlantaRequest.cs">
+      <DependentUpon>RequestObjects.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ProtocoloRequest.cs">
+      <DependentUpon>RequestObjects.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ProtocoloTransporteRequest.cs">
+      <DependentUpon>RequestObjects.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PruebaInspeccionDsfpaRequest.cs">
+      <DependentUpon>RequestObjects.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PtocoloTransporteXIdTransporte2018V1Request.cs">
+      <DependentUpon>RequestObjects.tt</DependentUpon>
+    </Compile>
+    <Compile Include="p_ACTUALIZA_PERSONA_Result.cs">
+      <DependentUpon>RequestObjects.tt</DependentUpon>
+    </Compile>
+    <Compile Include="P_ASIGNA_OFICINA_PERSONA_Result.cs">
+      <DependentUpon>RequestObjects.tt</DependentUpon>
+    </Compile>
+    <Compile Include="p_CAMBIO_CONTRASEÑA_Result.cs">
+      <DependentUpon>RequestObjects.tt</DependentUpon>
+    </Compile>
+    <Compile Include="P_CONSULTAR_MAE_ALMACEN_SEDE_Result.cs">
+      <DependentUpon>RequestObjects.tt</DependentUpon>
+    </Compile>
+    <Compile Include="P_CREA_EMBARCACIONES_Result.cs">
+      <DependentUpon>RequestObjects.tt</DependentUpon>
+    </Compile>
+    <Compile Include="P_CREA_FACTURAS_Result.cs">
+      <DependentUpon>RequestObjects.tt</DependentUpon>
+    </Compile>
+    <Compile Include="p_CREA_OFICINA_DIRECCION_Result.cs">
+      <DependentUpon>RequestObjects.tt</DependentUpon>
+    </Compile>
+    <Compile Include="p_CREA_OFICINA_PRINCIPAL_Result.cs">
+      <DependentUpon>RequestObjects.tt</DependentUpon>
+    </Compile>
+    <Compile Include="p_CREA_PERSONAL_Result.cs">
+      <DependentUpon>RequestObjects.tt</DependentUpon>
+    </Compile>
+    <Compile Include="p_CREA_SEDE_SECUNDARIA_Result.cs">
+      <DependentUpon>RequestObjects.tt</DependentUpon>
+    </Compile>
+    <Compile Include="P_DESACTIVA_OFICINA_PERSONA_Result.cs">
+      <DependentUpon>RequestObjects.tt</DependentUpon>
+    </Compile>
+    <Compile Include="p_GENERA_DATA_PROTOCOLO_ALMACEN_Result.cs">
+      <DependentUpon>RequestObjects.tt</DependentUpon>
+    </Compile>
+    <Compile Include="p_GENERA_DATA_PROTOCOLO_AUTORIZACION_INSTALACION_Result.cs">
+      <DependentUpon>RequestObjects.tt</DependentUpon>
+    </Compile>
+    <Compile Include="p_GENERA_DATA_PROTOCOLO_CONCESION_Result.cs">
+      <DependentUpon>RequestObjects.tt</DependentUpon>
+    </Compile>
+    <Compile Include="p_GENERA_DATA_PROTOCOLO_DESEMBARCADERO_Result.cs">
+      <DependentUpon>RequestObjects.tt</DependentUpon>
+    </Compile>
+    <Compile Include="p_GENERA_DATA_PROTOCOLO_EMBARCACION_Result.cs">
+      <DependentUpon>RequestObjects.tt</DependentUpon>
+    </Compile>
+    <Compile Include="p_GENERA_DATA_PROTOCOLO_LICENCIA_OPERACION_Result.cs">
+      <DependentUpon>RequestObjects.tt</DependentUpon>
+    </Compile>
+    <Compile Include="p_GENERA_DATA_PROTOCOLO_PLANTA_Result.cs">
+      <DependentUpon>RequestObjects.tt</DependentUpon>
+    </Compile>
+    <Compile Include="P_GUARDAR_OFICINA_Result.cs">
+      <DependentUpon>RequestObjects.tt</DependentUpon>
+    </Compile>
+    <Compile Include="P_INSERT_PERSONA_TELEFONO_Result.cs">
+      <DependentUpon>RequestObjects.tt</DependentUpon>
+    </Compile>
+    <Compile Include="P_INSERT_UPDATE_DAT_DET_OPERACION_FACTURA_Result.cs">
+      <DependentUpon>RequestObjects.tt</DependentUpon>
+    </Compile>
+    <Compile Include="P_INSERT_UPDATE_DB_GENERAL_MAE_CONCESION_Result.cs">
+      <DependentUpon>RequestObjects.tt</DependentUpon>
+    </Compile>
+    <Compile Include="P_INSERT_UPDATE_DB_GENERAL_MAE_DESEMBARCADERO_Result.cs">
+      <DependentUpon>RequestObjects.tt</DependentUpon>
+    </Compile>
+    <Compile Include="P_INSERT_UPDATE_MAE_ALMACEN_SEDE_Result.cs">
+      <DependentUpon>RequestObjects.tt</DependentUpon>
+    </Compile>
+    <Compile Include="P_INSERT_UPDATE_MAE_DNI_PERSONA_LEGAL_Result.cs">
+      <DependentUpon>RequestObjects.tt</DependentUpon>
+    </Compile>
+    <Compile Include="P_INSERT_UPDATE_MAE_ENTIDAD_PERSONA_LEGAL_Result.cs">
+      <DependentUpon>RequestObjects.tt</DependentUpon>
+    </Compile>
+    <Compile Include="P_INSERT_UPDATE_MAE_OFICINA_DIRECCION_LEGAL_Result.cs">
+      <DependentUpon>RequestObjects.tt</DependentUpon>
+    </Compile>
+    <Compile Include="P_INSERT_UPDATE_MAE_OPERACION_Result.cs">
+      <DependentUpon>RequestObjects.tt</DependentUpon>
+    </Compile>
+    <Compile Include="P_INSERT_UPDATE_MAE_VALOR_FACTURADO_EXP_Result.cs">
+      <DependentUpon>RequestObjects.tt</DependentUpon>
+    </Compile>
+    <Compile Include="p_MODIFICAR_CONTRASEÑA_Result.cs">
+      <DependentUpon>RequestObjects.tt</DependentUpon>
+    </Compile>
+    <Compile Include="P_RELACION_PROTOCOLO_SEGUIMIENTO_PLANTA_Result.cs">
+      <DependentUpon>RequestObjects.tt</DependentUpon>
+    </Compile>
+    <Compile Include="P_RELACION_PROTOCOLO_SEGUIMIENTO_Result.cs">
+      <DependentUpon>RequestObjects.tt</DependentUpon>
+    </Compile>
+    <Compile Include="P_RELACION_PROTOCOLO_SOLICITUD_Result.cs">
+      <DependentUpon>RequestObjects.tt</DependentUpon>
+    </Compile>
+    <Compile Include="P_SEGURIDAD_CONSULTAR_USUARIO_Result.cs">
+      <DependentUpon>RequestObjects.tt</DependentUpon>
+    </Compile>
+    <Compile Include="P_UPDATE_MAE_OPERACION_Result.cs">
+      <DependentUpon>RequestObjects.tt</DependentUpon>
+    </Compile>
+    <Compile Include="P_VER_PROTO_SEGUIMIENTO_Result.cs">
+      <DependentUpon>RequestObjects.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ReporteComprobanteXMesConsultaRequest.cs">
+      <DependentUpon>RequestObjects.tt</DependentUpon>
+    </Compile>
+    <Compile Include="RequestObjects.cs">
+      <DependentUpon>RequestObjects.tt</DependentUpon>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+    </Compile>
+    <Compile Include="SeguimientoDhcpaObservacionesRequest.cs">
+      <DependentUpon>RequestObjects.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SeguimientoDhcpaRequest.cs">
+      <DependentUpon>RequestObjects.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ServicioDhcpaRequest.cs">
+      <DependentUpon>RequestObjects.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SolicitudInspeccionRequest.cs">
+      <DependentUpon>RequestObjects.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SP_ACTUALIZAR_DB_GENERAL_MAE_TRANSPORTE_Result.cs">
+      <DependentUpon>RequestObjects.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SP_ACTUALIZA_NOM_EMPRESA_Result.cs">
+      <DependentUpon>RequestObjects.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SP_ACTUALIZA_PLANTA_Result.cs">
+      <DependentUpon>RequestObjects.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SP_CONSULTAR_ACTA_CHKL_INFO_PRU_SI_Result.cs">
+      <DependentUpon>RequestObjects.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SP_CONSULTAR_CORREO_OD_POR_FILIAL_DHCPA_Result.cs">
+      <DependentUpon>RequestObjects.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SP_CONSULTAR_DOCUMENTOS_PENDIENTES_DETALLE_DESAGREGADO_Result.cs">
+      <DependentUpon>RequestObjects.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SP_CONSULTAR_DOCUMENTOS_PENDIENTES_DETALLE_Result.cs">
+      <DependentUpon>RequestObjects.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SP_CONSULTAR_DOCUMENTOS_PENDIENTES_Result.cs">
+      <DependentUpon>RequestObjects.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SP_CONSULTAR_DOC_X_OFICINA_X_TUPA_Result.cs">
+      <DependentUpon>RequestObjects.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SP_CONSULTAR_EXPEDIENTES_X_DOCUMENTO_HABILITACIONES_OD_Result.cs">
+      <DependentUpon>RequestObjects.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SP_CONSULTAR_EXPEDIENTES_X_DOCUMENTO_HABILITACIONES_RECEP_Result.cs">
+      <DependentUpon>RequestObjects.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SP_CONSULTAR_EXPEDIENTES_X_DOCUMENTO_HABILITACIONES_Result.cs">
+      <DependentUpon>RequestObjects.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SP_CONSULTAR_HT_GENERAL_Result.cs">
+      <DependentUpon>RequestObjects.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SP_CONSULTAR_HT_GENERAL_X_OFICINA_DESTINO_X_TUPA_Result.cs">
+      <DependentUpon>RequestObjects.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SP_CONSULTAR_PRUEBAS_IMAGENES_SI_Result.cs">
+      <DependentUpon>RequestObjects.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SP_CONSULTAR_REGISTRO_DE_USUARIO_Result.cs">
+      <DependentUpon>RequestObjects.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SP_CONSULTAR_TRANSPORTES_CON_PROTOCOLO_HABILITADO_Result.cs">
+      <DependentUpon>RequestObjects.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SP_CONSULTA_HISTORIAL_EVALUADOR_Result.cs">
+      <DependentUpon>RequestObjects.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SP_CONSULTA_HISTORIAL_HT_Result.cs">
+      <DependentUpon>RequestObjects.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SP_CONSULTA_HOJA_TRAMITE_X_PEDIDO_Result.cs">
+      <DependentUpon>RequestObjects.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SP_CORREO_ALERTA_GENERA_SI_Result.cs">
+      <DependentUpon>RequestObjects.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SP_CREA_PLANTA_Result.cs">
+      <DependentUpon>RequestObjects.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SP_DB_PROTOCOLO_ANTIGUO_HAB_EMPRESA_INSERT_Result.cs">
+      <DependentUpon>RequestObjects.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SP_DB_PROTOCOLO_ANTIGUO_HAB_PLANTA_INSERT_Result.cs">
+      <DependentUpon>RequestObjects.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SP_DB_PROTOCOLO_ANTIGUO_HAB_PLANTA_PROTOCOLO_INSERT_Result.cs">
+      <DependentUpon>RequestObjects.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SP_EDITA_DB_GENERAL_MAE_SEDE_Result.cs">
+      <DependentUpon>RequestObjects.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SP_EDITA_DB_SEGURIDAD_PERSONA_Result.cs">
+      <DependentUpon>RequestObjects.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SP_EJECUTA_COMPROBANTE_X_MES_CONSULTA_Result.cs">
+      <DependentUpon>RequestObjects.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SP_EXCEL_HT_ARCHIVADOS_ATENDIDOS_Result.cs">
+      <DependentUpon>RequestObjects.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SP_EXCEL_HT_ENVIADAS_Result.cs">
+      <DependentUpon>RequestObjects.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SP_EXCEL_HT_PENDIENTES_POR_ATENDER_Result.cs">
+      <DependentUpon>RequestObjects.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SP_EXCEL_HT_PENDIENTES_POR_RECIBIR_Result.cs">
+      <DependentUpon>RequestObjects.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SP_GENERA_CLAVE_Result.cs">
+      <DependentUpon>RequestObjects.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SP_GENERA_DATA_PROTOCOLO_TRANSPORTE_Result.cs">
+      <DependentUpon>RequestObjects.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SP_GENERA_PROTOCOLO_TRANSPORTE_Result.cs">
+      <DependentUpon>RequestObjects.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SP_HABILITA_PLANTA_Result.cs">
+      <DependentUpon>RequestObjects.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SP_INSERTAR_DB_GENERAL_MAE_TRANSPORTE_Result.cs">
+      <DependentUpon>RequestObjects.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SP_PLANTA_PROTOCOLO_EXCEL_Result.cs">
+      <DependentUpon>RequestObjects.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SP_RECIBIR_MAE_SOLICITUD_INSPECCION_Result.cs">
+      <DependentUpon>RequestObjects.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SP_RECIBIR_MAE_SOLICITUD_INSPECCION_X_INSPECTOR_Result.cs">
+      <DependentUpon>RequestObjects.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SubTupaRequest.cs">
+      <DependentUpon>RequestObjects.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TipoActividadConcesionRequest.cs">
+      <DependentUpon>RequestObjects.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TipoAtencionInspeccionRequest.cs">
+      <DependentUpon>RequestObjects.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TipoAutorizacionInstalacionRequest.cs">
+      <DependentUpon>RequestObjects.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TipoCamaraTransporteRequest.cs">
+      <DependentUpon>RequestObjects.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TipoConsumoHumanoRequest.cs">
+      <DependentUpon>RequestObjects.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TipoDocumentoRequest.cs">
+      <DependentUpon>RequestObjects.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TipoDocumentoSeguimientoAdjuntoRequest.cs">
+      <DependentUpon>RequestObjects.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TipoExpedienteRequest.cs">
+      <DependentUpon>RequestObjects.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TipoLicenciaOperacionRequest.cs">
+      <DependentUpon>RequestObjects.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TipoPedidoSigaRequest.cs">
+      <DependentUpon>RequestObjects.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TipoProcedimientoRequest.cs">
+      <DependentUpon>RequestObjects.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TipoProtocoloEmbarcacionRequest.cs">
+      <DependentUpon>RequestObjects.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TipoSeguimientoRequest.cs">
+      <DependentUpon>RequestObjects.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TipoServicioHabilitacionRequest.cs">
+      <DependentUpon>RequestObjects.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TipoTramiteRequest.cs">
+      <DependentUpon>RequestObjects.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TipoTupaRequest.cs">
+      <DependentUpon>RequestObjects.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TupaRequest.cs">
+      <DependentUpon>RequestObjects.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VerPedientesGesdocRequest.cs">
+      <DependentUpon>RequestObjects.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VersionSolicitudRequest.cs">
+      <DependentUpon>RequestObjects.tt</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="RequestObjects.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>RequestObjects.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

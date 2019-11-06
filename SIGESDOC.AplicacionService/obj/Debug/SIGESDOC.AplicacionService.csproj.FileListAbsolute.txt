@@ -1,0 +1,255 @@
+C:\Users\Administrator\Desktop\SIGESDOC_SANIPES\SISBIVALVOS.AplicacionService\bin\Debug\SISBIVALVOS.AplicacionService.dll
+C:\Users\Administrator\Desktop\SIGESDOC_SANIPES\SISBIVALVOS.AplicacionService\bin\Debug\SISBIVALVOS.AplicacionService.pdb
+C:\Users\Administrator\Desktop\SIGESDOC_SANIPES\SISBIVALVOS.AplicacionService\bin\Debug\SIGESDOC.IAplicacionService.dll
+C:\Users\Administrator\Desktop\SIGESDOC_SANIPES\SISBIVALVOS.AplicacionService\bin\Debug\SISBIVALVOS.Entidades.dll
+C:\Users\Administrator\Desktop\SIGESDOC_SANIPES\SISBIVALVOS.AplicacionService\bin\Debug\SISBIVALVOS.IRepositorio.dll
+C:\Users\Administrator\Desktop\SIGESDOC_SANIPES\SISBIVALVOS.AplicacionService\bin\Debug\SISBIVALVOS.Request.dll
+C:\Users\Administrator\Desktop\SIGESDOC_SANIPES\SISBIVALVOS.AplicacionService\bin\Debug\SISBIVALVOS.Response.dll
+C:\Users\Administrator\Desktop\SIGESDOC_SANIPES\SISBIVALVOS.AplicacionService\bin\Debug\EntityFramework.dll
+C:\Users\Administrator\Desktop\SIGESDOC_SANIPES\SISBIVALVOS.AplicacionService\bin\Debug\SISBIVALVOS.Entidades.pdb
+C:\Users\Administrator\Desktop\SIGESDOC_SANIPES\SISBIVALVOS.AplicacionService\bin\Debug\SIGESDOC.IAplicacionService.pdb
+C:\Users\Administrator\Desktop\SIGESDOC_SANIPES\SISBIVALVOS.AplicacionService\bin\Debug\SISBIVALVOS.IRepositorio.pdb
+C:\Users\Administrator\Desktop\SIGESDOC_SANIPES\SISBIVALVOS.AplicacionService\bin\Debug\SISBIVALVOS.Request.pdb
+C:\Users\Administrator\Desktop\SIGESDOC_SANIPES\SISBIVALVOS.AplicacionService\bin\Debug\SISBIVALVOS.Response.pdb
+C:\Users\Administrator\Desktop\SIGESDOC_SANIPES\SISBIVALVOS.AplicacionService\bin\Debug\EntityFramework.xml
+C:\Users\Administrator\Desktop\SIGESDOC_SANIPES\SISBIVALVOS.AplicacionService\obj\Debug\SIGESDOC.AplicacionService.csprojResolveAssemblyReference.cache
+C:\Users\Administrator\Desktop\SIGESDOC_SANIPES\SISBIVALVOS.AplicacionService\obj\Debug\SISBIVALVOS.AplicacionService.dll
+C:\Users\Administrator\Desktop\SIGESDOC_SANIPES\SISBIVALVOS.AplicacionService\obj\Debug\SISBIVALVOS.AplicacionService.pdb
+C:\Users\Administrator\Desktop\SIGESDOC_SANIPES\SIGESDOC.AplicacionService\bin\Debug\SIGESDOC.AplicacionService.dll
+C:\Users\Administrator\Desktop\SIGESDOC_SANIPES\SIGESDOC.AplicacionService\bin\Debug\SIGESDOC.AplicacionService.pdb
+C:\Users\Administrator\Desktop\SIGESDOC_SANIPES\SIGESDOC.AplicacionService\bin\Debug\SIGESDOC.Entidades.dll
+C:\Users\Administrator\Desktop\SIGESDOC_SANIPES\SIGESDOC.AplicacionService\bin\Debug\SIGESDOC.IAplicacionService.dll
+C:\Users\Administrator\Desktop\SIGESDOC_SANIPES\SIGESDOC.AplicacionService\bin\Debug\SIGESDOC.IRepositorio.dll
+C:\Users\Administrator\Desktop\SIGESDOC_SANIPES\SIGESDOC.AplicacionService\bin\Debug\SIGESDOC.Request.dll
+C:\Users\Administrator\Desktop\SIGESDOC_SANIPES\SIGESDOC.AplicacionService\bin\Debug\SIGESDOC.Response.dll
+C:\Users\Administrator\Desktop\SIGESDOC_SANIPES\SIGESDOC.AplicacionService\bin\Debug\EntityFramework.dll
+C:\Users\Administrator\Desktop\SIGESDOC_SANIPES\SIGESDOC.AplicacionService\bin\Debug\SIGESDOC.Entidades.pdb
+C:\Users\Administrator\Desktop\SIGESDOC_SANIPES\SIGESDOC.AplicacionService\bin\Debug\SIGESDOC.IAplicacionService.pdb
+C:\Users\Administrator\Desktop\SIGESDOC_SANIPES\SIGESDOC.AplicacionService\bin\Debug\SIGESDOC.IRepositorio.pdb
+C:\Users\Administrator\Desktop\SIGESDOC_SANIPES\SIGESDOC.AplicacionService\bin\Debug\SIGESDOC.Request.pdb
+C:\Users\Administrator\Desktop\SIGESDOC_SANIPES\SIGESDOC.AplicacionService\bin\Debug\SIGESDOC.Response.pdb
+C:\Users\Administrator\Desktop\SIGESDOC_SANIPES\SIGESDOC.AplicacionService\bin\Debug\EntityFramework.xml
+C:\Users\Administrator\Desktop\SIGESDOC_SANIPES\SIGESDOC.AplicacionService\obj\Debug\SIGESDOC.AplicacionService.csprojResolveAssemblyReference.cache
+C:\Users\Administrator\Desktop\SIGESDOC_SANIPES\SIGESDOC.AplicacionService\obj\Debug\SIGESDOC.AplicacionService.dll
+C:\Users\Administrator\Desktop\SIGESDOC_SANIPES\SIGESDOC.AplicacionService\obj\Debug\SIGESDOC.AplicacionService.pdb
+C:\Users\Administrador\Desktop\SISTEMAS\SIGESDOC - SISTEMA DE GESTION DE DOCUMENTOS\SIGESDOC_SANIPES\SIGESDOC.AplicacionService\bin\Debug\SIGESDOC.AplicacionService.dll
+C:\Users\Administrador\Desktop\SISTEMAS\SIGESDOC - SISTEMA DE GESTION DE DOCUMENTOS\SIGESDOC_SANIPES\SIGESDOC.AplicacionService\bin\Debug\SIGESDOC.AplicacionService.pdb
+C:\Users\Administrador\Desktop\SISTEMAS\SIGESDOC - SISTEMA DE GESTION DE DOCUMENTOS\SIGESDOC_SANIPES\SIGESDOC.AplicacionService\bin\Debug\SIGESDOC.Entidades.dll
+C:\Users\Administrador\Desktop\SISTEMAS\SIGESDOC - SISTEMA DE GESTION DE DOCUMENTOS\SIGESDOC_SANIPES\SIGESDOC.AplicacionService\bin\Debug\SIGESDOC.IAplicacionService.dll
+C:\Users\Administrador\Desktop\SISTEMAS\SIGESDOC - SISTEMA DE GESTION DE DOCUMENTOS\SIGESDOC_SANIPES\SIGESDOC.AplicacionService\bin\Debug\SIGESDOC.IRepositorio.dll
+C:\Users\Administrador\Desktop\SISTEMAS\SIGESDOC - SISTEMA DE GESTION DE DOCUMENTOS\SIGESDOC_SANIPES\SIGESDOC.AplicacionService\bin\Debug\SIGESDOC.Request.dll
+C:\Users\Administrador\Desktop\SISTEMAS\SIGESDOC - SISTEMA DE GESTION DE DOCUMENTOS\SIGESDOC_SANIPES\SIGESDOC.AplicacionService\bin\Debug\SIGESDOC.Response.dll
+C:\Users\Administrador\Desktop\SISTEMAS\SIGESDOC - SISTEMA DE GESTION DE DOCUMENTOS\SIGESDOC_SANIPES\SIGESDOC.AplicacionService\bin\Debug\EntityFramework.dll
+C:\Users\Administrador\Desktop\SISTEMAS\SIGESDOC - SISTEMA DE GESTION DE DOCUMENTOS\SIGESDOC_SANIPES\SIGESDOC.AplicacionService\bin\Debug\SIGESDOC.Entidades.pdb
+C:\Users\Administrador\Desktop\SISTEMAS\SIGESDOC - SISTEMA DE GESTION DE DOCUMENTOS\SIGESDOC_SANIPES\SIGESDOC.AplicacionService\bin\Debug\SIGESDOC.IAplicacionService.pdb
+C:\Users\Administrador\Desktop\SISTEMAS\SIGESDOC - SISTEMA DE GESTION DE DOCUMENTOS\SIGESDOC_SANIPES\SIGESDOC.AplicacionService\bin\Debug\SIGESDOC.IRepositorio.pdb
+C:\Users\Administrador\Desktop\SISTEMAS\SIGESDOC - SISTEMA DE GESTION DE DOCUMENTOS\SIGESDOC_SANIPES\SIGESDOC.AplicacionService\bin\Debug\SIGESDOC.Request.pdb
+C:\Users\Administrador\Desktop\SISTEMAS\SIGESDOC - SISTEMA DE GESTION DE DOCUMENTOS\SIGESDOC_SANIPES\SIGESDOC.AplicacionService\bin\Debug\SIGESDOC.Response.pdb
+C:\Users\Administrador\Desktop\SISTEMAS\SIGESDOC - SISTEMA DE GESTION DE DOCUMENTOS\SIGESDOC_SANIPES\SIGESDOC.AplicacionService\bin\Debug\EntityFramework.xml
+C:\Users\Administrador\Desktop\SISTEMAS\SIGESDOC - SISTEMA DE GESTION DE DOCUMENTOS\SIGESDOC_SANIPES\SIGESDOC.AplicacionService\obj\Debug\SIGESDOC.AplicacionService.csprojResolveAssemblyReference.cache
+C:\Users\Administrador\Desktop\SISTEMAS\SIGESDOC - SISTEMA DE GESTION DE DOCUMENTOS\SIGESDOC_SANIPES\SIGESDOC.AplicacionService\obj\Debug\SIGESDOC.AplicacionService.dll
+C:\Users\Administrador\Desktop\SISTEMAS\SIGESDOC - SISTEMA DE GESTION DE DOCUMENTOS\SIGESDOC_SANIPES\SIGESDOC.AplicacionService\obj\Debug\SIGESDOC.AplicacionService.pdb
+C:\Users\Administrador\Desktop\SISTEMAS\SIGESDOC-SISTEMA DE GESTION DE DOCUMENTOS\SIGESDOC_SANIPES\SIGESDOC.AplicacionService\bin\Debug\SIGESDOC.AplicacionService.dll
+C:\Users\Administrador\Desktop\SISTEMAS\SIGESDOC-SISTEMA DE GESTION DE DOCUMENTOS\SIGESDOC_SANIPES\SIGESDOC.AplicacionService\bin\Debug\SIGESDOC.AplicacionService.pdb
+C:\Users\Administrador\Desktop\SISTEMAS\SIGESDOC-SISTEMA DE GESTION DE DOCUMENTOS\SIGESDOC_SANIPES\SIGESDOC.AplicacionService\bin\Debug\SIGESDOC.Entidades.dll
+C:\Users\Administrador\Desktop\SISTEMAS\SIGESDOC-SISTEMA DE GESTION DE DOCUMENTOS\SIGESDOC_SANIPES\SIGESDOC.AplicacionService\bin\Debug\SIGESDOC.IAplicacionService.dll
+C:\Users\Administrador\Desktop\SISTEMAS\SIGESDOC-SISTEMA DE GESTION DE DOCUMENTOS\SIGESDOC_SANIPES\SIGESDOC.AplicacionService\bin\Debug\SIGESDOC.IRepositorio.dll
+C:\Users\Administrador\Desktop\SISTEMAS\SIGESDOC-SISTEMA DE GESTION DE DOCUMENTOS\SIGESDOC_SANIPES\SIGESDOC.AplicacionService\bin\Debug\SIGESDOC.Request.dll
+C:\Users\Administrador\Desktop\SISTEMAS\SIGESDOC-SISTEMA DE GESTION DE DOCUMENTOS\SIGESDOC_SANIPES\SIGESDOC.AplicacionService\bin\Debug\SIGESDOC.Response.dll
+C:\Users\Administrador\Desktop\SISTEMAS\SIGESDOC-SISTEMA DE GESTION DE DOCUMENTOS\SIGESDOC_SANIPES\SIGESDOC.AplicacionService\bin\Debug\EntityFramework.dll
+C:\Users\Administrador\Desktop\SISTEMAS\SIGESDOC-SISTEMA DE GESTION DE DOCUMENTOS\SIGESDOC_SANIPES\SIGESDOC.AplicacionService\bin\Debug\SIGESDOC.Entidades.pdb
+C:\Users\Administrador\Desktop\SISTEMAS\SIGESDOC-SISTEMA DE GESTION DE DOCUMENTOS\SIGESDOC_SANIPES\SIGESDOC.AplicacionService\bin\Debug\SIGESDOC.IAplicacionService.pdb
+C:\Users\Administrador\Desktop\SISTEMAS\SIGESDOC-SISTEMA DE GESTION DE DOCUMENTOS\SIGESDOC_SANIPES\SIGESDOC.AplicacionService\bin\Debug\SIGESDOC.IRepositorio.pdb
+C:\Users\Administrador\Desktop\SISTEMAS\SIGESDOC-SISTEMA DE GESTION DE DOCUMENTOS\SIGESDOC_SANIPES\SIGESDOC.AplicacionService\bin\Debug\SIGESDOC.Request.pdb
+C:\Users\Administrador\Desktop\SISTEMAS\SIGESDOC-SISTEMA DE GESTION DE DOCUMENTOS\SIGESDOC_SANIPES\SIGESDOC.AplicacionService\bin\Debug\SIGESDOC.Response.pdb
+C:\Users\Administrador\Desktop\SISTEMAS\SIGESDOC-SISTEMA DE GESTION DE DOCUMENTOS\SIGESDOC_SANIPES\SIGESDOC.AplicacionService\bin\Debug\EntityFramework.xml
+C:\Users\Administrador\Desktop\SISTEMAS\SIGESDOC-SISTEMA DE GESTION DE DOCUMENTOS\SIGESDOC_SANIPES\SIGESDOC.AplicacionService\obj\Debug\SIGESDOC.AplicacionService.csprojResolveAssemblyReference.cache
+C:\Users\Administrador\Desktop\SISTEMAS\SIGESDOC-SISTEMA DE GESTION DE DOCUMENTOS\SIGESDOC_SANIPES\SIGESDOC.AplicacionService\obj\Debug\SIGESDOC.AplicacionService.dll
+C:\Users\Administrador\Desktop\SISTEMAS\SIGESDOC-SISTEMA DE GESTION DE DOCUMENTOS\SIGESDOC_SANIPES\SIGESDOC.AplicacionService\obj\Debug\SIGESDOC.AplicacionService.pdb
+C:\Users\Administrator\Desktop\SISTEMAS\SIGESDOC-SISTEMA DE GESTION DE DOCUMENTOS\SIGESDOC_SANIPES\SIGESDOC.AplicacionService\bin\Debug\SIGESDOC.AplicacionService.dll
+C:\Users\Administrator\Desktop\SISTEMAS\SIGESDOC-SISTEMA DE GESTION DE DOCUMENTOS\SIGESDOC_SANIPES\SIGESDOC.AplicacionService\bin\Debug\SIGESDOC.AplicacionService.pdb
+C:\Users\Administrator\Desktop\SISTEMAS\SIGESDOC-SISTEMA DE GESTION DE DOCUMENTOS\SIGESDOC_SANIPES\SIGESDOC.AplicacionService\bin\Debug\SIGESDOC.Entidades.dll
+C:\Users\Administrator\Desktop\SISTEMAS\SIGESDOC-SISTEMA DE GESTION DE DOCUMENTOS\SIGESDOC_SANIPES\SIGESDOC.AplicacionService\bin\Debug\SIGESDOC.IAplicacionService.dll
+C:\Users\Administrator\Desktop\SISTEMAS\SIGESDOC-SISTEMA DE GESTION DE DOCUMENTOS\SIGESDOC_SANIPES\SIGESDOC.AplicacionService\bin\Debug\SIGESDOC.IRepositorio.dll
+C:\Users\Administrator\Desktop\SISTEMAS\SIGESDOC-SISTEMA DE GESTION DE DOCUMENTOS\SIGESDOC_SANIPES\SIGESDOC.AplicacionService\bin\Debug\SIGESDOC.Request.dll
+C:\Users\Administrator\Desktop\SISTEMAS\SIGESDOC-SISTEMA DE GESTION DE DOCUMENTOS\SIGESDOC_SANIPES\SIGESDOC.AplicacionService\bin\Debug\SIGESDOC.Response.dll
+C:\Users\Administrator\Desktop\SISTEMAS\SIGESDOC-SISTEMA DE GESTION DE DOCUMENTOS\SIGESDOC_SANIPES\SIGESDOC.AplicacionService\bin\Debug\EntityFramework.dll
+C:\Users\Administrator\Desktop\SISTEMAS\SIGESDOC-SISTEMA DE GESTION DE DOCUMENTOS\SIGESDOC_SANIPES\SIGESDOC.AplicacionService\bin\Debug\SIGESDOC.Entidades.pdb
+C:\Users\Administrator\Desktop\SISTEMAS\SIGESDOC-SISTEMA DE GESTION DE DOCUMENTOS\SIGESDOC_SANIPES\SIGESDOC.AplicacionService\bin\Debug\SIGESDOC.IAplicacionService.pdb
+C:\Users\Administrator\Desktop\SISTEMAS\SIGESDOC-SISTEMA DE GESTION DE DOCUMENTOS\SIGESDOC_SANIPES\SIGESDOC.AplicacionService\bin\Debug\SIGESDOC.IRepositorio.pdb
+C:\Users\Administrator\Desktop\SISTEMAS\SIGESDOC-SISTEMA DE GESTION DE DOCUMENTOS\SIGESDOC_SANIPES\SIGESDOC.AplicacionService\bin\Debug\SIGESDOC.Request.pdb
+C:\Users\Administrator\Desktop\SISTEMAS\SIGESDOC-SISTEMA DE GESTION DE DOCUMENTOS\SIGESDOC_SANIPES\SIGESDOC.AplicacionService\bin\Debug\SIGESDOC.Response.pdb
+C:\Users\Administrator\Desktop\SISTEMAS\SIGESDOC-SISTEMA DE GESTION DE DOCUMENTOS\SIGESDOC_SANIPES\SIGESDOC.AplicacionService\bin\Debug\EntityFramework.xml
+C:\Users\Administrator\Desktop\SISTEMAS\SIGESDOC-SISTEMA DE GESTION DE DOCUMENTOS\SIGESDOC_SANIPES\SIGESDOC.AplicacionService\obj\Debug\SIGESDOC.AplicacionService.csprojResolveAssemblyReference.cache
+C:\Users\Administrator\Desktop\SISTEMAS\SIGESDOC-SISTEMA DE GESTION DE DOCUMENTOS\SIGESDOC_SANIPES\SIGESDOC.AplicacionService\obj\Debug\SIGESDOC.AplicacionService.dll
+C:\Users\Administrator\Desktop\SISTEMAS\SIGESDOC-SISTEMA DE GESTION DE DOCUMENTOS\SIGESDOC_SANIPES\SIGESDOC.AplicacionService\obj\Debug\SIGESDOC.AplicacionService.pdb
+C:\Users\Administrator\Desktop\SISTEMAS FINALES\SIGESDOC-SISTEMA DE GESTION DE DOCUMENTOS\SIGESDOC_SANIPES\SIGESDOC.AplicacionService\bin\Debug\SIGESDOC.AplicacionService.dll
+C:\Users\Administrator\Desktop\SISTEMAS FINALES\SIGESDOC-SISTEMA DE GESTION DE DOCUMENTOS\SIGESDOC_SANIPES\SIGESDOC.AplicacionService\bin\Debug\SIGESDOC.AplicacionService.pdb
+C:\Users\Administrator\Desktop\SISTEMAS FINALES\SIGESDOC-SISTEMA DE GESTION DE DOCUMENTOS\SIGESDOC_SANIPES\SIGESDOC.AplicacionService\bin\Debug\SIGESDOC.Entidades.dll
+C:\Users\Administrator\Desktop\SISTEMAS FINALES\SIGESDOC-SISTEMA DE GESTION DE DOCUMENTOS\SIGESDOC_SANIPES\SIGESDOC.AplicacionService\bin\Debug\SIGESDOC.IAplicacionService.dll
+C:\Users\Administrator\Desktop\SISTEMAS FINALES\SIGESDOC-SISTEMA DE GESTION DE DOCUMENTOS\SIGESDOC_SANIPES\SIGESDOC.AplicacionService\bin\Debug\SIGESDOC.IRepositorio.dll
+C:\Users\Administrator\Desktop\SISTEMAS FINALES\SIGESDOC-SISTEMA DE GESTION DE DOCUMENTOS\SIGESDOC_SANIPES\SIGESDOC.AplicacionService\bin\Debug\SIGESDOC.Request.dll
+C:\Users\Administrator\Desktop\SISTEMAS FINALES\SIGESDOC-SISTEMA DE GESTION DE DOCUMENTOS\SIGESDOC_SANIPES\SIGESDOC.AplicacionService\bin\Debug\SIGESDOC.Response.dll
+C:\Users\Administrator\Desktop\SISTEMAS FINALES\SIGESDOC-SISTEMA DE GESTION DE DOCUMENTOS\SIGESDOC_SANIPES\SIGESDOC.AplicacionService\bin\Debug\EntityFramework.dll
+C:\Users\Administrator\Desktop\SISTEMAS FINALES\SIGESDOC-SISTEMA DE GESTION DE DOCUMENTOS\SIGESDOC_SANIPES\SIGESDOC.AplicacionService\bin\Debug\SIGESDOC.Entidades.pdb
+C:\Users\Administrator\Desktop\SISTEMAS FINALES\SIGESDOC-SISTEMA DE GESTION DE DOCUMENTOS\SIGESDOC_SANIPES\SIGESDOC.AplicacionService\bin\Debug\SIGESDOC.IAplicacionService.pdb
+C:\Users\Administrator\Desktop\SISTEMAS FINALES\SIGESDOC-SISTEMA DE GESTION DE DOCUMENTOS\SIGESDOC_SANIPES\SIGESDOC.AplicacionService\bin\Debug\SIGESDOC.IRepositorio.pdb
+C:\Users\Administrator\Desktop\SISTEMAS FINALES\SIGESDOC-SISTEMA DE GESTION DE DOCUMENTOS\SIGESDOC_SANIPES\SIGESDOC.AplicacionService\bin\Debug\SIGESDOC.Request.pdb
+C:\Users\Administrator\Desktop\SISTEMAS FINALES\SIGESDOC-SISTEMA DE GESTION DE DOCUMENTOS\SIGESDOC_SANIPES\SIGESDOC.AplicacionService\bin\Debug\SIGESDOC.Response.pdb
+C:\Users\Administrator\Desktop\SISTEMAS FINALES\SIGESDOC-SISTEMA DE GESTION DE DOCUMENTOS\SIGESDOC_SANIPES\SIGESDOC.AplicacionService\bin\Debug\EntityFramework.xml
+C:\Users\Administrator\Desktop\SISTEMAS FINALES\SIGESDOC-SISTEMA DE GESTION DE DOCUMENTOS\SIGESDOC_SANIPES\SIGESDOC.AplicacionService\obj\Debug\SIGESDOC.AplicacionService.csprojResolveAssemblyReference.cache
+C:\Users\Administrator\Desktop\SISTEMAS FINALES\SIGESDOC-SISTEMA DE GESTION DE DOCUMENTOS\SIGESDOC_SANIPES\SIGESDOC.AplicacionService\obj\Debug\SIGESDOC.AplicacionService.dll
+C:\Users\Administrator\Desktop\SISTEMAS FINALES\SIGESDOC-SISTEMA DE GESTION DE DOCUMENTOS\SIGESDOC_SANIPES\SIGESDOC.AplicacionService\obj\Debug\SIGESDOC.AplicacionService.pdb
+C:\Users\Administrator\Desktop\SISTEMAS\SIGESDOC - DHCPA\SIGESDOC-SISTEMA DE GESTION DE DOCUMENTOS\SIGESDOC_SANIPES\SIGESDOC.AplicacionService\bin\Debug\SIGESDOC.AplicacionService.dll
+C:\Users\Administrator\Desktop\SISTEMAS\SIGESDOC - DHCPA\SIGESDOC-SISTEMA DE GESTION DE DOCUMENTOS\SIGESDOC_SANIPES\SIGESDOC.AplicacionService\bin\Debug\SIGESDOC.AplicacionService.pdb
+C:\Users\Administrator\Desktop\SISTEMAS\SIGESDOC - DHCPA\SIGESDOC-SISTEMA DE GESTION DE DOCUMENTOS\SIGESDOC_SANIPES\SIGESDOC.AplicacionService\bin\Debug\SIGESDOC.Entidades.dll
+C:\Users\Administrator\Desktop\SISTEMAS\SIGESDOC - DHCPA\SIGESDOC-SISTEMA DE GESTION DE DOCUMENTOS\SIGESDOC_SANIPES\SIGESDOC.AplicacionService\bin\Debug\SIGESDOC.IAplicacionService.dll
+C:\Users\Administrator\Desktop\SISTEMAS\SIGESDOC - DHCPA\SIGESDOC-SISTEMA DE GESTION DE DOCUMENTOS\SIGESDOC_SANIPES\SIGESDOC.AplicacionService\bin\Debug\SIGESDOC.IRepositorio.dll
+C:\Users\Administrator\Desktop\SISTEMAS\SIGESDOC - DHCPA\SIGESDOC-SISTEMA DE GESTION DE DOCUMENTOS\SIGESDOC_SANIPES\SIGESDOC.AplicacionService\bin\Debug\SIGESDOC.Request.dll
+C:\Users\Administrator\Desktop\SISTEMAS\SIGESDOC - DHCPA\SIGESDOC-SISTEMA DE GESTION DE DOCUMENTOS\SIGESDOC_SANIPES\SIGESDOC.AplicacionService\bin\Debug\SIGESDOC.Response.dll
+C:\Users\Administrator\Desktop\SISTEMAS\SIGESDOC - DHCPA\SIGESDOC-SISTEMA DE GESTION DE DOCUMENTOS\SIGESDOC_SANIPES\SIGESDOC.AplicacionService\bin\Debug\EntityFramework.dll
+C:\Users\Administrator\Desktop\SISTEMAS\SIGESDOC - DHCPA\SIGESDOC-SISTEMA DE GESTION DE DOCUMENTOS\SIGESDOC_SANIPES\SIGESDOC.AplicacionService\bin\Debug\SIGESDOC.Entidades.pdb
+C:\Users\Administrator\Desktop\SISTEMAS\SIGESDOC - DHCPA\SIGESDOC-SISTEMA DE GESTION DE DOCUMENTOS\SIGESDOC_SANIPES\SIGESDOC.AplicacionService\bin\Debug\SIGESDOC.IAplicacionService.pdb
+C:\Users\Administrator\Desktop\SISTEMAS\SIGESDOC - DHCPA\SIGESDOC-SISTEMA DE GESTION DE DOCUMENTOS\SIGESDOC_SANIPES\SIGESDOC.AplicacionService\bin\Debug\SIGESDOC.IRepositorio.pdb
+C:\Users\Administrator\Desktop\SISTEMAS\SIGESDOC - DHCPA\SIGESDOC-SISTEMA DE GESTION DE DOCUMENTOS\SIGESDOC_SANIPES\SIGESDOC.AplicacionService\bin\Debug\SIGESDOC.Request.pdb
+C:\Users\Administrator\Desktop\SISTEMAS\SIGESDOC - DHCPA\SIGESDOC-SISTEMA DE GESTION DE DOCUMENTOS\SIGESDOC_SANIPES\SIGESDOC.AplicacionService\bin\Debug\SIGESDOC.Response.pdb
+C:\Users\Administrator\Desktop\SISTEMAS\SIGESDOC - DHCPA\SIGESDOC-SISTEMA DE GESTION DE DOCUMENTOS\SIGESDOC_SANIPES\SIGESDOC.AplicacionService\bin\Debug\EntityFramework.xml
+C:\Users\Administrator\Desktop\SISTEMAS\SIGESDOC - DHCPA\SIGESDOC-SISTEMA DE GESTION DE DOCUMENTOS\SIGESDOC_SANIPES\SIGESDOC.AplicacionService\obj\Debug\SIGESDOC.AplicacionService.csprojResolveAssemblyReference.cache
+C:\Users\Administrator\Desktop\SISTEMAS\SIGESDOC - DHCPA\SIGESDOC-SISTEMA DE GESTION DE DOCUMENTOS\SIGESDOC_SANIPES\SIGESDOC.AplicacionService\obj\Debug\SIGESDOC.AplicacionService.dll
+C:\Users\Administrator\Desktop\SISTEMAS\SIGESDOC - DHCPA\SIGESDOC-SISTEMA DE GESTION DE DOCUMENTOS\SIGESDOC_SANIPES\SIGESDOC.AplicacionService\obj\Debug\SIGESDOC.AplicacionService.pdb
+E:\SISTEMAS\SIGESDOC\SIGESDOC.AplicacionService\bin\Debug\SIGESDOC.AplicacionService.dll
+E:\SISTEMAS\SIGESDOC\SIGESDOC.AplicacionService\bin\Debug\SIGESDOC.AplicacionService.pdb
+E:\SISTEMAS\SIGESDOC\SIGESDOC.AplicacionService\bin\Debug\SIGESDOC.Entidades.dll
+E:\SISTEMAS\SIGESDOC\SIGESDOC.AplicacionService\bin\Debug\SIGESDOC.IAplicacionService.dll
+E:\SISTEMAS\SIGESDOC\SIGESDOC.AplicacionService\bin\Debug\SIGESDOC.IRepositorio.dll
+E:\SISTEMAS\SIGESDOC\SIGESDOC.AplicacionService\bin\Debug\SIGESDOC.Request.dll
+E:\SISTEMAS\SIGESDOC\SIGESDOC.AplicacionService\bin\Debug\SIGESDOC.Response.dll
+E:\SISTEMAS\SIGESDOC\SIGESDOC.AplicacionService\bin\Debug\EntityFramework.dll
+E:\SISTEMAS\SIGESDOC\SIGESDOC.AplicacionService\bin\Debug\SIGESDOC.Entidades.pdb
+E:\SISTEMAS\SIGESDOC\SIGESDOC.AplicacionService\bin\Debug\SIGESDOC.IAplicacionService.pdb
+E:\SISTEMAS\SIGESDOC\SIGESDOC.AplicacionService\bin\Debug\SIGESDOC.IRepositorio.pdb
+E:\SISTEMAS\SIGESDOC\SIGESDOC.AplicacionService\bin\Debug\SIGESDOC.Request.pdb
+E:\SISTEMAS\SIGESDOC\SIGESDOC.AplicacionService\bin\Debug\SIGESDOC.Response.pdb
+E:\SISTEMAS\SIGESDOC\SIGESDOC.AplicacionService\bin\Debug\EntityFramework.xml
+E:\SISTEMAS\SIGESDOC\SIGESDOC.AplicacionService\obj\Debug\SIGESDOC.AplicacionService.csprojResolveAssemblyReference.cache
+E:\SISTEMAS\SIGESDOC\SIGESDOC.AplicacionService\obj\Debug\SIGESDOC.AplicacionService.dll
+E:\SISTEMAS\SIGESDOC\SIGESDOC.AplicacionService\obj\Debug\SIGESDOC.AplicacionService.pdb
+D:\SISTEMAS\Organismo Nacional de Sanidad Pesquera\Sistema de Gestión de Documentos\Proyectos\Web\SIGESDOC.AplicacionService\bin\Debug\SIGESDOC.AplicacionService.dll
+D:\SISTEMAS\Organismo Nacional de Sanidad Pesquera\Sistema de Gestión de Documentos\Proyectos\Web\SIGESDOC.AplicacionService\bin\Debug\SIGESDOC.AplicacionService.pdb
+D:\SISTEMAS\Organismo Nacional de Sanidad Pesquera\Sistema de Gestión de Documentos\Proyectos\Web\SIGESDOC.AplicacionService\bin\Debug\SIGESDOC.Entidades.dll
+D:\SISTEMAS\Organismo Nacional de Sanidad Pesquera\Sistema de Gestión de Documentos\Proyectos\Web\SIGESDOC.AplicacionService\bin\Debug\SIGESDOC.IAplicacionService.dll
+D:\SISTEMAS\Organismo Nacional de Sanidad Pesquera\Sistema de Gestión de Documentos\Proyectos\Web\SIGESDOC.AplicacionService\bin\Debug\SIGESDOC.IRepositorio.dll
+D:\SISTEMAS\Organismo Nacional de Sanidad Pesquera\Sistema de Gestión de Documentos\Proyectos\Web\SIGESDOC.AplicacionService\bin\Debug\SIGESDOC.Request.dll
+D:\SISTEMAS\Organismo Nacional de Sanidad Pesquera\Sistema de Gestión de Documentos\Proyectos\Web\SIGESDOC.AplicacionService\bin\Debug\SIGESDOC.Response.dll
+D:\SISTEMAS\Organismo Nacional de Sanidad Pesquera\Sistema de Gestión de Documentos\Proyectos\Web\SIGESDOC.AplicacionService\bin\Debug\EntityFramework.dll
+D:\SISTEMAS\Organismo Nacional de Sanidad Pesquera\Sistema de Gestión de Documentos\Proyectos\Web\SIGESDOC.AplicacionService\bin\Debug\SIGESDOC.Entidades.pdb
+D:\SISTEMAS\Organismo Nacional de Sanidad Pesquera\Sistema de Gestión de Documentos\Proyectos\Web\SIGESDOC.AplicacionService\bin\Debug\SIGESDOC.IAplicacionService.pdb
+D:\SISTEMAS\Organismo Nacional de Sanidad Pesquera\Sistema de Gestión de Documentos\Proyectos\Web\SIGESDOC.AplicacionService\bin\Debug\SIGESDOC.IRepositorio.pdb
+D:\SISTEMAS\Organismo Nacional de Sanidad Pesquera\Sistema de Gestión de Documentos\Proyectos\Web\SIGESDOC.AplicacionService\bin\Debug\SIGESDOC.Request.pdb
+D:\SISTEMAS\Organismo Nacional de Sanidad Pesquera\Sistema de Gestión de Documentos\Proyectos\Web\SIGESDOC.AplicacionService\bin\Debug\SIGESDOC.Response.pdb
+D:\SISTEMAS\Organismo Nacional de Sanidad Pesquera\Sistema de Gestión de Documentos\Proyectos\Web\SIGESDOC.AplicacionService\bin\Debug\EntityFramework.xml
+D:\SISTEMAS\Organismo Nacional de Sanidad Pesquera\Sistema de Gestión de Documentos\Proyectos\Web\SIGESDOC.AplicacionService\obj\Debug\SIGESDOC.AplicacionService.csprojResolveAssemblyReference.cache
+D:\SISTEMAS\Organismo Nacional de Sanidad Pesquera\Sistema de Gestión de Documentos\Proyectos\Web\SIGESDOC.AplicacionService\obj\Debug\SIGESDOC.AplicacionService.dll
+D:\SISTEMAS\Organismo Nacional de Sanidad Pesquera\Sistema de Gestión de Documentos\Proyectos\Web\SIGESDOC.AplicacionService\obj\Debug\SIGESDOC.AplicacionService.pdb
+C:\Users\Administrator\Desktop\LO ULTIMO SIGESDOC\SIGESDOC.AplicacionService\bin\Debug\SIGESDOC.AplicacionService.dll
+C:\Users\Administrator\Desktop\LO ULTIMO SIGESDOC\SIGESDOC.AplicacionService\bin\Debug\SIGESDOC.AplicacionService.pdb
+C:\Users\Administrator\Desktop\LO ULTIMO SIGESDOC\SIGESDOC.AplicacionService\bin\Debug\SIGESDOC.Entidades.dll
+C:\Users\Administrator\Desktop\LO ULTIMO SIGESDOC\SIGESDOC.AplicacionService\bin\Debug\SIGESDOC.IAplicacionService.dll
+C:\Users\Administrator\Desktop\LO ULTIMO SIGESDOC\SIGESDOC.AplicacionService\bin\Debug\SIGESDOC.IRepositorio.dll
+C:\Users\Administrator\Desktop\LO ULTIMO SIGESDOC\SIGESDOC.AplicacionService\bin\Debug\SIGESDOC.Request.dll
+C:\Users\Administrator\Desktop\LO ULTIMO SIGESDOC\SIGESDOC.AplicacionService\bin\Debug\SIGESDOC.Response.dll
+C:\Users\Administrator\Desktop\LO ULTIMO SIGESDOC\SIGESDOC.AplicacionService\bin\Debug\EntityFramework.dll
+C:\Users\Administrator\Desktop\LO ULTIMO SIGESDOC\SIGESDOC.AplicacionService\bin\Debug\SIGESDOC.Entidades.pdb
+C:\Users\Administrator\Desktop\LO ULTIMO SIGESDOC\SIGESDOC.AplicacionService\bin\Debug\SIGESDOC.IAplicacionService.pdb
+C:\Users\Administrator\Desktop\LO ULTIMO SIGESDOC\SIGESDOC.AplicacionService\bin\Debug\SIGESDOC.IRepositorio.pdb
+C:\Users\Administrator\Desktop\LO ULTIMO SIGESDOC\SIGESDOC.AplicacionService\bin\Debug\SIGESDOC.Request.pdb
+C:\Users\Administrator\Desktop\LO ULTIMO SIGESDOC\SIGESDOC.AplicacionService\bin\Debug\SIGESDOC.Response.pdb
+C:\Users\Administrator\Desktop\LO ULTIMO SIGESDOC\SIGESDOC.AplicacionService\bin\Debug\EntityFramework.xml
+C:\Users\Administrator\Desktop\LO ULTIMO SIGESDOC\SIGESDOC.AplicacionService\obj\Debug\SIGESDOC.AplicacionService.csprojResolveAssemblyReference.cache
+C:\Users\Administrator\Desktop\LO ULTIMO SIGESDOC\SIGESDOC.AplicacionService\obj\Debug\SIGESDOC.AplicacionService.dll
+C:\Users\Administrator\Desktop\LO ULTIMO SIGESDOC\SIGESDOC.AplicacionService\obj\Debug\SIGESDOC.AplicacionService.pdb
+C:\Users\Administrator\Desktop\SIGESDOC\SIGESDOC_PROYECT\SIGESDOC.AplicacionService\bin\Debug\SIGESDOC.AplicacionService.dll
+C:\Users\Administrator\Desktop\SIGESDOC\SIGESDOC_PROYECT\SIGESDOC.AplicacionService\bin\Debug\SIGESDOC.AplicacionService.pdb
+C:\Users\Administrator\Desktop\SIGESDOC\SIGESDOC_PROYECT\SIGESDOC.AplicacionService\bin\Debug\SIGESDOC.Entidades.dll
+C:\Users\Administrator\Desktop\SIGESDOC\SIGESDOC_PROYECT\SIGESDOC.AplicacionService\bin\Debug\SIGESDOC.IAplicacionService.dll
+C:\Users\Administrator\Desktop\SIGESDOC\SIGESDOC_PROYECT\SIGESDOC.AplicacionService\bin\Debug\SIGESDOC.IRepositorio.dll
+C:\Users\Administrator\Desktop\SIGESDOC\SIGESDOC_PROYECT\SIGESDOC.AplicacionService\bin\Debug\SIGESDOC.Request.dll
+C:\Users\Administrator\Desktop\SIGESDOC\SIGESDOC_PROYECT\SIGESDOC.AplicacionService\bin\Debug\SIGESDOC.Response.dll
+C:\Users\Administrator\Desktop\SIGESDOC\SIGESDOC_PROYECT\SIGESDOC.AplicacionService\bin\Debug\EntityFramework.dll
+C:\Users\Administrator\Desktop\SIGESDOC\SIGESDOC_PROYECT\SIGESDOC.AplicacionService\bin\Debug\SIGESDOC.Entidades.pdb
+C:\Users\Administrator\Desktop\SIGESDOC\SIGESDOC_PROYECT\SIGESDOC.AplicacionService\bin\Debug\SIGESDOC.IAplicacionService.pdb
+C:\Users\Administrator\Desktop\SIGESDOC\SIGESDOC_PROYECT\SIGESDOC.AplicacionService\bin\Debug\SIGESDOC.IRepositorio.pdb
+C:\Users\Administrator\Desktop\SIGESDOC\SIGESDOC_PROYECT\SIGESDOC.AplicacionService\bin\Debug\SIGESDOC.Request.pdb
+C:\Users\Administrator\Desktop\SIGESDOC\SIGESDOC_PROYECT\SIGESDOC.AplicacionService\bin\Debug\SIGESDOC.Response.pdb
+C:\Users\Administrator\Desktop\SIGESDOC\SIGESDOC_PROYECT\SIGESDOC.AplicacionService\bin\Debug\EntityFramework.xml
+C:\Users\Administrator\Desktop\SIGESDOC\SIGESDOC_PROYECT\SIGESDOC.AplicacionService\obj\Debug\SIGESDOC.AplicacionService.csprojResolveAssemblyReference.cache
+C:\Users\Administrator\Desktop\SIGESDOC\SIGESDOC_PROYECT\SIGESDOC.AplicacionService\obj\Debug\SIGESDOC.AplicacionService.dll
+C:\Users\Administrator\Desktop\SIGESDOC\SIGESDOC_PROYECT\SIGESDOC.AplicacionService\obj\Debug\SIGESDOC.AplicacionService.pdb
+C:\Users\andres.albarracin\Desktop\SIGESDOC\SIGESDOC_PROYECT\SIGESDOC.AplicacionService\bin\Debug\SIGESDOC.AplicacionService.dll
+C:\Users\andres.albarracin\Desktop\SIGESDOC\SIGESDOC_PROYECT\SIGESDOC.AplicacionService\bin\Debug\SIGESDOC.AplicacionService.pdb
+C:\Users\andres.albarracin\Desktop\SIGESDOC\SIGESDOC_PROYECT\SIGESDOC.AplicacionService\bin\Debug\SIGESDOC.Entidades.dll
+C:\Users\andres.albarracin\Desktop\SIGESDOC\SIGESDOC_PROYECT\SIGESDOC.AplicacionService\bin\Debug\SIGESDOC.IAplicacionService.dll
+C:\Users\andres.albarracin\Desktop\SIGESDOC\SIGESDOC_PROYECT\SIGESDOC.AplicacionService\bin\Debug\SIGESDOC.IRepositorio.dll
+C:\Users\andres.albarracin\Desktop\SIGESDOC\SIGESDOC_PROYECT\SIGESDOC.AplicacionService\bin\Debug\SIGESDOC.Request.dll
+C:\Users\andres.albarracin\Desktop\SIGESDOC\SIGESDOC_PROYECT\SIGESDOC.AplicacionService\bin\Debug\SIGESDOC.Response.dll
+C:\Users\andres.albarracin\Desktop\SIGESDOC\SIGESDOC_PROYECT\SIGESDOC.AplicacionService\bin\Debug\EntityFramework.dll
+C:\Users\andres.albarracin\Desktop\SIGESDOC\SIGESDOC_PROYECT\SIGESDOC.AplicacionService\bin\Debug\SIGESDOC.Entidades.pdb
+C:\Users\andres.albarracin\Desktop\SIGESDOC\SIGESDOC_PROYECT\SIGESDOC.AplicacionService\bin\Debug\SIGESDOC.IAplicacionService.pdb
+C:\Users\andres.albarracin\Desktop\SIGESDOC\SIGESDOC_PROYECT\SIGESDOC.AplicacionService\bin\Debug\SIGESDOC.IRepositorio.pdb
+C:\Users\andres.albarracin\Desktop\SIGESDOC\SIGESDOC_PROYECT\SIGESDOC.AplicacionService\bin\Debug\SIGESDOC.Request.pdb
+C:\Users\andres.albarracin\Desktop\SIGESDOC\SIGESDOC_PROYECT\SIGESDOC.AplicacionService\bin\Debug\SIGESDOC.Response.pdb
+C:\Users\andres.albarracin\Desktop\SIGESDOC\SIGESDOC_PROYECT\SIGESDOC.AplicacionService\bin\Debug\EntityFramework.xml
+C:\Users\andres.albarracin\Desktop\SIGESDOC\SIGESDOC_PROYECT\SIGESDOC.AplicacionService\obj\Debug\SIGESDOC.AplicacionService.csprojResolveAssemblyReference.cache
+C:\Users\andres.albarracin\Desktop\SIGESDOC\SIGESDOC_PROYECT\SIGESDOC.AplicacionService\obj\Debug\SIGESDOC.AplicacionService.dll
+C:\Users\andres.albarracin\Desktop\SIGESDOC\SIGESDOC_PROYECT\SIGESDOC.AplicacionService\obj\Debug\SIGESDOC.AplicacionService.pdb
+C:\Users\andres.albarracin\Desktop\SIGESDOC\web_antiguo\SIGESDOC.AplicacionService\bin\Debug\SIGESDOC.AplicacionService.dll
+C:\Users\andres.albarracin\Desktop\SIGESDOC\web_antiguo\SIGESDOC.AplicacionService\bin\Debug\SIGESDOC.AplicacionService.pdb
+C:\Users\andres.albarracin\Desktop\SIGESDOC\web_antiguo\SIGESDOC.AplicacionService\bin\Debug\SIGESDOC.Entidades.dll
+C:\Users\andres.albarracin\Desktop\SIGESDOC\web_antiguo\SIGESDOC.AplicacionService\bin\Debug\SIGESDOC.IAplicacionService.dll
+C:\Users\andres.albarracin\Desktop\SIGESDOC\web_antiguo\SIGESDOC.AplicacionService\bin\Debug\SIGESDOC.IRepositorio.dll
+C:\Users\andres.albarracin\Desktop\SIGESDOC\web_antiguo\SIGESDOC.AplicacionService\bin\Debug\SIGESDOC.Request.dll
+C:\Users\andres.albarracin\Desktop\SIGESDOC\web_antiguo\SIGESDOC.AplicacionService\bin\Debug\SIGESDOC.Response.dll
+C:\Users\andres.albarracin\Desktop\SIGESDOC\web_antiguo\SIGESDOC.AplicacionService\bin\Debug\EntityFramework.dll
+C:\Users\andres.albarracin\Desktop\SIGESDOC\web_antiguo\SIGESDOC.AplicacionService\bin\Debug\SIGESDOC.Entidades.pdb
+C:\Users\andres.albarracin\Desktop\SIGESDOC\web_antiguo\SIGESDOC.AplicacionService\bin\Debug\SIGESDOC.IAplicacionService.pdb
+C:\Users\andres.albarracin\Desktop\SIGESDOC\web_antiguo\SIGESDOC.AplicacionService\bin\Debug\SIGESDOC.IRepositorio.pdb
+C:\Users\andres.albarracin\Desktop\SIGESDOC\web_antiguo\SIGESDOC.AplicacionService\bin\Debug\SIGESDOC.Request.pdb
+C:\Users\andres.albarracin\Desktop\SIGESDOC\web_antiguo\SIGESDOC.AplicacionService\bin\Debug\SIGESDOC.Response.pdb
+C:\Users\andres.albarracin\Desktop\SIGESDOC\web_antiguo\SIGESDOC.AplicacionService\bin\Debug\EntityFramework.xml
+C:\Users\andres.albarracin\Desktop\SIGESDOC\web_antiguo\SIGESDOC.AplicacionService\obj\Debug\SIGESDOC.AplicacionService.csprojResolveAssemblyReference.cache
+C:\Users\andres.albarracin\Desktop\SIGESDOC\web_antiguo\SIGESDOC.AplicacionService\obj\Debug\SIGESDOC.AplicacionService.dll
+C:\Users\andres.albarracin\Desktop\SIGESDOC\web_antiguo\SIGESDOC.AplicacionService\obj\Debug\SIGESDOC.AplicacionService.pdb
+C:\Users\andres.albarracin\Desktop\SIGESDOC\web - Copy\SIGESDOC.AplicacionService\bin\Debug\SIGESDOC.AplicacionService.dll
+C:\Users\andres.albarracin\Desktop\SIGESDOC\web - Copy\SIGESDOC.AplicacionService\bin\Debug\SIGESDOC.AplicacionService.pdb
+C:\Users\andres.albarracin\Desktop\SIGESDOC\web - Copy\SIGESDOC.AplicacionService\bin\Debug\SIGESDOC.Entidades.dll
+C:\Users\andres.albarracin\Desktop\SIGESDOC\web - Copy\SIGESDOC.AplicacionService\bin\Debug\SIGESDOC.IAplicacionService.dll
+C:\Users\andres.albarracin\Desktop\SIGESDOC\web - Copy\SIGESDOC.AplicacionService\bin\Debug\SIGESDOC.IRepositorio.dll
+C:\Users\andres.albarracin\Desktop\SIGESDOC\web - Copy\SIGESDOC.AplicacionService\bin\Debug\SIGESDOC.Request.dll
+C:\Users\andres.albarracin\Desktop\SIGESDOC\web - Copy\SIGESDOC.AplicacionService\bin\Debug\SIGESDOC.Response.dll
+C:\Users\andres.albarracin\Desktop\SIGESDOC\web - Copy\SIGESDOC.AplicacionService\bin\Debug\EntityFramework.dll
+C:\Users\andres.albarracin\Desktop\SIGESDOC\web - Copy\SIGESDOC.AplicacionService\bin\Debug\SIGESDOC.Entidades.pdb
+C:\Users\andres.albarracin\Desktop\SIGESDOC\web - Copy\SIGESDOC.AplicacionService\bin\Debug\SIGESDOC.IAplicacionService.pdb
+C:\Users\andres.albarracin\Desktop\SIGESDOC\web - Copy\SIGESDOC.AplicacionService\bin\Debug\SIGESDOC.IRepositorio.pdb
+C:\Users\andres.albarracin\Desktop\SIGESDOC\web - Copy\SIGESDOC.AplicacionService\bin\Debug\SIGESDOC.Request.pdb
+C:\Users\andres.albarracin\Desktop\SIGESDOC\web - Copy\SIGESDOC.AplicacionService\bin\Debug\SIGESDOC.Response.pdb
+C:\Users\andres.albarracin\Desktop\SIGESDOC\web - Copy\SIGESDOC.AplicacionService\bin\Debug\EntityFramework.xml
+C:\Users\andres.albarracin\Desktop\SIGESDOC\web - Copy\SIGESDOC.AplicacionService\obj\Debug\SIGESDOC.AplicacionService.csprojResolveAssemblyReference.cache
+C:\Users\andres.albarracin\Desktop\SIGESDOC\web - Copy\SIGESDOC.AplicacionService\obj\Debug\SIGESDOC.AplicacionService.dll
+C:\Users\andres.albarracin\Desktop\SIGESDOC\web - Copy\SIGESDOC.AplicacionService\obj\Debug\SIGESDOC.AplicacionService.pdb
+C:\Users\andres.albarracin\Desktop\SIGESDOC\web\SIGESDOC.AplicacionService\bin\Debug\SIGESDOC.AplicacionService.dll
+C:\Users\andres.albarracin\Desktop\SIGESDOC\web\SIGESDOC.AplicacionService\bin\Debug\SIGESDOC.AplicacionService.pdb
+C:\Users\andres.albarracin\Desktop\SIGESDOC\web\SIGESDOC.AplicacionService\bin\Debug\SIGESDOC.Entidades.dll
+C:\Users\andres.albarracin\Desktop\SIGESDOC\web\SIGESDOC.AplicacionService\bin\Debug\SIGESDOC.IAplicacionService.dll
+C:\Users\andres.albarracin\Desktop\SIGESDOC\web\SIGESDOC.AplicacionService\bin\Debug\SIGESDOC.IRepositorio.dll
+C:\Users\andres.albarracin\Desktop\SIGESDOC\web\SIGESDOC.AplicacionService\bin\Debug\SIGESDOC.Request.dll
+C:\Users\andres.albarracin\Desktop\SIGESDOC\web\SIGESDOC.AplicacionService\bin\Debug\SIGESDOC.Response.dll
+C:\Users\andres.albarracin\Desktop\SIGESDOC\web\SIGESDOC.AplicacionService\bin\Debug\EntityFramework.dll
+C:\Users\andres.albarracin\Desktop\SIGESDOC\web\SIGESDOC.AplicacionService\bin\Debug\SIGESDOC.Entidades.pdb
+C:\Users\andres.albarracin\Desktop\SIGESDOC\web\SIGESDOC.AplicacionService\bin\Debug\SIGESDOC.IAplicacionService.pdb
+C:\Users\andres.albarracin\Desktop\SIGESDOC\web\SIGESDOC.AplicacionService\bin\Debug\SIGESDOC.IRepositorio.pdb
+C:\Users\andres.albarracin\Desktop\SIGESDOC\web\SIGESDOC.AplicacionService\bin\Debug\SIGESDOC.Request.pdb
+C:\Users\andres.albarracin\Desktop\SIGESDOC\web\SIGESDOC.AplicacionService\bin\Debug\SIGESDOC.Response.pdb
+C:\Users\andres.albarracin\Desktop\SIGESDOC\web\SIGESDOC.AplicacionService\bin\Debug\EntityFramework.xml
+C:\Users\andres.albarracin\Desktop\SIGESDOC\web\SIGESDOC.AplicacionService\obj\Debug\SIGESDOC.AplicacionService.csprojResolveAssemblyReference.cache
+C:\Users\andres.albarracin\Desktop\SIGESDOC\web\SIGESDOC.AplicacionService\obj\Debug\SIGESDOC.AplicacionService.dll
+C:\Users\andres.albarracin\Desktop\SIGESDOC\web\SIGESDOC.AplicacionService\obj\Debug\SIGESDOC.AplicacionService.pdb

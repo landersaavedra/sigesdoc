@@ -1,0 +1,34 @@
+﻿@using MvcReportViewer
+
+@{
+    ViewBag.Title = "Impresión masiva";
+}
+
+<ol class="breadcrumb" style="margin-bottom: 5px;">
+    <li><a href="#">Reporte</a></li>
+    <li class="active">Imprimir Cargo masivas</li>
+</ol>
+
+@Html.MvcReportViewer(
+                        "/GesdocReportes/Report_Seguimiento_cargo_evaluador",
+        //"/SISBIVALVOS.Reports/rptDer",
+                                    new { id = @ViewBag.id },
+        //new { Height = 632, Width = 1500, style = "border: none", AsynRendering = "false" })
+    new { Height = 632, Width = 1140, style = "border: none" })
+
+<div class="form-group">
+    <div class="col-md-12">
+        <button type="button" class="btn btn-primary btn-sm regresar"><< Regresar</button>
+    </div>
+</div>
+<hr>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+
+        $('.regresar').click(function () {
+            var url = "javascript:history.back(1)";
+            window.location.href = url;
+        });
+    });
+</script>

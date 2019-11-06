@@ -1,0 +1,113 @@
+﻿@model SIGESDOC.Web.Models.ConsultarUsuarioViewModel
+
+@{
+    ViewBag.Title = "Modificar Clave";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="bs-callout bs-callout-info">
+    <h4>Modificar Clave</h4>
+</div>
+
+@using (Html.BeginForm("Modificar_Clave", "Account", FormMethod.Post, new { @id = "nuevoForm", @enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        @Html.ValidationSummary(true, "Falla de Modificación, Verificar datos", new { @class = "text-danger" })
+
+
+        <div class="form-group">
+            <div class="col-lg-7">
+                <div class="input-group input-group-sm">
+                    <span class="input-group-addon">Contraseña Actual</span>
+                    @Html.Password("clave_ini", null, new { @class = "form-control input-sm", @maxlength = "25" })
+                </div>
+            </div>
+
+
+            <div class="col-md-4">
+                <label id="lbl_valida_ini" style="color: #B44D4D">  </label>
+            </div>
+
+        </div>
+
+        <div class="form-group">
+            <div class="col-lg-7">
+                <div class="input-group input-group-sm">
+                    <span class="input-group-addon">Nueva Contraseña</span>
+                    @Html.Password("clave_fin", null, new { @class = "form-control input-sm", @maxlength = "25" })
+                </div>
+            </div>
+
+
+            <div class="col-md-4">
+                <label id="lbl_valida_fin" style="color: #B44D4D">  </label>
+            </div>
+
+        </div>
+
+        <div class="form-group">
+            <div class="col-lg-7">
+                <div class="input-group input-group-sm">
+                    <span class="input-group-addon">Confirmar Contraseña</span>
+                    @Html.Password("clave_fin2", null, new { @class = "form-control input-sm", @maxlength = "25" })
+                </div>
+            </div>
+        </div>
+
+        <hr>
+        <div class="form-group">
+            <div class="col-md-12">
+                <input id="btnGrabar" type="submit" value="Modificar Clave" class="btn btn-primary btn-sm" />
+            </div>
+            <div class="col-md-1">
+                <div id="loaderImage" class="hidden"></div>
+            </div>
+        </div>
+    </div>
+}
+
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
+
+<script type="text/javascript">
+
+    $(document).ready(function () {
+
+
+        document.getElementById('lbl_valida_ini').innerHTML = "";
+        document.getElementById('lbl_valida_fin').innerHTML = "";
+
+        $('#nuevoForm').submit(function (e) {
+
+            if ($("#nuevoForm").valid() == false) {
+
+                return false;
+            }
+            else {
+                if ($('#clave_ini').val() == "") {
+                    document.getElementById('lbl_valida_ini').innerHTML = "Ingresar Clave antigua";
+                    return false;
+                }
+                if ($('#clave_fin').val() == "") {
+                    document.getElementById('lbl_valida_fin').innerHTML = "Ingresar Clave nueva";
+                    return false;
+                }
+                if ($('#clave_fin2').val() == "") {
+                    document.getElementById('lbl_valida_fin').innerHTML = "Confirmar Clave";
+                    return false;
+                }
+                if ($('#clave_fin').val() != $('#clave_fin2').val()) {
+                    document.getElementById('lbl_valida_fin').innerHTML = "Las contraseñas no coindicen";
+                    return false;
+                }
+            }
+
+        });
+    });
+</script>

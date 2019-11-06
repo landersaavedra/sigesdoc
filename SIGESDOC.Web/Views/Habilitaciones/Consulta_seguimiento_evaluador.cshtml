@@ -1,0 +1,3483 @@
+﻿@using SIGESDOC.Web.Seguridad
+
+@model IEnumerable<SIGESDOC.Response.SeguimientoDhcpaResponse>
+
+@{
+    //WebGrid grid = new WebGrid(rowsPerPage: ServiceConfiguration.PageSize, ajaxUpdateContainerId: "grid");    grid.Bind(Model, autoSortAndPage: false, rowCount: ViewBag.TotalRows);
+    ViewBag.Title = "Consulta Seguimiento";
+}
+
+<ol class="breadcrumb" style="margin-bottom: 5px;">
+    <li><a href="#">Habilitaciones</a></li>
+    <li class="active">Consulta Seguimiento</li>
+</ol>
+
+<div class="modal fade" id="mdlConformidad_mts" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title" id="myModalLabel">
+                    <label id="txt_titulo_mts">  </label>
+                    <label id="titulo_mts">  </label>
+                </h4>
+
+            </div>
+            <form method="post" id="formmts">
+                <div class="modal-body">
+                    <div class="form-horizontal">
+
+                        <div id="progress_mts" class="progress hidden">
+                            <div class="progress progress-striped active">
+                                <div class="progress-bar" style="width: 100%">
+                                    <p>Procesando</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <input type="text" id="txtId_mts" class="hidden" />
+
+                        <div id="menssage_mts">
+                            <div class="form-group">
+                                <div class="col-md-2">
+                                    <label class="control-label">Tipo Seguimiento:</label>
+                                </div>
+                                <div class="col-md-10">
+                                    <select class="form-control input-sm" id="cmb_mts" name="cmb_mts">
+                                        <option value="1">PLANTA</option>
+                                        <option value="2">EMBARCACION</option>
+                                        <option value="3">DESEMBARCADERO</option>
+                                        <option value="4">CONCESION</option>
+                                        <option value="5">TRANSPORTE</option>
+                                        <option value="6">ALMACEN</option>
+                                        <option value="7">AUTORIZACION DE INSTALACION</option>
+                                        <option value="8">LICENCIA DE OPERACION</option>
+                                        <option value="9">REGISTRO SANITARIO DE PIENSOS Y PRODUCTOS VETERINARIOS</option>
+                                        <option value="10">SUPERMERCADO</option>
+                                        <option value="11">REGISTRO DE IEDC</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary btn-sm" id="btn_Aceptar_mts">Aceptar</button>
+                    <button type="button" class="btn btn-default btn-sm" data-dismiss="modal">Cancelar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<div class="bs-callout bs-callout-info">
+    <h4>Consulta Seguimiento</h4>
+    <p>En esta sección usted puede Consultar el estado del seguimiento</p>
+</div>
+
+<div class="modal fade" id="mdl_lista_historial_evaluador" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-width">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title" id="myModalLabel">Historial Evaluadores <label id="titulo_lista_historial_evaluador">  </label> </h4>
+            </div>
+
+            <div class="modal-body">
+                <div class="form-horizontal">
+                    <div class="col-md-12">
+
+                        <div id="grid_historial_evaluador">
+                            <table class="table table-striped table-hover table-condensed tabla small" data-swhgajax="true" data-swhgcontainer="grid" data-swhgcallback="" id="tbl_lista_historial_evaluador">
+                                <thead>
+                                    <tr class="cabecera">
+                                        <th scope="col">Estado</th>
+                                        <th scope="col">Evaluador</th>
+                                        <th scope="col">Fecha recibido</th>
+                                    </tr>
+                                </thead>
+                                <tbody></tbody>
+                            </table>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default btn-sm" data-dismiss="modal">Salir</button>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="mdl_detalle" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-width">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title" id="myModalLabel">Documentos Emitidos <label id="titulo_50">  </label> </h4>
+            </div>
+            <div class="modal-body">
+                <div class="form-horizontal">
+
+                    <label class="control-label" style="font-weight: bold;">Listado de Solicitudes de Inspección</label>
+
+                    <div class="row">
+
+                        <div id="grid_solicitud">
+                            <table class="table table-striped table-hover table-condensed tabla small" data-swhgajax="true" data-swhgcontainer="grid" data-swhgcallback="" id="tblSolicitud">
+                                <thead>
+                                    <tr class="cabecera">
+                                        <th scope="col"> </th>
+                                        <th scope="col">Estado</th>
+                                        <th scope="col">Documento</th>
+                                        <th scope="col">Fecha</th>
+                                    </tr>
+                                </thead>
+                                <tbody></tbody>
+                            </table>
+                        </div>
+
+                    </div>
+                    <label class="control-label" style="font-weight: bold;">Listado de Informes Técnico de evaluación</label>
+
+                    <div class="row">
+
+                        <div id="grid_informe">
+                            <table class="table table-striped table-hover table-condensed tabla small" data-swhgajax="true" data-swhgcontainer="grid" data-swhgcallback="" id="tblInformes">
+                                <thead>
+                                    <tr class="cabecera">
+                                        <th scope="col">Documento</th>
+                                        <th scope="col">Fecha</th>
+                                    </tr>
+                                </thead>
+                                <tbody></tbody>
+                            </table>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default btn-sm" data-dismiss="modal">Salir</button>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="mdl_notificar_si" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-width">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title" id="myModalLabel">Notificar la generación de solicitud </h4>
+            </div>
+            <div class="modal-body">
+                <div class="form-horizontal">
+                    <input type="text" id="txt_id_solicit_notifi" class="hidden">
+                    <label class="control-label" style="font-weight: bold;">Listado de Correos de OD</label>
+
+                    <div id="lista_correo_si">
+
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary btn-sm" id="btn_enviar_correo">Enviar Correo</button>
+                <button type="button" class="btn btn-default btn-sm" data-dismiss="modal">Salir</button>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="mdl_detalle_2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-width">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title" id="myModalLabel">Documentos <label id="titulo_80">  </label> </h4>
+
+            </div>
+
+            <div class="modal-body">
+                <div class="form-horizontal">
+
+                    <label class="control-label" style="font-weight: bold;">Listado de Documentos Recibidos</label>
+
+                    <div class="row">
+
+                        <div id="grid_recibidos">
+                            <table class="table table-striped table-hover table-condensed tabla small" data-swhgajax="true" data-swhgcontainer="grid" data-swhgcallback="" id="tblrecibidos">
+                                <thead>
+                                    <tr class="cabecera">
+                                        <th scope="col"> </th>
+                                        <th scope="col">Identificador</th>
+                                        <th scope="col">Documento</th>
+                                        <th scope="col">Asunto</th>
+                                        <th scope="col">Fecha Documento</th>
+                                        <th scope="col">Fecha Recibido</th>
+                                        <th scope="col">Opciones</th>
+                                    </tr>
+                                </thead>
+                                <tbody></tbody>
+                            </table>
+                        </div>
+
+                    </div>
+                    <label class="control-label" style="font-weight: bold;">Listado de Documentos Emitidos</label>
+
+                    <div class="row">
+
+                        <div id="grid_emitidos">
+                            <table class="table table-striped table-hover table-condensed tabla small" data-swhgajax="true" data-swhgcontainer="grid" data-swhgcallback="" id="tblemitidos">
+                                <thead>
+                                    <tr class="cabecera">
+                                        <th scope="col">Documento</th>
+                                        <th scope="col">Asunto</th>
+                                        <th scope="col">Fecha</th>
+                                    </tr>
+                                </thead>
+                                <tbody></tbody>
+                            </table>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default btn-sm" data-dismiss="modal">Salir</button>
+            </div>
+
+        </div>
+    </div>
+</div>
+ 
+<div class="modal fade" id="mdl_detalle_3_transporte" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-width">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title" id="myModalLabel">Lista de Protocolos <label id="titulo_100_transporte">  </label> </h4>
+
+            </div>
+
+            <div class="modal-body">
+                <div class="form-horizontal">
+
+                    <label class="control-label" style="font-weight: bold;">Listado de Protocolos Emitidos</label>
+
+                    <div class="row">
+
+                        <div id="grid_protocolos_transporte">
+                            <table class="table table-striped table-hover table-condensed tabla small" data-swhgajax="true" data-swhgcontainer="grid" data-swhgcallback="" id="tbl_lista_protocolos_transporte">
+                                <thead>
+                                    <tr class="cabecera">
+                                        <th scope="col">Protocolo</th>
+                                        <th scope="col">Fecha inicio</th>
+                                        <th scope="col">Fecha Fin</th>
+                                        <th scope="col">Estado</th>
+                                        <th scope="col">Acciones</th>
+                                    </tr>
+                                </thead>
+                                <tbody></tbody>
+                            </table>
+                        </div>
+
+                    </div>
+
+                    <div class="row">
+
+                        <div id="grid_haccp_transporte">
+                            <table class="table table-striped table-hover table-condensed tabla small" data-swhgajax="true" data-swhgcontainer="grid" data-swhgcallback="" id="tbl_lista_haccp_transporte">
+                                <thead>
+                                    <tr class="cabecera">
+                                        <th scope="col">Constancia HACCP</th>
+                                    </tr>
+                                </thead>
+                                <tbody></tbody>
+                            </table>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default btn-sm" data-dismiss="modal">Salir</button>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="mdl_detalle_3" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-width">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title" id="myModalLabel">Lista de Protocolos <label id="titulo_100">  </label> </h4>
+
+            </div>
+
+            <div class="modal-body">
+                <div class="form-horizontal">
+
+                    <label class="control-label" style="font-weight: bold;">Listado de Protocolos Emitidos</label>
+
+                    <div class="row">
+
+                        <div id="grid_protocolos">
+                            <table class="table table-striped table-hover table-condensed tabla small" data-swhgajax="true" data-swhgcontainer="grid" data-swhgcallback="" id="tbl_lista_protocolos">
+                                <thead>
+                                    <tr class="cabecera">
+                                        <th scope="col">Protocolo</th>
+                                        <th scope="col">Fecha inicio</th>
+                                        <th scope="col">Fecha Fin</th>
+                                        <th scope="col">Acciones</th>
+                                    </tr>
+                                </thead>
+                                <tbody></tbody>
+                            </table>
+                        </div>
+
+                    </div>
+
+                    <div class="row">
+
+                        <div id="grid_haccp">
+                            <table class="table table-striped table-hover table-condensed tabla small" data-swhgajax="true" data-swhgcontainer="grid" data-swhgcallback="" id="tbl_lista_haccp">
+                                <thead>
+                                    <tr class="cabecera">
+                                        <th scope="col">Constancia HACCP</th>
+                                    </tr>
+                                </thead>
+                                <tbody></tbody>
+                            </table>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default btn-sm" data-dismiss="modal">Salir</button>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="mdl_lista_observacion" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-width">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title" id="myModalLabel">Lista de Observaciones <label id="titulo_lista_observacion">  </label> </h4>
+
+            </div>
+            <input type="text" id="txt_id_oculto_observacion_seguimiento" class="hidden" />
+
+            <div class="modal-body">
+                <div class="form-horizontal">
+                    <div class="col-md-2 opc_add_observacion" style="text-align:left; ">
+                        <button type="button" class="btn btn-primary btn-sm" id="add_observacion">Agregar Observacion</button>
+                    </div>
+
+                    <div class="col-md-12 opc_add_new_observacion" style="text-align:left; padding-top:15px; padding-bottom:15px;">
+                        <textarea class="form-control input-sm" rows="4" maxlength="1000" placeholder="Ingresar la observación" id="txt_observacion"></textarea>
+                        <label id="lbl_valida_observacion" style="color: #B44D4D"></label>
+                    </div>
+
+                    <div class="col-md-3 opc_add_new_observacion" style="text-align:left; ">
+                        <button type="button" class="btn btn-primary btn-sm" id="add_guardar_observacion">Guardar Observacion</button>
+                    </div>
+
+                    <div class="col-md-2 opc_add_new_observacion" style="text-align:right; ">
+                        <button type="button" class="btn btn-default btn-sm" id="add_cancelar_observacion">Cancelar</button>
+                    </div>
+
+                    <div class="col-md-12" style="text-align:center;">
+                        <label class="control-label" style="font-weight: bold;">Listado de Observaciones</label>
+                    </div>
+
+                    <div class="col-md-12">
+
+                        <div id="grid_observacion">
+                            <table class="table table-striped table-hover table-condensed tabla small" data-swhgajax="true" data-swhgcontainer="grid" data-swhgcallback="" id="tbl_lista_observacion">
+                                <thead>
+                                    <tr class="cabecera">
+                                        <th scope="col">Observacion</th>
+                                        <th scope="col">Usuario</th>
+                                    </tr>
+                                </thead>
+                                <tbody></tbody>
+                            </table>
+                        </div>
+
+                    </div>
+
+
+                </div>
+            </div>
+
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default btn-sm" data-dismiss="modal">Salir</button>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<div class="panel panel-primary">
+    <div class="panel-heading panet-heading-sm">Búsqueda de Seguimiento</div>
+    <div class="panel-body">
+        @using (Html.BeginForm("Consulta_seguimiento_evaluador", "Habilitaciones", FormMethod.Get, new { @id = "nuevoForm", @enctype = "multipart/form-data" }))
+        {
+            <div class="row">
+                <div class="col-lg-3">
+                    <div class="input-group input-group-sm">
+                        <span class="input-group-addon">Expediente</span>
+                        @Html.TextBox("expediente", null, new { @class = "form-control input-sm", @maxlength = "50" })
+                    </div>
+                </div>
+
+                <div class="col-lg-4">
+                    <div class="input-group input-group-sm">
+                        <span class="input-group-addon">externo</span>
+                        @Html.TextBox("externo", null, new { @class = "form-control input-sm", @maxlength = "300" })
+                    </div>
+                </div>
+
+            </div>
+            <br />
+            <div class="row">
+                <div class="col-lg-3">
+                    <div class="input-group input-group-sm">
+                        <span class="input-group-addon">Estado: </span>
+                        @Html.DropDownList("cmbestado", (IEnumerable<SelectListItem>)ViewBag.lst_estado, new { @class = "form-control input-sm" })
+                    </div>
+                </div>
+
+
+                <div class="col-lg-2">
+                    <div class="input-group input-group-sm">
+                        <span class="input-group-addon">Tupa: </span>
+                        @Html.DropDownList("cmbtupa", (IEnumerable<SelectListItem>)ViewBag.lst_tupa, new { @class = "form-control input-sm" })
+                    </div>
+                </div>
+
+
+                <div class="col-lg-1">
+                    <input type="submit" id="btnBuscar" class="btn btn-primary btn-sm pull-left" value="Actualizar" />
+                </div>
+
+            </div>
+        }
+    </div>
+</div>
+
+<button id="export_excel" type="button" style="background-color:green; border:1px solid white; color:white;"> Exportar Excel</button>
+
+<br />
+<br />
+
+<div id="grid">
+    <table id="grid_seguimiento" class="table table-striped table-hover table-condensed table-bordered tabla small">
+        <thead>
+            <tr class="cabecera text-center">
+                <th scope="col" class="visible-lg">Fecha Inicio</th>
+                <th scope="col">Expediente</th>
+                <th scope="col" class="visible-lg visible-md">TUPA</th>
+                <th scope="col" class="visible-lg visible-md">Procedimiento</th>
+                <th scope="col">Externo</th>
+                <th scope="col" class="visible-lg visible-md">Habilitante</th>
+                <th scope="col" class="visible-lg">Evaluador</th>
+                <th scope="col" class="visible-lg">Estado</th>
+                <th scope="col">Opciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            @if (ViewData["Seguimiento_Tabla"] != null)
+            {
+                foreach (System.Data.DataRow dr in (ViewData["Seguimiento_Tabla"] as System.Data.DataTable).Rows)
+                {
+                    <tr>
+                        <td class="visible-lg" style=" text-align:center;"> @dr["Fecha Inicio"] </td>
+                        <td style=" text-align:center;"> @dr["Expediente"] </td>
+                        <td class="visible-lg visible-md" style=" text-align:center;"> @dr["TUPA/SERV"] </td>
+                        <td class="visible-lg visible-md"> @dr["Procedimiento"] </td>
+                        <td> @dr["Externo"] </td>
+                        <td class="visible-lg visible-md"> @dr["Habilitante"] </td>
+                        <td class="visible-lg" style=" text-align:center;"> @dr["Evaluador"] </td>
+                        <td class="visible-lg" style=" text-align:center;"> @dr["Estado"]</td>
+                        <td>
+                            <ul class="list-inline" style="margin-bottom:0">
+                                <li>
+                                    @if ((string)dr["cond_habilitante"] == "True" && (string)dr["cond_finalizar"] == "True")  // 1: Planta
+                                    {
+                                        <a class="modificar_tipo_seguimiento" id=@dr["Expediente_Id_seguimiento"] href="#"> MTS </a>
+                                    }
+                                </li>
+                                <li>
+                                    @if ((string)dr["id_tipo_seguimiento"] == "1" && (string)dr["cond_habilitante"] == "True")  // 1: Planta
+                                    {
+                                        <a class="Asignar_planta" id=@dr["Expediente_Id_seguimiento_Id_ofi_dir"] href="#" title="Asignar Planta">
+                                            <img height="22" src="/Content/iconos/icono-planta.png" width="16.8">
+                                        </a>
+                                    }
+                                    else
+                                    {
+                                        if ((string)dr["id_tipo_seguimiento"] == "2" && (string)dr["cond_habilitante"] == "True") // 2 : Embarcacion
+                                        {
+                                            <a class="Asignar_embarcacion" id=@dr["Expediente_Id_seguimiento_Id_ofi_dir"] href="#" title="Asignar Embarcación">
+                                                <img height="22" src="/Content/iconos/icono-barco.png" width="16.8">
+                                            </a>
+                                        }
+                                        else
+                                        {
+                                            if ((string)dr["id_tipo_seguimiento"] == "3" && (string)dr["cond_habilitante"] == "True") // 3 : Desembarcadero
+                                            {
+                                                <a class="Asignar_desembarcadero" id=@dr["Expediente_Id_seguimiento_Id_ofi_dir"] href="#" title="Desembarcadero/Puntos de Descarga/Muelles de Descarga/Sistema de Descarga">
+                                                    <img height="22" src="/Content/iconos/icono-desembarcadero.png" width="16.8">
+                                                </a>
+                                            }
+
+                                            else
+                                            {
+                                                if ((string)dr["id_tipo_seguimiento"] == "4" && (string)dr["cond_habilitante"] == "True") // 4 : Concesion
+                                                {
+                                                    <a class="Asignar_concesion" id=@dr["Expediente_Id_seguimiento_documento"] href="#" title="Asignar Concesión/Centro de Cultivo/Hatchery">
+                                                        <img height="22" src="/Content/iconos/icono-concesion.png" width="16.8">
+                                                    </a>
+                                                }
+                                                else
+                                                {
+                                                    if ((string)dr["id_tipo_seguimiento"] == "5" && (string)dr["cond_habilitante"] == "True") // 4 : Concesion
+                                                    {
+                                                        <a class="Asignar_transporte" id=@dr["Expediente_Id_seguimiento_Id_ofi_dir"] href="#" title="Asignar Transporte">
+                                                            <img height="22" src="/Content/iconos/icono-transporte.png" width="16.8">
+                                                        </a>
+                                                    }
+                                                    else
+                                                    {
+                                                        if ((string)dr["id_tipo_seguimiento"] == "6" && (string)dr["cond_habilitante"] == "True") // 6 : Almacen
+                                                        {
+                                                            <a class="Asignar_almacen" id=@dr["Expediente_Id_seguimiento_Id_ofi_dir"] href="#" title="Asignar Almacén">
+                                                                <img height="22" src="/Content/iconos/icono-almacen.png" width="16.8">
+                                                            </a>
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                </li>
+
+                                <li>
+                                    @if ((string)dr["cond_expediente"] == "False") // False(Expediente): Con Expediente - True(Finalizar): No finaliza
+                                    {
+                                        if ((string)dr["id_tipo_seguimiento"] == "1" && (string)dr["cond_habilitante"] != "True")  // 1: Planta
+                                        {
+                                            <a class="Crear_Protocolo" id=@dr["Expediente_Id_seguimiento"] href="#" title="Nuevo Protocolo">
+
+                                                <i class="blue glyphicon glyphicon-ok-circle"></i>
+                                            </a>
+                                        }
+                                        else
+                                        {
+                                            if ((string)dr["id_tipo_seguimiento"] == "2" && (string)dr["cond_habilitante"] != "True")  // 2: Embarcacion
+                                            {
+                                                <a class="Crear_Protocolo_Embarcacion" id=@dr["Expediente_Id_seguimiento"] href="#" title="Nuevo Protocolo">
+                                                    <i class="blue glyphicon glyphicon-ok-circle"></i>
+                                                </a>
+                                            }
+                                            else
+                                            {
+                                                if ((string)dr["id_tipo_seguimiento"] == "3" && (string)dr["cond_habilitante"] != "True")  // 3: Desembarcadero
+                                                {
+                                                    <a class="Crear_Protocolo_Desembarcadero" id=@dr["Expediente_Id_seguimiento"] href="#" title="Nuevo Protocolo">
+                                                        <i class="blue glyphicon glyphicon-ok-circle"></i>
+                                                    </a>
+                                                }
+                                                else
+                                                {
+                                                    if ((string)dr["id_tipo_seguimiento"] == "4" && (string)dr["cond_habilitante"] != "True")  // 4: Concesion
+                                                    {
+                                                        <a class="Crear_Protocolo_Concesion" id=@dr["Expediente_Id_seguimiento"] href="#" title="Nuevo Protocolo">
+                                                            <i class="blue glyphicon glyphicon-ok-circle"></i>
+                                                        </a>
+                                                    }
+                                                    else
+                                                    {
+                                                        if ((string)dr["id_tipo_seguimiento"] == "5")  // 4: Concesion
+                                                        {
+                                                            <a class="Crear_Protocolo_Transporte" id=@dr["Expediente_Id_seguimiento"] href="#" title="Nuevo Protocolo">
+                                                                <i class="blue glyphicon glyphicon-ok-circle"></i>
+                                                            </a>
+                                                        }
+                                                        else
+                                                        {
+                                                            if ((string)dr["id_tipo_seguimiento"] == "6" && (string)dr["cond_habilitante"] != "True")  // 6: Almacen
+                                                            {
+                                                                <a class="Crear_Protocolo_Almacen" id=@dr["Expediente_Id_seguimiento"] href="#" title="Nuevo Protocolo">
+                                                                    <i class="blue glyphicon glyphicon-ok-circle"></i>
+                                                                </a>
+                                                            }
+                                                            else
+                                                            {
+                                                                if ((string)dr["id_tipo_seguimiento"] == "7")  // 7: Autorización de instalación
+                                                                {
+                                                                    <a class="Crear_Protocolo_Autorizacion_instalacion" id=@dr["Expediente_Id_seguimiento"] href="#" title="Nuevo Protocolo">
+                                                                        <i class="blue glyphicon glyphicon-ok-circle"></i>
+                                                                    </a>
+                                                                }
+                                                                else
+                                                                {
+                                                                    if ((string)dr["id_tipo_seguimiento"] == "8")  // 8: Licencia de Operacion
+                                                                    {
+                                                                        <a class="Crear_Protocolo_Licencia_Operacion" id=@dr["Expediente_Id_seguimiento"] href="#" title="Nuevo Protocolo">
+                                                                            <i class="blue glyphicon glyphicon-ok-circle"></i>
+                                                                        </a>
+                                                                    }
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                </li>
+                                @if ((string)dr["cond_finalizar"] == "True" && (string)dr["id_tipo_seguimiento"] != "9") // True(Finalizar): No finaliza
+                                {
+                                    if ((string)dr["id_tipo_seguimiento"] == "5")
+                                    {
+                                        <li>
+                                            <a class="solicitud_inspec_transporte" id=@dr["Expediente_Id_seguimiento"] href="#" title="Solicitud de Inspección">
+                                                <i class="blue glyphicon glyphicon-pushpin"></i>
+                                            </a>
+                                        </li>
+                                    }
+                                    else
+                                    {
+                                        <li>
+                                            <a class="solicitud_inspec" id=@dr["Expediente_Id_seguimiento"] href="#" title="Solicitud de Inspección">
+                                                <i class="blue glyphicon glyphicon-pushpin"></i>
+                                            </a>
+                                        </li>
+                                    }
+                                }
+
+                                <li>
+                                    @if ((string)dr["cond_finalizar"] == "True" && (string)dr["id_tipo_seguimiento"] != "9") // True(Finalizar): No finaliza
+                                    {
+                                        <a class="informe_tecnico" id=@dr["Expediente_Id_seguimiento"] href="#" title="Informe Técnico">
+                                            <i class="blue glyphicon glyphicon-book"></i>
+                                        </a>
+                                    }
+                                </li>
+                                <li>
+                                    @if ((string)dr["id_tipo_seguimiento"] != "9") // True(Finalizar): No finaliza
+                                    {
+                                        <a class="ver_documentos_emitidos" id=@dr["Expediente_Id_seguimiento"] href="#" title="Ver Listado Solic. e Inf."><i class="blue glyphicon glyphicon-th-list"></i></a>
+                                    }
+                                </li>
+                                <li> <a class="ver_documentos_otros" id=@dr["Expediente_Id_seguimiento"] href="#" title="Doc. Recibidos y Enviados"> <i class="red glyphicon glyphicon-th-list"></i> </a> </li>
+                                <li>
+
+                                    @if ((string)dr["id_tipo_seguimiento"] == "5")  // 5: Transporte
+                                    {
+                                        <a class="ver_protocolos_transporte" id=@dr["Expediente_Id_seguimiento"] href="#" title="Ver Listado de Protocolos y Constancia HACCP"> <i class="green glyphicon glyphicon-th-list"></i> </a>
+                                    }
+                                    else
+                                    {
+                                        <a class="ver_protocolos" id=@dr["Expediente_Id_seguimiento"] href="#" title="Ver Listado de Protocolos y Constancia HACCP"> <i class="green glyphicon glyphicon-th-list"></i> </a>
+                                    }
+
+                                </li>
+
+                                <li>
+                                    <a class="ver_historial_evaluadores" id=@dr["Expediente_Id_seguimiento"] href="#" title="Historial de Evaluadores">
+                                        <img height="22" src="/Content/iconos/glyphicons-44-group.png" width="16.8">
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="ver_observacion" id=@dr["Expediente_Id_seguimiento_cond_finalizar"] href="#" title="Lista de Observacion">
+                                        <i class="black glyphicon glyphicon-th-list"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    @if ((string)dr["cond_finalizar"] == "True")
+                                    {
+                                        <a class="constancia_haccp" id=@dr["Expediente_Id_seguimiento"] href="#" title="Constancia HACCP"> <i class="blue glyphicon glyphicon-file"></i> </a>
+                                    }
+                                </li>
+                                <li>
+                                    @if ((string)dr["cond_finalizar"] == "True" && (string)dr["cond_expediente"] == "False" && ((string)dr["cond_habilitante"] != "True"))
+                                    {
+                                        <a class="Finalizar_seguimiento" id=@dr["Expediente_Id_seguimiento_duracion_sdhpa_duracion_tramite_observacion"] href="#" title="Finalizar">
+                                            <i class="blue glyphicon glyphicon-off"></i>
+                                        </a>
+                                    }
+                                    else
+                                    {
+                                        if ((string)dr["cond_finalizar"] == "True" && ((string)dr["cond_expediente"] == "False" || (string)dr["Id_procedimiento"] == "12" || (string)dr["Id_procedimiento"] == "15") && ((string)dr["id_tipo_seguimiento"] == "7" || (string)dr["id_tipo_seguimiento"] == "8" || (string)dr["id_tipo_seguimiento"] == "9"))
+                                        {
+                                            <a class="Finalizar_seguimiento" id=@dr["Expediente_Id_seguimiento_duracion_sdhpa_duracion_tramite_observacion"] href="#" title="Finalizar">
+                                                <i class="blue glyphicon glyphicon-off"></i>
+                                            </a>
+                                        }
+                                        else
+                                        {
+                                            if ((string)dr["TUPA"] == "29" && (string)dr["cond_finalizar"] == "True" && (string)dr["cond_expediente"] == "True")
+                                            {
+                                                <a class="Finalizar_seguimiento" id=@dr["Expediente_Id_seguimiento_duracion_sdhpa_duracion_tramite_observacion"] href="#" title="Finalizar">
+                                                    <i class="blue glyphicon glyphicon-off"></i>
+                                                </a>
+                                            }
+                                        }
+                                    }
+                                </li>
+                            </ul>
+
+                        </td>
+                    </tr>
+                }
+            }
+        </tbody>
+
+    </table>
+</div>
+
+
+@*<div id="grid">    @grid.GetHtml(        tableStyle: "table table-striped table-hover table-condensed tabla small",        headerStyle: "cabecera",        columns: new[] {            grid.Column(null, header:"Opciones",format: p => MvcHtmlString.Create("<ul class='list-inline' style='margin-bottom:0'><li>"+                           Html.IconlinkItem_src("Asignar Planta", "Asignar_planta", (string)p.Expediente+'|'+(string)p.id_seguimiento.ToString()+'|'+(string)p.id_ofi_dir.ToString(), Url.Content("~/Content/iconos/icono-planta.png"),"16.8","22", (bool)p.cond_planta).ToString()+ "</li><li>" +                           Html.IconlinkItem("Nuevo Protocolo", "Crear_Protocolo", (string)p.Expediente+'|'+(string)p.id_seguimiento.ToString(), "glyphicon glyphicon-ok-circle", "blue", (bool)p.cond_expediente).ToString()+ "</li><li>" +                           Html.IconlinkItem("Solicitud de Inspección", "solicitud_inspec", (string)p.Expediente+'|'+(string)p.id_seguimiento.ToString(), "glyphicon glyphicon-pushpin", "blue", (bool)p.cond_finalizar).ToString()+ "</li><li>" +                           Html.IconlinkItem("Informe Técnico", "informe_tecnico", (string)p.Expediente+'|'+(string)p.id_seguimiento.ToString(), "glyphicon glyphicon-book", "blue", (bool)p.cond_finalizar).ToString()+ "</li><li>" +                           Html.IconlinkItem("Ver Listado Solic. e Inf.", "ver_documentos_emitidos", (string)p.Expediente+'|'+(string)p.id_seguimiento.ToString(), "glyphicon glyphicon-th-list", "blue", true).ToString()+ "</li><li>" +                           Html.IconlinkItem("Doc. Recibidos y Enviados", "ver_documentos_otros", (string)p.Expediente+'|'+(string)p.id_seguimiento.ToString(), "glyphicon glyphicon-th-list", "red", true).ToString()+ "</li><li>" +                           Html.IconlinkItem("Ver Listado de Protocolos", "ver_protocolos", (string)p.Expediente+'|'+(string)p.id_seguimiento.ToString(), "glyphicon glyphicon-th-list", "green", true).ToString()+ "</li><li>" +                           Html.IconlinkItem("Finalizar", "Finalizar_seguimiento", (string)p.Expediente+'|'+(string)p.id_seguimiento.ToString()+'|'+(string)p.duracion_sdhpa.ToString()+'|'+(string)p.duracion_tramite.ToString()+'|'+(string)p.observaciones.ToString(), "glyphicon glyphicon-off", "blue", (bool)p.cond_finalizar).ToString()+ "</li></ul>")                       )        }                                         , footerStyle: "hidden"                                         )    @if (Model.Count() == 0)    {        <div class="row">            <div class="col-lg-12 text-center">                <div class="well well-sm">                    No se encontraron registros                </div>            </div>        </div>    }    else    {        <div class="row">            <div id="paginator" class="col-lg-12">                @grid.PagerList(mode: WebGridPagerModes.All, firstText: "Primero", previousText: "Anterior", nextText: "Siguiente", lastText: "Último")            </div>        </div>    }</div>*@
+
+<div class="modal fade" id="mdlConformidad2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title" id="myModalLabel">
+                    <label id="txt_titulo_2">  </label>
+                    <label id="titulo_2">  </label>
+                </h4>
+            </div>
+            <div class="modal-body">
+                <div id="mensajesPopup"></div>
+                <div id="progress" class="progress hidden">
+                    <div class="progress progress-striped active">
+                        <div class="progress-bar" style="width: 100%">
+                            <p>Procesando</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-horizontal">
+                    <div class="form-group">
+                        @Html.Label("", "Duración Trámite:", new { @class = "col-lg-2 control-label", @style = "padding-top:4px;" })
+                        <div class="col-lg-2">
+                            @Html.TextBox("txt_fin_tiempo_tramite", null, new { @class = "form-control input-sm", @onpaste = "return false;", @maxlength = "10", @onkeypress = "return IsNumeric(this.value);" })
+                        </div>
+                        @Html.Label("", "Duración SDHPA:", new { @class = "col-lg-2 control-label", @style = "padding-top:4px; width:160px;" })
+                        <div class="col-lg-2">
+                            @Html.TextBox("txt_fin_tiempo_sdhpa", null, new { @class = "form-control input-sm", @onpaste = "return false;", @maxlength = "10", @onkeypress = "return IsNumeric(this.value);" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.Label("", "Observacion:", new { @class = "col-lg-2 control-label" })
+                        <div class="col-lg-8">
+                            @Html.TextArea("txt_fin_observacion_final", null, new { @class = "form-control input-sm", rows = "4", @maxlength = "1500", wrap = "off" })
+                        </div>
+                    </div>
+
+
+                    <div class="form-group">
+                        @Html.Label("", "Inspector Designado:", new { @class = "col-lg-2 control-label" })
+                        <div class="col-lg-8">
+                            @Html.TextBox("txt_inspector_designado", null, new { @class = "form-control input-sm", @maxlength = "100" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="col-lg-3" style="width:150px;">
+                            <div class="checkbox">
+                                @Html.CheckBox("chck_fecha_auditoria")
+                                @Html.Label("Fecha auditoria")
+                            </div>
+                        </div>
+                        <div class="col-lg-2" style="width:160px">
+                            <div class="input-group date input-group-sm" id="dtpFechauditoria">
+                                <input class="form-control input-sm" id="txtFechauditoria" type="text" value="">
+                                <span class="input-group-addon input-sm add-on">
+                                    <a href="#">
+                                        <i class="glyphicon glyphicon-calendar" data-date-icon="glyphicon glyphicon-calendar"></i>
+                                    </a>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="col-lg-3" style="width:140px;">
+                            <div class="checkbox">
+                                @Html.CheckBox("chck_fecha_acta")
+                                @Html.Label("Fecha Acta")
+                            </div>
+                        </div>
+                        <div class="col-lg-2" style="width:160px">
+                            <div class="input-group date input-group-sm" id="dtpFechacta">
+                                <input class="form-control input-sm" id="txtFechacta" type="text" value="">
+                                <span class="input-group-addon input-sm add-on">
+                                    <a href="#">
+                                        <i class="glyphicon glyphicon-calendar" data-date-icon="glyphicon glyphicon-calendar"></i>
+                                    </a>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <p class="row">
+                            <div class="col-lg-3" style="width:150px;">
+                                <div class="checkbox">
+                                    @Html.CheckBox("chck_fecha_oficio")
+                                    @Html.Label("Fecha envio de")
+                                </div>
+                            </div>
+                            <div class="col-lg-2" style="width:160px">
+                                <div class="input-group date input-group-sm" id="dtpFechaoficio">
+                                    <input class="form-control input-sm" id="txtFechaoficio" type="text" value="">
+                                    <span class="input-group-addon input-sm add-on">
+                                        <a href="#">
+                                            <i class="glyphicon glyphicon-calendar" data-date-icon="glyphicon glyphicon-calendar"></i>
+                                        </a>
+                                    </span>
+                                </div>
+                            </div>
+                        </p>
+                        <br />
+                        <p class="row" style="margin:0px">
+                            <div class="col-lg-3" style="padding-left:35px;">
+                                @Html.Label("oficio-sdhpa")
+                            </div>
+                        </p>
+                    </div>
+
+
+
+                    <div class="form-group">
+                        @Html.Label("", "Con Proceso:", new { @class = "col-lg-2 control-label" })
+
+                        <div class="col-lg-8">
+                            @Html.TextArea("txt_finalizar_con_proceso", null, new { @class = "form-control input-sm", rows = "4", @maxlength = "1000", wrap = "off" })
+                        </div>
+                    </div>
+
+
+                    <div class="form-group">
+                        <div id="menssage">
+                            <span id="conformidad"></span>
+                            <p>¿Está seguro de finalizar el seguimiento?.</p>
+                            <input type="text" id="txtId5" class="hidden" />
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary btn-sm" id="bntConfirmar2">Si</button>
+                    <button type="button" class="btn btn-default btn-sm" data-dismiss="modal" id="btn_cancelar2">No</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="mdlConformidad_almacen" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title" id="myModalLabel">
+                    <label id="txt_almacen_add_seg">  </label>
+                    <label id="titulo_alma_add_seg">  </label>
+                </h4>
+
+            </div>
+            <form method="post" id="formalmacen">
+                <div class="modal-body">
+                    <div class="form-horizontal">
+
+                        <div id="progress_almacen" class="progress_almacen hidden">
+                            <div class="progress_almacen progress-striped active">
+                                <div class="progress-bar" style="width: 100%">
+                                    <p>Procesando</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <input type="text" id="txtId_alma_add_seg" class="hidden" />
+
+                        <div id="menssage_almacen">
+                            <div class="form-group">
+                                <div class="col-md-2">
+                                    <label class="control-label">Almacén:</label>
+                                </div>
+                                <div class="col-md-10">
+                                    @Html.DropDownList("cmb_almacen", (IEnumerable<SelectListItem>)ViewBag.lst_combo, new { @class = "form-control input-sm" })
+                                    <label id="lbl_valida_almacen" style="color: #B44D4D">  </label>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary btn-sm" id="btn_Aceptar_add_almacen">Aceptar</button>
+                    <button type="button" class="btn btn-default btn-sm" data-dismiss="modal" id="btn_can_mod_almacen">Cancelar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="mdltransporte_nuevo" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title" id="myModalLabel">Nuevo Transporte</h4>
+            </div>
+            <form method="post" id="form_nuevo_transporte">
+                <div class="modal-body">
+                    <div class="form-horizontal">
+
+                        <div class="form-group">
+                            <label class="control-label col-md-3">Placa</label>
+                            <div class="col-md-4">
+                                @Html.TextBox("txt_nueva_placa", null, new { @class = "form-control input-sm", @maxlength = "20" })
+                                <label id="lbl_valida_nueva_placa" style="color: #B44D4D">  </label>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="control-label col-md-3">Carroceria</label>
+                            <div class="col-md-5">
+                                @Html.DropDownList("cmb_nuevo_carroceria", (IEnumerable<SelectListItem>)ViewBag.lst_nuevo_carroceria, new { @class = "form-control input-sm" })
+                            </div>
+                        </div>
+
+                        <div class="form-group hidden">
+                            <label class="control-label col-md-3">Furgon</label>
+                            <div class="col-md-7">
+                                @Html.DropDownList("cmb_nuevo_furgon", (IEnumerable<SelectListItem>)ViewBag.lst_tipo_furgon, new { @class = "form-control input-sm" })
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="control-label col-md-3">Carga Util</label>
+                            <div class="col-md-3">
+                                @Html.TextBox("txt_nuevo_carga_util", null, new { @class = "form-control input-sm", @maxlength = "12", @onkeypress = "return ValidaDecimal(this.value);" })
+                            </div>
+                            <div class="col-md-2">
+                                @Html.DropDownList("cmb_nuevo_um", (IEnumerable<SelectListItem>)ViewBag.lst_nuevo_um, new { @class = "form-control input-sm" })
+                                <label id="lbl_valida_nuevo_carga_util" style="color: #B44D4D">  </label>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary btn-sm" id="btnGuardar_nuevo_transporte">Guardar</button>
+                    <button type="button" class="btn btn-default btn-sm" data-dismiss="modal">Cancelar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="mdlConformidad_transporte" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title" id="myModalLabel">
+                    <label id="txt_transporte_add_seg">  </label>
+                    <br />
+                    <label id="titulo_transporte_add_seg">  </label>
+                </h4>
+
+            </div>
+            <form method="post" id="formtransporte">
+                <div class="modal-body">
+                    <div class="form-horizontal">
+
+                        <div id="progress_transporte" class="progress_transporte hidden">
+                            <div class="progress_transporte progress-striped active">
+                                <div class="progress-bar" style="width: 100%">
+                                    <p>Procesando</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <input type="text" id="txtId_transporte_add_seg" class="hidden" />
+
+                        <div id="menssage_transporte">
+
+                            <div class="form-group ">
+                                <label class="col-md-3 control-label">Placa del Transporte:</label>
+                                <div class="col-md-4">
+                                    @Html.TextBox("num_placa", null, new { @class = " form-control input-sm", @maxlength = "20", @onpaste = "return false;", @placeholder = "Placa de Transporte", @onkeypress = "return IsTransporte_vista(this.value);", @onkeyup = "return back_Transporte(this.value);" })
+                                </div>
+                            </div>
+
+                            <div class="act_transporte form-group">
+                                <div class="col-md-8">
+                                    @Html.DropDownList("cmb_transporte", (IEnumerable<SelectListItem>)ViewBag.lst_combo, new { @class = "form-control input-sm" })
+                                    <label id="lbl_valida_transporte" style="color: #B44D4D">  </label>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary btn-sm" id="btn_Aceptar_nuevo_transporte">Nuevo Transporte</button>
+                    <button type="button" class="btn btn-primary btn-sm" id="btn_Aceptar_add_transporte">Aceptar</button>
+                    <button type="button" class="btn btn-default btn-sm" data-dismiss="modal" id="btn_can_mod_transporte">Cancelar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="mdlConformidad_concesion" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title" id="myModalLabel">
+                    <label id="txt_concesion_add_seg">  </label>
+                    <br />
+                    <label id="titulo_concesion_add_seg">  </label>
+                </h4>
+
+            </div>
+            <form method="post" id="formconcesion">
+                <div class="modal-body">
+                    <div class="form-horizontal">
+
+                        <div id="progress_concesion" class="progress_concesion hidden">
+                            <div class="progress_concesion progress-striped active">
+                                <div class="progress-bar" style="width: 100%">
+                                    <p>Procesando</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <input type="text" id="txtId_concesion_add_seg" class="hidden" />
+
+                        <div id="menssage_concesion">
+                            <div class="form-group">
+                                <div class="col-md-8">
+                                    <label class="control-label">Concesión /Centro de Cultivo /Hatchery : </label>
+                                </div>
+                                <br />
+                                <div class="col-md-10">
+                                    @Html.DropDownList("cmb_concesion", (IEnumerable<SelectListItem>)ViewBag.lst_combo, new { @class = "form-control input-sm" })
+                                    <label id="lbl_valida_concesion" style="color: #B44D4D">  </label>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary btn-sm" id="btn_Aceptar_add_concesion">Aceptar</button>
+                    <button type="button" class="btn btn-default btn-sm" data-dismiss="modal" id="btn_can_mod_concesion">Cancelar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="mdlConformidad1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title" id="myModalLabel">
+                    <label id="txt_titulo_1">  </label>
+                    <label id="titulo_1">  </label>
+                </h4>
+
+            </div>
+            <form method="post" id="formplanta">
+                <div class="modal-body">
+                    <div class="form-horizontal">
+
+                        <div id="progress" class="progress hidden">
+                            <div class="progress progress-striped active">
+                                <div class="progress-bar" style="width: 100%">
+                                    <p>Procesando</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <input type="text" id="txtId1" class="hidden" />
+
+                        <div id="menssage">
+                            <div class="form-group">
+                                <div class="col-md-2">
+                                    <label class="control-label" for="cmb_planta">Planta:</label>
+                                </div>
+                                <div class="col-md-10">
+                                    @Html.DropDownList("cmb_planta", (IEnumerable<SelectListItem>)ViewBag.lst_combo, new { @class = "form-control input-sm" })
+                                    <label id="lbl_valida_planta" style="color: #B44D4D">  </label>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary btn-sm" id="btn_Aceptar">Aceptar</button>
+                    <button type="button" class="btn btn-default btn-sm" data-dismiss="modal" id="btn_can_mod">Cancelar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="mdlConformidad_desembarcadero" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title" id="myModalLabel">
+                    <label id="txt_desembarcadero_add_seg">  </label>
+                    <label id="titulo_desembarcadero_add_seg">  </label>
+                </h4>
+
+            </div>
+            <form method="post" id="formdesembarcadero">
+                <div class="modal-body">
+                    <div class="form-horizontal">
+
+                        <div id="progress_add_desembarcadero" class="progress hidden">
+                            <div class="progress progress-striped active">
+                                <div class="progress-bar" style="width: 100%">
+                                    <p>Procesando</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <input type="text" id="txtId_desembarcadero_add_seg" class="hidden" />
+
+                        <div id="menssage_add_desembarcadero">
+                            <div class="form-group">
+                                <div class="col-md-2">
+                                    <label class="control-label">Desembarcadero:</label>
+                                </div>
+                                <div class="col-md-10">
+                                    @Html.DropDownList("cmb_desembarcadero", (IEnumerable<SelectListItem>)ViewBag.lst_combo, new { @class = "form-control input-sm" })
+                                    <label id="lbl_valida_desembarcadero" style="color: #B44D4D" hidden="hidden">  </label>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary btn-sm" id="btn_Aceptar_desembarcadero">Aceptar</button>
+                    <button type="button" class="btn btn-default btn-sm" data-dismiss="modal" id="btn_can_mod_desembarcadero">Cancelar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="mdl_emb_add_seg" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title" id="myModalLabel">
+                    <label id="txt_titulo_emb_add_seg">  </label>
+                    <label id="titulo_emb_add_seg">  </label>
+                </h4>
+
+            </div>
+            <form method="post" id="form_add_embarcacion">
+                <div class="modal-body">
+
+                    <div id="mensaje_emb_add_seg"></div>
+                    <div class="form-horizontal">
+
+                        <div id="progress_emb_add" class="progress hidden">
+                            <div class="progress progress-striped active">
+                                <div class="progress-bar" style="width: 100%">
+                                    <p>Procesando</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <input type="text" id="txtId_emb_add_seg" class="hidden" />
+
+
+                        <div class="form-group ">
+                            <label class="col-md-2 control-label">Embarcación:</label>
+                            <div class="col-md-4">
+                                @Html.TextBox("num_matricula", null, new { @class = " form-control input-sm", @maxlength = "100", @onpaste = "return false;", @placeholder = "Matricula", @onkeypress = "return IsMatricula_vista(this.value);", @onkeyup = "return back_matricula(this.value);" })
+                            </div>
+                        </div>
+
+                        <div class="act_embarcacion form-group">
+                            <label class="col-md-2 control-label"></label>
+                            <div class="col-md-6 ">
+                                @Html.DropDownList("cmb_embarcacion", (IEnumerable<SelectListItem>)ViewBag.lst_embarcacion, new { @class = "form-control input-sm" })
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary btn-sm disabled" id="btn_Aceptar_add_embarcacion">Aceptar</button>
+                    <button type="button" class="btn btn-default btn-sm" data-dismiss="modal" id="btn_can_mod_embarcacion">Cancelar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="mdl_constancia_add_seg" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title" id="myModalLabel">
+                    <label id="txt_titulo_constancia_add_seg">  </label>
+                    <label id="titulo_constancia_add_seg">  </label>
+                </h4>
+
+            </div>
+            <form method="post" id="form_add_constancia">
+                <div class="modal-body">
+
+                    <div id="mensaje_constancia_add_seg"></div>
+                    <div class="form-horizontal">
+
+                        <div id="progress_constancia_add" class="progress hidden">
+                            <div class="progress progress-striped active">
+                                <div class="progress-bar" style="width: 100%">
+                                    <p>Procesando</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <input type="text" id="txtId_constancia_add_seg" class="hidden" />
+
+                        <div class="form-group ">
+                            <label class="col-md-4 control-label">Constancia HACCP:</label>
+                            <div class="col-md-6">
+                                @Html.TextBox("txt_constancia", null, new { @class = " form-control input-sm", @maxlength = "150", @placeholder = "Ingresar la Constancia Haccp" })
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary btn-sm" id="btn_Aceptar_add_constancia">Aceptar</button>
+                    <button type="button" class="btn btn-default btn-sm" data-dismiss="modal" id="btn_can_mod_constancia">Cancelar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="mdl_crear_solicitud" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title" id="myModalLabel">
+                    <label id="txt_titulo_10">  </label>
+                    <label id="titulo_10">  </label>
+                </h4>
+            </div>
+            <div class="modal-body">
+                <div id="mensajesPopup_10"></div>
+                <div id="progress_10" class="progress hidden">
+                    <div class="progress progress-striped active">
+                        <div class="progress-bar" style="width: 100%">
+                            <p>Procesando</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-horizontal">
+                    <div class="form-group">
+                        <div id="menssage_10">
+                            <span id="conformidad"></span>
+
+                            <input type="text" id="txtId10" class="hidden" />
+                            <input type="text" id="txt_id_tipo_seguimiento_10" class="hidden" />
+
+                            <div class="form-group ">
+                                <label class="col-md-4 control-label">Resolución</label>
+                                <div class="col-md-6">
+                                    @Html.TextBox("txt_si_resolucion", null, new { @class = " form-control input-sm", @maxlength = "42" })
+                                </div>
+                            </div>
+
+                            <div class="form-group ">
+                                <label class="col-md-4 control-label">Persona Contacto</label>
+                                <div class="col-md-6">
+                                    @Html.TextBox("txt_si_persona_contacto", null, new { @class = " form-control input-sm", @maxlength = "250" })
+                                </div>
+                            </div>
+
+                            <div class="form-group ">
+                                <label class="col-md-4 control-label">Teléfono oficina</label>
+                                <div class="col-md-6">
+                                    @Html.TextBox("txt_si_telefono_oficina", null, new { @class = " form-control input-sm", @maxlength = "250" })
+                                </div>
+                            </div>
+
+                            <div class="form-group ">
+                                <label class="col-md-4 control-label">Teléfono planta</label>
+                                <div class="col-md-6">
+                                    @Html.TextBox("txt_si_telefono_planta", null, new { @class = " form-control input-sm", @maxlength = "250" })
+                                </div>
+                            </div>
+
+                            <div class="form-group ">
+                                <label class="col-md-4 control-label">Correo</label>
+                                <div class="col-md-6">
+                                    @Html.TextBox("txt_si_correo", null, new { @class = " form-control input-sm", @maxlength = "250" })
+                                </div>
+                            </div>
+
+                            <div class="form-group ">
+                                <label class="col-md-4 control-label">Observaciones</label>
+                                <div class="col-md-6">
+                                    @Html.TextBox("txt_si_observaciones", null, new { @class = " form-control input-sm", @maxlength = "250" })
+                                </div>
+                            </div>
+
+                            <div class="form-group ">
+                                <label class="col-md-4 control-label">Tipo Servicio de Habilitaciones</label>
+                                <div class="col-md-6">
+                                    @Html.DropDownList("cmb_si_tipo_serv_habilitaciones", (IEnumerable<SelectListItem>)ViewBag.lst_si_tipo_servicio_habilitaciones, new { @class = "form-control input-sm" })
+                                </div>
+                            </div>
+
+                            <div class="form-group ">
+                                <label class="col-md-4 control-label">Filial</label>
+                                <div class="col-md-6">
+                                    @Html.DropDownList("cmb_si_filial", (IEnumerable<SelectListItem>)ViewBag.lst_si_filial, new { @class = "form-control input-sm" })
+                                </div>
+                            </div>
+
+                            <div class="form-group ">
+                                <label class="col-md-4 control-label">Destino</label>
+                                <div class="col-md-6">
+                                    @Html.DropDownList("cmb_si_destino", (IEnumerable<SelectListItem>)ViewBag.lst_si_destino, new { @class = "form-control input-sm" })
+                                </div>
+                            </div>
+
+                            <div class="form-group ">
+                                <label class="col-md-4 control-label">Manuales</label>
+                                <div class="col-md-6">
+                                    @Html.DropDownList("cmb_si_Manuales", (IEnumerable<SelectListItem>)ViewBag.lst_si_manuales, new { @class = "form-control input-sm" })
+                                </div>
+                            </div>
+
+                            <div class="form-group ">
+                                <label class="col-md-4 control-label">Norma a aplicar</label>
+                                <div class="col-md-6">
+                                    @Html.TextBox("txt_si_norma_aplicar", null, new { @class = " form-control input-sm", @maxlength = "50" })
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary btn-sm" id="btn_aceptar_solicitud">Si</button>
+                    <button type="button" class="btn btn-default btn-sm" data-dismiss="modal" id="btn_can_mod_10">No</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="mdl_crear_informe" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title" id="myModalLabel">
+                    <label id="txt_titulo_11">  </label>
+                    <label id="titulo_11">  </label>
+                </h4>
+            </div>
+            <div class="modal-body">
+                <div id="mensajesPopup_11"></div>
+                <div id="progress_11" class="progress hidden">
+                    <div class="progress progress-striped active">
+                        <div class="progress-bar" style="width: 100%">
+                            <p>Procesando</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-horizontal">
+                    <div class="form-group">
+                        <div id="menssage_11">
+                            <span id="conformidad"></span>
+                            <p>¿Está seguro de crear un informe?.</p>
+
+
+                            <div class="form-group">
+                                @Html.Label("Observación: ", new { @class = "col-md-2 control-label" })
+                                <div class="col-md-8">
+                                    @Html.TextArea("var_observacion", "", new { @class = "form-control input-sm" })
+                                </div>
+                            </div>
+
+                            <input type="text" id="txtId11" class="hidden" />
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary btn-sm" id="btn_aceptar_informe">Si</button>
+                    <button type="button" class="btn btn-default btn-sm" data-dismiss="modal" id="btn_can_mod_11">No</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script type="text/javascript">
+
+
+    function IsTransporte_vista(dato) {
+        if (window.event.keyCode == 8) {
+            $('.act_transporte').hide();
+            $('#btn_Aceptar_add_transporte').addClass("disabled")
+        }
+        var valor = dato.indexOf(".");
+        var evento = window.event || dato;
+        var escrito = (dato + String.fromCharCode(evento.charCode)).trim();
+        if (escrito.length > 2) {
+
+            $.ajax({
+                cache: false,
+                type: "GET",
+                url: "@(Url.RouteUrl("recupera_transporte"))",
+                data: { "PLACA": escrito },
+                success: function (data) {
+                    $("#cmb_transporte").html('');
+                    $.each(data, function (id, option) {
+                        if (option.Value != "NO") {
+                            $("#cmb_transporte").append($('<option></option>').val(option.Value).html(option.Text));
+                            $('.act_transporte').show();
+                            $('#btn_Aceptar_add_transporte').removeClass("disabled")
+                        }
+                        else {
+                            $('.act_transporte').hide();
+                            $('#btn_Aceptar_add_transporte').addClass("disabled")
+                        }
+                    });
+                },
+                error: function (xhr, ajaxOptions, thrownError) {
+                    alert('Failed to retrieve states.');
+                }
+            });
+
+        }
+    }
+
+    function back_Transporte(dato) {
+        if (window.event.keyCode == 8) {
+            $('.act_transporte').hide();
+            $('#btn_Aceptar_add_transporte').addClass("disabled")
+        }
+    }
+
+    function IsMatricula_vista(dato) {
+        if (window.event.keyCode == 8) {
+            $('.act_embarcacion').hide();
+            $('#btn_Aceptar_add_embarcacion').addClass("disabled")
+        }
+        var valor = dato.indexOf(".");
+        var evento = window.event || dato;
+        var escrito = (dato + String.fromCharCode(evento.charCode)).trim();
+        if (escrito.length > 2) {
+
+            $.ajax({
+                cache: false,
+                type: "GET",
+                url: "@(Url.RouteUrl("recupera_embarcacion"))",
+                data: { "MATRICULA": escrito },
+                success: function (data) {
+                    $("#cmb_embarcacion").html('');
+                    $.each(data, function (id, option) {
+                        if (option.Value != "NO") {
+                            $("#cmb_embarcacion").append($('<option></option>').val(option.Value).html(option.Text));
+                            $('.act_embarcacion').show();
+                            $('#btn_Aceptar_add_embarcacion').removeClass("disabled")
+                        }
+                        else {
+                            $('.act_embarcacion').hide();
+                            $('#btn_Aceptar_add_embarcacion').addClass("disabled")
+                        }
+                    });
+                },
+                error: function (xhr, ajaxOptions, thrownError) {
+                    alert('Failed to retrieve states.');
+                }
+            });
+
+        }
+    }
+
+    function back_matricula(dato) {
+        if (window.event.keyCode == 8) {
+            $('.act_embarcacion').hide();
+            $('#btn_Aceptar_add_embarcacion').addClass("disabled")
+        }
+    }
+
+    function IsNumeric(dato) {
+        var valor = dato.indexOf(".");
+        if ((window.event.keyCode > 47 && window.event.keyCode < 58)) {
+            window.event.returnValue = true;
+        }
+        else {
+            window.event.returnValue = false;
+        }
+    }
+
+
+    function ValidaDecimal(dato) {
+        var valor = dato.indexOf(".");
+        if ((window.event.keyCode > 47 && window.event.keyCode < 58) || window.event.keyCode == 46) {
+            if (window.event.keyCode == 46) {
+                if (valor >= 0) {
+                    window.event.returnValue = false;
+                }
+            }
+        }
+        else {
+            window.event.returnValue = false;
+        }
+    }
+
+    $(document).ready(function () {
+
+
+        $('#export_excel').click(function () {
+            var url = "/Habilitaciones/Exportar_Excel_Expediente_Evaluador";
+            var win = window.open(url, '_blank');
+        });
+
+        $('#Expediente_Evaluador').attr('href', function () {
+            return this.href.replace('_Parameter1', "");
+        });
+
+        $("#cmb_nuevo_carroceria").change(function () {
+            var selectcarroceria = $(this).val();
+            var ddlfurgon = $("#cmb_nuevo_furgon");
+            $.ajax({
+                cache: false,
+                type: "GET",
+                url: "@(Url.RouteUrl("llenar_furgon_x_carroceria"))",
+                data: { "id_tipo_carroceria": selectcarroceria },
+                success: function (data) {
+                    ddlfurgon.html('');
+                    $.each(data, function (id, option) {
+                        ddlfurgon.append($('<option></option>').val(option.Value).html(option.Text));
+                    });
+                },
+                error: function (xhr, ajaxOptions, thrownError) {
+                    alert('Failed to retrieve states.');
+                }
+            });
+        });
+
+
+        $(document).on('click', '.modificar_tipo_seguimiento', function () {
+            var id_seguimiento = $(this).attr('id').split('|');
+            document.getElementById('txt_titulo_mts').innerHTML = "Aviso - Modificar Tipo Seguimiento - ";
+            document.getElementById('titulo_mts').innerHTML = id_seguimiento[0];
+            $('#txtId_mts').val(id_seguimiento[1]);
+            $('#mdlConformidad_mts').modal();
+        });
+
+        $('#add_observacion').click(function () {
+            $('.opc_add_observacion').hide();
+            $('.opc_add_new_observacion').show();
+            $("#txt_observacion").val("");
+            document.getElementById('lbl_valida_observacion').innerHTML = "";
+        });
+
+        $('#add_cancelar_observacion').click(function () {
+            $('.opc_add_observacion').show();
+            $('.opc_add_new_observacion').hide();
+        });
+
+        $('#add_guardar_observacion').click(function () {
+            if ($("#txt_observacion").val() != "") {
+
+                $.ajax({
+                    cache: false,
+                    type: "GET",
+                    url: "/Habilitaciones/Guardar_Observacion_x_seguimiento",
+                    data: {
+                        "id_seguimiento": $("#txt_id_oculto_observacion_seguimiento").val(),
+                        "observacion": $("#txt_observacion").val()
+                    },
+                    success: function (result) {
+                        var nuevoTD = '<tr>';
+                        nuevoTD += '<td>' + $("#txt_observacion").val() + '</td>';
+                        nuevoTD += '<td>' + result.usuario_crea + '</td>';
+                        nuevoTD += '</tr>';
+                        jQuery("#tbl_lista_observacion").append(nuevoTD);
+                        $('.opc_add_observacion').show();
+                        $('.opc_add_new_observacion').hide();
+                    }
+                });
+            }
+            else {
+                document.getElementById('lbl_valida_observacion').innerHTML = "Debe de ingresar la observación en el recuadro";
+            }
+        });
+
+        $(document).on('click', '.ver_observacion', function () {
+
+            $('.opc_add_observacion').hide();
+            $('.opc_add_new_observacion').hide();
+
+
+            $('#mdl_lista_observacion').modal('show');
+            var id_seguimiento = $(this).attr('id').split('|');
+
+            document.getElementById('lbl_valida_observacion').innerHTML = "";
+            document.getElementById('titulo_lista_observacion').innerHTML = " - " + id_seguimiento[0];
+
+            if (id_seguimiento[2] == "True") {
+                $('.opc_add_observacion').show();
+            }
+            $("#txt_id_oculto_observacion_seguimiento").val(id_seguimiento[1]);
+            $("#tbl_lista_observacion td").remove();
+
+            $.ajax({
+                cache: false,
+                type: "GET",
+                url: "@(Url.RouteUrl("Listar_Observacion_x_seguimiento"))",
+                data: { "id_seguimiento": id_seguimiento[1] },
+                success: function (data) {
+                    $.each(data, function (id, option) {
+                        var nuevoTD = '<tr>';
+                        nuevoTD += '<td>' + option.observacion + '</td>';
+                        nuevoTD += '<td>' + option.nombre_persona_crea + '</td>';
+                        nuevoTD += '</tr>';
+
+                        jQuery("#tbl_lista_observacion").append(nuevoTD);
+                    });
+                },
+                error: function (xhr, ajaxOptions, thrownError) {
+                    alert('Failed to retrieve states.');
+                }
+            });
+
+        });
+
+        $('.act_embarcacion').hide();
+        $('#btn_Aceptar_add_embarcacion').addClass("disabled")
+
+        $("#grid_seguimiento").DataTable({
+            "ordering": false,
+            "lengthChange": false,
+            "searching": false,
+            //"info": false,
+            "language": {
+                "paginate": {
+                    "previous": "Anterior",
+                    "next": "Siguiente"
+                }
+            }
+        });
+
+        $("#grid_seguimiento thead tr th").eq(2).css({ "width": 31 });
+        $("#grid_seguimiento thead tr th").eq(3).css({ "width": 211 });
+        ////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        //
+        // VARIABLES INICIAL PAGINA
+        //
+        ////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+        var f = new Date();
+        var fechaActual = (f.getDate() < 10 ? "0" + f.getDate() : f.getDate()) + "/" + ((f.getMonth() + 1) < 10 ? "0" + (f.getMonth() + 1) : (f.getMonth() + 1)) + "/" + f.getFullYear();
+
+        ////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        //
+        // FIN VARIABLES PAGINA
+        //
+        ////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+        ////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        //
+        // MODAL FINALIZAR
+        //
+        ////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+        $("#txtFechauditoria").val(fechaActual);
+        $("#txtFechacta").val(fechaActual);
+        $("#txtFechaoficio").val(fechaActual);
+
+        $(function () {
+            $(".select2").select2();
+        });
+
+        $(function () {
+            $('#dtpFechauditoria').datetimepicker({
+                pickTime: false,
+                format: 'dd/MM/yyyy',
+                language: 'es'
+            });
+
+            $('#dtpFechacta').datetimepicker({
+                pickTime: false,
+                format: 'dd/MM/yyyy',
+                language: 'es'
+            });
+
+            $('#dtpFechaoficio').datetimepicker({
+                pickTime: false,
+                format: 'dd/MM/yyyy',
+                language: 'es'
+            });
+        });
+
+        ////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        //
+        // END MODAL FINALIZAR
+        //
+        ////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+        //$(function () {            $('#paginator ul li a').click(function () {                var url = $(this).attr('href') + '&' + $('form').serialize();                $(this).attr('href', url);            });        });
+
+
+        $(document).on('click', '.ver_protocolos_transporte', function () {
+
+            $('#mdl_detalle_3_transporte').modal('show');
+            var id_seguimiento = $(this).attr('id').split('|');
+            document.getElementById('titulo_100_transporte').innerHTML = " - " + id_seguimiento[0];
+
+            $("#tbl_lista_protocolos_transporte td").remove();
+            $("#tbl_lista_haccp_transporte td").remove();
+
+            $.ajax({
+                cache: false,
+                type: "GET",
+                url: "@(Url.RouteUrl("llenar_protocolos_seguimiento"))",
+                data: { "id_seguimiento": id_seguimiento[1] },
+                success: function (data) {
+                    $.each(data, function (id, option) {
+                        var nuevoTD = '<tr>';
+                        nuevoTD += '<td><ul class="list-inline" style="margin-bottom:0"><li><a href="' + option.ruta_archivo + '" target="_blank" >' + option.nombre + '</a></li></ul></td>';
+                        nuevoTD += '<td>' + option.cadena_fecha_inicio + '</td>';
+                        nuevoTD += '<td>' + option.cadena_fecha_fin + '</td>';
+                        if (option.activo == "1") {
+                            nuevoTD += '<td>ACTIVO</td>';
+                            nuevoTD += '<td>';
+                            nuevoTD += '<ul class="list-inline" style="margin-bottom:0"><li><a href="Editar_var_Protocolo_transporte/' + option.id_protocolo + '" target="_blank" >Editar Protocolo</a></li></ul>'
+                            nuevoTD += '<ul class="list-inline" style="margin-bottom:0"><li><a href="Imprimir_Protocolo_transporte/' + option.id_protocolo + '" target="_blank" >Generar Archivo</a></li></ul>'
+                            nuevoTD += '<ul class="list-inline" style="margin-bottom:0"><li><a href="Subir_var_Protocolo_transporte/' + option.id_protocolo + '" target="_blank" >Subir Archivo</a></li></ul>'
+                            nuevoTD += '</td>';
+                        }
+                        else {
+                            nuevoTD += '<td>INACTIVO</td>';
+                            nuevoTD += '<td></td>';
+                        }
+
+                        nuevoTD += '</tr>';
+
+                        jQuery("#tbl_lista_protocolos_transporte").append(nuevoTD);
+                    });
+                },
+                error: function (xhr, ajaxOptions, thrownError) {
+                    alert('Failed to retrieve states.');
+                }
+            });
+
+            $.ajax({
+                cache: false,
+                type: "GET",
+                url: "@(Url.RouteUrl("llenar_haccp_seguimiento"))",
+                data: { "id_seguimiento": id_seguimiento[1] },
+                success: function (data) {
+                    $.each(data, function (id, option) {
+                        var nuevoTD = '<tr>';
+                        nuevoTD += '<td>' + option.nombre + '</td>';
+                        nuevoTD += '</tr>';
+
+                        jQuery("#tbl_lista_haccp_transporte").append(nuevoTD);
+                    });
+                },
+                error: function (xhr, ajaxOptions, thrownError) {
+                    alert('Failed to retrieve states.');
+                }
+            });
+
+        });
+
+
+        $(document).on('click', '.ver_protocolos', function () {
+
+            $('#mdl_detalle_3').modal('show');
+            var id_seguimiento = $(this).attr('id').split('|');
+            document.getElementById('titulo_100').innerHTML = " - " + id_seguimiento[0];
+
+            $("#tbl_lista_protocolos td").remove();
+            $("#tbl_lista_haccp td").remove();
+
+            $.ajax({
+                cache: false,
+                type: "GET",
+                url: "@(Url.RouteUrl("llenar_protocolos_seguimiento"))",
+                data: { "id_seguimiento": id_seguimiento[1] },
+                success: function (data) {
+                    $.each(data, function (id, option) {
+                        var nuevoTD = '<tr>';
+                        nuevoTD += '<td><ul class="list-inline" style="margin-bottom:0"><li><a href="' + option.ruta_archivo + '" target="_blank" >' + option.nombre + '</a></li></ul></td>';
+                        nuevoTD += '<td style=" text-align:center;">' + option.cadena_fecha_inicio + '</td>';
+                        nuevoTD += '<td style=" text-align:center;">' + option.cadena_fecha_fin + '</td>';
+                        if (option.activo == "1") {
+                            nuevoTD += '<td><ul class="list-inline" style="margin-bottom:0"><li><a class="Inactivar_activar_protocolo" id="' + option.id_protocolo + '|' + id_seguimiento[0] + '|' + id_seguimiento[1] + '" href="#"> INACTIVAR </a></li></ul></td>';
+                        }
+                        else {
+                            nuevoTD += '<td><ul class="list-inline" style="margin-bottom:0"><li><a class="Inactivar_activar_protocolo" id="' + option.id_protocolo + '|' + id_seguimiento[0] + '|' + id_seguimiento[1] + '" href="#"> ACTIVAR </a></li></ul></td>';
+                        }
+
+                        nuevoTD += '</tr>';
+
+                        jQuery("#tbl_lista_protocolos").append(nuevoTD);
+                    });
+                },
+                error: function (xhr, ajaxOptions, thrownError) {
+                    alert('Failed to retrieve states.');
+                }
+            });
+
+
+            $.ajax({
+                cache: false,
+                type: "GET",
+                url: "@(Url.RouteUrl("llenar_haccp_seguimiento"))",
+                data: { "id_seguimiento": id_seguimiento[1] },
+                success: function (data) {
+                    $.each(data, function (id, option) {
+                        var nuevoTD = '<tr>';
+                        nuevoTD += '<td>' + option.nombre + '</td>';
+                        nuevoTD += '</tr>';
+
+                        jQuery("#tbl_lista_haccp").append(nuevoTD);
+                    });
+                },
+                error: function (xhr, ajaxOptions, thrownError) {
+                    alert('Failed to retrieve states.');
+                }
+            });
+
+        });
+
+
+        $(document).on('click', '.Inactivar_activar_protocolo', function () {
+
+            var id_protocolo = $(this).attr('id').split('|');
+
+            $.ajax({
+                cache: false,
+                type: "GET",
+                url: "@(Url.RouteUrl("inactivar_activar_protocolo"))",
+                data: {
+                    "id_protocolo": id_protocolo[0]
+                },
+                success: function (result) {
+
+                    document.getElementById('titulo_100').innerHTML = " - " + id_protocolo[1];
+
+                    $("#tbl_lista_protocolos td").remove();
+
+                    $.ajax({
+                        cache: false,
+                        type: "GET",
+                        url: "@(Url.RouteUrl("llenar_protocolos_seguimiento"))",
+                        data: { "id_seguimiento": id_protocolo[2] },
+                        success: function (data) {
+                            $.each(data, function (id, option) {
+                                var nuevoTD = '<tr>';
+                                nuevoTD += '<td><ul class="list-inline" style="margin-bottom:0"><li><a href="' + option.ruta_archivo + '" target="_blank" >' + option.nombre + '</a></li></ul></td>';
+                                nuevoTD += '<td style=" text-align:center;">' + option.cadena_fecha_inicio + '</td>';
+                                nuevoTD += '<td style=" text-align:center;">' + option.cadena_fecha_fin + '</td>';
+                                if (option.activo == "1") {
+                                    nuevoTD += '<td><ul class="list-inline" style="margin-bottom:0"><li><a class="Inactivar_activar_protocolo" id="' + option.id_protocolo + '|' + id_protocolo[1] + "|" + id_protocolo[2] + '" href="#"> INACTIVAR </a></li></ul></td>';
+                                }
+                                else {
+                                    nuevoTD += '<td><ul class="list-inline" style="margin-bottom:0"><li><a class="Inactivar_activar_protocolo" id="' + option.id_protocolo + '|' + id_protocolo[1] + "|" + id_protocolo[2] + '" href="#"> ACTIVAR </a></li></ul></td>';
+                                }
+
+                                nuevoTD += '</tr>';
+
+                                jQuery("#tbl_lista_protocolos").append(nuevoTD);
+                            });
+                        },
+                        error: function (xhr, ajaxOptions, thrownError) {
+                            alert('Failed to retrieve states.');
+                        }
+                    });
+                },
+                error: function (xhr, ajaxOptions, thrownError) {
+                    alert('Failed to retrieve states.');
+                }
+            });
+        });
+
+        $(document).on('click', '.Ver_PDF', function () {
+            var id_documento = $(this).attr('id');
+            var url = "/Habilitaciones/Ver_documento/" + id_documento;
+            window.open(url, '_blank');
+        });
+
+        $(document).on('click', '.Ver_doc_adjunto', function () {
+            var id_doc_adj = $(this).attr('id');
+            var url = "/Habilitaciones/Ver_doc_adj/" + id_doc_adj;
+            window.open(url, '_blank');
+        });
+
+        $(document).on('click', '.Ver_hijo', function () {
+            var id_hijo = $(this).attr('id');
+            if ($(".class_ver_hijo" + id_hijo).hasClass("hidden")) {
+                $(".class_ver_hijo" + id_hijo).removeClass("hidden");
+            }
+            else {
+                $(".class_ver_hijo" + id_hijo).addClass("hidden");
+            };
+        });
+
+        $(document).on('click', '.ver_documentos_otros', function () {
+
+            $('#mdl_detalle_2').modal('show');
+
+            var id_seguimiento = $(this).attr('id').split('|');
+            document.getElementById('titulo_80').innerHTML = " - " + id_seguimiento[0];
+
+
+            $("#tblrecibidos td").remove();
+
+            $.ajax({
+                cache: false,
+                type: "GET",
+                url: "@(Url.RouteUrl("llenar_documentos_seguimiento_recibido"))",
+                data: { "id_seguimiento": id_seguimiento[1] },
+                success: function (data) {
+                    $.each(data, function (id, option) {
+                        $.ajax({
+                            cache: false,
+                            type: "GET",
+                            url: "@(Url.RouteUrl("llenar_documentos_adjuntos"))",
+                            data: { "id_documento_seg": option.id_documento_seg },
+                            success: function (data) {
+                                var nuevoTD = '<tr>';
+                                if (option.ruta_pdf == "" || option.ruta_pdf == null) {
+                                    nuevoTD += '<td><ul class="list-inline" style="margin-bottom:0"><li><a class="Ver_hijo" id=' + option.id_documento_seg + ' href="#" title="Detalle"><i class="blue glyphicon glyphicon-plus"></i></a></li></ul></td>';
+                                    nuevoTD += '<td>' + option.id_documento_seg + '</td>';
+                                    nuevoTD += '<td>' + option.nom_documento + '</td>';
+                                    nuevoTD += '<td>' + option.asunto + '</td>';
+                                    nuevoTD += '<td>' + option.fecha_documento_text + '</td>';
+                                    nuevoTD += '<td>' + option.fecha_crea_text + '</td>';
+                                    nuevoTD += '<td> </td>';
+                                    nuevoTD += '</tr>';
+                                }
+                                else {
+                                    nuevoTD += '<td><ul class="list-inline" style="margin-bottom:0"><li><a class="Ver_hijo" id=' + option.id_documento_seg + ' href="#" title="Detalle"><i class="blue glyphicon glyphicon-plus"></i></a></li></ul></td>';
+                                    nuevoTD += '<td>' + option.id_documento_seg + '</td>';
+                                    nuevoTD += '<td>' + option.nom_documento + '</td>';
+                                    nuevoTD += '<td>' + option.asunto + '</td>';
+                                    nuevoTD += '<td>' + option.fecha_documento_text + '</td>';
+                                    nuevoTD += '<td>' + option.fecha_crea_text + '</td>';
+                                    nuevoTD += '<td><ul class="list-inline" style="margin-bottom:0"><li><a class="Ver_PDF" id=' + option.id_documento_seg + ' href="#" title="PDF"> ver archivo </a></li></ul></td>';
+                                    nuevoTD += '</tr>';
+                                }
+
+                                jQuery("#tblrecibidos").append(nuevoTD);
+                                nuevoTD = '';
+
+                                $.each(data, function (id, var_option) {
+                                    nuevoTD += '<tr>';
+                                    nuevoTD += '<td><ul class="list-inline" style="margin-bottom:0"><li><a class="Ver_doc_adjunto" id=' + var_option.id_doc_seg_adjunto + ' href="#" title="PDF"> - ' + var_option.tipo_documento_seguimiento_adjunto.nombre + '</a></li></ul></td>';
+                                    nuevoTD += '</tr>';
+                                });
+
+                                if (nuevoTD == '') {
+                                    nuevoTD = '<tr class="class_ver_hijo' + option.id_documento_seg + ' hidden" >' +
+                                               '<td colspan="7">' +
+                                                 '<table>'
+                                                       + '<tr>'
+                                                           + '<td>NO HAY DOCUMENTOS ADJUNTOS</td>'
+                                                       + '</tr>'
+                                                   + '</table>' +
+                                               '</td>' +
+                                          '</tr>';
+                                }
+                                else {
+                                    nuevoTD = '<tr class="class_ver_hijo' + option.id_documento_seg + ' hidden" >'
+                                               + '<td colspan="7">'
+                                                 + '<table>'
+                                                    + nuevoTD
+                                                 + '</table>'
+                                               + '</td>'
+                                          + '</tr>';
+                                }
+                                jQuery("#tblrecibidos").append(nuevoTD);
+                            },
+                            error: function (xhr, ajaxOptions, thrownError) {
+                                alert('Failed to retrieve states.');
+                            }
+                        });
+                    });
+                },
+                error: function (xhr, ajaxOptions, thrownError) {
+                    alert('Failed to retrieve states.');
+                }
+            });
+
+
+            $("#tblemitidos td").remove();
+
+            $.ajax({
+                cache: false,
+                type: "GET",
+                url: "@(Url.RouteUrl("llenar_documentos_emitidos_dhcpa_seguimiento"))",
+                data: { "id_seguimiento": id_seguimiento[1] },
+                success: function (data) {
+                    $.each(data, function (id, option) {
+                        var nuevoTD = '<tr>';
+                        if (option.pdf == "1") {
+                            nuevoTD += '<td><style=" text-align:center;"><ul class="list-inline" style="margin-bottom:0"><li><a href="/Habilitaciones/var_documento_dhcpa_pdf/' + option.id_doc_dhcpa + '" target="_blank"> ' + option.nom_doc + ' </a></li></ul></td>';
+                        } else {
+                            nuevoTD += '<td>' + option.nom_doc + '</td>';
+                        }
+                        nuevoTD += '<td>' + option.asunto + '</td>';
+                        nuevoTD += '<td>' + option.fecha_doc_text + '</td>';
+                        nuevoTD += '</tr>';
+
+                        jQuery("#tblemitidos").append(nuevoTD);
+                    });
+                },
+                error: function (xhr, ajaxOptions, thrownError) {
+                    alert('Failed to retrieve states.');
+                }
+            });
+
+        });
+
+        $(document).on('click', '.ver_historial_evaluadores', function () {
+
+            $('#mdl_lista_historial_evaluador').modal('show');
+
+            var id_seguimiento = $(this).attr('id').split('|');
+            document.getElementById('titulo_lista_historial_evaluador').innerHTML = " - " + id_seguimiento[0];
+
+            $("#tbl_lista_historial_evaluador td").remove();
+
+            $.ajax({
+                cache: false,
+                type: "GET",
+                url: "@(Url.RouteUrl("Listar_historial_evaluador"))",
+                data: { "id_seguimiento": id_seguimiento[1] },
+                success: function (data) {
+                    $.each(data, function (id, option) {
+                        var nuevoTD = '<tr>';
+                        nuevoTD += '<td>' + option.estado + '</td>';
+                        nuevoTD += '<td>' + option.paterno + ' ' + option.materno + ' ' + option.nombres + '</td>';
+                        nuevoTD += '<td>' + option.fecha_recibido + '</td>';
+                        nuevoTD += '</tr>';
+
+                        jQuery("#tbl_lista_historial_evaluador").append(nuevoTD);
+                    });
+                },
+                error: function (xhr, ajaxOptions, thrownError) {
+                    alert('Failed to retrieve states.');
+                }
+            });
+
+        });
+        $(document).on('click', '.ver_documentos_emitidos', function () {
+
+            $('#mdl_detalle').modal('show');
+
+            var id_seguimiento = $(this).attr('id').split('|');
+            document.getElementById('titulo_50').innerHTML = " - " + id_seguimiento[0];
+
+            $("#tblSolicitud td").remove();
+
+            $.ajax({
+                cache: false,
+                type: "GET",
+                url: "@(Url.RouteUrl("llenar_solicitud_seguimiento"))",
+                data: { "id_seguimiento": id_seguimiento[1] },
+                success: function (data) {
+                    $.each(data, function (id, option) {
+
+                        $.ajax({
+                            cache: false,
+                            type: "GET",
+                            url: "@(Url.RouteUrl("llenar_documentos_adjuntos_sol_insp_sdhpa"))",
+                            data: { "id_sol_ins": option.id_sol_ins },
+                            success: function (result) {
+
+                                var nuevoTD = '<tr>';
+                                nuevoTD += '<td style=" text-align:center;"><ul class="list-inline" style="margin-bottom:0"><li><a class="Ver_hijo_soli" id=' + option.id_sol_ins + ' href="#" title="Detalle"><i class="blue glyphicon glyphicon-plus"></i></a></li></ul></td>';
+                                nuevoTD += '<td style=" text-align:center;">' + option.estado_text + '</td>'
+                                nuevoTD += '<td style=" text-align:center;"><ul class="list-inline" style="margin-bottom:0"><li><a href="Imprimir_solicitud_inspeccion_transporte/' + option.id_sol_ins + '" target="_blank" >Solicitud N°' + option.numero_documento + '</a></li></ul></td>'
+                                nuevoTD += '<td style=" text-align:center;">' + option.fecha_text + '</td>';
+                                nuevoTD += '</tr>';
+
+                                jQuery("#tblSolicitud").append(nuevoTD);
+
+                                nuevoTD = '';
+                                var nuevoTD_hijo = '';
+
+                                nuevoTD_hijo = '<tr><td><ul class="list-inline" style="margin-bottom:0"><li>'
+                                    + '<a class="notificar_correo_si" id=' + option.id_sol_ins + ' href="#" title="CORREO"> - NOTIFICAR SOLICITUD: ' + option.numero_documento + '</a></li></ul></td></tr>';
+
+                                if (result.acta_id == '0') {
+                                    nuevoTD_hijo = nuevoTD_hijo + '<tr><td style="padding-right: 15px;"> - NO HAY ACTA ADJUNTA </td></tr>';
+                                }
+                                else {
+                                    nuevoTD_hijo = nuevoTD_hijo + '<tr><td><ul class="list-inline" style="margin-bottom:0"><li>'
+                                        + '<a class="ver_acta_adjunta_si" id=' + result.acta_id + ' href="#" title="PDF"> - ' + result.acta_nombre + '</a></li></ul></td></tr>';
+                                }
+
+                                if (result.chkl_id == '0') {
+                                    nuevoTD_hijo = nuevoTD_hijo + '<tr><td style="padding-right: 15px;"> - NO HAY CHECK LIST ADJUNTA </td></tr>';
+                                }
+                                else {
+                                    nuevoTD_hijo = nuevoTD_hijo + '<tr><td><ul class="list-inline" style="margin-bottom:0"><li>'
+                                        + '<a class="ver_acta_chk_lis_si" id=' + result.chkl_id + ' href="#" title="PDF"> - ' + result.chkl_nombre + '</a></li></ul></td></tr>';
+                                }
+
+                                if (result.info_id == '0') {
+                                    nuevoTD_hijo = nuevoTD_hijo + '<tr><td style="padding-right: 15px;"> - NO HAY INFORME ADJUNTO </td></tr>';
+                                }
+                                else {
+                                    nuevoTD_hijo = nuevoTD_hijo + '<tr><td><ul class="list-inline" style="margin-bottom:0"><li>'
+                                        + '<a class="ver_info_adjunto_si" id=' + result.info_id + ' href="#" title="PDF"> - ' + result.info_nombre + '</a></li></ul></td></tr>';
+                                }
+
+                                if (result.prue_cantidad == '0') {
+                                    nuevoTD_hijo = nuevoTD_hijo + '<tr><td style="padding-right: 15px;"> - SE TIENEN ' + result.prue_cantidad + ' IMAGENES </td>'
+                                }
+                                else {
+                                    nuevoTD_hijo = nuevoTD_hijo + '<tr><td style="padding-right: 15px;"><ul class="list-inline" style="margin-bottom:0"><li>'
+                                        + '<a class="ver_pruebas_adjunto_si" id=' + result.id_sol_ins + ' href="#" title="VER IMAGENES"> - CANTIDAD DE IMAGENES : ' + result.prue_cantidad + '</a></li></ul></td>';
+                                }
+
+                                nuevoTD = '<tr class="class_detalle_sol' + option.id_sol_ins + ' hidden" >' +
+                                           '<td colspan="7">' +
+                                             '<table>'
+                                                   + nuevoTD_hijo
+                                               + '</table>' +
+                                           '</td>' +
+                                      '</tr>';
+
+                                jQuery("#tblSolicitud").append(nuevoTD);
+                            },
+                            error: function (xhr, ajaxOptions, thrownError) {
+                                alert('Failed to retrieve states.');
+                            }
+                        });
+
+
+
+                    });
+                },
+                error: function (xhr, ajaxOptions, thrownError) {
+                    alert('Failed to retrieve states.');
+                }
+            });
+
+            $("#tblInformes td").remove();
+
+            $.ajax({
+                cache: false,
+                type: "GET",
+                url: "@(Url.RouteUrl("llenar_informe_seguimiento"))",
+                data: { "id_seguimiento": id_seguimiento[1] },
+                success: function (data) {
+                    $.each(data, function (id, option) {
+                        var nuevoTD = '<tr>';
+                        nuevoTD += '<td style=" text-align:center;">' + option.Text + '</td>';
+                        nuevoTD += '<td style=" text-align:center;">' + option.Value + '</td>';
+                        nuevoTD += '</tr>';
+
+                        jQuery("#tblInformes").append(nuevoTD);
+                    });
+                },
+                error: function (xhr, ajaxOptions, thrownError) {
+                    alert('Failed to retrieve states.');
+                }
+            });
+        });
+
+
+        $(document).on('click', '.ver_acta_adjunta_si', function () {
+            var id = $(this).attr('id');
+            var url = "/Habilitaciones/ver_acta_adjunta_si/" + id;
+            window.open(url, '_blank');
+        });
+
+        $(document).on('click', '.ver_acta_chk_lis_si', function () {
+            var id = $(this).attr('id');
+            var url = "/Habilitaciones/ver_acta_chk_lis_si/" + id;
+            window.open(url, '_blank');
+        });
+
+        $(document).on('click', '.ver_info_adjunto_si', function () {
+            var id = $(this).attr('id');
+            var url = "/Habilitaciones/ver_info_adjunto_si/" + id;
+            window.open(url, '_blank');
+        });
+
+        $(document).on('click', '.ver_pruebas_adjunto_si', function () {
+            var id = $(this).attr('id');
+            var url = "/Habilitaciones/ver_pruebas_adjunto_si/" + id;
+            window.open(url, '_blank');
+
+        });
+
+        $(document).on('click', '.Ver_hijo_soli', function () {
+            var id_hijo = $(this).attr('id');
+            if ($(".class_detalle_sol" + id_hijo).hasClass("hidden")) {
+                $(".class_detalle_sol" + id_hijo).removeClass("hidden");
+            }
+            else {
+                $(".class_detalle_sol" + id_hijo).addClass("hidden");
+            };
+        });
+
+
+
+        $(document).on('click', '.notificar_correo_si', function () {
+
+            $('#txt_id_solicit_notifi').val($(this).attr('id'));
+            $("#lista_correo_si div").remove();
+
+            $.ajax({
+                cache: false,
+                type: "GET",
+                @*url: "@(Url.RouteUrl("llenar_informe_seguimiento"))",*@
+                url: "@(Url.RouteUrl("recuperar_correo_solicitud"))",
+                data: { "id_solicitud": $('#txt_id_solicit_notifi').val() },
+                success: function (data) {
+                    $.each(data, function (id, option) {
+                        var nuevoTD = '<div class="row">';
+                        nuevoTD += '<input type="text" id="correo_' + option.persona_num_documento + '" class="hidden" value="' + option.correo_responsable + '">';
+                        nuevoTD += '<input id="chck_correo_si_' + option.persona_num_documento + '" name="name_' + option.persona_num_documento + '" type="checkbox" value="true"><input name="name_' + option.persona_num_documento + '" type="hidden" value="true">';
+                        nuevoTD += '<label for="name_' + option.persona_num_documento + '">' + option.correo_responsable + ' - ' + option.nombre_cargo + '</label>';
+                        nuevoTD += '</div>';
+
+                        jQuery("#lista_correo_si").append(nuevoTD);
+                    });
+
+                    nuevoTD = '<div class="row">';
+                    nuevoTD += '<div class="input-group input-group-sm"><span class="input-group-addon">Correos adicionales</span><input type="text" id="txt_correo_adicional" class = "form-control input-sm"></div>';
+                    nuevoTD += '</div>';
+
+                    jQuery("#lista_correo_si").append(nuevoTD);
+
+
+                },
+                error: function (xhr, ajaxOptions, thrownError) {
+                    alert('Failed to retrieve states.');
+                }
+            });
+
+            $('#mdl_notificar_si').modal();
+        });
+
+
+        $('#btn_enviar_correo').click(function () {
+
+            var correo_destino = "";
+
+            var n = $('input:checkbox[id^="chck_correo_si_"]:checked').length;
+
+            $('input:checkbox[id^="chck_correo_si_"]:checked').each(function () {
+                if (correo_destino == "") {
+                    correo_destino = $("#correo_" + $(this).attr("id").substring(15, 35).trim()).val();
+                }
+                else {
+                    correo_destino = correo_destino + ";" + $("#correo_" + $(this).attr("id").substring(15, 35).trim()).val();
+                }
+            });
+
+            if ($("#txt_correo_adicional").val().trim() != "") {
+                if (correo_destino.trim() == "") {
+                    correo_destino = $("#txt_correo_adicional").val().trim();
+
+                } else {
+                    correo_destino = correo_destino + ";" + $("#txt_correo_adicional").val().trim();
+
+                }
+            }
+
+            $.ajax({
+                cache: false,
+                type: "GET",
+                @*url: "@(Url.RouteUrl("llenar_informe_seguimiento"))",*@
+                url: "@(Url.RouteUrl("eviar_correo_solicitud_insp"))",
+                data: {
+                    "id_solicitud": $('#txt_id_solicit_notifi').val(),
+                    "destinos": correo_destino
+                },
+                success: function (result) {
+                    alert("Se envio el correo correctamente");
+                },
+                error: function (xhr, ajaxOptions, thrownError) {
+                    alert('Failed to retrieve states.');
+                }
+            });
+
+        });
+
+        $(document).on('click', '.informe_tecnico', function () {
+
+            $('#btn_aceptar_informe').removeAttr("disabled", "disabled");
+
+            var id_seguimiento = $(this).attr('id').split('|');
+            document.getElementById('txt_titulo_11').innerHTML = "Aviso - Crear Informe - ";
+            document.getElementById('titulo_11').innerHTML = id_seguimiento[0];
+            $('#txtId11').val(id_seguimiento[1]);
+
+            $('#mdl_crear_informe').modal();
+        });
+
+        $('#btn_aceptar_informe').click(function () {
+            $.ajax({
+                cache: false,
+                type: "GET",
+                url: "@(Url.RouteUrl("Generar_informe_tecnico"))",
+                data: {
+                    "id_seguimiento": $('#txtId11').val(),
+                    "observaciones": $('#var_observacion').val()
+                },
+
+                beforeSend: function () {
+                    $('#menssage_11').addClass("hidden");
+                    $('#progress_11').removeClass("hidden").addClass("show");
+                    $('#btn_aceptar_informe').attr("disabled", "disabled");
+                    $('#btn_can_mod_11').attr("disabled", "disabled");
+                },
+                complete: function () {
+                    $('#progress_11').removeClass("show").addClass("hidden");
+                },
+                success: function (result) {
+                    $('.field-validation-error').each(function () {
+                        $(this).removeClass("field-validation-error").addClass("field-validation-valid");
+                        $(this).html('');
+                    });
+                    $("#mensajesPopup_11").html(result).hide();
+                    $("#mensajesPopup_11").slideDown(1000, function () { });
+                    setTimeout(function () {
+                        $('#txtId11').val('');
+                        $("#mensajesPopup_11").hide();
+                        $('#mdl_crear_informe').modal('hide');
+                        $("#btnBuscar").click();
+                    }, 10000);
+                },
+            });
+        });
+
+        $(document).on('click', '.solicitud_inspec_transporte', function () {
+
+            $('#btn_aceptar_solicitud').removeAttr("disabled", "disabled");
+
+            $('#txtId10').val('');
+            $('#txt_si_resolucion').val('');
+            $('#txt_si_persona_contacto').val('');
+            $('#txt_si_telefono_oficina').val('');
+            $('#txt_si_telefono_oficina').val('');
+            $('#txt_si_correo').val('');
+            $('#txt_si_observaciones').val('');
+            $('#txt_si_norma_aplicar').val('');
+
+
+            $("#mensajesPopup_10").hide();
+            $('#menssage_10').removeClass("hidden").addClass("show");
+
+            var id_seguimiento = $(this).attr('id').split('|');
+            document.getElementById('txt_titulo_10').innerHTML = "Aviso - Crea solicitud - ";
+            document.getElementById('titulo_10').innerHTML = id_seguimiento[0];
+            $('#txtId10').val(id_seguimiento[1]);
+            $("#txt_id_tipo_seguimiento_10").val("5");
+
+            $('#mdl_crear_solicitud').modal();
+        });
+
+        $(document).on('click', '.solicitud_inspec', function () {
+
+            $('#btn_aceptar_solicitud').removeAttr("disabled", "disabled");
+
+            $('#txtId10').val('');
+
+            $('#txt_si_resolucion').val('');
+            $('#txt_si_persona_contacto').val('');
+            $('#txt_si_telefono_oficina').val('');
+            $('#txt_si_telefono_oficina').val('');
+            $('#txt_si_correo').val('');
+            $('#txt_si_observaciones').val('');
+            $('#txt_si_norma_aplicar').val('');
+
+
+            $("#mensajesPopup_10").hide();
+            $('#menssage_10').removeClass("hidden").addClass("show");
+
+            var id_seguimiento = $(this).attr('id').split('|');
+            document.getElementById('txt_titulo_10').innerHTML = "Aviso - Crea solicitud - ";
+            document.getElementById('titulo_10').innerHTML = id_seguimiento[0];
+            $('#txtId10').val(id_seguimiento[1]);
+            $("#txt_id_tipo_seguimiento_10").val("0");
+
+            $('#mdl_crear_solicitud').modal();
+        });
+
+        $('#btn_aceptar_solicitud').click(function () {
+
+            $.ajax({
+                cache: false,
+                type: "GET",
+                url: "@(Url.RouteUrl("Generar_solicitud_inspeccion_transporte"))",
+                data: {
+                    "id_seguimiento": $('#txtId10').val(),
+                    "resolucion": $('#txt_si_resolucion').val(),
+                    "persona_contacto": $('#txt_si_persona_contacto').val(),
+                    "telefono_oficina": $('#txt_si_telefono_oficina').val(),
+                    "telefono_planta": $('#txt_si_telefono_planta').val(),
+                    "correo": $('#txt_si_correo').val(),
+                    "observacion": $('#txt_si_observaciones').val(),
+                    "serv_habilitacion": $('#cmb_si_tipo_serv_habilitaciones').val(),
+                    "filial": $('#cmb_si_filial').val(),
+                    "destino": $('#cmb_si_destino').val(),
+                    "cond_manual": $('#cmb_si_Manuales').val(),
+                    "norma_aplicar": $('#txt_si_norma_aplicar').val()
+                },
+
+                beforeSend: function () {
+                    $('#menssage_10').addClass("hidden");
+                    $('#progress_10').removeClass("hidden").addClass("show");
+                    $('#btn_aceptar_solicitud').attr("disabled", "disabled");
+                    $('#btn_can_mod_10').attr("disabled", "disabled");
+                },
+                complete: function () {
+                    $('#progress_10').removeClass("show").addClass("hidden");
+                },
+                success: function (result) {
+                    $('.field-validation-error').each(function () {
+                        $(this).removeClass("field-validation-error").addClass("field-validation-valid");
+                        $(this).html('');
+                    });
+                    var url = "/Habilitaciones/Imprimir_solicitud_inspeccion_transporte/" + result;
+                    window.open(url, '_blank');
+                    $('#txtId10').val('');
+                    $("#mensajesPopup_10").hide();
+                    $('#mdl_crear_solicitud').modal('hide');
+                    $("#btnBuscar").click();
+                },
+            });
+        });
+
+        $(document).on('click', '.Crear_Protocolo', function () {
+            var id_expediente = $(this).attr('id').split('|');
+            var url = "/Habilitaciones/variable_Nuevo_Protocolo/" + id_expediente[1];
+            window.location.href = url;
+        });
+
+        $(document).on('click', '.Crear_Protocolo_Embarcacion', function () {
+            var id_expediente = $(this).attr('id').split('|');
+            var url = "/Habilitaciones/variable_Nuevo_Protocolo_embarcacion/" + id_expediente[1];
+            window.location.href = url;
+        });
+
+        $(document).on('click', '.Crear_Protocolo_Desembarcadero', function () {
+            var id_expediente = $(this).attr('id').split('|');
+            var url = "/Habilitaciones/variable_Nuevo_Protocolo_desembarcadero/" + id_expediente[1];
+            window.location.href = url;
+        });
+
+        $(document).on('click', '.Crear_Protocolo_Concesion', function () {
+            var id_expediente = $(this).attr('id').split('|');
+            var url = "/Habilitaciones/variable_Nuevo_Protocolo_concesion/" + id_expediente[0] + "/" + id_expediente[1];
+            window.location.href = url;
+        });
+
+        $(document).on('click', '.Crear_Protocolo_Almacen', function () {
+            var id_expediente = $(this).attr('id').split('|'); // EXPEDIENTE - ID_SEGUIMIENTO
+            var url = "/Habilitaciones/variable_Nuevo_Protocolo_almacen/" + id_expediente[0] + "/" + id_expediente[1];
+            window.location.href = url;
+        });
+
+
+        $(document).on('click', '.Crear_Protocolo_Autorizacion_instalacion', function () {
+            var id_expediente = $(this).attr('id').split('|'); // EXPEDIENTE - ID_SEGUIMIENTO
+            var url = "/Habilitaciones/variable_Nuevo_Protocolo_autorizacion_instalacion/" + id_expediente[0] + "/" + id_expediente[1];
+            window.location.href = url;
+        });
+
+        $(document).on('click', '.Crear_Protocolo_Transporte', function () {
+            var id_expediente = $(this).attr('id').split('|'); // EXPEDIENTE - ID_SEGUIMIENTO
+            var url = "/Habilitaciones/variable_Nuevo_Protocolo_transporte/" + id_expediente[0] + "/" + id_expediente[1];
+            window.location.href = url;
+        });
+
+
+        $(document).on('click', '.Crear_Protocolo_Licencia_Operacion', function () {
+            var id_expediente = $(this).attr('id').split('|'); // EXPEDIENTE - ID_SEGUIMIENTO
+            var url = "/Habilitaciones/variable_Nuevo_Protocolo_licencia_operacion/" + id_expediente[0] + "/" + id_expediente[1];
+            window.location.href = url;
+        });
+
+        $(document).on('click', '.Asignar_embarcacion', function () {
+
+            var id_seguimiento = $(this).attr('id').split('|'); // expediente - id seguimiento - id oficina direccion
+            document.getElementById('txt_titulo_emb_add_seg').innerHTML = "Aviso - Asignar Embarcacion - ";
+            document.getElementById('titulo_emb_add_seg').innerHTML = id_seguimiento[0];
+            $('#txtId_emb_add_seg').val(id_seguimiento[1]);
+
+            $('.act_embarcacion').hide();
+            $('#btn_Aceptar_add_embarcacion').addClass("disabled")
+            $("#num_matricula").val("");
+
+            $('#mdl_emb_add_seg').modal();
+
+        });
+
+        $(document).on('click', '.Asignar_almacen', function () {
+
+            var id_seguimiento = $(this).attr('id').split('|');
+            document.getElementById('txt_almacen_add_seg').innerHTML = "Aviso - Asignar Almacén - ";
+            document.getElementById('titulo_alma_add_seg').innerHTML = id_seguimiento[0];
+            $('#txtId_alma_add_seg').val(id_seguimiento[1]);
+
+            var ddlalmacen = $("#cmb_almacen");
+
+            $.ajax({
+                cache: false,
+                type: "GET",
+                url: "@(Url.RouteUrl("recupera_ALMACEN_vista"))",
+                data: { "ID_DIRECCION": id_seguimiento[2] },
+                success: function (data) {
+
+                    ddlalmacen.html('');
+                    $.each(data, function (id, option) {
+                        ddlalmacen.append($('<option></option>').val(option.Value).html(option.Text));
+                    });
+                },
+                error: function (xhr, ajaxOptions, thrownError) {
+                    alert('Failed to retrieve states.');
+                }
+            });
+
+            $('#mdlConformidad_almacen').modal();
+        });
+
+        $(document).on('click', '.constancia_haccp', function () {
+
+            var id_seguimiento = $(this).attr('id').split('|'); // expediente - id seguimiento - id oficina direccion
+            document.getElementById('txt_titulo_constancia_add_seg').innerHTML = "Aviso - Crear Constancia - ";
+            document.getElementById('titulo_constancia_add_seg').innerHTML = id_seguimiento[0];
+            $('#txtId_constancia_add_seg').val(id_seguimiento[1]);
+
+            $("#txt_constancia").val("");
+
+            $('#mdl_constancia_add_seg').modal();
+
+        });
+
+
+        $(document).on('click', '.Asignar_concesion', function () {
+            var id_seguimiento = $(this).attr('id').split('|');
+            document.getElementById('txt_concesion_add_seg').innerHTML = "Aviso - Asignar Concesión / Centro de Cultivo / Hatchery - ";
+            document.getElementById('titulo_concesion_add_seg').innerHTML = id_seguimiento[0];
+            $('#txtId_concesion_add_seg').val(id_seguimiento[1]);
+            var ddlconcesion = $("#cmb_concesion");
+            $.ajax({
+                cache: false,
+                type: "GET",
+                url: "@(Url.RouteUrl("recupera_CONCESION_vista"))",
+                data: { "DOCUMENTO": id_seguimiento[2] },
+                success: function (data) {
+                    ddlconcesion.html('');
+                    $.each(data, function (id, option) {
+                        ddlconcesion.append($('<option></option>').val(option.Value).html(option.Text));
+                    });
+                },
+                error: function (xhr, ajaxOptions, thrownError) {
+                    alert('Failed to retrieve states.');
+                }
+            });
+            $('#mdlConformidad_concesion').modal();
+        });
+
+        $(document).on('click', '.Asignar_transporte', function () {
+
+            var id_seguimiento = $(this).attr('id').split('|');
+            document.getElementById('txt_transporte_add_seg').innerHTML = "Aviso - Asignar Transporte - ";
+            document.getElementById('titulo_transporte_add_seg').innerHTML = id_seguimiento[0];
+            $('#txtId_transporte_add_seg').val(id_seguimiento[1]);
+
+            $('.act_transporte').hide();
+            $('#btn_Aceptar_add_transporte').addClass("disabled")
+            $("#num_placa").val("");
+
+            $('#mdlConformidad_transporte').modal();
+        });
+
+        $('#btn_Aceptar_nuevo_transporte').click(function () {
+            $("#txt_nueva_placa").val("");
+            $("#txt_nuevo_carga_util").val("");
+            $('#mdlConformidad_transporte').modal('hide');
+            $('#mdltransporte_nuevo').modal();
+        });
+
+
+        $("#btnGuardar_nuevo_transporte").click(function () {
+
+            $.ajax({
+                cache: false,
+                type: "GET",
+                url: "/Habilitaciones/Consultar_placa_transporte",
+                data: {
+                    "placa": $("#txt_nueva_placa").val().toString().trim()
+                },
+                success: function (result) {
+
+
+                    document.getElementById('lbl_valida_nueva_placa').innerHTML = "";
+                    document.getElementById('lbl_valida_nuevo_carga_util').innerHTML = "";
+
+                    $('#btnGuardar_nuevo_transporte').attr("disabled", "disabled");
+
+                    var entra = 0;
+
+                    if (result == "0") {
+                        document.getElementById('lbl_valida_nueva_placa').innerHTML = "Placa ya registrada";
+                        entra = 1;
+                    }
+
+                    if ($("#txt_nueva_placa").val().toString().trim() == "") {
+                        document.getElementById('lbl_valida_nueva_placa').innerHTML = "Ingresar Placa";
+                        entra = 1;
+                    }
+
+                    if ($("#txt_nuevo_carga_util").val().toString().trim() == "") {
+                        document.getElementById('lbl_valida_nuevo_carga_util').innerHTML = "Ingresar Carga Util";
+                        entra = 1;
+                    }
+
+                    if (entra == 1) {
+                        $('#btnGuardar_nuevo_transporte').removeAttr("disabled", "disabled");
+                        return false;
+                    }
+
+                    $.ajax({
+                        cache: false,
+                        type: "GET",
+                        url: "/Habilitaciones/Grabar_Nuevo_Transporte",
+                        data: {
+                            "nueva_placa": $("#txt_nueva_placa").val(),
+                            "nueva_codigo_habilitacion": "NUEVO",
+                            "nueva_carroceria": $("#cmb_nuevo_carroceria").val(),
+                            "tipo_furgon": $("#cmb_nuevo_furgon").val(),
+                            "nueva_carga_util": $("#txt_nuevo_carga_util").val(),
+                            "nueva_unidad_medida": $("#cmb_nuevo_um").val()
+                        },
+                        beforeSend: function () {
+                            $('#btnGuardar_nuevo_transporte').removeAttr("disabled", "disabled");
+                        },
+                        complete: function () {
+                            $('#btnGuardar_nuevo_transporte').removeAttr("disabled", "disabled");
+                        },
+                        success: function (result) {
+                            $('.field-validation-error').each(function () {
+                                $(this).removeClass("field-validation-error").addClass("field-validation-valid");
+                                $(this).html('');
+                            });
+
+                            document.getElementById('lbl_valida_nueva_placa').innerHTML = "";
+
+                            document.getElementById('lbl_valida_nuevo_carga_util').innerHTML = "";
+
+                            $('#btnGuardar_nuevo_transporte').removeAttr("disabled", "disabled");
+
+                            $('#mdltransporte_nuevo').modal('hide');
+
+                            $('.act_transporte').hide();
+                            $('#btn_Aceptar_add_transporte').addClass("disabled")
+                            $("#num_placa").val("");
+
+                            $('#mdlConformidad_transporte').modal();
+                        },
+                        error: function (result) {
+                            if (result.status == 500) {
+                                $("#mensajes").html(result.responseText).hide();
+                                $("#mensajes").slideDown(500, function () { });
+                            }
+                            else if (result.status == 400) {
+                                $('.field-validation-error').each(function () {
+                                    $(this).removeClass("field-validation-error").addClass("field-validation-valid");
+                                    $(this).html('');
+                                });
+                                $.each(result.responseJSON.errors, function (key, value) {
+                                    if (value != null) {
+                                        var container = $('span[data-valmsg-for="' + key + '"]');
+                                        container.removeClass("field-validation-valid").addClass("field-validation-error");
+                                        container.html(value);
+                                    }
+                                });
+                                $("#mensajes").html(result.responseJSON.summary).hide();
+                                if (result.responseJSON.summary != "") {
+                                    $("#mensajes").slideDown(500, function () { });
+                                }
+                            }
+                        }
+                    });
+
+                }
+            });
+
+        });
+
+        $(document).on('click', '.Asignar_desembarcadero', function () {
+            var id_seguimiento = $(this).attr('id').split('|');
+            document.getElementById('txt_desembarcadero_add_seg').innerHTML = "Aviso - Asignar Desembarcadero / Punto de Descarga / Muelles de Descarga / Sistema de Descarga - ";
+            document.getElementById('titulo_desembarcadero_add_seg').innerHTML = id_seguimiento[0];
+            $('#txtId_desembarcadero_add_seg').val(id_seguimiento[1]);
+            var ddldesembarcadero = $("#cmb_desembarcadero");
+            $.ajax({
+                cache: false, type: "GET", url: "@(Url.RouteUrl("recupera_DESEMBARCADERO_vista"))", data: { "ID_DIRECCION": id_seguimiento[2] },
+                success: function (data) {
+                    ddldesembarcadero.html('');
+                    $.each(data, function (id, option) {
+                        ddldesembarcadero.append($('<option></option>').val(option.Value).html(option.Text));
+                    });
+                },
+                error: function (xhr, ajaxOptions, thrownError) {
+                    alert('Failed to retrieve states.');
+                }
+            });
+            $('#mdlConformidad_desembarcadero').modal();
+        });
+
+        $(document).on('click', '.Asignar_planta', function () {
+            var id_seguimiento = $(this).attr('id').split('|');
+            document.getElementById('txt_titulo_1').innerHTML = "Aviso - Asignar Planta - ";
+            document.getElementById('titulo_1').innerHTML = id_seguimiento[0];
+            $('#txtId1').val(id_seguimiento[1]);
+            var ddlplanta = $("#cmb_planta");
+            $.ajax({
+                cache: false,
+                type: "GET",
+                url: "@(Url.RouteUrl("recupera_PLANTA_vista"))",
+                data: { "ID_DIRECCION": id_seguimiento[2] },
+                success: function (data) {
+                    ddlplanta.html('');
+                    $.each(data, function (id, option) {
+                        ddlplanta.append($('<option></option>').val(option.Value).html(option.Text));
+                    });
+                },
+                error: function (xhr, ajaxOptions, thrownError) {
+                    alert('Failed to retrieve states.');
+                }
+            });
+            $('#mdlConformidad1').modal();
+        });
+
+        $('#btn_Aceptar_add_constancia').click(function () {
+            $.ajax({
+                cache: false,
+                type: "GET",
+                url: "/Habilitaciones/crear_constancia_seguimiento",
+                data: {
+                    "id_seguimiento": $('#txtId_constancia_add_seg').val(),
+                    "constancia": $("#txt_constancia").val()
+                },
+                beforeSend: function () {
+                    $('#progress_constancia_add').removeClass("hidden").addClass("show");
+                    $('#btn_Aceptar_add_constancia').attr("disabled", "disabled");
+                    $('#btn_can_mod_constancia').attr("disabled", "disabled");
+                },
+                complete: function () {
+                    $('#progress_constancia_add').removeClass("show").addClass("hidden");
+                    $('#btn_Aceptar_add_constancia').removeAttr("disabled", "disabled");
+                    $('#btn_can_mod_constancia').removeAttr("disabled", "disabled");
+                },
+                success: function (result) {
+                    $('.field-validation-error').each(function () {
+                        $(this).removeClass("field-validation-error").addClass("field-validation-valid");
+                        $(this).html('');
+                    });
+                    $("#mensajesPopup").html(result).hide();
+                    $("#mensajesPopup").slideDown(500, function () { });
+                    setTimeout(function () {
+                        $('#txtId_constancia_add_seg').val('');
+                        $("#mensaje_constancia_add_seg").hide();
+                        $('#mdl_constancia_add_seg').modal('hide');
+                        $("#btnBuscar").click();
+                    }, 1000);
+                },
+                error: function (result) {
+                    if (result.status == 500) {
+                        $("#mensajesPopup").html(result.responseText).hide();
+                        $("#mensajesPopup").slideDown(500, function () { });
+                    }
+                    else if (result.status == 400) {
+                        $('.field-validation-error').each(function () {
+                            $(this).removeClass("field-validation-error").addClass("field-validation-valid");
+                            $(this).html('');
+                        });
+                        $.each(result.responseJSON.errors, function (key, value) {
+                            if (value != null) {
+                                var container = $('span[data-valmsg-for="' + key + '"]');
+                                container.removeClass("field-validation-valid").addClass("field-validation-error");
+                                container.html(value);
+                            }
+                        });
+                        $("#mensajesPopup").html(result.responseJSON.summary).hide();
+                        if (result.responseJSON.summary != "") {
+                            $("#mensajesPopup").slideDown(500, function () { });
+                        }
+                    }
+                }
+            });
+        });
+
+
+        $('#btn_Aceptar_add_embarcacion').click(function () {
+
+            $.ajax({
+                cache: false,
+                type: "GET",
+                url: "/Habilitaciones/Asignar_habilitante",
+                data: {
+                    "id_seguimiento": $('#txtId_emb_add_seg').val(),
+                    "id_habilitante": $("#cmb_embarcacion").val(),
+                    "codigo_habilitante": $("#cmb_embarcacion :selected").text()
+                },
+                beforeSend: function () {
+                    $('#progress_emb_add').removeClass("hidden").addClass("show");
+                    $('#btn_Aceptar_add_embarcacion').attr("disabled", "disabled");
+                    $('#btn_can_mod_embarcacion').attr("disabled", "disabled");
+                },
+                complete: function () {
+                    $('#progress_emb_add').removeClass("show").addClass("hidden");
+                    $('#btn_Aceptar_add_embarcacion').removeAttr("disabled", "disabled");
+                    $('#btn_can_mod_embarcacion').removeAttr("disabled", "disabled");
+                },
+                success: function (result) {
+                    $('.field-validation-error').each(function () {
+                        $(this).removeClass("field-validation-error").addClass("field-validation-valid");
+                        $(this).html('');
+                    });
+                    $("#mensajesPopup").html(result).hide();
+                    $("#mensajesPopup").slideDown(500, function () { });
+                    setTimeout(function () {
+                        $('#txtId_emb_add_seg').val('');
+                        $("#mensaje_emb_add_seg").hide();
+                        $('#mdl_emb_add_seg').modal('hide');
+                        $("#btnBuscar").click();
+                    }, 1000);
+                },
+                error: function (result) {
+                    if (result.status == 500) {
+                        $("#mensajesPopup").html(result.responseText).hide();
+                        $("#mensajesPopup").slideDown(500, function () { });
+                    }
+                    else if (result.status == 400) {
+                        $('.field-validation-error').each(function () {
+                            $(this).removeClass("field-validation-error").addClass("field-validation-valid");
+                            $(this).html('');
+                        });
+                        $.each(result.responseJSON.errors, function (key, value) {
+                            if (value != null) {
+                                var container = $('span[data-valmsg-for="' + key + '"]');
+                                container.removeClass("field-validation-valid").addClass("field-validation-error");
+                                container.html(value);
+                            }
+                        });
+                        $("#mensajesPopup").html(result.responseJSON.summary).hide();
+                        if (result.responseJSON.summary != "") {
+                            $("#mensajesPopup").slideDown(500, function () { });
+                        }
+                    }
+                }
+            });
+        });
+
+
+        $('#btn_Aceptar_desembarcadero').click(function () {
+
+            document.getElementById('lbl_valida_desembarcadero').innerHTML = "";
+            $("#lbl_valida_desembarcadero").attr("hidden", "hidden");
+
+            if ($("#cmb_desembarcadero").val() == "") {
+                document.getElementById('lbl_valida_desembarcadero').innerHTML = "Seleccionar Desembarcadero";
+                $("#lbl_valida_desembarcadero").removeAttr("hidden", "hidden");
+                return false;
+            }
+
+            $.ajax({
+                cache: false, type: "GET", url: "/Habilitaciones/Asignar_habilitante",
+                data: {
+                    "id_seguimiento": $('#txtId_desembarcadero_add_seg').val(),
+                    "id_habilitante": $("#cmb_desembarcadero").val(),
+                    "codigo_habilitante": $("#cmb_desembarcadero :selected").text()
+                },
+                beforeSend: function () {
+                    $('#menssage_add_desembarcadero').addClass("hidden");
+                    $('#progress_add_desembarcadero').removeClass("hidden").addClass("show");
+                    $('#btn_Aceptar_desembarcadero').attr("disabled", "disabled");
+                    $('#btn_can_mod_desembarcadero').attr("disabled", "disabled");
+                },
+                complete: function () {
+                    $('#progress_add_desembarcadero').removeClass("show").addClass("hidden");
+                    $('#btn_Aceptar_desembarcadero').removeAttr("disabled", "disabled");
+                    $('#btn_can_mod_desembarcadero').removeAttr("disabled", "disabled");
+                },
+                success: function (result) {
+                    $('.field-validation-error').each(function () {
+                        $(this).removeClass("field-validation-error").addClass("field-validation-valid");
+                        $(this).html('');
+                    });
+                    $("#mensajesPopup").html(result).hide();
+                    $("#mensajesPopup").slideDown(500, function () { });
+                    setTimeout(function () {
+                        $('#txtId_desembarcadero_add_seg').val('');
+                        $("#mensajesPopup").hide();
+                        $('#mdlConformidad_desembarcadero').modal('hide');
+                        $("#btnBuscar").click();
+                    }, 1000);
+                },
+                error: function (result) {
+                    if (result.status == 500) {
+                        $("#mensajesPopup").html(result.responseText).hide();
+                        $("#mensajesPopup").slideDown(500, function () { });
+                    }
+                    else if (result.status == 400) {
+                        $('.field-validation-error').each(function () {
+                            $(this).removeClass("field-validation-error").addClass("field-validation-valid");
+                            $(this).html('');
+                        });
+                        $.each(result.responseJSON.errors, function (key, value) {
+                            if (value != null) {
+                                var container = $('span[data-valmsg-for="' + key + '"]');
+                                container.removeClass("field-validation-valid").addClass("field-validation-error");
+                                container.html(value);
+                            }
+                        });
+                        $("#mensajesPopup").html(result.responseJSON.summary).hide();
+                        if (result.responseJSON.summary != "") {
+                            $("#mensajesPopup").slideDown(500, function () { });
+                        }
+                    }
+                }
+            });
+
+        });
+
+        $('#btn_Aceptar').click(function () {
+
+            document.getElementById('lbl_valida_planta').innerHTML = "";
+
+            if ($("#cmb_planta").val() == "") {
+                document.getElementById('lbl_valida_planta').innerHTML = "Seleccionar Planta";
+                return;
+            }
+
+            $.ajax({
+                cache: false,
+                type: "GET",
+                url: "/Habilitaciones/Asignar_habilitante",
+                data: {
+                    "id_seguimiento": $('#txtId1').val(),
+                    "id_habilitante": $("#cmb_planta").val(),
+                    "codigo_habilitante": $("#cmb_planta :selected").text()
+                },
+                beforeSend: function () {
+                    $('#menssage').addClass("hidden");
+                    $('#progress').removeClass("hidden").addClass("show");
+                    $('#btn_Aceptar').attr("disabled", "disabled");
+                    $('#btn_can_mod').attr("disabled", "disabled");
+                },
+                complete: function () {
+                    $('#progress').removeClass("show").addClass("hidden");
+                    $('#btn_Aceptar').removeAttr("disabled", "disabled");
+                    $('#btn_can_mod').removeAttr("disabled", "disabled");
+                },
+                success: function (result) {
+                    $('.field-validation-error').each(function () {
+                        $(this).removeClass("field-validation-error").addClass("field-validation-valid");
+                        $(this).html('');
+                    });
+                    $("#mensajesPopup").html(result).hide();
+                    $("#mensajesPopup").slideDown(500, function () { });
+                    setTimeout(function () {
+                        $('#txtId1').val('');
+                        $("#mensajesPopup").hide();
+                        $('#mdlConformidad1').modal('hide');
+                        $("#btnBuscar").click();
+                    }, 1000);
+                },
+                error: function (result) {
+                    if (result.status == 500) {
+                        $("#mensajesPopup").html(result.responseText).hide();
+                        $("#mensajesPopup").slideDown(500, function () { });
+                    }
+                    else if (result.status == 400) {
+                        $('.field-validation-error').each(function () {
+                            $(this).removeClass("field-validation-error").addClass("field-validation-valid");
+                            $(this).html('');
+                        });
+                        $.each(result.responseJSON.errors, function (key, value) {
+                            if (value != null) {
+                                var container = $('span[data-valmsg-for="' + key + '"]');
+                                container.removeClass("field-validation-valid").addClass("field-validation-error");
+                                container.html(value);
+                            }
+                        });
+                        $("#mensajesPopup").html(result.responseJSON.summary).hide();
+                        if (result.responseJSON.summary != "") {
+                            $("#mensajesPopup").slideDown(500, function () { });
+                        }
+                    }
+                }
+            });
+
+        });
+
+
+        $('#btn_Aceptar_add_almacen').click(function () {
+
+            document.getElementById('lbl_valida_almacen').innerHTML = "";
+
+            if ($("#cmb_almacen").val() == "") {
+                document.getElementById('lbl_valida_almacen').innerHTML = "Seleccionar Almacen";
+                return;
+            }
+
+            $.ajax({
+                cache: false,
+                type: "GET",
+                url: "/Habilitaciones/Asignar_habilitante",
+                data: {
+                    "id_seguimiento": $('#txtId_alma_add_seg').val(),
+                    "id_habilitante": $("#cmb_almacen").val(),
+                    "codigo_habilitante": $("#cmb_almacen :selected").text()
+                },
+                beforeSend: function () {
+                    $('#menssage_almacen').addClass("hidden");
+                    $('#progress_almacen').removeClass("hidden").addClass("show");
+                    $('#btn_Aceptar_add_almacen').attr("disabled", "disabled");
+                    $('#btn_can_mod_almacen').attr("disabled", "disabled");
+                },
+                complete: function () {
+                    $('#progress_almacen').removeClass("show").addClass("hidden");
+                    $('#btn_Aceptar_add_almacen').removeAttr("disabled", "disabled");
+                    $('#btn_can_mod_almacen').removeAttr("disabled", "disabled");
+                },
+                success: function (result) {
+                    $('.field-validation-error').each(function () {
+                        $(this).removeClass("field-validation-error").addClass("field-validation-valid");
+                        $(this).html('');
+                    });
+                    $("#menssage_almacen").html(result).hide();
+                    $("#menssage_almacen").slideDown(500, function () { });
+                    setTimeout(function () {
+                        $('#txtId_alma_add_seg').val("");
+                        $('#mdlConformidad_almacen').modal('hide');
+                        $("#btnBuscar").click();
+                    }, 1000);
+                },
+                error: function (result) {
+                    if (result.status == 500) {
+                        $("#mensajesPopup").html(result.responseText).hide();
+                        $("#mensajesPopup").slideDown(500, function () { });
+                    }
+                    else if (result.status == 400) {
+                        $('.field-validation-error').each(function () {
+                            $(this).removeClass("field-validation-error").addClass("field-validation-valid");
+                            $(this).html('');
+                        });
+                        $.each(result.responseJSON.errors, function (key, value) {
+                            if (value != null) {
+                                var container = $('span[data-valmsg-for="' + key + '"]');
+                                container.removeClass("field-validation-valid").addClass("field-validation-error");
+                                container.html(value);
+                            }
+                        });
+                        $("#mensajesPopup").html(result.responseJSON.summary).hide();
+                        if (result.responseJSON.summary != "") {
+                            $("#mensajesPopup").slideDown(500, function () { });
+                        }
+                    }
+                }
+            });
+
+        });
+
+
+        $('#btn_Aceptar_add_transporte').click(function () {
+
+            document.getElementById('lbl_valida_transporte').innerHTML = "";
+            if ($("#cmb_transporte").val() == "") {
+                document.getElementById('lbl_valida_transporte').innerHTML = "Seleccionar Transporte";
+                return;
+            }
+
+            $.ajax({
+                cache: false,
+                type: "GET",
+                url: "/Habilitaciones/Asignar_habilitante",
+                data: {
+                    "id_seguimiento": $('#txtId_transporte_add_seg').val(),
+                    "id_habilitante": $("#cmb_transporte").val(),
+                    "codigo_habilitante": $("#cmb_transporte :selected").text()
+                },
+                beforeSend: function () {
+                    $('#menssage_transporte').addClass("hidden");
+                    $('#progress_transporte').removeClass("hidden").addClass("show");
+                    $('#btn_Aceptar_add_transporte').attr("disabled", "disabled");
+                    $('#btn_can_mod_transporte').attr("disabled", "disabled");
+                },
+                complete: function () {
+                    $('#progress_transporte').removeClass("show").addClass("hidden");
+                    $('#btn_Aceptar_add_transporte').removeAttr("disabled", "disabled");
+                    $('#btn_can_mod_transporte').removeAttr("disabled", "disabled");
+                },
+                success: function (result) {
+                    $('.field-validation-error').each(function () {
+                        $(this).removeClass("field-validation-error").addClass("field-validation-valid");
+                        $(this).html('');
+                    });
+                    $("#menssage_transporte").html(result).hide();
+                    $("#menssage_transporte").slideDown(500, function () { });
+                    setTimeout(function () {
+                        $('#txtId_transporte_add_seg').val("");
+                        $('#mdlConformidad_transporte').modal('hide');
+                        $("#btnBuscar").click();
+                    }, 1000);
+                },
+                error: function (result) {
+                    if (result.status == 500) {
+                        $("#mensajesPopup").html(result.responseText).hide();
+                        $("#mensajesPopup").slideDown(500, function () { });
+                    }
+                    else if (result.status == 400) {
+                        $('.field-validation-error').each(function () {
+                            $(this).removeClass("field-validation-error").addClass("field-validation-valid");
+                            $(this).html('');
+                        });
+                        $.each(result.responseJSON.errors, function (key, value) {
+                            if (value != null) {
+                                var container = $('span[data-valmsg-for="' + key + '"]');
+                                container.removeClass("field-validation-valid").addClass("field-validation-error");
+                                container.html(value);
+                            }
+                        });
+                        $("#mensajesPopup").html(result.responseJSON.summary).hide();
+                        if (result.responseJSON.summary != "") {
+                            $("#mensajesPopup").slideDown(500, function () { });
+                        }
+                    }
+                }
+            });
+
+        });
+
+
+        $('#btn_Aceptar_add_concesion').click(function () {
+
+            document.getElementById('lbl_valida_concesion').innerHTML = "";
+
+            if ($("#cmb_concesion").val() == "") {
+                document.getElementById('lbl_valida_concesion').innerHTML = "Seleccionar Concesión / Centro de cultivo / Hatchery";
+                return;
+            }
+
+            $.ajax({
+                cache: false,
+                type: "GET",
+                url: "/Habilitaciones/Asignar_habilitante",
+                data: {
+                    "id_seguimiento": $('#txtId_concesion_add_seg').val(),
+                    "id_habilitante": $("#cmb_concesion").val(),
+                    "codigo_habilitante": $("#cmb_concesion :selected").text()
+                },
+                beforeSend: function () {
+                    $('#menssage_concesion').addClass("hidden");
+                    $('#progress_concesion').removeClass("hidden").addClass("show");
+                    $('#btn_Aceptar_add_concesion').attr("disabled", "disabled");
+                    $('#btn_can_mod_concesion').attr("disabled", "disabled");
+                },
+                complete: function () {
+                    $('#progress_concesion').removeClass("show").addClass("hidden");
+                    $('#btn_Aceptar_add_concesion').removeAttr("disabled", "disabled");
+                    $('#btn_can_mod_concesion').removeAttr("disabled", "disabled");
+                },
+                success: function (result) {
+                    $('.field-validation-error').each(function () {
+                        $(this).removeClass("field-validation-error").addClass("field-validation-valid");
+                        $(this).html('');
+                    });
+                    $("#menssage_concesion").html(result).hide();
+                    $("#menssage_concesion").slideDown(500, function () { });
+                    setTimeout(function () {
+                        $('#txtId_concesion_add_seg').val("");
+                        $('#mdlConformidad_concesion').modal('hide');
+                        $("#btnBuscar").click();
+                    }, 1000);
+                },
+                error: function (result) {
+                    if (result.status == 500) {
+                        $("#mensajesPopup").html(result.responseText).hide();
+                        $("#mensajesPopup").slideDown(500, function () { });
+                    }
+                    else if (result.status == 400) {
+                        $('.field-validation-error').each(function () {
+                            $(this).removeClass("field-validation-error").addClass("field-validation-valid");
+                            $(this).html('');
+                        });
+                        $.each(result.responseJSON.errors, function (key, value) {
+                            if (value != null) {
+                                var container = $('span[data-valmsg-for="' + key + '"]');
+                                container.removeClass("field-validation-valid").addClass("field-validation-error");
+                                container.html(value);
+                            }
+                        });
+                        $("#mensajesPopup").html(result.responseJSON.summary).hide();
+                        if (result.responseJSON.summary != "") {
+                            $("#mensajesPopup").slideDown(500, function () { });
+                        }
+                    }
+                }
+            });
+
+        });
+
+        $(document).on('click', '.Finalizar_seguimiento', function () {
+
+            $('#bntConfirmar2').removeClass("hidden");
+            $('#btn_cancelar2').removeClass("hidden");
+
+            var id_seguimiento = $(this).attr('id').split('|');
+            document.getElementById('txt_titulo_2').innerHTML = "Aviso - Finalizar Seguimiento - ";
+            document.getElementById('titulo_2').innerHTML = id_seguimiento[0];
+
+            $("#txt_fin_tiempo_sdhpa").val("");
+            $("#txt_fin_tiempo_tramite").val("");
+            $("#txt_fin_observacion_final").val("");
+            $("#txt_inspector_designado").val("");
+
+            var f = new Date();
+            var fechaActual = (f.getDate() < 10 ? "0" + f.getDate() : f.getDate()) + "/" + ((f.getMonth() + 1) < 10 ? "0" + (f.getMonth() + 1) : (f.getMonth() + 1)) + "/" + f.getFullYear();
+
+            $("#txtFechauditoria").val(fechaActual);
+            $("#txtFechacta").val(fechaActual);
+            $("#txtFechaoficio").val(fechaActual);
+
+            $('#chck_fecha_auditoria').attr('checked', false);
+            $("#txtFechauditoria").attr("readonly", "readonly");
+
+            $('#chck_fecha_acta').attr('checked', false);
+            $("#txtFechacta").attr("readonly", "readonly");
+
+            $('#chck_fecha_oficio').attr('checked', false);
+            $("#txtFechaoficio").attr("readonly", "readonly");
+
+            $("#txt_finalizar_con_proceso").val("");
+
+
+            $("#txt_fin_tiempo_sdhpa").val(id_seguimiento[2]);
+            $("#txt_fin_tiempo_tramite").val(id_seguimiento[3]);
+            $("#txt_fin_observacion_final").val(id_seguimiento[4]);
+            $('#txtId5').val(id_seguimiento[1]);
+
+            $('#mdlConformidad2').modal();
+        });
+
+        $('#chck_fecha_auditoria').change(function () {
+            var c = this.checked ? "true" : "false"; if (c == "true") {
+                $("#txtFechauditoria").removeAttr("readonly", "readonly");
+            }
+            else {
+                $("#txtFechauditoria").attr("readonly", "readonly");
+            }
+        });
+
+        $('#chck_fecha_acta').change(function () {
+            var c = this.checked ? "true" : "false"; if (c == "true") {
+                $("#txtFechacta").removeAttr("readonly", "readonly");
+            }
+            else {
+                $("#txtFechacta").attr("readonly", "readonly");
+            }
+        });
+
+        $('#chck_fecha_oficio').change(function () {
+            var c = this.checked ? "true" : "false"; if (c == "true") {
+                $("#txtFechaoficio").removeAttr("readonly", "readonly");
+            }
+            else {
+                $("#txtFechaoficio").attr("readonly", "readonly");
+            }
+        });
+
+
+
+        $('#btn_Aceptar_mts').click(function () {
+
+            $.ajax({
+                cache: false,
+                type: "GET",
+                url: "/Habilitaciones/Cambiar_Tipo_seguimiento",
+                data: {
+                    "id_seguimiento": $('#txtId_mts').val(),
+                    "id_tipo_seguimiento": $("#cmb_mts").val()
+                },
+                beforeSend: function () {
+                    $('#menssage_mts').addClass("hidden");
+                    $('#progress_mts').removeClass("hidden").addClass("show");
+                    $('#btn_Aceptar_mts').attr("disabled", "disabled");
+                },
+                complete: function () {
+                    $('#progress_mts').removeClass("show").addClass("hidden");
+                    $('#btn_Aceptar_mts').removeAttr("disabled", "disabled");
+                },
+                success: function (result) {
+                    $("#mensajesPopup").html(result).hide();
+                    $("#mensajesPopup").slideDown(500, function () { });
+                    setTimeout(function () {
+                        $('#txtId_mts').val('');
+                        $("#mensajesPopup").hide();
+                        $('#mdlConformidad_mts').modal('hide');
+                        $("#btnBuscar").click();
+                    }, 1000);
+                }
+            });
+
+        });
+
+        $('#bntConfirmar2').click(function () {
+
+            $('#bntConfirmar2').addClass("hidden");
+            $('#btn_cancelar2').addClass("hidden");
+
+            /////////////////////////////////////////////////////////////////////////////////////////
+            //variables
+            /////////////////////////////////////////////////////////////////////////////////////////
+
+            var var_fecha_auditoria = "";
+            var var_fecha_acta = "";
+            var var_fecha_oficio = "";
+
+            /////////////////////////////////////////////////////////////////////////////////////////
+            // fin variables
+            /////////////////////////////////////////////////////////////////////////////////////////
+
+            if ($('#chck_fecha_auditoria').prop('checked')) { var_fecha_auditoria = $("#txtFechauditoria").val(); }
+            if ($('#chck_fecha_acta').prop('checked')) { var_fecha_acta = $("#txtFechacta").val(); }
+            if ($('#chck_fecha_oficio').prop('checked')) { var_fecha_oficio = $("#txtFechaoficio").val(); }
+
+            $.ajax({
+                cache: false,
+                type: "GET",
+                url: "/Habilitaciones/Seguimiento_finalizar",
+                data: {
+                    "id": $('#txtId5').val(),
+                    "tiempo_tramite": $("#txt_fin_tiempo_tramite").val(),
+                    "tiempo_sdhpa": $("#txt_fin_tiempo_sdhpa").val(),
+                    "observacion_final": $("#txt_fin_observacion_final").val(),
+                    "inspector_designado": $("#txt_inspector_designado").val(),
+                    "fecha_auditoria": var_fecha_auditoria,
+                    "fecha_acta": var_fecha_acta,
+                    "fecha_oficio": var_fecha_oficio,
+                    "con_proceso": $("#txt_finalizar_con_proceso").val()
+                },
+                beforeSend: function () {
+                    $('#menssage').addClass("hidden");
+                    $('#progress').removeClass("hidden").addClass("show");
+                    $('#bntConfirmar2').attr("disabled", "disabled");
+                    $('#btnCancelar').attr("disabled", "disabled");
+                },
+                complete: function () {
+                    $('#progress').removeClass("show").addClass("hidden");
+                    $('#bntConfirmar2').removeAttr("disabled", "disabled");
+                    $('#btnCancelar').removeAttr("disabled", "disabled");
+                },
+                success: function (result) {
+                    $('.field-validation-error').each(function () {
+                        $(this).removeClass("field-validation-error").addClass("field-validation-valid");
+                        $(this).html('');
+                    });
+                    $("#mensajesPopup").html(result).hide();
+                    $("#mensajesPopup").slideDown(500, function () { });
+                    setTimeout(function () {
+                        $('#txtId5').val('');
+                        $("#mensajesPopup").hide();
+                        $('#mdlConformidad2').modal('hide');
+                        $("#btnBuscar").click();
+                    }, 1000);
+                },
+                error: function (result) {
+                    if (result.status == 500) {
+                        $("#mensajesPopup").html(result.responseText).hide();
+                        $("#mensajesPopup").slideDown(500, function () { });
+                    }
+                    else if (result.status == 400) {
+                        $('.field-validation-error').each(function () {
+                            $(this).removeClass("field-validation-error").addClass("field-validation-valid");
+                            $(this).html('');
+                        });
+                        $.each(result.responseJSON.errors, function (key, value) {
+                            if (value != null) {
+                                var container = $('span[data-valmsg-for="' + key + '"]');
+                                container.removeClass("field-validation-valid").addClass("field-validation-error");
+                                container.html(value);
+                            }
+                        });
+                        $("#mensajesPopup").html(result.responseJSON.summary).hide();
+                        if (result.responseJSON.summary != "") {
+                            $("#mensajesPopup").slideDown(500, function () { });
+                        }
+                    }
+                }
+            });
+        });
+
+
+    });
+</script>

@@ -1,0 +1,68 @@
+C:\Users\Administrator\Desktop\SIGESDOC_SANIPES\SISBIVALVOS.Entidades\bin\Debug\SISBIVALVOS.Entidades.dll
+C:\Users\Administrator\Desktop\SIGESDOC_SANIPES\SISBIVALVOS.Entidades\bin\Debug\SISBIVALVOS.Entidades.pdb
+C:\Users\Administrator\Desktop\SIGESDOC_SANIPES\SISBIVALVOS.Entidades\obj\Debug\SISBIVALVOS.Entidades.dll
+C:\Users\Administrator\Desktop\SIGESDOC_SANIPES\SISBIVALVOS.Entidades\obj\Debug\SISBIVALVOS.Entidades.pdb
+C:\Users\Administrator\Desktop\SIGESDOC_SANIPES\SIGESDOC.Entidades\bin\Debug\SIGESDOC.Entidades.dll
+C:\Users\Administrator\Desktop\SIGESDOC_SANIPES\SIGESDOC.Entidades\bin\Debug\SIGESDOC.Entidades.pdb
+C:\Users\Administrator\Desktop\SIGESDOC_SANIPES\SIGESDOC.Entidades\obj\Debug\SIGESDOC.Entidades.csprojResolveAssemblyReference.cache
+C:\Users\Administrator\Desktop\SIGESDOC_SANIPES\SIGESDOC.Entidades\obj\Debug\SIGESDOC.Entidades.dll
+C:\Users\Administrator\Desktop\SIGESDOC_SANIPES\SIGESDOC.Entidades\obj\Debug\SIGESDOC.Entidades.pdb
+C:\Users\Administrador\Desktop\SISTEMAS\SIGESDOC - SISTEMA DE GESTION DE DOCUMENTOS\SIGESDOC_SANIPES\SIGESDOC.Entidades\bin\Debug\SIGESDOC.Entidades.dll
+C:\Users\Administrador\Desktop\SISTEMAS\SIGESDOC - SISTEMA DE GESTION DE DOCUMENTOS\SIGESDOC_SANIPES\SIGESDOC.Entidades\bin\Debug\SIGESDOC.Entidades.pdb
+C:\Users\Administrador\Desktop\SISTEMAS\SIGESDOC - SISTEMA DE GESTION DE DOCUMENTOS\SIGESDOC_SANIPES\SIGESDOC.Entidades\obj\Debug\SIGESDOC.Entidades.dll
+C:\Users\Administrador\Desktop\SISTEMAS\SIGESDOC - SISTEMA DE GESTION DE DOCUMENTOS\SIGESDOC_SANIPES\SIGESDOC.Entidades\obj\Debug\SIGESDOC.Entidades.pdb
+C:\Users\Administrador\Desktop\SISTEMAS\SIGESDOC-SISTEMA DE GESTION DE DOCUMENTOS\SIGESDOC_SANIPES\SIGESDOC.Entidades\bin\Debug\SIGESDOC.Entidades.dll
+C:\Users\Administrador\Desktop\SISTEMAS\SIGESDOC-SISTEMA DE GESTION DE DOCUMENTOS\SIGESDOC_SANIPES\SIGESDOC.Entidades\bin\Debug\SIGESDOC.Entidades.pdb
+C:\Users\Administrador\Desktop\SISTEMAS\SIGESDOC-SISTEMA DE GESTION DE DOCUMENTOS\SIGESDOC_SANIPES\SIGESDOC.Entidades\obj\Debug\SIGESDOC.Entidades.dll
+C:\Users\Administrador\Desktop\SISTEMAS\SIGESDOC-SISTEMA DE GESTION DE DOCUMENTOS\SIGESDOC_SANIPES\SIGESDOC.Entidades\obj\Debug\SIGESDOC.Entidades.pdb
+C:\Users\Administrator\Desktop\SISTEMAS\SIGESDOC-SISTEMA DE GESTION DE DOCUMENTOS\SIGESDOC_SANIPES\SIGESDOC.Entidades\bin\Debug\SIGESDOC.Entidades.dll
+C:\Users\Administrator\Desktop\SISTEMAS\SIGESDOC-SISTEMA DE GESTION DE DOCUMENTOS\SIGESDOC_SANIPES\SIGESDOC.Entidades\bin\Debug\SIGESDOC.Entidades.pdb
+C:\Users\Administrator\Desktop\SISTEMAS\SIGESDOC-SISTEMA DE GESTION DE DOCUMENTOS\SIGESDOC_SANIPES\SIGESDOC.Entidades\obj\Debug\SIGESDOC.Entidades.csprojResolveAssemblyReference.cache
+C:\Users\Administrator\Desktop\SISTEMAS\SIGESDOC-SISTEMA DE GESTION DE DOCUMENTOS\SIGESDOC_SANIPES\SIGESDOC.Entidades\obj\Debug\SIGESDOC.Entidades.dll
+C:\Users\Administrator\Desktop\SISTEMAS\SIGESDOC-SISTEMA DE GESTION DE DOCUMENTOS\SIGESDOC_SANIPES\SIGESDOC.Entidades\obj\Debug\SIGESDOC.Entidades.pdb
+C:\Users\Administrator\Desktop\SISTEMAS FINALES\SIGESDOC-SISTEMA DE GESTION DE DOCUMENTOS\SIGESDOC_SANIPES\SIGESDOC.Entidades\bin\Debug\SIGESDOC.Entidades.dll
+C:\Users\Administrator\Desktop\SISTEMAS FINALES\SIGESDOC-SISTEMA DE GESTION DE DOCUMENTOS\SIGESDOC_SANIPES\SIGESDOC.Entidades\bin\Debug\SIGESDOC.Entidades.pdb
+C:\Users\Administrator\Desktop\SISTEMAS FINALES\SIGESDOC-SISTEMA DE GESTION DE DOCUMENTOS\SIGESDOC_SANIPES\SIGESDOC.Entidades\obj\Debug\SIGESDOC.Entidades.dll
+C:\Users\Administrator\Desktop\SISTEMAS FINALES\SIGESDOC-SISTEMA DE GESTION DE DOCUMENTOS\SIGESDOC_SANIPES\SIGESDOC.Entidades\obj\Debug\SIGESDOC.Entidades.pdb
+C:\Users\Administrator\Desktop\SISTEMAS\SIGESDOC - DHCPA\SIGESDOC-SISTEMA DE GESTION DE DOCUMENTOS\SIGESDOC_SANIPES\SIGESDOC.Entidades\bin\Debug\SIGESDOC.Entidades.dll
+C:\Users\Administrator\Desktop\SISTEMAS\SIGESDOC - DHCPA\SIGESDOC-SISTEMA DE GESTION DE DOCUMENTOS\SIGESDOC_SANIPES\SIGESDOC.Entidades\bin\Debug\SIGESDOC.Entidades.pdb
+C:\Users\Administrator\Desktop\SISTEMAS\SIGESDOC - DHCPA\SIGESDOC-SISTEMA DE GESTION DE DOCUMENTOS\SIGESDOC_SANIPES\SIGESDOC.Entidades\obj\Debug\SIGESDOC.Entidades.dll
+C:\Users\Administrator\Desktop\SISTEMAS\SIGESDOC - DHCPA\SIGESDOC-SISTEMA DE GESTION DE DOCUMENTOS\SIGESDOC_SANIPES\SIGESDOC.Entidades\obj\Debug\SIGESDOC.Entidades.pdb
+E:\SISTEMAS\SIGESDOC\SIGESDOC.Entidades\bin\Debug\SIGESDOC.Entidades.dll
+E:\SISTEMAS\SIGESDOC\SIGESDOC.Entidades\bin\Debug\SIGESDOC.Entidades.pdb
+E:\SISTEMAS\SIGESDOC\SIGESDOC.Entidades\obj\Debug\SIGESDOC.Entidades.csprojResolveAssemblyReference.cache
+E:\SISTEMAS\SIGESDOC\SIGESDOC.Entidades\obj\Debug\SIGESDOC.Entidades.dll
+E:\SISTEMAS\SIGESDOC\SIGESDOC.Entidades\obj\Debug\SIGESDOC.Entidades.pdb
+D:\SISTEMAS\Organismo Nacional de Sanidad Pesquera\Sistema de Gestión de Documentos\Proyectos\Web\SIGESDOC.Entidades\bin\Debug\SIGESDOC.Entidades.dll
+D:\SISTEMAS\Organismo Nacional de Sanidad Pesquera\Sistema de Gestión de Documentos\Proyectos\Web\SIGESDOC.Entidades\bin\Debug\SIGESDOC.Entidades.pdb
+D:\SISTEMAS\Organismo Nacional de Sanidad Pesquera\Sistema de Gestión de Documentos\Proyectos\Web\SIGESDOC.Entidades\obj\Debug\SIGESDOC.Entidades.dll
+D:\SISTEMAS\Organismo Nacional de Sanidad Pesquera\Sistema de Gestión de Documentos\Proyectos\Web\SIGESDOC.Entidades\obj\Debug\SIGESDOC.Entidades.pdb
+C:\Users\Administrator\Desktop\LO ULTIMO SIGESDOC\SIGESDOC.Entidades\bin\Debug\SIGESDOC.Entidades.dll
+C:\Users\Administrator\Desktop\LO ULTIMO SIGESDOC\SIGESDOC.Entidades\bin\Debug\SIGESDOC.Entidades.pdb
+C:\Users\Administrator\Desktop\LO ULTIMO SIGESDOC\SIGESDOC.Entidades\obj\Debug\SIGESDOC.Entidades.csprojResolveAssemblyReference.cache
+C:\Users\Administrator\Desktop\LO ULTIMO SIGESDOC\SIGESDOC.Entidades\obj\Debug\SIGESDOC.Entidades.dll
+C:\Users\Administrator\Desktop\LO ULTIMO SIGESDOC\SIGESDOC.Entidades\obj\Debug\SIGESDOC.Entidades.pdb
+C:\Users\Administrator\Desktop\SIGESDOC\SIGESDOC_PROYECT\SIGESDOC.Entidades\bin\Debug\SIGESDOC.Entidades.dll
+C:\Users\Administrator\Desktop\SIGESDOC\SIGESDOC_PROYECT\SIGESDOC.Entidades\bin\Debug\SIGESDOC.Entidades.pdb
+C:\Users\Administrator\Desktop\SIGESDOC\SIGESDOC_PROYECT\SIGESDOC.Entidades\obj\Debug\SIGESDOC.Entidades.csprojResolveAssemblyReference.cache
+C:\Users\Administrator\Desktop\SIGESDOC\SIGESDOC_PROYECT\SIGESDOC.Entidades\obj\Debug\SIGESDOC.Entidades.dll
+C:\Users\Administrator\Desktop\SIGESDOC\SIGESDOC_PROYECT\SIGESDOC.Entidades\obj\Debug\SIGESDOC.Entidades.pdb
+C:\Users\andres.albarracin\Desktop\SIGESDOC\SIGESDOC_PROYECT\SIGESDOC.Entidades\bin\Debug\SIGESDOC.Entidades.dll
+C:\Users\andres.albarracin\Desktop\SIGESDOC\SIGESDOC_PROYECT\SIGESDOC.Entidades\bin\Debug\SIGESDOC.Entidades.pdb
+C:\Users\andres.albarracin\Desktop\SIGESDOC\SIGESDOC_PROYECT\SIGESDOC.Entidades\obj\Debug\SIGESDOC.Entidades.csprojResolveAssemblyReference.cache
+C:\Users\andres.albarracin\Desktop\SIGESDOC\SIGESDOC_PROYECT\SIGESDOC.Entidades\obj\Debug\SIGESDOC.Entidades.dll
+C:\Users\andres.albarracin\Desktop\SIGESDOC\SIGESDOC_PROYECT\SIGESDOC.Entidades\obj\Debug\SIGESDOC.Entidades.pdb
+C:\Users\andres.albarracin\Desktop\SIGESDOC\web_antiguo\SIGESDOC.Entidades\bin\Debug\SIGESDOC.Entidades.dll
+C:\Users\andres.albarracin\Desktop\SIGESDOC\web_antiguo\SIGESDOC.Entidades\bin\Debug\SIGESDOC.Entidades.pdb
+C:\Users\andres.albarracin\Desktop\SIGESDOC\web_antiguo\SIGESDOC.Entidades\obj\Debug\SIGESDOC.Entidades.csprojResolveAssemblyReference.cache
+C:\Users\andres.albarracin\Desktop\SIGESDOC\web_antiguo\SIGESDOC.Entidades\obj\Debug\SIGESDOC.Entidades.dll
+C:\Users\andres.albarracin\Desktop\SIGESDOC\web_antiguo\SIGESDOC.Entidades\obj\Debug\SIGESDOC.Entidades.pdb
+C:\Users\andres.albarracin\Desktop\SIGESDOC\web - Copy\SIGESDOC.Entidades\bin\Debug\SIGESDOC.Entidades.dll
+C:\Users\andres.albarracin\Desktop\SIGESDOC\web - Copy\SIGESDOC.Entidades\bin\Debug\SIGESDOC.Entidades.pdb
+C:\Users\andres.albarracin\Desktop\SIGESDOC\web - Copy\SIGESDOC.Entidades\obj\Debug\SIGESDOC.Entidades.dll
+C:\Users\andres.albarracin\Desktop\SIGESDOC\web - Copy\SIGESDOC.Entidades\obj\Debug\SIGESDOC.Entidades.pdb
+C:\Users\andres.albarracin\Desktop\SIGESDOC\web - Copy\SIGESDOC.Entidades\obj\Debug\SIGESDOC.Entidades.csprojResolveAssemblyReference.cache
+C:\Users\andres.albarracin\Desktop\SIGESDOC\web\SIGESDOC.Entidades\bin\Debug\SIGESDOC.Entidades.dll
+C:\Users\andres.albarracin\Desktop\SIGESDOC\web\SIGESDOC.Entidades\bin\Debug\SIGESDOC.Entidades.pdb
+C:\Users\andres.albarracin\Desktop\SIGESDOC\web\SIGESDOC.Entidades\obj\Debug\SIGESDOC.Entidades.dll
+C:\Users\andres.albarracin\Desktop\SIGESDOC\web\SIGESDOC.Entidades\obj\Debug\SIGESDOC.Entidades.pdb

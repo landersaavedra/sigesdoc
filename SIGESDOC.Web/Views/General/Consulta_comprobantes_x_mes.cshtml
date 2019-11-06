@@ -1,0 +1,185 @@
+﻿@using SIGESDOC.Web.Seguridad
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
+
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Documento sin título</title>
+
+    <style type="text/css">
+        html, body {
+            margin: 0;
+            padding: 0;
+            overflow: auto;
+        }
+
+        body {
+            background: #fff;
+            font-family: Arial;
+            font-size: 11px;
+            line-height: 1.6;
+            color: #000;
+        }
+        
+        #dina4 {
+            width: 240mm;
+            padding: 20px 30px;
+            border: 1px solid #FFF;
+            margin: 1px auto;
+        }
+
+        
+        #dina5 {
+            border: 1px solid #FFF;
+        }
+    </style>
+</head>
+
+
+<ol class="breadcrumb" style="margin-bottom: 5px;">
+    <li><a href="#">Reporte</a></li>
+    <li class="active">Serie 1</li>
+</ol>
+
+<div class="bs-callout bs-callout-info">
+    <h4>Consulta de Comprobantes Serie 1</h4>
+    <p>En esta sección usted puede consultar los comprobantes de la Serie 1</p>
+</div>
+
+<div class="panel panel-primary">
+    <div class="panel-heading panet-heading-sm">Consulta Serie 1</div>
+    <div class="panel-body">
+        @using (Ajax.BeginForm(new AjaxOptions { HttpMethod = "Get" }))
+        {
+            <div class="row">
+                <div class="col-lg-2">
+                    <div class="input-group input-group-sm">
+                        <span class="input-group-addon">Mes</span>
+                        @Html.TextBox("mes", null, new { @class = "form-control input-sm", @onkeypress = "return IsNumericdoc(this.value);", @maxlength = "2" })
+                    </div>
+                </div>
+                <div class="col-lg-2">
+                    <div class="input-group input-group-sm">
+                        <span class="input-group-addon">Año</span>
+                        @Html.TextBox("anio", null, new { @class = "form-control input-sm", @onkeypress = "return IsNumericdoc(this.value);", @maxlength = "4" })
+                    </div>
+                </div>
+            </div>
+
+            <br>
+
+            <div class="row">
+                <div class="col-lg-1">
+                    <input type="submit" id="btnBuscar" class="btn btn-primary btn-sm pull-left" value="Actualizar" />
+                </div>
+
+                <div class="col-lg-1">
+                    <input type="button" id="btnimprimir" class="btn btn-primary btn-sm pull-left" value="Imprimir" />
+                </div>
+            </div>
+        }
+
+    </div>
+</div>
+
+<br>
+
+
+
+<div id="dina4">
+    <table style="border: 1px solid #000; font-size: 11px; font-family: Gotham, 'Helvetica Neue', Helvetica, Arial, sans-serif; text-align: left;" width="800" border="1" cellpadding="2" cellspacing="0">
+
+        <tr>
+            <td style=" font-size:18px; text-align: center; border:0px solid #fff;" colspan="9"><strong>ANEXO A</strong></td>
+        </tr>
+
+        <tr style="font-size:15px;">
+            <td colspan="9" style="text-align: center; border:0px solid;">
+                <strong>(PAPELETA DE DEPOSITO)@Html.Label("", (string)ViewBag.mes_anio_text)  </strong><br>
+                REPORTE RESUMEN DE LIQUIDACIÓN DIARIA DE INGRESOS<br> (PAPELETAS DE DEPOSITO)@Html.Label("", (string)ViewBag.mes_anio_text)
+
+            </td>
+        </tr>
+        <tr>
+            <td style="font-size: 18px; border: 0px solid #fff; text-align: center;" colspan="9">
+                <strong>
+                    <br>
+                    SERIE 1
+                </strong>
+            </td>
+        </tr>
+
+
+        <tr style="border-color:black;">
+            <td width="84" style="text-align: center"><strong>MES</strong>&nbsp;</td>
+            <td width="61" style="text-align: center"><strong>DIA</strong></td>
+            <td width="61" style="text-align: center"><strong>DIA</strong></td>
+            <td width="157" style="text-align: center">
+                <strong>
+                    INGRESOS POR<br>
+                    CERTIFICACIONES
+                </strong>
+            </td>
+            <td width="125" style="text-align: center">
+                <strong>
+                    INGRESOS POR    <br>
+                    PROTOCOLO
+                </strong>
+            </td>
+            <td width="95" style="text-align: center"><strong>INGRESO POR    ENSAYO DE LABORATORIO </strong></td>
+            <td width="79" style="text-align: center"><strong>ACCESO    INFORMACION PUBLICA</strong></td>
+            <td width="88" bgcolor="#CCCCCC" style="text-align: center; border-right:1px solid;"><strong>TOTAL</strong></td>
+            <td width="200" bgcolor="#CCCCCC" style="text-align: center; border-right:1px solid;"><strong>OPCIONES</strong></td>
+        </tr>
+                @Html.Raw(ViewBag.html_detalle_mes)
+                @Html.Raw(ViewBag.html_detalle_mes_total)
+        <tr>
+            <td style="font-size:16px;  border-left:0px solid #fff;" colspan="9">&nbsp;</td>
+        </tr>
+        <tr>
+            <td colspan="9" style="font-size:16px; border-top:0px solid #fff; border-left:0px solid #fff;"><strong>Surquillo @Html.Raw(ViewBag.dia_text)</strong></td>
+        </tr>
+    </table>
+</div>
+</html>
+
+
+<script type="text/javascript">
+
+    function IsNumericdoc(dato) {
+
+        var valor = dato.indexOf(".");
+        if ((window.event.keyCode > 47 && window.event.keyCode < 58)) {
+            window.event.returnValue = true;
+        }
+        else {
+            window.event.returnValue = false;
+        }
+    }
+
+    $(document).ready(function () {
+        
+        $('#btnimprimir').click(function () {
+            var url = "/General/Consulta_comprobantes_x_mes_pdf/" + $('#mes').val() + "/" + $('#anio').val();
+            var win = window.open(url, '_blank');
+            win.focus();
+        });
+
+        $(document).on('click', '.Imprimir_li', function () {
+            var id = $(this).attr('id');
+            var url = "/General/Imprimir_li/" + id;
+            window.open(url, '_blank');
+        });
+
+        $(document).on('click', '.Imprimir_rd', function () {
+            var id = $(this).attr('id');
+            var url = "/General/Imprimir_rd/" + id;
+            window.open(url, '_blank');
+        });
+
+    });
+</script>

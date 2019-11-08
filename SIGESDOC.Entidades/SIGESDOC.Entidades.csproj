@@ -51,6 +51,7 @@
     <Compile Include="COUNT_HT_INTERNO.cs">
       <DependentUpon>SIGESDOC.tt</DependentUpon>
     </Compile>
+    <Compile Include="DatosPersonales.cs" />
     <Compile Include="DAT_DET_DOC_FACT.cs">
       <DependentUpon>SIGESDOC.tt</DependentUpon>
     </Compile>
@@ -105,6 +106,8 @@
     <Compile Include="DAT_PROTOCOLO_TRANSPORTE.cs">
       <DependentUpon>SIGESDOC.tt</DependentUpon>
     </Compile>
+    <Compile Include="Dni_Input.cs" />
+    <Compile Include="Dni_Output.cs" />
     <Compile Include="MAE_ACTA_INSPECCION_DSFPA.cs">
       <DependentUpon>SIGESDOC.tt</DependentUpon>
     </Compile>

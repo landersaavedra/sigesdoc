@@ -63,3 +63,9 @@ C:\Users\andres.albarracin\Desktop\SIGESDOC\web\SIGESDOC.Response\bin\Debug\SIGE
 C:\Users\andres.albarracin\Desktop\SIGESDOC\web\SIGESDOC.Response\bin\Debug\SIGESDOC.Response.pdb
 C:\Users\andres.albarracin\Desktop\SIGESDOC\web\SIGESDOC.Response\obj\Debug\SIGESDOC.Response.dll
 C:\Users\andres.albarracin\Desktop\SIGESDOC\web\SIGESDOC.Response\obj\Debug\SIGESDOC.Response.pdb
+C:\Users\PSSPERU069\Proyectos\sigesdoc_net\SIGESDOC.Response\bin\Debug\SIGESDOC.Response.dll
+C:\Users\PSSPERU069\Proyectos\sigesdoc_net\SIGESDOC.Response\bin\Debug\SIGESDOC.Response.pdb
+C:\Users\PSSPERU069\Proyectos\sigesdoc_net\SIGESDOC.Response\obj\Debug\SIGESDOC.Response.csprojAssemblyReference.cache
+C:\Users\PSSPERU069\Proyectos\sigesdoc_net\SIGESDOC.Response\obj\Debug\SIGESDOC.Response.csproj.CoreCompileInputs.cache
+C:\Users\PSSPERU069\Proyectos\sigesdoc_net\SIGESDOC.Response\obj\Debug\SIGESDOC.Response.dll
+C:\Users\PSSPERU069\Proyectos\sigesdoc_net\SIGESDOC.Response\obj\Debug\SIGESDOC.Response.pdb

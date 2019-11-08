@@ -14,7 +14,9 @@ using System.Configuration;
 using System.Net;
 using System.Web.UI.WebControls;
 using System.Web.UI;
+using Newtonsoft.Json;
 using System.Text;
+using Newtonsoft.Json.Linq;
 
 // DATOS_USUARIO
 // 00 - RUC
@@ -6977,10 +6979,148 @@ namespace SIGESDOC.Web.Controllers
             }
         }
 
+        [HttpPost]
+        public ActionResult ConsultaDNI(string person_num_doc)
+        {
+            IDictionary<string, object> coResultado;
+            List<Dni_Output> listDniOut = new List<Dni_Output>();
+            Dni_Output dni = new Dni_Output();
+            //Serializando Numero de DNI
+            Dni_Input dni_Input = new Dni_Input();
+            dni_Input.dni = person_num_doc;
+            string outjson = JsonConvert.SerializeObject(dni_Input, Formatting.Indented);
+           
+            //Llamando URL del Servicio RENIEC
+            var url = ConfigurationManager.AppSettings["SrvReniec"].ToString();
 
+            //Variable de carga de respuesta
+            string _json = string.Empty;
 
+            //Configuraciones de llamado de Servicio
+            HttpWebRequest myRequest = (HttpWebRequest)WebRequest.Create(url);
+            myRequest.KeepAlive = true;
+            myRequest.Method = "POST";
+            byte[] postBytes = Encoding.UTF8.GetBytes(outjson);
+            myRequest.Accept = "application/json";
+            myRequest.ContentType = "application/json";
+            myRequest.MediaType = "application/json";
+            myRequest.ContentLength = postBytes.Length;
+            Stream requestStream = myRequest.GetRequestStream();
+            requestStream.Write(postBytes, 0, postBytes.Length);
+            requestStream.Close();
+            HttpWebResponse response = (HttpWebResponse)myRequest.GetResponse();
 
+            if (response.StatusCode == HttpStatusCode.OK)
+            {
+                
+                Stream resStream = response.GetResponseStream();
+                var sr = new StreamReader(response.GetResponseStream());
+                string responseText = sr.ReadToEnd();
+                if (String.IsNullOrEmpty(person_num_doc))
+                {
 
+                    dni.msg = "Por favor ingrese un Numero de DNI";
+                    listDniOut.Add(dni);
+
+                }
+                else
+                {
+                    var obj = ToObject(responseText) as IDictionary<string, object>;
+
+                    foreach (var item in obj)
+                    {
+                        
+                        switch (item.Key)
+                        {
+                            
+                            case "datosPersona":
+                                var datosPersona = obj[item.Key] as IDictionary<string, object>;
+
+                                foreach (var items in datosPersona)
+                                {
+
+                                    switch (items.Key)
+                                    {
+ 
+                                        case "datosPersona":
+                                            var Value = datosPersona[items.Key] as IDictionary<string, object>;
+
+                                            coResultado = obj[item.Key] as IDictionary<string, object>;
+                                            dni.coResultado = coResultado["coResultado"].ToString();
+
+                                            if (Value != null || dni.coResultado == "0000")
+                                            {
+                                                dni.apPrimer = Value["apPrimer"].ToString() == string.Empty ? string.Empty : Value["apPrimer"].ToString();
+                                                dni.apSegundo = Value["apSegundo"].ToString() == string.Empty ? string.Empty : Value["apPrimer"].ToString();
+                                                dni.prenombres = Value["prenombres"].ToString() == string.Empty ? string.Empty : Value["prenombres"].ToString();
+                                                dni.direccion = Value["direccion"].ToString() == string.Empty ? string.Empty : Value["direccion"].ToString();
+                                                dni.ubigeo = Value["ubigeo"].ToString() == string.Empty ? string.Empty : Value["ubigeo"].ToString();
+
+                                                listDniOut.Add(dni);
+                                            }
+                                            else if(dni.coResultado == "0001")
+                                            {
+                                                dni.msg = "El número de DNI corresponde a un menor de edad";
+                                            }
+                                            else if (dni.coResultado == "0999")
+                                            {
+                                                dni.msg = "No se ha encontrado información para el número de DNI";
+                                            }
+                                            else if (dni.coResultado == "1999")
+                                            {
+                                                dni.msg = "Error desconocido / inesperado";
+                                            }
+                                            else if (dni.coResultado == "1001")
+                                            {
+                                                dni.msg = "Uno o más datos de la petición no son válidos";
+                                            }
+                                            else
+                                            {
+                                                dni.msg = "El DNI ingresado no fue encontrado en los registros de la RENIEC";
+                                                listDniOut.Add(dni);
+                                            }
+
+                                            break;
+                                    }
+                                }
+                                break;
+                        }
+                    }
+                }
+            }
+            else
+            {
+                dni.msg = "Servicio de Reniec sin conexión";
+                listDniOut.Add(dni);
+            }
+
+           return Json(listDniOut, JsonRequestBehavior.AllowGet);
+        }
+
+        public static object ToObject(string json)
+        {
+            if (string.IsNullOrEmpty(json))
+                return null;
+            return ToObject(JToken.Parse(json));
+        }
+
+        public static object ToObject(JToken token)
+        {
+            switch (token.Type)
+            {
+                case JTokenType.Object:
+                    return token.Children<JProperty>()
+                                .ToDictionary(prop => prop.Name,
+                                              prop => ToObject(prop.Value),
+                                              StringComparer.OrdinalIgnoreCase);
+
+                case JTokenType.Array:
+                    return token.Select(ToObject).ToList();
+
+                default:
+                    return ((JValue)token).Value;
+            }
+        }
     }
 }
 

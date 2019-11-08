@@ -192,6 +192,8 @@
     <Compile Include="ConsultaTipoEmbarcacionesRequest.cs">
       <DependentUpon>RequestObjects.tt</DependentUpon>
     </Compile>
+    <Compile Include="DatosPersona.cs" />
+    <Compile Include="DatosPersonales.cs" />
     <Compile Include="DbGeneralMaeCodigoDesembarcaderoRequest.cs">
       <DependentUpon>RequestObjects.tt</DependentUpon>
     </Compile>
@@ -225,6 +227,8 @@
     <Compile Include="DetSegEvaluadorRequest.cs">
       <DependentUpon>RequestObjects.tt</DependentUpon>
     </Compile>
+    <Compile Include="Dni_Input.cs" />
+    <Compile Include="Dni_Output.cs" />
     <Compile Include="DocDetObservacionesRequest.cs">
       <DependentUpon>RequestObjects.tt</DependentUpon>
     </Compile>

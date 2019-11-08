@@ -887,8 +887,8 @@
     <Property Name="FECHA_CREA" Type="datetime" />
     <Property Name="USUARIO_CREA" Type="varchar" MaxLength="50" />
   </EntityType>
-  <!--Errors Found During Generation:
-warning 6002: The table/view 'DB_GESDOC.dbo.Consultar_ptocolo_transporte_x_id_transporte_2018_v1' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'DB_GESDOC.dbo.Consultar_ptocolo_transporte_x_id_transporte_2018_v1' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
   <EntityType Name="Consultar_ptocolo_transporte_x_id_transporte_2018_v1">
     <Key>
       <PropertyRef Name="ID_PROTOCOLO" />
@@ -924,8 +924,8 @@ warning 6002: The table/view 'DB_GESDOC.dbo.Consultar_ptocolo_transporte_x_id_tr
     <Property Name="NOMBRE_TIPO_FURGON" Type="varchar" MaxLength="200" />
     <Property Name="INFORME_SDHPA" Type="varchar" MaxLength="250" />
   </EntityType>
-  <!--Errors Found During Generation:
-warning 6002: The table/view 'DB_GESDOC.dbo.VISTA_DB_GENERAL_MAE_TIPO_CARROCERIA' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'DB_GESDOC.dbo.VISTA_DB_GENERAL_MAE_TIPO_CARROCERIA' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
   <EntityType Name="VISTA_DB_GENERAL_MAE_TIPO_CARROCERIA">
     <Key>
       <PropertyRef Name="ID_TIPO_CARROCERIA" />
@@ -934,8 +934,8 @@ warning 6002: The table/view 'DB_GESDOC.dbo.VISTA_DB_GENERAL_MAE_TIPO_CARROCERIA
     <Property Name="NOMBRE" Type="varchar" MaxLength="100" />
     <Property Name="ACTIVO" Type="char" MaxLength="1" />
   </EntityType>
-  <!--Errors Found During Generation:
-warning 6002: The table/view 'DB_GESDOC.dbo.VISTA_DB_GENERAL_MAE_TRANSPORTE' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'DB_GESDOC.dbo.VISTA_DB_GENERAL_MAE_TRANSPORTE' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
   <EntityType Name="VISTA_DB_GENERAL_MAE_TRANSPORTE">
     <Key>
       <PropertyRef Name="ID_TRANSPORTE" />
@@ -956,8 +956,8 @@ warning 6002: The table/view 'DB_GESDOC.dbo.VISTA_DB_GENERAL_MAE_TRANSPORTE' doe
     <Property Name="ID_TIPO_FURGON" Type="int" Nullable="false" />
     <Property Name="NOMBRE_FURGON" Type="varchar" MaxLength="200" />
   </EntityType>
-  <!--Errors Found During Generation:
-warning 6002: The table/view 'DB_GESDOC.dbo.VISTA_DB_GENERAL_MAE_UNIDAD_MEDIDA' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'DB_GESDOC.dbo.VISTA_DB_GENERAL_MAE_UNIDAD_MEDIDA' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
   <EntityType Name="VISTA_DB_GENERAL_MAE_UNIDAD_MEDIDA">
     <Key>
       <PropertyRef Name="ID_UM" />
@@ -967,8 +967,8 @@ warning 6002: The table/view 'DB_GESDOC.dbo.VISTA_DB_GENERAL_MAE_UNIDAD_MEDIDA' 
     <Property Name="SIGLAS" Type="varchar" MaxLength="20" />
     <Property Name="ACTIVO" Type="char" MaxLength="1" />
   </EntityType>
-  <!--Errors Found During Generation:
-warning 6002: The table/view 'DB_GESDOC.dbo.VW_CONSULTA_DB_GENERAL_MAE_FACTURA' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'DB_GESDOC.dbo.VW_CONSULTA_DB_GENERAL_MAE_FACTURA' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
   <EntityType Name="VW_CONSULTA_DB_GENERAL_MAE_FACTURA">
     <Key>
       <PropertyRef Name="ID_FACTURA" />
@@ -989,8 +989,8 @@ warning 6002: The table/view 'DB_GESDOC.dbo.VW_CONSULTA_DB_GENERAL_MAE_FACTURA' 
     <Property Name="USUARIO_REGISTRO" Type="varchar" MaxLength="278" />
     <Property Name="RUTA_PDF" Type="varchar" MaxLength="150" />
   </EntityType>
-  <!--Errors Found During Generation:
-warning 6002: The table/view 'DB_GESDOC.dbo.VW_CONSULTA_DB_GENERAL_MAE_OPERACION' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'DB_GESDOC.dbo.VW_CONSULTA_DB_GENERAL_MAE_OPERACION' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
   <EntityType Name="VW_CONSULTA_DB_GENERAL_MAE_OPERACION">
     <Key>
       <PropertyRef Name="ID_OPERACION" />
@@ -1008,8 +1008,8 @@ warning 6002: The table/view 'DB_GESDOC.dbo.VW_CONSULTA_DB_GENERAL_MAE_OPERACION
     <Property Name="RUTA_PDF" Type="varchar" MaxLength="150" />
     <Property Name="FACTURA" Type="varchar" MaxLength="36" />
   </EntityType>
-  <!--Errors Found During Generation:
-warning 6002: The table/view 'DB_GESDOC.dbo.vw_consulta_db_general_mae_tipo_factura' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'DB_GESDOC.dbo.vw_consulta_db_general_mae_tipo_factura' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
   <EntityType Name="vw_consulta_db_general_mae_tipo_factura">
     <Key>
       <PropertyRef Name="ID_TIPO_FACTURA" />
@@ -1017,8 +1017,8 @@ warning 6002: The table/view 'DB_GESDOC.dbo.vw_consulta_db_general_mae_tipo_fact
     <Property Name="ID_TIPO_FACTURA" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="NOMBRE" Type="varchar" MaxLength="50" />
   </EntityType>
-  <!--Errors Found During Generation:
-warning 6002: The table/view 'DB_GESDOC.dbo.VW_CONSULTA_DB_GENERAL_MAE_VALOR_FACTURADO_EXP' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'DB_GESDOC.dbo.VW_CONSULTA_DB_GENERAL_MAE_VALOR_FACTURADO_EXP' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
   <EntityType Name="VW_CONSULTA_DB_GENERAL_MAE_VALOR_FACTURADO_EXP">
     <Key>
       <PropertyRef Name="ID_VALOR_FAC_EXP" />
@@ -1026,8 +1026,8 @@ warning 6002: The table/view 'DB_GESDOC.dbo.VW_CONSULTA_DB_GENERAL_MAE_VALOR_FAC
     <Property Name="ID_VALOR_FAC_EXP" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="NOMBRE" Type="varchar" MaxLength="150" />
   </EntityType>
-  <!--Errors Found During Generation:
-warning 6002: The table/view 'DB_GESDOC.dbo.VW_CONSULTA_EMBARCACIONES' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'DB_GESDOC.dbo.VW_CONSULTA_EMBARCACIONES' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
   <EntityType Name="VW_CONSULTA_EMBARCACIONES">
     <Key>
       <PropertyRef Name="ID_EMBARCACION" />
@@ -1047,8 +1047,8 @@ warning 6002: The table/view 'DB_GESDOC.dbo.VW_CONSULTA_EMBARCACIONES' does not 
     <Property Name="ID_TIPO_ACT_EMB" Type="int" />
     <Property Name="FECHA_CONSTRUCCION" Type="datetime" />
   </EntityType>
-  <!--Errors Found During Generation:
-warning 6002: The table/view 'DB_GESDOC.dbo.VW_CONSULTA_FACTURAS' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'DB_GESDOC.dbo.VW_CONSULTA_FACTURAS' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
   <EntityType Name="VW_CONSULTA_FACTURAS">
     <Key>
       <PropertyRef Name="ID_FACTURA" />
@@ -1064,8 +1064,8 @@ warning 6002: The table/view 'DB_GESDOC.dbo.VW_CONSULTA_FACTURAS' does not have 
     <Property Name="ID_TIPO_FACTURA" Type="int" />
     <Property Name="TIPO_FACTURA" Type="varchar" MaxLength="50" />
   </EntityType>
-  <!--Errors Found During Generation:
-warning 6002: The table/view 'DB_GESDOC.dbo.VW_CONSULTA_PENDIENTES_SANIPES_DETALLE' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'DB_GESDOC.dbo.VW_CONSULTA_PENDIENTES_SANIPES_DETALLE' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
   <EntityType Name="VW_CONSULTA_PENDIENTES_SANIPES_DETALLE">
     <Key>
       <PropertyRef Name="FECHA_EMISION" />
@@ -1083,8 +1083,8 @@ warning 6002: The table/view 'DB_GESDOC.dbo.VW_CONSULTA_PENDIENTES_SANIPES_DETAL
     <Property Name="DESTINO" Type="varchar" MaxLength="152" />
     <Property Name="PERSONA_ENVIA" Type="varchar" MaxLength="255" />
   </EntityType>
-  <!--Errors Found During Generation:
-warning 6002: The table/view 'DB_GESDOC.dbo.VW_CONSULTA_PERSONA_RECIBO_SERIE1' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'DB_GESDOC.dbo.VW_CONSULTA_PERSONA_RECIBO_SERIE1' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
   <EntityType Name="VW_CONSULTA_PERSONA_RECIBO_SERIE1">
     <Key>
       <PropertyRef Name="DOCUMENTO" />
@@ -1093,8 +1093,8 @@ warning 6002: The table/view 'DB_GESDOC.dbo.VW_CONSULTA_PERSONA_RECIBO_SERIE1' d
     <Property Name="NOMBRE" Type="varchar" MaxLength="255" />
     <Property Name="DIRECCION" Type="varchar" MaxLength="359" />
   </EntityType>
-  <!--Errors Found During Generation:
-warning 6002: The table/view 'DB_GESDOC.dbo.VW_CONSULTA_PROTOCOLOS_AI' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'DB_GESDOC.dbo.VW_CONSULTA_PROTOCOLOS_AI' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
   <EntityType Name="VW_CONSULTA_PROTOCOLOS_AI">
     <Key>
       <PropertyRef Name="ID_PROTOCOLO" />
@@ -1111,8 +1111,8 @@ warning 6002: The table/view 'DB_GESDOC.dbo.VW_CONSULTA_PROTOCOLOS_AI' does not 
     <Property Name="ID_PROTOCOLO_REEMPLAZA" Type="int" />
     <Property Name="RUTA_PDF" Type="varchar" MaxLength="150" />
   </EntityType>
-  <!--Errors Found During Generation:
-warning 6002: The table/view 'DB_GESDOC.dbo.VW_CONSULTA_PROTOCOLOS_LO' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'DB_GESDOC.dbo.VW_CONSULTA_PROTOCOLOS_LO' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
   <EntityType Name="VW_CONSULTA_PROTOCOLOS_LO">
     <Key>
       <PropertyRef Name="ID_PROTOCOLO" />
@@ -1129,8 +1129,8 @@ warning 6002: The table/view 'DB_GESDOC.dbo.VW_CONSULTA_PROTOCOLOS_LO' does not 
     <Property Name="ID_PROTOCOLO_REEMPLAZA" Type="int" />
     <Property Name="RUTA_PDF" Type="varchar" MaxLength="150" />
   </EntityType>
-  <!--Errors Found During Generation:
-warning 6002: The table/view 'DB_GESDOC.dbo.VW_CONSULTA_RECIBO_SERIE1' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'DB_GESDOC.dbo.VW_CONSULTA_RECIBO_SERIE1' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
   <EntityType Name="VW_CONSULTA_RECIBO_SERIE1">
     <Key>
       <PropertyRef Name="ID_FACTURA" />
@@ -1154,8 +1154,8 @@ warning 6002: The table/view 'DB_GESDOC.dbo.VW_CONSULTA_RECIBO_SERIE1' does not 
     <Property Name="TUPA_SERV" Type="varchar" MaxLength="285" />
     <Property Name="CANTIDAD" Type="int" />
   </EntityType>
-  <!--Errors Found During Generation:
-warning 6002: The table/view 'DB_GESDOC.dbo.VW_CONSULTA_REPORTE_DIARIO_SERIE1' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'DB_GESDOC.dbo.VW_CONSULTA_REPORTE_DIARIO_SERIE1' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
   <EntityType Name="VW_CONSULTA_REPORTE_DIARIO_SERIE1">
     <Key>
       <PropertyRef Name="N_OFICINA_CREA" />
@@ -1179,8 +1179,8 @@ warning 6002: The table/view 'DB_GESDOC.dbo.VW_CONSULTA_REPORTE_DIARIO_SERIE1' d
     <Property Name="ID_FACTURA" Type="int" Nullable="false" />
     <Property Name="ID_TIPO_FACTURA" Type="int" />
   </EntityType>
-  <!--Errors Found During Generation:
-warning 6002: The table/view 'DB_GESDOC.dbo.VW_CONSULTA_SOLICITUD_INSPECCION_OD' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'DB_GESDOC.dbo.VW_CONSULTA_SOLICITUD_INSPECCION_OD' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
   <EntityType Name="VW_CONSULTA_SOLICITUD_INSPECCION_OD">
     <Key>
       <PropertyRef Name="ID_SOL_INS" />
@@ -1210,8 +1210,8 @@ warning 6002: The table/view 'DB_GESDOC.dbo.VW_CONSULTA_SOLICITUD_INSPECCION_OD'
     <Property Name="FECHA_RECEPCION_INSPECTOR" Type="datetime" />
     <Property Name="FECHA_RECEPCION_INSPECTOR_TEXT" Type="varchar" MaxLength="30" />
   </EntityType>
-  <!--Errors Found During Generation:
-warning 6002: The table/view 'DB_GESDOC.dbo.VW_CONSULTA_TIPO_EMBARCACIONES' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'DB_GESDOC.dbo.VW_CONSULTA_TIPO_EMBARCACIONES' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
   <EntityType Name="VW_CONSULTA_TIPO_EMBARCACIONES">
     <Key>
       <PropertyRef Name="ID_TIPO_EMBARCACION" />
@@ -1220,8 +1220,8 @@ warning 6002: The table/view 'DB_GESDOC.dbo.VW_CONSULTA_TIPO_EMBARCACIONES' does
     <Property Name="NOMBRE" Type="varchar" MaxLength="100" />
     <Property Name="RUTA_FTP" Type="varchar" MaxLength="500" />
   </EntityType>
-  <!--Errors Found During Generation:
-warning 6002: The table/view 'DB_GESDOC.dbo.vw_CONSULTAR_ACTV_ALMACEN' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'DB_GESDOC.dbo.vw_CONSULTAR_ACTV_ALMACEN' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
   <EntityType Name="vw_CONSULTAR_ACTV_ALMACEN">
     <Key>
       <PropertyRef Name="ID_ACTIVIDAD_ALMACEN" />
@@ -1231,8 +1231,8 @@ warning 6002: The table/view 'DB_GESDOC.dbo.vw_CONSULTAR_ACTV_ALMACEN' does not 
     <Property Name="RUTA_PDF" Type="varchar" MaxLength="500" />
     <Property Name="ACTIVO" Type="char" MaxLength="1" />
   </EntityType>
-  <!--Errors Found During Generation:
-warning 6002: The table/view 'DB_GESDOC.dbo.vw_CONSULTAR_ACTV_EMBARCACION' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'DB_GESDOC.dbo.vw_CONSULTAR_ACTV_EMBARCACION' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
   <EntityType Name="vw_CONSULTAR_ACTV_EMBARCACION">
     <Key>
       <PropertyRef Name="ID_TIPO_ACT_EMB" />
@@ -1241,8 +1241,8 @@ warning 6002: The table/view 'DB_GESDOC.dbo.vw_CONSULTAR_ACTV_EMBARCACION' does 
     <Property Name="NOMBRE" Type="varchar" MaxLength="100" />
     <Property Name="ACTIVO" Type="char" MaxLength="1" />
   </EntityType>
-  <!--Errors Found During Generation:
-warning 6002: The table/view 'DB_GESDOC.dbo.vw_CONSULTAR_COD_HAB_ALMACEN' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'DB_GESDOC.dbo.vw_CONSULTAR_COD_HAB_ALMACEN' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
   <EntityType Name="vw_CONSULTAR_COD_HAB_ALMACEN">
     <Key>
       <PropertyRef Name="ID_CODIGO_ALMACEN" />
@@ -1252,8 +1252,8 @@ warning 6002: The table/view 'DB_GESDOC.dbo.vw_CONSULTAR_COD_HAB_ALMACEN' does n
     <Property Name="NOMBRE" Type="varchar" MaxLength="500" />
     <Property Name="ACTIVO" Type="char" MaxLength="1" />
   </EntityType>
-  <!--Errors Found During Generation:
-warning 6002: The table/view 'DB_GESDOC.dbo.vw_CONSULTAR_COD_HAB_EMBARCACION' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'DB_GESDOC.dbo.vw_CONSULTAR_COD_HAB_EMBARCACION' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
   <EntityType Name="vw_CONSULTAR_COD_HAB_EMBARCACION">
     <Key>
       <PropertyRef Name="ID_COD_HAB_EMB" />
@@ -1262,8 +1262,8 @@ warning 6002: The table/view 'DB_GESDOC.dbo.vw_CONSULTAR_COD_HAB_EMBARCACION' do
     <Property Name="CODIGO" Type="varchar" MaxLength="20" />
     <Property Name="ACTIVO" Type="char" MaxLength="1" />
   </EntityType>
-  <!--Errors Found During Generation:
-warning 6002: The table/view 'DB_GESDOC.dbo.vw_CONSULTAR_DB_GENERAL_MAE_ALMACEN_SEDE' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'DB_GESDOC.dbo.vw_CONSULTAR_DB_GENERAL_MAE_ALMACEN_SEDE' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
   <EntityType Name="vw_CONSULTAR_DB_GENERAL_MAE_ALMACEN_SEDE">
     <Key>
       <PropertyRef Name="ID_ALMACEN" />
@@ -1284,8 +1284,8 @@ warning 6002: The table/view 'DB_GESDOC.dbo.vw_CONSULTAR_DB_GENERAL_MAE_ALMACEN_
     <Property Name="USUARIO_DESACTIVADO" Type="varchar" MaxLength="50" />
     <Property Name="ACTIVO" Type="char" MaxLength="1" />
   </EntityType>
-  <!--Errors Found During Generation:
-warning 6002: The table/view 'DB_GESDOC.dbo.VW_CONSULTAR_DB_GENERAL_MAE_AREA_PRODUCCION' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'DB_GESDOC.dbo.VW_CONSULTAR_DB_GENERAL_MAE_AREA_PRODUCCION' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
   <EntityType Name="VW_CONSULTAR_DB_GENERAL_MAE_AREA_PRODUCCION">
     <Key>
       <PropertyRef Name="ID_AREA_PRODUCCION" />
@@ -1302,8 +1302,8 @@ warning 6002: The table/view 'DB_GESDOC.dbo.VW_CONSULTAR_DB_GENERAL_MAE_AREA_PRO
     <Property Name="NOMBRE" Type="varchar" MaxLength="100" />
     <Property Name="TIPO_AREA" Type="varchar" MaxLength="100" />
   </EntityType>
-  <!--Errors Found During Generation:
-warning 6002: The table/view 'DB_GESDOC.dbo.VW_CONSULTAR_DB_GENERAL_MAE_CONCESION' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'DB_GESDOC.dbo.VW_CONSULTAR_DB_GENERAL_MAE_CONCESION' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
   <EntityType Name="VW_CONSULTAR_DB_GENERAL_MAE_CONCESION">
     <Key>
       <PropertyRef Name="ID_CONCESION" />
@@ -1330,8 +1330,8 @@ warning 6002: The table/view 'DB_GESDOC.dbo.VW_CONSULTAR_DB_GENERAL_MAE_CONCESIO
     <Property Name="ID_TIP_ACT_CONCE" Type="int" />
     <Property Name="ACTIVIDAD_CONCESION" Type="varchar" MaxLength="100" />
   </EntityType>
-  <!--Errors Found During Generation:
-warning 6002: The table/view 'DB_GESDOC.dbo.VW_CONSULTAR_DB_GENERAL_MAE_TIPO_CONCESION' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'DB_GESDOC.dbo.VW_CONSULTAR_DB_GENERAL_MAE_TIPO_CONCESION' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
   <EntityType Name="VW_CONSULTAR_DB_GENERAL_MAE_TIPO_CONCESION">
     <Key>
       <PropertyRef Name="ID_TIPO_CONCESION" />
@@ -1341,8 +1341,8 @@ warning 6002: The table/view 'DB_GESDOC.dbo.VW_CONSULTAR_DB_GENERAL_MAE_TIPO_CON
     <Property Name="RUTA_PDF" Type="varchar" MaxLength="500" />
     <Property Name="ACTIVO" Type="char" MaxLength="1" />
   </EntityType>
-  <!--Errors Found During Generation:
-warning 6002: The table/view 'DB_GESDOC.dbo.VW_CONSULTAR_DB_GENERAL_MAE_ZONA_PRODUCCION' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'DB_GESDOC.dbo.VW_CONSULTAR_DB_GENERAL_MAE_ZONA_PRODUCCION' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
   <EntityType Name="VW_CONSULTAR_DB_GENERAL_MAE_ZONA_PRODUCCION">
     <Key>
       <PropertyRef Name="ID_ZONA_PRODUCCION" />
@@ -1358,8 +1358,8 @@ warning 6002: The table/view 'DB_GESDOC.dbo.VW_CONSULTAR_DB_GENERAL_MAE_ZONA_PRO
     <Property Name="COD_ZONA_PRODUCCION" Type="varchar" MaxLength="50" />
     <Property Name="NOMBRE" Type="varchar" MaxLength="100" />
   </EntityType>
-  <!--Errors Found During Generation:
-warning 6002: The table/view 'DB_GESDOC.dbo.vw_CONSULTAR_DEPARTAMENTO' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'DB_GESDOC.dbo.vw_CONSULTAR_DEPARTAMENTO' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
   <EntityType Name="vw_CONSULTAR_DEPARTAMENTO">
     <Key>
       <PropertyRef Name="CODIGO_DEPARTAMENTO" />
@@ -1367,8 +1367,8 @@ warning 6002: The table/view 'DB_GESDOC.dbo.vw_CONSULTAR_DEPARTAMENTO' does not 
     <Property Name="CODIGO_DEPARTAMENTO" Type="char" MaxLength="2" Nullable="false" />
     <Property Name="DEPARTAMENTO" Type="varchar" MaxLength="50" />
   </EntityType>
-  <!--Errors Found During Generation:
-warning 6002: The table/view 'DB_GESDOC.dbo.vw_CONSULTAR_DIRECCION' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'DB_GESDOC.dbo.vw_CONSULTAR_DIRECCION' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
   <EntityType Name="vw_CONSULTAR_DIRECCION">
     <Key>
       <PropertyRef Name="ID_OFICINA_DIRECCION" />
@@ -1381,8 +1381,8 @@ warning 6002: The table/view 'DB_GESDOC.dbo.vw_CONSULTAR_DIRECCION' does not hav
     <Property Name="ID_SEDE" Type="int" Nullable="false" />
     <Property Name="ACTIVO" Type="bit" Nullable="false" />
   </EntityType>
-  <!--Errors Found During Generation:
-warning 6002: The table/view 'DB_GESDOC.dbo.vw_CONSULTAR_DNI' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'DB_GESDOC.dbo.vw_CONSULTAR_DNI' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
   <EntityType Name="vw_CONSULTAR_DNI">
     <Key>
       <PropertyRef Name="persona_num_documento" />
@@ -1399,8 +1399,8 @@ warning 6002: The table/view 'DB_GESDOC.dbo.vw_CONSULTAR_DNI' does not have a pr
     <Property Name="direccion" Type="varchar" MaxLength="200" />
     <Property Name="ruc" Type="varchar" MaxLength="11" />
   </EntityType>
-  <!--Errors Found During Generation:
-warning 6002: The table/view 'DB_GESDOC.dbo.VW_CONSULTAR_DNI_PERSONAL_LEGAL' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'DB_GESDOC.dbo.VW_CONSULTAR_DNI_PERSONAL_LEGAL' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
   <EntityType Name="VW_CONSULTAR_DNI_PERSONAL_LEGAL">
     <Key>
       <PropertyRef Name="ID_DNI_PERSONA_LEGAL" />
@@ -1415,8 +1415,8 @@ warning 6002: The table/view 'DB_GESDOC.dbo.VW_CONSULTAR_DNI_PERSONAL_LEGAL' doe
     <Property Name="FECHA_DESACTIVADO" Type="varchar" MaxLength="30" />
     <Property Name="ACTIVO" Type="int" />
   </EntityType>
-  <!--Errors Found During Generation:
-warning 6002: The table/view 'DB_GESDOC.dbo.VW_CONSULTAR_EMPRESA_PERSONA_LEGAL' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'DB_GESDOC.dbo.VW_CONSULTAR_EMPRESA_PERSONA_LEGAL' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
   <EntityType Name="VW_CONSULTAR_EMPRESA_PERSONA_LEGAL">
     <Key>
       <PropertyRef Name="ID_PERSONA_LEGAL" />
@@ -1431,8 +1431,8 @@ warning 6002: The table/view 'DB_GESDOC.dbo.VW_CONSULTAR_EMPRESA_PERSONA_LEGAL' 
     <Property Name="FECHA_DESACTIVADO" Type="varchar" MaxLength="30" />
     <Property Name="ACTIVO" Type="int" />
   </EntityType>
-  <!--Errors Found During Generation:
-warning 6002: The table/view 'DB_GESDOC.dbo.VW_CONSULTAR_ESPECIES' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'DB_GESDOC.dbo.VW_CONSULTAR_ESPECIES' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
   <EntityType Name="VW_CONSULTAR_ESPECIES">
     <Key>
       <PropertyRef Name="CODIGO" />
@@ -1442,8 +1442,8 @@ warning 6002: The table/view 'DB_GESDOC.dbo.VW_CONSULTAR_ESPECIES' does not have
     <Property Name="Nombre_Cientifico" Type="varchar" MaxLength="150" />
     <Property Name="FLAG" Type="char" MaxLength="1" />
   </EntityType>
-  <!--Errors Found During Generation:
-warning 6002: The table/view 'DB_GESDOC.dbo.VW_CONSULTAR_ESPECIES_CATEGORIAS' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'DB_GESDOC.dbo.VW_CONSULTAR_ESPECIES_CATEGORIAS' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
   <EntityType Name="VW_CONSULTAR_ESPECIES_CATEGORIAS">
     <Key>
       <PropertyRef Name="FLAG" />
@@ -1451,8 +1451,8 @@ warning 6002: The table/view 'DB_GESDOC.dbo.VW_CONSULTAR_ESPECIES_CATEGORIAS' do
     <Property Name="FLAG" Type="char" MaxLength="1" Nullable="false" />
     <Property Name="NOMBRE" Type="varchar" MaxLength="100" />
   </EntityType>
-  <!--Errors Found During Generation:
-warning 6002: The table/view 'DB_GESDOC.dbo.vw_CONSULTAR_OFICINA' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'DB_GESDOC.dbo.vw_CONSULTAR_OFICINA' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
   <EntityType Name="vw_CONSULTAR_OFICINA">
     <Key>
       <PropertyRef Name="ID_OFICINA" />
@@ -1463,8 +1463,8 @@ warning 6002: The table/view 'DB_GESDOC.dbo.vw_CONSULTAR_OFICINA' does not have 
     <Property Name="SIGLAS" Type="varchar" MaxLength="50" />
     <Property Name="RUC" Type="varchar" MaxLength="11" />
   </EntityType>
-  <!--Errors Found During Generation:
-warning 6002: The table/view 'DB_GESDOC.dbo.VW_CONSULTAR_OFICINA_DIRECCION_LEGAL' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'DB_GESDOC.dbo.VW_CONSULTAR_OFICINA_DIRECCION_LEGAL' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
   <EntityType Name="VW_CONSULTAR_OFICINA_DIRECCION_LEGAL">
     <Key>
       <PropertyRef Name="ID_SEDE" />
@@ -1486,8 +1486,8 @@ warning 6002: The table/view 'DB_GESDOC.dbo.VW_CONSULTAR_OFICINA_DIRECCION_LEGAL
     <Property Name="NOM_DIRECCION" Type="varchar" MaxLength="200" Nullable="false" />
     <Property Name="NOM_REFERENCIA" Type="varchar" MaxLength="200" />
   </EntityType>
-  <!--Errors Found During Generation:
-warning 6002: The table/view 'DB_GESDOC.dbo.VW_CONSULTAR_PENDIENTES_HT_PARA_ADJUNTAR_20190104' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'DB_GESDOC.dbo.VW_CONSULTAR_PENDIENTES_HT_PARA_ADJUNTAR_20190104' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
   <EntityType Name="VW_CONSULTAR_PENDIENTES_HT_PARA_ADJUNTAR_20190104">
     <Key>
       <PropertyRef Name="OFICINA_DESTINO" />
@@ -1499,8 +1499,8 @@ warning 6002: The table/view 'DB_GESDOC.dbo.VW_CONSULTAR_PENDIENTES_HT_PARA_ADJU
     <Property Name="NOMBRE" Type="varchar" MaxLength="152" />
     <Property Name="HOJA_TRAMITE" Type="varchar" MaxLength="11" />
   </EntityType>
-  <!--Errors Found During Generation:
-warning 6002: The table/view 'DB_GESDOC.dbo.VW_CONSULTAR_PERSONA_TELEFONO' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'DB_GESDOC.dbo.VW_CONSULTAR_PERSONA_TELEFONO' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
   <EntityType Name="VW_CONSULTAR_PERSONA_TELEFONO">
     <Key>
       <PropertyRef Name="ID_PERSONA_TELEFONO" />
@@ -1510,8 +1510,8 @@ warning 6002: The table/view 'DB_GESDOC.dbo.VW_CONSULTAR_PERSONA_TELEFONO' does 
     <Property Name="TELEFONO1" Type="varchar" MaxLength="100" />
     <Property Name="ACTIVO" Type="char" MaxLength="1" />
   </EntityType>
-  <!--Errors Found During Generation:
-warning 6002: The table/view 'DB_GESDOC.dbo.vw_CONSULTAR_PERSONAL' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'DB_GESDOC.dbo.vw_CONSULTAR_PERSONAL' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
   <EntityType Name="vw_CONSULTAR_PERSONAL">
     <Key>
       <PropertyRef Name="ID_PER_EMPRESA" />
@@ -1533,8 +1533,8 @@ warning 6002: The table/view 'DB_GESDOC.dbo.vw_CONSULTAR_PERSONAL' does not have
     <Property Name="RUC" Type="varchar" MaxLength="11" />
     <Property Name="RAZON_SOCIAL" Type="varchar" MaxLength="255" />
   </EntityType>
-  <!--Errors Found During Generation:
-warning 6002: The table/view 'DB_GESDOC.dbo.vw_CONSULTAR_PLANTAS' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'DB_GESDOC.dbo.vw_CONSULTAR_PLANTAS' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
   <EntityType Name="vw_CONSULTAR_PLANTAS">
     <Key>
       <PropertyRef Name="ID_PLANTA" />
@@ -1554,8 +1554,8 @@ warning 6002: The table/view 'DB_GESDOC.dbo.vw_CONSULTAR_PLANTAS' does not have 
     <Property Name="FECHA_HABILITACION_FINAL" Type="datetime" />
     <Property Name="IND_HABILITACION" Type="int" />
   </EntityType>
-  <!--Errors Found During Generation:
-warning 6002: The table/view 'DB_GESDOC.dbo.vw_CONSULTAR_PROVINCIA' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'DB_GESDOC.dbo.vw_CONSULTAR_PROVINCIA' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
   <EntityType Name="vw_CONSULTAR_PROVINCIA">
     <Key>
       <PropertyRef Name="ID_PROVINCIA" />
@@ -1565,8 +1565,8 @@ warning 6002: The table/view 'DB_GESDOC.dbo.vw_CONSULTAR_PROVINCIA' does not hav
     <Property Name="CODIGO_PROVINCIA" Type="char" MaxLength="2" />
     <Property Name="PROVINCIA" Type="varchar" MaxLength="50" />
   </EntityType>
-  <!--Errors Found During Generation:
-warning 6002: The table/view 'DB_GESDOC.dbo.VW_CONSULTAR_RUC' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'DB_GESDOC.dbo.VW_CONSULTAR_RUC' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
   <EntityType Name="VW_CONSULTAR_RUC">
     <Key>
       <PropertyRef Name="RUC" />
@@ -1576,8 +1576,8 @@ warning 6002: The table/view 'DB_GESDOC.dbo.VW_CONSULTAR_RUC' does not have a pr
     <Property Name="USUARIO_CREA" Type="varchar" MaxLength="50" />
     <Property Name="FECHA_CREA" Type="datetime" />
   </EntityType>
-  <!--Errors Found During Generation:
-warning 6002: The table/view 'DB_GESDOC.dbo.vw_CONSULTAR_SEDE_OFICINA' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'DB_GESDOC.dbo.vw_CONSULTAR_SEDE_OFICINA' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
   <EntityType Name="vw_CONSULTAR_SEDE_OFICINA">
     <Key>
       <PropertyRef Name="ID_SEDE" />
@@ -1595,8 +1595,8 @@ warning 6002: The table/view 'DB_GESDOC.dbo.vw_CONSULTAR_SEDE_OFICINA' does not 
     <Property Name="ACTIVO" Type="bit" Nullable="false" />
     <Property Name="ID_OFICINA" Type="int" Nullable="false" />
   </EntityType>
-  <!--Errors Found During Generation:
-warning 6002: The table/view 'DB_GESDOC.dbo.vw_CONSULTAR_TIPO_ACTIVIDAD_PLANTA' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'DB_GESDOC.dbo.vw_CONSULTAR_TIPO_ACTIVIDAD_PLANTA' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
   <EntityType Name="vw_CONSULTAR_TIPO_ACTIVIDAD_PLANTA">
     <Key>
       <PropertyRef Name="ID_TIPO_ACTIVIDAD" />
@@ -1606,8 +1606,8 @@ warning 6002: The table/view 'DB_GESDOC.dbo.vw_CONSULTAR_TIPO_ACTIVIDAD_PLANTA' 
     <Property Name="ID_TIPO_PLANTA" Type="int" />
     <Property Name="RUTA_FTP" Type="varchar" MaxLength="500" />
   </EntityType>
-  <!--Errors Found During Generation:
-warning 6002: The table/view 'DB_GESDOC.dbo.vw_CONSULTAR_TIPO_DOCUMENTO_IDENTIDAD' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'DB_GESDOC.dbo.vw_CONSULTAR_TIPO_DOCUMENTO_IDENTIDAD' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
   <EntityType Name="vw_CONSULTAR_TIPO_DOCUMENTO_IDENTIDAD">
     <Key>
       <PropertyRef Name="TIPO_DOC_IDEN" />
@@ -1617,8 +1617,8 @@ warning 6002: The table/view 'DB_GESDOC.dbo.vw_CONSULTAR_TIPO_DOCUMENTO_IDENTIDA
     <Property Name="SIGLAS" Type="char" MaxLength="10" />
     <Property Name="CANT_CARACTERES" Type="int" />
   </EntityType>
-  <!--Errors Found During Generation:
-warning 6002: The table/view 'DB_GESDOC.dbo.VW_CONSULTAR_TIPO_FURGON_TRANSPORTE' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'DB_GESDOC.dbo.VW_CONSULTAR_TIPO_FURGON_TRANSPORTE' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
   <EntityType Name="VW_CONSULTAR_TIPO_FURGON_TRANSPORTE">
     <Key>
       <PropertyRef Name="ID_TIPO_FURGON" />
@@ -1628,8 +1628,8 @@ warning 6002: The table/view 'DB_GESDOC.dbo.VW_CONSULTAR_TIPO_FURGON_TRANSPORTE'
     <Property Name="NOMBRE" Type="varchar" MaxLength="200" />
     <Property Name="ACTIVO" Type="char" MaxLength="1" />
   </EntityType>
-  <!--Errors Found During Generation:
-warning 6002: The table/view 'DB_GESDOC.dbo.vw_CONSULTAR_TIPO_PLANTA' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'DB_GESDOC.dbo.vw_CONSULTAR_TIPO_PLANTA' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
   <EntityType Name="vw_CONSULTAR_TIPO_PLANTA">
     <Key>
       <PropertyRef Name="ID_TIPO_PLANTA" />
@@ -1638,8 +1638,8 @@ warning 6002: The table/view 'DB_GESDOC.dbo.vw_CONSULTAR_TIPO_PLANTA' does not h
     <Property Name="SIGLAS" Type="varchar" MaxLength="10" />
     <Property Name="NOMBRE" Type="varchar" MaxLength="500" />
   </EntityType>
-  <!--Errors Found During Generation:
-warning 6002: The table/view 'DB_GESDOC.dbo.vw_CONSULTAR_UBIGEO' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'DB_GESDOC.dbo.vw_CONSULTAR_UBIGEO' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
   <EntityType Name="vw_CONSULTAR_UBIGEO">
     <Key>
       <PropertyRef Name="UBIGEO" />
@@ -1649,8 +1649,8 @@ warning 6002: The table/view 'DB_GESDOC.dbo.vw_CONSULTAR_UBIGEO' does not have a
     <Property Name="DISTRITO" Type="varchar" MaxLength="50" />
     <Property Name="UBIGEO" Type="char" MaxLength="6" Nullable="false" />
   </EntityType>
-  <!--Errors Found During Generation:
-warning 6002: The table/view 'DB_GESDOC.dbo.vw_CONSULTAR_USUARIO' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'DB_GESDOC.dbo.vw_CONSULTAR_USUARIO' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
   <EntityType Name="vw_CONSULTAR_USUARIO">
     <Key>
       <PropertyRef Name="RUC" />
@@ -1676,8 +1676,8 @@ warning 6002: The table/view 'DB_GESDOC.dbo.vw_CONSULTAR_USUARIO' does not have 
     <Property Name="ID_PERFIL_JEFE_OD" Type="int" />
     <Property Name="ID_PERFIL_INSPECTOR_OD" Type="int" />
   </EntityType>
-  <!--Errors Found During Generation:
-warning 6002: The table/view 'DB_GESDOC.dbo.VW_DB_GENERAL_MAE_CODIGO_DESEMBARCADERO' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'DB_GESDOC.dbo.VW_DB_GENERAL_MAE_CODIGO_DESEMBARCADERO' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
   <EntityType Name="VW_DB_GENERAL_MAE_CODIGO_DESEMBARCADERO">
     <Key>
       <PropertyRef Name="ID_COD_DESEMB" />
@@ -1687,8 +1687,8 @@ warning 6002: The table/view 'DB_GESDOC.dbo.VW_DB_GENERAL_MAE_CODIGO_DESEMBARCAD
     <Property Name="ID_TIPO_DESEMBARCADERO" Type="int" />
     <Property Name="ACTIVO" Type="char" MaxLength="1" />
   </EntityType>
-  <!--Errors Found During Generation:
-warning 6002: The table/view 'DB_GESDOC.dbo.VW_DB_GENERAL_MAE_DESEMBARCADERO' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'DB_GESDOC.dbo.VW_DB_GENERAL_MAE_DESEMBARCADERO' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
   <EntityType Name="VW_DB_GENERAL_MAE_DESEMBARCADERO">
     <Key>
       <PropertyRef Name="ID_DESEMBARCADERO" />
@@ -1705,8 +1705,8 @@ warning 6002: The table/view 'DB_GESDOC.dbo.VW_DB_GENERAL_MAE_DESEMBARCADERO' do
     <Property Name="CODIGO_DESEMBARCADERO" Type="varchar" MaxLength="92" />
     <Property Name="ESTADO_DESEMB" Type="varchar" MaxLength="12" Nullable="false" />
   </EntityType>
-  <!--Errors Found During Generation:
-warning 6002: The table/view 'DB_GESDOC.dbo.VW_DB_GENERAL_MAE_TIPO_DESEMBARCADERO' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'DB_GESDOC.dbo.VW_DB_GENERAL_MAE_TIPO_DESEMBARCADERO' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
   <EntityType Name="VW_DB_GENERAL_MAE_TIPO_DESEMBARCADERO">
     <Key>
       <PropertyRef Name="ID_TIPO_DESEMBARCADERO" />
@@ -1716,8 +1716,8 @@ warning 6002: The table/view 'DB_GESDOC.dbo.VW_DB_GENERAL_MAE_TIPO_DESEMBARCADER
     <Property Name="RUTA_PDF" Type="varchar" MaxLength="100" />
     <Property Name="ACTIVO" Type="char" MaxLength="1" />
   </EntityType>
-  <!--Errors Found During Generation:
-warning 6002: The table/view 'DB_GESDOC.dbo.VW_VER_PEDIENTES_GESDOC' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'DB_GESDOC.dbo.VW_VER_PEDIENTES_GESDOC' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
   <EntityType Name="VW_VER_PEDIENTES_GESDOC">
     <Key>
       <PropertyRef Name="ID_OFICINA" />
@@ -2756,6 +2756,10 @@ warning 6002: The table/view 'DB_GESDOC.dbo.VW_VER_PEDIENTES_GESDOC' does not ha
     <Parameter Name="nueva_carga_util" Type="decimal" Mode="In" />
     <Parameter Name="nueva_unidad_medida" Type="int" Mode="In" />
     <Parameter Name="usuario" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="SP_OBTENER_DNI" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="dni" Type="varchar" Mode="In" />
+    <Parameter Name="msg" Type="smallint" Mode="InOut" />
   </Function>
   <Function Name="SP_PLANTA_PROTOCOLO_EXCEL" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
   <Function Name="SP_RECIBIR_MAE_SOLICITUD_INSPECCION" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">

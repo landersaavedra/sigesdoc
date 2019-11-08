@@ -778,6 +778,10 @@
       <Parameter Name="FECINI" Mode="In" Type="Int32" />
       <Parameter Name="FECFIN" Mode="In" Type="Int32" />
     </FunctionImport>
+    <FunctionImport Name="SP_OBTENER_DNI" ReturnType="Collection(Int32)">
+      <Parameter Name="dni" Mode="In" Type="String" />
+      <Parameter Name="msg" Mode="InOut" Type="Int16" />
+    </FunctionImport>
   </EntityContainer>
   <ComplexType Name="p_MODIFICAR_CONTRASEÑA_Result">
     <Property Type="String" Name="ruc" Nullable="false" MaxLength="11" />

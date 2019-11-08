@@ -162,6 +162,8 @@
             <div class="col-md-8">
                 <button id="btnGrabar" type="button" class="btn btn-primary btn-sm">Grabar</button>
                 <button type="button" class="btn btn-default btn-sm regresar">Cancelar</button>
+                <button id="btnLimpiar" type="button" class="btn btn-default btn-sm">Limpiar</button>
+
             </div>
         </div>
     </div>
@@ -184,6 +186,41 @@
         }
     }
 
+    function consulta_dni() {
+
+        var person_num_doc = $("#persona_num_documento").val().toString().trim();
+        $.ajax({
+            cache: false,
+            type: "POST",
+            url: "/HojaTramite/ConsultaDNI",
+            data: { "person_num_doc": person_num_doc },
+            success: function (data) {
+                console.log(data);
+                if (data[0].msg != null) {
+                    window.alert(data[0].msg);
+                    
+                }
+                else {
+                    $('#paterno').val(data[0].apPrimer);
+                    $('#materno').val(data[0].apSegundo);
+                    $('#direccion').val(data[0].direccion);
+                    $('#nombres').val(data[0].prenombres);
+                    var arrayUbigeo = data[0].ubigeo.split('/');
+                    console.log(arrayUbigeo);
+                    $("#cmblista_departamento option:selected").text(arrayUbigeo[0]);
+                    $("#cmblista_provincia option:selected").text(arrayUbigeo[1]);
+                    $("#cmblista_distrito option:selected").text(arrayUbigeo[2]);
+                    
+                }
+                
+            },
+            error: function (xhr, ajaxOptions, thrownError) {
+                alert('Failed to retrieve states.');
+            }
+        });
+        
+    }
+
     function consulta_data() {
 
         var person_num_doc = $("#persona_num_documento").val().toString().trim();
@@ -201,7 +238,7 @@
                 }
                 else
                 {
-                    
+                    consulta_dni()
                 }
             },
             error: function (xhr, ajaxOptions, thrownError) {
@@ -277,6 +314,33 @@
                 }
             });
         });
+
+       /* $('#persona_num_documento').on("click", function () {
+
+            if ($("#persona_num_documento").val().toString().trim().length < 8) {
+
+                document.getElementById('lbl_valida_persona_num_documento').innerHTML = "Documento Inválido";
+            }
+            else {
+                consulta_dni();
+            }
+
+        }); */
+
+        $('#btnLimpiar').click(function () {
+
+            $("#persona_num_documento").val('');
+            $("#paterno").val('');
+            $("#materno").val('');
+            $("#nombres").val('');
+            $("#direccion").val('');
+            $("#cmblista_sexo").val(0);
+            $("#cmblista_departamento option:selected").text('SELECCIONAR DEPARTAMENTO');
+            $("#cmblista_provincia option:selected").text('SELECCIONAR PROVINCIA');
+            $("#cmblista_distrito option:selected").text('SELECCIONAR DISTRITO');
+
+        });
+
 
         $('#btnGrabar').click(function () {
 

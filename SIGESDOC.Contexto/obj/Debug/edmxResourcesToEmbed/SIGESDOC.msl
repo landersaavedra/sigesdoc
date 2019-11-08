@@ -2733,5 +2733,6 @@
         </ComplexTypeMapping>
       </ResultMapping>
     </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SP_OBTENER_DNI" FunctionName="DB_GESDOCModel.Store.SP_OBTENER_DNI" />
   </EntityContainerMapping>
 </Mapping>

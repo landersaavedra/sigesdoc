@@ -337,6 +337,14 @@ namespace SIGESDOC.Web.Models
         public int numero_ht { get; set; }
 
         public Nullable<int> id_oficina_direccion { get; set; }
+
+        public string evaluador_cdl_notif { get; set; }
+        public string direccion_cdl_notif { get; set; }
+        public string empresa_cdl_notif { get; set; }
+        public string folia_cdl_notif { get; set; }
+        public string doc_notificar_cdl_notif { get; set; }
+        public string exp_o_ht_cdl_notif { get; set; }
+        public string exp_o_ht_n_cdl_notif { get; set; }
         public ICollection<detDocdhcpaViewModel> documento_dhcpa_detalle { get; set; }
         public ICollection<detdocdhcpasegViewModel> documento_dhcpa_seguimiento { get; set; }
 

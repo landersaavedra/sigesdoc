@@ -414,6 +414,13 @@
           <Property Name="NUMERO_HT" Type="int" />
           <Property Name="PDF" Type="char" MaxLength="1" />
           <Property Name="ID_OFICINA_DIRECCION" Type="int" />
+          <Property Name="EVALUADOR_CDL_NOTIF" Type="varchar" MaxLength="100" />
+          <Property Name="DIRECCION_CDL_NOTIF" Type="varchar" MaxLength="250" />
+          <Property Name="EMPRESA_CDL_NOTIF" Type="varchar" MaxLength="250" />
+          <Property Name="FOLIA_CDL_NOTIF" Type="int" />
+          <Property Name="DOC_NOTIFICAR_CDL_NOTIF" Type="varchar" MaxLength="50" />
+          <Property Name="EXP_O_HT_CDL_NOTIF" Type="varchar" MaxLength="50" />
+          <Property Name="EXP_O_HT_N_CDL_NOTIF" Type="varchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="MAE_DOCUMENTO_INDICADOR">
           <Key>
@@ -5174,6 +5181,13 @@ advertencia 6002: La tabla o vista 'DB_GESDOC.dbo.VW_VER_PEDIENTES_GESDOC' no ti
           <NavigationProperty Name="DAT_DOCUMENTO_DHCPA_DETALLE" Relationship="DB_GESDOCModel.FK_DAT_DOCUMENTO_DHCPA_DETALLE_MAE_DOCUMENTO_DHCPA" FromRole="MAE_DOCUMENTO_DHCPA" ToRole="DAT_DOCUMENTO_DHCPA_DETALLE" />
           <Property Name="PDF" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
           <Property Name="ID_OFICINA_DIRECCION" Type="Int32" />
+          <Property Name="EVALUADOR_CDL_NOTIF" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="DIRECCION_CDL_NOTIF" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="EMPRESA_CDL_NOTIF" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="FOLIA_CDL_NOTIF" Type="Int32" />
+          <Property Name="DOC_NOTIFICAR_CDL_NOTIF" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="EXP_O_HT_CDL_NOTIF" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="EXP_O_HT_N_CDL_NOTIF" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="MAE_DOCUMENTO_INDICADOR">
           <Key>
@@ -8376,6 +8390,13 @@ advertencia 6002: La tabla o vista 'DB_GESDOC.dbo.VW_VER_PEDIENTES_GESDOC' no ti
           <EntitySetMapping Name="MAE_DOCUMENTO_DHCPA">
             <EntityTypeMapping TypeName="DB_GESDOCModel.MAE_DOCUMENTO_DHCPA">
               <MappingFragment StoreEntitySet="MAE_DOCUMENTO_DHCPA">
+                <ScalarProperty Name="EXP_O_HT_N_CDL_NOTIF" ColumnName="EXP_O_HT_N_CDL_NOTIF" />
+                <ScalarProperty Name="EXP_O_HT_CDL_NOTIF" ColumnName="EXP_O_HT_CDL_NOTIF" />
+                <ScalarProperty Name="DOC_NOTIFICAR_CDL_NOTIF" ColumnName="DOC_NOTIFICAR_CDL_NOTIF" />
+                <ScalarProperty Name="FOLIA_CDL_NOTIF" ColumnName="FOLIA_CDL_NOTIF" />
+                <ScalarProperty Name="EMPRESA_CDL_NOTIF" ColumnName="EMPRESA_CDL_NOTIF" />
+                <ScalarProperty Name="DIRECCION_CDL_NOTIF" ColumnName="DIRECCION_CDL_NOTIF" />
+                <ScalarProperty Name="EVALUADOR_CDL_NOTIF" ColumnName="EVALUADOR_CDL_NOTIF" />
                 <ScalarProperty Name="ID_OFICINA_DIRECCION" ColumnName="ID_OFICINA_DIRECCION" />
                 <ScalarProperty Name="PDF" ColumnName="PDF" />
                 <ScalarProperty Name="NUMERO_HT" ColumnName="NUMERO_HT" />

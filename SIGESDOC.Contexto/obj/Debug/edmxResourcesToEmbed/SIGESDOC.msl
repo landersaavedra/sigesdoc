@@ -741,6 +741,13 @@
     <EntitySetMapping Name="MAE_DOCUMENTO_DHCPA">
       <EntityTypeMapping TypeName="DB_GESDOCModel.MAE_DOCUMENTO_DHCPA">
         <MappingFragment StoreEntitySet="MAE_DOCUMENTO_DHCPA">
+          <ScalarProperty Name="EXP_O_HT_N_CDL_NOTIF" ColumnName="EXP_O_HT_N_CDL_NOTIF" />
+          <ScalarProperty Name="EXP_O_HT_CDL_NOTIF" ColumnName="EXP_O_HT_CDL_NOTIF" />
+          <ScalarProperty Name="DOC_NOTIFICAR_CDL_NOTIF" ColumnName="DOC_NOTIFICAR_CDL_NOTIF" />
+          <ScalarProperty Name="FOLIA_CDL_NOTIF" ColumnName="FOLIA_CDL_NOTIF" />
+          <ScalarProperty Name="EMPRESA_CDL_NOTIF" ColumnName="EMPRESA_CDL_NOTIF" />
+          <ScalarProperty Name="DIRECCION_CDL_NOTIF" ColumnName="DIRECCION_CDL_NOTIF" />
+          <ScalarProperty Name="EVALUADOR_CDL_NOTIF" ColumnName="EVALUADOR_CDL_NOTIF" />
           <ScalarProperty Name="ID_OFICINA_DIRECCION" ColumnName="ID_OFICINA_DIRECCION" />
           <ScalarProperty Name="PDF" ColumnName="PDF" />
           <ScalarProperty Name="NUMERO_HT" ColumnName="NUMERO_HT" />

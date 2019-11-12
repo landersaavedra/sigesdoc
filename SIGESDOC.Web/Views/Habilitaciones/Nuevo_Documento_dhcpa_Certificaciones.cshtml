@@ -169,6 +169,16 @@
                 @Html.DropDownList("cmbtipo_documento", (IEnumerable<SelectListItem>)ViewBag.list_tip_documento_dhcpa, new { @class = "form-control input-sm" })
             </div>
         </div>
+        @if(ViewBag.list_tip_document_dhcpa == 21)
+        {
+        <div class="form-group">
+            <label>Lander</label>
+            <div class="col-md-6">
+                @Html.TextAreaFor(m => m.asunto, new { @class = "form-control input-sm", @row = "4", @maxlength = "500" })
+            </div>
+            <label id="lbl_valida_asunto" style="color: #B44D4D">  </label>
+        </div>
+        }
 
         <div class="form-group">
             @Html.LabelFor(m => m.asunto, new { @class = "col-md-2 control-label" })
@@ -681,7 +691,14 @@
                     "id_filial": $("#cmb_filial").val(),
                     "fecha_doc": $("#txtFechadocumento").val(),
                     "anexos": $("#anexos").val(),
-                    "id_oficina_direccion": parseInt(@User.Identity.Name.Split('|')[4]), 
+                    "id_oficina_direccion": parseInt(@User.Identity.Name.Split('|')[4]),
+                    "evaluador_cdl_notif": null,
+                    "direccion_cdl_notif": null,
+                    "empresa_cdl_notif": null,
+                    "folia_cdl_notif": null,
+                    "doc_notificar_cdl_notif": null,
+                    "exp_o_ht_cdl_notif": null,
+                    "exp_o_ht_n_cdl_notif": null,
                     "documento_dhcpa_detalle": lstDetalle
                 };
 

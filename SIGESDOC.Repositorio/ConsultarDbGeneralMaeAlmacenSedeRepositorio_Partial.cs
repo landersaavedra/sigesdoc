@@ -56,7 +56,7 @@ namespace SIGESDOC.Repositorio
 
                           from VW_DIR in _dataContext.vw_CONSULTAR_DIRECCION
                           .Where(VW_DIR => MALMA.ID_SEDE == VW_DIR.ID_SEDE)
-
+                          
                           where MALMA.CODIGO_HABILITANTE.Contains(COD_ALMACEN) && VW_DIR.ID_OFICINA_DIRECCION == var_id_oficina_dir
 
                           select new ConsultarDbGeneralMaeAlmacenSedeResponse

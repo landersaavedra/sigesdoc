@@ -409,6 +409,13 @@
     <Property Name="NUMERO_HT" Type="int" />
     <Property Name="PDF" Type="char" MaxLength="1" />
     <Property Name="ID_OFICINA_DIRECCION" Type="int" />
+    <Property Name="EVALUADOR_CDL_NOTIF" Type="varchar" MaxLength="100" />
+    <Property Name="DIRECCION_CDL_NOTIF" Type="varchar" MaxLength="250" />
+    <Property Name="EMPRESA_CDL_NOTIF" Type="varchar" MaxLength="250" />
+    <Property Name="FOLIA_CDL_NOTIF" Type="int" />
+    <Property Name="DOC_NOTIFICAR_CDL_NOTIF" Type="varchar" MaxLength="50" />
+    <Property Name="EXP_O_HT_CDL_NOTIF" Type="varchar" MaxLength="50" />
+    <Property Name="EXP_O_HT_N_CDL_NOTIF" Type="varchar" MaxLength="50" />
   </EntityType>
   <EntityType Name="MAE_DOCUMENTO_INDICADOR">
     <Key>

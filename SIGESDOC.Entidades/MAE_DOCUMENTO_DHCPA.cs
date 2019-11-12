@@ -34,6 +34,13 @@ namespace SIGESDOC.Entidades
         public Nullable<int> NUMERO_HT { get; set; }
         public string PDF { get; set; }
         public Nullable<int> ID_OFICINA_DIRECCION { get; set; }
+        public string EVALUADOR_CDL_NOTIF { get; set; }
+        public string DIRECCION_CDL_NOTIF { get; set; }
+        public string EMPRESA_CDL_NOTIF { get; set; }
+        public Nullable<int> FOLIA_CDL_NOTIF { get; set; }
+        public string DOC_NOTIFICAR_CDL_NOTIF { get; set; }
+        public string EXP_O_HT_CDL_NOTIF { get; set; }
+        public string EXP_O_HT_N_CDL_NOTIF { get; set; }
     
         public virtual ICollection<DAT_DET_SEG_DOC_DHCPA> DAT_DET_SEG_DOC_DHCPA { get; set; }
         public virtual ICollection<DAT_DOCUMENTO_DHCPA_DETALLE> DAT_DOCUMENTO_DHCPA_DETALLE { get; set; }

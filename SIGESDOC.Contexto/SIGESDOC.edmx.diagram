@@ -12,7 +12,7 @@
         <EntityTypeShape EntityType="DB_GESDOCModel.DAT_DET_SEG_DOC_DHCPA" Width="1.5" PointX="3" PointY="22.25" />
         <EntityTypeShape EntityType="DB_GESDOCModel.DAT_DET_SEG_EVALUADOR" Width="1.5" PointX="3" PointY="45.625" />
         <EntityTypeShape EntityType="DB_GESDOCModel.DAT_DOCUMENTO_DETALLE" Width="1.5" PointX="6" PointY="33.625" />
-        <EntityTypeShape EntityType="DB_GESDOCModel.DAT_DOCUMENTO_DHCPA_DETALLE" Width="1.5" PointX="3" PointY="11.75" />
+        <EntityTypeShape EntityType="DB_GESDOCModel.DAT_DOCUMENTO_DHCPA_DETALLE" Width="2.625" PointX="2.375" PointY="11.75" />
         <EntityTypeShape EntityType="DB_GESDOCModel.DAT_ESPECIES_HABILITACIONES" Width="1.5" PointX="9" PointY="28.375" />
         <EntityTypeShape EntityType="DB_GESDOCModel.DAT_LOG_DESARCHIVO_DESATENDIDO" Width="1.5" PointX="8.25" PointY="33.75" />
         <EntityTypeShape EntityType="DB_GESDOCModel.DAT_PROTOCOLO_ALMACEN" Width="1.5" PointX="11.25" PointY="22" />

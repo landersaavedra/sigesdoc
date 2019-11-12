@@ -26,7 +26,8 @@ namespace SIGESDOC.AplicacionService
                 id_archivador = entidad.ID_ARCHIVADOR,
                 id_filial = entidad.ID_FILIAL,
                 numero_ht = entidad.NUMERO_HT,
-                pdf = entidad.PDF
+                pdf = entidad.PDF,
+                id_oficina_direccion = entidad.ID_OFICINA_DIRECCION
             };
             return item;
         }

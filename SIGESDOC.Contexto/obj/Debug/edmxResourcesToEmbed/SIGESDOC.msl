@@ -741,6 +741,7 @@
     <EntitySetMapping Name="MAE_DOCUMENTO_DHCPA">
       <EntityTypeMapping TypeName="DB_GESDOCModel.MAE_DOCUMENTO_DHCPA">
         <MappingFragment StoreEntitySet="MAE_DOCUMENTO_DHCPA">
+          <ScalarProperty Name="ID_OFICINA_DIRECCION" ColumnName="ID_OFICINA_DIRECCION" />
           <ScalarProperty Name="PDF" ColumnName="PDF" />
           <ScalarProperty Name="NUMERO_HT" ColumnName="NUMERO_HT" />
           <ScalarProperty Name="ID_FILIAL" ColumnName="ID_FILIAL" />

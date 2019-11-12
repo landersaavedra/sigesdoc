@@ -388,7 +388,8 @@ namespace SIGESDOC.AplicacionService
                 ID_ARCHIVADOR = request.id_archivador,
                 ID_FILIAL = request.id_filial,
                 NUMERO_HT = request.numero_ht,
-                PDF = request.pdf
+                PDF = request.pdf,
+                ID_OFICINA_DIRECCION = request.id_oficina_direccion
             };
 
             return item;

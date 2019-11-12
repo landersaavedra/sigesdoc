@@ -208,15 +208,17 @@
                     </ul>
                 </li>
             }
-            @if (User.Identity.Name.Split('|')[4].Trim() == "17" || User.Identity.Name.Split('|')[4].Trim() == "7" || User.Identity.Name.Split('|')[4].Trim() == "28")
-            {
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dir. Hab. y Cert. PyA<b class="caret"></b></a>
-                    <ul class="dropdown-menu">
-                        @Html.MenuItem("Documentos DHCPA", "Consulta_Documentos_emitidos_dhcpa", "Habilitaciones", action, controller)
-                    </ul>
-                </li>
-            }
+            @*  @if (User.Identity.Name.Split('|')[4].Trim() == "17" || User.Identity.Name.Split('|')[4].Trim() == "7" || User.Identity.Name.Split('|')[4].Trim() == "28")
+        {*@
+            <li class="dropdown">
+                <!--  <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dir. Hab. y Cert. PyA<b class="caret"></b></a> -->
+
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Documentos Externos<b class="caret"></b></a>
+                <ul class="dropdown-menu">
+                    @Html.MenuItem("Documentos DHCPA", "Consulta_Documentos_emitidos_dhcpa", "Habilitaciones", action, controller)
+                </ul>
+            </li>
+            @* }*@
             <li class="dropdown">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">Reportes<b class="caret"></b></a>
                 <ul class="dropdown-menu">
@@ -396,16 +398,18 @@
                 </li>
 
             }
-            @if (User.Identity.Name.Split('|')[4].Trim() == "17" || User.Identity.Name.Split('|')[4].Trim() == "7" || User.Identity.Name.Split('|')[4].Trim() == "28")
-            {
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dir. Hab. y Cert. PyA<b class="caret"></b></a>
-                    <ul class="dropdown-menu">
-                        @Html.MenuItem("Documentos DHCPA", "Consulta_Documentos_emitidos_dhcpa", "Habilitaciones", action, controller)
-                    </ul>
-                </li>
+            @*   @if (User.Identity.Name.Split('|')[4].Trim() == "17" || User.Identity.Name.Split('|')[4].Trim() == "7" || User.Identity.Name.Split('|')[4].Trim() == "28")
+        {*@
+            <li class="dropdown">
+                <!--  <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dir. Hab. y Cert. PyA<b class="caret"></b></a> -->
 
-            }
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Documentos Externos<b class="caret"></b></a>
+                <ul class="dropdown-menu">
+                    @Html.MenuItem("Documentos DHCPA", "Consulta_Documentos_emitidos_dhcpa", "Habilitaciones", action, controller)
+                </ul>
+            </li>
+
+            @*  }*@
             <li class="dropdown">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">Reportes<b class="caret"></b></a>
                 <ul class="dropdown-menu">
@@ -592,16 +596,18 @@
                 </li>
 
             }
-            @if (User.Identity.Name.Split('|')[4].Trim() == "17" || User.Identity.Name.Split('|')[4].Trim() == "7" || User.Identity.Name.Split('|')[4].Trim() == "28")
-            {
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dir. Hab. y Cert. PyA<b class="caret"></b></a>
-                    <ul class="dropdown-menu">
-                        @Html.MenuItem("Documentos DHCPA", "Consulta_Documentos_emitidos_dhcpa", "Habilitaciones", action, controller)
-                    </ul>
-                </li>
+            @*   @if (User.Identity.Name.Split('|')[4].Trim() == "17" || User.Identity.Name.Split('|')[4].Trim() == "7" || User.Identity.Name.Split('|')[4].Trim() == "28")
+        { *@
+            <li class="dropdown">
+                <!--  <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dir. Hab. y Cert. PyA<b class="caret"></b></a> -->
 
-            }
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Documentos Externos<b class="caret"></b></a>
+                <ul class="dropdown-menu">
+                    @Html.MenuItem("Documentos DHCPA", "Consulta_Documentos_emitidos_dhcpa", "Habilitaciones", action, controller)
+                </ul>
+            </li>
+
+           @* }*@
 
             <li class="dropdown">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">Reportes<b class="caret"></b></a>
@@ -777,15 +783,17 @@
                     </ul>
                 </li>
             }
-            @if (User.Identity.Name.Split('|')[4].Trim() == "17" || User.Identity.Name.Split('|')[4].Trim() == "7")
-            {
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dir. Hab. y Cert. PyA<b class="caret"></b></a>
-                    <ul class="dropdown-menu">
-                        @Html.MenuItem("Documentos DHCPA", "Consulta_Documentos_emitidos_dhcpa", "Habilitaciones", action, controller)
-                    </ul>
-                </li>
-            }
+            @*    @if (User.Identity.Name.Split('|')[4].Trim() == "17" || User.Identity.Name.Split('|')[4].Trim() == "7")
+        { *@
+            <li class="dropdown">
+                <!--  <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dir. Hab. y Cert. PyA<b class="caret"></b></a> -->
+
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Documentos Externos<b class="caret"></b></a>
+                <ul class="dropdown-menu">
+                    @Html.MenuItem("Documentos DHCPA", "Consulta_Documentos_emitidos_dhcpa", "Habilitaciones", action, controller)
+                </ul>
+            </li>
+            @*  } *@
         </ul>
 
     }

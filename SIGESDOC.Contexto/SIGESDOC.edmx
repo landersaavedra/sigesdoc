@@ -413,6 +413,7 @@
           <Property Name="ID_FILIAL" Type="int" />
           <Property Name="NUMERO_HT" Type="int" />
           <Property Name="PDF" Type="char" MaxLength="1" />
+          <Property Name="ID_OFICINA_DIRECCION" Type="int" />
         </EntityType>
         <EntityType Name="MAE_DOCUMENTO_INDICADOR">
           <Key>
@@ -5172,6 +5173,7 @@ advertencia 6002: La tabla o vista 'DB_GESDOC.dbo.VW_VER_PEDIENTES_GESDOC' no ti
           <NavigationProperty Name="DAT_DET_SEG_DOC_DHCPA" Relationship="DB_GESDOCModel.FK_DAT_DET_SEG_DOC_DHCPA_MAE_DOCUMENTO_DHCPA" FromRole="MAE_DOCUMENTO_DHCPA" ToRole="DAT_DET_SEG_DOC_DHCPA" />
           <NavigationProperty Name="DAT_DOCUMENTO_DHCPA_DETALLE" Relationship="DB_GESDOCModel.FK_DAT_DOCUMENTO_DHCPA_DETALLE_MAE_DOCUMENTO_DHCPA" FromRole="MAE_DOCUMENTO_DHCPA" ToRole="DAT_DOCUMENTO_DHCPA_DETALLE" />
           <Property Name="PDF" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="ID_OFICINA_DIRECCION" Type="Int32" />
         </EntityType>
         <EntityType Name="MAE_DOCUMENTO_INDICADOR">
           <Key>
@@ -8374,6 +8376,7 @@ advertencia 6002: La tabla o vista 'DB_GESDOC.dbo.VW_VER_PEDIENTES_GESDOC' no ti
           <EntitySetMapping Name="MAE_DOCUMENTO_DHCPA">
             <EntityTypeMapping TypeName="DB_GESDOCModel.MAE_DOCUMENTO_DHCPA">
               <MappingFragment StoreEntitySet="MAE_DOCUMENTO_DHCPA">
+                <ScalarProperty Name="ID_OFICINA_DIRECCION" ColumnName="ID_OFICINA_DIRECCION" />
                 <ScalarProperty Name="PDF" ColumnName="PDF" />
                 <ScalarProperty Name="NUMERO_HT" ColumnName="NUMERO_HT" />
                 <ScalarProperty Name="ID_FILIAL" ColumnName="ID_FILIAL" />

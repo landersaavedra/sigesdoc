@@ -68,7 +68,6 @@ C:\Users\andres.albarracin\Desktop\SIGESDOC\web\SIGESDOC.Entidades\obj\Debug\SIG
 C:\Users\andres.albarracin\Desktop\SIGESDOC\web\SIGESDOC.Entidades\obj\Debug\SIGESDOC.Entidades.pdb
 C:\Users\PSSPERU069\Proyectos\sigesdoc_net\SIGESDOC.Entidades\bin\Debug\SIGESDOC.Entidades.dll
 C:\Users\PSSPERU069\Proyectos\sigesdoc_net\SIGESDOC.Entidades\bin\Debug\SIGESDOC.Entidades.pdb
-C:\Users\PSSPERU069\Proyectos\sigesdoc_net\SIGESDOC.Entidades\obj\Debug\SIGESDOC.Entidades.csprojAssemblyReference.cache
 C:\Users\PSSPERU069\Proyectos\sigesdoc_net\SIGESDOC.Entidades\obj\Debug\SIGESDOC.Entidades.csproj.CoreCompileInputs.cache
 C:\Users\PSSPERU069\Proyectos\sigesdoc_net\SIGESDOC.Entidades\obj\Debug\SIGESDOC.Entidades.dll
 C:\Users\PSSPERU069\Proyectos\sigesdoc_net\SIGESDOC.Entidades\obj\Debug\SIGESDOC.Entidades.pdb

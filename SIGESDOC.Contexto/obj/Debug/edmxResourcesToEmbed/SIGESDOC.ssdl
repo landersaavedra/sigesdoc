@@ -408,6 +408,7 @@
     <Property Name="ID_FILIAL" Type="int" />
     <Property Name="NUMERO_HT" Type="int" />
     <Property Name="PDF" Type="char" MaxLength="1" />
+    <Property Name="ID_OFICINA_DIRECCION" Type="int" />
   </EntityType>
   <EntityType Name="MAE_DOCUMENTO_INDICADOR">
     <Key>

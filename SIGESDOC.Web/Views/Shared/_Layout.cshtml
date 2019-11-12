@@ -144,6 +144,7 @@
             @if (Request.IsAuthenticated)
             {
             <p>&copy; @DateTime.Now.Year - SANIPES - @string.Format("{0}", User.Identity.Name.Split('|')[8].Trim())</p>
+            
             }
             else
             {

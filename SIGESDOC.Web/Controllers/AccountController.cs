@@ -465,33 +465,33 @@ namespace SIGESDOC.Web.Controllers
                         20  USUARIO_SIMPLE
                     */
 
-
-
-                    if (str_id_perfil == "8") { access = permiso_pagina("1", "1", "1", "1", "1", "1", "1", "0", "0", "1", "1", "1", "1", "0", "1", "1", "1", "1", "1", "1", "1", "1", "1", permiso, "1", "1", ver_reporte_tupa_sdhpa, "1", permiso_ver_reporte_general, permiso_docu_automa, str_jefe_od_perfil, str_insp_od_perfil, permiso_hab); }
-                    else
-                    {
-                        if (str_id_perfil == "9") { access = permiso_pagina("1", "1", "1", "1", "1", "1", "1", "0", "0", "1", "1", "1", "1", "0", "1", "1", "1", "1", "1", "1", "1", "1", "1", permiso, "1", "1", ver_reporte_tupa_sdhpa, "1", permiso_ver_reporte_general, permiso_docu_automa, str_jefe_od_perfil, str_insp_od_perfil, permiso_hab); }
+                        if (str_id_perfil == "8") { access = permiso_pagina("1", "1", "1", "1", "1", "1", "1", "0", "0", "1", "1", "1", "1", "1", "1", "1", "1", "1", "1", "1", "1", "1", "1", permiso, "1", "1", ver_reporte_tupa_sdhpa, "1", permiso_ver_reporte_general, permiso_docu_automa, str_jefe_od_perfil, str_insp_od_perfil, permiso_hab); }
                         else
                         {
-                            if (str_id_perfil == "15") { access = permiso_pagina("0", "1", "1", "0", "0", "0", "1", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", permiso, "1", "0", ver_reporte_tupa_sdhpa, "1", permiso_ver_reporte_general, permiso_docu_automa, str_jefe_od_perfil, str_insp_od_perfil, permiso_hab); }
+                            if (str_id_perfil == "9") { access = permiso_pagina("1", "1", "1", "1", "1", "1", "1", "0", "0", "1", "1", "1", "1", "1", "1", "1", "1", "1", "1", "1", "1", "1", "1", permiso, "1", "1", ver_reporte_tupa_sdhpa, "1", permiso_ver_reporte_general, permiso_docu_automa, str_jefe_od_perfil, str_insp_od_perfil, permiso_hab); }
                             else
                             {
-                                if (str_id_perfil == "16") { access = permiso_pagina("1", "1", "1", "1", "1", "1", "1", "1", "1", "1", "1", "1", "1", "1", "1", "1", "1", "1", "1", "1", "1", "1", "1", permiso, "1", "1", ver_reporte_tupa_sdhpa, "1", permiso_ver_reporte_general, permiso_docu_automa, str_jefe_od_perfil, str_insp_od_perfil, permiso_hab); }
+                                if (str_id_perfil == "15") { access = permiso_pagina("0", "1", "1", "0", "0", "0", "1", "0", "0", "0", "0", "0", "0", "1", "0", "0", "0", "0", "0", "0", "0", "0", "0", permiso, "1", "0", ver_reporte_tupa_sdhpa, "1", permiso_ver_reporte_general, permiso_docu_automa, str_jefe_od_perfil, str_insp_od_perfil, permiso_hab); }
                                 else
                                 {
-                                    if (str_id_perfil == "18") { access = permiso_pagina("1", "1", "1", "1", "1", "1", "0", "0", "0", "0", "1", "0", "0", "1", "1", "1", "1", "1", "1", "1", "0", "1", "1", permiso, "0", "1", ver_reporte_tupa_sdhpa, "0", permiso_ver_reporte_general, permiso_docu_automa, str_jefe_od_perfil, str_insp_od_perfil, permiso_hab); }
+                                    if (str_id_perfil == "16") { access = permiso_pagina("1", "1", "1", "1", "1", "1", "1", "1", "1", "1", "1", "1", "1", "1", "1", "1", "1", "1", "1", "1", "1", "1", "1", permiso, "1", "1", ver_reporte_tupa_sdhpa, "1", permiso_ver_reporte_general, permiso_docu_automa, str_jefe_od_perfil, str_insp_od_perfil, permiso_hab); }
                                     else
                                     {
-                                        if (str_id_perfil == "20")
+                                        if (str_id_perfil == "18") { access = permiso_pagina("1", "1", "1", "1", "1", "1", "0", "0", "0", "0", "1", "0", "0", "1", "1", "1", "1", "1", "1", "1", "0", "1", "1", permiso, "0", "1", ver_reporte_tupa_sdhpa, "0", permiso_ver_reporte_general, permiso_docu_automa, str_jefe_od_perfil, str_insp_od_perfil, permiso_hab); }
+                                        else
                                         {
-                                            access = permiso_pagina("1", "1", "1", "1", "1", "1", "1", "0", "0", "1", "1", "1", "1", "0", "1", "1", "1", "1", "1", "1", "1", "1", "1", permiso, "1", "1", ver_reporte_tupa_sdhpa, "0", permiso_ver_reporte_general, permiso_docu_automa, str_jefe_od_perfil, str_insp_od_perfil, permiso_hab);
+                                            if (str_id_perfil == "20")
+                                            {
+                                                access = permiso_pagina("1", "1", "1", "1", "1", "1", "1", "0", "0", "1", "1", "1", "1", "1", "1", "1", "1", "1", "1", "1", "1", "1", "1", permiso, "1", "1", ver_reporte_tupa_sdhpa, "0", permiso_ver_reporte_general, permiso_docu_automa, str_jefe_od_perfil, str_insp_od_perfil, permiso_hab);
 
+                                            }
                                         }
                                     }
                                 }
                             }
                         }
-                    }
+                    
+                    
                     FormsAuthentication.SetAuthCookie(devuelve_usuario(model.ruc, model.persona_num_documento, model.empresa, model.persona, id_oficina.ToString(), str_id_perfil, str_perfil, "2", nombre_sede_oficina, access), false);
                     x = true;
                 }

@@ -27,7 +27,8 @@ namespace SIGESDOC.Response
         public Nullable<int> id_filial { get; set; }
         public Nullable<int> numero_ht { get; set; }
         public string pdf { get; set; }
-    
+
+        public Nullable<int> id_oficina_direccion { get; set; }
         public virtual List<DetSegDocDhcpaResponse> det_seg_doc_dhcpa { get; set; }
         public virtual List<DocumentoDhcpaDetalleResponse> documento_dhcpa_detalle { get; set; }
     }

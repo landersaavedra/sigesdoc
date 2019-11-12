@@ -680,7 +680,8 @@
                     "id_archivador": $("#cmb_archivador").val(),
                     "id_filial": $("#cmb_filial").val(),
                     "fecha_doc": $("#txtFechadocumento").val(),
-                    "anexos" : $("#anexos").val(),
+                    "anexos": $("#anexos").val(),
+                    "id_oficina_direccion": parseInt(@User.Identity.Name.Split('|')[4]), 
                     "documento_dhcpa_detalle": lstDetalle
                 };
 
@@ -734,11 +735,6 @@
                         }
                     }
                 });
-
-
         });
-
-
-
     });
 </script>

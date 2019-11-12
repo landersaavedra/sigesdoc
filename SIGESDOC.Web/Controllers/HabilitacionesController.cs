@@ -5153,6 +5153,7 @@ namespace SIGESDOC.Web.Controllers
                     && HttpContext.User.Identity.Name.Split('|')[4].Trim() == "18")))
                 // Oficina 18: Sub Dirección de Habilitaciones
                 {
+                    model.id_oficina_direccion = Convert.ToInt32(HttpContext.User.Identity.Name.Split('|')[4].Trim());
                     model.num_doc = _HabilitacionesService.CountDocumentos_x_tipo(model.id_tipo_documento) + 1;
                     model.nom_doc = "-" + DateTime.Now.Year.ToString() + "- DHCPA/SANIPES";
                     DocumentoDhcpaRequest req_documento_dhcpa = ModelToRequest.Documento_dhcpa(model);
@@ -10073,7 +10074,7 @@ namespace SIGESDOC.Web.Controllers
             }
         }
 
-        [AcceptVerbs(HttpVerbs.Post)]
+        [AcceptVerbs(HttpVerbs.Post)]   //Aqui me quede Lander 
         public ActionResult Nuevo_Documento_dhcpa_Certificaciones(DocumentodhcpaViewModel model)
         {
             if (HttpContext.Request.IsAuthenticated)
@@ -10091,6 +10092,7 @@ namespace SIGESDOC.Web.Controllers
                     req_documento_dhcpa.usuario_registro = HttpContext.User.Identity.Name.Split('|')[0].Trim() + " - " + HttpContext.User.Identity.Name.Split('|')[1].Trim();
                     model.id_doc_dhcpa = _HabilitacionesService.Create_documento_dhcpa(req_documento_dhcpa);
                     req_documento_dhcpa.id_doc_dhcpa = model.id_doc_dhcpa;
+                    
 
                     if (model.documento_dhcpa_detalle != null)
                     {
@@ -10133,9 +10135,8 @@ namespace SIGESDOC.Web.Controllers
             {
                 if (HttpContext.User.Identity.Name.Split('|')[7].Trim() == "2" && // Sistema N° 2: Sistema de Gestión de Documentos
                     (HttpContext.User.Identity.Name.Split('|')[5].ToString().Split(',')[0].Trim() == "16" || //Administrador
-                    (HttpContext.User.Identity.Name.Split('|')[9].Trim().Split(',')[14].Trim() == "1" // Acceso a Nuevo Documento
-                    && (HttpContext.User.Identity.Name.Split('|')[4].Trim() == "18" || HttpContext.User.Identity.Name.Split('|')[4].Trim() == "28" || HttpContext.User.Identity.Name.Split('|')[4].Trim() == "17" || HttpContext.User.Identity.Name.Split('|')[4].Trim() == "7"))))
-                // Oficina 18: Sub Dirección de Habilitaciones Pesqueras y Acuicolas ó Oficina 17: Sub Dirección de Certificaciones ó Oficina 7: Direccion de HyCPA
+                    HttpContext.User.Identity.Name.Split('|')[9].Trim().Split(',')[14].Trim() == "1" // Acceso a Nuevo Documento
+                    ))
                 {
 
                     List<SelectListItem> lista_documentos = new List<SelectListItem>();

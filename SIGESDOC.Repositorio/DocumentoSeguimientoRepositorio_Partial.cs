@@ -213,7 +213,9 @@ namespace SIGESDOC.Repositorio
                               num_doc = MDCHPA.NUM_DOC,
                               nom_doc = MDCHPA.NOM_DOC,
                               fecha_doc = MDCHPA.FECHA_DOC,
-                              pdf = MDCHPA.PDF
+                              pdf = MDCHPA.PDF,
+                              id_oficina_direccion = MDCHPA.ID_OFICINA_DIRECCION
+
                           }).Distinct().AsEnumerable();
             return result;
         }

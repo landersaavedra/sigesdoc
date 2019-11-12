@@ -635,7 +635,6 @@ C:\Users\PSSPERU069\Proyectos\sigesdoc_net\SIGESDOC.Web\bin\System.Web.WebPages.
 C:\Users\PSSPERU069\Proyectos\sigesdoc_net\SIGESDOC.Web\bin\System.Web.WebPages.dll
 C:\Users\PSSPERU069\Proyectos\sigesdoc_net\SIGESDOC.Web\bin\System.Web.WebPages.Razor.dll
 C:\Users\PSSPERU069\Proyectos\sigesdoc_net\SIGESDOC.Web\bin\WebGrease.dll
-C:\Users\PSSPERU069\Proyectos\sigesdoc_net\SIGESDOC.Web\bin\ICSharpCode.SharpZipLib.dll
 C:\Users\PSSPERU069\Proyectos\sigesdoc_net\SIGESDOC.Web\bin\EnvDTE.dll
 C:\Users\PSSPERU069\Proyectos\sigesdoc_net\SIGESDOC.Web\bin\Microsoft.VisualStudio.Shell.Interop.dll
 C:\Users\PSSPERU069\Proyectos\sigesdoc_net\SIGESDOC.Web\bin\Microsoft.VisualStudio.Shell.Interop.8.0.dll
@@ -654,7 +653,6 @@ C:\Users\PSSPERU069\Proyectos\sigesdoc_net\SIGESDOC.Web\bin\Autofac.Integration.
 C:\Users\PSSPERU069\Proyectos\sigesdoc_net\SIGESDOC.Web\bin\Autofac.Integration.Wcf.xml
 C:\Users\PSSPERU069\Proyectos\sigesdoc_net\SIGESDOC.Web\bin\EntityFramework.xml
 C:\Users\PSSPERU069\Proyectos\sigesdoc_net\SIGESDOC.Web\bin\EntityFramework.SqlServer.xml
-C:\Users\PSSPERU069\Proyectos\sigesdoc_net\SIGESDOC.Web\bin\Excel.pdb
 C:\Users\PSSPERU069\Proyectos\sigesdoc_net\SIGESDOC.Web\bin\itextsharp.xml
 C:\Users\PSSPERU069\Proyectos\sigesdoc_net\SIGESDOC.Web\bin\Newtonsoft.Json.xml
 C:\Users\PSSPERU069\Proyectos\sigesdoc_net\SIGESDOC.Web\bin\System.Net.Http.Formatting.xml

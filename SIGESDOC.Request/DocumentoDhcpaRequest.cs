@@ -28,6 +28,9 @@ namespace SIGESDOC.Request
         public Nullable<int> numero_ht { get; set; }
         public string pdf { get; set; }
     
+        public Nullable<int> id_oficina_direccion { get; set; }
+
+
         public virtual List<DetSegDocDhcpaRequest> det_seg_doc_dhcpa { get; set; }
         public virtual List<DocumentoDhcpaDetalleRequest> documento_dhcpa_detalle { get; set; }
     }

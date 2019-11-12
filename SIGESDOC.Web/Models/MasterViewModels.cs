@@ -336,6 +336,7 @@ namespace SIGESDOC.Web.Models
         public int id_filial { get; set; }
         public int numero_ht { get; set; }
 
+        public Nullable<int> id_oficina_direccion { get; set; }
         public ICollection<detDocdhcpaViewModel> documento_dhcpa_detalle { get; set; }
         public ICollection<detdocdhcpasegViewModel> documento_dhcpa_seguimiento { get; set; }
 

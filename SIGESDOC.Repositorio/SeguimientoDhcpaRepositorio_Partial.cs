@@ -3670,7 +3670,9 @@ namespace SIGESDOC.Repositorio
                                       nom_tipo_documento = MTDOC.NOMBRE,
                                       asunto = MDCHPA.ASUNTO,
                                       anexos = MDCHPA.ANEXOS,
-                                      pdf = MDCHPA.PDF
+                                      pdf = MDCHPA.PDF,
+                                      id_oficina_direccion = MDCHPA.ID_OFICINA_DIRECCION
+                                      
                                       //nom_documento = MTD.NOMBRE + " " + (MDS.NUM_DOCUMENTO == null ? "" : " N° " + MDS.NUM_DOCUMENTO.ToString()) + " " + MDS.NOM_DOCUMENTO, // documento
                                   }).OrderByDescending(r => r.id_doc_dhcpa).Take(500).AsEnumerable();
                     return result;      
@@ -3878,7 +3880,9 @@ namespace SIGESDOC.Repositorio
                                  anexos = MDCHPA.ANEXOS,
                                  nom_filial = MFILIAL.NOMBRE,
                                  fecha_doc = MDCHPA.FECHA_DOC,
-                                 usuario_registro = MPER.paterno + " " + MPER.materno + ", " + MPER.nombres
+                                 usuario_registro = MPER.paterno + " " + MPER.materno + ", " + MPER.nombres,
+                                 id_oficina_direccion = MDCHPA.ID_OFICINA_DIRECCION
+                                 
                                  //nom_documento = MTD.NOMBRE + " " + (MDS.NUM_DOCUMENTO == null ? "" : " N° " + MDS.NUM_DOCUMENTO.ToString()) + " " + MDS.NOM_DOCUMENTO, // documento
                              } into document
                              orderby document.nom_tipo_documento, document.num_doc ascending
@@ -3916,6 +3920,7 @@ namespace SIGESDOC.Repositorio
                                   nom_filial = MFILIAL.NOMBRE,
                                   fecha_doc = MDCHPA.FECHA_DOC,
                                   usuario_registro = MPER.paterno + " " + MPER.materno + ", " + MPER.nombres
+                                  
                                   //nom_documento = MTD.NOMBRE + " " + (MDS.NUM_DOCUMENTO == null ? "" : " N° " + MDS.NUM_DOCUMENTO.ToString()) + " " + MDS.NOM_DOCUMENTO, // documento
                               } into document
                              orderby document.nom_tipo_documento, document.num_doc ascending

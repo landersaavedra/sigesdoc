@@ -172,7 +172,9 @@ namespace SIGESDOC.Web.Models
                 asunto = model.asunto,
                 anexos = model.anexos,
                 id_archivador = model.id_archivador,
-                id_filial = model.id_filial
+                id_filial = model.id_filial,
+                id_oficina_direccion = model.id_oficina_direccion
+                
             };
 
             return item;

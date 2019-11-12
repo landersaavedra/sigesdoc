@@ -1465,6 +1465,7 @@
     <NavigationProperty Name="DAT_DET_SEG_DOC_DHCPA" Relationship="DB_GESDOCModel.FK_DAT_DET_SEG_DOC_DHCPA_MAE_DOCUMENTO_DHCPA" FromRole="MAE_DOCUMENTO_DHCPA" ToRole="DAT_DET_SEG_DOC_DHCPA" />
     <NavigationProperty Name="DAT_DOCUMENTO_DHCPA_DETALLE" Relationship="DB_GESDOCModel.FK_DAT_DOCUMENTO_DHCPA_DETALLE_MAE_DOCUMENTO_DHCPA" FromRole="MAE_DOCUMENTO_DHCPA" ToRole="DAT_DOCUMENTO_DHCPA_DETALLE" />
     <Property Name="PDF" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="ID_OFICINA_DIRECCION" Type="Int32" />
   </EntityType>
   <EntityType Name="MAE_DOCUMENTO_INDICADOR">
     <Key>

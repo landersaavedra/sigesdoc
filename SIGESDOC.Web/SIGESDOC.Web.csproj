@@ -298,6 +298,7 @@
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="WORD_ACTA_DE_ NOTIFICACIÓN.docx" />
     <None Include="Properties\PublishProfiles\Web Deploy.pubxml" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -459,6 +460,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Planillas\" />
     <Folder Include="Reports\" />
   </ItemGroup>
   <ItemGroup>

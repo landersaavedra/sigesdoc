@@ -180,3 +180,17 @@ C:\Users\PSSPERU069\Proyectos\sigesdoc_net\SIGESDOC.Contexto\obj\Debug\SIGESDOC.
 C:\Users\PSSPERU069\Proyectos\sigesdoc_net\SIGESDOC.Contexto\obj\Debug\SIGESDOC.Contexto.csproj.CopyComplete
 C:\Users\PSSPERU069\Proyectos\sigesdoc_net\SIGESDOC.Contexto\obj\Debug\SIGESDOC.Contexto.dll
 C:\Users\PSSPERU069\Proyectos\sigesdoc_net\SIGESDOC.Contexto\obj\Debug\SIGESDOC.Contexto.pdb
+C:\Henry.Medina\Proyectos\SIGESDOC\Proyectos\sigesdoc\SIGESDOC.Contexto\bin\Debug\SIGESDOC.Contexto.dll.config
+C:\Henry.Medina\Proyectos\SIGESDOC\Proyectos\sigesdoc\SIGESDOC.Contexto\bin\Debug\SIGESDOC.Contexto.dll
+C:\Henry.Medina\Proyectos\SIGESDOC\Proyectos\sigesdoc\SIGESDOC.Contexto\bin\Debug\SIGESDOC.Contexto.pdb
+C:\Henry.Medina\Proyectos\SIGESDOC\Proyectos\sigesdoc\SIGESDOC.Contexto\bin\Debug\EntityFramework.dll
+C:\Henry.Medina\Proyectos\SIGESDOC\Proyectos\sigesdoc\SIGESDOC.Contexto\bin\Debug\EntityFramework.SqlServer.dll
+C:\Henry.Medina\Proyectos\SIGESDOC\Proyectos\sigesdoc\SIGESDOC.Contexto\bin\Debug\SIGESDOC.Entidades.dll
+C:\Henry.Medina\Proyectos\SIGESDOC\Proyectos\sigesdoc\SIGESDOC.Contexto\bin\Debug\SIGESDOC.Entidades.pdb
+C:\Henry.Medina\Proyectos\SIGESDOC\Proyectos\sigesdoc\SIGESDOC.Contexto\bin\Debug\EntityFramework.xml
+C:\Henry.Medina\Proyectos\SIGESDOC\Proyectos\sigesdoc\SIGESDOC.Contexto\bin\Debug\EntityFramework.SqlServer.xml
+C:\Henry.Medina\Proyectos\SIGESDOC\Proyectos\sigesdoc\SIGESDOC.Contexto\obj\Debug\SIGESDOC.Contexto.csprojAssemblyReference.cache
+C:\Henry.Medina\Proyectos\SIGESDOC\Proyectos\sigesdoc\SIGESDOC.Contexto\obj\Debug\SIGESDOC.Contexto.csproj.CoreCompileInputs.cache
+C:\Henry.Medina\Proyectos\SIGESDOC\Proyectos\sigesdoc\SIGESDOC.Contexto\obj\Debug\SIGESDOC.Contexto.csproj.CopyComplete
+C:\Henry.Medina\Proyectos\SIGESDOC\Proyectos\sigesdoc\SIGESDOC.Contexto\obj\Debug\SIGESDOC.Contexto.dll
+C:\Henry.Medina\Proyectos\SIGESDOC\Proyectos\sigesdoc\SIGESDOC.Contexto\obj\Debug\SIGESDOC.Contexto.pdb

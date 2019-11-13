@@ -144,3 +144,14 @@ C:\Users\PSSPERU069\Proyectos\sigesdoc_net\SIGESDOC.IAplicacionService\obj\Debug
 C:\Users\PSSPERU069\Proyectos\sigesdoc_net\SIGESDOC.IAplicacionService\obj\Debug\SIGESDOC.IAplicacionService.csproj.CopyComplete
 C:\Users\PSSPERU069\Proyectos\sigesdoc_net\SIGESDOC.IAplicacionService\obj\Debug\SIGESDOC.IAplicacionService.dll
 C:\Users\PSSPERU069\Proyectos\sigesdoc_net\SIGESDOC.IAplicacionService\obj\Debug\SIGESDOC.IAplicacionService.pdb
+C:\Henry.Medina\Proyectos\SIGESDOC\Proyectos\sigesdoc\SIGESDOC.IAplicacionService\bin\Debug\SIGESDOC.IAplicacionService.dll
+C:\Henry.Medina\Proyectos\SIGESDOC\Proyectos\sigesdoc\SIGESDOC.IAplicacionService\bin\Debug\SIGESDOC.IAplicacionService.pdb
+C:\Henry.Medina\Proyectos\SIGESDOC\Proyectos\sigesdoc\SIGESDOC.IAplicacionService\bin\Debug\SIGESDOC.Request.dll
+C:\Henry.Medina\Proyectos\SIGESDOC\Proyectos\sigesdoc\SIGESDOC.IAplicacionService\bin\Debug\SIGESDOC.Response.dll
+C:\Henry.Medina\Proyectos\SIGESDOC\Proyectos\sigesdoc\SIGESDOC.IAplicacionService\bin\Debug\SIGESDOC.Request.pdb
+C:\Henry.Medina\Proyectos\SIGESDOC\Proyectos\sigesdoc\SIGESDOC.IAplicacionService\bin\Debug\SIGESDOC.Response.pdb
+C:\Henry.Medina\Proyectos\SIGESDOC\Proyectos\sigesdoc\SIGESDOC.IAplicacionService\obj\Debug\SIGESDOC.IAplicacionService.csprojAssemblyReference.cache
+C:\Henry.Medina\Proyectos\SIGESDOC\Proyectos\sigesdoc\SIGESDOC.IAplicacionService\obj\Debug\SIGESDOC.IAplicacionService.csproj.CoreCompileInputs.cache
+C:\Henry.Medina\Proyectos\SIGESDOC\Proyectos\sigesdoc\SIGESDOC.IAplicacionService\obj\Debug\SIGESDOC.IAplicacionService.csproj.CopyComplete
+C:\Henry.Medina\Proyectos\SIGESDOC\Proyectos\sigesdoc\SIGESDOC.IAplicacionService\obj\Debug\SIGESDOC.IAplicacionService.dll
+C:\Henry.Medina\Proyectos\SIGESDOC\Proyectos\sigesdoc\SIGESDOC.IAplicacionService\obj\Debug\SIGESDOC.IAplicacionService.pdb

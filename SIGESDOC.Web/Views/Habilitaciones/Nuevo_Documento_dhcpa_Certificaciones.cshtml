@@ -155,22 +155,29 @@
 {
 
     @Html.AntiForgeryToken()
-    <div class="form-horizontal">
-        <ol class="breadcrumb">
-            <li class="active">Información del Documento</li>
+<div class="form-horizontal">
+    <ol class="breadcrumb">
+        <li class="active">Información del Documento</li>
 
-            @Html.TextBox("txt_user_document", (string)ViewBag.user_document, new { @class = "form-control input-sm hidden" })
-            @Html.TextBox("txt_user_perfil", (string)ViewBag.user_perfil, new { @class = "form-control input-sm hidden" })
-        </ol>
+        @Html.TextBox("txt_user_document", (string)ViewBag.user_document, new { @class = "form-control input-sm hidden" })
+        @Html.TextBox("txt_user_perfil", (string)ViewBag.user_perfil, new { @class = "form-control input-sm hidden" })
+    </ol>
 
-        <div class="form-group">
-            <label class="col-md-2 control-label" for="cmbtipo_documento">Tipo Documento:</label>
-            <div class="col-md-6">
-                @Html.DropDownList("cmbtipo_documento", (IEnumerable<SelectListItem>)ViewBag.list_tip_documento_dhcpa, new { @class = "form-control input-sm" })
-            </div>
+    <div class="form-group">
+        <label class="col-md-2 control-label" for="cmbtipo_documento">Tipo Documento:</label>
+        <div class="col-md-6">
+            @Html.DropDownList("cmbtipo_documento", (IEnumerable<SelectListItem>)ViewBag.list_tip_documento_dhcpa, new { @class = "form-control input-sm" })
         </div>
-        @if(ViewBag.list_tip_document_dhcpa == 21)
-        {
+    </div>
+
+    <!--Add by HM-->
+    <!--FORMATO DE CEDULAS-->
+    <div class="form-group" id="DivFormatoCedulas" style="background-color:#E3F6F8" >
+    </div>
+
+
+    @if (ViewBag.list_tip_document_dhcpa == 21)
+    {
         <div class="form-group">
             <label>Lander</label>
             <div class="col-md-6">
@@ -178,87 +185,87 @@
             </div>
             <label id="lbl_valida_asunto" style="color: #B44D4D">  </label>
         </div>
-        }
+    }
 
-        <div class="form-group">
-            @Html.LabelFor(m => m.asunto, new { @class = "col-md-2 control-label" })
-            <div class="col-md-6">
-                @Html.TextAreaFor(m => m.asunto, new { @class = "form-control input-sm", @row = "4", @maxlength = "500" })
-            </div>
-            <label id="lbl_valida_asunto" style="color: #B44D4D">  </label>
+    <div class="form-group">
+        @Html.LabelFor(m => m.asunto, new { @class = "col-md-2 control-label" })
+        <div class="col-md-6">
+            @Html.TextAreaFor(m => m.asunto, new { @class = "form-control input-sm", @row = "4", @maxlength = "500" })
         </div>
-
-        <div class="form-group">
-            <label class="col-md-2 control-label" for="cmb_archivador">Archivador:</label>
-            <div class="col-md-6">
-                @Html.DropDownList("cmb_archivador", (IEnumerable<SelectListItem>)ViewBag.list_archivador, new { @class = "form-control input-sm" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            <label class="col-md-2 control-label" for="cmb_filial">Filial:</label>
-            <div class="col-md-6">
-                @Html.DropDownList("cmb_filial", (IEnumerable<SelectListItem>)ViewBag.lista_filiales, new { @class = "form-control input-sm" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            <label class="col-md-2 control-label" for="dtpFechadocumento">Fecha Documento:</label>
-            <div class="col-md-2">
-                <div class="input-group date input-group-sm" id="dtpFechadocumento">
-                    <input class="form-control input-sm" id="txtFechadocumento" type="text" value="">
-                    <span class="input-group-addon input-sm add-on">
-                        <a href="#">
-                            <i class="glyphicon glyphicon-calendar" data-date-icon="glyphicon glyphicon-calendar"></i>
-                        </a>
-                    </span>
-                </div>
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(m => m.anexos, new { @class = "col-md-2 control-label" })
-            <div class="col-md-6">
-                @Html.TextAreaFor(m => m.anexos, new { @class = "form-control input-sm", rows = "4", @maxlength = "1500", wrap = "off" })
-                @Html.ValidationMessageFor(m => m.anexos)
-            </div>
-        </div>
-
-        <div class="form-group">
-
-            <div class="col-md-6 text-right">
-                <button type="button" class="btn btn-primary btn-sm destino_interno" data-toggle="modal" data-target="#mdloficina_destino">Agregar Destino</button>
-                <button type="button" class="btn btn-primary btn-sm destino_externo" data-toggle="modal" data-target="#mdloficina_destino_externo">Agregar Destino</button>
-            </div>
-        </div>
-
-        <div id="grid">
-            <table class="table table-striped table-hover table-condensed tabla small" data-swhgajax="true" data-swhgcontainer="grid" data-swhgcallback="" id="tblDestinoDetalle">
-                <thead>
-                    <tr class="cabecera">
-                        <th scope="col" class="hidden">idOficina</th>
-                        <th scope="col">Oficina</th>
-                        <th scope="col" class="hidden">dni</th>
-                        <th scope="col">persona</th>
-                        <th scope="col">Acciones</th>
-                    </tr>
-                </thead>
-                <tbody></tbody>
-            </table>
-        </div>
-        
-        <hr>
-        <div class="form-group">
-            <div class="col-md-8">
-                <input id="btnGrabar" type="submit" value="Guardar" class="btn btn-primary btn-sm" />
-                <button type="button" class="btn btn-default btn-sm regresar">Cancelar</button>
-            </div>
-            <div class="col-md-1">
-                <div id="loaderImage" class="hidden"></div>
-            </div>
-        </div>
-
+        <label id="lbl_valida_asunto" style="color: #B44D4D">  </label>
     </div>
+
+    <div class="form-group">
+        <label class="col-md-2 control-label" for="cmb_archivador">Archivador:</label>
+        <div class="col-md-6">
+            @Html.DropDownList("cmb_archivador", (IEnumerable<SelectListItem>)ViewBag.list_archivador, new { @class = "form-control input-sm" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="col-md-2 control-label" for="cmb_filial">Filial:</label>
+        <div class="col-md-6">
+            @Html.DropDownList("cmb_filial", (IEnumerable<SelectListItem>)ViewBag.lista_filiales, new { @class = "form-control input-sm" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="col-md-2 control-label" for="dtpFechadocumento">Fecha Documento:</label>
+        <div class="col-md-2">
+            <div class="input-group date input-group-sm" id="dtpFechadocumento">
+                <input class="form-control input-sm" id="txtFechadocumento" type="text" value="">
+                <span class="input-group-addon input-sm add-on">
+                    <a href="#">
+                        <i class="glyphicon glyphicon-calendar" data-date-icon="glyphicon glyphicon-calendar"></i>
+                    </a>
+                </span>
+            </div>
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.anexos, new { @class = "col-md-2 control-label" })
+        <div class="col-md-6">
+            @Html.TextAreaFor(m => m.anexos, new { @class = "form-control input-sm", rows = "4", @maxlength = "1500", wrap = "off" })
+            @Html.ValidationMessageFor(m => m.anexos)
+        </div>
+    </div>
+
+    <div class="form-group">
+
+        <div class="col-md-6 text-right">
+            <button type="button" class="btn btn-primary btn-sm destino_interno" data-toggle="modal" data-target="#mdloficina_destino">Agregar Destino</button>
+            <button type="button" class="btn btn-primary btn-sm destino_externo" data-toggle="modal" data-target="#mdloficina_destino_externo">Agregar Destino</button>
+        </div>
+    </div>
+
+    <div id="grid">
+        <table class="table table-striped table-hover table-condensed tabla small" data-swhgajax="true" data-swhgcontainer="grid" data-swhgcallback="" id="tblDestinoDetalle">
+            <thead>
+                <tr class="cabecera">
+                    <th scope="col" class="hidden">idOficina</th>
+                    <th scope="col">Oficina</th>
+                    <th scope="col" class="hidden">dni</th>
+                    <th scope="col">persona</th>
+                    <th scope="col">Acciones</th>
+                </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+    </div>
+
+    <hr>
+    <div class="form-group">
+        <div class="col-md-8">
+            <input id="btnGrabar" type="submit" value="Guardar" class="btn btn-primary btn-sm" />
+            <button type="button" class="btn btn-default btn-sm regresar">Cancelar</button>
+        </div>
+        <div class="col-md-1">
+            <div id="loaderImage" class="hidden"></div>
+        </div>
+    </div>
+
+</div>
 }
 
 <div class="modal fade" id="mdlConformidad" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -477,7 +484,21 @@
         }
     }
 
+    //Add by HM - 12/11/2019
+    function LimpiarFormatoCedulas() {
+
+        $("#evaluador_cdl_notif").val('');
+        $("#direccion_cdl_notif").val('');
+        $("#empresa_cdl_notif").val('');
+        $("#folia_cdl_notif").val('');
+        $("#doc_notificar_cdl_notif").val('');
+        $("#exp_o_ht_cdl_notif").val('');
+        $("#exp_o_ht_n_cdl_notif").val('');
+    }
+
     $(document).ready(function () {
+        //Add by HM - 12/11/2019
+        $('#DivFormatoCedulas').hide();
 
         if ($("#txt_user_perfil").val() == "18") {
             $('.ver_persona_crea').hide();
@@ -498,6 +519,57 @@
 
 
         $("#cmbtipo_documento").change(function () {
+            //Add by HM 12/11/2019
+            if ($("#cmbtipo_documento").val() == 21) {
+                var nuevoTD;
+                
+                jQuery("#DivFormatoCedulas").empty();
+
+                //EXP. O HT - EXP O HT N°
+                nuevoTD += '<div class="form-group">';
+                nuevoTD += '<label class="col-md-2 control-label">Exp. o HT:</label>';
+                nuevoTD += '<div class="col-md-2"> <input type="text" class="form-control input-sm" maxlength="50" id="exp_o_ht_cdl_notif" />  </div>';
+                nuevoTD += '<label class="col-md-2 control-label">Exp. o HT N°:</label>';
+                nuevoTD += '<div class="col-md-2"> <input type="number" class="form-control input-sm" maxlength="50" id="exp_o_ht_n_cdl_notif" />  </div>';
+                nuevoTD += '</div>';
+
+                //N° FOLIOS
+                nuevoTD += '<div class="form-group">';
+                nuevoTD += '<label class="col-md-2 control-label">N° Folios:</label>';
+                nuevoTD += '<div class="col-md-2"> <input type="number" class="form-control input-sm" maxlength="50" id="folia_cdl_notif" />  </div>';
+                nuevoTD += '</div>';
+
+                //DOCUMENTO A NOTIFICAR
+                nuevoTD += '<div class="form-group">';
+                nuevoTD += '<label class="col-md-2 control-label">Documento a Notificar:</label>';
+                nuevoTD += '<div class="col-md-6"> <input type="text" class="form-control input-sm" maxlength="50" id="doc_notificar_cdl_notif" />  </div>';
+                nuevoTD += '</div>';
+
+                //EMPRESA
+                nuevoTD += '<div class="form-group">';
+                nuevoTD += '<label class="col-md-2 control-label">Empresa:</label>';
+                nuevoTD += '<div class="col-md-6"> <input type="text" class="form-control input-sm" maxlength="250" id="empresa_cdl_notif" />  </div>';
+                nuevoTD += '</div>';
+
+                //DIRECCION
+                nuevoTD += '<div class="form-group">';
+                nuevoTD += '<label class="col-md-2 control-label">Dirección:</label>';
+                nuevoTD += '<div class="col-md-6"> <input type="text" class="form-control input-sm" maxlength="250" id="direccion_cdl_notif" />  </div>';
+                nuevoTD += '</div>';
+
+                //EVALUADOR
+                nuevoTD += '<div class="form-group">';
+                nuevoTD += '<label class="col-md-2 control-label">Evaluador:</label>';
+                nuevoTD += '<div class="col-md-3"> <input type="text" class="form-control input-sm" maxlength="100" id="evaluador_cdl_notif" />  </div>';
+                nuevoTD += '</div>';
+
+                jQuery("#DivFormatoCedulas").append(nuevoTD);
+                $('#DivFormatoCedulas').show();
+            } else {
+                LimpiarFormatoCedulas();
+                $('#DivFormatoCedulas').hide();
+            }
+
             verifica_tipo_documento($("#cmbtipo_documento").val());
         });
 
@@ -692,13 +764,14 @@
                     "fecha_doc": $("#txtFechadocumento").val(),
                     "anexos": $("#anexos").val(),
                     "id_oficina_direccion": parseInt(@User.Identity.Name.Split('|')[4]),
-                    "evaluador_cdl_notif": null,
-                    "direccion_cdl_notif": null,
-                    "empresa_cdl_notif": null,
-                    "folia_cdl_notif": null,
-                    "doc_notificar_cdl_notif": null,
-                    "exp_o_ht_cdl_notif": null,
-                    "exp_o_ht_n_cdl_notif": null,
+                    //Add by HM 12/11/2019
+                    "evaluador_cdl_notif": $("#evaluador_cdl_notif").val(),
+                    "direccion_cdl_notif": $("#direccion_cdl_notif").val(),
+                    "empresa_cdl_notif": $("#empresa_cdl_notif").val(),
+                    "folia_cdl_notif": $("#folia_cdl_notif").val(),
+                    "doc_notificar_cdl_notif": $("#doc_notificar_cdl_notif").val(),
+                    "exp_o_ht_cdl_notif": $("#exp_o_ht_cdl_notif").val(),
+                    "exp_o_ht_n_cdl_notif": $("#exp_o_ht_n_cdl_notif").val(),
                     "documento_dhcpa_detalle": lstDetalle
                 };
 

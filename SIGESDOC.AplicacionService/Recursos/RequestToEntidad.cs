@@ -389,7 +389,16 @@ namespace SIGESDOC.AplicacionService
                 ID_FILIAL = request.id_filial,
                 NUMERO_HT = request.numero_ht,
                 PDF = request.pdf,
-                ID_OFICINA_DIRECCION = request.id_oficina_direccion
+                ID_OFICINA_DIRECCION = request.id_oficina_direccion,
+
+                //Add by HM - 13/11/2019
+                EVALUADOR_CDL_NOTIF = request.evaluador_cdl_notif,
+                DIRECCION_CDL_NOTIF = request.direccion_cdl_notif,
+                EMPRESA_CDL_NOTIF = request.empresa_cdl_notif,
+                FOLIA_CDL_NOTIF = request.folia_cdl_notif,
+                DOC_NOTIFICAR_CDL_NOTIF = request.doc_notificar_cdl_notif,
+                EXP_O_HT_CDL_NOTIF = request.exp_o_ht_cdl_notif,
+                EXP_O_HT_N_CDL_NOTIF = request.exp_o_ht_n_cdl_notif
             };
 
             return item;

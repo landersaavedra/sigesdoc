@@ -173,8 +173,16 @@ namespace SIGESDOC.Web.Models
                 anexos = model.anexos,
                 id_archivador = model.id_archivador,
                 id_filial = model.id_filial,
-                id_oficina_direccion = model.id_oficina_direccion
-                
+                id_oficina_direccion = model.id_oficina_direccion,
+
+                //Add by HM - 13/11/2019
+                evaluador_cdl_notif = model.evaluador_cdl_notif,
+                direccion_cdl_notif = model.direccion_cdl_notif,
+                empresa_cdl_notif = model.empresa_cdl_notif,
+                folia_cdl_notif = Convert.ToInt32(model.folia_cdl_notif),
+                doc_notificar_cdl_notif = model.doc_notificar_cdl_notif,
+                exp_o_ht_cdl_notif = model.exp_o_ht_cdl_notif,
+                exp_o_ht_n_cdl_notif = model.exp_o_ht_n_cdl_notif
             };
 
             return item;

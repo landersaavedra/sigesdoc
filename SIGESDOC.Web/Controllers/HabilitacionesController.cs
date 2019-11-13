@@ -10090,6 +10090,7 @@ namespace SIGESDOC.Web.Controllers
                     DocumentoDhcpaRequest req_documento_dhcpa = ModelToRequest.Documento_dhcpa(model);
                     req_documento_dhcpa.fecha_registro = DateTime.Now;
                     req_documento_dhcpa.usuario_registro = HttpContext.User.Identity.Name.Split('|')[0].Trim() + " - " + HttpContext.User.Identity.Name.Split('|')[1].Trim();
+
                     model.id_doc_dhcpa = _HabilitacionesService.Create_documento_dhcpa(req_documento_dhcpa);
                     req_documento_dhcpa.id_doc_dhcpa = model.id_doc_dhcpa;
                     
@@ -10193,6 +10194,17 @@ namespace SIGESDOC.Web.Controllers
                     tbl.Columns.Add("PDF");
                     tbl.Columns.Add("RUTA_PDF");
 
+                    //Add by HM - 13/11/2019
+                    tbl.Columns.Add("EVALUADOR_CDL_NOTIF");
+                    tbl.Columns.Add("DIRECCION_CDL_NOTIF");
+                    tbl.Columns.Add("EMPRESA_CDL_NOTIF");
+                    tbl.Columns.Add("FOLIA_CDL_NOTIF");
+                    tbl.Columns.Add("DOC_NOTIFICAR_CDL_NOTIF");
+                    tbl.Columns.Add("EXP_O_HT_CDL_NOTIF");
+                    tbl.Columns.Add("EXP_O_HT_N_CDL_NOTIF");
+
+
+
                     var documento_dhcpa = _HabilitacionesService.Lista_Documentos_dhcpa(var_evaluador, cmbtipo_documento, asunto, cmbanno_documento);
 
                     foreach (var result in documento_dhcpa)
@@ -10210,7 +10222,16 @@ namespace SIGESDOC.Web.Controllers
                             result.anexos,
                             result.id_doc_dhcpa,
                             result.pdf,
-                            ruta_x
+                            ruta_x,
+
+                            //Add by HM - 13/11/2019
+                            result.evaluador_cdl_notif,
+                            result.direccion_cdl_notif,
+                            result.empresa_cdl_notif,
+                            result.folia_cdl_notif,
+                            result.doc_notificar_cdl_notif,
+                            result.exp_o_ht_cdl_notif,
+                            result.exp_o_ht_n_cdl_notif
                             );
                     };
 

@@ -3671,8 +3671,17 @@ namespace SIGESDOC.Repositorio
                                       asunto = MDCHPA.ASUNTO,
                                       anexos = MDCHPA.ANEXOS,
                                       pdf = MDCHPA.PDF,
-                                      id_oficina_direccion = MDCHPA.ID_OFICINA_DIRECCION
-                                      
+                                      id_oficina_direccion = MDCHPA.ID_OFICINA_DIRECCION,
+
+                                      //Add by HM - 13/11/2019
+                                      evaluador_cdl_notif = MDCHPA.EVALUADOR_CDL_NOTIF,
+                                      direccion_cdl_notif = MDCHPA.DIRECCION_CDL_NOTIF,
+                                      empresa_cdl_notif = MDCHPA.EMPRESA_CDL_NOTIF,
+                                      folia_cdl_notif = MDCHPA.FOLIA_CDL_NOTIF,
+                                      doc_notificar_cdl_notif = MDCHPA.DOC_NOTIFICAR_CDL_NOTIF,
+                                      exp_o_ht_cdl_notif = MDCHPA.EXP_O_HT_CDL_NOTIF,
+                                      exp_o_ht_n_cdl_notif = MDCHPA.EXP_O_HT_N_CDL_NOTIF
+
                                       //nom_documento = MTD.NOMBRE + " " + (MDS.NUM_DOCUMENTO == null ? "" : " N° " + MDS.NUM_DOCUMENTO.ToString()) + " " + MDS.NOM_DOCUMENTO, // documento
                                   }).OrderByDescending(r => r.id_doc_dhcpa).Take(500).AsEnumerable();
                     return result;      

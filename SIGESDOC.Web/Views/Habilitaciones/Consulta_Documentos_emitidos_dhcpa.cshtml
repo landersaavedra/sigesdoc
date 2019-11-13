@@ -36,47 +36,53 @@
                             <table class="table table-striped table-hover table-condensed tabla small" data-swhgajax="true" data-swhgcontainer="grid" data-swhgcallback="" id="tblDestinoDetalle">
                                 <thead>
                                     <tr class="cabecera">
-                                        <!--  <th scope="col">Exp O Ht N°</th> -->
-                                        <th scope="col">N° de Cédula de Notificación</th>
-                                        <th scope="col">Fecha</th>
+                                        <th scope="col">Exp O Ht N°</th>
                                         <th scope="col">Exp. O Ht</th>
                                         <th scope="col">Documento a Notificar</th>
-                                        <th scope="col">Asunto</th>
+                                        <th scope="col">N° Folios</th>
+                                        <th scope="col">Empresa</th>
+                                        <th scope="col">Dirección</th>
+                                        <th scope="col">Evaluador</th>
                                         <th scope="col">Opciones</th>
 
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @if (ViewData["documentos_tabla"] != null)
-                                    {
-                                        foreach (System.Data.DataRow dr in (ViewData["documentos_tabla"] as System.Data.DataTable).Rows)
-                                        {
-                                        <td style=" text-align:center;"> @dr["DOCUMENTO"] </td>
-                                        <td class="visible-lg" style=" text-align:center;"> @dr["FECHA_DOCUMENTO"] </td>
-                                        <td class="visible-lg visible-md">  @dr["ASUNTO"] </td>
-                                        <td class="visible-lg"> @dr["ANEXO"] </td>
-                                        <td></td>
-                                        <td></td>
 
-                                        <td>
-                                            <ul class="list-inline" style="margin-bottom:0">
-                                                <li>
-                                                    <a class="Ver_Destino" id="icon_word" href="#" title="Ver documento en Word">
-                                                        <i class="blue glyphicon glyphicon-file"></i>
-                                                    </a>
-                                                </li>
 
-                                                <li>
-                                                    <a class="Subir_archivo_doc_dhcpa" id="icon_pdf" href="#" title="Ver documento en PDF">
-                                                        <i class="red glyphicon glyphicon-file"></i>
-                                                    </a>
-                                                </li>
 
-                                            </ul>
-                                        </td>
-                                    }
-                                }
-                                    </tbody>
+                                    <!--
+        /if (ViewData["documentos_tabla"] != null)
+        //{
+          //  foreach (System.Data.DataRow dr in (ViewData["documentos_tabla"] as System.Data.DataTable).Rows)
+            //{
+            <td style=" text-align:center;">dr["DOCUMENTO"] </td>
+            <td class="visible-lg" style=" text-align:center;"> dr["FECHA_DOCUMENTO"] </td>
+            <td class="visible-lg visible-md">  dr["ASUNTO"] </td>
+            <td class="visible-lg"> dr["ANEXO"] </td>
+            <td></td>
+            <td></td>
+
+            <td>
+                <ul class="list-inline" style="margin-bottom:0">
+                    <li>
+                        <a class="Ver_Destino" id="icon_word" href="#" title="Ver documento en Word">
+                            <i class="blue glyphicon glyphicon-file"></i>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a class="Subir_archivo_doc_dhcpa" id="icon_pdf" href="#" title="Ver documento en PDF">
+                            <i class="red glyphicon glyphicon-file"></i>
+                        </a>
+                    </li>
+
+                </ul>
+            </td>
+        //}
+    //}
+        -->
+                                </tbody>
                                 </table>
                         </div>
 
@@ -199,6 +205,15 @@
                 <th scope="col" class="visible-lg">Fecha Documento</th>
                 <th scope="col" class="visible-lg visible-md">Asunto</th>
                 <th scope="col" class="visible-lg">Anexos</th>
+
+                <th scope="col" style='display:none'></th>
+                <th scope="col" style='display:none'></th>
+                <th scope="col" style='display:none'></th>
+                <th scope="col" style='display:none'></th>
+                <th scope="col" style='display:none'></th>
+                <th scope="col" style='display:none'></th>
+                <th scope="col" style='display:none'></th>
+
                 <th scope="col">Opciones</th>
             </tr>
         </thead> 
@@ -207,48 +222,58 @@
             {
                 foreach (System.Data.DataRow dr in (ViewData["documentos_tabla"] as System.Data.DataTable).Rows)
                 {
-                    <tr>  @* Abrir modal en caso de ser cedula de notificacion*@
-                        @if((string)dr["NOM_TIPO_DOCUMENTO"] == "CEDULA DE NOTIFICACION")
-                        {
-                        <td style=" text-align:center;"><a id="idtipodocumento" class="ver_pdf_docu"> @dr["NOM_TIPO_DOCUMENTO"]</a> </td>
-                        }
-                        else
-                        { 
-                            <td style=" text-align:center;"> @dr["NOM_TIPO_DOCUMENTO"] </td>
-                        }
+            <tr>
+                @* Abrir modal en caso de ser cedula de notificacion*@
+                @if ((string)dr["NOM_TIPO_DOCUMENTO"] == "CEDULA DE NOTIFICACION")
+                {
+                    <td style=" text-align:center;"><a id="idtipodocumento" class="ver_pdf_docu"> @dr["NOM_TIPO_DOCUMENTO"]</a> </td>
+                }
+                else
+                {
+                    <td style=" text-align:center;"> @dr["NOM_TIPO_DOCUMENTO"] </td>
+                }
 
-                        @if (dr["PDF"].ToString() == "1")
-                        {
-                            <td style=" text-align:center;"> 
-                                <ul class="list-inline" style="margin-bottom:0"><li><a href="@dr["RUTA_PDF"]" target="_blank"> @dr["DOCUMENTO"] </a></li></ul>
-                            </td>
-                        }
-                        else
-                        {
-                            <td style=" text-align:center;"> @dr["DOCUMENTO"] </td>
-                        }
+                @if (dr["PDF"].ToString() == "1")
+                {
+                    <td style=" text-align:center;">
+                        <ul class="list-inline" style="margin-bottom:0"><li><a href="@dr["RUTA_PDF"]" target="_blank"> @dr["DOCUMENTO"] </a></li></ul>
+                    </td>
+                }
+                else
+                {
+                    <td style=" text-align:center;"> @dr["DOCUMENTO"] </td>
+                }
 
-                        <td class="visible-lg" style=" text-align:center;"> @dr["FECHA_DOCUMENTO"] </td>
-                        <td class="visible-lg visible-md">  @dr["ASUNTO"] </td>
-                        <td class="visible-lg"> @dr["ANEXO"] </td>
-                        <td>
-                            <ul class="list-inline" style="margin-bottom:0">
-                                <li>
-                                    <a class="Ver_Destino" id=@dr["ID_DOC_DHCPA"] href="#" title="Ver destino">
-                                        <i class="blue glyphicon glyphicon-search"></i>
-                                    </a>
-                                </li>
-                                @if (User.Identity.Name.Split('|')[4].Trim() == "7")
-                                {
-                                    <li>
-                                        <a class="Subir_archivo_doc_dhcpa" id=@dr["ID_DOC_DHCPA"] href="#" title="Cargar archivo">
-                                            <i class="blue glyphicon glyphicon-upload"></i>
-                                        </a>
-                                    </li>
-                                }
-                            </ul>
-                        </td>
-                    </tr>
+                <td class="visible-lg" style=" text-align:center;"> @dr["FECHA_DOCUMENTO"] </td>
+                <td class="visible-lg visible-md">  @dr["ASUNTO"] </td>
+                <td class="visible-lg"> @dr["ANEXO"] </td>
+
+                <td id=@dr["EVALUADOR_CDL_NOTIF"] style='display:none'> @dr["EVALUADOR_CDL_NOTIF"] </td>
+                <td id=@dr["DIRECCION_CDL_NOTIF"] style='display:none'> @dr["DIRECCION_CDL_NOTIF"] </td>
+                <td id=@dr["EMPRESA_CDL_NOTIF"] style='display:none'> @dr["EMPRESA_CDL_NOTIF"] </td>
+                <td id=@dr["FOLIA_CDL_NOTIF"] style='display:none'> @dr["FOLIA_CDL_NOTIF"] </td>
+                <td id=@dr["DOC_NOTIFICAR_CDL_NOTIF"] style='display:none'> @dr["DOC_NOTIFICAR_CDL_NOTIF"] </td>
+                <td id=@dr["EXP_O_HT_CDL_NOTIF"] style='display:none'> @dr["EXP_O_HT_CDL_NOTIF"] </td>
+                <td id=@dr["EXP_O_HT_N_CDL_NOTIF"] style='display:none'> @dr["EXP_O_HT_N_CDL_NOTIF"] </td>
+
+                <td>
+                    <ul class="list-inline" style="margin-bottom:0">
+                        <li>
+                            <a class="Ver_Destino" id=@dr["ID_DOC_DHCPA"] href="#" title="Ver destino">
+                                <i class="blue glyphicon glyphicon-search"></i>
+                            </a>
+                        </li>
+                        @if (User.Identity.Name.Split('|')[4].Trim() == "7")
+                        {
+                            <li>
+                                <a class="Subir_archivo_doc_dhcpa" id=@dr["ID_DOC_DHCPA"] href="#" title="Cargar archivo">
+                                    <i class="blue glyphicon glyphicon-upload"></i>
+                                </a>
+                            </li>
+                        }
+                    </ul>
+                </td>
+            </tr>
                 }
             }
         </tbody>
@@ -287,6 +312,76 @@
 
         $('#idtipodocumento').click(function () {
 
+            
+            var valores = "";
+            var contador = -1;
+            var _evaluador_cdl_notif = "";
+            var _direccion_cdl_notif = "";
+            var _empresa_cdl_notif = "";
+            var _folia_cdl_notif = "";
+            var _doc_notificar_cdl_notif = "";
+            var _exp_o_ht_cdl_notif = "";
+            var _exp_o_ht_n_cdl_notif = "";
+
+            $("#tblDestinoDetalle td").remove();
+
+            $(this).parents("tr").find("td").each(function () {
+                contador += 1;
+                valores = $(this).context.textContent;
+                switch (contador) {
+                    case 5:
+                        _evaluador_cdl_notif = valores;
+                        break;
+                    case 6:
+                        _direccion_cdl_notif = valores;
+                        break;
+                    case 7:
+                        _empresa_cdl_notif = valores;
+                        break;
+                    case 8:
+                        _folia_cdl_notif = valores;
+                        break;
+                    case 9:
+                        _doc_notificar_cdl_notif = valores;
+                        break;
+                    case 10:
+                        _exp_o_ht_cdl_notif = valores;
+                        break;
+                    case 11:
+                        _exp_o_ht_n_cdl_notif = valores;
+                        break;
+                    default:
+                }
+            });
+
+            var nuevoTD = '<tr>';
+            nuevoTD += '<td>' + _exp_o_ht_n_cdl_notif + '</td>';
+            nuevoTD += '<td>' + _exp_o_ht_cdl_notif + '</td>';
+            nuevoTD += '<td>' + _doc_notificar_cdl_notif + '</td>';
+            nuevoTD += '<td>' + _folia_cdl_notif + '</td>';
+            nuevoTD += '<td>' + _empresa_cdl_notif + '</td>';
+            nuevoTD += '<td>' + _direccion_cdl_notif + '</td>';
+            nuevoTD += '<td>' + _evaluador_cdl_notif + '</td>';
+
+            //Add by HM - 13/11/2019 - OPCIONES 
+            nuevoTD += '<td>';
+            nuevoTD += '<ul class="list-inline" style="margin-bottom:0">';
+            nuevoTD += '<li>';
+            nuevoTD += '<a  id="icon_word" href="~/WORD_ACTA_DE_ NOTIFICACIÓN.docx" title="Ver documento en Word">';
+            nuevoTD += '<i class="blue glyphicon glyphicon-file"></i>';
+            nuevoTD += '</a>';
+            nuevoTD += '</li>';
+            nuevoTD += '<li>';
+            nuevoTD += '<a class="Subir_archivo_doc_dhcpa" id="icon_pdf" href="~/Planillas/WORD_ACTA_DE_ NOTIFICACIÓN.docx" title="Ver documento en PDF">';
+            nuevoTD += '<i class="red glyphicon glyphicon-file"></i>';
+            nuevoTD += '</a>';
+            nuevoTD += '</li>';
+            nuevoTD += '</ul>';
+            nuevoTD += '</td>';
+
+            nuevoTD += '</tr>';
+            jQuery("#tblDestinoDetalle").append(nuevoTD);
+            
             $('#cdl_notificacion_detalle').modal('show');
         });
 
@@ -294,6 +389,8 @@
             //return this.href.replace('_Parameter1', "").replace('_Parameter2', "");
             return this.href.replace('_Parameter1', $("#cmbtipo_documento").val()).replace('_Parameter2', $("#cmbanno_documento").val());
         });
+
+
 
         $(document).on('click', '.Ver_Destino', function () {
             

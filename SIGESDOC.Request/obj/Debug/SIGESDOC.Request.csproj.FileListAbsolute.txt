@@ -65,3 +65,8 @@ C:\Users\PSSPERU069\Proyectos\sigesdoc_net\SIGESDOC.Request\obj\Debug\SIGESDOC.R
 C:\Users\PSSPERU069\Proyectos\sigesdoc_net\SIGESDOC.Request\obj\Debug\SIGESDOC.Request.csproj.CoreCompileInputs.cache
 C:\Users\PSSPERU069\Proyectos\sigesdoc_net\SIGESDOC.Request\obj\Debug\SIGESDOC.Request.dll
 C:\Users\PSSPERU069\Proyectos\sigesdoc_net\SIGESDOC.Request\obj\Debug\SIGESDOC.Request.pdb
+C:\Henry.Medina\Proyectos\SIGESDOC\Proyectos\sigesdoc\SIGESDOC.Request\bin\Debug\SIGESDOC.Request.dll
+C:\Henry.Medina\Proyectos\SIGESDOC\Proyectos\sigesdoc\SIGESDOC.Request\bin\Debug\SIGESDOC.Request.pdb
+C:\Henry.Medina\Proyectos\SIGESDOC\Proyectos\sigesdoc\SIGESDOC.Request\obj\Debug\SIGESDOC.Request.csproj.CoreCompileInputs.cache
+C:\Henry.Medina\Proyectos\SIGESDOC\Proyectos\sigesdoc\SIGESDOC.Request\obj\Debug\SIGESDOC.Request.dll
+C:\Henry.Medina\Proyectos\SIGESDOC\Proyectos\sigesdoc\SIGESDOC.Request\obj\Debug\SIGESDOC.Request.pdb

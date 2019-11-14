@@ -203,129 +203,131 @@
 {
 
     @Html.AntiForgeryToken()
-    <div class="form-horizontal">
-        <ol class="breadcrumb">
-            <li class="active">Información del Documento</li>
-            
-            @Html.TextBox("txt_user_document",(string)ViewBag.user_document, new { @class = "form-control input-sm hidden"})
-            @Html.TextBox("txt_user_perfil", (string)ViewBag.user_perfil, new { @class = "form-control input-sm hidden" })
-        </ol>
-        
-        <div class="form-group">
-            <label class="col-md-2 control-label" for="cmbtipo_documento">Tipo Documento:</label>
-            <div class="col-md-6">
-                @Html.DropDownList("cmbtipo_documento", (IEnumerable<SelectListItem>)ViewBag.list_tip_documento_dhcpa, new { @class = "form-control input-sm" })
+<div class="form-horizontal">
+    <ol class="breadcrumb">
+        <li class="active">Información del Documento</li>
+
+        @Html.TextBox("txt_user_document", (string)ViewBag.user_document, new { @class = "form-control input-sm hidden" })
+        @Html.TextBox("txt_user_perfil", (string)ViewBag.user_perfil, new { @class = "form-control input-sm hidden" })
+    </ol>
+
+    <div class="form-group">
+        <label class="col-md-2 control-label" for="cmbtipo_documento">Tipo Documento:</label>
+        <div class="col-md-6">
+            @Html.DropDownList("cmbtipo_documento", (IEnumerable<SelectListItem>)ViewBag.list_tip_documento_dhcpa, new { @class = "form-control input-sm" })
+        </div>
+    </div>
+
+    
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.asunto, new { @class = "col-md-2 control-label" })
+        <div class="col-md-6">
+            @Html.TextAreaFor(m => m.asunto, new { @class = "form-control input-sm", @row = "4", @maxlength = "500" })
+        </div>
+        <label id="lbl_valida_asunto" style="color: #B44D4D">  </label>
+    </div>
+
+    <div class="form-group">
+        <label class="col-md-2 control-label" for="cmb_archivador">Archivador:</label>
+        <div class="col-md-6">
+            @Html.DropDownList("cmb_archivador", (IEnumerable<SelectListItem>)ViewBag.list_archivador, new { @class = "form-control input-sm" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="col-md-2 control-label" for="cmb_filial">Filial:</label>
+        <div class="col-md-6">
+            @Html.DropDownList("cmb_filial", (IEnumerable<SelectListItem>)ViewBag.lista_filiales, new { @class = "form-control input-sm" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="col-md-2 control-label" for="dtpFechadocumento">Fecha Documento:</label>
+        <div class="col-md-2">
+            <div class="input-group date input-group-sm" id="dtpFechadocumento">
+                <input class="form-control input-sm" id="txtFechadocumento" type="text" value="">
+                <span class="input-group-addon input-sm add-on">
+                    <a href="#">
+                        <i class="glyphicon glyphicon-calendar" data-date-icon="glyphicon glyphicon-calendar"></i>
+                    </a>
+                </span>
             </div>
         </div>
-                
-        <div class="form-group">
-            @Html.LabelFor(m => m.asunto, new { @class = "col-md-2 control-label" })
-            <div class="col-md-6">
-                @Html.TextAreaFor(m => m.asunto, new { @class = "form-control input-sm", @row = "4", @maxlength = "500" })
-            </div>
-            <label id="lbl_valida_asunto" style="color: #B44D4D">  </label>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.anexos, new { @class = "col-md-2 control-label" })
+        <div class="col-md-6">
+            @Html.TextAreaFor(m => m.anexos, new { @class = "form-control input-sm", rows = "4", @maxlength = "1500", wrap = "off" })
+            @Html.ValidationMessageFor(m => m.anexos)
         </div>
+    </div>
 
-        <div class="form-group">
-            <label class="col-md-2 control-label" for="cmb_archivador">Archivador:</label>
-            <div class="col-md-6">
-                @Html.DropDownList("cmb_archivador", (IEnumerable<SelectListItem>)ViewBag.list_archivador, new { @class = "form-control input-sm" })
-            </div>
+    <div class="form-group">
+
+        <div class="col-md-6 text-right">
+            <button type="button" class="btn btn-primary btn-sm destino_interno" data-toggle="modal" data-target="#mdloficina_destino">Agregar Destino</button>
+            <button type="button" class="btn btn-primary btn-sm destino_externo" data-toggle="modal" data-target="#mdloficina_destino_externo">Agregar Destino</button>
         </div>
+    </div>
 
-        <div class="form-group">
-            <label class="col-md-2 control-label" for="cmb_filial">Filial:</label>
-            <div class="col-md-6">
-                @Html.DropDownList("cmb_filial", (IEnumerable<SelectListItem>)ViewBag.lista_filiales, new { @class = "form-control input-sm" })
-            </div>
-        </div>
-        
-        <div class="form-group">
-                <label class="col-md-2 control-label" for="dtpFechadocumento">Fecha Documento:</label>
-                <div class="col-md-2">
-                    <div class="input-group date input-group-sm" id="dtpFechadocumento">
-                        <input class="form-control input-sm" id="txtFechadocumento" type="text" value="">
-                        <span class="input-group-addon input-sm add-on">
-                            <a href="#">
-                                <i class="glyphicon glyphicon-calendar" data-date-icon="glyphicon glyphicon-calendar"></i>
-                            </a>
-                        </span>
-                    </div>
-                </div>
-            </div>
+    <div id="grid">
+        <table class="table table-striped table-hover table-condensed tabla small" data-swhgajax="true" data-swhgcontainer="grid" data-swhgcallback="" id="tblDestinoDetalle">
+            <thead>
+                <tr class="cabecera">
+                    <th scope="col" class="hidden">idOficina</th>
+                    <th scope="col">Oficina</th>
+                    <th scope="col" class="hidden">dni</th>
+                    <th scope="col">persona</th>
+                    <th scope="col">Acciones</th>
+                </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+    </div>
 
-        <div class="form-group">
-            @Html.LabelFor(m => m.anexos, new { @class = "col-md-2 control-label" })
-            <div class="col-md-6">
-                @Html.TextAreaFor(m => m.anexos, new { @class = "form-control input-sm", rows = "4", @maxlength = "1500", wrap = "off" })
-                @Html.ValidationMessageFor(m => m.anexos)
-            </div>
-        </div>
+    <div class="form-group">
 
-        <div class="form-group">
-
-            <div class="col-md-6 text-right">
-                <button type="button" class="btn btn-primary btn-sm destino_interno" data-toggle="modal" data-target="#mdloficina_destino">Agregar Destino</button>
-                <button type="button" class="btn btn-primary btn-sm destino_externo" data-toggle="modal" data-target="#mdloficina_destino_externo">Agregar Destino</button>
-            </div>
-        </div>
-
-        <div id="grid">
-            <table class="table table-striped table-hover table-condensed tabla small" data-swhgajax="true" data-swhgcontainer="grid" data-swhgcallback="" id="tblDestinoDetalle">
-                <thead>
-                    <tr class="cabecera">
-                        <th scope="col" class="hidden">idOficina</th>
-                        <th scope="col">Oficina</th>
-                        <th scope="col" class="hidden">dni</th>
-                        <th scope="col">persona</th>
-                        <th scope="col">Acciones</th>
-                    </tr>
-                </thead>
-                <tbody></tbody>
-            </table>
-        </div>
-        
-        <div class="form-group">
-
-            <div class="col-md-6 text-right">
-                <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#mdlseguimiento">
-                    Agregar Seguimiento
-                </button>
-            </div>
-
-
-
-        </div>
-
-        <div id="grid">
-            <table class="table table-striped table-hover table-condensed tabla small" data-swhgajax="true" data-swhgcontainer="grid" data-swhgcallback="" id="tblseguimientodetalle">
-                <thead>
-                    <tr class="cabecera">
-                        <th scope="col" class="hidden">idSeguimiento</th>
-                        <th scope="col">Seguimiento</th>
-                        <th scope="col" class="hidden">id_Externo</th>
-                        <th scope="col">Externo</th>
-                        <th scope="col">Acciones</th>
-                    </tr>
-                </thead>
-                <tbody></tbody>
-            </table>
+        <div class="col-md-6 text-right">
+            <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#mdlseguimiento">
+                Agregar Seguimiento
+            </button>
         </div>
 
 
-
-        <hr>
-        <div class="form-group">
-            <div class="col-md-8">
-                <input id="btnGrabar" type="submit" value="Guardar" class="btn btn-primary btn-sm" />
-                <button type="button" class="btn btn-default btn-sm regresar">Cancelar</button>
-            </div>
-            <div class="col-md-1">
-                <div id="loaderImage" class="hidden"></div>
-            </div>
-        </div>
 
     </div>
+
+    <div id="grid">
+        <table class="table table-striped table-hover table-condensed tabla small" data-swhgajax="true" data-swhgcontainer="grid" data-swhgcallback="" id="tblseguimientodetalle">
+            <thead>
+                <tr class="cabecera">
+                    <th scope="col" class="hidden">idSeguimiento</th>
+                    <th scope="col">Seguimiento</th>
+                    <th scope="col" class="hidden">id_Externo</th>
+                    <th scope="col">Externo</th>
+                    <th scope="col">Acciones</th>
+                </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+    </div>
+
+
+
+    <hr>
+    <div class="form-group">
+        <div class="col-md-8">
+            <input id="btnGrabar" type="submit" value="Guardar" class="btn btn-primary btn-sm" />
+            <button type="button" class="btn btn-default btn-sm regresar">Cancelar</button>
+        </div>
+        <div class="col-md-1">
+            <div id="loaderImage" class="hidden"></div>
+        </div>
+    </div>
+
+</div>
 }
 
 <div class="modal fade" id="mdlConformidad" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">

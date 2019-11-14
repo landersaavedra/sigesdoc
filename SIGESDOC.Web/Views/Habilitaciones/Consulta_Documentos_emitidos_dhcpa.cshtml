@@ -4,16 +4,16 @@
 
 @{
     //WebGrid grid = new WebGrid(rowsPerPage: ServiceConfiguration.PageSize, ajaxUpdateContainerId: "grid");    grid.Bind(Model, autoSortAndPage: false, rowCount: ViewBag.TotalRows);
-    ViewBag.Title = "Consulta Documento DHCPA";
+    ViewBag.Title = "Consulta Documento Externos";
 }
 
 <ol class="breadcrumb" style="margin-bottom: 5px;">
     <li><a href="#">Habilitaciones</a></li>
-    <li class="active">Consulta Documentos DHCPA</li>
+    <li class="active">Consulta Documentos Externos</li>
 </ol>
 
 <div class="bs-callout bs-callout-info">
-    <h4>Consulta Documentos Emitidos DHCPA</h4>
+    <h4>Consulta Documentos Externos Emitidos</h4>
     <p>En esta sección usted puede Consultar los documentos emitidos</p>
 </div>
 
@@ -309,71 +309,30 @@
             }
         });
 
+        //Add by HM - 14/11/2019
+        $('#grid_documento tbody').on('click', '#idtipodocumento', function () {
+            var table = $('#grid_documento').DataTable();
+            var tr = $(this).closest('tr');
+            var row = table.row(tr);
+            var nuevoTD = '<tr>';
 
-        $('#idtipodocumento').click(function () {
-
-            
-            var valores = "";
-            var contador = -1;
-            var _evaluador_cdl_notif = "";
-            var _direccion_cdl_notif = "";
-            var _empresa_cdl_notif = "";
-            var _folia_cdl_notif = "";
-            var _doc_notificar_cdl_notif = "";
-            var _exp_o_ht_cdl_notif = "";
-            var _exp_o_ht_n_cdl_notif = "";
-
+            //Limpiar
             $("#tblDestinoDetalle td").remove();
 
-            $(this).parents("tr").find("td").each(function () {
-                contador += 1;
-                valores = $(this).context.textContent;
-                switch (contador) {
-                    case 5:
-                        _evaluador_cdl_notif = valores;
-                        break;
-                    case 6:
-                        _direccion_cdl_notif = valores;
-                        break;
-                    case 7:
-                        _empresa_cdl_notif = valores;
-                        break;
-                    case 8:
-                        _folia_cdl_notif = valores;
-                        break;
-                    case 9:
-                        _doc_notificar_cdl_notif = valores;
-                        break;
-                    case 10:
-                        _exp_o_ht_cdl_notif = valores;
-                        break;
-                    case 11:
-                        _exp_o_ht_n_cdl_notif = valores;
-                        break;
-                    default:
-                }
-            });
+            nuevoTD += '<td>' + row.data()[11] + '</td>';//Exp O Ht N°
+            nuevoTD += '<td>' + row.data()[10] + '</td>';//Exp. O Ht
+            nuevoTD += '<td>' + row.data()[9] + '</td>';//Documento a Notificar
+            nuevoTD += '<td>' + row.data()[8] + '</td>';//N° Folios
+            nuevoTD += '<td>' + row.data()[7] + '</td>';//Empresa
+            nuevoTD += '<td>' + row.data()[6] + '</td>';//Dirección
+            nuevoTD += '<td>' + row.data()[5] + '</td>';//Evaluador
 
-            var nuevoTD = '<tr>';
-            nuevoTD += '<td>' + _exp_o_ht_n_cdl_notif + '</td>';
-            nuevoTD += '<td>' + _exp_o_ht_cdl_notif + '</td>';
-            nuevoTD += '<td>' + _doc_notificar_cdl_notif + '</td>';
-            nuevoTD += '<td>' + _folia_cdl_notif + '</td>';
-            nuevoTD += '<td>' + _empresa_cdl_notif + '</td>';
-            nuevoTD += '<td>' + _direccion_cdl_notif + '</td>';
-            nuevoTD += '<td>' + _evaluador_cdl_notif + '</td>';
-
-            //Add by HM - 13/11/2019 - OPCIONES 
+            //Columna Opciones OPCIONES
             nuevoTD += '<td>';
-            nuevoTD += '<ul class="list-inline" style="margin-bottom:0">';
+            nuevoTD += '<ul class="list-inline" style="margin-bottom:0; text-align: center">';
             nuevoTD += '<li>';
-            nuevoTD += '<a  id="icon_word" href="~/WORD_ACTA_DE_ NOTIFICACIÓN.docx" title="Ver documento en Word">';
+            nuevoTD += '<a  id="icon_word" href="/WORD_ACTA_DE_ NOTIFICACIÓN.docx" title="Ver documento en Word">';
             nuevoTD += '<i class="blue glyphicon glyphicon-file"></i>';
-            nuevoTD += '</a>';
-            nuevoTD += '</li>';
-            nuevoTD += '<li>';
-            nuevoTD += '<a class="Subir_archivo_doc_dhcpa" id="icon_pdf" href="~/Planillas/WORD_ACTA_DE_ NOTIFICACIÓN.docx" title="Ver documento en PDF">';
-            nuevoTD += '<i class="red glyphicon glyphicon-file"></i>';
             nuevoTD += '</a>';
             nuevoTD += '</li>';
             nuevoTD += '</ul>';
@@ -381,9 +340,85 @@
 
             nuevoTD += '</tr>';
             jQuery("#tblDestinoDetalle").append(nuevoTD);
-            
+
             $('#cdl_notificacion_detalle').modal('show');
+
         });
+
+        //$('#idtipodocumento').click(function () {
+
+            
+        //    var valores = "";
+        //    var contador = -1;
+        //    var _evaluador_cdl_notif = "";
+        //    var _direccion_cdl_notif = "";
+        //    var _empresa_cdl_notif = "";
+        //    var _folia_cdl_notif = "";
+        //    var _doc_notificar_cdl_notif = "";
+        //    var _exp_o_ht_cdl_notif = "";
+        //    var _exp_o_ht_n_cdl_notif = "";
+
+        //    $("#tblDestinoDetalle td").remove();
+
+        //    $(this).parents("tr").find("td").each(function () {
+        //        contador += 1;
+        //        valores = $(this).context.textContent;
+        //        switch (contador) {
+        //            case 5:
+        //                _evaluador_cdl_notif = valores;
+        //                break;
+        //            case 6:
+        //                _direccion_cdl_notif = valores;
+        //                break;
+        //            case 7:
+        //                _empresa_cdl_notif = valores;
+        //                break;
+        //            case 8:
+        //                _folia_cdl_notif = valores;
+        //                break;
+        //            case 9:
+        //                _doc_notificar_cdl_notif = valores;
+        //                break;
+        //            case 10:
+        //                _exp_o_ht_cdl_notif = valores;
+        //                break;
+        //            case 11:
+        //                _exp_o_ht_n_cdl_notif = valores;
+        //                break;
+        //            default:
+        //        }
+        //    });
+
+        //    var nuevoTD = '<tr>';
+        //    nuevoTD += '<td>' + _exp_o_ht_n_cdl_notif + '</td>';
+        //    nuevoTD += '<td>' + _exp_o_ht_cdl_notif + '</td>';
+        //    nuevoTD += '<td>' + _doc_notificar_cdl_notif + '</td>';
+        //    nuevoTD += '<td>' + _folia_cdl_notif + '</td>';
+        //    nuevoTD += '<td>' + _empresa_cdl_notif + '</td>';
+        //    nuevoTD += '<td>' + _direccion_cdl_notif + '</td>';
+        //    nuevoTD += '<td>' + _evaluador_cdl_notif + '</td>';
+
+        //    //Add by HM - 13/11/2019 - OPCIONES 
+        //    nuevoTD += '<td>';
+        //    nuevoTD += '<ul class="list-inline" style="margin-bottom:0">';
+        //    nuevoTD += '<li>';
+        //    nuevoTD += '<a  id="icon_word" href="~/WORD_ACTA_DE_ NOTIFICACIÓN.docx" title="Ver documento en Word">';
+        //    nuevoTD += '<i class="blue glyphicon glyphicon-file"></i>';
+        //    nuevoTD += '</a>';
+        //    nuevoTD += '</li>';
+        //    nuevoTD += '<li>';
+        //    nuevoTD += '<a class="Subir_archivo_doc_dhcpa" id="icon_pdf" href="~/Planillas/WORD_ACTA_DE_ NOTIFICACIÓN.docx" title="Ver documento en PDF">';
+        //    nuevoTD += '<i class="red glyphicon glyphicon-file"></i>';
+        //    nuevoTD += '</a>';
+        //    nuevoTD += '</li>';
+        //    nuevoTD += '</ul>';
+        //    nuevoTD += '</td>';
+
+        //    nuevoTD += '</tr>';
+        //    jQuery("#tblDestinoDetalle").append(nuevoTD);
+            
+        //    $('#cdl_notificacion_detalle').modal('show');
+        //});
 
         $('#Documentos_excel').attr('href', function () {
             //return this.href.replace('_Parameter1', "").replace('_Parameter2', "");

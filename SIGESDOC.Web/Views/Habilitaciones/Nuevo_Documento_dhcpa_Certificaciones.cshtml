@@ -169,24 +169,21 @@
             @Html.DropDownList("cmbtipo_documento", (IEnumerable<SelectListItem>)ViewBag.list_tip_documento_dhcpa, new { @class = "form-control input-sm" })
         </div>
     </div>
-
+    
+    <div class="form-group">
+            <label class="col-md-2 control-label" for="checkexpediente" id="checklabel" hidden="hidden">Cedula de Notificación:</label>
+            <div class="col-md-6">
+                <input type="checkbox" id="checkexpediente"  hidden="hidden" />
+            </div>
+        </div>
+   
     <!--Add by HM-->
     <!--FORMATO DE CEDULAS-->
-    <div class="form-group" id="DivFormatoCedulas" style="background-color:#E3F6F8" >
+    <div class="form-group" id="DivFormatoCedulas" style="background-color:#E3F6F8">
     </div>
 
 
-    @if (ViewBag.list_tip_document_dhcpa == 21)
-    {
-        <div class="form-group">
-            <label>Lander</label>
-            <div class="col-md-6">
-                @Html.TextAreaFor(m => m.asunto, new { @class = "form-control input-sm", @row = "4", @maxlength = "500" })
-            </div>
-            <label id="lbl_valida_asunto" style="color: #B44D4D">  </label>
-        </div>
-    }
-
+  
     <div class="form-group">
         @Html.LabelFor(m => m.asunto, new { @class = "col-md-2 control-label" })
         <div class="col-md-6">
@@ -317,6 +314,9 @@
             }
         });
     }
+
+ 
+  
 
     function llenar_encargado(oficina) {
         var ddlencargado = $("#cmbencargado");
@@ -517,20 +517,90 @@
             $("#anexos").attr("rows", 4);
         });
 
+        document.getElementById('checkexpediente').onclick = function () {
 
-        $("#cmbtipo_documento").change(function () {
-            //Add by HM 12/11/2019
-            if ($("#cmbtipo_documento").val() == 21) {
-                var nuevoTD;
+            var checked = document.getElementById('checkexpediente').checked;
+            if (checked == true) {
+
                 
+
                 jQuery("#DivFormatoCedulas").empty();
 
                 //EXP. O HT - EXP O HT N°
+                var nuevoTD = '<div class="form-group">';
+                nuevoTD += '<label class="col-md-2 control-label">Expediente N°:</label>';
+                nuevoTD += '<div class="col-md-2"> <input type="text" class="form-control input-sm" maxlength="50" id="exp_o_ht_n_cdl_notif" />  </div>';
+                //nuevoTD += '<label class="col-md-2 control-label">Exp. o HT N°:</label>';
+                //nuevoTD += '<div class="col-md-2"> <input type="number" class="form-control input-sm" maxlength="50" id="exp_o_ht_n_cdl_notif" />  </div>';
+                nuevoTD += '</div>';
+
+                //N° FOLIOS
                 nuevoTD += '<div class="form-group">';
-                nuevoTD += '<label class="col-md-2 control-label">Exp. o HT:</label>';
-                nuevoTD += '<div class="col-md-2"> <input type="text" class="form-control input-sm" maxlength="50" id="exp_o_ht_cdl_notif" />  </div>';
-                nuevoTD += '<label class="col-md-2 control-label">Exp. o HT N°:</label>';
-                nuevoTD += '<div class="col-md-2"> <input type="number" class="form-control input-sm" maxlength="50" id="exp_o_ht_n_cdl_notif" />  </div>';
+                nuevoTD += '<label class="col-md-2 control-label">N° Folios:</label>';
+                nuevoTD += '<div class="col-md-2"> <input type="number" class="form-control input-sm" maxlength="50" id="folia_cdl_notif" />  </div>';
+                nuevoTD += '</div>';
+
+                //DOCUMENTO A NOTIFICAR
+                nuevoTD += '<div class="form-group">';
+                nuevoTD += '<label class="col-md-2 control-label">Documento a Notificar:</label>';
+                nuevoTD += '<div class="col-md-6"> <input type="text" class="form-control input-sm" maxlength="50" id="doc_notificar_cdl_notif" />  </div>';
+                nuevoTD += '</div>';
+
+                //EMPRESA
+                nuevoTD += '<div class="form-group">';
+                nuevoTD += '<label class="col-md-2 control-label">Empresa:</label>';
+                nuevoTD += '<div class="col-md-6"> <input type="text" class="form-control input-sm" maxlength="250" id="empresa_cdl_notif" />  </div>';
+                nuevoTD += '</div>';
+
+                //DIRECCION
+                nuevoTD += '<div class="form-group">';
+                nuevoTD += '<label class="col-md-2 control-label">Dirección:</label>';
+                nuevoTD += '<div class="col-md-6"> <input type="text" class="form-control input-sm" maxlength="250" id="direccion_cdl_notif" />  </div>';
+                nuevoTD += '</div>';
+
+                //EVALUADOR
+                nuevoTD += '<div class="form-group">';
+                nuevoTD += '<label class="col-md-2 control-label">Evaluador:</label>';
+                nuevoTD += '<div class="col-md-3"> <input type="text" class="form-control input-sm" maxlength="100" id="evaluador_cdl_notif" />  </div>';
+                nuevoTD += '</div>';
+
+                jQuery("#DivFormatoCedulas").append(nuevoTD);
+                $('#DivFormatoCedulas').show();
+            }
+            else {
+                LimpiarFormatoCedulas();
+                $('#DivFormatoCedulas').hide();
+            }
+        };
+
+
+
+
+        $("#cmbtipo_documento").change(function () {
+            //Add by HM 12/11/2019
+
+            var combo = $("#cmbtipo_documento").val();
+            console.log(combo);
+            if (combo == 136) {
+                // $('#checklabel').hidden = false;
+                // $('#checkexpediente').hidden = false;
+                document.getElementById('checklabel').hidden = false;
+                document.getElementById('checkexpediente').hidden = false;
+            } else {
+                document.getElementById('checklabel').hidden = true;
+                document.getElementById('checkexpediente').hidden = true;
+            }
+
+            if ($("#cmbtipo_documento").val() == 21) {
+
+                jQuery("#DivFormatoCedulas").empty();
+
+                //EXP. O HT - EXP O HT N°
+                var nuevoTD = '<div class="form-group">';
+                nuevoTD += '<label class="col-md-2 control-label">Expediente N°:</label>';
+                nuevoTD += '<div class="col-md-2"> <input type="text" class="form-control input-sm" maxlength="50" id="exp_o_ht_n_cdl_notif" />  </div>';
+               // nuevoTD += '<label class="col-md-2 control-label">Exp. o HT N°:</label>';
+               // nuevoTD += '<div class="col-md-2"> <input type="number" class="form-control input-sm" maxlength="50" id="exp_o_ht_n_cdl_notif" />  </div>';
                 nuevoTD += '</div>';
 
                 //N° FOLIOS

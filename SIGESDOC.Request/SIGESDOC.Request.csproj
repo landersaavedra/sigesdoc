@@ -256,6 +256,7 @@
     <Compile Include="DocumentoSeguimientoRequest.cs">
       <DependentUpon>RequestObjects.tt</DependentUpon>
     </Compile>
+    <Compile Include="EntRuc.cs" />
     <Compile Include="EspeciesHabilitacionesRequest.cs">
       <DependentUpon>RequestObjects.tt</DependentUpon>
     </Compile>

@@ -204,6 +204,8 @@
     <Compile Include="Controllers\HojaTramiteController.cs" />
     <Compile Include="Controllers\InicioController.cs" />
     <Compile Include="Controllers\InspeccionController.cs" />
+    <Compile Include="Controllers\MesadePartesVirtual\Despacho\DespachoController.cs" />
+    <Compile Include="Controllers\MesadePartesVirtual\Recepcion\RecepcionController.cs" />
     <Compile Include="Controllers\OficinaController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -451,6 +453,8 @@
     <Content Include="Views\HojaTramite\Adjuntar_Documento_anexo_ht.cshtml" />
     <Content Include="Views\HojaTramite\imprimir_reporte_usuario_new.cshtml" />
     <Content Include="Views\Habilitaciones\Consulta_seguimiento_habilitaciones.cshtml" />
+    <Content Include="Views\MesadePartesVirtual\Despacho\Consulta_Despacho.cshtml" />
+    <Content Include="Views\MesadePartesVirtual\Despacho\Detalle_Despacho.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -462,6 +466,7 @@
     <Folder Include="App_Data\" />
     <Folder Include="Planillas\" />
     <Folder Include="Reports\" />
+    <Folder Include="Views\MesadePartesVirtual\Recepcion\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />

@@ -6,43 +6,55 @@
 
     if (User.Identity.Name.Split('|')[5].ToString().Split(',')[0].Trim() == "15") // CONSULTA
     {
-        <ul class="nav navbar-nav">
-            @*@Html.MenuItem("Inicio", "Index", "Inicio", action, controller)*@
-            @*Menú para el rol Administrador*@
+<ul class="nav navbar-nav">
+    @*@Html.MenuItem("Inicio", "Index", "Inicio", action, controller)*@
+    @*Menú para el rol Administrador*@
 
-            @*@Html.MenuItem("Validaciones", "Index", "General/EnviosRecibidos", action, controller)*@
+    @*@Html.MenuItem("Validaciones", "Index", "General/EnviosRecibidos", action, controller)*@
 
-            <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Hoja de Trámite<b class="caret"></b></a>
-                <ul class="dropdown-menu">
-                    @Html.MenuItem("Consulta General", "Consultar_HT_General", "HojaTramite", action, controller)
-                    @Html.MenuItem("Consultar Mis HT", "Consultar_mis_HT", "HojaTramite", action, controller)
-                    @Html.MenuItem("Consultar Documentos Oficina", "Consultar_Documentos_x_oficina", "HojaTramite", action, controller)
-                    @Html.MenuItem("Estados HT por Pedido", "Lista_Hojas_Tramite_x_pedido", "HojaTramite", action, controller)
-
-                </ul>
-            </li>
-
-            <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Reportes<b class="caret"></b></a>
-                <ul class="dropdown-menu">
-                    @Html.MenuItem("Pendientes", "Imprimir_cuadro_pendientes", "HojaTramite", action, controller)
-                </ul>
-            </li>
-
-            @if (User.Identity.Name.Split('|')[9].ToString().Split(',')[32].Trim() == "1")
-            {
-
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Habilitaciones<b class="caret"></b></a>
-                    <ul class="dropdown-menu">
-                        @Html.MenuItem("Consulta Seguimiento", "Consulta_seguimiento_habilitaciones", "Habilitaciones", action, controller)
-
-                    </ul>
-                </li>
-            }
+    @*Region Hoja de Tramite*@
+    <li class="dropdown">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Hoja de Trámite<b class="caret"></b></a>
+        <ul class="dropdown-menu">
+            @Html.MenuItem("Consulta General", "Consultar_HT_General", "HojaTramite", action, controller)
+            @Html.MenuItem("Consultar Mis HT", "Consultar_mis_HT", "HojaTramite", action, controller)
+            @Html.MenuItem("Consultar Documentos Oficina", "Consultar_Documentos_x_oficina", "HojaTramite", action, controller)
+            @Html.MenuItem("Estados HT por Pedido", "Lista_Hojas_Tramite_x_pedido", "HojaTramite", action, controller)
 
         </ul>
+    </li>
+
+    @*Region Reportes*@
+    <li class="dropdown">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Reportes<b class="caret"></b></a>
+        <ul class="dropdown-menu">
+            @Html.MenuItem("Pendientes", "Imprimir_cuadro_pendientes", "HojaTramite", action, controller)
+        </ul>
+    </li>
+
+    @*Region Habilitaciones*@
+    @if (User.Identity.Name.Split('|')[9].ToString().Split(',')[32].Trim() == "1")
+    {
+
+        <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Habilitaciones<b class="caret"></b></a>
+            <ul class="dropdown-menu">
+                @Html.MenuItem("Consulta Seguimiento", "Consulta_seguimiento_habilitaciones", "Habilitaciones", action, controller)
+
+            </ul>
+        </li>
+    }
+
+    @*Mesa de Partes Virtual*@
+
+    <li class="dropdown">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Mesa de Partes<b class="caret"></b></a>
+        <ul class="dropdown-menu">
+            @Html.MenuItem("Despacho", "Consulta_Despacho", "Despacho", action, controller)
+        </ul>
+    </li>
+
+</ul>
     }
 
     if (User.Identity.Name.Split('|')[5].ToString().Split(',')[0].Trim() == "20") // USUARIO

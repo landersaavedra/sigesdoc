@@ -48,7 +48,7 @@ namespace SIGESDOC.Web
                            action = "llenar_operacion_exportados"
                        },
                        new[] { "SIGESDOC.Web.Controllers" });
-            
+
             routes.MapRoute("imprimir_reporte_usuario_ss_new",
                         "HojaTramite/imprimir_reporte_usuario_ss_new/{fecini}/{fecfin}",
                         new
@@ -156,7 +156,7 @@ namespace SIGESDOC.Web
                            "Habilitaciones/Generar_data_licencia_operacion/",
                            new { controller = "Habilitaciones", action = "Generar_data_licencia_operacion" },
                            new[] { "SIGESDOC.Web.Controllers" });
-            
+
             routes.MapRoute("Generar_data_almacen",
                            "Habilitaciones/Generar_data_almacen/",
                            new { controller = "Habilitaciones", action = "Generar_data_almacen" },
@@ -191,12 +191,12 @@ namespace SIGESDOC.Web
                            "General/Llenar_tipo_planta/",
                            new { controller = "General", action = "Llenar_tipo_planta" },
                            new[] { "SIGESDOC.Web.Controllers" });
-            
+
             routes.MapRoute("Llenar_tipo_actividad_planta",
                            "General/Llenar_tipo_actividad_planta/",
                            new { controller = "General", action = "Llenar_tipo_actividad_planta" },
                            new[] { "SIGESDOC.Web.Controllers" });
-            
+
             routes.MapRoute("llenar_OD",
                            "General/llenar_OD/",
                            new { controller = "General", action = "llenar_OD" },
@@ -288,8 +288,8 @@ namespace SIGESDOC.Web
                            "Hojatramite/recupera_CONCESION_vista/",
                            new { controller = "Hojatramite", action = "recupera_CONCESION_vista" },
                            new[] { "SIGESDOC.Web.Controllers" });
-            
-            
+
+
             routes.MapRoute("recupera_DESEMBARCADERO_vista",
                            "Habilitaciones/recupera_DESEMBARCADERO_vista/",
                            new { controller = "Habilitaciones", action = "recupera_DESEMBARCADERO_vista" },
@@ -305,7 +305,7 @@ namespace SIGESDOC.Web
                            "Habilitaciones/recupera_RUC_NOM_vista_seguimiento/",
                            new { controller = "Habilitaciones", action = "recupera_RUC_NOM_vista_seguimiento" },
                            new[] { "SIGESDOC.Web.Controllers" });
-            
+
             routes.MapRoute("recupera_DNI_NOM_vista",
                            "Hojatramite/recupera_DNI_NOM_vista/",
                            new { controller = "Hojatramite", action = "recupera_DNI_NOM_vista" },
@@ -335,21 +335,21 @@ namespace SIGESDOC.Web
                            {
                                controller = "HojaTramite",
                                action = "Agregar_Destino",
-                               id_documento_detalle= UrlParameter.Optional,
+                               id_documento_detalle = UrlParameter.Optional,
                                id_documento = UrlParameter.Optional,
-                               oficina_destino= UrlParameter.Optional,
-                               encargado= UrlParameter.Optional,
-                               var_observacion= UrlParameter.Optional,
-                               v_ind_01= UrlParameter.Optional,
-                               v_ind_02= UrlParameter.Optional,
-                               v_ind_03= UrlParameter.Optional,
-                               v_ind_04= UrlParameter.Optional,
-                               v_ind_05= UrlParameter.Optional,
-                               v_ind_06= UrlParameter.Optional,
-                               v_ind_07= UrlParameter.Optional,
-                               v_ind_08= UrlParameter.Optional,
-                               v_ind_09= UrlParameter.Optional,
-                               v_ind_10= UrlParameter.Optional,
+                               oficina_destino = UrlParameter.Optional,
+                               encargado = UrlParameter.Optional,
+                               var_observacion = UrlParameter.Optional,
+                               v_ind_01 = UrlParameter.Optional,
+                               v_ind_02 = UrlParameter.Optional,
+                               v_ind_03 = UrlParameter.Optional,
+                               v_ind_04 = UrlParameter.Optional,
+                               v_ind_05 = UrlParameter.Optional,
+                               v_ind_06 = UrlParameter.Optional,
+                               v_ind_07 = UrlParameter.Optional,
+                               v_ind_08 = UrlParameter.Optional,
+                               v_ind_09 = UrlParameter.Optional,
+                               v_ind_10 = UrlParameter.Optional,
                                v_ind_11 = UrlParameter.Optional
                            },
                            new[] { "SIGESDOC.Web.Controllers" });
@@ -391,7 +391,7 @@ namespace SIGESDOC.Web
                            "HojaTramite/Llenar_personal/",
                            new { controller = "HojaTramite", action = "Llenar_personal" },
                            new[] { "SIGESDOC.Web.Controllers" });
-            
+
             routes.MapRoute("Llenar_oficina_sede_externo",
                            "HojaTramite/Llenar_oficina_sede_externo/",
                            new { controller = "HojaTramite", action = "Llenar_oficina_sede_externo" },
@@ -418,7 +418,7 @@ namespace SIGESDOC.Web
                                NOM = UrlParameter.Optional
                            },
                            new[] { "SIGESDOC.Web.Controllers" });
-            
+
 
 
             routes.MapRoute("Llenar_oficina_sede",
@@ -431,7 +431,7 @@ namespace SIGESDOC.Web
                                id_sede = UrlParameter.Optional
                            },
                            new[] { "SIGESDOC.Web.Controllers" });
-            
+
             routes.MapRoute("recupera_datos_del_ruc",
                            "Oficina/recupera_datos_del_ruc/{persona_num_documento}",
                            new
@@ -441,7 +441,7 @@ namespace SIGESDOC.Web
                                persona_num_documento = UrlParameter.Optional
                            },
                            new[] { "SIGESDOC.Web.Controllers" });
-            
+
             routes.MapRoute("Nueva_Oficina",
                            "Oficina/Nueva_Oficina/{page}/{TXT_RUC}",
                            new
@@ -482,7 +482,7 @@ namespace SIGESDOC.Web
                                id_transporte = UrlParameter.Optional
                            },
                            new[] { "SIGESDOC.Web.Controllers" });
-            
+
 
             routes.MapRoute("ajax_llenar_codigo_desembarcadero",
                            "General/ajax_llenar_codigo_desembarcadero/{id_tipo_desembarcadero}",
@@ -644,16 +644,16 @@ namespace SIGESDOC.Web
                            new[] { "SIGESDOC.Web.Controllers" });
 
             routes.MapRoute("Consultar_DNI_total",
-                           "Hojatramite/Consultar_DNI_total/",                           
+                           "Hojatramite/Consultar_DNI_total/",
                            new
                            {
                                controller = "Hojatramite",
                                action = "Consultar_DNI_total"
                            },
                            new[] { "SIGESDOC.Web.Controllers" });
-            
+
             routes.MapRoute("Llena_actividad_concesion",
-                           "General/Llena_actividad_concesion/",                           
+                           "General/Llena_actividad_concesion/",
                            new
                            {
                                controller = "General",
@@ -717,7 +717,7 @@ namespace SIGESDOC.Web
                            },
                            new[] { "SIGESDOC.Web.Controllers" });
 
-                
+
             routes.MapRoute("Generar_informe_tecnico",
                            "Habilitaciones/Generar_informe_tecnico/{id_seguimiento}/{observaciones}",
                            new
@@ -792,7 +792,7 @@ namespace SIGESDOC.Web
                            },
                            new[] { "SIGESDOC.Web.Controllers" });
 
-            
+
             routes.MapRoute("llenar_solicitud_seguimiento",
                            "Habilitaciones/llenar_solicitud_seguimiento/{id_seguimiento}",
                            new
@@ -802,7 +802,7 @@ namespace SIGESDOC.Web
                                id_seguimiento = UrlParameter.Optional
                            },
                            new[] { "SIGESDOC.Web.Controllers" });
-            
+
             routes.MapRoute("llenar_informe_seguimiento",
                            "Habilitaciones/llenar_informe_seguimiento/{id_seguimiento}",
                            new
@@ -1070,7 +1070,7 @@ namespace SIGESDOC.Web
                            "General/Llenar_actividad_almacen/",
                            new { controller = "General", action = "Llenar_actividad_almacen" },
                            new[] { "SIGESDOC.Web.Controllers" });
-             
+
 
             routes.MapRoute("llenar_zona_produccion_x_ubigeo",
                            "General/llenar_zona_produccion_x_ubigeo/{ubigeo}",
@@ -1089,6 +1089,30 @@ namespace SIGESDOC.Web
                                controller = "General",
                                action = "llenar_area_produccion_x_zona_produccion ",
                                id_zona_produccion = UrlParameter.Optional
+                           },
+                           new[] { "SIGESDOC.Web.Controllers" });
+
+            //Add by HM
+            routes.MapRoute("recupera_datos_del_SUNAT",
+                           "Oficina/recupera_datos_del_SUNAT/{persona_num_documento}",
+                           new
+                           {
+                               controller = "Oficina",
+                               action = "recupera_datos_del_SUNAT",
+                               persona_num_documento = UrlParameter.Optional
+                           },
+                           new[] { "SIGESDOC.Web.Controllers" });
+
+            //Add by HM
+            routes.MapRoute("ObtieneUbigeo",
+                           "Oficina/ObtieneUbigeo/{id_departamento}/{desc_Provincia}/{desc_Distrito}",
+                           new
+                           {
+                               controller = "Oficina",
+                               action = "ObtieneUbigeo",
+                               id_departamento = UrlParameter.Optional,
+                               desc_Provincia = UrlParameter.Optional,
+                               desc_Distrito = UrlParameter.Optional
                            },
                            new[] { "SIGESDOC.Web.Controllers" });
 
@@ -1112,8 +1136,8 @@ namespace SIGESDOC.Web
                                con_proceso = UrlParameter.Optional
                            },
                            new[] { "SIGESDOC.Web.Controllers" });*/
-            
-            
+
+
         }
     }
 }

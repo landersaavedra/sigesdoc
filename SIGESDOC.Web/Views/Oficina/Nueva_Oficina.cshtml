@@ -30,7 +30,7 @@
             <form method="post" id="formdirección">
                 <div class="modal-body">
                     <div class="form-horizontal">
-                        
+
                         <div class="form-group">
 
                             <label class="control-label col-md-3">Dirección</label>
@@ -112,7 +112,7 @@
                                 @Html.TextBox("txt_new_nombre_oficina", null, new { @class = "form-control input-sm", @maxlength = "100" })
                                 <label id="lbl_valida_new_nombre_oficina" style="color: #B44D4D">  </label>
                             </div>
-                            
+
                         </div>
 
                         <div class="form-group">
@@ -128,9 +128,9 @@
                                 @Html.DropDownList("cmblista_new_direccion", (IEnumerable<SelectListItem>)ViewBag.lst_new_direccion, new { @class = "form-control input-sm" })
                                 <label id="lbl_valida_new_oficina_direccion" style="color: #B44D4D">  </label>
                             </div>
-                            
+
                         </div>
-                        
+
                         <div class="form-group">
                             <div class="col-md-offset-3 col-md-10">
                                 <div class="checkbox">
@@ -147,7 +147,7 @@
                                 @Html.TextBox("txt_new_direccion_oficina", null, new { @class = "form-control input-sm", @maxlength = "200" })
                                 <label id="lbl_valida_new_direccion" style="color: #B44D4D">  </label>
                             </div>
-                            
+
                         </div>
 
                         <div class="form-group new_ofi_direccion">
@@ -202,7 +202,7 @@
         </div>
     </div>
 </div>
- 
+
 
 <div class="modal fade" id="mdldireccion_legal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg">
@@ -235,7 +235,7 @@
                             </table>
                         </div>
                         <div class="bus_tbl_dir_legal_cls_edit">
-                            @Html.TextBox("txt_id_sede_direccion_edit", null, new { @class = "form-control input-sm hidden"})
+                            @Html.TextBox("txt_id_sede_direccion_edit", null, new { @class = "form-control input-sm hidden" })
                             <div class="row">
                                 <div class="col-md-12">
                                     <div class="form-group" style="margin-left:0px; margin-right:0px;">
@@ -276,16 +276,16 @@
                                     </div>
                                 </div>
                             </div>
-                            
+
                             <div class="row">
 
                                 <div class="col-md-2">
                                     <button id="btn_edit_direc" type="button" class="btn btn-primary btn-sm pull-left"> Guardar Cambio </button>
-                                </div>     
+                                </div>
                                 <div class="col-md-2">
-                                    <button id="btn_canc_direc" type="button" class="btn btn-default btn-sm"> Cancelar </button>                          
-                                </div>     
-                                
+                                    <button id="btn_canc_direc" type="button" class="btn btn-default btn-sm"> Cancelar </button>
+                                </div>
+
                             </div>
                         </div>
                     </div>
@@ -316,7 +316,7 @@
                                 @Html.TextBox("txt_persona_legal_documento", null, new { @class = "form-control input-sm", @maxlength = "20", @onkeypress = "return IsNumeric_vista(this.value);", @onkeyup = "return Valida_back_vista_legal(this.value);" })
                             </div>
                             <label id="lbl_valida_persona_legal" style="text-align:left;" class="control-label col-md-6"></label>
-                            <label id="lbl_valida_persona_legal_x" style="color: #B44D4D">  </label> 
+                            <label id="lbl_valida_persona_legal_x" style="color: #B44D4D">  </label>
                         </div>
                         <div class="form-group">
                             <label class="control-label col-md-2">Telefono</label>
@@ -331,7 +331,7 @@
                                 Agregar Persona Legal
                             </button>
                         </div>
-                       
+
                         <br />
                         <div id="bus_tbl_persona_legal">
                             <table id="tbl_persona_legal" class="table table-striped table-hover table-condensed tabla small">
@@ -361,115 +361,115 @@
     <div class="panel-body">
         @using (Ajax.BeginForm(new AjaxOptions { HttpMethod = "Get" }))
         {
-            
-    <div class="form-horizontal">
 
-        <ol class="breadcrumb">
-            <li class="active">Información de la Persona</li>
-        </ol>
+            <div class="form-horizontal">
+
+                <ol class="breadcrumb">
+                    <li class="active">Información de la Persona</li>
+                </ol>
 
 
-        <div class="row hidden">
-            
-            @Html.TextBox("var_guardar", null)
-            @Html.TextBox("id_oficina_direccion", null)
-            @Html.TextBox("id_oficina", null)
-            @Html.TextBox("agregar_persona_legal", null)
+                <div class="row hidden">
 
-        </div>
-         
-        <div class="form-group">
-                <label class="control-label col-md-2">RUC</label>
-            <div class="col-md-2">
-                @Html.TextBox("TXT_RUC", (string)ViewBag.vb_ruc, new { @class = "form-control input-sm", @maxlength = "11", @onkeypress = "return IsNumeric_vista(this.value);", @onkeyup = "return Valida_back_vista(this.value);" })
-            </div>
-            <label class="control-label col-md-1">Siglas</label>
-            <div class="col-md-2">
-                @Html.TextBox("TXT_SIGLAS", null, new { @class = "form-control input-sm", @disabled="disabled", @maxlength = "50" })
-            </div>
-        </div>
+                    @Html.TextBox("var_guardar", null)
+                    @Html.TextBox("id_oficina_direccion", null)
+                    @Html.TextBox("id_oficina", null)
+                    @Html.TextBox("agregar_persona_legal", null)
 
-        <div class="form-group">
-            <label class="control-label col-md-2">Nombre</label>
-            <div class="col-md-5">
-                @Html.TextBox("TXT_NOMBRE", null, new { @class = "form-control input-sm", @disabled = "disabled", @maxlength = "100" })
-            </div>
-            <label id="lbl_valida_nombre_empresa" style="color: #B44D4D">  </label> 
-        </div>
-        <div class="form-group">
-            <label class="control-label col-md-2">Nombre de Sede</label>
-            <div class="col-md-5">
-                @Html.TextBox("TXT_SEDE", null, new { @class = "form-control input-sm", @disabled = "disabled", @maxlength = "100" })
-            </div>
-            <label id="lbl_valida_nombre_sede" style="color: #B44D4D">  </label> 
-        </div>
-        <div class="form-group">
-            <label class="control-label col-md-2">Dirección</label>
-            <div class="col-md-5">
-                @Html.TextBox("TXT_DIRECCION", null, new { @class = "form-control input-sm", @disabled = "disabled", @maxlength = "200" })
-            </div>
-            <label id="lbl_valida_direccion_principal" style="color: #B44D4D">  </label> 
-        </div>
-        <div class="form-group">
-            <label class="control-label col-md-2">Referencia</label>
-            <div class="col-md-5">
-                @Html.TextBox("TXT_REFERENCIA", null, new { @class = "form-control input-sm", @disabled = "disabled", @maxlength = "200" })
-            </div>
-        </div>
+                </div>
 
-        <div class="form-group valida_ubigeo">
-            <label class="control-label col-md-2">Ubigeo</label>
-            <div class="col-md-5">
-                @Html.TextBox("TXT_UBIGEO", null, new { @class = "form-control input-sm", @disabled = "disabled", @maxlength = "6" })
-            </div>
-        </div>
+                <div class="form-group">
+                    <label class="control-label col-md-2">RUC</label>
+                    <div class="col-md-2">
+                        @Html.TextBox("TXT_RUC", (string)ViewBag.vb_ruc, new { @class = "form-control input-sm", @maxlength = "11", @onkeypress = "return IsNumeric_vista(this.value);", @onkeyup = "return Valida_back_vista(this.value);" })
+                    </div>
+                    <label class="control-label col-md-1">Siglas</label>
+                    <div class="col-md-2">
+                        @Html.TextBox("TXT_SIGLAS", null, new { @class = "form-control input-sm", @disabled = "disabled", @maxlength = "50" })
+                    </div>
+                </div>
 
-        <div class="form-group nuevo_ubigeo">
-            <label class="control-label col-md-2" for="cmblista_departamento">Departamento</label>
-            <div class="col-md-5">
-                @Html.DropDownList("cmblista_departamento", (IEnumerable<SelectListItem>)ViewBag.lst_departamento, new { @class = "form-control input-sm" })
-            </div>
-        </div>
+                <div class="form-group">
+                    <label class="control-label col-md-2">Nombre</label>
+                    <div class="col-md-5">
+                        @Html.TextBox("TXT_NOMBRE", null, new { @class = "form-control input-sm", @disabled = "disabled", @maxlength = "100" })
+                    </div>
+                    <label id="lbl_valida_nombre_empresa" style="color: #B44D4D">  </label>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-md-2">Nombre de Sede</label>
+                    <div class="col-md-5">
+                        @Html.TextBox("TXT_SEDE", null, new { @class = "form-control input-sm", @disabled = "disabled", @maxlength = "100" })
+                    </div>
+                    <label id="lbl_valida_nombre_sede" style="color: #B44D4D">  </label>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-md-2">Dirección</label>
+                    <div class="col-md-5">
+                        @Html.TextBox("TXT_DIRECCION", null, new { @class = "form-control input-sm", @disabled = "disabled", @maxlength = "200" })
+                    </div>
+                    <label id="lbl_valida_direccion_principal" style="color: #B44D4D">  </label>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-md-2">Referencia</label>
+                    <div class="col-md-5">
+                        @Html.TextBox("TXT_REFERENCIA", null, new { @class = "form-control input-sm", @disabled = "disabled", @maxlength = "200" })
+                    </div>
+                </div>
 
-        <div class="form-group nuevo_ubigeo">
-            <label class="control-label col-md-2" for="cmblista_provincia">Provincia</label>
-            <div class="col-md-5">
-                @Html.DropDownList("cmblista_provincia", (IEnumerable<SelectListItem>)ViewBag.lst_provincia, new { @class = "form-control input-sm" })
-            </div>
-        </div>
+                <div class="form-group valida_ubigeo">
+                    <label class="control-label col-md-2">Ubigeo</label>
+                    <div class="col-md-5">
+                        @Html.TextBox("TXT_UBIGEO", null, new { @class = "form-control input-sm", @disabled = "disabled", @maxlength = "6" })
+                    </div>
+                </div>
 
-        <div class="form-group nuevo_ubigeo">
-            <label class="control-label col-md-2" for="cmblista_distrito">Distrito</label>
-            <div class="col-md-5">
-                @Html.DropDownList("cmblista_distrito", (IEnumerable<SelectListItem>)ViewBag.lst_distrito, new { @class = "form-control input-sm" })
-            </div>
+                <div class="form-group nuevo_ubigeo">
+                    <label class="control-label col-md-2" for="cmblista_departamento">Departamento</label>
+                    <div class="col-md-5">
+                        @Html.DropDownList("cmblista_departamento", (IEnumerable<SelectListItem>)ViewBag.lst_departamento, new { @class = "form-control input-sm" })
+                    </div>
+                </div>
 
-            <div class="col-md-3">
-                <label id="lbl_valida_distrito" style="color: #B44D4D">  </label>
+                <div class="form-group nuevo_ubigeo">
+                    <label class="control-label col-md-2" for="cmblista_provincia">Provincia</label>
+                    <div class="col-md-5">
+                        @Html.DropDownList("cmblista_provincia", (IEnumerable<SelectListItem>)ViewBag.lst_provincia, new { @class = "form-control input-sm" })
+                    </div>
+                </div>
+
+                <div class="form-group nuevo_ubigeo">
+                    <label class="control-label col-md-2" for="cmblista_distrito">Distrito</label>
+                    <div class="col-md-5">
+                        @Html.DropDownList("cmblista_distrito", (IEnumerable<SelectListItem>)ViewBag.lst_distrito, new { @class = "form-control input-sm" })
+                    </div>
+
+                    <div class="col-md-3">
+                        <label id="lbl_valida_distrito" style="color: #B44D4D">  </label>
+                    </div>
+                </div>
+
+                <hr>
+                <div class="form-group">
+                    <div class="col-md-8">
+                        <button id="btn_Grabar_Empresa" type="button" class="btn btn-primary btn-sm hidden">Grabar Empresa</button>
+                        <button type="button" class="btn btn-default btn-sm regresar">Cancelar</button>
+                        <input type="submit" id="btn_ver_direccion" class="btn btn-primary btn-sm pull-left hidden" value="Buscar" />
+                        <button id="btn_nueva_oficina" type="button" class="btn btn-primary btn-sm hidden" data-toggle="modal" data-target="#mdloficina_crea">
+                            Nueva Oficina
+                        </button>
+                        <button id="btn_nueva_direccion" type="button" class="btn btn-primary btn-sm hidden" data-toggle="modal" data-target="#mdldireccion_crea">
+                            Nueva Dirección
+                        </button>
+                        <button id="btn_direccion_legal" type="button" class="btn btn-primary btn-sm hidden" data-toggle="modal" data-target="#mdldireccion_legal">
+                            Dirección
+                        </button>
+                        <button id="btn_persona_legal" type="button" class="btn btn-primary btn-sm hidden" data-toggle="modal" data-target="#mdlpersona_legal">
+                            Persona Legal
+                        </button>
+                    </div>
+                </div>
             </div>
-        </div>
-        
-        <hr>
-        <div class="form-group">
-            <div class="col-md-8">
-                <button id="btn_Grabar_Empresa" type="button" class="btn btn-primary btn-sm hidden">Grabar Empresa</button>
-                <button type="button" class="btn btn-default btn-sm regresar">Cancelar</button>
-                <input type="submit" id="btn_ver_direccion" class="btn btn-primary btn-sm pull-left hidden" value="Buscar" />
-                <button id="btn_nueva_oficina" type="button" class="btn btn-primary btn-sm hidden" data-toggle="modal" data-target="#mdloficina_crea">
-                    Nueva Oficina
-                </button>
-                <button id="btn_nueva_direccion" type="button" class="btn btn-primary btn-sm hidden" data-toggle="modal" data-target="#mdldireccion_crea">
-                    Nueva Dirección
-                </button>
-                <button id="btn_direccion_legal" type="button" class="btn btn-primary btn-sm hidden" data-toggle="modal" data-target="#mdldireccion_legal">
-                    Dirección
-                </button>
-                <button id="btn_persona_legal" type="button" class="btn btn-primary btn-sm hidden" data-toggle="modal" data-target="#mdlpersona_legal">
-                    Persona Legal
-                </button>
-            </div>
-        </div>
-    </div>
         }
     </div>
 </div>
@@ -483,7 +483,7 @@
             grid.Column(null, header:"Oficina",format: p=> p.nom_oficina),
             grid.Column(null, header:"Dirección",format: p=> p.direccion),
             grid.Column(null, header:"Ubigeo",format: p=> p.nom_ubigeo),
-            grid.Column(null, header:"Activo",format: p=> ((bool)p.activo) ? "Activo" : "Inactivo" )            
+            grid.Column(null, header:"Activo",format: p=> ((bool)p.activo) ? "Activo" : "Inactivo" )
         }
                         , footerStyle: "hidden"
                         )
@@ -508,6 +508,60 @@
 
 </div>
 
+<!-- Modal -->
+<div class="modal fade" id="loadMe" tabindex="-1" role="dialog" aria-labelledby="loadMeLabel">
+    <div class="modal-dialog modal-sm" role="document">
+        <div class="modal-content">
+            <div class="modal-body text-center">
+                <div class="loader"></div>
+                <div clas="loader-txt">
+                    <p>Consultando información, por favor espere...</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    /** SPINNER CREATION **/
+    .loader {
+        position: relative;
+        text-align: center;
+        margin: 15px auto 35px auto;
+        z-index: 9999;
+        display: block;
+        width: 80px;
+        height: 80px;
+        border: 10px solid rgba(0, 0, 0, .3);
+        border-radius: 50%;
+        border-top-color: #000;
+        animation: spin 1s ease-in-out infinite;
+        -webkit-animation: spin 1s ease-in-out infinite;
+    }
+
+    @@keyframes spin {
+        to {
+            -webkit-transform: rotate(360deg);
+        }
+    }
+
+    @@-webkit-keyframes spin {
+        to {
+            -webkit-transform: rotate(360deg);
+        }
+    }
+
+    /** MODAL STYLING **/
+    .modal-content {
+        border-radius: 0px;
+        box-shadow: 0 0 20px 8px rgba(0, 0, 0, 0.7);
+    }
+
+    .modal-backdrop.show {
+        opacity: 0.75;
+    }
+</style>
+
 <script type="text/javascript">
 
     function IsNumeric(dato) {
@@ -530,6 +584,7 @@
             success: function (data) {
                 var entra = 0;
                 var cont = 1;
+
                 $.each(data, function (id, option) {
                     if (option.Value == "NO") {
                         entra = 1;
@@ -548,6 +603,9 @@
                 });
 
                 if (entra == 1) {
+                    //Add by HM
+                    recupera_datos_del_SUNAT(num_ruc);
+
                     $('#btn_Grabar_Empresa').removeClass("hidden");
                     $('#id_oficina_direccion').val("");
                     $('#id_oficina').val("");
@@ -565,6 +623,7 @@
                     $('#TXT_UBIGEO').removeAttr("disabled", "disabled");
                     $('.valida_ubigeo').hide();
                     $('.nuevo_ubigeo').show();
+
                 }
                 else
                 {
@@ -572,15 +631,76 @@
                     $('#btn_nueva_direccion').removeClass("hidden");
                     $('#btn_direccion_legal').removeClass("hidden");
                     $('#btn_persona_legal').removeClass("hidden");
+                    $("#loadMe").modal("hide");
 
                 }
             },
             error: function (xhr, ajaxOptions, thrownError) {
+                $("#loadMe").modal("hide");
                 alert('Failed to retrieve states.');
             }
         });
     }
 
+    //Add by HM
+    function recupera_datos_del_SUNAT(num_ruc) {
+
+        $.ajax({
+            cache: false,
+            type: "GET",
+            url: "@(Url.RouteUrl("recupera_datos_del_SUNAT"))",
+            data: { "persona_num_documento": num_ruc },
+
+            success: function (data) {
+                $('#TXT_NOMBRE').val(data[0].ddp_nombre);
+                $('#TXT_SEDE').val(data[0].ddp_nomzon);
+                $('#TXT_REFERENCIA').val(data[0].ddp_refer1);
+                $('#TXT_DIRECCION').val(data[0].domicilioLegal);
+
+                //Setea Texto y Evento CHANGED de Listas de Ubigeo
+                //----->Departamento
+                $("#cmblista_departamento option").filter(function () {
+                    return this.text == data[0].desc_dep;
+                }).attr('selected', true);
+
+                //----->Provincia
+                $('#cmblista_provincia option:selected').text(data[0].desc_prov);
+
+                //Recupera Datos de Ubigeo --> Distrito
+                var id_Dep = $("#cmblista_departamento").val();
+                recupera_datos_Ubigeo(id_Dep, data[0].desc_prov, data[0].desc_dist);
+                $("#loadMe").modal("hide");
+            },
+            error: function (xhr, ajaxOptions, thrownError) {
+                $("#loadMe").modal("hide");
+                alert('Se encontro un problema al intentar conectar con el servicio de SUNAT.');
+            }
+        })
+    }
+
+    //Add by HM
+    function recupera_datos_Ubigeo(id_departamento, desc_Provincia, desc_Distrito) {
+        $.ajax({
+            cache: false,
+            type: "GET",
+            url: "@(Url.RouteUrl("ObtieneUbigeo"))",
+            data: {
+                "id_departamento": id_departamento,
+                "desc_Provincia": desc_Provincia,
+                "desc_Distrito": desc_Distrito
+                },
+            success: function (data) {
+                $('#cmblista_distrito').append($('<option></option>').val(data).html(desc_Distrito));
+                $("#cmblista_distrito option").filter(function () {
+                    return this.text == desc_Distrito;
+                }).attr('selected', true);
+            },
+            error: function (xhr, ajaxOptions, thrownError) {
+                $("#loadMe").modal("hide");
+                alert('Se encontro un problema al intentar encontrar Ubigeo');
+            }
+        })
+    }
 
     function IsNumeric_vista(dato) {
         var valor = dato.indexOf(".");
@@ -673,7 +793,6 @@
     }
 
     $(document).ready(function () {
-
         $("#agregar_persona_legal").val("0");
         $("#txt_check_new_direccion").val("0");
         $('.valida_ubigeo').show();
@@ -681,6 +800,11 @@
         $('.bus_tbl_dir_legal_cls_edit').hide();
 
         if ($("#TXT_RUC").val() != "") {
+            $("#loadMe").modal({
+                backdrop: "static", //remove ability to close modal with click
+                keyboard: false, //remove option to close with keyboard
+                show: true //Display loader!
+            });
             valida_ruc($("#TXT_RUC").val());
         }
 

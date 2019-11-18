@@ -16,6 +16,8 @@ using System.Web.UI;
 using System.Text;
 using Microsoft.Reporting.WebForms;
 using System.Web.Helpers;
+using SIGESDOC.VSTO;
+using _Word = Microsoft.Office.Tools.Word;
 
 namespace SIGESDOC.Web.Controllers
 {
@@ -25,6 +27,8 @@ namespace SIGESDOC.Web.Controllers
         private readonly IHojaTramiteService _HojaTramiteService;
         private readonly IGeneralService _GeneralService;
         private readonly IOficinaService _OficinaService;
+
+       
 
         public HabilitacionesController(IHabilitacionesService HabilitacionesService, IGeneralService GeneralService, IOficinaService OficinaService, IHojaTramiteService HojaTramiteService)
         {
@@ -10185,6 +10189,7 @@ namespace SIGESDOC.Web.Controllers
                     }
 
                     DataTable tbl = new DataTable();
+                    
                     tbl.Columns.Add("NOM_TIPO_DOCUMENTO");
                     tbl.Columns.Add("DOCUMENTO");
                     tbl.Columns.Add("FECHA_DOCUMENTO");
@@ -10195,6 +10200,7 @@ namespace SIGESDOC.Web.Controllers
                     tbl.Columns.Add("RUTA_PDF");
 
                     //Add by HM - 13/11/2019
+                    tbl.Columns.Add("NUM_DOC");
                     tbl.Columns.Add("EVALUADOR_CDL_NOTIF");
                     tbl.Columns.Add("DIRECCION_CDL_NOTIF");
                     tbl.Columns.Add("EMPRESA_CDL_NOTIF");
@@ -10225,6 +10231,7 @@ namespace SIGESDOC.Web.Controllers
                             ruta_x,
 
                             //Add by HM - 13/11/2019
+                            result.num_doc,
                             result.evaluador_cdl_notif,
                             result.direccion_cdl_notif,
                             result.empresa_cdl_notif,

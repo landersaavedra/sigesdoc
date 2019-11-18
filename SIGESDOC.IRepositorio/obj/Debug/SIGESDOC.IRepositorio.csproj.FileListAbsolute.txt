@@ -295,3 +295,5 @@ C:\Users\PSSPERU069\Documents\Proyecto\sigesdoc\SIGESDOC.IRepositorio\obj\Debug\
 C:\Users\PSSPERU069\Documents\Proyecto\sigesdoc\SIGESDOC.IRepositorio\obj\Debug\SIGESDOC.IRepositorio.csproj.CopyComplete
 C:\Users\PSSPERU069\Documents\Proyecto\sigesdoc\SIGESDOC.IRepositorio\obj\Debug\SIGESDOC.IRepositorio.dll
 C:\Users\PSSPERU069\Documents\Proyecto\sigesdoc\SIGESDOC.IRepositorio\obj\Debug\SIGESDOC.IRepositorio.pdb
+C:\Users\PSSPERU069\Documents\Proyecto\sigesdoc\SIGESDOC.IRepositorio\bin\Debug\SIGESDOC.IRepositorio.dll.CodeAnalysisLog.xml
+C:\Users\PSSPERU069\Documents\Proyecto\sigesdoc\SIGESDOC.IRepositorio\bin\Debug\SIGESDOC.IRepositorio.dll.lastcodeanalysissucceeded

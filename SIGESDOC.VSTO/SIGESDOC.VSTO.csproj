@@ -15,6 +15,7 @@
     <BootstrapperEnabled>true</BootstrapperEnabled>
     <BootstrapperComponentsLocation>HomeSite</BootstrapperComponentsLocation>
     <ProjectGuid>{5F2D16EB-D17D-4124-8E45-97B7D005D74D}</ProjectGuid>
+    <SolutionID>06a75925-6f6a-4f82-af53-872ef109e1ab</SolutionID>
   </PropertyGroup>
   <ItemGroup>
     <BootstrapperPackage Include="Microsoft.VSTORuntime.4.0">
@@ -100,6 +101,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <None Include="SIGESDOC.VSTO_TemporaryKey.pfx" />
     <None Include="WORD_ACTA_DE_ NOTIFICACIÓN.docx" />
     <Compile Include="ThisDocument.cs">
       <DependentUpon>WORD_ACTA_DE_ NOTIFICACIÓN.docx</DependentUpon>
@@ -130,9 +132,32 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\SIGESDOC.IAplicacionService\SIGESDOC.IAplicacionService.csproj">
+      <Project>{9478b454-a030-4c97-a5a0-1f59bf8c81e6}</Project>
+      <Name>SIGESDOC.IAplicacionService</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SIGESDOC.Request\SIGESDOC.Request.csproj">
+      <Project>{5b483d46-9461-48df-9ddd-73b6b5a2e792}</Project>
+      <Name>SIGESDOC.Request</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SIGESDOC.Response\SIGESDOC.Response.csproj">
+      <Project>{89d6d533-4a64-45aa-bbfd-75e69015725f}</Project>
+      <Name>SIGESDOC.Response</Name>
+    </ProjectReference>
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignManifests>true</SignManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestKeyFile>SIGESDOC.VSTO_TemporaryKey.pfx</ManifestKeyFile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestCertificateThumbprint>1E0414F440C6D44B1B0E743A503B61253B227240</ManifestCertificateThumbprint>
   </PropertyGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="$(VSToolsPath)\OfficeTools\Microsoft.VisualStudio.Tools.Office.targets" Condition="'$(VSToolsPath)' != ''" />

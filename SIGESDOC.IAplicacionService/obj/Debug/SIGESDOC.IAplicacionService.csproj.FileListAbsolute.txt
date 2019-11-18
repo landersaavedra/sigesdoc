@@ -166,3 +166,5 @@ C:\Users\PSSPERU069\Documents\Proyecto\sigesdoc\SIGESDOC.IAplicacionService\obj\
 C:\Users\PSSPERU069\Documents\Proyecto\sigesdoc\SIGESDOC.IAplicacionService\obj\Debug\SIGESDOC.IAplicacionService.csproj.CopyComplete
 C:\Users\PSSPERU069\Documents\Proyecto\sigesdoc\SIGESDOC.IAplicacionService\obj\Debug\SIGESDOC.IAplicacionService.dll
 C:\Users\PSSPERU069\Documents\Proyecto\sigesdoc\SIGESDOC.IAplicacionService\obj\Debug\SIGESDOC.IAplicacionService.pdb
+C:\Users\PSSPERU069\Documents\Proyecto\sigesdoc\SIGESDOC.IAplicacionService\bin\Debug\SIGESDOC.IAplicacionService.dll.CodeAnalysisLog.xml
+C:\Users\PSSPERU069\Documents\Proyecto\sigesdoc\SIGESDOC.IAplicacionService\bin\Debug\SIGESDOC.IAplicacionService.dll.lastcodeanalysissucceeded

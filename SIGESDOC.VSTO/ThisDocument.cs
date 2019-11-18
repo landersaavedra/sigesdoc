@@ -9,6 +9,10 @@ using Microsoft.Office.Tools.Word;
 using Microsoft.VisualStudio.Tools.Applications.Runtime;
 using Office = Microsoft.Office.Core;
 using Word = Microsoft.Office.Interop.Word;
+using SIGESDOC.Response;
+using SIGESDOC.Request;
+using SIGESDOC.IAplicacionService;
+
 
 namespace SIGESDOC.VSTO
 {
@@ -32,6 +36,11 @@ namespace SIGESDOC.VSTO
         {
             this.Startup += new System.EventHandler(ThisDocument_Startup);
             this.Shutdown += new System.EventHandler(ThisDocument_Shutdown);
+        }
+
+        private void PlanillaDocumentoDHCPA(int numerodocumento)
+        {
+
         }
 
         #endregion

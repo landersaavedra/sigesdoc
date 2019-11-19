@@ -309,7 +309,6 @@
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
-    <Content Include="WORD_ACTA_DE_ NOTIFICACIÓN.docx" />
     <None Include="Properties\PublishProfiles\Web Deploy.pubxml" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -491,9 +490,9 @@
       <Project>{89D6D533-4A64-45AA-BBFD-75E69015725F}</Project>
       <Name>SIGESDOC.Response</Name>
     </ProjectReference>
-    <ProjectReference Include="..\SIGESDOC.VSTO\SIGESDOC.VSTO.csproj">
-      <Project>{5f2d16eb-d17d-4124-8e45-97b7d005d74d}</Project>
-      <Name>SIGESDOC.VSTO</Name>
+    <ProjectReference Include="..\SIGESDOC.VSTO_SANIPES\SIGESDOC.VSTO_SANIPES.csproj">
+      <Project>{0e37f533-5705-4910-b33e-fec43f88b29f}</Project>
+      <Name>SIGESDOC.VSTO_SANIPES</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

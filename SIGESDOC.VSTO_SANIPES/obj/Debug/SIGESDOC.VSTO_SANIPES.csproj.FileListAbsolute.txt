@@ -1,0 +1,15 @@
+C:\Users\PSSPERU069\Documents\Proyecto\sigesdoc\SIGESDOC.VSTO_SANIPES\bin\Debug\SIGESDOC.VSTO_SANIPES.dll
+C:\Users\PSSPERU069\Documents\Proyecto\sigesdoc\SIGESDOC.VSTO_SANIPES\bin\Debug\SIGESDOC.VSTO_SANIPES.pdb
+C:\Users\PSSPERU069\Documents\Proyecto\sigesdoc\SIGESDOC.VSTO_SANIPES\bin\Debug\SIGESDOC.VSTO_SANIPES.dll.manifest
+C:\Users\PSSPERU069\Documents\Proyecto\sigesdoc\SIGESDOC.VSTO_SANIPES\bin\Debug\SIGESDOC.VSTO_SANIPES.vsto
+C:\Users\PSSPERU069\Documents\Proyecto\sigesdoc\SIGESDOC.VSTO_SANIPES\bin\Debug\CÉDULANOTIFICACIÓN.docx
+C:\Users\PSSPERU069\Documents\Proyecto\sigesdoc\SIGESDOC.VSTO_SANIPES\bin\Debug\Microsoft.Office.Tools.Common.v4.0.Utilities.dll
+C:\Users\PSSPERU069\Documents\Proyecto\sigesdoc\SIGESDOC.VSTO_SANIPES\bin\Debug\Microsoft.Office.Tools.Word.v4.0.Utilities.dll
+C:\Users\PSSPERU069\Documents\Proyecto\sigesdoc\SIGESDOC.VSTO_SANIPES\obj\Debug\SIGESDOC.VSTO_SANIPES.csprojAssemblyReference.cache
+C:\Users\PSSPERU069\Documents\Proyecto\sigesdoc\SIGESDOC.VSTO_SANIPES\obj\Debug\SIGESDOC.VSTO_SANIPES.Properties.Resources.resources
+C:\Users\PSSPERU069\Documents\Proyecto\sigesdoc\SIGESDOC.VSTO_SANIPES\obj\Debug\SIGESDOC.VSTO_SANIPES.csproj.GenerateResource.cache
+C:\Users\PSSPERU069\Documents\Proyecto\sigesdoc\SIGESDOC.VSTO_SANIPES\obj\Debug\SIGESDOC.VSTO_SANIPES.csproj.CoreCompileInputs.cache
+C:\Users\PSSPERU069\Documents\Proyecto\sigesdoc\SIGESDOC.VSTO_SANIPES\obj\Debug\SIGESDOC.VSTO_SANIPES.csproj.CopyComplete
+C:\Users\PSSPERU069\Documents\Proyecto\sigesdoc\SIGESDOC.VSTO_SANIPES\obj\Debug\SIGESDOC.VSTO_SANIPES.dll
+C:\Users\PSSPERU069\Documents\Proyecto\sigesdoc\SIGESDOC.VSTO_SANIPES\obj\Debug\SIGESDOC.VSTO_SANIPES.pdb
+C:\Users\PSSPERU069\Documents\Proyecto\sigesdoc\SIGESDOC.VSTO_SANIPES\obj\Debug\SIGESDOC.VSTO_SANIPES.ThisDocument.resources

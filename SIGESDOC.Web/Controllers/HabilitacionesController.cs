@@ -16,8 +16,12 @@ using System.Web.UI;
 using System.Text;
 using Microsoft.Reporting.WebForms;
 using System.Web.Helpers;
-using SIGESDOC.VSTO;
+using SIGESDOC.VSTO_SANIPES;
 using _Word = Microsoft.Office.Tools.Word;
+using Word = Microsoft.Office.Interop.Word;
+using Microsoft.Office;
+using System.Reflection;
+
 
 namespace SIGESDOC.Web.Controllers
 {
@@ -10933,7 +10937,113 @@ namespace SIGESDOC.Web.Controllers
 
         #endregion
 
+        public void CedulaNotificacionWord(CargaWord tableData)
+        {
+            //Parametros de Entrada Range
+            object NUM_DOC = "NUM_DOC";
+            object NON_DOC = "NON_DOC";
+            object FECHA_DOC = "FECHA_DOC";
+            object ASUNTO = "ASUNTO";
+            object ANEXOS = "ANEXOS";
+            object FECHA_REGISTRO = "FECHA_REGISTRO";
+            object USUARIO_REGISTRO = "USUARIO_REGISTRO";
+            object EVALUADOR_CDL_NOTIF = "EVALUADOR_CDL_NOTIF";
+            object DIRECCION_CDL_NOTIF = "DIRECCION_CDL_NOTIF";
+            object EMPRESA_CDL_NOTIF = "EMPRESA_CDL_NOTIF";
+            object FOLIA_CDL_NOTIF = "FOLIA_CDL_NOTIF";
+            object DOC_NOTIFICAR_CDL_NOTIF = "DOC_NOTIFICAR_CDL_NOTIF";
+            object EXP_O_HT_N_CDL_NOTIF = "EXP_O_HT_N_CDL_NOTIF";
+
+            // configruacion de word
+            object missing = Missing.Value;
+            Word.Application wApp = new Word.Application();
+            wApp.Visible = true;
+            Word.Document document = wApp.Documents.Open(@"C:\Users\PSSPERU069\Documents\Proyecto\sigesdoc\SIGESDOC.VSTO_SANIPES\bin\Debug\CÉDULANOTIFICACIÓN.docx", ref missing);
+
+            #region cedula de notificacion 
+
+            // Word.Range rNUM_DOC = document.Bookmarks["NUM_DOC"].Range;
+            Word.Range rNON_DOC = document.Bookmarks["NON_DOC"].Range;
+           // Word.Range rFECHA_DOC = document.Bookmarks["FECHA_DOC"].Range;
+            Word.Range rASUNTO = document.Bookmarks["ASUNTO"].Range;
+            //Word.Range rFECHA_REGISTRO = document.Bookmarks["FECHA_REGISTRO"].Range;
+           // Word.Range rUSUARIO_REGISTRO = document.Bookmarks["USUARIO_REGISTRO"].Range;
+            //Word.Range rEVALUADOR_CDL_NOTIF = document.Bookmarks["EVALUADOR_CDL_NOTIF"].Range;
+            Word.Range rDIRECCION_CDL_NOTIF = document.Bookmarks["DIRECCION_CDL_NOTIF"].Range;
+            Word.Range rEMPRESA_CDL_NOTIF = document.Bookmarks["EMPRESA_CDL_NOTIF"].Range;
+            Word.Range rFOLIA_CDL_NOTIF = document.Bookmarks["FOLIA_CDL_NOTIF"].Range;
+            Word.Range rDOC_NOTIFICAR_CDL_NOTIF = document.Bookmarks["DOC_NOTIFICAR_CDL_NOTIF"].Range;
+            Word.Range rEXP_O_HT_N_CDL_NOTIF = document.Bookmarks["EXP_O_HT_N_CDL_NOTIF"].Range;
+
+           //Carga de Textos para visualizar Cedula de Notificacion en Word
+            // rNUM_DOC.Text = "Texto1";
+            rNON_DOC.Text = tableData.NON_DOC;
+            rASUNTO.Text = tableData.ASUNTO;
+            //rFECHA_DOC.Text = "Texto1";
+            //rFECHA_REGISTRO.Text = "Texto1";
+            //rUSUARIO_REGISTRO.Text = "Texto1";
+            //rEVALUADOR_CDL_NOTIF.Text = "Texto1";
+            rDIRECCION_CDL_NOTIF.Text = tableData.DIRECCION_CDL_NOTIF;
+            rEMPRESA_CDL_NOTIF.Text = tableData.EMPRESA_CDL_NOTIF;
+            rFOLIA_CDL_NOTIF.Text = tableData.FOLIA_CDL_NOTIF;
+            //rFECHA_REGISTRO.Text = "Texto1";
+            //rUSUARIO_REGISTRO.Text = "Texto1";
+            rDOC_NOTIFICAR_CDL_NOTIF.Text = tableData.DOC_NOTIFICAR_CDL_NOTIF;
+            rEXP_O_HT_N_CDL_NOTIF.Text = tableData.EXP_O_HT_N_CDL_NOTIF;
+            #endregion
+
+            #region Acta de CD notificacion 1
+            Word.Range rA_NON_DOC1 = document.Bookmarks["A_NON_DOC1"].Range;
+            Word.Range rA_DIRECCION_CDL_NOTIF1 = document.Bookmarks["A_DIRECCION_CDL_NOTIF1"].Range;
+            Word.Range rA_DOC_NOTIFICAR_CDL_NOTIF1 = document.Bookmarks["A_DOC_NOTIFICAR_CDL_NOTIF1"].Range;
+            Word.Range rA_EXP_O_HT_N_CDL_NOTIF1 = document.Bookmarks["A_EXP_O_HT_N_CDL_NOTIF1"].Range;
+
+            rA_NON_DOC1.Text = tableData.NON_DOC;
+            rA_DIRECCION_CDL_NOTIF1.Text = tableData.DIRECCION_CDL_NOTIF;
+            rA_DOC_NOTIFICAR_CDL_NOTIF1.Text = tableData.DOC_NOTIFICAR_CDL_NOTIF;
+            rA_EXP_O_HT_N_CDL_NOTIF1.Text = tableData.EXP_O_HT_N_CDL_NOTIF;
+
+            #endregion
+
+            #region Acta de CD notificacion 2
+            Word.Range rA_NON_DOC2 = document.Bookmarks["A_NON_DOC2"].Range;
+            Word.Range rA_DIRECCION_CDL_NOTIF2 = document.Bookmarks["A_DIRECCION_CDL_NOTIF2"].Range;
+            Word.Range rA_DOC_NOTIFICAR_CDL_NOTIF2 = document.Bookmarks["A_DOC_NOTIFICAR_CDL_NOTIF2"].Range;
+            Word.Range rA_EXP_O_HT_N_CDL_NOTIF2 = document.Bookmarks["A_EXP_O_HT_N_CDL_NOTIF2"].Range;
+
+            rA_NON_DOC2.Text = tableData.NON_DOC;
+            rA_DIRECCION_CDL_NOTIF2.Text = tableData.DIRECCION_CDL_NOTIF;
+            rA_DOC_NOTIFICAR_CDL_NOTIF2.Text = tableData.DOC_NOTIFICAR_CDL_NOTIF;
+            rA_EXP_O_HT_N_CDL_NOTIF2.Text = tableData.EXP_O_HT_N_CDL_NOTIF;
+            #endregion
+
+            #region Acta de CD notificacion 3
+
+            Word.Range rA_NON_DOC3 = document.Bookmarks["A_NON_DOC3"].Range;
+            Word.Range rA_DIRECCION_CDL_NOTIF3 = document.Bookmarks["A_DIRECCION_CDL_NOTIF3"].Range;
+            Word.Range rA_DOC_NOTIFICAR_CDL_NOTIF3 = document.Bookmarks["A_DOC_NOTIFICAR_CDL_NOTIF3"].Range;
+            Word.Range rA_EXP_O_HT_N_CDL_NOTIF3 = document.Bookmarks["A_EXP_O_HT_N_CDL_NOTIF3"].Range;
+
+            rA_NON_DOC3.Text = tableData.NON_DOC;
+            rA_DIRECCION_CDL_NOTIF3.Text = tableData.DIRECCION_CDL_NOTIF;
+            rA_DOC_NOTIFICAR_CDL_NOTIF3.Text = tableData.DOC_NOTIFICAR_CDL_NOTIF;
+            rA_EXP_O_HT_N_CDL_NOTIF3.Text = tableData.EXP_O_HT_N_CDL_NOTIF;
+            #endregion
+
+            #region Acta de CD notificacion 4
+            Word.Range rA_NON_DOC4 = document.Bookmarks["A_NON_DOC4"].Range;
+            Word.Range rA_DIRECCION_CDL_NOTIF4 = document.Bookmarks["A_DIRECCION_CDL_NOTIF4"].Range;
+            Word.Range rA_DOC_NOTIFICAR_CDL_NOTIF4 = document.Bookmarks["A_DOC_NOTIFICAR_CDL_NOTIF4"].Range;
+            Word.Range rA_EXP_O_HT_N_CDL_NOTIF4 = document.Bookmarks["A_EXP_O_HT_N_CDL_NOTIF4"].Range;
+
+            rA_NON_DOC4.Text = tableData.NON_DOC;
+            rA_DIRECCION_CDL_NOTIF4.Text = tableData.DIRECCION_CDL_NOTIF;
+            rA_DOC_NOTIFICAR_CDL_NOTIF4.Text = tableData.DOC_NOTIFICAR_CDL_NOTIF;
+            rA_EXP_O_HT_N_CDL_NOTIF4.Text = tableData.EXP_O_HT_N_CDL_NOTIF;
+            #endregion
 
 
+
+        }
     }
 }

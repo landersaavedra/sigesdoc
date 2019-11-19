@@ -380,7 +380,8 @@
             nuevoTD += '<td>';
             nuevoTD += '<ul class="list-inline" style="margin-bottom:0; text-align: center">';
             nuevoTD += '<li>';
-            nuevoTD += '<a  id="icon_word" href="/WORD_ACTA_DE_ NOTIFICACIÓN.docx" title="Ver documento en Word">';
+            //nuevoTD += '<a  id="icon_word" href="/WORD_ACTA_DE_ NOTIFICACIÓN.docx" title="Ver documento en Word">';
+            nuevoTD += '<a  id="icon_word" href="#" title="Ver documento en Word">';
             nuevoTD += '<i class="blue glyphicon glyphicon-file"></i>';
             nuevoTD += '</a>';
             nuevoTD += '</li>';
@@ -443,15 +444,60 @@
             window.location.href = url;
         });
 
+
         $('#grid tr').click(function () {
+            datas = [];
             var tableData = $(this).children("td").map(function () {
                 return $(this).text();
             }).get();
 
             console.log(tableData);
+          
+            $.ajax({
+                cache: false,
+                type: "GET",
+                url: "/Habilitaciones/CedulaNotificacionWord",
+                data: {
+                    "NON_DOC": tableData[1],
+                    "ASUNTO": tableData[3],
+                    "DIRECCION_CDL_NOTIF": tableData[7],
+                    "EMPRESA_CDL_NOTIF": tableData[8],
+                    "FOLIA_CDL_NOTIF": tableData[9],
+                    "DOC_NOTIFICAR_CDL_NOTIF": tableData[10],
+                    "EXP_O_HT_N_CDL_NOTIF": tableData[12],
+
+                } ,
+                sucess: function () {
+                    window.Alert('Documento Encontrado');
+                },
+                error: function (xhr, ajaxOptions, thownError) {
+                    alert('Failed to retrieve states.');
+                }
+
+              });
 
         });
 
+        //$('#icon_word').click(function () {
+            
+        //    //var table = $('#tblDestinoDetalle').DataTable();
+        //    //console.log(table);
+        //    window.alert('Word');
+
+        //});
+
+        //function myFunction() {
+        //    document.getElementById("demo").style.color = "red";
+        //}
+
+        $(document).ready(function () {
+
+            $("#icon_word").click(function () {
+                window.alert('Word');
+               
+            });
+
+        });
 
     });
 </script>

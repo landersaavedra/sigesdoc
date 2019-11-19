@@ -373,5 +373,3 @@ C:\Users\PSSPERU069\Documents\Proyecto\sigesdoc\SIGESDOC.Host\obj\Debug\SIGESDOC
 C:\Users\PSSPERU069\Documents\Proyecto\sigesdoc\SIGESDOC.Host\obj\Debug\SIGESDOC.Host.csproj.CopyComplete
 C:\Users\PSSPERU069\Documents\Proyecto\sigesdoc\SIGESDOC.Host\obj\Debug\SIGESDOC.Host.dll
 C:\Users\PSSPERU069\Documents\Proyecto\sigesdoc\SIGESDOC.Host\obj\Debug\SIGESDOC.Host.pdb
-C:\Users\PSSPERU069\Documents\Proyecto\sigesdoc\SIGESDOC.Host\bin\SIGESDOC.Host.dll.CodeAnalysisLog.xml
-C:\Users\PSSPERU069\Documents\Proyecto\sigesdoc\SIGESDOC.Host\bin\SIGESDOC.Host.dll.lastcodeanalysissucceeded

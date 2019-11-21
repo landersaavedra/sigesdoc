@@ -216,6 +216,7 @@
     <Compile Include="Controllers\InicioController.cs" />
     <Compile Include="Controllers\InspeccionController.cs" />
     <Compile Include="Controllers\OficinaController.cs" />
+    <Compile Include="Controllers\RecepcionController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -462,6 +463,8 @@
     <Content Include="Views\HojaTramite\imprimir_reporte_usuario_new.cshtml" />
     <Content Include="Views\Habilitaciones\Consulta_seguimiento_habilitaciones.cshtml" />
     <Content Include="Views\HojaTramite\Nuevo_Documento_Informacion.cshtml" />
+    <Content Include="Views\Recepcion\Consulta_Recepcion.cshtml" />
+    <Content Include="Views\Recepcion\Detalle_Recepcion.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

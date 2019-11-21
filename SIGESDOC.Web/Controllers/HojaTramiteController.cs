@@ -7126,6 +7126,11 @@ namespace SIGESDOC.Web.Controllers
         {
             return RedirectToAction("Index", "Inicio");
         }
+
+        public void PreViewWord()
+        {
+
+        }
     }
 }
 

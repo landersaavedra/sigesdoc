@@ -1,0 +1,13 @@
+C:\Users\PSSPERU069\Documents\Proyecto\sigesdoc\SIGESDOC.INFORMEUTI\bin\Debug\SIGESDOC.INFORMEUTI.dll
+C:\Users\PSSPERU069\Documents\Proyecto\sigesdoc\SIGESDOC.INFORMEUTI\bin\Debug\SIGESDOC.INFORMEUTI.pdb
+C:\Users\PSSPERU069\Documents\Proyecto\sigesdoc\SIGESDOC.INFORMEUTI\bin\Debug\SIGESDOC.INFORMEUTI.dll.manifest
+C:\Users\PSSPERU069\Documents\Proyecto\sigesdoc\SIGESDOC.INFORMEUTI\bin\Debug\SIGESDOC.INFORMEUTI.vsto
+C:\Users\PSSPERU069\Documents\Proyecto\sigesdoc\SIGESDOC.INFORMEUTI\bin\Debug\INFORME_UTI.docx
+C:\Users\PSSPERU069\Documents\Proyecto\sigesdoc\SIGESDOC.INFORMEUTI\bin\Debug\Microsoft.Office.Tools.Common.v4.0.Utilities.dll
+C:\Users\PSSPERU069\Documents\Proyecto\sigesdoc\SIGESDOC.INFORMEUTI\bin\Debug\Microsoft.Office.Tools.Word.v4.0.Utilities.dll
+C:\Users\PSSPERU069\Documents\Proyecto\sigesdoc\SIGESDOC.INFORMEUTI\obj\Debug\SIGESDOC.INFORMEUTI.Properties.Resources.resources
+C:\Users\PSSPERU069\Documents\Proyecto\sigesdoc\SIGESDOC.INFORMEUTI\obj\Debug\SIGESDOC.INFORMEUTI.csproj.GenerateResource.cache
+C:\Users\PSSPERU069\Documents\Proyecto\sigesdoc\SIGESDOC.INFORMEUTI\obj\Debug\SIGESDOC.INFORMEUTI.csproj.CoreCompileInputs.cache
+C:\Users\PSSPERU069\Documents\Proyecto\sigesdoc\SIGESDOC.INFORMEUTI\obj\Debug\SIGESDOC.INFORMEUTI.csproj.CopyComplete
+C:\Users\PSSPERU069\Documents\Proyecto\sigesdoc\SIGESDOC.INFORMEUTI\obj\Debug\SIGESDOC.INFORMEUTI.dll
+C:\Users\PSSPERU069\Documents\Proyecto\sigesdoc\SIGESDOC.INFORMEUTI\obj\Debug\SIGESDOC.INFORMEUTI.pdb

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace SIGESDOC.Request
 {
-   public class CargaWord
+   public class CargaWordCedulaNotificacion
     {
         public string NON_DOC { get; set; }
         public string ASUNTO { get; set; }

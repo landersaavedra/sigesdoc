@@ -461,6 +461,7 @@
     <Content Include="Views\HojaTramite\Adjuntar_Documento_anexo_ht.cshtml" />
     <Content Include="Views\HojaTramite\imprimir_reporte_usuario_new.cshtml" />
     <Content Include="Views\Habilitaciones\Consulta_seguimiento_habilitaciones.cshtml" />
+    <Content Include="Views\HojaTramite\Nuevo_Documento_Informacion.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

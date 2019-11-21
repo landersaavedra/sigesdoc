@@ -5164,6 +5164,7 @@ namespace SIGESDOC.Web.Controllers
                     model.id_oficina_direccion = Convert.ToInt32(HttpContext.User.Identity.Name.Split('|')[4].Trim());
                     model.num_doc = _HabilitacionesService.CountDocumentos_x_tipo(model.id_tipo_documento) + 1;
                     model.nom_doc = "-" + DateTime.Now.Year.ToString() + "- DHCPA/SANIPES";
+                    model.ruc = model.ruc;
                     DocumentoDhcpaRequest req_documento_dhcpa = ModelToRequest.Documento_dhcpa(model);
                     req_documento_dhcpa.fecha_registro = DateTime.Now;
                     req_documento_dhcpa.usuario_registro = HttpContext.User.Identity.Name.Split('|')[0].Trim() + " - " + HttpContext.User.Identity.Name.Split('|')[1].Trim();
@@ -10204,6 +10205,7 @@ namespace SIGESDOC.Web.Controllers
                     tbl.Columns.Add("RUTA_PDF");
 
                     //Add by HM - 13/11/2019
+                    tbl.Columns.Add("RUC");
                     tbl.Columns.Add("NUM_DOC");
                     tbl.Columns.Add("EVALUADOR_CDL_NOTIF");
                     tbl.Columns.Add("DIRECCION_CDL_NOTIF");
@@ -10235,6 +10237,7 @@ namespace SIGESDOC.Web.Controllers
                             ruta_x,
 
                             //Add by HM - 13/11/2019
+                            result.ruc,
                             result.num_doc,
                             result.evaluador_cdl_notif,
                             result.direccion_cdl_notif,
@@ -10937,27 +10940,13 @@ namespace SIGESDOC.Web.Controllers
 
         #endregion
 
-        public void CedulaNotificacionWord(CargaWord tableData)
+        #region Cedula de Notificacion
+        public void CedulaNotificacionWord(CargaWordCedulaNotificacion tableData)
         {
-            //Parametros de Entrada Range
-            object NUM_DOC = "NUM_DOC";
-            object NON_DOC = "NON_DOC";
-            object FECHA_DOC = "FECHA_DOC";
-            object ASUNTO = "ASUNTO";
-            object ANEXOS = "ANEXOS";
-            object FECHA_REGISTRO = "FECHA_REGISTRO";
-            object USUARIO_REGISTRO = "USUARIO_REGISTRO";
-            object EVALUADOR_CDL_NOTIF = "EVALUADOR_CDL_NOTIF";
-            object DIRECCION_CDL_NOTIF = "DIRECCION_CDL_NOTIF";
-            object EMPRESA_CDL_NOTIF = "EMPRESA_CDL_NOTIF";
-            object FOLIA_CDL_NOTIF = "FOLIA_CDL_NOTIF";
-            object DOC_NOTIFICAR_CDL_NOTIF = "DOC_NOTIFICAR_CDL_NOTIF";
-            object EXP_O_HT_N_CDL_NOTIF = "EXP_O_HT_N_CDL_NOTIF";
-
-            // configruacion de word
+           // configruacion de word
             object missing = Missing.Value;
             Word.Application wApp = new Word.Application();
-            wApp.Visible = true;
+            
             Word.Document document = wApp.Documents.Open(@"C:\Users\PSSPERU069\Documents\Proyecto\sigesdoc\SIGESDOC.VSTO_SANIPES\bin\Debug\CÉDULANOTIFICACIÓN.docx", ref missing);
 
             #region cedula de notificacion 
@@ -10976,20 +10965,14 @@ namespace SIGESDOC.Web.Controllers
             Word.Range rEXP_O_HT_N_CDL_NOTIF = document.Bookmarks["EXP_O_HT_N_CDL_NOTIF"].Range;
 
            //Carga de Textos para visualizar Cedula de Notificacion en Word
-            // rNUM_DOC.Text = "Texto1";
-            rNON_DOC.Text = tableData.NON_DOC;
-            rASUNTO.Text = tableData.ASUNTO;
-            //rFECHA_DOC.Text = "Texto1";
-            //rFECHA_REGISTRO.Text = "Texto1";
-            //rUSUARIO_REGISTRO.Text = "Texto1";
-            //rEVALUADOR_CDL_NOTIF.Text = "Texto1";
-            rDIRECCION_CDL_NOTIF.Text = tableData.DIRECCION_CDL_NOTIF;
-            rEMPRESA_CDL_NOTIF.Text = tableData.EMPRESA_CDL_NOTIF;
-            rFOLIA_CDL_NOTIF.Text = tableData.FOLIA_CDL_NOTIF;
-            //rFECHA_REGISTRO.Text = "Texto1";
-            //rUSUARIO_REGISTRO.Text = "Texto1";
-            rDOC_NOTIFICAR_CDL_NOTIF.Text = tableData.DOC_NOTIFICAR_CDL_NOTIF;
-            rEXP_O_HT_N_CDL_NOTIF.Text = tableData.EXP_O_HT_N_CDL_NOTIF;
+     
+            rNON_DOC.Text = tableData.NON_DOC == null ? string.Empty : tableData.NON_DOC;
+            rASUNTO.Text = tableData.ASUNTO == null ? string.Empty : tableData.ASUNTO;
+            rDIRECCION_CDL_NOTIF.Text = tableData.DIRECCION_CDL_NOTIF == null ? string.Empty : tableData.DIRECCION_CDL_NOTIF;
+            rEMPRESA_CDL_NOTIF.Text = tableData.EMPRESA_CDL_NOTIF == null ? string.Empty : tableData.EMPRESA_CDL_NOTIF;
+            rFOLIA_CDL_NOTIF.Text = tableData.FOLIA_CDL_NOTIF == null ? string.Empty : tableData.FOLIA_CDL_NOTIF;
+            rDOC_NOTIFICAR_CDL_NOTIF.Text = tableData.DOC_NOTIFICAR_CDL_NOTIF == null ? string.Empty : tableData.DOC_NOTIFICAR_CDL_NOTIF;
+            rEXP_O_HT_N_CDL_NOTIF.Text = tableData.EXP_O_HT_N_CDL_NOTIF == null ? string.Empty : tableData.EXP_O_HT_N_CDL_NOTIF;
             #endregion
 
             #region Acta de CD notificacion 1
@@ -11041,9 +11024,70 @@ namespace SIGESDOC.Web.Controllers
             rA_DOC_NOTIFICAR_CDL_NOTIF4.Text = tableData.DOC_NOTIFICAR_CDL_NOTIF;
             rA_EXP_O_HT_N_CDL_NOTIF4.Text = tableData.EXP_O_HT_N_CDL_NOTIF;
             #endregion
+            wApp.Visible = true;
+        }
+
+        #endregion
+
+        #region RESOLUCION DIRECTORAL
+        [HttpGet]
+        public void ResolucionDirectoralWord(CargaWordResolucionDirectoral tableData)
+        {
+            object missing = System.Reflection.Missing.Value;
+            Word.Application application = new Word.Application();
+           
+            Word.Document document = application.Documents.Open(@"C:\Users\PSSPERU069\Documents\Proyecto\sigesdoc\SIGESDOC.REDIREC\bin\Debug\RESOLUCION_DIRECTORAL.docx", ref missing);
+
+            #region Campos de la Resolucion
+
+            Word.Range EMPRESA = document.Bookmarks["EMPRESA"].Range;
+            Word.Range EMPRESA_1 = document.Bookmarks["EMPRESA_1"].Range;
+            Word.Range EMPRESA_2 = document.Bookmarks["EMPRESA_2"].Range;
+            Word.Range FECHA_ACTUAL = document.Bookmarks["FECHA_ACTUAL"].Range;
+            Word.Range NOM_DOC = document.Bookmarks["NOM_DOC"].Range;
+            Word.Range RUC = document.Bookmarks["RUC"].Range;
+            Word.Range RUC_1 = document.Bookmarks["RUC_1"].Range;
+            Word.Range RUC_2 = document.Bookmarks["RUC_2"].Range;
+            Word.Range EXPEDIENTE = document.Bookmarks["EXPEDIENTE"].Range;
+            Word.Range EXPEDIENTE_1 = document.Bookmarks["EXPEDIENTE_1"].Range;
+            Word.Range EXPEDIENTE_2 = document.Bookmarks["EXPEDIENTE_2"].Range;
+            #endregion
+
+            DateTime fecha = DateTime.Now;
+            tableData.FECHA_ACTUAL = fecha.ToString("dd MMMM yyyy");
+
+            EMPRESA.Text = tableData.EMPRESA_CDL_NOTIF == null ? string.Empty : tableData.EMPRESA_CDL_NOTIF;
+            EMPRESA_1.Text = tableData.EMPRESA_CDL_NOTIF == null ? string.Empty : tableData.EMPRESA_CDL_NOTIF;
+            EMPRESA_2.Text = tableData.EMPRESA_CDL_NOTIF == null ? string.Empty : tableData.EMPRESA_CDL_NOTIF;
+
+            RUC.Text = tableData.RUC == null ? string.Empty : tableData.RUC;
+            RUC_1.Text = tableData.RUC == null ? string.Empty : tableData.RUC;
+            RUC_2.Text = tableData.RUC == null ? string.Empty : tableData.RUC;
+
+            EXPEDIENTE.Text = tableData.EXPEDIENTE == null ? string.Empty : tableData.EXPEDIENTE;
+            EXPEDIENTE_1.Text = tableData.EXPEDIENTE == null ? string.Empty : tableData.EXPEDIENTE;
+            EXPEDIENTE_2.Text = tableData.EXPEDIENTE == null ? string.Empty : tableData.EXPEDIENTE;
+
+            FECHA_ACTUAL.Text = tableData.FECHA_ACTUAL == null ? string.Empty : tableData.FECHA_ACTUAL; ;
+            NOM_DOC.Text = tableData.NOM_DOC == null ? string.Empty : tableData.NOM_DOC; ;
+            application.Visible = true;
+
+
+        }
+
+        public void informeUTIWord(CargaWordInformeUTI informe)
+        {
+            object missing = System.Reflection.Missing.Value;
+            Word.Application application = new Word.Application();
+            application.Visible = true;
+            Word.Document document = application.Documents.Open(@"C:\Users\PSSPERU069\Documents\Proyecto\sigesdoc\SIGESDOC.INFORMEUTI\bin\Debug\INFORME_UTI.docx", ref missing);
 
 
 
         }
+
+        #endregion
+
+
     }
 }

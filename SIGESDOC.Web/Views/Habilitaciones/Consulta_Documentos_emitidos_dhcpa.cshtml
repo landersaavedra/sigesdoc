@@ -27,7 +27,7 @@
 </div>
 
 
-@* MODAL DE CEDILA DE NOTIFICACION*@
+@* MODAL DE CEDULA DE NOTIFICACION*@
 <div class="modal fade" id="cdl_notificacion_detalle" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-width">
         <div class="modal-content">
@@ -57,7 +57,6 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-
 
 
                                     <!--
@@ -221,6 +220,7 @@
                 <th scope="col" style='display:none'></th>
                 <th scope="col" style='display:none'></th>
                 <th scope="col" style='display:none'></th>
+                <th scope="col" style='display:none'></th>
 
                 <th scope="col">Opciones</th>
             </tr>
@@ -232,7 +232,7 @@
                 {
             <tr>
                 @* Abrir modal en caso de ser cedula de notificacion*@
-                @if ((string)dr["NOM_TIPO_DOCUMENTO"] == "CEDULA DE NOTIFICACION")
+                @if ((string)dr["NOM_TIPO_DOCUMENTO"] == "CEDULA DE NOTIFICACION" || (string)dr["NOM_TIPO_DOCUMENTO"] == "RESOLUCION DIRECTORAL")
                 {
                     <td style=" text-align:center;"><a id="idtipodocumento" class="ver_pdf_docu"> @dr["NOM_TIPO_DOCUMENTO"]</a> </td>
                 }
@@ -264,6 +264,7 @@
                 <td id="DOC_NOTIFICAR_CDL_NOTIF" style='display:none'> @dr["DOC_NOTIFICAR_CDL_NOTIF"] </td>
                 <td id="EXP_O_HT_CDL_NOTIF" style='display:none'> @dr["EXP_O_HT_CDL_NOTIF"] </td>
                 <td id="EXP_O_HT_N_CDL_NOTIF" style='display:none'> @dr["EXP_O_HT_N_CDL_NOTIF"] </td>
+                <td id="RUC" style='display:none'> @dr["RUC"] </td>
 
                 <td>
                     <ul class="list-inline" style="margin-bottom:0">
@@ -364,7 +365,7 @@
             var tr = $(this).closest('tr');
             var row = table.row(tr);
             var nuevoTD = '<tr>';
-
+            console.log(row.data());
             //Limpiar
             $("#tblDestinoDetalle td").remove();
 
@@ -446,49 +447,67 @@
 
 
         $('#grid tr').click(function () {
-            datas = [];
             var tableData = $(this).children("td").map(function () {
                 return $(this).text();
             }).get();
 
             console.log(tableData);
-          
-            $.ajax({
-                cache: false,
-                type: "GET",
-                url: "/Habilitaciones/CedulaNotificacionWord",
-                data: {
-                    "NON_DOC": tableData[1],
-                    "ASUNTO": tableData[3],
-                    "DIRECCION_CDL_NOTIF": tableData[7],
-                    "EMPRESA_CDL_NOTIF": tableData[8],
-                    "FOLIA_CDL_NOTIF": tableData[9],
-                    "DOC_NOTIFICAR_CDL_NOTIF": tableData[10],
-                    "EXP_O_HT_N_CDL_NOTIF": tableData[12],
 
-                } ,
-                sucess: function () {
-                    window.Alert('Documento Encontrado');
-                },
-                error: function (xhr, ajaxOptions, thownError) {
-                    alert('Failed to retrieve states.');
-                }
+            var oficina = tableData[0];
 
-              });
+            if (oficina == " CEDULA DE NOTIFICACION ") {
+
+                $.ajax({
+                    cache: false,
+                    type: "GET",
+                    url: "/Habilitaciones/CedulaNotificacionWord",
+                    data: {
+                        "NON_DOC": tableData[1],
+                        "ASUNTO": tableData[3],
+                        "DIRECCION_CDL_NOTIF": tableData[7],
+                        "EMPRESA_CDL_NOTIF": tableData[8],
+                        "FOLIA_CDL_NOTIF": tableData[9],
+                        "DOC_NOTIFICAR_CDL_NOTIF": tableData[10],
+                        "EXP_O_HT_N_CDL_NOTIF": tableData[12],
+
+                    },
+                    sucess: function () {
+                        window.Alert('Documento Encontrado');
+                    },
+                    error: function (xhr, ajaxOptions, thownError) {
+                        alert('Failed to retrieve states.');
+                    }
+
+                });
+
+            } else if (oficina == " RESOLUCION DIRECTORAL ") {
+
+                $.ajax({
+                    cache: false,
+                    type: "GET",
+                    url: "/Habilitaciones/ResolucionDirectoralWord",
+                    data: {
+                        "NON_DOC": tableData[1],
+                        "EXPEDIENTE": tableData[5],
+                        //"ASUNTO": tableData[3],
+                        //"DIRECCION_CDL_NOTIF": tableData[7],
+                        "EMPRESA_CDL_NOTIF": tableData[8],
+                        //"FOLIA_CDL_NOTIF": tableData[9],
+                        //"DOC_NOTIFICAR_CDL_NOTIF": tableData[10],
+                        //"EXP_O_HT_N_CDL_NOTIF": tableData[12],
+                        "RUC": tableData[14],
+                    },
+                    sucess: function () {
+                        window.Alert('Documento Encontrado');
+                    },
+                    error: function (xhr, ajaxOptions, thownError) {
+                        alert('Failed to retrieve states.');
+                    }
+
+                });
+            }
 
         });
-
-        //$('#icon_word').click(function () {
-            
-        //    //var table = $('#tblDestinoDetalle').DataTable();
-        //    //console.log(table);
-        //    window.alert('Word');
-
-        //});
-
-        //function myFunction() {
-        //    document.getElementById("demo").style.color = "red";
-        //}
 
         $(document).ready(function () {
 

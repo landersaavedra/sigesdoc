@@ -27,7 +27,9 @@ namespace SIGESDOC.AplicacionService
                 id_filial = entidad.ID_FILIAL,
                 numero_ht = entidad.NUMERO_HT,
                 pdf = entidad.PDF,
-                id_oficina_direccion = entidad.ID_OFICINA_DIRECCION
+                id_oficina_direccion = entidad.ID_OFICINA_DIRECCION,
+                ruc = entidad.RUC
+
             };
             return item;
         }

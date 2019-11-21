@@ -1,0 +1,15 @@
+C:\Users\PSSPERU069\Documents\Proyecto\sigesdoc\SIGESDOC.REDIREC\bin\Debug\SIGESDOC.REDIREC.dll
+C:\Users\PSSPERU069\Documents\Proyecto\sigesdoc\SIGESDOC.REDIREC\bin\Debug\SIGESDOC.REDIREC.pdb
+C:\Users\PSSPERU069\Documents\Proyecto\sigesdoc\SIGESDOC.REDIREC\bin\Debug\SIGESDOC.REDIREC.dll.manifest
+C:\Users\PSSPERU069\Documents\Proyecto\sigesdoc\SIGESDOC.REDIREC\bin\Debug\SIGESDOC.REDIREC.vsto
+C:\Users\PSSPERU069\Documents\Proyecto\sigesdoc\SIGESDOC.REDIREC\bin\Debug\RESOLUCION_DIRECTORAL.docx
+C:\Users\PSSPERU069\Documents\Proyecto\sigesdoc\SIGESDOC.REDIREC\bin\Debug\Microsoft.Office.Tools.Common.v4.0.Utilities.dll
+C:\Users\PSSPERU069\Documents\Proyecto\sigesdoc\SIGESDOC.REDIREC\bin\Debug\Microsoft.Office.Tools.Word.v4.0.Utilities.dll
+C:\Users\PSSPERU069\Documents\Proyecto\sigesdoc\SIGESDOC.REDIREC\obj\Debug\SIGESDOC.REDIREC.ThisDocument.resources
+C:\Users\PSSPERU069\Documents\Proyecto\sigesdoc\SIGESDOC.REDIREC\obj\Debug\SIGESDOC.REDIREC.Properties.Resources.resources
+C:\Users\PSSPERU069\Documents\Proyecto\sigesdoc\SIGESDOC.REDIREC\obj\Debug\SIGESDOC.REDIREC.csproj.GenerateResource.cache
+C:\Users\PSSPERU069\Documents\Proyecto\sigesdoc\SIGESDOC.REDIREC\obj\Debug\SIGESDOC.REDIREC.csproj.CoreCompileInputs.cache
+C:\Users\PSSPERU069\Documents\Proyecto\sigesdoc\SIGESDOC.REDIREC\obj\Debug\SIGESDOC.REDIREC.csproj.CopyComplete
+C:\Users\PSSPERU069\Documents\Proyecto\sigesdoc\SIGESDOC.REDIREC\obj\Debug\SIGESDOC.REDIREC.dll
+C:\Users\PSSPERU069\Documents\Proyecto\sigesdoc\SIGESDOC.REDIREC\obj\Debug\SIGESDOC.REDIREC.pdb
+C:\Users\PSSPERU069\Documents\Proyecto\sigesdoc\SIGESDOC.REDIREC\obj\Debug\SIGESDOC.REDIREC.csprojAssemblyReference.cache

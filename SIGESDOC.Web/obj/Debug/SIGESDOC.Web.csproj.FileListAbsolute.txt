@@ -779,6 +779,8 @@ C:\Users\PSSPERU069\Documents\Proyecto\sigesdoc\SIGESDOC.Web\bin\EntityFramework
 C:\Users\PSSPERU069\Documents\Proyecto\sigesdoc\SIGESDOC.Web\bin\EntityFramework.SqlServer.dll
 C:\Users\PSSPERU069\Documents\Proyecto\sigesdoc\SIGESDOC.Web\bin\itextsharp.dll
 C:\Users\PSSPERU069\Documents\Proyecto\sigesdoc\SIGESDOC.Web\bin\itextsharp.xmlworker.dll
+C:\Users\PSSPERU069\Documents\Proyecto\sigesdoc\SIGESDOC.Web\bin\Microsoft.Office.Tools.v4.0.Framework.dll
+C:\Users\PSSPERU069\Documents\Proyecto\sigesdoc\SIGESDOC.Web\bin\Microsoft.Office.Tools.Word.v4.0.Utilities.dll
 C:\Users\PSSPERU069\Documents\Proyecto\sigesdoc\SIGESDOC.Web\bin\Microsoft.ReportViewer.Common.dll
 C:\Users\PSSPERU069\Documents\Proyecto\sigesdoc\SIGESDOC.Web\bin\Microsoft.ReportViewer.DataVisualization.DLL
 C:\Users\PSSPERU069\Documents\Proyecto\sigesdoc\SIGESDOC.Web\bin\Microsoft.ReportViewer.Design.DLL
@@ -794,6 +796,7 @@ C:\Users\PSSPERU069\Documents\Proyecto\sigesdoc\SIGESDOC.Web\bin\RazorPDF.dll
 C:\Users\PSSPERU069\Documents\Proyecto\sigesdoc\SIGESDOC.Web\bin\SIGESDOC.IAplicacionService.dll
 C:\Users\PSSPERU069\Documents\Proyecto\sigesdoc\SIGESDOC.Web\bin\SIGESDOC.Request.dll
 C:\Users\PSSPERU069\Documents\Proyecto\sigesdoc\SIGESDOC.Web\bin\SIGESDOC.Response.dll
+C:\Users\PSSPERU069\Documents\Proyecto\sigesdoc\SIGESDOC.Web\bin\SIGESDOC.VSTO_SANIPES.dll
 C:\Users\PSSPERU069\Documents\Proyecto\sigesdoc\SIGESDOC.Web\bin\System.Net.Http.Formatting.dll
 C:\Users\PSSPERU069\Documents\Proyecto\sigesdoc\SIGESDOC.Web\bin\System.Web.Helpers.dll
 C:\Users\PSSPERU069\Documents\Proyecto\sigesdoc\SIGESDOC.Web\bin\System.Web.Http.dll
@@ -805,6 +808,9 @@ C:\Users\PSSPERU069\Documents\Proyecto\sigesdoc\SIGESDOC.Web\bin\System.Web.WebP
 C:\Users\PSSPERU069\Documents\Proyecto\sigesdoc\SIGESDOC.Web\bin\System.Web.WebPages.dll
 C:\Users\PSSPERU069\Documents\Proyecto\sigesdoc\SIGESDOC.Web\bin\System.Web.WebPages.Razor.dll
 C:\Users\PSSPERU069\Documents\Proyecto\sigesdoc\SIGESDOC.Web\bin\WebGrease.dll
+C:\Users\PSSPERU069\Documents\Proyecto\sigesdoc\SIGESDOC.Web\bin\Microsoft.VisualStudio.Tools.Applications.Runtime.dll
+C:\Users\PSSPERU069\Documents\Proyecto\sigesdoc\SIGESDOC.Web\bin\Microsoft.Office.Tools.Common.dll
+C:\Users\PSSPERU069\Documents\Proyecto\sigesdoc\SIGESDOC.Web\bin\Microsoft.Office.Tools.Common.v4.0.Utilities.dll
 C:\Users\PSSPERU069\Documents\Proyecto\sigesdoc\SIGESDOC.Web\bin\EnvDTE.dll
 C:\Users\PSSPERU069\Documents\Proyecto\sigesdoc\SIGESDOC.Web\bin\Microsoft.VisualStudio.Shell.Interop.dll
 C:\Users\PSSPERU069\Documents\Proyecto\sigesdoc\SIGESDOC.Web\bin\Microsoft.VisualStudio.Shell.Interop.8.0.dll
@@ -817,6 +823,7 @@ C:\Users\PSSPERU069\Documents\Proyecto\sigesdoc\SIGESDOC.Web\bin\Microsoft.MSXML
 C:\Users\PSSPERU069\Documents\Proyecto\sigesdoc\SIGESDOC.Web\bin\SIGESDOC.IAplicacionService.pdb
 C:\Users\PSSPERU069\Documents\Proyecto\sigesdoc\SIGESDOC.Web\bin\SIGESDOC.Request.pdb
 C:\Users\PSSPERU069\Documents\Proyecto\sigesdoc\SIGESDOC.Web\bin\SIGESDOC.Response.pdb
+C:\Users\PSSPERU069\Documents\Proyecto\sigesdoc\SIGESDOC.Web\bin\SIGESDOC.VSTO_SANIPES.pdb
 C:\Users\PSSPERU069\Documents\Proyecto\sigesdoc\SIGESDOC.Web\bin\Autofac.xml
 C:\Users\PSSPERU069\Documents\Proyecto\sigesdoc\SIGESDOC.Web\bin\Autofac.Configuration.xml
 C:\Users\PSSPERU069\Documents\Proyecto\sigesdoc\SIGESDOC.Web\bin\Autofac.Integration.Mvc.xml
@@ -848,10 +855,3 @@ C:\Users\PSSPERU069\Documents\Proyecto\sigesdoc\SIGESDOC.Web\obj\Debug\SIGESDOC.
 C:\Users\PSSPERU069\Documents\Proyecto\sigesdoc\SIGESDOC.Web\obj\Debug\SIGESDOC.Web.csproj.CopyComplete
 C:\Users\PSSPERU069\Documents\Proyecto\sigesdoc\SIGESDOC.Web\obj\Debug\SIGESDOC.Web.dll
 C:\Users\PSSPERU069\Documents\Proyecto\sigesdoc\SIGESDOC.Web\obj\Debug\SIGESDOC.Web.pdb
-C:\Users\PSSPERU069\Documents\Proyecto\sigesdoc\SIGESDOC.Web\bin\Microsoft.Office.Tools.v4.0.Framework.dll
-C:\Users\PSSPERU069\Documents\Proyecto\sigesdoc\SIGESDOC.Web\bin\Microsoft.Office.Tools.Word.v4.0.Utilities.dll
-C:\Users\PSSPERU069\Documents\Proyecto\sigesdoc\SIGESDOC.Web\bin\Microsoft.VisualStudio.Tools.Applications.Runtime.dll
-C:\Users\PSSPERU069\Documents\Proyecto\sigesdoc\SIGESDOC.Web\bin\Microsoft.Office.Tools.Common.dll
-C:\Users\PSSPERU069\Documents\Proyecto\sigesdoc\SIGESDOC.Web\bin\Microsoft.Office.Tools.Common.v4.0.Utilities.dll
-C:\Users\PSSPERU069\Documents\Proyecto\sigesdoc\SIGESDOC.Web\bin\SIGESDOC.VSTO_SANIPES.dll
-C:\Users\PSSPERU069\Documents\Proyecto\sigesdoc\SIGESDOC.Web\bin\SIGESDOC.VSTO_SANIPES.pdb

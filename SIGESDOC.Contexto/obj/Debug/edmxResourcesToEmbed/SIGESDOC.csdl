@@ -1473,6 +1473,7 @@
     <Property Name="DOC_NOTIFICAR_CDL_NOTIF" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
     <Property Name="EXP_O_HT_CDL_NOTIF" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
     <Property Name="EXP_O_HT_N_CDL_NOTIF" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="RUC" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
   </EntityType>
   <EntityType Name="MAE_DOCUMENTO_INDICADOR">
     <Key>

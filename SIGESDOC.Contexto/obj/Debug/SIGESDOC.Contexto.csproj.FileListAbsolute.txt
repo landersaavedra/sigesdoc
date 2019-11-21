@@ -208,5 +208,3 @@ C:\Users\PSSPERU069\Documents\Proyecto\sigesdoc\SIGESDOC.Contexto\obj\Debug\SIGE
 C:\Users\PSSPERU069\Documents\Proyecto\sigesdoc\SIGESDOC.Contexto\obj\Debug\SIGESDOC.Contexto.csproj.CopyComplete
 C:\Users\PSSPERU069\Documents\Proyecto\sigesdoc\SIGESDOC.Contexto\obj\Debug\SIGESDOC.Contexto.dll
 C:\Users\PSSPERU069\Documents\Proyecto\sigesdoc\SIGESDOC.Contexto\obj\Debug\SIGESDOC.Contexto.pdb
-C:\Users\PSSPERU069\Documents\Proyecto\sigesdoc\SIGESDOC.Contexto\bin\Debug\SIGESDOC.Contexto.dll.CodeAnalysisLog.xml
-C:\Users\PSSPERU069\Documents\Proyecto\sigesdoc\SIGESDOC.Contexto\bin\Debug\SIGESDOC.Contexto.dll.lastcodeanalysissucceeded

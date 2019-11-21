@@ -392,6 +392,7 @@ namespace SIGESDOC.AplicacionService
                 ID_OFICINA_DIRECCION = request.id_oficina_direccion,
 
                 //Add by HM - 13/11/2019
+                RUC = request.ruc,
                 EVALUADOR_CDL_NOTIF = request.evaluador_cdl_notif,
                 DIRECCION_CDL_NOTIF = request.direccion_cdl_notif,
                 EMPRESA_CDL_NOTIF = request.empresa_cdl_notif,

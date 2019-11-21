@@ -3674,6 +3674,8 @@ namespace SIGESDOC.Repositorio
                                       id_oficina_direccion = MDCHPA.ID_OFICINA_DIRECCION,
 
                                       //Add by HM - 13/11/2019
+                                     
+                                      ruc = MDCHPA.RUC,
                                       evaluador_cdl_notif = MDCHPA.EVALUADOR_CDL_NOTIF,
                                       direccion_cdl_notif = MDCHPA.DIRECCION_CDL_NOTIF,
                                       empresa_cdl_notif = MDCHPA.EMPRESA_CDL_NOTIF,

@@ -338,6 +338,7 @@ namespace SIGESDOC.Web.Models
 
         public Nullable<int> id_oficina_direccion { get; set; }
 
+        public string ruc { get; set; } 
         public string evaluador_cdl_notif { get; set; }
         public string direccion_cdl_notif { get; set; }
         public string empresa_cdl_notif { get; set; }

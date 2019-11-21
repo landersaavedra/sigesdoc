@@ -176,6 +176,7 @@ namespace SIGESDOC.Web.Models
                 id_oficina_direccion = model.id_oficina_direccion,
 
                 //Add by HM - 13/11/2019
+                ruc = model.ruc,
                 evaluador_cdl_notif = model.evaluador_cdl_notif,
                 direccion_cdl_notif = model.direccion_cdl_notif,
                 empresa_cdl_notif = model.empresa_cdl_notif,

@@ -79,5 +79,3 @@ C:\Users\PSSPERU069\Documents\Proyecto\sigesdoc\SIGESDOC.Response\bin\Debug\SIGE
 C:\Users\PSSPERU069\Documents\Proyecto\sigesdoc\SIGESDOC.Response\obj\Debug\SIGESDOC.Response.csproj.CoreCompileInputs.cache
 C:\Users\PSSPERU069\Documents\Proyecto\sigesdoc\SIGESDOC.Response\obj\Debug\SIGESDOC.Response.dll
 C:\Users\PSSPERU069\Documents\Proyecto\sigesdoc\SIGESDOC.Response\obj\Debug\SIGESDOC.Response.pdb
-C:\Users\PSSPERU069\Documents\Proyecto\sigesdoc\SIGESDOC.Response\bin\Debug\SIGESDOC.Response.dll.CodeAnalysisLog.xml
-C:\Users\PSSPERU069\Documents\Proyecto\sigesdoc\SIGESDOC.Response\bin\Debug\SIGESDOC.Response.dll.lastcodeanalysissucceeded

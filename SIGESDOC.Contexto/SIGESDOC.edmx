@@ -421,6 +421,7 @@
           <Property Name="DOC_NOTIFICAR_CDL_NOTIF" Type="varchar" MaxLength="50" />
           <Property Name="EXP_O_HT_CDL_NOTIF" Type="varchar" MaxLength="50" />
           <Property Name="EXP_O_HT_N_CDL_NOTIF" Type="varchar" MaxLength="50" />
+          <Property Name="RUC" Type="varchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="MAE_DOCUMENTO_INDICADOR">
           <Key>
@@ -5188,6 +5189,7 @@ advertencia 6002: La tabla o vista 'DB_GESDOC.dbo.VW_VER_PEDIENTES_GESDOC' no ti
           <Property Name="DOC_NOTIFICAR_CDL_NOTIF" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="EXP_O_HT_CDL_NOTIF" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="EXP_O_HT_N_CDL_NOTIF" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="RUC" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="MAE_DOCUMENTO_INDICADOR">
           <Key>
@@ -8390,6 +8392,7 @@ advertencia 6002: La tabla o vista 'DB_GESDOC.dbo.VW_VER_PEDIENTES_GESDOC' no ti
           <EntitySetMapping Name="MAE_DOCUMENTO_DHCPA">
             <EntityTypeMapping TypeName="DB_GESDOCModel.MAE_DOCUMENTO_DHCPA">
               <MappingFragment StoreEntitySet="MAE_DOCUMENTO_DHCPA">
+                <ScalarProperty Name="RUC" ColumnName="RUC" />
                 <ScalarProperty Name="EXP_O_HT_N_CDL_NOTIF" ColumnName="EXP_O_HT_N_CDL_NOTIF" />
                 <ScalarProperty Name="EXP_O_HT_CDL_NOTIF" ColumnName="EXP_O_HT_CDL_NOTIF" />
                 <ScalarProperty Name="DOC_NOTIFICAR_CDL_NOTIF" ColumnName="DOC_NOTIFICAR_CDL_NOTIF" />

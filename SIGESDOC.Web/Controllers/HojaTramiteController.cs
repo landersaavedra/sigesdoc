@@ -7121,6 +7121,11 @@ namespace SIGESDOC.Web.Controllers
                     return ((JValue)token).Value;
             }
         }
+
+        public ActionResult Nuevo_Documento_Informacion()
+        {
+            return RedirectToAction("Index", "Inicio");
+        }
     }
 }
 

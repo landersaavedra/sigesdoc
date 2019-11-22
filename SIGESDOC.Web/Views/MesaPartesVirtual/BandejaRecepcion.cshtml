@@ -1,0 +1,135 @@
+﻿
+@{
+    ViewBag.Title = "BandejaRecepcion";
+}
+
+<ol class="breadcrumb" style="margin-bottom: 5px;">
+    <li><a href="#">Bandejas de documentos</a></li>
+    <li class="active">Bandeja Recepción</li>
+</ol>
+<div class="bs-callout bs-callout-info">
+    <h4>Bandeja Recepción</h4>
+    <p>En esta sección usted puede recepcionar sus documentos de Mesa de Parte Virtual </p>
+</div>
+
+<div class="panel panel-primary">
+    <div class="panel-heading panet-heading-sm">Búsqueda de documentos de recepción</div>
+    <div class="panel-body">
+        @using (Ajax.BeginForm(new AjaxOptions { HttpMethod = "Get" }))
+        {
+            <div class="row">
+
+                <div class="col-md-3">
+                    <div class="input-group input-group-sm">
+                        <span class="input-group-addon">RUC :</span>
+                        @Html.TextBox("txtRuc", null, new { @class = "form-control input-sm", @maxlength = "500" })
+                    </div>
+                </div>
+
+                <div class="col-lg-3">
+                    <div class="input-group input-group-sm">
+                        <span class="input-group-addon">Dependencia :</span>
+                        @Html.TextBox("txtDependencia", null, new { @class = "form-control input-sm", @maxlength = "500" })
+                        @*@Html.DropDownList("cmbDependencia", (IEnumerable<SelectListItem>)ViewBag.lst_tupa, new { @class = "form-control input-sm" })*@
+                    </div>
+                </div>
+
+                <div class="col-lg-6">
+                    <div class="input-group input-group-sm">
+                        <span class="input-group-addon">Desde</span>
+                        <div class="input-group date input-group-sm" id="dtpFechainicio">
+                            <input class="form-control input-sm validaFechaInicio" id="txtFechainicio" type="text" name="txtFechainicio" value="">
+                            <span class="input-group-addon input-sm add-on">
+                                <a href="#">
+                                    <i class="glyphicon glyphicon-calendar" data-date-icon="glyphicon glyphicon-calendar"></i>
+                                </a>
+                            </span>
+                        </div>
+                        <span class="input-group-addon">Hasta</span>
+                        <div class="input-group date input-group-sm" id="dtpFechafin">
+                            <input class="form-control input-sm validaFechaFin" id="txtFechafin" type="text" name="txtFechafin" value="">
+                            <span class="input-group-addon input-sm add-on">
+                                <a href="#">
+                                    <i class="glyphicon glyphicon-calendar" data-date-icon="glyphicon glyphicon-calendar"></i>
+                                </a>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+            <br />
+            <div class="row">
+
+                <div class="col-md-3">
+                    <div class="input-group input-group-sm">
+                        <span class="input-group-addon">Estado :</span>
+                        @Html.TextBox("txtEstado", null, new { @class = "form-control input-sm", @maxlength = "500" })
+                        @*@Html.DropDownList("cmbEstado", (IEnumerable<SelectListItem>)ViewBag.lst_estado, new { @class = "form-control input-sm" })*@
+                    </div>
+                </div>
+
+                <div class="col-md-3">
+                    <input type="submit" id="btnBuscar" class="btn btn-primary btn-sm pull-left" value="Buscar" />
+                </div>
+
+            </div>
+        }
+    </div>
+</div>
+
+<div id="grid">
+    <table id="grid_bandeja_recepcion" class="table table-striped table-hover table-condensed table-bordered tabla small">
+        <thead>
+            <tr class="cabecera text-center">
+                <th scope="col">Id</th>
+                <th scope="col" class="visible-lg">Num. Documento</th>
+                <th scope="col" class="visible-lg">Ent. Emisora</th>
+                <th scope="col" class="visible-lg">Uni. Org. Destino</th>
+                <th scope="col" class="visible-lg">Uni. Org. Emisora</th>
+                <th scope="col" class="visible-lg">Fec. Reg. Emisión</th>
+                <th scope="col" class="visible-lg">Num. Reg. STD</th>
+                <th scope="col" class="visible-lg">Fec. Reg. STD</th>
+                <th scope="col" class="visible-lg">CUO</th>
+                <th scope="col" class="visible-lg">CUO REF</th>
+                <th scope="col" class="visible-lg">ESTADO</th>
+                <th></th>
+            </tr>
+        </thead>
+    </table>
+</div>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $("#txtFechainicio").val($("#val_txtfechainicio").val());
+        $("#txtFechafin").val($("#val_txtfechafin").val());
+
+        $(function () {
+            $('#dtpFechafin').datetimepicker({
+                pickTime: false,
+                format: 'dd/MM/yyyy',
+                language: 'es'
+            });
+
+            $('#dtpFechainicio').datetimepicker({
+                pickTime: false,
+                format: 'dd/MM/yyyy',
+                language: 'es'
+            });
+        });
+
+        $(this).submit(function (e) {
+            var var_fecha_fin = $("#txtFechafin").val();
+            var var_fecha_ini = $("#txtFechainicio").val();
+            if (var_fecha_ini != "" && var_fecha_fin != "") {
+                if (compare_dates(var_fecha_ini, var_fecha_fin)) {
+                    $("#txtFechafin").val($("#txtFechainicio").val());
+                }
+            }
+            $("#val_txtfechainicio").val($("#txtFechainicio").val());
+            $("#val_txtfechafin").val($("#txtFechafin").val());
+        });
+    });
+</script>
+

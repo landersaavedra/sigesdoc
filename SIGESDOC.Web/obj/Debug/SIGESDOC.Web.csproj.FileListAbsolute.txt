@@ -855,3 +855,10 @@ C:\Users\PSSPERU069\Documents\Proyecto\sigesdoc\SIGESDOC.Web\obj\Debug\SIGESDOC.
 C:\Users\PSSPERU069\Documents\Proyecto\sigesdoc\SIGESDOC.Web\obj\Debug\SIGESDOC.Web.csproj.CopyComplete
 C:\Users\PSSPERU069\Documents\Proyecto\sigesdoc\SIGESDOC.Web\obj\Debug\SIGESDOC.Web.dll
 C:\Users\PSSPERU069\Documents\Proyecto\sigesdoc\SIGESDOC.Web\obj\Debug\SIGESDOC.Web.pdb
+C:\Henry.Medina\Proyectos\SIGESDOC\Proyectos\sigesdoc\SIGESDOC.Web\bin\Microsoft.Office.Tools.v4.0.Framework.dll
+C:\Henry.Medina\Proyectos\SIGESDOC\Proyectos\sigesdoc\SIGESDOC.Web\bin\Microsoft.Office.Tools.Word.v4.0.Utilities.dll
+C:\Henry.Medina\Proyectos\SIGESDOC\Proyectos\sigesdoc\SIGESDOC.Web\bin\SIGESDOC.VSTO_SANIPES.dll
+C:\Henry.Medina\Proyectos\SIGESDOC\Proyectos\sigesdoc\SIGESDOC.Web\bin\Microsoft.VisualStudio.Tools.Applications.Runtime.dll
+C:\Henry.Medina\Proyectos\SIGESDOC\Proyectos\sigesdoc\SIGESDOC.Web\bin\Microsoft.Office.Tools.Common.dll
+C:\Henry.Medina\Proyectos\SIGESDOC\Proyectos\sigesdoc\SIGESDOC.Web\bin\Microsoft.Office.Tools.Common.v4.0.Utilities.dll
+C:\Henry.Medina\Proyectos\SIGESDOC\Proyectos\sigesdoc\SIGESDOC.Web\bin\SIGESDOC.VSTO_SANIPES.pdb

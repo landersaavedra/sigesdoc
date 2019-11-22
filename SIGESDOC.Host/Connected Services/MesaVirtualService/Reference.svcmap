@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="8a2753d6-70ae-4800-b4a9-642195488825" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:58484/MesaVirtualService.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="MesaVirtualService.disco" MetadataType="Disco" ID="602d7c61-ab85-47bf-b034-fff4d0eea88b" SourceId="1" SourceUrl="http://localhost:58484/MesaVirtualService.svc?disco" />
+    <MetadataFile FileName="MesaVirtualService.xsd" MetadataType="Schema" ID="e099c47f-ab78-4941-82e1-3be6a1b16257" SourceId="1" SourceUrl="http://localhost:58484/MesaVirtualService.svc?xsd=xsd2" />
+    <MetadataFile FileName="MesaVirtualService1.xsd" MetadataType="Schema" ID="08548f02-cd6c-404b-9083-bc23d6f588a5" SourceId="1" SourceUrl="http://localhost:58484/MesaVirtualService.svc?xsd=xsd0" />
+    <MetadataFile FileName="MesaVirtualService2.xsd" MetadataType="Schema" ID="646012f5-3d85-446c-9763-deacf8a95eb8" SourceId="1" SourceUrl="http://localhost:58484/MesaVirtualService.svc?xsd=xsd1" />
+    <MetadataFile FileName="MesaVirtualService.wsdl" MetadataType="Wsdl" ID="cc22c7ee-e963-42bb-894c-8a31ed62e284" SourceId="1" SourceUrl="http://localhost:58484/MesaVirtualService.svc?wsdl" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

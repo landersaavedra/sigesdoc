@@ -217,6 +217,7 @@
     <Compile Include="Controllers\InspeccionController.cs" />
     <Compile Include="Controllers\MesaPartesVirtualController.cs" />
     <Compile Include="Controllers\OficinaController.cs" />
+    <Compile Include="Controllers\RecepcionController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -463,8 +464,13 @@
     <Content Include="Views\HojaTramite\imprimir_reporte_usuario_new.cshtml" />
     <Content Include="Views\Habilitaciones\Consulta_seguimiento_habilitaciones.cshtml" />
     <Content Include="Views\HojaTramite\Nuevo_Documento_Informacion.cshtml" />
+<<<<<<< HEAD
     <Content Include="Views\MesaPartesVirtual\BandejaDespacho.cshtml" />
     <Content Include="Views\MesaPartesVirtual\BandejaRecepcion.cshtml" />
+=======
+    <Content Include="Views\Recepcion\Consulta_Recepcion.cshtml" />
+    <Content Include="Views\Recepcion\Detalle_Recepcion.cshtml" />
+>>>>>>> a254b80028515b4c9046d643dc4678e0c243d5e9
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

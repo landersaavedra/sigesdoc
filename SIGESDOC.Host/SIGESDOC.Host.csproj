@@ -54,6 +54,7 @@
     </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Runtime.Remoting" />
+    <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.ServiceModel" />
     <Reference Include="System.ServiceModel.Activation" />
     <Reference Include="System.Web.DynamicData" />
@@ -74,7 +75,27 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Connected Services\MesaVirtualService\MesaVirtualService.disco" />
+    <None Include="Connected Services\MesaVirtualService\configuration91.svcinfo" />
+    <None Include="Connected Services\MesaVirtualService\configuration.svcinfo" />
+    <None Include="Connected Services\MesaVirtualService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
     <Content Include="packages.config" />
+    <None Include="Connected Services\MesaVirtualService\MesaVirtualService.wsdl" />
+    <None Include="Connected Services\MesaVirtualService\MesaVirtualService.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\MesaVirtualService\MesaVirtualService1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\MesaVirtualService\MesaVirtualService2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <Content Include="Connected Services\MesaVirtualService\SIGESDOC.Host.MesaVirtualService.RecepcionResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
     <None Include="Properties\PublishProfiles\Web Deploy.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -90,6 +111,11 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Connected Services\MesaVirtualService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
     <Compile Include="DependencyInjectionHelper.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -122,6 +148,9 @@
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Connected Services\MesaVirtualService\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

@@ -17,6 +17,9 @@ using System.Web.UI;
 using Newtonsoft.Json;
 using System.Text;
 using Newtonsoft.Json.Linq;
+using Word = Microsoft.Office.Interop.Word;
+using Microsoft.Office;
+using System.Reflection;
 
 // DATOS_USUARIO
 // 00 - RUC
@@ -7129,6 +7132,18 @@ namespace SIGESDOC.Web.Controllers
 
         public void PreViewWord()
         {
+            object missing = System.Reflection.Missing.Value;
+            Word.Application application = new Word.Application();
+
+            string file = @"sigesdoc\SIGESDOC.INFORMEUTI\bin\Debug\INFORME_UTI.docx";
+            string root = Path.GetDirectoryName(file);
+            FileInfo f = new FileInfo(file);
+            string path = f.FullName;
+
+            Word.Document document = application.Documents.Open(@"C:\Users\PSSPERU069\Documents\Proyecto\sigesdoc\SIGESDOC.INFORMEUTI\bin\Debug\INFORME_UTI.docx", ref missing);
+            //Word.Document document = application.Documents.Open(path, ref missing);
+
+            application.Visible = true;
 
         }
     }

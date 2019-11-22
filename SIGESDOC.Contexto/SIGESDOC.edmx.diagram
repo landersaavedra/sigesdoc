@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="f1758584dce54273b5959a3cb191ced0" Name="Diagram1" ZoomLevel="63">
+      <Diagram DiagramId="f1758584dce54273b5959a3cb191ced0" Name="Diagram1" ZoomLevel="125">
         <EntityTypeShape EntityType="DB_GESDOCModel.COUNT_HT_EXTERNO" Width="1.5" PointX="5.75" PointY="0.75" />
         <EntityTypeShape EntityType="DB_GESDOCModel.COUNT_HT_INTERNO" Width="1.5" PointX="5.75" PointY="3.75" />
         <EntityTypeShape EntityType="DB_GESDOCModel.DAT_DET_DOC_FACT" Width="1.5" PointX="3" PointY="32.25" />
@@ -15,7 +15,7 @@
         <EntityTypeShape EntityType="DB_GESDOCModel.DAT_DOCUMENTO_DHCPA_DETALLE" Width="2.625" PointX="2.375" PointY="11.75" />
         <EntityTypeShape EntityType="DB_GESDOCModel.DAT_ESPECIES_HABILITACIONES" Width="1.5" PointX="9" PointY="28.375" />
         <EntityTypeShape EntityType="DB_GESDOCModel.DAT_LOG_DESARCHIVO_DESATENDIDO" Width="1.5" PointX="8.25" PointY="33.75" />
-        <EntityTypeShape EntityType="DB_GESDOCModel.DAT_PROTOCOLO_ALMACEN" Width="1.5" PointX="11.25" PointY="22" />
+        <EntityTypeShape EntityType="DB_GESDOCModel.DAT_PROTOCOLO_ALMACEN" Width="1.5" PointX="11.25" PointY="22.5" />
         <EntityTypeShape EntityType="DB_GESDOCModel.DAT_PROTOCOLO_AUTORIZACION_INSTALACION" Width="1.5" PointX="11.25" PointY="28" />
         <EntityTypeShape EntityType="DB_GESDOCModel.DAT_PROTOCOLO_CONCESION" Width="1.5" PointX="8.25" PointY="43.625" />
         <EntityTypeShape EntityType="DB_GESDOCModel.DAT_PROTOCOLO_DESEMBARCADERO" Width="1.5" PointX="8.25" PointY="40.875" />
@@ -39,7 +39,7 @@
         <EntityTypeShape EntityType="DB_GESDOCModel.MAE_PROTOCOLO" Width="1.5" PointX="6" PointY="23.75" />
         <EntityTypeShape EntityType="DB_GESDOCModel.MAE_SEGUIMIENTO_DHCPA_OBSERVACIONES" Width="1.5" PointX="3" PointY="48.5" />
         <EntityTypeShape EntityType="DB_GESDOCModel.MAE_SERVICIO_DHCPA" Width="1.5" PointX="9.75" PointY="0.75" />
-        <EntityTypeShape EntityType="DB_GESDOCModel.MAE_TIPO_ACTIVIDAD_CONCESION" Width="1.5" PointX="9.75" PointY="3.75" />
+        <EntityTypeShape EntityType="DB_GESDOCModel.MAE_TIPO_ACTIVIDAD_CONCESION" Width="1.5" PointX="9.375" PointY="3.125" />
         <EntityTypeShape EntityType="DB_GESDOCModel.MAE_TIPO_AUTORIZACION_INSTALACION" Width="1.5" PointX="9" PointY="31.25" />
         <EntityTypeShape EntityType="DB_GESDOCModel.MAE_TIPO_CONSUMO_HUMANO" Width="1.5" PointX="3.75" PointY="19.25" />
         <EntityTypeShape EntityType="DB_GESDOCModel.MAE_TIPO_DOCUMENTO" Width="1.5" PointX="1.5" PointY="36.25" />
@@ -51,36 +51,36 @@
         <EntityTypeShape EntityType="DB_GESDOCModel.MAE_TIPO_SEGUIMIENTO" Width="1.5" PointX="7.75" PointY="9.75" />
         <EntityTypeShape EntityType="DB_GESDOCModel.MAE_TIPO_TRAMITE" Width="1.5" PointX="1.5" PointY="57.5" />
         <EntityTypeShape EntityType="DB_GESDOCModel.MAE_VERSION_SOLICITUD" Width="1.5" PointX="0.75" PointY="39.25" />
-        <EntityTypeShape EntityType="DB_GESDOCModel.VW_CONSULTA_EMBARCACIONES" Width="1.5" PointX="9.75" PointY="9.75" />
-        <EntityTypeShape EntityType="DB_GESDOCModel.VW_CONSULTA_TIPO_EMBARCACIONES" Width="1.5" PointX="11.75" PointY="4.75" />
-        <EntityTypeShape EntityType="DB_GESDOCModel.vw_CONSULTAR_ACTV_ALMACEN" Width="1.5" PointX="11.75" PointY="7.75" />
-        <EntityTypeShape EntityType="DB_GESDOCModel.vw_CONSULTAR_ACTV_EMBARCACION" Width="1.5" PointX="11.75" PointY="10.75" />
-        <EntityTypeShape EntityType="DB_GESDOCModel.vw_CONSULTAR_COD_HAB_ALMACEN" Width="1.5" PointX="5.75" PointY="12.75" />
-        <EntityTypeShape EntityType="DB_GESDOCModel.vw_CONSULTAR_COD_HAB_EMBARCACION" Width="1.5" PointX="13.75" PointY="0.75" />
-        <EntityTypeShape EntityType="DB_GESDOCModel.vw_CONSULTAR_DB_GENERAL_MAE_ALMACEN_SEDE" Width="1.5" PointX="13.75" PointY="3.75" />
-        <EntityTypeShape EntityType="DB_GESDOCModel.VW_CONSULTAR_DB_GENERAL_MAE_AREA_PRODUCCION" Width="1.5" PointX="7.75" PointY="13.75" />
-        <EntityTypeShape EntityType="DB_GESDOCModel.VW_CONSULTAR_DB_GENERAL_MAE_TIPO_CONCESION" Width="1.5" PointX="9.75" PointY="13.75" />
-        <EntityTypeShape EntityType="DB_GESDOCModel.VW_CONSULTAR_DB_GENERAL_MAE_ZONA_PRODUCCION" Width="1.5" PointX="11.75" PointY="13.75" />
-        <EntityTypeShape EntityType="DB_GESDOCModel.vw_CONSULTAR_DEPARTAMENTO" Width="1.5" PointX="13.75" PointY="13.75" />
-        <EntityTypeShape EntityType="DB_GESDOCModel.vw_CONSULTAR_DIRECCION" Width="1.5" PointX="15.75" PointY="0.75" />
-        <EntityTypeShape EntityType="DB_GESDOCModel.vw_CONSULTAR_DNI" Width="1.5" PointX="15.75" PointY="3.75" />
-        <EntityTypeShape EntityType="DB_GESDOCModel.VW_CONSULTAR_EMPRESA_PERSONA_LEGAL" Width="1.5" PointX="3.75" PointY="15.75" />
-        <EntityTypeShape EntityType="DB_GESDOCModel.VW_CONSULTAR_ESPECIES" Width="1.5" PointX="15.75" PointY="7.75" />
-        <EntityTypeShape EntityType="DB_GESDOCModel.VW_CONSULTAR_ESPECIES_CATEGORIAS" Width="1.5" PointX="15.75" PointY="10.75" />
-        <EntityTypeShape EntityType="DB_GESDOCModel.vw_CONSULTAR_OFICINA" Width="1.5" PointX="15.75" PointY="13.75" />
-        <EntityTypeShape EntityType="DB_GESDOCModel.VW_CONSULTAR_OFICINA_DIRECCION_LEGAL" Width="1.5" PointX="13.75" PointY="16.75" />
-        <EntityTypeShape EntityType="DB_GESDOCModel.VW_CONSULTAR_PERSONA_TELEFONO" Width="1.5" PointX="15.75" PointY="16.75" />
-        <EntityTypeShape EntityType="DB_GESDOCModel.vw_CONSULTAR_PERSONAL" Width="1.5" PointX="17.75" PointY="0.75" />
-        <EntityTypeShape EntityType="DB_GESDOCModel.vw_CONSULTAR_PLANTAS" Width="1.5" PointX="17.75" PointY="4.75" />
-        <EntityTypeShape EntityType="DB_GESDOCModel.vw_CONSULTAR_PROVINCIA" Width="1.5" PointX="5.75" PointY="17.75" />
-        <EntityTypeShape EntityType="DB_GESDOCModel.vw_CONSULTAR_SEDE_OFICINA" Width="1.5" PointX="17.75" PointY="8.75" />
-        <EntityTypeShape EntityType="DB_GESDOCModel.vw_CONSULTAR_TIPO_ACTIVIDAD_PLANTA" Width="1.5" PointX="7.75" PointY="17.75" />
-        <EntityTypeShape EntityType="DB_GESDOCModel.vw_CONSULTAR_TIPO_DOCUMENTO_IDENTIDAD" Width="1.5" PointX="9.75" PointY="17.75" />
-        <EntityTypeShape EntityType="DB_GESDOCModel.vw_CONSULTAR_TIPO_PLANTA" Width="1.5" PointX="17.75" PointY="11.75" />
-        <EntityTypeShape EntityType="DB_GESDOCModel.vw_CONSULTAR_UBIGEO" Width="1.5" PointX="17.75" PointY="14.75" />
-        <EntityTypeShape EntityType="DB_GESDOCModel.vw_CONSULTAR_USUARIO" Width="1.5" PointX="17.75" PointY="17.75" />
-        <EntityTypeShape EntityType="DB_GESDOCModel.VW_DB_GENERAL_MAE_CODIGO_DESEMBARCADERO" Width="1.5" PointX="19.75" PointY="0.75" />
-        <EntityTypeShape EntityType="DB_GESDOCModel.VW_DB_GENERAL_MAE_DESEMBARCADERO" Width="1.5" PointX="19.75" PointY="3.75" />
+        <EntityTypeShape EntityType="DB_GESDOCModel.VW_CONSULTA_EMBARCACIONES" Width="2.375" PointX="9.75" PointY="9.75" />
+        <EntityTypeShape EntityType="DB_GESDOCModel.VW_CONSULTA_TIPO_EMBARCACIONES" Width="2.5" PointX="10.25" PointY="4.875" />
+        <EntityTypeShape EntityType="DB_GESDOCModel.vw_CONSULTAR_ACTV_ALMACEN" Width="2.375" PointX="11.75" PointY="7.75" />
+        <EntityTypeShape EntityType="DB_GESDOCModel.vw_CONSULTAR_ACTV_EMBARCACION" Width="2.375" PointX="12.375" PointY="10.375" />
+        <EntityTypeShape EntityType="DB_GESDOCModel.vw_CONSULTAR_COD_HAB_ALMACEN" Width="1.75" PointX="5.5" PointY="12.75" />
+        <EntityTypeShape EntityType="DB_GESDOCModel.vw_CONSULTAR_COD_HAB_EMBARCACION" Width="2.625" PointX="12.25" PointY="0.625" />
+        <EntityTypeShape EntityType="DB_GESDOCModel.vw_CONSULTAR_DB_GENERAL_MAE_ALMACEN_SEDE" Width="2.25" PointX="13" PointY="3.5" />
+        <EntityTypeShape EntityType="DB_GESDOCModel.VW_CONSULTAR_DB_GENERAL_MAE_AREA_PRODUCCION" Width="2" PointX="7.5" PointY="13.75" />
+        <EntityTypeShape EntityType="DB_GESDOCModel.VW_CONSULTAR_DB_GENERAL_MAE_TIPO_CONCESION" Width="2.125" PointX="9.75" PointY="13.75" />
+        <EntityTypeShape EntityType="DB_GESDOCModel.VW_CONSULTAR_DB_GENERAL_MAE_ZONA_PRODUCCION" Width="1.5" PointX="12.125" PointY="13.75" />
+        <EntityTypeShape EntityType="DB_GESDOCModel.vw_CONSULTAR_DEPARTAMENTO" Width="1.75" PointX="13.75" PointY="13.75" />
+        <EntityTypeShape EntityType="DB_GESDOCModel.vw_CONSULTAR_DIRECCION" Width="2.375" PointX="15" PointY="0.625" />
+        <EntityTypeShape EntityType="DB_GESDOCModel.vw_CONSULTAR_DNI" Width="2.125" PointX="15.75" PointY="3.75" />
+        <EntityTypeShape EntityType="DB_GESDOCModel.VW_CONSULTAR_EMPRESA_PERSONA_LEGAL" Width="1.875" PointX="3.75" PointY="15.75" />
+        <EntityTypeShape EntityType="DB_GESDOCModel.VW_CONSULTAR_ESPECIES" Width="2.375" PointX="15.25" PointY="7.75" />
+        <EntityTypeShape EntityType="DB_GESDOCModel.VW_CONSULTAR_ESPECIES_CATEGORIAS" Width="2.125" PointX="15.125" PointY="10.5" />
+        <EntityTypeShape EntityType="DB_GESDOCModel.vw_CONSULTAR_OFICINA" Width="2.5" PointX="15.75" PointY="13.75" />
+        <EntityTypeShape EntityType="DB_GESDOCModel.VW_CONSULTAR_OFICINA_DIRECCION_LEGAL" Width="1.75" PointX="13.75" PointY="16.75" />
+        <EntityTypeShape EntityType="DB_GESDOCModel.VW_CONSULTAR_PERSONA_TELEFONO" Width="1.875" PointX="15.75" PointY="16.75" />
+        <EntityTypeShape EntityType="DB_GESDOCModel.vw_CONSULTAR_PERSONAL" Width="2.375" PointX="17.75" PointY="0.75" />
+        <EntityTypeShape EntityType="DB_GESDOCModel.vw_CONSULTAR_PLANTAS" Width="2.125" PointX="18.125" PointY="4.125" />
+        <EntityTypeShape EntityType="DB_GESDOCModel.vw_CONSULTAR_PROVINCIA" Width="1.75" PointX="5.75" PointY="17.75" />
+        <EntityTypeShape EntityType="DB_GESDOCModel.vw_CONSULTAR_SEDE_OFICINA" Width="2" PointX="17.75" PointY="8.75" />
+        <EntityTypeShape EntityType="DB_GESDOCModel.vw_CONSULTAR_TIPO_ACTIVIDAD_PLANTA" Width="1.75" PointX="7.75" PointY="17.75" />
+        <EntityTypeShape EntityType="DB_GESDOCModel.vw_CONSULTAR_TIPO_DOCUMENTO_IDENTIDAD" Width="1.875" PointX="9.75" PointY="17.75" />
+        <EntityTypeShape EntityType="DB_GESDOCModel.vw_CONSULTAR_TIPO_PLANTA" Width="2.125" PointX="17.75" PointY="11.75" />
+        <EntityTypeShape EntityType="DB_GESDOCModel.vw_CONSULTAR_UBIGEO" Width="2.375" PointX="19.25" PointY="14.625" />
+        <EntityTypeShape EntityType="DB_GESDOCModel.vw_CONSULTAR_USUARIO" Width="2.125" PointX="17.75" PointY="17.75" />
+        <EntityTypeShape EntityType="DB_GESDOCModel.VW_DB_GENERAL_MAE_CODIGO_DESEMBARCADERO" Width="1.5" PointX="20.375" PointY="0.75" />
+        <EntityTypeShape EntityType="DB_GESDOCModel.VW_DB_GENERAL_MAE_DESEMBARCADERO" Width="1.5" PointX="20.625" PointY="3.75" />
         <EntityTypeShape EntityType="DB_GESDOCModel.VW_DB_GENERAL_MAE_TIPO_DESEMBARCADERO" Width="1.5" PointX="19.75" PointY="7.75" />
         <AssociationConnector Association="DB_GESDOCModel.FK_DAT_DET_SEG_DOC_DHCPA_MAE_DOCUMENTO_DHCPA" />
         <AssociationConnector Association="DB_GESDOCModel.FK_DAT_DOCUMENTO_DETALLE_MAE_ESTADO_TRAMITE" />
@@ -118,21 +118,21 @@
         <EntityTypeShape EntityType="DB_GESDOCModel.VISTA_DB_GENERAL_MAE_UNIDAD_MEDIDA" Width="1.5" PointX="22.375" PointY="3.75" />
         <EntityTypeShape EntityType="DB_GESDOCModel.DAT_PROTOCOLO_TRANSPORTE" Width="1.5" PointX="8.25" PointY="51.375" />
         <AssociationConnector Association="DB_GESDOCModel.FK_DAT_PROTOCOLO_TRANSPORTE_MAE_PROTOCOLO" />
-        <EntityTypeShape EntityType="DB_GESDOCModel.VW_CONSULTAR_TIPO_FURGON_TRANSPORTE" Width="1.5" PointX="16.375" PointY="21.75" />
+        <EntityTypeShape EntityType="DB_GESDOCModel.VW_CONSULTAR_TIPO_FURGON_TRANSPORTE" Width="2.125" PointX="16.375" PointY="21.75" />
         <EntityTypeShape EntityType="DB_GESDOCModel.MAE_TIPO_SERVICIO_HABILITACION" Width="1.5" PointX="22.375" PointY="6.75" />
         <EntityTypeShape EntityType="DB_GESDOCModel.MAE_DESTINO_SOLICITUD_INSPECCION" Width="1.5" PointX="22.375" PointY="9.75" />
         <EntityTypeShape EntityType="DB_GESDOCModel.MAE_SOLICITUD_INSPECCION" Width="1.5" PointX="11" PointY="34" />
         <AssociationConnector Association="DB_GESDOCModel.FK_MAE_SOLICITUD_INSPECCION_MAE_VERSION_SOLICITUD" />
-        <EntityTypeShape EntityType="DB_GESDOCModel.VW_CONSULTAR_DNI_PERSONAL_LEGAL" Width="1.5" PointX="13.375" PointY="19.75" />
+        <EntityTypeShape EntityType="DB_GESDOCModel.VW_CONSULTAR_DNI_PERSONAL_LEGAL" Width="2" PointX="11.75" PointY="19.625" />
         <EntityTypeShape EntityType="DB_GESDOCModel.MAE_ACTIVIDAD_PROTOCOLO" Width="1.5" PointX="14.25" PointY="25.5" />
         <EntityTypeShape EntityType="DB_GESDOCModel.MAE_ESTADOS_DEL_PROTOCOLO" Width="1.5" PointX="12" PointY="31.625" />
         <AssociationConnector Association="DB_GESDOCModel.FK_MAE_ACTIVIDAD_PROTOCOLO_MAE_ESTADOS_DEL_PROTOCOLO" />
         <AssociationConnector Association="DB_GESDOCModel.FK_MAE_ACTIVIDAD_PROTOCOLO_MAE_PROTOCOLO" />
-        <EntityTypeShape EntityType="DB_GESDOCModel.VW_CONSULTAR_RUC" Width="1.5" PointX="20.375" PointY="12.75" />
+        <EntityTypeShape EntityType="DB_GESDOCModel.VW_CONSULTAR_RUC" Width="2" PointX="20" PointY="12.375" />
         <EntityTypeShape EntityType="DB_GESDOCModel.DAT_DOC_DET_OBSERVACIONES" Width="1.5" PointX="8.25" PointY="57.125" />
         <AssociationConnector Association="DB_GESDOCModel.FK_DAT_DOC_DET_OBSERVACIONES_DAT_DOCUMENTO_DETALLE" />
         <EntityTypeShape EntityType="DB_GESDOCModel.MAE_FIRMAS_SDHPA" Width="1.5" PointX="22.375" PointY="12.75" />
-        <EntityTypeShape EntityType="DB_GESDOCModel.VW_CONSULTAR_DB_GENERAL_MAE_CONCESION" Width="1.5" PointX="22.375" PointY="15.75" />
+        <EntityTypeShape EntityType="DB_GESDOCModel.VW_CONSULTAR_DB_GENERAL_MAE_CONCESION" Width="1.875" PointX="22.375" PointY="15.75" />
         <EntityTypeShape EntityType="DB_GESDOCModel.MAE_ACTA_INSPECCION_DSFPA" Width="1.5" PointX="13.25" PointY="34.125" />
         <EntityTypeShape EntityType="DB_GESDOCModel.MAE_INFORME_INSPECCION_DSFPA" Width="1.5" PointX="13.25" PointY="37.375" />
         <EntityTypeShape EntityType="DB_GESDOCModel.MAE_PRUEBA_INSPECCION_DSFPA" Width="1.5" PointX="13.25" PointY="40.5" />
@@ -143,25 +143,25 @@
         <AssociationConnector Association="DB_GESDOCModel.FK_MAE_CHECK_LIST_INSPECCION_DSFPA_MAE_SOLICITUD_INSPECCION" />
         <EntityTypeShape EntityType="DB_GESDOCModel.Consultar_ptocolo_transporte_x_id_transporte_2018_v1" Width="1.5" PointX="22.375" PointY="21.75" />
         <EntityTypeShape EntityType="DB_GESDOCModel.MAE_TIPO_ATENCION_INSPECCION" Width="1.5" PointX="18.375" PointY="23.75" />
-        <EntityTypeShape EntityType="DB_GESDOCModel.VW_CONSULTA_PROTOCOLOS_AI" Width="1.5" PointX="24.375" PointY="0.75" />
-        <EntityTypeShape EntityType="DB_GESDOCModel.VW_CONSULTA_PROTOCOLOS_LO" Width="1.5" PointX="24.375" PointY="4.75" />
+        <EntityTypeShape EntityType="DB_GESDOCModel.VW_CONSULTA_PROTOCOLOS_AI" Width="2.125" PointX="24.875" PointY="0.5" />
+        <EntityTypeShape EntityType="DB_GESDOCModel.VW_CONSULTA_PROTOCOLOS_LO" Width="1.875" PointX="24.375" PointY="4.75" />
         <EntityTypeShape EntityType="DB_GESDOCModel.COUNT_EXPEDIENTE_UNICO" Width="1.5" PointX="24.375" PointY="8.75" />
         <EntityTypeShape EntityType="DB_GESDOCModel.MAE_TIPO_TUPA" Width="1.5" PointX="24.375" PointY="11.75" />
-        <EntityTypeShape EntityType="DB_GESDOCModel.VW_CONSULTA_FACTURAS" Width="1.5" PointX="24.375" PointY="14.75" />
+        <EntityTypeShape EntityType="DB_GESDOCModel.VW_CONSULTA_FACTURAS" Width="2.125" PointX="25" PointY="14.75" />
         <EntityTypeShape EntityType="DB_GESDOCModel.MAE_DOCUMENTO" Width="1.5" PointX="10.75" PointY="40.375" />
         <AssociationConnector Association="DB_GESDOCModel.FK_DAT_DOCUMENTO_DETALLE_MAE_DOCUMENTO" />
         <AssociationConnector Association="DB_GESDOCModel.FK_MAE_DOCUMENTO_MAE_DOCUMENTO_INDICADOR" />
         <AssociationConnector Association="DB_GESDOCModel.FK_MAE_DOCUMENTO_MAE_HOJA_TRAMITE" />
         <AssociationConnector Association="DB_GESDOCModel.FK_MAE_DOCUMENTO_MAE_TIPO_DOCUMENTO" />
-        <EntityTypeShape EntityType="DB_GESDOCModel.VW_CONSULTAR_PENDIENTES_HT_PARA_ADJUNTAR_20190104" Width="1.5" PointX="24.375" PointY="18.75" />
+        <EntityTypeShape EntityType="DB_GESDOCModel.VW_CONSULTAR_PENDIENTES_HT_PARA_ADJUNTAR_20190104" Width="2" PointX="24.375" PointY="18.75" />
         <EntityTypeShape EntityType="DB_GESDOCModel.VW_VER_PEDIENTES_GESDOC" Width="1.5" PointX="24.375" PointY="21.75" />
-        <EntityTypeShape EntityType="DB_GESDOCModel.vw_consulta_db_general_mae_tipo_factura" Width="1.5" PointX="26.375" PointY="0.75" />
-        <EntityTypeShape EntityType="DB_GESDOCModel.VW_CONSULTA_DB_GENERAL_MAE_FACTURA" Width="1.5" PointX="26.375" PointY="3.75" />
-        <EntityTypeShape EntityType="DB_GESDOCModel.VW_CONSULTA_RECIBO_SERIE1" Width="1.5" PointX="26.375" PointY="7.75" />
-        <EntityTypeShape EntityType="DB_GESDOCModel.VW_CONSULTA_PERSONA_RECIBO_SERIE1" Width="1.5" PointX="26.375" PointY="12.75" />
-        <EntityTypeShape EntityType="DB_GESDOCModel.VW_CONSULTA_DB_GENERAL_MAE_VALOR_FACTURADO_EXP" Width="1.5" PointX="26.375" PointY="15.75" />
+        <EntityTypeShape EntityType="DB_GESDOCModel.vw_consulta_db_general_mae_tipo_factura" Width="3.5" PointX="27.625" PointY="0.75" />
+        <EntityTypeShape EntityType="DB_GESDOCModel.VW_CONSULTA_DB_GENERAL_MAE_FACTURA" Width="2.125" PointX="26.375" PointY="3.75" />
+        <EntityTypeShape EntityType="DB_GESDOCModel.VW_CONSULTA_RECIBO_SERIE1" Width="2" PointX="26.375" PointY="7.75" />
+        <EntityTypeShape EntityType="DB_GESDOCModel.VW_CONSULTA_PERSONA_RECIBO_SERIE1" Width="2.125" PointX="26.375" PointY="12.75" />
+        <EntityTypeShape EntityType="DB_GESDOCModel.VW_CONSULTA_DB_GENERAL_MAE_VALOR_FACTURADO_EXP" Width="2" PointX="27.5" PointY="15.875" />
         <EntityTypeShape EntityType="DB_GESDOCModel.MAE_SUB_TUPA" Width="1.5" PointX="16.375" PointY="26.75" />
-        <EntityTypeShape EntityType="DB_GESDOCModel.VW_CONSULTA_DB_GENERAL_MAE_OPERACION" Width="1.5" PointX="26.375" PointY="18.75" />
+        <EntityTypeShape EntityType="DB_GESDOCModel.VW_CONSULTA_DB_GENERAL_MAE_OPERACION" Width="2.125" PointX="27.125" PointY="18.75" />
         <EntityTypeShape EntityType="DB_GESDOCModel.VW_CONSULTA_PENDIENTES_SANIPES_DETALLE" Width="1.5" PointX="18.375" PointY="26.75" />
         <EntityTypeShape EntityType="DB_GESDOCModel.VW_CONSULTA_REPORTE_DIARIO_SERIE1" Width="1.5" PointX="26.375" PointY="21.75" />
         <EntityTypeShape EntityType="DB_GESDOCModel.MAE_REPORTE_COMPROBANTE_X_MES_CONSULTA" Width="1.5" PointX="24.375" PointY="25.75" />

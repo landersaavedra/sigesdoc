@@ -7054,7 +7054,7 @@ namespace SIGESDOC.Web.Controllers
                                             if (Value != null || dni.coResultado == "0000")
                                             {
                                                 dni.apPrimer = Value["apPrimer"].ToString() == string.Empty ? string.Empty : Value["apPrimer"].ToString();
-                                                dni.apSegundo = Value["apSegundo"].ToString() == string.Empty ? string.Empty : Value["apPrimer"].ToString();
+                                                dni.apSegundo = Value["apSegundo"].ToString() == string.Empty ? string.Empty : Value["apSegundo"].ToString();
                                                 dni.prenombres = Value["prenombres"].ToString() == string.Empty ? string.Empty : Value["prenombres"].ToString();
                                                 dni.direccion = Value["direccion"].ToString() == string.Empty ? string.Empty : Value["direccion"].ToString();
                                                 dni.ubigeo = Value["ubigeo"].ToString() == string.Empty ? string.Empty : Value["ubigeo"].ToString();

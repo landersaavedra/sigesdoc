@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.28010.2048
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29020.237
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "5. Infraestructura", "5. Infraestructura", "{1F48CB3E-A1DD-4889-8477-7C70F360E18C}"
 EndProject
@@ -38,6 +38,11 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SIGESDOC.REDIREC", "SIGESDOC.REDIREC\SIGESDOC.REDIREC.csproj", "{6753F296-2BAB-4178-AC7D-E5683E4D4849}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SIGESDOC.INFORMEUTI", "SIGESDOC.INFORMEUTI\SIGESDOC.INFORMEUTI.csproj", "{D25BA89F-3915-478A-A028-9540C53058B6}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{57AD82ED-3B6A-43A1-9995-6F499C70B9FD}"
+	ProjectSection(SolutionItems) = preProject
+		.gitignore = .gitignore
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

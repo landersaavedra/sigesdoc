@@ -199,7 +199,7 @@
     </div>
 </div>
 
-@using (Html.BeginForm("Nuevo_Documento_dhcpa", "Habilitaciones", FormMethod.Post, new { @id = "nuevoForm", @enctype = "multipart/form-data" }))
+@using (Html.BeginForm("Nuevo_Documento_dhcpa", "Habilitaciones", FormMethod.Post, new { @id = "nuevoForm", @enctype = "multipart/form-data", @onKeypress="if(event.keyCode == 13) event.returnValue = false;"  }))
 {
 
     @Html.AntiForgeryToken()
@@ -220,7 +220,19 @@
         </div>
     </div>
 
-    
+    <div class="form-group">
+        <label class="col-md-2 control-label" for="checkexpediente" id="checklabel" hidden="hidden">Cedula de Notificación:</label>
+        <div class="col-md-6">
+            <input type="checkbox" id="checkexpediente" hidden="hidden" />
+        </div>
+    </div>
+
+    <!--Add by HM-->
+    <!--FORMATO DE CEDULAS-->
+    <div class="form-group" id="DivFormatoCedulas" style="background-color:#E3F6F8">
+    </div>
+
+
 
     <div class="form-group">
         @Html.LabelFor(m => m.asunto, new { @class = "col-md-2 control-label" })
@@ -548,8 +560,40 @@
         }
     }
 
-    $(document).ready(function () {
+    
+    //Add by HM - 12/11/2019
+    function LimpiarFormatoCedulas() {
 
+        $("#evaluador_cdl_notif").val('');
+        $("#direccion_cdl_notif").val('');
+        $("#empresa_cdl_notif").val('');
+        $("#folia_cdl_notif").val('');
+        $("#doc_notificar_cdl_notif").val('');
+        //$("#exp_o_ht_cdl_notif").val('');
+        $("#exp_o_ht_n_cdl_notif").val('');
+    }
+    
+    function buscar_expediente(dato) {
+        $.ajax({
+            cache: false,
+            type: "GET",
+            url: "@(Url.RouteUrl("Buscar_expediente_documento_externo"))",
+            data: { "expediente": dato },
+            success: function (data) {
+                $("#evaluador_cdl_notif").val(data.evaluador);
+                $("#direccion_cdl_notif").val(data.direccion);
+                $("#empresa_cdl_notif").val(data.externo);
+            },
+            error: function (xhr, ajaxOptions, thrownError) {
+                alert('Failed to retrieve states.');
+            }
+        });
+    }
+
+    $(document).ready(function () {
+        //Add by HM - 12/11/2019
+        $('#DivFormatoCedulas').hide();
+        
         if ($("#txt_user_perfil").val() == "18") {
             $('.ver_persona_crea').hide();
         }
@@ -574,11 +618,133 @@
         $("#anexos").focusout(function () {
             $("#anexos").attr("rows", 4);
         });
+        
+        document.getElementById('checkexpediente').onclick = function () {
+
+            var checked = document.getElementById('checkexpediente').checked;
+            
+            if (checked == true) {
+
+                
+
+                jQuery("#DivFormatoCedulas").empty();
+
+                //EXP. O HT - EXP O HT N°
+                var nuevoTD = '<div class="form-group">';
+                nuevoTD += '<label class="col-md-2 control-label">Expediente N°:</label>';
+                nuevoTD += '<div class="col-md-2"> <input type="text" class="form-control input-sm" maxlength="50" id="exp_o_ht_n_cdl_notif" onkeypress="if(event.keyCode == 13) buscar_expediente(this.value);" />  </div>';
+                //nuevoTD += '<label class="col-md-2 control-label">Exp. o HT N°:</label>';
+                //nuevoTD += '<div class="col-md-2"> <input type="number" class="form-control input-sm" maxlength="50" id="exp_o_ht_n_cdl_notif" />  </div>';
+                nuevoTD += '</div>';
+
+                //N° FOLIOS
+                nuevoTD += '<div class="form-group">';
+                nuevoTD += '<label class="col-md-2 control-label">N° Folios:</label>';
+                nuevoTD += '<div class="col-md-2"> <input type="number" class="form-control input-sm" maxlength="50" id="folia_cdl_notif" />  </div>';
+                nuevoTD += '</div>';
+
+                //DOCUMENTO A NOTIFICAR
+                nuevoTD += '<div class="form-group">';
+                nuevoTD += '<label class="col-md-2 control-label">Documento a Notificar:</label>';
+                nuevoTD += '<div class="col-md-6"> <input type="text" class="form-control input-sm" maxlength="50" id="doc_notificar_cdl_notif" />  </div>';
+                nuevoTD += '</div>';
+
+                //EMPRESA
+                nuevoTD += '<div class="form-group">';
+                nuevoTD += '<label class="col-md-2 control-label">Empresa:</label>';
+                nuevoTD += '<div class="col-md-6"> <input type="text" class="form-control input-sm" maxlength="250" id="empresa_cdl_notif" />  </div>';
+                nuevoTD += '</div>';
+
+                //DIRECCION
+                nuevoTD += '<div class="form-group">';
+                nuevoTD += '<label class="col-md-2 control-label">Dirección:</label>';
+                nuevoTD += '<div class="col-md-6"> <input type="text" class="form-control input-sm" maxlength="250" id="direccion_cdl_notif" />  </div>';
+                nuevoTD += '</div>';
+
+                //EVALUADOR
+                nuevoTD += '<div class="form-group">';
+                nuevoTD += '<label class="col-md-2 control-label">Evaluador:</label>';
+                nuevoTD += '<div class="col-md-3"> <input type="text" class="form-control input-sm" maxlength="100" id="evaluador_cdl_notif" />  </div>';
+                nuevoTD += '</div>';
+
+                jQuery("#DivFormatoCedulas").append(nuevoTD);
+                $('#DivFormatoCedulas').show();
+            }
+            else {
+                LimpiarFormatoCedulas();
+                $('#DivFormatoCedulas').hide();
+            }
+        };
 
 
+        
         $("#cmbtipo_documento").change(function () {
+            //Add by HM 12/11/2019
+
+            var combo = $("#cmbtipo_documento").val();
+            console.log(combo);
+            if (combo == 136) {
+                // $('#checklabel').hidden = false;
+                // $('#checkexpediente').hidden = false;
+                document.getElementById('checklabel').hidden = false;
+                document.getElementById('checkexpediente').hidden = false;
+            } else {
+                document.getElementById('checklabel').hidden = true;
+                document.getElementById('checkexpediente').hidden = true;
+            }
+
+            if ($("#cmbtipo_documento").val() == 21) {
+
+                jQuery("#DivFormatoCedulas").empty();
+
+                //EXP. O HT - EXP O HT N°
+                var nuevoTD = '<div class="form-group">';
+                nuevoTD += '<label class="col-md-2 control-label">Expediente N°:</label>';
+                nuevoTD += '<div class="col-md-2"> <input type="text" class="form-control input-sm" maxlength="50" id="exp_o_ht_n_cdl_notif" onkeypress="if(event.keyCode == 13) buscar_expediente(this.value);" />  </div>';
+               // nuevoTD += '<label class="col-md-2 control-label">Exp. o HT N°:</label>';
+               // nuevoTD += '<div class="col-md-2"> <input type="number" class="form-control input-sm" maxlength="50" id="exp_o_ht_n_cdl_notif" />  </div>';
+                nuevoTD += '</div>';
+
+                //N° FOLIOS
+                nuevoTD += '<div class="form-group">';
+                nuevoTD += '<label class="col-md-2 control-label">N° Folios:</label>';
+                nuevoTD += '<div class="col-md-2"> <input type="number" class="form-control input-sm" maxlength="50" id="folia_cdl_notif" />  </div>';
+                nuevoTD += '</div>';
+
+                //DOCUMENTO A NOTIFICAR
+                nuevoTD += '<div class="form-group">';
+                nuevoTD += '<label class="col-md-2 control-label">Documento a Notificar:</label>';
+                nuevoTD += '<div class="col-md-6"> <input type="text" class="form-control input-sm" maxlength="50" id="doc_notificar_cdl_notif" />  </div>';
+                nuevoTD += '</div>';
+
+                //EMPRESA
+                nuevoTD += '<div class="form-group">';
+                nuevoTD += '<label class="col-md-2 control-label">Empresa:</label>';
+                nuevoTD += '<div class="col-md-6"> <input type="text" class="form-control input-sm" maxlength="250" id="empresa_cdl_notif" />  </div>';
+                nuevoTD += '</div>';
+
+                //DIRECCION
+                nuevoTD += '<div class="form-group">';
+                nuevoTD += '<label class="col-md-2 control-label">Dirección:</label>';
+                nuevoTD += '<div class="col-md-6"> <input type="text" class="form-control input-sm" maxlength="250" id="direccion_cdl_notif" />  </div>';
+                nuevoTD += '</div>';
+
+                //EVALUADOR
+                nuevoTD += '<div class="form-group">';
+                nuevoTD += '<label class="col-md-2 control-label">Evaluador:</label>';
+                nuevoTD += '<div class="col-md-3"> <input type="text" class="form-control input-sm" maxlength="100" id="evaluador_cdl_notif" />  </div>';
+                nuevoTD += '</div>';
+
+                jQuery("#DivFormatoCedulas").append(nuevoTD);
+                $('#DivFormatoCedulas').show();
+            } else {
+                LimpiarFormatoCedulas();
+                $('#DivFormatoCedulas').hide();
+            }
+
             verifica_tipo_documento($("#cmbtipo_documento").val());
         });
+
 
         $("#cmbofi_destino_externo").change(function () {
             llena_sede_externa($("#cmbofi_destino_externo").val());
@@ -750,13 +916,13 @@
                 $('#btnGrabar').removeAttr("disabled", "disabled");
                 return;
             }
-
+            /*
             if ($('#tblDestinoDetalle >tbody >tr').length == 0)//Valida que haya elementos en la tabla
             {
                 $('#myModal').modal();
                 $('#btnGrabar').removeAttr("disabled", "disabled");
                 return;
-            }
+            }*/
 
 
                 var lstDetalle = new Array();
@@ -805,7 +971,14 @@
                     "id_filial": $("#cmb_filial").val(),
                     "fecha_doc": $("#txtFechadocumento").val(),
                     "anexos" : $("#anexos").val(),
-                    "ind_agregar_celula" : $("#txt_ind_agregar_cedula").val(),
+                    "evaluador_cdl_notif": $("#evaluador_cdl_notif").val(),
+                    "direccion_cdl_notif": $("#direccion_cdl_notif").val(),
+                    "empresa_cdl_notif": $("#empresa_cdl_notif").val(),
+                    "folia_cdl_notif": $("#folia_cdl_notif").val(),
+                    "doc_notificar_cdl_notif": $("#doc_notificar_cdl_notif").val(),
+                    "exp_o_ht_cdl_notif": null, //$("#exp_o_ht_cdl_notif").val() ==,
+                    "exp_o_ht_n_cdl_notif": $("#exp_o_ht_n_cdl_notif").val(),
+                    "ind_agregar_celula": $("#txt_ind_agregar_cedula").val(),
                     "documento_dhcpa_detalle": lstDetalle,
                     "documento_dhcpa_seguimiento": lstseguimiento
                 };

@@ -9,13 +9,14 @@
     <RootNamespace>SIGESDOC.REDIREC</RootNamespace>
     <AssemblyName>SIGESDOC.REDIREC</AssemblyName>
     <VSTO_HostDocumentName>RESOLUCION_DIRECTORAL.docx</VSTO_HostDocumentName>
-    <TargetFrameworkVersion>v4.7.1</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <DefineConstants>VSTO40</DefineConstants>
     <OfficeApplication>Word</OfficeApplication>
     <BootstrapperEnabled>true</BootstrapperEnabled>
     <BootstrapperComponentsLocation>HomeSite</BootstrapperComponentsLocation>
     <ProjectGuid>{6753F296-2BAB-4178-AC7D-E5683E4D4849}</ProjectGuid>
     <SolutionID>9b2df190-4f8e-4b56-adc7-85f433cd3801</SolutionID>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <ItemGroup>
     <BootstrapperPackage Include="Microsoft.VSTORuntime.4.0">
@@ -124,6 +125,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -153,7 +155,7 @@
   <ProjectExtensions>
     <VisualStudio>
       <FlavorProperties GUID="{BAA0C2D2-18E2-41B9-852F-F413020CAA33}">
-        <ProjectProperties HostName="RESOLUCION_DIRECTORAL.docx" HostPackage="{18A3A5AC-5778-4778-901C-ADAAC08E910A}" OfficeVersion="15.0" VstxVersion="4.0" ApplicationType="DOC" Language="CS" TemplatesPath="VSTOTemplates" DebugInfoExeName="C:\Program Files (x86)\Microsoft Office\root\Office16\winword.exe" DebugInfoCommandLine="/w &quot;[$OUTPUT]RESOLUCION_DIRECTORAL.docx&quot;" />
+        <ProjectProperties HostName="RESOLUCION_DIRECTORAL.docx" HostPackage="{18A3A5AC-5778-4778-901C-ADAAC08E910A}" OfficeVersion="15.0" VstxVersion="4.0" ApplicationType="DOC" Language="CS" TemplatesPath="VSTOTemplates" DebugInfoExeName="C:\Program Files\Microsoft Office 15\root\Office15\winword.exe" DebugInfoCommandLine="/w &quot;[$OUTPUT]RESOLUCION_DIRECTORAL.docx&quot;" />
         <Host Name="Word Document" Path=".\RESOLUCION_DIRECTORAL.docx" GeneratedCodeNamespace="SIGESDOC.REDIREC">
           <HostItem Name="ThisDocument" Code="ThisDocument.cs" CanonicalName="ThisDocument" Blueprint="ThisDocument.Designer.xml" GeneratedCode="ThisDocument.Designer.cs" />
         </Host>

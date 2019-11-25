@@ -9,3 +9,14 @@ C:\Users\PSSPERU069\Documents\Proyecto\sigesdoc\SIGESDOC.IAplicacionService\obj\
 C:\Users\PSSPERU069\Documents\Proyecto\sigesdoc\SIGESDOC.IAplicacionService\obj\Debug\SIGESDOC.IAplicacionService.csproj.CopyComplete
 C:\Users\PSSPERU069\Documents\Proyecto\sigesdoc\SIGESDOC.IAplicacionService\obj\Debug\SIGESDOC.IAplicacionService.dll
 C:\Users\PSSPERU069\Documents\Proyecto\sigesdoc\SIGESDOC.IAplicacionService\obj\Debug\SIGESDOC.IAplicacionService.pdb
+C:\inetpub\wwwroot\sigesdoc\SIGESDOC.IAplicacionService\bin\Debug\SIGESDOC.IAplicacionService.dll
+C:\inetpub\wwwroot\sigesdoc\SIGESDOC.IAplicacionService\bin\Debug\SIGESDOC.IAplicacionService.pdb
+C:\inetpub\wwwroot\sigesdoc\SIGESDOC.IAplicacionService\bin\Debug\SIGESDOC.Request.dll
+C:\inetpub\wwwroot\sigesdoc\SIGESDOC.IAplicacionService\bin\Debug\SIGESDOC.Response.dll
+C:\inetpub\wwwroot\sigesdoc\SIGESDOC.IAplicacionService\bin\Debug\SIGESDOC.Request.pdb
+C:\inetpub\wwwroot\sigesdoc\SIGESDOC.IAplicacionService\bin\Debug\SIGESDOC.Response.pdb
+C:\inetpub\wwwroot\sigesdoc\SIGESDOC.IAplicacionService\obj\Debug\SIGESDOC.IAplicacionService.csprojAssemblyReference.cache
+C:\inetpub\wwwroot\sigesdoc\SIGESDOC.IAplicacionService\obj\Debug\SIGESDOC.IAplicacionService.csproj.CoreCompileInputs.cache
+C:\inetpub\wwwroot\sigesdoc\SIGESDOC.IAplicacionService\obj\Debug\SIGESDOC.IAplicacionService.csproj.CopyComplete
+C:\inetpub\wwwroot\sigesdoc\SIGESDOC.IAplicacionService\obj\Debug\SIGESDOC.IAplicacionService.dll
+C:\inetpub\wwwroot\sigesdoc\SIGESDOC.IAplicacionService\obj\Debug\SIGESDOC.IAplicacionService.pdb

@@ -18,5 +18,7 @@ namespace SIGESDOC.Request
         public string externo { get; set; }
         public string direccion { get; set; }
         public string evaluador { get; set; }
+        public Nullable<int> id_expediente { get; set; }
+        public int id_seguimiento { get; set; }
     }
 }

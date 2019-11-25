@@ -126,8 +126,8 @@
 <<<<<<< HEAD
         <EntityTypeShape EntityType="DB_GESDOCModel.VW_CONSULTAR_DNI_PERSONAL_LEGAL" Width="1.5" PointX="13.75" PointY="20.75" />
 =======
-        <EntityTypeShape EntityType="DB_GESDOCModel.VW_CONSULTAR_DNI_PERSONAL_LEGAL" Width="2" PointX="11.75" PointY="19.625" />
->>>>>>> 2e0f6057428ff88c90b327d2a051304182478bba
+        
+&gt;&gt;&gt;&gt;&gt;&gt;&gt; 2e0f6057428ff88c90b327d2a051304182478bba
         <EntityTypeShape EntityType="DB_GESDOCModel.MAE_ACTIVIDAD_PROTOCOLO" Width="1.5" PointX="14.25" PointY="25.5" />
         <EntityTypeShape EntityType="DB_GESDOCModel.MAE_ESTADOS_DEL_PROTOCOLO" Width="1.5" PointX="12" PointY="31.625" />
         <AssociationConnector Association="DB_GESDOCModel.FK_MAE_ACTIVIDAD_PROTOCOLO_MAE_ESTADOS_DEL_PROTOCOLO" />

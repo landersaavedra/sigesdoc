@@ -6,55 +6,43 @@
 
     if (User.Identity.Name.Split('|')[5].ToString().Split(',')[0].Trim() == "15") // CONSULTA
     {
-<ul class="nav navbar-nav">
-    @*@Html.MenuItem("Inicio", "Index", "Inicio", action, controller)*@
-    @*Menú para el rol Administrador*@
+        <ul class="nav navbar-nav">
+            @*@Html.MenuItem("Inicio", "Index", "Inicio", action, controller)*@
+            @*Menú para el rol Administrador*@
 
-    @*@Html.MenuItem("Validaciones", "Index", "General/EnviosRecibidos", action, controller)*@
+            @*@Html.MenuItem("Validaciones", "Index", "General/EnviosRecibidos", action, controller)*@
 
-    @*Region Hoja de Tramite*@
-    <li class="dropdown">
-        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Hoja de Trámite<b class="caret"></b></a>
-        <ul class="dropdown-menu">
-            @Html.MenuItem("Consulta General", "Consultar_HT_General", "HojaTramite", action, controller)
-            @Html.MenuItem("Consultar Mis HT", "Consultar_mis_HT", "HojaTramite", action, controller)
-            @Html.MenuItem("Consultar Documentos Oficina", "Consultar_Documentos_x_oficina", "HojaTramite", action, controller)
-            @Html.MenuItem("Estados HT por Pedido", "Lista_Hojas_Tramite_x_pedido", "HojaTramite", action, controller)
+            <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Hoja de Trámite<b class="caret"></b></a>
+                <ul class="dropdown-menu">
+                    @Html.MenuItem("Consulta General", "Consultar_HT_General", "HojaTramite", action, controller)
+                    @Html.MenuItem("Consultar Mis HT", "Consultar_mis_HT", "HojaTramite", action, controller)
+                    @Html.MenuItem("Consultar Documentos Oficina", "Consultar_Documentos_x_oficina", "HojaTramite", action, controller)
+                    @Html.MenuItem("Estados HT por Pedido", "Lista_Hojas_Tramite_x_pedido", "HojaTramite", action, controller)
+
+                </ul>
+            </li>
+
+            <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Reportes<b class="caret"></b></a>
+                <ul class="dropdown-menu">
+                    @Html.MenuItem("Pendientes", "Imprimir_cuadro_pendientes", "HojaTramite", action, controller)
+                </ul>
+            </li>
+
+            @if (User.Identity.Name.Split('|')[9].ToString().Split(',')[32].Trim() == "1")
+            {
+
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Habilitaciones<b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                        @Html.MenuItem("Consulta Seguimiento", "Consulta_seguimiento_habilitaciones", "Habilitaciones", action, controller)
+
+                    </ul>
+                </li>
+            }
 
         </ul>
-    </li>
-
-    @*Region Reportes*@
-    <li class="dropdown">
-        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Reportes<b class="caret"></b></a>
-        <ul class="dropdown-menu">
-            @Html.MenuItem("Pendientes", "Imprimir_cuadro_pendientes", "HojaTramite", action, controller)
-        </ul>
-    </li>
-
-    @*Region Habilitaciones*@
-    @if (User.Identity.Name.Split('|')[9].ToString().Split(',')[32].Trim() == "1")
-    {
-
-        <li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Habilitaciones<b class="caret"></b></a>
-            <ul class="dropdown-menu">
-                @Html.MenuItem("Consulta Seguimiento", "Consulta_seguimiento_habilitaciones", "Habilitaciones", action, controller)
-
-            </ul>
-        </li>
-    }
-
-    @*Mesa de Partes Virtual*@
-
-    <li class="dropdown">
-        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Mesa de Partes<b class="caret"></b></a>
-        <ul class="dropdown-menu">
-            @Html.MenuItem("Despacho", "Consulta_Despacho", "Despacho", action, controller)
-        </ul>
-    </li>
-
-</ul>
     }
 
     if (User.Identity.Name.Split('|')[5].ToString().Split(',')[0].Trim() == "20") // USUARIO
@@ -138,7 +126,7 @@
                         @Html.MenuItem("Consulta Seguimiento", "Consulta_seguimiento_asitente", "Habilitaciones", action, controller)
                         @Html.MenuItem("Documentos Por Recibir", "Documentos_por_recibir_sdhpa", "Habilitaciones", action, controller)
                         @Html.MenuItem("Asignar Evaluador", "Doc_Asignar_Evaluador", "Habilitaciones", action, controller)
-                        @Html.MenuItem("Documentos Externos", "Consulta_Documentos_emitidos_dhcpa", "Habilitaciones", action, controller)
+                        @Html.MenuItem("Documentos DHCPA", "Consulta_Documentos_emitidos_dhcpa", "Habilitaciones", action, controller)
                         @Html.MenuItem("Consulta solicitudes", "consulta_Solicitudes_dhcpa", "Habilitaciones", action, controller)
                         @Html.MenuItem("Consulta Protocolos", "Listado_protocolos", "Habilitaciones", action, controller)
 
@@ -220,17 +208,15 @@
                     </ul>
                 </li>
             }
-            @*  @if (User.Identity.Name.Split('|')[4].Trim() == "17" || User.Identity.Name.Split('|')[4].Trim() == "7" || User.Identity.Name.Split('|')[4].Trim() == "28")
-        {*@
-            <li class="dropdown">
-                <!--  <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dir. Hab. y Cert. PyA<b class="caret"></b></a> -->
-
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Documentos Externos<b class="caret"></b></a>
-                <ul class="dropdown-menu">
-                    @Html.MenuItem("Documentos Externos", "Consulta_Documentos_emitidos_dhcpa", "Habilitaciones", action, controller)
-                </ul>
-            </li>
-            @* }*@
+            @if (User.Identity.Name.Split('|')[4].Trim() == "17" || User.Identity.Name.Split('|')[4].Trim() == "7" || User.Identity.Name.Split('|')[4].Trim() == "28")
+            {
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dir. Hab. y Cert. PyA<b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                        @Html.MenuItem("Documentos DHCPA", "Consulta_Documentos_emitidos_dhcpa", "Habilitaciones", action, controller)
+                    </ul>
+                </li>
+            }
             <li class="dropdown">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">Reportes<b class="caret"></b></a>
                 <ul class="dropdown-menu">
@@ -329,7 +315,7 @@
                         @Html.MenuItem("Consulta Seguimiento", "Consulta_seguimiento_asitente", "Habilitaciones", action, controller)
                         @Html.MenuItem("Documentos Por Recibir", "Documentos_por_recibir_sdhpa", "Habilitaciones", action, controller)
                         @Html.MenuItem("Asignar Evaluador", "Doc_Asignar_Evaluador", "Habilitaciones", action, controller)
-                        @Html.MenuItem("Documentos Externos", "Consulta_Documentos_emitidos_dhcpa", "Habilitaciones", action, controller)
+                        @Html.MenuItem("Documentos DHCPA", "Consulta_Documentos_emitidos_dhcpa", "Habilitaciones", action, controller)
                         @Html.MenuItem("Consulta solicitudes", "consulta_Solicitudes_dhcpa", "Habilitaciones", action, controller)
                         @Html.MenuItem("Consulta Protocolos", "Listado_protocolos", "Habilitaciones", action, controller)
 
@@ -410,18 +396,16 @@
                 </li>
 
             }
-            @*   @if (User.Identity.Name.Split('|')[4].Trim() == "17" || User.Identity.Name.Split('|')[4].Trim() == "7" || User.Identity.Name.Split('|')[4].Trim() == "28")
-        {*@
-            <li class="dropdown">
-                <!--  <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dir. Hab. y Cert. PyA<b class="caret"></b></a> -->
+            @if (User.Identity.Name.Split('|')[4].Trim() == "17" || User.Identity.Name.Split('|')[4].Trim() == "7" || User.Identity.Name.Split('|')[4].Trim() == "28")
+            {
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dir. Hab. y Cert. PyA<b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                        @Html.MenuItem("Documentos DHCPA", "Consulta_Documentos_emitidos_dhcpa", "Habilitaciones", action, controller)
+                    </ul>
+                </li>
 
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Documentos Externos<b class="caret"></b></a>
-                <ul class="dropdown-menu">
-                    @Html.MenuItem("Documentos Externos", "Consulta_Documentos_emitidos_dhcpa", "Habilitaciones", action, controller)
-                </ul>
-            </li>
-
-            @*  }*@
+            }
             <li class="dropdown">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">Reportes<b class="caret"></b></a>
                 <ul class="dropdown-menu">
@@ -491,7 +475,7 @@
                         @Html.MenuItem("Consulta Seguimiento", "Consulta_seguimiento_asitente", "Habilitaciones", action, controller)
                         @Html.MenuItem("Documentos Por Recibir", "Documentos_por_recibir_sdhpa", "Habilitaciones", action, controller)
                         @Html.MenuItem("Asignar Evaluador", "Doc_Asignar_Evaluador", "Habilitaciones", action, controller)
-                        @Html.MenuItem("Documentos Externos", "Consulta_Documentos_emitidos_dhcpa", "Habilitaciones", action, controller)
+                        @Html.MenuItem("Documentos DHCPA", "Consulta_Documentos_emitidos_dhcpa", "Habilitaciones", action, controller)
                         @Html.MenuItem("Consulta solicitudes", "consulta_Solicitudes_dhcpa", "Habilitaciones", action, controller)
                         @Html.MenuItem("Consulta Protocolos", "Listado_protocolos", "Habilitaciones", action, controller)
                     </ul>
@@ -608,18 +592,16 @@
                 </li>
 
             }
-            @*   @if (User.Identity.Name.Split('|')[4].Trim() == "17" || User.Identity.Name.Split('|')[4].Trim() == "7" || User.Identity.Name.Split('|')[4].Trim() == "28")
-        { *@
-            <li class="dropdown">
-                <!--  <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dir. Hab. y Cert. PyA<b class="caret"></b></a> -->
+            @if (User.Identity.Name.Split('|')[4].Trim() == "17" || User.Identity.Name.Split('|')[4].Trim() == "7" || User.Identity.Name.Split('|')[4].Trim() == "28")
+            {
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dir. Hab. y Cert. PyA<b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                        @Html.MenuItem("Documentos DHCPA", "Consulta_Documentos_emitidos_dhcpa", "Habilitaciones", action, controller)
+                    </ul>
+                </li>
 
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Documentos Externos<b class="caret"></b></a>
-                <ul class="dropdown-menu">
-                    @Html.MenuItem("Documentos Externos", "Consulta_Documentos_emitidos_dhcpa", "Habilitaciones", action, controller)
-                </ul>
-            </li>
-
-           @* }*@
+            }
 
             <li class="dropdown">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">Reportes<b class="caret"></b></a>
@@ -681,7 +663,7 @@
                     @Html.MenuItem("Documentos enviados por OTD", "Documentos_enviados", "Habilitaciones", action, controller)
                     @Html.MenuItem("Documentos Por Recibir en Hab.", "Documentos_por_recibir_sdhpa", "Habilitaciones", action, controller)
                     @Html.MenuItem("Asignar Evaluador", "Doc_Asignar_Evaluador", "Habilitaciones", action, controller)
-                    @Html.MenuItem("Documentos Externos", "Consulta_Documentos_emitidos_dhcpa", "Habilitaciones", action, controller)
+                    @Html.MenuItem("Documentos DHCPA", "Consulta_Documentos_emitidos_dhcpa", "Habilitaciones", action, controller)
                     @Html.MenuItem("Consulta solicitudes", "consulta_Solicitudes_dhcpa", "Habilitaciones", action, controller)
                 </ul>
             </li>
@@ -723,7 +705,7 @@
             <li class="dropdown">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">Certificaciones<b class="caret"></b></a>
                 <ul class="dropdown-menu">
-                    @Html.MenuItem("Documentos Externos", "Consulta_Documentos_emitidos_dhcpa", "Habilitaciones", action, controller)
+                    @Html.MenuItem("Documentos DHCPA", "Consulta_Documentos_emitidos_dhcpa", "Habilitaciones", action, controller)
                 </ul>
             </li>
             <li class="dropdown">
@@ -743,13 +725,6 @@
                         @Html.MenuItem("Serie 1", "Consulta_comprobantes_x_mes", "General", action, controller)
                     }
 
-                </ul>
-            </li>
-            <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Mesa Virtual<b class="caret"></b></a>
-                <ul class="dropdown-menu">
-                    @Html.MenuItem("Despacho", "BandejaDespacho", "MesaPartesVirtual", action, controller)
-                    @Html.MenuItem("Recepción", "BandejaRecepcion", "MesaPartesVirtual", action, controller)
                 </ul>
             </li>
         </ul>
@@ -784,7 +759,7 @@
                     <ul class="dropdown-menu">
                         @Html.MenuItem("Documentos por recibir", "Documentos_por_recibir_x_evaluador", "Habilitaciones", action, controller)
                         @Html.MenuItem("Consulta seguimiento", "Consulta_seguimiento_evaluador", "Habilitaciones", action, controller)
-                        @Html.MenuItem("Documentos Externos", "Consulta_Documentos_emitidos_dhcpa", "Habilitaciones", action, controller)
+                        @Html.MenuItem("Documentos DHCPA", "Consulta_Documentos_emitidos_dhcpa", "Habilitaciones", action, controller)
                         @Html.MenuItem("Consulta solicitudes", "consulta_Solicitudes_dhcpa", "Habilitaciones", action, controller)
                         @Html.MenuItem("Consulta Protocolos", "Listado_protocolos", "Habilitaciones", action, controller)
                     </ul>
@@ -802,17 +777,15 @@
                     </ul>
                 </li>
             }
-            @*    @if (User.Identity.Name.Split('|')[4].Trim() == "17" || User.Identity.Name.Split('|')[4].Trim() == "7")
-        { *@
-            <li class="dropdown">
-                <!--  <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dir. Hab. y Cert. PyA<b class="caret"></b></a> -->
-
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Documentos Externos<b class="caret"></b></a>
-                <ul class="dropdown-menu">
-                    @Html.MenuItem("Documentos Externos|", "Consulta_Documentos_emitidos_dhcpa", "Habilitaciones", action, controller)
-                </ul>
-            </li>
-            @*  } *@
+            @if (User.Identity.Name.Split('|')[4].Trim() == "17" || User.Identity.Name.Split('|')[4].Trim() == "7")
+            {
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dir. Hab. y Cert. PyA<b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                        @Html.MenuItem("Documentos DHCPA", "Consulta_Documentos_emitidos_dhcpa", "Habilitaciones", action, controller)
+                    </ul>
+                </li>
+            }
         </ul>
 
     }

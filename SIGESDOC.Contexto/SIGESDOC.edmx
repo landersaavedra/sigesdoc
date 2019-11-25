@@ -1062,26 +1062,19 @@ advertencia 6002: La tabla o vista 'DB_GESDOC.dbo.VW_CONSULTA_EMBARCACIONES' no 
           <Property Name="FECHA_CONSTRUCCION" Type="datetime" />
         </EntityType>
         <!--Errores durante la generación:
-<<<<<<< HEAD
 advertencia 6002: La tabla o vista 'DB_GESDOC.dbo.VW_CONSULTA_EXPEDIENTE_X_EXPEDIENTE' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="VW_CONSULTA_EXPEDIENTE_X_EXPEDIENTE">
           <Key>
+            <PropertyRef Name="ID_SEGUIMIENTO" />
             <PropertyRef Name="EXTERNO" />
           </Key>
           <Property Name="EXPEDIENTE" Type="varchar" MaxLength="61" />
-          <Property Name="EXTERNO" Type="varchar" MaxLength="1" Nullable="false" />
+          <Property Name="ID_EXPEDIENTE" Type="int" />
+          <Property Name="ID_SEGUIMIENTO" Type="int" Nullable="false" />
+          <Property Name="EXTERNO" Type="varchar" MaxLength="500" Nullable="false" />
           <Property Name="DIRECCION" Type="varchar" MaxLength="200" />
           <Property Name="EVALUADOR" Type="varchar" MaxLength="152" />
         </EntityType>
-=======
-advertencia 6013: La tabla o vista 'DB_GESDOC.dbo.VW_CONSULTA_EXPEDIENTE_X_EXPEDIENTE' no tiene definida una clave principal y no es posible inferir ninguna clave principal válida. Esta tabla o vista se ha excluido. Para usar la entidad, necesitará revisar el esquema, agregar las claves correctas y quitar sus comentarios.
-        <EntityType Name="VW_CONSULTA_EXPEDIENTE_X_EXPEDIENTE">
-          <Property Name="EXPEDIENTE" Type="varchar" MaxLength="61" />
-          <Property Name="EXTERNO" Type="varchar" MaxLength="500" />
-          <Property Name="DIRECCION" Type="varchar" MaxLength="200" />
-          <Property Name="EVALUADOR" Type="varchar" MaxLength="152" />
-        </EntityType>-->
->>>>>>> 2e0f6057428ff88c90b327d2a051304182478bba
         <!--Errores durante la generación:
 advertencia 6002: La tabla o vista 'DB_GESDOC.dbo.VW_CONSULTA_FACTURAS' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="VW_CONSULTA_FACTURAS">
@@ -3009,6 +3002,8 @@ advertencia 6002: La tabla o vista 'DB_GESDOC.dbo.VW_VER_PEDIENTES_GESDOC' no ti
           <EntitySet Name="VW_CONSULTA_EXPEDIENTE_X_EXPEDIENTE" EntityType="Self.VW_CONSULTA_EXPEDIENTE_X_EXPEDIENTE" store:Type="Views" store:Schema="dbo">
             <DefiningQuery>SELECT 
     [VW_CONSULTA_EXPEDIENTE_X_EXPEDIENTE].[EXPEDIENTE] AS [EXPEDIENTE], 
+    [VW_CONSULTA_EXPEDIENTE_X_EXPEDIENTE].[ID_EXPEDIENTE] AS [ID_EXPEDIENTE], 
+    [VW_CONSULTA_EXPEDIENTE_X_EXPEDIENTE].[ID_SEGUIMIENTO] AS [ID_SEGUIMIENTO], 
     [VW_CONSULTA_EXPEDIENTE_X_EXPEDIENTE].[EXTERNO] AS [EXTERNO], 
     [VW_CONSULTA_EXPEDIENTE_X_EXPEDIENTE].[DIRECCION] AS [DIRECCION], 
     [VW_CONSULTA_EXPEDIENTE_X_EXPEDIENTE].[EVALUADOR] AS [EVALUADOR]
@@ -3923,7 +3918,7 @@ advertencia 6002: La tabla o vista 'DB_GESDOC.dbo.VW_VER_PEDIENTES_GESDOC' no ti
           <FunctionImport Name="p_GENERA_DATA_PROTOCOLO_LICENCIA_OPERACION" ReturnType="Collection(DB_GESDOCModel.p_GENERA_DATA_PROTOCOLO_LICENCIA_OPERACION_Result)" />
           <FunctionImport Name="p_GENERA_DATA_PROTOCOLO_AUTORIZACION_INSTALACION" ReturnType="Collection(DB_GESDOCModel.p_GENERA_DATA_PROTOCOLO_AUTORIZACION_INSTALACION_Result)" />
           <FunctionImport Name="P_RELACION_PROTOCOLO_SEGUIMIENTO" ReturnType="Collection(DB_GESDOCModel.P_RELACION_PROTOCOLO_SEGUIMIENTO_Result)">
-          <Parameter Name="ID_SEGUIMIENTO" Mode="In" Type="Int32" />
+            <Parameter Name="ID_SEGUIMIENTO" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="P_RELACION_PROTOCOLO_SEGUIMIENTO_PLANTA" ReturnType="Collection(DB_GESDOCModel.P_RELACION_PROTOCOLO_SEGUIMIENTO_PLANTA_Result)">
           <Parameter Name="ID_PLANTA" Mode="In" Type="Int32" />
@@ -4528,7 +4523,7 @@ advertencia 6002: La tabla o vista 'DB_GESDOC.dbo.VW_VER_PEDIENTES_GESDOC' no ti
             <Parameter Name="msg" Mode="InOut" Type="Int16" />
           </FunctionImport>
           <EntitySet Name="VW_CONSULTA_EXPEDIENTE_X_EXPEDIENTE" EntityType="DB_GESDOCModel.VW_CONSULTA_EXPEDIENTE_X_EXPEDIENTE" />
-          </EntityContainer>
+        </EntityContainer>
         <ComplexType Name="p_MODIFICAR_CONTRASEÑA_Result">
           <Property Type="String" Name="ruc" Nullable="false" MaxLength="11" />
           <Property Type="String" Name="dni" Nullable="false" MaxLength="8" />
@@ -7679,13 +7674,16 @@ advertencia 6002: La tabla o vista 'DB_GESDOC.dbo.VW_VER_PEDIENTES_GESDOC' no ti
         <EntityType Name="VW_CONSULTA_EXPEDIENTE_X_EXPEDIENTE">
           <Key>
             <PropertyRef Name="EXTERNO" />
+            <PropertyRef Name="ID_SEGUIMIENTO" />
           </Key>
           <Property Name="EXPEDIENTE" Type="String" MaxLength="61" FixedLength="false" Unicode="false" />
-          <Property Name="EXTERNO" Type="String" Nullable="false" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="EXTERNO" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="false" />
           <Property Name="DIRECCION" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
           <Property Name="EVALUADOR" Type="String" MaxLength="152" FixedLength="false" Unicode="false" />
+          <Property Name="ID_EXPEDIENTE" Type="Int32" />
+          <Property Name="ID_SEGUIMIENTO" Type="Int32" Nullable="false" />
         </EntityType>
-        </Schema>
+      </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
@@ -10436,6 +10434,8 @@ advertencia 6002: La tabla o vista 'DB_GESDOC.dbo.VW_VER_PEDIENTES_GESDOC' no ti
           <EntitySetMapping Name="VW_CONSULTA_EXPEDIENTE_X_EXPEDIENTE">
             <EntityTypeMapping TypeName="DB_GESDOCModel.VW_CONSULTA_EXPEDIENTE_X_EXPEDIENTE">
               <MappingFragment StoreEntitySet="VW_CONSULTA_EXPEDIENTE_X_EXPEDIENTE">
+                <ScalarProperty Name="ID_SEGUIMIENTO" ColumnName="ID_SEGUIMIENTO" />
+                <ScalarProperty Name="ID_EXPEDIENTE" ColumnName="ID_EXPEDIENTE" />
                 <ScalarProperty Name="EVALUADOR" ColumnName="EVALUADOR" />
                 <ScalarProperty Name="DIRECCION" ColumnName="DIRECCION" />
                 <ScalarProperty Name="EXTERNO" ColumnName="EXTERNO" />
@@ -10443,7 +10443,7 @@ advertencia 6002: La tabla o vista 'DB_GESDOC.dbo.VW_VER_PEDIENTES_GESDOC' no ti
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          </EntityContainerMapping>
+        </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
   </edmx:Runtime>

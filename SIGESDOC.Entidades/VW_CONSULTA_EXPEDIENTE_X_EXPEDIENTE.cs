@@ -18,5 +18,7 @@ namespace SIGESDOC.Entidades
         public string EXTERNO { get; set; }
         public string DIRECCION { get; set; }
         public string EVALUADOR { get; set; }
+        public Nullable<int> ID_EXPEDIENTE { get; set; }
+        public int ID_SEGUIMIENTO { get; set; }
     }
 }

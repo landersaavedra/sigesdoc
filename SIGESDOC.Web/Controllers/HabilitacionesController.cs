@@ -5161,7 +5161,7 @@ namespace SIGESDOC.Web.Controllers
                     && HttpContext.User.Identity.Name.Split('|')[4].Trim() == "18")))
                 // Oficina 18: Sub Dirección de Habilitaciones
                 {
-                    model.id_oficina_direccion = Convert.ToInt32(HttpContext.User.Identity.Name.Split('|')[4].Trim());
+                    //model.id_oficina_direccion = Convert.ToInt32(HttpContext.User.Identity.Name.Split('|')[4].Trim());
                     model.num_doc = _HabilitacionesService.CountDocumentos_x_tipo(model.id_tipo_documento) + 1;
                     model.nom_doc = "-" + DateTime.Now.Year.ToString() + "- DHCPA/SANIPES";
                     model.ruc = model.ruc;
@@ -5170,6 +5170,19 @@ namespace SIGESDOC.Web.Controllers
                     req_documento_dhcpa.usuario_registro = HttpContext.User.Identity.Name.Split('|')[0].Trim() + " - " + HttpContext.User.Identity.Name.Split('|')[1].Trim();
                     model.id_doc_dhcpa = _HabilitacionesService.Create_documento_dhcpa(req_documento_dhcpa);
                     req_documento_dhcpa.id_doc_dhcpa = model.id_doc_dhcpa;
+
+                    if (model.exp_o_ht_n_cdl_notif != "" && model.exp_o_ht_n_cdl_notif != null)
+                    {
+                        try
+                        {
+                            DetSegDocDhcpaRequest req_documento_dhcpa_seguimiento = new DetSegDocDhcpaRequest();
+                            req_documento_dhcpa_seguimiento.id_seguimiento = _HabilitacionesService.Consulta_expediente_x_expediente(model.exp_o_ht_n_cdl_notif).id_seguimiento;
+                            req_documento_dhcpa_seguimiento.id_doc_dhcpa = req_documento_dhcpa.id_doc_dhcpa;
+                            req_documento_dhcpa_seguimiento.activo = "1";
+                            req_documento_dhcpa_seguimiento.id_det_dsdhcpa = _HabilitacionesService.Create_documento_dhcpa_seguimiento(req_documento_dhcpa_seguimiento);
+                        }
+                        catch (Exception) { }
+                    }
 
                     if (model.documento_dhcpa_detalle != null)
                     {
@@ -5195,13 +5208,69 @@ namespace SIGESDOC.Web.Controllers
                         }
                     }
 
-                    try
+                    if (model.ind_agregar_celula == 1)
                     {
-                        @ViewBag.Mensaje = "Se creó el Documento : " + model.nom_tipo_documento + " N° " + model.num_doc.ToString() + model.nom_doc;
+                        string mensaje = "";
+                        mensaje = "Se creó el Documento : " + model.nom_tipo_documento + " N° " + model.num_doc.ToString() + model.nom_doc;
+
+                        // 21 : CEDULA DE NOTIFICACION
+                        model.id_tipo_documento = 21;
+                        model.num_doc = _HabilitacionesService.CountDocumentos_x_tipo(model.id_tipo_documento) + 1;
+
+                        DocumentoDhcpaRequest req_documento_dhcpa2 = ModelToRequest.Documento_dhcpa(model);
+                        req_documento_dhcpa2.fecha_registro = DateTime.Now;
+                        req_documento_dhcpa2.usuario_registro = HttpContext.User.Identity.Name.Split('|')[0].Trim() + " - " + HttpContext.User.Identity.Name.Split('|')[1].Trim();
+
+                        model.id_doc_dhcpa = _HabilitacionesService.Create_documento_dhcpa(req_documento_dhcpa2);
+                        req_documento_dhcpa2.id_doc_dhcpa = model.id_doc_dhcpa;
+
+                        if (model.exp_o_ht_n_cdl_notif != "" && model.exp_o_ht_n_cdl_notif != null)
+                        {
+                            try
+                            {
+                                DetSegDocDhcpaRequest req_documento_dhcpa_seguimiento = new DetSegDocDhcpaRequest();
+                                req_documento_dhcpa_seguimiento.id_seguimiento = _HabilitacionesService.Consulta_expediente_x_expediente(model.exp_o_ht_n_cdl_notif).id_seguimiento;
+                                req_documento_dhcpa_seguimiento.id_doc_dhcpa = req_documento_dhcpa2.id_doc_dhcpa;
+                                req_documento_dhcpa_seguimiento.activo = "1";
+                                req_documento_dhcpa_seguimiento.id_det_dsdhcpa = _HabilitacionesService.Create_documento_dhcpa_seguimiento(req_documento_dhcpa_seguimiento);
+                            }
+                            catch (Exception) { }
+                        }
+
+                        if (model.documento_dhcpa_detalle != null)
+                        {
+                            foreach (detDocdhcpaViewModel obj in model.documento_dhcpa_detalle)
+                            {
+                                DocumentoDhcpaDetalleRequest req_documento_dhcpa_detalle = ModelToRequest.Documento_dhcpa_detalle(obj);
+                                req_documento_dhcpa_detalle.id_doc_dhcpa = req_documento_dhcpa2.id_doc_dhcpa;
+                                req_documento_dhcpa_detalle.activo = "1";
+                                req_documento_dhcpa_detalle.usuario_registro = HttpContext.User.Identity.Name.Split('|')[0].Trim() + " - " + HttpContext.User.Identity.Name.Split('|')[1].Trim();
+                                req_documento_dhcpa_detalle.fecha_registro = DateTime.Now;
+                                obj.id_doc_dhcpa_det = _HabilitacionesService.Create_documento_dhcpa_detalle(req_documento_dhcpa_detalle);
+                            }
+                        }
+
+                        try
+                        {
+                            mensaje = mensaje + ", Se creó el Documento : CEDULA DE NOTIFICACION N° " + model.num_doc.ToString() + model.nom_doc;
+                            @ViewBag.Mensaje = mensaje;
+                        }
+                        catch (Exception)
+                        {
+                            @ViewBag.Mensaje = "";
+                        }
+
                     }
-                    catch (Exception)
+                    else
                     {
-                        @ViewBag.Mensaje = "";
+                        try
+                        {
+                            @ViewBag.Mensaje = "Se creó el Documento : " + model.nom_tipo_documento + " N° " + model.num_doc.ToString() + model.nom_doc;
+                        }
+                        catch (Exception)
+                        {
+                            @ViewBag.Mensaje = "";
+                        }
                     }
                     return PartialView("_Success");
                 }
@@ -10108,7 +10177,19 @@ namespace SIGESDOC.Web.Controllers
 
                     model.id_doc_dhcpa = _HabilitacionesService.Create_documento_dhcpa(req_documento_dhcpa);
                     req_documento_dhcpa.id_doc_dhcpa = model.id_doc_dhcpa;
-                    
+
+                    if (model.exp_o_ht_n_cdl_notif != "" && model.exp_o_ht_n_cdl_notif != null)
+                    {
+                        try
+                        {
+                            DetSegDocDhcpaRequest req_documento_dhcpa_seguimiento = new DetSegDocDhcpaRequest();
+                            req_documento_dhcpa_seguimiento.id_seguimiento = _HabilitacionesService.Consulta_expediente_x_expediente(model.exp_o_ht_n_cdl_notif).id_seguimiento;
+                            req_documento_dhcpa_seguimiento.id_doc_dhcpa = req_documento_dhcpa.id_doc_dhcpa;
+                            req_documento_dhcpa_seguimiento.activo = "1";
+                            req_documento_dhcpa_seguimiento.id_det_dsdhcpa = _HabilitacionesService.Create_documento_dhcpa_seguimiento(req_documento_dhcpa_seguimiento);
+                        }
+                        catch (Exception){ }
+                    }
 
                     if (model.documento_dhcpa_detalle != null)
                     {
@@ -10123,14 +10204,71 @@ namespace SIGESDOC.Web.Controllers
                         }
                     }
 
-                    try
+                    if (model.ind_agregar_celula == 1)
                     {
-                        @ViewBag.Mensaje = "Se creó el Documento : " + model.nom_tipo_documento + " N° " + model.num_doc.ToString() + model.nom_doc;
+                        string mensaje = "";
+                        mensaje = "Se creó el Documento : " + model.nom_tipo_documento + " N° " + model.num_doc.ToString() + model.nom_doc;
+
+                        // 21 : CEDULA DE NOTIFICACION
+                        model.id_tipo_documento = 21;
+                        model.num_doc = _HabilitacionesService.CountDocumentos_x_tipo(model.id_tipo_documento) + 1;
+
+                        DocumentoDhcpaRequest req_documento_dhcpa2 = ModelToRequest.Documento_dhcpa(model);
+                        req_documento_dhcpa2.fecha_registro = DateTime.Now;
+                        req_documento_dhcpa2.usuario_registro = HttpContext.User.Identity.Name.Split('|')[0].Trim() + " - " + HttpContext.User.Identity.Name.Split('|')[1].Trim();
+
+                        model.id_doc_dhcpa = _HabilitacionesService.Create_documento_dhcpa(req_documento_dhcpa2);
+                        req_documento_dhcpa2.id_doc_dhcpa = model.id_doc_dhcpa;
+
+                        if (model.exp_o_ht_n_cdl_notif != "" && model.exp_o_ht_n_cdl_notif != null)
+                        {
+                            try
+                            {
+                                DetSegDocDhcpaRequest req_documento_dhcpa_seguimiento = new DetSegDocDhcpaRequest();
+                                req_documento_dhcpa_seguimiento.id_seguimiento = _HabilitacionesService.Consulta_expediente_x_expediente(model.exp_o_ht_n_cdl_notif).id_seguimiento;
+                                req_documento_dhcpa_seguimiento.id_doc_dhcpa = req_documento_dhcpa2.id_doc_dhcpa;
+                                req_documento_dhcpa_seguimiento.activo = "1";
+                                req_documento_dhcpa_seguimiento.id_det_dsdhcpa = _HabilitacionesService.Create_documento_dhcpa_seguimiento(req_documento_dhcpa_seguimiento);
+                            }
+                            catch (Exception) { }
+                        }
+
+                        if (model.documento_dhcpa_detalle != null)
+                        {
+                            foreach (detDocdhcpaViewModel obj in model.documento_dhcpa_detalle)
+                            {
+                                DocumentoDhcpaDetalleRequest req_documento_dhcpa_detalle = ModelToRequest.Documento_dhcpa_detalle(obj);
+                                req_documento_dhcpa_detalle.id_doc_dhcpa = req_documento_dhcpa2.id_doc_dhcpa;
+                                req_documento_dhcpa_detalle.activo = "1";
+                                req_documento_dhcpa_detalle.usuario_registro = HttpContext.User.Identity.Name.Split('|')[0].Trim() + " - " + HttpContext.User.Identity.Name.Split('|')[1].Trim();
+                                req_documento_dhcpa_detalle.fecha_registro = DateTime.Now;
+                                obj.id_doc_dhcpa_det = _HabilitacionesService.Create_documento_dhcpa_detalle(req_documento_dhcpa_detalle);
+                            }
+                        }
+
+                        try
+                        {
+                            mensaje = mensaje + ", Se creó el Documento : CEDULA DE NOTIFICACION N° " + model.num_doc.ToString() + model.nom_doc;
+                            @ViewBag.Mensaje = mensaje;
+                        }
+                        catch (Exception)
+                        {
+                            @ViewBag.Mensaje = "";
+                        }
+
                     }
-                    catch (Exception)
+                    else
                     {
-                        @ViewBag.Mensaje = "";
+                        try
+                        {
+                            @ViewBag.Mensaje = "Se creó el Documento : " + model.nom_tipo_documento + " N° " + model.num_doc.ToString() + model.nom_doc;
+                        }
+                        catch (Exception)
+                        {
+                            @ViewBag.Mensaje = "";
+                        }
                     }
+                    
                     return PartialView("_Success");
                 }
                 else
@@ -10952,7 +11090,7 @@ namespace SIGESDOC.Web.Controllers
            // configruacion de word
             object missing = Missing.Value;
             Word.Application wApp = new Word.Application();
-            
+                
             Word.Document document = wApp.Documents.Open(@"C:\Users\PSSPERU069\Documents\Proyecto\sigesdoc\SIGESDOC.VSTO_SANIPES\bin\Debug\CÉDULANOTIFICACIÓN.docx", ref missing);
 
             #region cedula de notificacion 
@@ -11041,7 +11179,12 @@ namespace SIGESDOC.Web.Controllers
         {
             object missing = System.Reflection.Missing.Value;
             Word.Application application = new Word.Application();
-           
+
+
+            //string ruta = ConfigurationManager.AppSettings["RUTA_WORD_DOC"];
+            //Word.Document document = application.Documents.Open(Path.Combine(ruta + "/RESOLUCION_DIRECTORAL.docx"), ref missing);
+        
+            //Word.Document document = application.Documents.Open(@"C:\inetpub\wwwroot\sigesdoc\SIGESDOC.REDIREC\RESOLUCION_DIRECTORAL.docx", ref missing);
             Word.Document document = application.Documents.Open(@"C:\Users\PSSPERU069\Documents\Proyecto\sigesdoc\SIGESDOC.REDIREC\bin\Debug\RESOLUCION_DIRECTORAL.docx", ref missing);
 
             #region Campos de la Resolucion

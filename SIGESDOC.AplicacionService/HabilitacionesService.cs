@@ -237,7 +237,9 @@ namespace SIGESDOC.AplicacionService
                               expediente = zp.EXPEDIENTE,
                               externo = zp.EXTERNO,
                               direccion = zp.DIRECCION,
-                              evaluador =zp.EVALUADOR
+                              evaluador =zp.EVALUADOR,
+                              id_seguimiento = zp.ID_SEGUIMIENTO,
+                              id_expediente = zp.ID_EXPEDIENTE
                           });
 
             if (result.Count() > 0)

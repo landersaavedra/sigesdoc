@@ -79,4 +79,13 @@ C:\Users\PSSPERU069\Documents\Proyecto\sigesdoc\SIGESDOC.Response\bin\Debug\SIGE
 C:\Users\PSSPERU069\Documents\Proyecto\sigesdoc\SIGESDOC.Response\obj\Debug\SIGESDOC.Response.csproj.CoreCompileInputs.cache
 C:\Users\PSSPERU069\Documents\Proyecto\sigesdoc\SIGESDOC.Response\obj\Debug\SIGESDOC.Response.dll
 C:\Users\PSSPERU069\Documents\Proyecto\sigesdoc\SIGESDOC.Response\obj\Debug\SIGESDOC.Response.pdb
+<<<<<<< HEAD
+C:\inetpub\wwwroot\sigesdoc\SIGESDOC.Response\bin\Debug\SIGESDOC.Response.dll
+C:\inetpub\wwwroot\sigesdoc\SIGESDOC.Response\bin\Debug\SIGESDOC.Response.pdb
+C:\inetpub\wwwroot\sigesdoc\SIGESDOC.Response\obj\Debug\SIGESDOC.Response.csprojAssemblyReference.cache
+C:\inetpub\wwwroot\sigesdoc\SIGESDOC.Response\obj\Debug\SIGESDOC.Response.csproj.CoreCompileInputs.cache
+C:\inetpub\wwwroot\sigesdoc\SIGESDOC.Response\obj\Debug\SIGESDOC.Response.dll
+C:\inetpub\wwwroot\sigesdoc\SIGESDOC.Response\obj\Debug\SIGESDOC.Response.pdb
+=======
 C:\Users\PSSPERU069\Documents\Proyecto\sigesdoc\SIGESDOC.Response\obj\Debug\SIGESDOC.Response.csprojAssemblyReference.cache
+>>>>>>> 18a14d4883f20f591e4125d0ef71cda7dc9710a9

@@ -75,10 +75,11 @@ namespace SIGESDOC.AplicacionService
         private readonly IConsultaProtocolosAiRepositorio _ConsultaProtocolosAiRepositorio;
         private readonly IConsultaProtocolosLoRepositorio _ConsultaProtocolosLoRepositorio;
         private readonly IConsultarOficinaRepositorio _ConsultarOficinaRepositorio;
-        
-                           
+        private readonly IConsultaExpedienteXExpedienteRepositorio _ConsultaExpedienteXExpedienteRepositorio;
 
-        
+
+
+
 
         public HabilitacionesService(
             /*01*/  IDocumentoSeguimientoRepositorio DocumentoSeguimientoRepositorio,
@@ -138,7 +139,8 @@ namespace SIGESDOC.AplicacionService
             ITipoAtencionInspeccionRepositorio TipoAtencionInspeccionRepositorio,
             IConsultaProtocolosLoRepositorio ConsultaProtocolosLoRepositorio,
             IConsultaProtocolosAiRepositorio ConsultaProtocolosAiRepositorio,
-            IConsultarOficinaRepositorio ConsultarOficinaRepositorio
+            IConsultarOficinaRepositorio ConsultarOficinaRepositorio,
+            IConsultaExpedienteXExpedienteRepositorio ConsultaExpedienteXExpedienteRepositorio
             )
         {
             /*01*/  _DocumentoSeguimientoRepositorio = DocumentoSeguimientoRepositorio;
@@ -199,6 +201,7 @@ namespace SIGESDOC.AplicacionService
             _ConsultaProtocolosLoRepositorio = ConsultaProtocolosLoRepositorio;
             _ConsultaProtocolosAiRepositorio = ConsultaProtocolosAiRepositorio;
             _ConsultarOficinaRepositorio = ConsultarOficinaRepositorio;
+            _ConsultaExpedienteXExpedienteRepositorio = ConsultaExpedienteXExpedienteRepositorio;
         }
 
         public FirmasSdhpaResponse lista_firmas_sdhpa_activas(string persona_num_documento)
@@ -212,6 +215,30 @@ namespace SIGESDOC.AplicacionService
                              id_firma_sdhpa = zp.ID_FIRMA_SDHPA,
                              nombre_reporte = zp.NOMBRE_REPORTE
                          });
+
+            if (result.Count() > 0)
+            {
+                resp = result.First();
+            }
+
+            return resp;
+        }
+        
+        
+
+        public ConsultaExpedienteXExpedienteResponse Consulta_expediente_x_expediente(string expediente)
+        {
+            ConsultaExpedienteXExpedienteResponse resp = new ConsultaExpedienteXExpedienteResponse();
+
+            var result = (from zp in _ConsultaExpedienteXExpedienteRepositorio.Listar()
+                          where zp.EXPEDIENTE == expediente
+                          select new ConsultaExpedienteXExpedienteResponse
+                          {
+                              expediente = zp.EXPEDIENTE,
+                              externo = zp.EXTERNO,
+                              direccion = zp.DIRECCION,
+                              evaluador =zp.EVALUADOR
+                          });
 
             if (result.Count() > 0)
             {

@@ -20,6 +20,9 @@ namespace SIGESDOC.IAplicacionService
         PtocoloTransporteXIdTransporte2018V1Response lista_PtocoloTransporteXIdTransporte2018V1Response_x_id(int id);
 
         [OperationContract]
+        ConsultaExpedienteXExpedienteResponse Consulta_expediente_x_expediente(string expediente);
+
+        [OperationContract]
         IEnumerable<DbGeneralMaeTransporteResponse> Lista_db_general_mae_transporte(string placa = "", string cod_habilitacion = "", int id_tipo_carroceria = 0, int id_tipo_furgon = 0);
         /*01*/
         [OperationContract]

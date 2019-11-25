@@ -82,6 +82,9 @@
       <DependentUpon>RepositorioObjects.tt</DependentUpon>
     </Compile>
     <Compile Include="ConsultaEmbarcacionesRepositorio_Partial.cs" />
+    <Compile Include="ConsultaExpedienteXExpedienteRepositorio.cs">
+      <DependentUpon>RepositorioObjects.tt</DependentUpon>
+    </Compile>
     <Compile Include="ConsultaFacturasRepositorio.cs">
       <DependentUpon>RepositorioObjects.tt</DependentUpon>
     </Compile>

@@ -609,6 +609,9 @@
     <Compile Include="VW_CONSULTA_EMBARCACIONES.cs">
       <DependentUpon>SIGESDOC.tt</DependentUpon>
     </Compile>
+    <Compile Include="VW_CONSULTA_EXPEDIENTE_X_EXPEDIENTE.cs">
+      <DependentUpon>SIGESDOC.tt</DependentUpon>
+    </Compile>
     <Compile Include="VW_CONSULTA_FACTURAS.cs">
       <DependentUpon>SIGESDOC.tt</DependentUpon>
     </Compile>

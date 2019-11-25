@@ -73,6 +73,9 @@
       <DependentUpon>ResponseObjects.tt</DependentUpon>
     </Compile>
     <Compile Include="ConsultaEmbarcacionesResponse_Partial.cs" />
+    <Compile Include="ConsultaExpedienteXExpedienteResponse.cs">
+      <DependentUpon>ResponseObjects.tt</DependentUpon>
+    </Compile>
     <Compile Include="ConsultaFacturasResponse.cs">
       <DependentUpon>ResponseObjects.tt</DependentUpon>
     </Compile>

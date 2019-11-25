@@ -1062,6 +1062,18 @@ advertencia 6002: La tabla o vista 'DB_GESDOC.dbo.VW_CONSULTA_EMBARCACIONES' no 
           <Property Name="FECHA_CONSTRUCCION" Type="datetime" />
         </EntityType>
         <!--Errores durante la generación:
+<<<<<<< HEAD
+advertencia 6002: La tabla o vista 'DB_GESDOC.dbo.VW_CONSULTA_EXPEDIENTE_X_EXPEDIENTE' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <EntityType Name="VW_CONSULTA_EXPEDIENTE_X_EXPEDIENTE">
+          <Key>
+            <PropertyRef Name="EXTERNO" />
+          </Key>
+          <Property Name="EXPEDIENTE" Type="varchar" MaxLength="61" />
+          <Property Name="EXTERNO" Type="varchar" MaxLength="1" Nullable="false" />
+          <Property Name="DIRECCION" Type="varchar" MaxLength="200" />
+          <Property Name="EVALUADOR" Type="varchar" MaxLength="152" />
+        </EntityType>
+=======
 advertencia 6013: La tabla o vista 'DB_GESDOC.dbo.VW_CONSULTA_EXPEDIENTE_X_EXPEDIENTE' no tiene definida una clave principal y no es posible inferir ninguna clave principal válida. Esta tabla o vista se ha excluido. Para usar la entidad, necesitará revisar el esquema, agregar las claves correctas y quitar sus comentarios.
         <EntityType Name="VW_CONSULTA_EXPEDIENTE_X_EXPEDIENTE">
           <Property Name="EXPEDIENTE" Type="varchar" MaxLength="61" />
@@ -1069,6 +1081,7 @@ advertencia 6013: La tabla o vista 'DB_GESDOC.dbo.VW_CONSULTA_EXPEDIENTE_X_EXPED
           <Property Name="DIRECCION" Type="varchar" MaxLength="200" />
           <Property Name="EVALUADOR" Type="varchar" MaxLength="152" />
         </EntityType>-->
+>>>>>>> 2e0f6057428ff88c90b327d2a051304182478bba
         <!--Errores durante la generación:
 advertencia 6002: La tabla o vista 'DB_GESDOC.dbo.VW_CONSULTA_FACTURAS' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="VW_CONSULTA_FACTURAS">
@@ -2993,6 +3006,14 @@ advertencia 6002: La tabla o vista 'DB_GESDOC.dbo.VW_VER_PEDIENTES_GESDOC' no ti
     [VW_CONSULTA_EMBARCACIONES].[FECHA_CONSTRUCCION] AS [FECHA_CONSTRUCCION]
     FROM [dbo].[VW_CONSULTA_EMBARCACIONES] AS [VW_CONSULTA_EMBARCACIONES]</DefiningQuery>
           </EntitySet>
+          <EntitySet Name="VW_CONSULTA_EXPEDIENTE_X_EXPEDIENTE" EntityType="Self.VW_CONSULTA_EXPEDIENTE_X_EXPEDIENTE" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [VW_CONSULTA_EXPEDIENTE_X_EXPEDIENTE].[EXPEDIENTE] AS [EXPEDIENTE], 
+    [VW_CONSULTA_EXPEDIENTE_X_EXPEDIENTE].[EXTERNO] AS [EXTERNO], 
+    [VW_CONSULTA_EXPEDIENTE_X_EXPEDIENTE].[DIRECCION] AS [DIRECCION], 
+    [VW_CONSULTA_EXPEDIENTE_X_EXPEDIENTE].[EVALUADOR] AS [EVALUADOR]
+    FROM [dbo].[VW_CONSULTA_EXPEDIENTE_X_EXPEDIENTE] AS [VW_CONSULTA_EXPEDIENTE_X_EXPEDIENTE]</DefiningQuery>
+          </EntitySet>
           <EntitySet Name="VW_CONSULTA_FACTURAS" EntityType="Self.VW_CONSULTA_FACTURAS" store:Type="Views" store:Schema="dbo">
             <DefiningQuery>SELECT 
     [VW_CONSULTA_FACTURAS].[ID_FACTURA] AS [ID_FACTURA], 
@@ -4506,6 +4527,7 @@ advertencia 6002: La tabla o vista 'DB_GESDOC.dbo.VW_VER_PEDIENTES_GESDOC' no ti
             <Parameter Name="dni" Mode="In" Type="String" />
             <Parameter Name="msg" Mode="InOut" Type="Int16" />
           </FunctionImport>
+          <EntitySet Name="VW_CONSULTA_EXPEDIENTE_X_EXPEDIENTE" EntityType="DB_GESDOCModel.VW_CONSULTA_EXPEDIENTE_X_EXPEDIENTE" />
           </EntityContainer>
         <ComplexType Name="p_MODIFICAR_CONTRASEÑA_Result">
           <Property Type="String" Name="ruc" Nullable="false" MaxLength="11" />
@@ -7654,6 +7676,15 @@ advertencia 6002: La tabla o vista 'DB_GESDOC.dbo.VW_VER_PEDIENTES_GESDOC' no ti
           <Property Type="String" Name="ID" Nullable="false" MaxLength="2" />
           <Property Type="String" Name="TEXTO" Nullable="true" MaxLength="3000" />
         </ComplexType>
+        <EntityType Name="VW_CONSULTA_EXPEDIENTE_X_EXPEDIENTE">
+          <Key>
+            <PropertyRef Name="EXTERNO" />
+          </Key>
+          <Property Name="EXPEDIENTE" Type="String" MaxLength="61" FixedLength="false" Unicode="false" />
+          <Property Name="EXTERNO" Type="String" Nullable="false" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="DIRECCION" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="EVALUADOR" Type="String" MaxLength="152" FixedLength="false" Unicode="false" />
+        </EntityType>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -10402,6 +10433,16 @@ advertencia 6002: La tabla o vista 'DB_GESDOC.dbo.VW_VER_PEDIENTES_GESDOC' no ti
             </ResultMapping>
           </FunctionImportMapping>
           <FunctionImportMapping FunctionImportName="SP_OBTENER_DNI" FunctionName="DB_GESDOCModel.Store.SP_OBTENER_DNI" />
+          <EntitySetMapping Name="VW_CONSULTA_EXPEDIENTE_X_EXPEDIENTE">
+            <EntityTypeMapping TypeName="DB_GESDOCModel.VW_CONSULTA_EXPEDIENTE_X_EXPEDIENTE">
+              <MappingFragment StoreEntitySet="VW_CONSULTA_EXPEDIENTE_X_EXPEDIENTE">
+                <ScalarProperty Name="EVALUADOR" ColumnName="EVALUADOR" />
+                <ScalarProperty Name="DIRECCION" ColumnName="DIRECCION" />
+                <ScalarProperty Name="EXTERNO" ColumnName="EXTERNO" />
+                <ScalarProperty Name="EXPEDIENTE" ColumnName="EXPEDIENTE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

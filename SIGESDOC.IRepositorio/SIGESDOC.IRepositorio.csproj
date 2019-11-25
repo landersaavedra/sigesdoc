@@ -89,6 +89,9 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="IConsultaEmbarcacionesRepositorio_Partial.cs" />
+    <Compile Include="IConsultaExpedienteXExpedienteRepositorio.cs">
+      <DependentUpon>IRepositorioObjects.tt</DependentUpon>
+    </Compile>
     <Compile Include="IConsultaFacturasRepositorio.cs">
       <DependentUpon>IRepositorioObjects.tt</DependentUpon>
       <SubType>Code</SubType>

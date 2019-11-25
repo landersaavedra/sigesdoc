@@ -75,6 +75,9 @@
     <Compile Include="ConsultaEmbarcacionesRequest.cs">
       <DependentUpon>RequestObjects.tt</DependentUpon>
     </Compile>
+    <Compile Include="ConsultaExpedienteXExpedienteRequest.cs">
+      <DependentUpon>RequestObjects.tt</DependentUpon>
+    </Compile>
     <Compile Include="ConsultaFacturasRequest.cs">
       <DependentUpon>RequestObjects.tt</DependentUpon>
     </Compile>

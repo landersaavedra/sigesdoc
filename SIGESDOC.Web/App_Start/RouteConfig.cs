@@ -988,6 +988,16 @@ namespace SIGESDOC.Web
                            },
                            new[] { "SIGESDOC.Web.Controllers" });
 
+            routes.MapRoute("Buscar_expediente_documento_externo",
+                        "Habilitaciones/Buscar_expediente_documento_externo/{expediente}",
+                        new
+                        {
+                            controller = "Habilitaciones",
+                            action = "Buscar_expediente_documento_externo",
+                            expediente = UrlParameter.Optional
+                        },
+                        new[] { "SIGESDOC.Web.Controllers" });
+
             routes.MapRoute("llenar_HT_padre",
                         "HojaTramite/llenar_HT_padre/{buscador}",
                         new

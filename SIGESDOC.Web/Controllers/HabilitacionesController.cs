@@ -9924,7 +9924,13 @@ namespace SIGESDOC.Web.Controllers
                 return RedirectToAction("Index", "Inicio");
             }
         }
-
+        
+        [AcceptVerbs(HttpVerbs.Get)]
+        public ActionResult Buscar_expediente_documento_externo(string expediente) /// ME QUEDE ACA
+        {
+            return Json(_HabilitacionesService.Consulta_expediente_x_expediente(expediente), JsonRequestBehavior.AllowGet);
+        }
+        
         [AllowAnonymous]
         public ActionResult Nuevo_Documento_dhcpa_Certificaciones()
         {

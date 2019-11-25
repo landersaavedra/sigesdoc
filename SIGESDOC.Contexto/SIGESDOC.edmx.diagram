@@ -123,7 +123,11 @@
         <EntityTypeShape EntityType="DB_GESDOCModel.MAE_DESTINO_SOLICITUD_INSPECCION" Width="1.5" PointX="22.375" PointY="9.75" />
         <EntityTypeShape EntityType="DB_GESDOCModel.MAE_SOLICITUD_INSPECCION" Width="1.5" PointX="11" PointY="34" />
         <AssociationConnector Association="DB_GESDOCModel.FK_MAE_SOLICITUD_INSPECCION_MAE_VERSION_SOLICITUD" />
+<<<<<<< HEAD
+        <EntityTypeShape EntityType="DB_GESDOCModel.VW_CONSULTAR_DNI_PERSONAL_LEGAL" Width="1.5" PointX="13.75" PointY="20.75" />
+=======
         <EntityTypeShape EntityType="DB_GESDOCModel.VW_CONSULTAR_DNI_PERSONAL_LEGAL" Width="2" PointX="11.75" PointY="19.625" />
+>>>>>>> 2e0f6057428ff88c90b327d2a051304182478bba
         <EntityTypeShape EntityType="DB_GESDOCModel.MAE_ACTIVIDAD_PROTOCOLO" Width="1.5" PointX="14.25" PointY="25.5" />
         <EntityTypeShape EntityType="DB_GESDOCModel.MAE_ESTADOS_DEL_PROTOCOLO" Width="1.5" PointX="12" PointY="31.625" />
         <AssociationConnector Association="DB_GESDOCModel.FK_MAE_ACTIVIDAD_PROTOCOLO_MAE_ESTADOS_DEL_PROTOCOLO" />
@@ -181,6 +185,7 @@
         <AssociationConnector Association="DB_GESDOCModel.FK_MAE_TUPA_MAE_TIPO_TUPA" />
         <EntityTypeShape EntityType="DB_GESDOCModel.MAE_DOCUMENTO_ANEXO" Width="1.5" PointX="13" PointY="48.25" />
         <AssociationConnector Association="DB_GESDOCModel.FK_MAE_DOCUMENTO_ANEXO_MAE_DOCUMENTO" />
+        <EntityTypeShape EntityType="DB_GESDOCModel.VW_CONSULTA_EXPEDIENTE_X_EXPEDIENTE" Width="1.5" PointX="28.375" PointY="0.75" />
         </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

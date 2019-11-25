@@ -346,6 +346,7 @@ namespace SIGESDOC.Web.Models
         public string doc_notificar_cdl_notif { get; set; }
         public string exp_o_ht_cdl_notif { get; set; }
         public string exp_o_ht_n_cdl_notif { get; set; }
+        public int ind_agregar_celula { get; set; }
         public ICollection<detDocdhcpaViewModel> documento_dhcpa_detalle { get; set; }
         public ICollection<detdocdhcpasegViewModel> documento_dhcpa_seguimiento { get; set; }
 

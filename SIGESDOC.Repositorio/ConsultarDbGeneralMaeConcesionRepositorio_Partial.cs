@@ -11,7 +11,6 @@ namespace SIGESDOC.Repositorio
 {
     public partial class ConsultarDbGeneralMaeConcesionRepositorio : IConsultarDbGeneralMaeConcesionRepositorio
     {
-
         public IEnumerable<ConsultarDbGeneralMaeConcesionResponse> GetAllconsecion_sin_paginado(int id_zona_produccion, int id_area_produccion, int id_tipo_concesion, string externo)
         {
             DB_GESDOCEntities _dataContext = base.Context.GetContext() as DB_GESDOCEntities;
@@ -78,6 +77,8 @@ namespace SIGESDOC.Repositorio
         public IEnumerable<ConsultarDbGeneralMaeConcesionResponse> genera_protocolo_concesion()
         {
             DB_GESDOCEntities _dataContext = base.Context.GetContext() as DB_GESDOCEntities;
+
+            
 
             var result = from r in _dataContext.p_GENERA_DATA_PROTOCOLO_CONCESION()
                          select new ConsultarDbGeneralMaeConcesionResponse()

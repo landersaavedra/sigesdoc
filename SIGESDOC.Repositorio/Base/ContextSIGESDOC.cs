@@ -12,7 +12,7 @@ using System.Threading.Tasks;
 
 namespace SIGESDOC.Repositorio.Base
 {
-    public class ContextSIGESDOC : IContext, IUnitOfWork, IDisposable
+    public class ContextSIGESDOC : IContext, IDisposable, IUnitOfWork
     {
 
         private readonly DbContext _dataContext;

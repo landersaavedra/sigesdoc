@@ -1,8 +1,0 @@
-C:\Users\Administrator\Desktop\SIGESDOC_SANIPES\SIGESDOC.Request\bin\Release\SIGESDOC.Request.dll
-C:\Users\Administrator\Desktop\SIGESDOC_SANIPES\SIGESDOC.Request\bin\Release\SIGESDOC.Request.pdb
-C:\Users\Administrator\Desktop\SIGESDOC_SANIPES\SIGESDOC.Request\obj\Release\SIGESDOC.Request.dll
-C:\Users\Administrator\Desktop\SIGESDOC_SANIPES\SIGESDOC.Request\obj\Release\SIGESDOC.Request.pdb
-C:\Users\Administrador\Desktop\SISTEMAS\SIGESDOC - SISTEMA DE GESTION DE DOCUMENTOS\SIGESDOC_SANIPES\SIGESDOC.Request\bin\Release\SIGESDOC.Request.dll
-C:\Users\Administrador\Desktop\SISTEMAS\SIGESDOC - SISTEMA DE GESTION DE DOCUMENTOS\SIGESDOC_SANIPES\SIGESDOC.Request\bin\Release\SIGESDOC.Request.pdb
-C:\Users\Administrador\Desktop\SISTEMAS\SIGESDOC - SISTEMA DE GESTION DE DOCUMENTOS\SIGESDOC_SANIPES\SIGESDOC.Request\obj\Release\SIGESDOC.Request.dll
-C:\Users\Administrador\Desktop\SISTEMAS\SIGESDOC - SISTEMA DE GESTION DE DOCUMENTOS\SIGESDOC_SANIPES\SIGESDOC.Request\obj\Release\SIGESDOC.Request.pdb

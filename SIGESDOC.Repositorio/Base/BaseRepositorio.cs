@@ -15,7 +15,6 @@ namespace SIGESDOC.Repositorio
 {
     public class BaseRepositorio<T> : IBaseRepositorio<T> where T : class
     {
-
         private readonly IContext _context;
 
         protected IContext Context

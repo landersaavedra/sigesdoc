@@ -348,18 +348,52 @@
 
         $("#persona_num_documento").focusout(function () {
 
-            if ($("#persona_num_documento").val().toString().trim().length >= 8) {
+            if ($("#persona_num_documento").val().toString().trim().length >= 8 && $('#cmbtipo_doc_iden').val() == 1) {
                 //Abre Popup
                 $("#loadMe").modal({
                     backdrop: "static", //remove ability to close modal with click
                     keyboard: false, //remove option to close with keyboard
                     show: true //Display loader!
                 });
-
+                $('#cmbtipo_doc_iden').attr("disabled", true);
                 //Trae Información
                 consulta_data();
+               
             }
         });
+
+        //$("#persona_num_documento").keyup(function () {
+
+        //    if ($("#persona_num_documento").val().toString().trim().length >= 8 && $('#cmbtipo_doc_iden').val() == 1) {
+        //        //Abre Popup
+        //        $("#loadMe").modal({
+        //            backdrop: "static", //remove ability to close modal with click
+        //            keyboard: false, //remove option to close with keyboard
+        //            show: true //Display loader!
+        //        });
+
+        //        //Trae Información
+        //        consulta_data();
+        //    }
+        //});
+
+        $("#persona_num_documento").keypress(function () {
+
+            if ($("#persona_num_documento").val().toString().trim().length >= 8 && $('#cmbtipo_doc_iden').val() == 1) {
+                //Abre Popup
+                $("#loadMe").modal({
+                    backdrop: "static", //remove ability to close modal with click
+                    keyboard: false, //remove option to close with keyboard
+                    show: true //Display loader!
+                });
+                $('#cmbtipo_doc_iden').attr("disabled", true);
+                //Trae Información
+                consulta_data();
+               
+            }
+        });
+
+
 
         $("#cmblista_provincia").change(function () {
             var selectprovincia = $("#cmblista_departamento").val() + $(this).val();
@@ -404,6 +438,7 @@
             $("#cmblista_departamento option:selected").text('SELECCIONAR DEPARTAMENTO');
             $("#cmblista_provincia option:selected").text('SELECCIONAR PROVINCIA');
             $("#cmblista_distrito option:selected").text('SELECCIONAR DISTRITO');
+            $('#cmbtipo_doc_iden').attr("disabled", false);
 
         });
 

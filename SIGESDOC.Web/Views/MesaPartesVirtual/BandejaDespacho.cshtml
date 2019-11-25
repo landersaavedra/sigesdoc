@@ -1,0 +1,281 @@
+﻿
+@{
+    ViewBag.Title = "BandejaDespacho";
+}
+
+<ol class="breadcrumb" style="margin-bottom: 5px;">
+    <li><a href="#">Bandejas de documentos</a></li>
+    <li class="active">Bandeja Despacho</li>
+</ol>
+<div class="bs-callout bs-callout-info">
+    <h4>Bandeja Despacho</h4>
+    <p>En esta sección usted puede atender sus documentos de Mesa de Parte Virtual </p>
+</div>
+
+<div class="panel panel-primary">
+    <div class="panel-heading panet-heading-sm">Búsqueda de documentos de despacho</div>
+    <div class="panel-body">
+        @using (Ajax.BeginForm(new AjaxOptions { HttpMethod = "Get" }))
+        {
+        <div class="row">
+
+            <div class="col-md-3">
+                <div class="input-group input-group-sm">
+                    <span class="input-group-addon">RUC :</span>
+                    @Html.TextBox("txtRuc", null, new { @class = "form-control input-sm", @maxlength = "500" })
+                </div>
+            </div>
+
+            <div class="col-lg-3">
+                <div class="input-group input-group-sm">
+                    <span class="input-group-addon">Dependencia :</span>
+                    @Html.TextBox("txtDependencia", null, new { @class = "form-control input-sm", @maxlength = "500" })
+                    @*@Html.DropDownList("cmbDependencia", (IEnumerable<SelectListItem>)ViewBag.lst_tupa, new { @class = "form-control input-sm" })*@
+                </div>
+            </div>
+
+            <div class="col-lg-6">
+                <div class="input-group input-group-sm">
+                    <span class="input-group-addon">Desde</span>
+                    <div class="input-group date input-group-sm" id="dtpFechainicio">
+                        <input class="form-control input-sm validaFechaInicio" id="txtFechainicio" type="text" name="txtFechainicio" value="">
+                        <span class="input-group-addon input-sm add-on">
+                            <a href="#">
+                                <i class="glyphicon glyphicon-calendar" data-date-icon="glyphicon glyphicon-calendar"></i>
+                            </a>
+                        </span>
+                    </div>
+                    <span class="input-group-addon">Hasta</span>
+                    <div class="input-group date input-group-sm" id="dtpFechafin">
+                        <input class="form-control input-sm validaFechaFin" id="txtFechafin" type="text" name="txtFechafin" value="">
+                        <span class="input-group-addon input-sm add-on">
+                            <a href="#">
+                                <i class="glyphicon glyphicon-calendar" data-date-icon="glyphicon glyphicon-calendar"></i>
+                            </a>
+                        </span>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+            <br />
+            <div class="row">
+
+                <div class="col-md-3">
+                    <div class="input-group input-group-sm">
+                        <span class="input-group-addon">Estado :</span>
+                        @Html.TextBox("txtEstado", null, new { @class = "form-control input-sm", @maxlength = "500" })
+                        @*@Html.DropDownList("cmbEstado", (IEnumerable<SelectListItem>)ViewBag.lst_estado, new { @class = "form-control input-sm" })*@
+                    </div>
+                </div>
+
+                <div class="col-md-3">
+                    <input type="submit" id="btnBuscar" class="btn btn-primary btn-sm pull-left" value="Buscar" />
+                    <input type="button" id="btnSeeDetails" class="btn btn-primary btn-sm pull-left" value="ver Detalle" />
+                </div>
+
+            </div>
+        }
+    </div>
+</div>
+
+<div class="modal fade" id="mdldetalleDespacho" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-width">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title" id="myModalLabel">Detalle</h4>
+            </div>
+            <div class="modal-body">
+                <div class="form-horizontal">
+
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-group" style="margin-left: 0px; margin-right: 0px; margin-bottom: 0px;">
+                                <label class="control-label" for="txt_ruc_ent_destinataria">RUC Ent. Destinataria</label>
+                                @Html.TextBox("txt_ruc_ent_destinataria", null, new { @class = "form-control input-sm" })
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group" style="margin-left: 0px; margin-right: 0px; margin-bottom: 0px;">
+                                <label class="control-label" for="txt_num_reg_std">Num. Reg. STD</label>
+                                @Html.TextBox("txt_num_reg_std", null, new { @class = "form-control input-sm" })
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group" style="margin-left: 0px; margin-right: 0px; margin-bottom: 0px;">
+                                <label class="control-label" for="txt_ano_reg_std">Año Reg. STD</label>
+                                @Html.TextBox("txt_ano_reg_std", null, new { @class = "form-control input-sm" })
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group" style="margin-left: 0px; margin-right: 0px; margin-bottom: 0px;">
+                                <label class="control-label" for="txt_tipo_documento">Tipo Documento</label>
+                                @Html.TextBox("txt_tipo_documento", null, new { @class = "form-control input-sm" })
+                                @*@Html.DropDownList("cmbTipoDocumento", (IEnumerable<SelectListItem>)ViewBag.lst_TipoDoc, new { @class = "form-control input-sm" })*@
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group" style="margin-left: 0px; margin-right: 0px; margin-bottom: 0px;">
+                                <label class="control-label" for="txt_num_doc">Numero Documento</label>
+                                @Html.TextBox("txt_num_doc", null, new { @class = "form-control input-sm" })
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="form-group" style="margin-left: 0px; margin-right: 0px; margin-bottom: 0px;">
+                                <label class="control-label" for="txt_fec_doc">Fecha Documento</label>
+                                @Html.TextBox("txt_fec_doc", null, new { @class = "form-control input-sm" })
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-group" style="margin-left: 0px; margin-right: 0px; margin-bottom: 0px;">
+                                <label class="control-label" for="txt_nom_und_org_destino">Nom. Und. Org. Destino</label>
+                                @Html.TextBox("txt_nom_und_org_destino", null, new { @class = "form-control input-sm" })
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-group" style="margin-left: 0px; margin-right: 0px; margin-bottom: 0px;">
+                                <label class="control-label" for="txt_nom_und_org_destino">Car. Destinatario</label>
+                                @Html.TextBox("txt_car_destinatario", null, new { @class = "form-control input-sm" })
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-group" style="margin-left: 0px; margin-right: 0px; margin-bottom: 0px;">
+                                <label class="control-label" for="txt_asunto">Asunto</label>
+                                @Html.TextArea("txt_asunto", new { @class = "form-control input-sm", @rows = "4", @maxlength = "500" })
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-group" style="margin-left: 0px; margin-right: 0px; margin-bottom: 0px;">
+                                <label class="control-label">Archivo Principal</label>
+                                <input type="file" name="file" accept=".pdf" />
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group" style="margin-left: 0px; margin-right: 0px; margin-bottom: 0px;">
+                                <label class="control-label" for="txt_num_folios">Num. Folios</label>
+                                @Html.TextBox("txt_num_folios", null, new { @class = "form-control input-sm" })
+                                @*@Html.DropDownList("cmbTipoDocumento", (IEnumerable<SelectListItem>)ViewBag.lst_TipoDoc, new { @class = "form-control input-sm" })*@
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group" style="margin-left: 0px; margin-right: 0px; margin-bottom: 0px;">
+                                <label class="control-label" for="txt_num_anexos">Num. Anexos</label>
+                                @Html.TextBox("txt_num_anexos", null, new { @class = "form-control input-sm" })
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group" style="margin-left: 0px; margin-right: 0px; margin-bottom: 0px;">
+                                <label class="control-label">Anexo</label>
+
+                                <table id="grid_Anexo" class="table table-striped table-hover table-condensed table-bordered tabla small">
+                                    <thead>
+                                        <tr class="cabecera text-center">
+                                            <th scope="col">Código Anexo</th>
+                                            <th scope="col" class="visible-lg visible-md">Descripción Anexo</th>
+                                        </tr>
+                                    </thead>
+                                </table>
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-12" style="text-align: right">
+                            <a href="#" class="btn btn-sm btn-primary"><span class="glyphicon glyphicon-transfer"></span> Recepcionar</a>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="grid">
+    <table id="grid_bandeja_despacho" class="table table-striped table-hover table-condensed table-bordered tabla small">
+        <thead>
+            <tr class="cabecera text-center">
+                <th scope="col">Id</th>
+                <th scope="col" class="visible-lg visible-md">Num. STD Ent Emisora</th>
+                <th scope="col" class="visible-lg">Nom. Uni. Org. Emisora</th>
+                <th scope="col" class="visible-lg visible-md">Ent. Destino</th>
+                <th scope="col" class="visible-lg">Uni. Org. Destino</th>
+                <th scope="col" class="visible-lg">Fec. Reg. Emisión</th>
+                <th scope="col" class="visible-lg">CUO</th>
+                <th scope="col" class="visible-lg">ESTADO</th>
+                <th></th>
+            </tr>
+        </thead>
+    </table>
+</div>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $("#txtFechainicio").val($("#val_txtfechainicio").val());
+        $("#txtFechafin").val($("#val_txtfechafin").val());
+
+        $(function () {
+            $('#dtpFechafin').datetimepicker({
+                pickTime: false,
+                format: 'dd/MM/yyyy',
+                language: 'es'
+            });
+
+            $('#dtpFechainicio').datetimepicker({
+                pickTime: false,
+                format: 'dd/MM/yyyy',
+                language: 'es'
+            });
+        });
+
+        $(this).submit(function (e) {
+            var var_fecha_fin = $("#txtFechafin").val();
+            var var_fecha_ini = $("#txtFechainicio").val();
+            if (var_fecha_ini != "" && var_fecha_fin != "") {
+                if (compare_dates(var_fecha_ini, var_fecha_fin)) {
+                    $("#txtFechafin").val($("#txtFechainicio").val());
+                }
+            }
+            $("#val_txtfechainicio").val($("#txtFechainicio").val());
+            $("#val_txtfechafin").val($("#txtFechafin").val());
+        });
+    });
+
+    $(document).on('click', '#btnSeeDetails', function () {
+        $('#mdldetalleDespacho').modal('show');
+    });
+</script>
+
+

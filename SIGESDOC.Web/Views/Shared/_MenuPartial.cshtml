@@ -745,6 +745,13 @@
 
                 </ul>
             </li>
+            <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Mesa Virtual<b class="caret"></b></a>
+                <ul class="dropdown-menu">
+                    @Html.MenuItem("Despacho", "BandejaDespacho", "MesaPartesVirtual", action, controller)
+                    @Html.MenuItem("Recepción", "BandejaRecepcion", "MesaPartesVirtual", action, controller)
+                </ul>
+            </li>
         </ul>
     }
 

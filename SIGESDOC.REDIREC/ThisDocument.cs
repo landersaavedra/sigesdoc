@@ -30,14 +30,18 @@ namespace SIGESDOC.REDIREC
         /// </summary>
         private void InternalStartup()
         {
-            
+            this.NOM_DOC.SelectionChange += new Microsoft.Office.Tools.Word.SelectionEventHandler(this.NOM_DOC_SelectionChange);
             this.Startup += new System.EventHandler(this.ThisDocument_Startup);
             this.Shutdown += new System.EventHandler(this.ThisDocument_Shutdown);
 
         }
 
+
         #endregion
 
-        
+        private void NOM_DOC_SelectionChange(object sender, SelectionEventArgs e)
+        {
+
+        }
     }
 }

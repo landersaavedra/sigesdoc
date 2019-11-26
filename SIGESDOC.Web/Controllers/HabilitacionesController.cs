@@ -11243,8 +11243,6 @@ namespace SIGESDOC.Web.Controllers
             application.Visible = true;
             Word.Document document = application.Documents.Open(@"C:\Users\PSSPERU069\Documents\Proyecto\sigesdoc\SIGESDOC.INFORMEUTI\bin\Debug\INFORME_UTI.docx", ref missing);
 
-
-
         }
 
         #endregion
@@ -11255,7 +11253,9 @@ namespace SIGESDOC.Web.Controllers
         [HttpGet]
         public void OficioWord(CargaOficioWord oficioWord)
         {
-
+            object missing = System.Reflection.Missing.Value;
+            Word.Application application = new Word.Application();
+            Word.Document document = application.Documents.Open(@"C:\Users\PSSPERU069\Documents\Proyecto\sigesdoc\SIGESDOC.OFICIO\bin\Debug\OFICIO.docx", ref missing);
 
         }
 

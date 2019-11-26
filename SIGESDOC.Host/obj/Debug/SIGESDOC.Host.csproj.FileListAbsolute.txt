@@ -33,8 +33,6 @@ C:\Users\PSSPERU069\Documents\Proyecto\sigesdoc\SIGESDOC.Host\obj\Debug\SIGESDOC
 C:\Users\PSSPERU069\Documents\Proyecto\sigesdoc\SIGESDOC.Host\obj\Debug\SIGESDOC.Host.csproj.CopyComplete
 C:\Users\PSSPERU069\Documents\Proyecto\sigesdoc\SIGESDOC.Host\obj\Debug\SIGESDOC.Host.dll
 C:\Users\PSSPERU069\Documents\Proyecto\sigesdoc\SIGESDOC.Host\obj\Debug\SIGESDOC.Host.pdb
-C:\inetpub\wwwroot\sigesdoc\SIGESDOC.Host\obj\Debug\SIGESDOC.Host.csprojAssemblyReference.cache
-C:\inetpub\wwwroot\sigesdoc\SIGESDOC.Host\obj\Debug\SIGESDOC.Host.csproj.CoreCompileInputs.cache
 C:\inetpub\wwwroot\sigesdoc\SIGESDOC.Host\bin\SIGESDOC.Host.dll.config
 C:\inetpub\wwwroot\sigesdoc\SIGESDOC.Host\bin\SIGESDOC.Host.dll
 C:\inetpub\wwwroot\sigesdoc\SIGESDOC.Host\bin\SIGESDOC.Host.pdb
@@ -65,6 +63,8 @@ C:\inetpub\wwwroot\sigesdoc\SIGESDOC.Host\bin\EntityFramework.SqlServer.xml
 C:\inetpub\wwwroot\sigesdoc\SIGESDOC.Host\bin\SIGESDOC.IAplicacionService.pdb
 C:\inetpub\wwwroot\sigesdoc\SIGESDOC.Host\bin\SIGESDOC.Response.pdb
 C:\inetpub\wwwroot\sigesdoc\SIGESDOC.Host\bin\SIGESDOC.Request.pdb
+C:\inetpub\wwwroot\sigesdoc\SIGESDOC.Host\obj\Debug\SIGESDOC.Host.csprojAssemblyReference.cache
+C:\inetpub\wwwroot\sigesdoc\SIGESDOC.Host\obj\Debug\SIGESDOC.Host.csproj.CoreCompileInputs.cache
 C:\inetpub\wwwroot\sigesdoc\SIGESDOC.Host\obj\Debug\SIGESDOC.Host.csproj.CopyComplete
 C:\inetpub\wwwroot\sigesdoc\SIGESDOC.Host\obj\Debug\SIGESDOC.Host.dll
 C:\inetpub\wwwroot\sigesdoc\SIGESDOC.Host\obj\Debug\SIGESDOC.Host.pdb

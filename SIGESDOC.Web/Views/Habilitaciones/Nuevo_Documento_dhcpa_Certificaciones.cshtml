@@ -603,17 +603,22 @@
 
             var combo = $("#cmbtipo_documento").val();
             console.log(combo);
-            if (combo == 136) {
-                // $('#checklabel').hidden = false;
-                // $('#checkexpediente').hidden = false;
+             if (combo == 93) {
                 document.getElementById('checklabel').hidden = false;
                 document.getElementById('checkexpediente').hidden = false;
             } else {
-                document.getElementById('checklabel').hidden = true;
-                document.getElementById('checkexpediente').hidden = true;
+                if (combo == 136) {
+                    document.getElementById('checklabel').hidden = false;
+                    document.getElementById('checkexpediente').hidden = true;
+                } else {
+                    document.getElementById('checklabel').hidden = true;
+                    document.getElementById('checkexpediente').hidden = true;
+                }
             }
 
-            if ($("#cmbtipo_documento").val() == 21) {
+            
+
+            if ($("#cmbtipo_documento").val() == 21 || $("#cmbtipo_documento").val() == 136) {
 
                 jQuery("#DivFormatoCedulas").empty();
 
@@ -631,11 +636,13 @@
                 nuevoTD += '<div class="col-md-2"> <input type="number" class="form-control input-sm" maxlength="50" id="folia_cdl_notif" />  </div>';
                 nuevoTD += '</div>';
 
-                //DOCUMENTO A NOTIFICAR
-                nuevoTD += '<div class="form-group">';
-                nuevoTD += '<label class="col-md-2 control-label">Documento a Notificar:</label>';
-                nuevoTD += '<div class="col-md-6"> <input type="text" class="form-control input-sm" maxlength="50" id="doc_notificar_cdl_notif" />  </div>';
-                nuevoTD += '</div>';
+                if ($("#cmbtipo_documento").val() == 21) {
+                    //DOCUMENTO A NOTIFICAR
+                    nuevoTD += '<div class="form-group">';
+                    nuevoTD += '<label class="col-md-2 control-label">Documento a Notificar:</label>';
+                    nuevoTD += '<div class="col-md-6"> <input type="text" class="form-control input-sm" maxlength="50" id="doc_notificar_cdl_notif" />  </div>';
+                    nuevoTD += '</div>';
+                }                
 
                 //EMPRESA
                 nuevoTD += '<div class="form-group">';
@@ -848,8 +855,15 @@
                 }
             var checked = document.getElementById('checkexpediente').checked;
             $("#txt_ind_agregar_cedula").val("0");
-            if (checked == true) {
-                $("#txt_ind_agregar_cedula").val("1");
+            
+            if ($("#cmbtipo_documento").val() == 93) {
+                if (checked == true) {
+                    $("#txt_ind_agregar_cedula").val("1");
+                }
+            } else {
+                if ($("#cmbtipo_documento").val()  == 136) {
+                    $("#txt_ind_agregar_cedula").val("1");
+                }
             }
                 var data = {//Objeto que se envia al controlador
                     "id_tipo_documento": $("#cmbtipo_documento").val(),

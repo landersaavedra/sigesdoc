@@ -5161,6 +5161,7 @@ namespace SIGESDOC.Web.Controllers
                     && HttpContext.User.Identity.Name.Split('|')[4].Trim() == "18")))
                 // Oficina 18: Sub Dirección de Habilitaciones
                 {
+                    
                     //model.id_oficina_direccion = Convert.ToInt32(HttpContext.User.Identity.Name.Split('|')[4].Trim());
                     model.num_doc = _HabilitacionesService.CountDocumentos_x_tipo(model.id_tipo_documento) + 1;
                     model.nom_doc = "-" + DateTime.Now.Year.ToString() + "- DHCPA/SANIPES";
@@ -5211,10 +5212,15 @@ namespace SIGESDOC.Web.Controllers
                     {
                         string mensaje = "";
                         mensaje = "Se creó el Documento : " + model.nom_tipo_documento + " N° " + model.num_doc.ToString() + model.nom_doc;
-
+                        
+                        if (model.id_tipo_documento == 136)
+                        {
+                            model.doc_notificar_cdl_notif= model.nom_tipo_documento + " N° " + model.num_doc.ToString() + model.nom_doc;
+                        }
                         // 21 : CEDULA DE NOTIFICACION
                         model.id_tipo_documento = 21;
                         model.num_doc = _HabilitacionesService.CountDocumentos_x_tipo(model.id_tipo_documento) + 1;
+
 
                         DocumentoDhcpaRequest req_documento_dhcpa2 = ModelToRequest.Documento_dhcpa(model);
                         req_documento_dhcpa2.fecha_registro = DateTime.Now;
@@ -10208,10 +10214,15 @@ namespace SIGESDOC.Web.Controllers
                         string mensaje = "";
                         mensaje = "Se creó el Documento : " + model.nom_tipo_documento + " N° " + model.num_doc.ToString() + model.nom_doc;
 
+                        if (model.id_tipo_documento == 136)
+                        {
+                            model.doc_notificar_cdl_notif = model.nom_tipo_documento + " N° " + model.num_doc.ToString() + model.nom_doc;
+                        }
+
                         // 21 : CEDULA DE NOTIFICACION
                         model.id_tipo_documento = 21;
                         model.num_doc = _HabilitacionesService.CountDocumentos_x_tipo(model.id_tipo_documento) + 1;
-
+                        
                         DocumentoDhcpaRequest req_documento_dhcpa2 = ModelToRequest.Documento_dhcpa(model);
                         req_documento_dhcpa2.fecha_registro = DateTime.Now;
                         req_documento_dhcpa2.usuario_registro = HttpContext.User.Identity.Name.Split('|')[0].Trim() + " - " + HttpContext.User.Identity.Name.Split('|')[1].Trim();

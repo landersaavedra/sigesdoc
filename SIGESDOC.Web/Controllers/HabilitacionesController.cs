@@ -11101,7 +11101,7 @@ namespace SIGESDOC.Web.Controllers
             object missing = Missing.Value;
             Word.Application wApp = new Word.Application();
                 
-            Word.Document document = wApp.Documents.Open(@"C:\Users\PSSPERU069\Documents\Proyecto\sigesdoc\SIGESDOC.VSTO_SANIPES\bin\Debug\CÉDULANOTIFICACIÓN.docx", ref missing);
+            Word.Document document = wApp.Documents.Open(@"C:\Users\PSSPERU069\Documents\Proyecto\sigesdoc\SIGESDOC.VSTO_SANIPES\bin\Debug\CÉDULANOTIFICACIÓN.docx", ref missing , false);
 
             #region cedula de notificacion 
 
@@ -11193,9 +11193,11 @@ namespace SIGESDOC.Web.Controllers
 
             //string ruta = ConfigurationManager.AppSettings["RUTA_WORD_DOC"];
             //Word.Document document = application.Documents.Open(Path.Combine(ruta + "/RESOLUCION_DIRECTORAL.docx"), ref missing);
-        
+
             //Word.Document document = application.Documents.Open(@"C:\inetpub\wwwroot\sigesdoc\SIGESDOC.REDIREC\RESOLUCION_DIRECTORAL.docx", ref missing);
-            Word.Document document = application.Documents.Open(@"C:\Users\PSSPERU069\Documents\Proyecto\sigesdoc\SIGESDOC.REDIREC\bin\Debug\RESOLUCION_DIRECTORAL.docx", ref missing);
+             Word.Document document = application.Documents.Open(@"C:\Users\PSSPERU069\Documents\Proyecto\sigesdoc\SIGESDOC.REDIREC\bin\Debug\RESOLUCION_DIRECTORAL.docx", ref missing, false);
+             // Word.Document document = new Word.Document();
+            
 
             #region Campos de la Resolucion
 
@@ -11210,6 +11212,7 @@ namespace SIGESDOC.Web.Controllers
             Word.Range EXPEDIENTE = document.Bookmarks["EXPEDIENTE"].Range;
             Word.Range EXPEDIENTE_1 = document.Bookmarks["EXPEDIENTE_1"].Range;
             Word.Range EXPEDIENTE_2 = document.Bookmarks["EXPEDIENTE_2"].Range;
+            document.Range().Editors.Add(Word.WdEditorType.wdEditorEveryone);
             #endregion
 
             DateTime fecha = DateTime.Now;
@@ -11228,7 +11231,8 @@ namespace SIGESDOC.Web.Controllers
             EXPEDIENTE_2.Text = tableData.EXPEDIENTE == null ? string.Empty : tableData.EXPEDIENTE;
 
             FECHA_ACTUAL.Text = tableData.FECHA_ACTUAL == null ? string.Empty : tableData.FECHA_ACTUAL; ;
-            NOM_DOC.Text = tableData.NOM_DOC == null ? string.Empty : tableData.NOM_DOC; ;
+            NOM_DOC.Text = tableData.NOM_DOC == null ? string.Empty : tableData.NOM_DOC;
+           // document = application.Documents.Open(@"C:\Users\PSSPERU069\Documents\Proyecto\sigesdoc\SIGESDOC.REDIREC\bin\Debug\RESOLUCION_DIRECTORAL.docx", ref missing);
             application.Visible = true;
 
 
@@ -11241,7 +11245,7 @@ namespace SIGESDOC.Web.Controllers
             object missing = System.Reflection.Missing.Value;
             Word.Application application = new Word.Application();
             application.Visible = true;
-            Word.Document document = application.Documents.Open(@"C:\Users\PSSPERU069\Documents\Proyecto\sigesdoc\SIGESDOC.INFORMEUTI\bin\Debug\INFORME_UTI.docx", ref missing);
+            Word.Document document = application.Documents.Open(@"C:\Users\PSSPERU069\Documents\Proyecto\sigesdoc\SIGESDOC.INFORMEUTI\bin\Debug\INFORME_UTI.docx", ref missing, false);
 
         }
 

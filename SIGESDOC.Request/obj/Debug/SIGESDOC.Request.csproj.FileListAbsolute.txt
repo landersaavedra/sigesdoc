@@ -4,3 +4,9 @@ C:\inetpub\wwwroot\sigesdoc\SIGESDOC.Request\obj\Debug\SIGESDOC.Request.csprojAs
 C:\inetpub\wwwroot\sigesdoc\SIGESDOC.Request\obj\Debug\SIGESDOC.Request.csproj.CoreCompileInputs.cache
 C:\inetpub\wwwroot\sigesdoc\SIGESDOC.Request\obj\Debug\SIGESDOC.Request.dll
 C:\inetpub\wwwroot\sigesdoc\SIGESDOC.Request\obj\Debug\SIGESDOC.Request.pdb
+C:\Users\PSSPERU069\Documents\Proyecto\sigesdoc_sanipes\sigesdoc\SIGESDOC.Request\bin\Debug\SIGESDOC.Request.dll
+C:\Users\PSSPERU069\Documents\Proyecto\sigesdoc_sanipes\sigesdoc\SIGESDOC.Request\bin\Debug\SIGESDOC.Request.pdb
+C:\Users\PSSPERU069\Documents\Proyecto\sigesdoc_sanipes\sigesdoc\SIGESDOC.Request\obj\Debug\SIGESDOC.Request.csprojAssemblyReference.cache
+C:\Users\PSSPERU069\Documents\Proyecto\sigesdoc_sanipes\sigesdoc\SIGESDOC.Request\obj\Debug\SIGESDOC.Request.csproj.CoreCompileInputs.cache
+C:\Users\PSSPERU069\Documents\Proyecto\sigesdoc_sanipes\sigesdoc\SIGESDOC.Request\obj\Debug\SIGESDOC.Request.dll
+C:\Users\PSSPERU069\Documents\Proyecto\sigesdoc_sanipes\sigesdoc\SIGESDOC.Request\obj\Debug\SIGESDOC.Request.pdb

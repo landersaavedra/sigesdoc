@@ -2746,11 +2746,12 @@
     <EntitySetMapping Name="VW_CONSULTA_EXPEDIENTE_X_EXPEDIENTE">
       <EntityTypeMapping TypeName="DB_GESDOCModel.VW_CONSULTA_EXPEDIENTE_X_EXPEDIENTE">
         <MappingFragment StoreEntitySet="VW_CONSULTA_EXPEDIENTE_X_EXPEDIENTE">
-          <ScalarProperty Name="ID_SEGUIMIENTO" ColumnName="ID_SEGUIMIENTO" />
-          <ScalarProperty Name="ID_EXPEDIENTE" ColumnName="ID_EXPEDIENTE" />
           <ScalarProperty Name="EVALUADOR" ColumnName="EVALUADOR" />
           <ScalarProperty Name="DIRECCION" ColumnName="DIRECCION" />
           <ScalarProperty Name="EXTERNO" ColumnName="EXTERNO" />
+          <ScalarProperty Name="NUM_DOCUMENTO" ColumnName="NUM_DOCUMENTO" />
+          <ScalarProperty Name="ID_SEGUIMIENTO" ColumnName="ID_SEGUIMIENTO" />
+          <ScalarProperty Name="ID_EXPEDIENTE" ColumnName="ID_EXPEDIENTE" />
           <ScalarProperty Name="EXPEDIENTE" ColumnName="EXPEDIENTE" />
         </MappingFragment>
       </EntityTypeMapping>

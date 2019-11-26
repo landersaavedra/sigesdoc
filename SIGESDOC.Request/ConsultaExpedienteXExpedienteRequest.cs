@@ -15,10 +15,11 @@ namespace SIGESDOC.Request
     public partial class ConsultaExpedienteXExpedienteRequest
     {
         public string expediente { get; set; }
+        public Nullable<int> id_expediente { get; set; }
+        public int id_seguimiento { get; set; }
+        public string num_documento { get; set; }
         public string externo { get; set; }
         public string direccion { get; set; }
         public string evaluador { get; set; }
-        public Nullable<int> id_expediente { get; set; }
-        public int id_seguimiento { get; set; }
     }
 }

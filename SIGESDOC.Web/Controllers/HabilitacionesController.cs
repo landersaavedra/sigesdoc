@@ -5164,7 +5164,6 @@ namespace SIGESDOC.Web.Controllers
                     //model.id_oficina_direccion = Convert.ToInt32(HttpContext.User.Identity.Name.Split('|')[4].Trim());
                     model.num_doc = _HabilitacionesService.CountDocumentos_x_tipo(model.id_tipo_documento) + 1;
                     model.nom_doc = "-" + DateTime.Now.Year.ToString() + "- DHCPA/SANIPES";
-                    model.ruc = model.ruc;
                     DocumentoDhcpaRequest req_documento_dhcpa = ModelToRequest.Documento_dhcpa(model);
                     req_documento_dhcpa.fecha_registro = DateTime.Now;
                     req_documento_dhcpa.usuario_registro = HttpContext.User.Identity.Name.Split('|')[0].Trim() + " - " + HttpContext.User.Identity.Name.Split('|')[1].Trim();

@@ -15,10 +15,11 @@ namespace SIGESDOC.Entidades
     public partial class VW_CONSULTA_EXPEDIENTE_X_EXPEDIENTE
     {
         public string EXPEDIENTE { get; set; }
+        public Nullable<int> ID_EXPEDIENTE { get; set; }
+        public int ID_SEGUIMIENTO { get; set; }
+        public string NUM_DOCUMENTO { get; set; }
         public string EXTERNO { get; set; }
         public string DIRECCION { get; set; }
         public string EVALUADOR { get; set; }
-        public Nullable<int> ID_EXPEDIENTE { get; set; }
-        public int ID_SEGUIMIENTO { get; set; }
     }
 }

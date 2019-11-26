@@ -3933,14 +3933,14 @@
   </ComplexType>
   <EntityType Name="VW_CONSULTA_EXPEDIENTE_X_EXPEDIENTE">
     <Key>
-      <PropertyRef Name="EXTERNO" />
       <PropertyRef Name="ID_SEGUIMIENTO" />
     </Key>
     <Property Name="EXPEDIENTE" Type="String" MaxLength="61" FixedLength="false" Unicode="false" />
-    <Property Name="EXTERNO" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="false" />
-    <Property Name="DIRECCION" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
-    <Property Name="EVALUADOR" Type="String" MaxLength="152" FixedLength="false" Unicode="false" />
     <Property Name="ID_EXPEDIENTE" Type="Int32" />
     <Property Name="ID_SEGUIMIENTO" Type="Int32" Nullable="false" />
+    <Property Name="NUM_DOCUMENTO" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="EXTERNO" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="DIRECCION" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="EVALUADOR" Type="String" MaxLength="152" FixedLength="false" Unicode="false" />
   </EntityType>
 </Schema>

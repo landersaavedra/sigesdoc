@@ -18,6 +18,8 @@ C:\Users\PSSPERU069\Documents\Proyecto\sigesdoc\SIGESDOC.AplicacionService\obj\D
 C:\Users\PSSPERU069\Documents\Proyecto\sigesdoc\SIGESDOC.AplicacionService\obj\Debug\SIGESDOC.AplicacionService.csproj.CopyComplete
 C:\Users\PSSPERU069\Documents\Proyecto\sigesdoc\SIGESDOC.AplicacionService\obj\Debug\SIGESDOC.AplicacionService.dll
 C:\Users\PSSPERU069\Documents\Proyecto\sigesdoc\SIGESDOC.AplicacionService\obj\Debug\SIGESDOC.AplicacionService.pdb
+C:\inetpub\wwwroot\sigesdoc\SIGESDOC.AplicacionService\obj\Debug\SIGESDOC.AplicacionService.csprojAssemblyReference.cache
+C:\inetpub\wwwroot\sigesdoc\SIGESDOC.AplicacionService\obj\Debug\SIGESDOC.AplicacionService.csproj.CoreCompileInputs.cache
 C:\inetpub\wwwroot\sigesdoc\SIGESDOC.AplicacionService\bin\Debug\SIGESDOC.AplicacionService.dll
 C:\inetpub\wwwroot\sigesdoc\SIGESDOC.AplicacionService\bin\Debug\SIGESDOC.AplicacionService.pdb
 C:\inetpub\wwwroot\sigesdoc\SIGESDOC.AplicacionService\bin\Debug\SIGESDOC.Entidades.dll
@@ -33,8 +35,6 @@ C:\inetpub\wwwroot\sigesdoc\SIGESDOC.AplicacionService\bin\Debug\SIGESDOC.IRepos
 C:\inetpub\wwwroot\sigesdoc\SIGESDOC.AplicacionService\bin\Debug\SIGESDOC.Request.pdb
 C:\inetpub\wwwroot\sigesdoc\SIGESDOC.AplicacionService\bin\Debug\SIGESDOC.Response.pdb
 C:\inetpub\wwwroot\sigesdoc\SIGESDOC.AplicacionService\bin\Debug\EntityFramework.xml
-C:\inetpub\wwwroot\sigesdoc\SIGESDOC.AplicacionService\obj\Debug\SIGESDOC.AplicacionService.csprojAssemblyReference.cache
-C:\inetpub\wwwroot\sigesdoc\SIGESDOC.AplicacionService\obj\Debug\SIGESDOC.AplicacionService.csproj.CoreCompileInputs.cache
 C:\inetpub\wwwroot\sigesdoc\SIGESDOC.AplicacionService\obj\Debug\SIGESDOC.AplicacionService.csproj.CopyComplete
 C:\inetpub\wwwroot\sigesdoc\SIGESDOC.AplicacionService\obj\Debug\SIGESDOC.AplicacionService.dll
 C:\inetpub\wwwroot\sigesdoc\SIGESDOC.AplicacionService\obj\Debug\SIGESDOC.AplicacionService.pdb

@@ -239,7 +239,8 @@ namespace SIGESDOC.AplicacionService
                               direccion = zp.DIRECCION,
                               evaluador =zp.EVALUADOR,
                               id_seguimiento = zp.ID_SEGUIMIENTO,
-                              id_expediente = zp.ID_EXPEDIENTE
+                              id_expediente = zp.ID_EXPEDIENTE,
+                              num_documento = zp.NUM_DOCUMENTO
                           });
 
             if (result.Count() > 0)

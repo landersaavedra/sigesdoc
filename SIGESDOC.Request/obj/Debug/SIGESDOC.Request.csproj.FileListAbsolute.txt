@@ -1,15 +1,5 @@
-C:\Users\PSSPERU069\Documents\Proyecto\sigesdoc\SIGESDOC.Request\bin\Debug\SIGESDOC.Request.dll
-C:\Users\PSSPERU069\Documents\Proyecto\sigesdoc\SIGESDOC.Request\bin\Debug\SIGESDOC.Request.pdb
-C:\Users\PSSPERU069\Documents\Proyecto\sigesdoc\SIGESDOC.Request\obj\Debug\SIGESDOC.Request.csproj.CoreCompileInputs.cache
-C:\Users\PSSPERU069\Documents\Proyecto\sigesdoc\SIGESDOC.Request\obj\Debug\SIGESDOC.Request.dll
-C:\Users\PSSPERU069\Documents\Proyecto\sigesdoc\SIGESDOC.Request\obj\Debug\SIGESDOC.Request.pdb
-<<<<<<< HEAD
 C:\inetpub\wwwroot\sigesdoc\SIGESDOC.Request\bin\Debug\SIGESDOC.Request.dll
 C:\inetpub\wwwroot\sigesdoc\SIGESDOC.Request\bin\Debug\SIGESDOC.Request.pdb
-C:\inetpub\wwwroot\sigesdoc\SIGESDOC.Request\obj\Debug\SIGESDOC.Request.csprojAssemblyReference.cache
 C:\inetpub\wwwroot\sigesdoc\SIGESDOC.Request\obj\Debug\SIGESDOC.Request.csproj.CoreCompileInputs.cache
 C:\inetpub\wwwroot\sigesdoc\SIGESDOC.Request\obj\Debug\SIGESDOC.Request.dll
 C:\inetpub\wwwroot\sigesdoc\SIGESDOC.Request\obj\Debug\SIGESDOC.Request.pdb
-=======
-C:\Users\PSSPERU069\Documents\Proyecto\sigesdoc\SIGESDOC.Request\obj\Debug\SIGESDOC.Request.csprojAssemblyReference.cache
->>>>>>> 18a14d4883f20f591e4125d0ef71cda7dc9710a9

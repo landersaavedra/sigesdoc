@@ -162,6 +162,7 @@
         @Html.TextBox("txt_user_document", (string)ViewBag.user_document, new { @class = "form-control input-sm hidden" })
         @Html.TextBox("txt_user_perfil", (string)ViewBag.user_perfil, new { @class = "form-control input-sm hidden" })
         @Html.TextBox("txt_ind_agregar_cedula", null, new { @class = "form-control input-sm hidden" })
+        @Html.TextBox("txt_ind_ruc", null, new { @class = "form-control input-sm hidden" })
 
     </ol>
 
@@ -508,6 +509,7 @@
                 $("#evaluador_cdl_notif").val(data.evaluador);
                 $("#direccion_cdl_notif").val(data.direccion);
                 $("#empresa_cdl_notif").val(data.externo);
+                $("#txt_ind_ruc").val(data.num_documento);
             },
             error: function (xhr, ajaxOptions, thrownError) {
                 alert('Failed to retrieve states.');
@@ -863,6 +865,7 @@
                     "direccion_cdl_notif": $("#direccion_cdl_notif").val(),
                     "empresa_cdl_notif": $("#empresa_cdl_notif").val(),
                     "folia_cdl_notif": $("#folia_cdl_notif").val(),
+                    "ruc" : $("#txt_ind_ruc").val(),
                     "doc_notificar_cdl_notif": $("#doc_notificar_cdl_notif").val(),
                     "exp_o_ht_cdl_notif": null, //$("#exp_o_ht_cdl_notif").val() ==,
                     "exp_o_ht_n_cdl_notif": $("#exp_o_ht_n_cdl_notif").val(),

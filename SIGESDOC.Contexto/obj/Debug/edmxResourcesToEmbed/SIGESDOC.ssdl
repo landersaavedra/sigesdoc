@@ -1061,12 +1061,12 @@ advertencia 6002: La tabla o vista 'DB_GESDOC.dbo.VW_CONSULTA_EXPEDIENTE_X_EXPED
   <EntityType Name="VW_CONSULTA_EXPEDIENTE_X_EXPEDIENTE">
     <Key>
       <PropertyRef Name="ID_SEGUIMIENTO" />
-      <PropertyRef Name="EXTERNO" />
     </Key>
     <Property Name="EXPEDIENTE" Type="varchar" MaxLength="61" />
     <Property Name="ID_EXPEDIENTE" Type="int" />
     <Property Name="ID_SEGUIMIENTO" Type="int" Nullable="false" />
-    <Property Name="EXTERNO" Type="varchar" MaxLength="500" Nullable="false" />
+    <Property Name="NUM_DOCUMENTO" Type="varchar" MaxLength="500" />
+    <Property Name="EXTERNO" Type="varchar" MaxLength="500" />
     <Property Name="DIRECCION" Type="varchar" MaxLength="200" />
     <Property Name="EVALUADOR" Type="varchar" MaxLength="152" />
   </EntityType>
@@ -2999,6 +2999,7 @@ advertencia 6002: La tabla o vista 'DB_GESDOC.dbo.VW_VER_PEDIENTES_GESDOC' no ti
     [VW_CONSULTA_EXPEDIENTE_X_EXPEDIENTE].[EXPEDIENTE] AS [EXPEDIENTE], 
     [VW_CONSULTA_EXPEDIENTE_X_EXPEDIENTE].[ID_EXPEDIENTE] AS [ID_EXPEDIENTE], 
     [VW_CONSULTA_EXPEDIENTE_X_EXPEDIENTE].[ID_SEGUIMIENTO] AS [ID_SEGUIMIENTO], 
+    [VW_CONSULTA_EXPEDIENTE_X_EXPEDIENTE].[NUM_DOCUMENTO] AS [NUM_DOCUMENTO], 
     [VW_CONSULTA_EXPEDIENTE_X_EXPEDIENTE].[EXTERNO] AS [EXTERNO], 
     [VW_CONSULTA_EXPEDIENTE_X_EXPEDIENTE].[DIRECCION] AS [DIRECCION], 
     [VW_CONSULTA_EXPEDIENTE_X_EXPEDIENTE].[EVALUADOR] AS [EVALUADOR]

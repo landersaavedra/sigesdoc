@@ -495,7 +495,7 @@
                         //"FOLIA_CDL_NOTIF": tableData[9],
                         //"DOC_NOTIFICAR_CDL_NOTIF": tableData[10],
                         //"EXP_O_HT_N_CDL_NOTIF": tableData[12],
-                        "RUC": tableData[14],
+                        "RUC": tableData[13],
                     },
                     sucess: function () {
                         window.Alert('Documento Encontrado');
@@ -505,6 +505,25 @@
                     }
 
                 });
+            } else if (oficina = " ") {
+
+                $.ajax({
+
+                    cache: false, 
+                    type: "GET",
+                    url: "/Habilitaciones/OficioWord",
+                    data: {
+
+                        "NON_DOC": tableData[1],
+                        "EXPEDIENTE": tableData[5],
+                    },
+                    sucess: function(){ },
+                    error: function (xhr, ajaxOptions, thownError) {
+                        alert('Failed to retrieve states.');
+                    }
+
+                });
+
             }
 
         });

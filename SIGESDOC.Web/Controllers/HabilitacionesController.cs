@@ -11233,7 +11233,9 @@ namespace SIGESDOC.Web.Controllers
 
 
         }
+        #endregion
 
+        #region Informe
         public void informeUTIWord(CargaWordInformeUTI informe)
         {
             object missing = System.Reflection.Missing.Value;
@@ -11248,5 +11250,15 @@ namespace SIGESDOC.Web.Controllers
         #endregion
 
 
+        #region OFICIO
+
+        [HttpGet]
+        public void OficioWord(CargaOficioWord oficioWord)
+        {
+
+
+        }
+
+        #endregion
     }
 }

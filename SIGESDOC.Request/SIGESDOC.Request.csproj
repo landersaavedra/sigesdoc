@@ -48,6 +48,7 @@
     <Compile Include="ArchivadorDhcpaRequest.cs">
       <DependentUpon>RequestObjects.tt</DependentUpon>
     </Compile>
+    <Compile Include="CargaOficioWord.cs" />
     <Compile Include="CargaWordCedulaNotificacion.cs" />
     <Compile Include="CargaWordInformeUTI.cs" />
     <Compile Include="CargaWordResolucionDirectoral.cs" />

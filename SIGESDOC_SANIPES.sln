@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.29020.237
+# Visual Studio 15
+VisualStudioVersion = 15.0.28010.2048
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "5. Infraestructura", "5. Infraestructura", "{1F48CB3E-A1DD-4889-8477-7C70F360E18C}"
 EndProject
@@ -43,6 +43,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 	ProjectSection(SolutionItems) = preProject
 		.gitignore = .gitignore
 	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SIGESDOC.OFICIO", "SIGESDOC.OFICIO\SIGESDOC.OFICIO.csproj", "{0C749F9D-0F2C-4523-A124-9C6C8930308D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -102,6 +104,10 @@ Global
 		{D25BA89F-3915-478A-A028-9540C53058B6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D25BA89F-3915-478A-A028-9540C53058B6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D25BA89F-3915-478A-A028-9540C53058B6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0C749F9D-0F2C-4523-A124-9C6C8930308D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0C749F9D-0F2C-4523-A124-9C6C8930308D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0C749F9D-0F2C-4523-A124-9C6C8930308D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0C749F9D-0F2C-4523-A124-9C6C8930308D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -120,6 +126,7 @@ Global
 		{0E37F533-5705-4910-B33E-FEC43F88B29F} = {CD88B888-82C8-497C-B5CB-E33F04762A6F}
 		{6753F296-2BAB-4178-AC7D-E5683E4D4849} = {CD88B888-82C8-497C-B5CB-E33F04762A6F}
 		{D25BA89F-3915-478A-A028-9540C53058B6} = {CD88B888-82C8-497C-B5CB-E33F04762A6F}
+		{0C749F9D-0F2C-4523-A124-9C6C8930308D} = {CD88B888-82C8-497C-B5CB-E33F04762A6F}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {E3211909-BA78-4DCF-8CD1-750E43EC1347}

@@ -1,0 +1,428 @@
+﻿@using SIGESDOC.Web.Seguridad
+
+@{
+    //WebGrid grid = new WebGrid(rowsPerPage: ServiceConfiguration.PageSize, ajaxUpdateContainerId: "grid");    //grid.Bind(Model, autoSortAndPage: false, rowCount: ViewBag.TotalRows);
+    ViewBag.Title = "Consulta Transportes";
+}
+
+<ol class="breadcrumb" style="margin-bottom: 5px;">
+    <li>Habilitaciones</li>
+    <li class="active">Consulta Transportes</li>
+</ol>
+
+<div class="bs-callout bs-callout-info">
+    <h4>Consulta Transportes</h4>
+    <p>En esta sección usted puede Consultar los transportes que se encuentran registrados en el Organismo Nacional de Sanidad Pesquera - SANIPES</p>
+</div>
+
+<a href="/Habilitaciones/Export_Excel_transportes_habilitados">
+    Descargar listado de transportes habilitados
+</a>
+<div class="panel panel-primary" style="margin-top:10px;">
+    <div class="panel-heading panet-heading-sm">Búsqueda de Transporte</div>
+    <div class="panel-body">
+        @using (Ajax.BeginForm(new AjaxOptions { HttpMethod = "Get" }))
+        {
+            <p>
+                <div class="row">
+                    <div class="col-lg-2">
+                        <div class="input-group input-group-sm">
+                            <span class="input-group-addon">Placa</span>
+                            @Html.TextBox("placa", null, new { @class = "form-control input-sm", @maxlength = "20" })
+                        </div>
+                    </div>
+
+                    <div class="col-lg-3">
+                        <div class="input-group input-group-sm">
+                            <span class="input-group-addon">Código de Habilitación</span>
+                            @Html.TextBox("cod_habilitacion", null, new { @class = "form-control input-sm", @maxlength = "20" })
+                        </div>
+                    </div>
+                </div>
+            </p>
+            <p>
+                <div class="row">
+                    <div class="col-lg-3">
+                        <div class="input-group input-group-sm">
+                            <span class="input-group-addon">Carrocería: </span>
+                            @Html.DropDownList("id_tipo_carroceria", (IEnumerable<SelectListItem>)ViewBag.lst_carroceria, new { @class = "form-control input-sm" })
+                        </div>
+                    </div>
+                    <div class="col-lg-3">
+                        <div class="input-group input-group-sm">
+                            <span class="input-group-addon">Furgón: </span>
+                            @Html.DropDownList("id_tipo_furgon", (IEnumerable<SelectListItem>)ViewBag.lst_furgon, new { @class = "form-control input-sm" })
+                        </div>
+                    </div>
+
+                </div>
+            </p>
+            <p>
+                <div class="row">
+                    <div class="col-lg-1">
+                        <input type="submit" id="btnBuscar" class="btn btn-primary btn-sm pull-left" value="Actualizar" />
+                    </div>
+                    <button id="btnNuevoTransporte" type="button" class="btn btn-primary btn-sm">Nuevo Transporte</button>
+                </div>
+            </p>
+        }
+    </div>
+</div>
+
+<div id="grid">
+    <table id="grid_transporte" class="table table-striped table-hover table-condensed tabla small">
+        <thead>
+            <tr class="cabecera text-center">
+                <th scope="col">Placa</th>
+                <th scope="col">Código de Habilitación</th>
+                <th scope="col">Carrocería</th>
+                <th scope="col">Furgón</th>
+                <th scope="col">Carga Útil</th>
+                <th scope="col">Opciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            @if (ViewData["Transporte_Tabla"] != null)
+            {
+                foreach (System.Data.DataRow dr in (ViewData["Transporte_Tabla"] as System.Data.DataTable).Rows)
+                {
+                    <tr>
+                        <td style=" text-align:center;"> @dr["PLACA"] </td>
+                        <td style=" text-align:center;"> @dr["COD_HABILITACION"] </td>
+                        <td> @dr["NOMBRE_CARROCERIA"] </td>
+                        <td> @dr["NOMBRE_FURGON"] </td>
+                        <td> @dr["CARGA_UTIL"] @dr["NOMBRE_UM"] </td>
+                        <td style="text-align:center;">
+                            <ul class="list-inline" style="margin-bottom:0">
+                                <li>
+                                    <a class="ver_protocolos" id=@dr["PLACA_ID_TRANSPORTE"] href="#" title="VER PROTOCOLO">
+                                        <i class="green glyphicon glyphicon-th-list"></i>
+                                    </a>
+                                </li>
+                            </ul>
+                        </td>
+                    </tr>
+                }
+            }
+        </tbody>
+
+    </table>
+</div>
+
+<div class="modal fade" id="mdltransporte_nuevo" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title" id="myModalLabel">Nuevo Transporte</h4>
+            </div>
+            <form method="post" id="form_nuevo_transporte">
+                <div class="modal-body">
+                    <div class="form-horizontal">
+
+                        <div class="form-group">
+                            <label class="control-label col-md-3">Placa</label>
+                            <div class="col-md-4">
+                                @Html.TextBox("txt_nueva_placa", null, new { @class = "form-control input-sm", @maxlength = "20" })
+                                <label id="lbl_valida_nueva_placa" style="color: #B44D4D">  </label>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="control-label col-md-3">Carroceria</label>
+                            <div class="col-md-5">
+                                @Html.DropDownList("cmb_nuevo_carroceria", (IEnumerable<SelectListItem>)ViewBag.lst_nuevo_carroceria, new { @class = "form-control input-sm" })
+                            </div>
+                        </div>
+
+                        <div class="form-group hidden">
+                            <label class="control-label col-md-3">Furgon</label>
+                            <div class="col-md-7">
+                                @Html.DropDownList("cmb_nuevo_furgon", (IEnumerable<SelectListItem>)ViewBag.lst_tipo_furgon, new { @class = "form-control input-sm" })
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="control-label col-md-3">Carga Util</label>
+                            <div class="col-md-3">
+                                @Html.TextBox("txt_nuevo_carga_util", null, new { @class = "form-control input-sm", @maxlength = "12", @onkeypress = "return ValidaDecimal(this.value);" })
+                            </div>
+                            <div class="col-md-2">
+                                @Html.DropDownList("cmb_nuevo_um", (IEnumerable<SelectListItem>)ViewBag.lst_nuevo_um, new { @class = "form-control input-sm" })
+                                <label id="lbl_valida_nuevo_carga_util" style="color: #B44D4D">  </label>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary btn-sm" id="btnGuardar_nuevo_transporte">Guardar</button>
+                    <button type="button" class="btn btn-default btn-sm" data-dismiss="modal">Cancelar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="mdl_listado_protocolo" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-width">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title" id="myModalLabel">Lista de Protocolos <label id="titulo_listado_protocolo">  </label> </h4>
+
+            </div>
+
+            <div class="modal-body">
+                <div class="form-horizontal">
+
+                    <label class="control-label" style="font-weight: bold;">Listado de Protocolos Emitidos</label>
+
+                    <div class="row">
+                        <div id="grid_protocolos">
+                            <table class="table table-striped table-hover table-condensed tabla small" data-swhgajax="true" data-swhgcontainer="grid" data-swhgcallback="" id="tbl_lista_protocolos">
+                                <thead>
+                                    <tr class="cabecera">
+                                        <th scope="col">Protocolo</th>
+                                        <th scope="col">Fecha inicio</th>
+                                        <th scope="col">Fecha Fin</th>
+                                        <th scope="col">Estado</th>
+                                    </tr>
+                                </thead>
+                                <tbody></tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default btn-sm" data-dismiss="modal">Salir</button>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+
+    function ValidaDecimal(dato) {
+        var valor = dato.indexOf(".");
+        if ((window.event.keyCode > 47 && window.event.keyCode < 58) || window.event.keyCode == 46) {
+            if (window.event.keyCode == 46) {
+                if (valor >= 0) {
+                    window.event.returnValue = false;
+                }
+            }
+        }
+        else {
+            window.event.returnValue = false;
+        }
+    }
+
+    $(document).ready(function () {
+        
+        $("#cmb_nuevo_carroceria").change(function () {
+            var selectcarroceria = $(this).val();
+            var ddlfurgon = $("#cmb_nuevo_furgon");
+            $.ajax({
+                cache: false,
+                type: "GET",
+                url: "@(Url.RouteUrl("llenar_furgon_x_carroceria"))",
+                data: { "id_tipo_carroceria": selectcarroceria },
+            success: function (data) {
+                ddlfurgon.html('');
+                $.each(data, function (id, option) {
+                    ddlfurgon.append($('<option></option>').val(option.Value).html(option.Text));
+                });
+            },
+            error: function (xhr, ajaxOptions, thrownError) {
+                alert('Failed to retrieve states.');
+            }
+        });
+        });
+
+        $("#grid_transporte").DataTable({
+            "ordering": false,
+            "lengthChange": false,
+            "searching": false,
+            //"info": false,
+            "language": {
+                "paginate": {
+                    "previous": "Anterior",
+                    "next": "Siguiente"
+                }
+            }
+        });
+        
+        
+        $("#id_tipo_carroceria").change(function () {
+            var selectcarroceria = $(this).val();
+            var ddlfurgon = $("#id_tipo_furgon");
+            $.ajax({
+                cache: false,
+                type: "GET",
+                url: "@(Url.RouteUrl("llenar_furgon_x_carroceria"))",
+                data: { "id_tipo_carroceria": selectcarroceria },
+            success: function (data) {
+                ddlfurgon.html('');
+                var entro = 0;
+                ddlfurgon.append($('<option></option>').val('0').html('SELECCIONAR'));
+                $.each(data, function (id, option) {
+                    ddlfurgon.append($('<option></option>').val(option.Value).html(option.Text));
+                    entro = 1;
+                });
+            },
+            error: function (xhr, ajaxOptions, thrownError) {
+                alert('Failed to retrieve states.');
+            }
+        });
+    });
+        
+        $('#btnNuevoTransporte').click(function () {
+            $("#txt_nueva_placa").val("");
+            $("#txt_nuevo_carga_util").val("");
+            $("#cmb_nuevo_carroceria").change();
+            $('#mdltransporte_nuevo').modal();
+        });
+
+
+        $("#btnGuardar_nuevo_transporte").click(function () {
+
+            $.ajax({
+                cache: false,
+                type: "GET",
+                url: "/Habilitaciones/Consultar_placa_transporte",
+                data: {
+                    "placa": $("#txt_nueva_placa").val().toString().trim()
+                },
+                success: function (result) {
+
+                    document.getElementById('lbl_valida_nueva_placa').innerHTML = "";
+                    document.getElementById('lbl_valida_nuevo_carga_util').innerHTML = "";
+
+                    $('#btnGuardar_nuevo_transporte').attr("disabled", "disabled");
+
+                    var entra = 0;
+
+                    if (result == "0") {
+                        document.getElementById('lbl_valida_nueva_placa').innerHTML = "Placa ya registrada";
+                        entra = 1;
+                    }
+
+                    if ($("#txt_nueva_placa").val().toString().trim() == "") {
+                        document.getElementById('lbl_valida_nueva_placa').innerHTML = "Ingresar Placa";
+                        entra = 1;
+                    }
+
+                    if ($("#txt_nuevo_carga_util").val().toString().trim() == "") {
+                        document.getElementById('lbl_valida_nuevo_carga_util').innerHTML = "Ingresar Carga Util";
+                        entra = 1;
+                    }
+
+                    if (entra == 1) {
+                        $('#btnGuardar_nuevo_transporte').removeAttr("disabled", "disabled");
+                        return false;
+                    }
+                    
+                    $.ajax({
+                        cache: false,
+                        type: "GET",
+                        url: "/Habilitaciones/Grabar_Nuevo_Transporte",
+                        data: {
+                            "nueva_placa": $("#txt_nueva_placa").val(),
+                            "nueva_codigo_habilitacion": "NUEVO",
+                            "nueva_carroceria": $("#cmb_nuevo_carroceria").val(),
+                            "tipo_furgon": $("#cmb_nuevo_furgon").val(),
+                            "nueva_carga_util": $("#txt_nuevo_carga_util").val(),
+                            "nueva_unidad_medida": $("#cmb_nuevo_um").val()
+                        },
+                        beforeSend: function () {
+                            $('#btnGuardar_nuevo_transporte').removeAttr("disabled", "disabled");
+                        },
+                        complete: function () {
+                            $('#btnGuardar_nuevo_transporte').removeAttr("disabled", "disabled");
+                        },
+                        success: function (result) {
+
+                            document.getElementById('lbl_valida_nueva_placa').innerHTML = "";
+                            document.getElementById('lbl_valida_nuevo_carga_util').innerHTML = "";
+
+                            $('#btnGuardar_nuevo_transporte').removeAttr("disabled", "disabled");
+
+                            $("#btnBuscar").click();
+                            $('#mdltransporte_nuevo').modal('hide');
+
+                            $("#num_placa").val("");
+                        },
+                        error: function (result) {
+                            if (result.status == 500) {
+                                $("#mensajes").html(result.responseText).hide();
+                                $("#mensajes").slideDown(500, function () { });
+                            }
+                            else if (result.status == 400) {
+                                $('.field-validation-error').each(function () {
+                                    $(this).removeClass("field-validation-error").addClass("field-validation-valid");
+                                    $(this).html('');
+                                });
+                                $.each(result.responseJSON.errors, function (key, value) {
+                                    if (value != null) {
+                                        var container = $('span[data-valmsg-for="' + key + '"]');
+                                        container.removeClass("field-validation-valid").addClass("field-validation-error");
+                                        container.html(value);
+                                    }
+                                });
+                                $("#mensajes").html(result.responseJSON.summary).hide();
+                                if (result.responseJSON.summary != "") {
+                                    $("#mensajes").slideDown(500, function () { });
+                                }
+                            }
+                        }
+                    });
+
+                }
+            });
+
+        });
+
+        
+        $(document).on('click', '.ver_protocolos', function () {
+
+            $('#mdl_listado_protocolo').modal('show');
+            var id_transporte = $(this).attr('id').split('|');
+            document.getElementById('titulo_listado_protocolo').innerHTML = " - " + id_transporte[0];
+
+            $("#tbl_lista_protocolo td").remove();
+            
+            $.ajax({
+                cache: false,
+                type: "GET",
+                url: "@(Url.RouteUrl("llenar_protocolos_transporte"))",
+                data: { "id_transporte": id_transporte[1] },
+                success: function (data) {
+                    $.each(data, function (id, option) {
+                        var nuevoTD = '<tr>';
+                        nuevoTD += '<td><ul class="list-inline" style="margin-bottom:0"><li><a href="' + option.ruta_archivo + '" target="_blank" >' + option.nombre + '</a></li></ul></td>';
+                        nuevoTD += '<td>' + option.cadena_fecha_inicio + '</td>';
+                        nuevoTD += '<td>' + option.cadena_fecha_fin + '</td>';
+                        if (option.activo == "1") {
+                            nuevoTD += '<td>ACTIVO</td>';
+                        }
+                        else {
+                            nuevoTD += '<td>INACTIVO</td>';
+                        }
+                        nuevoTD += '</tr>';
+
+                        jQuery("#tbl_lista_protocolos").append(nuevoTD);
+                    });
+                },
+                error: function (xhr, ajaxOptions, thrownError) {
+                    alert('Failed to retrieve states.');
+                }
+            });
+
+        });
+
+    });
+</script>

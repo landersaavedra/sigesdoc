@@ -1,0 +1,13 @@
+C:\Users\PSSPERU069\Documents\Proyecto\sigesdoc_sanipes\sigesdoc\SIGESDOC.MEMORANDOMULTIPLE\bin\Release\SIGESDOC.MEMORANDOMULTIPLE.dll
+C:\Users\PSSPERU069\Documents\Proyecto\sigesdoc_sanipes\sigesdoc\SIGESDOC.MEMORANDOMULTIPLE\bin\Release\SIGESDOC.MEMORANDOMULTIPLE.pdb
+C:\Users\PSSPERU069\Documents\Proyecto\sigesdoc_sanipes\sigesdoc\SIGESDOC.MEMORANDOMULTIPLE\bin\Release\SIGESDOC.MEMORANDOMULTIPLE.dll.manifest
+C:\Users\PSSPERU069\Documents\Proyecto\sigesdoc_sanipes\sigesdoc\SIGESDOC.MEMORANDOMULTIPLE\bin\Release\SIGESDOC.MEMORANDOMULTIPLE.vsto
+C:\Users\PSSPERU069\Documents\Proyecto\sigesdoc_sanipes\sigesdoc\SIGESDOC.MEMORANDOMULTIPLE\bin\Release\MODELO_DE_MEMORANDO_MULTIPLE.docx
+C:\Users\PSSPERU069\Documents\Proyecto\sigesdoc_sanipes\sigesdoc\SIGESDOC.MEMORANDOMULTIPLE\bin\Release\Microsoft.Office.Tools.Common.v4.0.Utilities.dll
+C:\Users\PSSPERU069\Documents\Proyecto\sigesdoc_sanipes\sigesdoc\SIGESDOC.MEMORANDOMULTIPLE\bin\Release\Microsoft.Office.Tools.Word.v4.0.Utilities.dll
+C:\Users\PSSPERU069\Documents\Proyecto\sigesdoc_sanipes\sigesdoc\SIGESDOC.MEMORANDOMULTIPLE\obj\Release\SIGESDOC.MEMORANDOMULTIPLE.Properties.Resources.resources
+C:\Users\PSSPERU069\Documents\Proyecto\sigesdoc_sanipes\sigesdoc\SIGESDOC.MEMORANDOMULTIPLE\obj\Release\SIGESDOC.MEMORANDOMULTIPLE.csproj.GenerateResource.cache
+C:\Users\PSSPERU069\Documents\Proyecto\sigesdoc_sanipes\sigesdoc\SIGESDOC.MEMORANDOMULTIPLE\obj\Release\SIGESDOC.MEMORANDOMULTIPLE.csproj.CoreCompileInputs.cache
+C:\Users\PSSPERU069\Documents\Proyecto\sigesdoc_sanipes\sigesdoc\SIGESDOC.MEMORANDOMULTIPLE\obj\Release\SIGESDOC.MEMORANDOMULTIPLE.csproj.CopyComplete
+C:\Users\PSSPERU069\Documents\Proyecto\sigesdoc_sanipes\sigesdoc\SIGESDOC.MEMORANDOMULTIPLE\obj\Release\SIGESDOC.MEMORANDOMULTIPLE.dll
+C:\Users\PSSPERU069\Documents\Proyecto\sigesdoc_sanipes\sigesdoc\SIGESDOC.MEMORANDOMULTIPLE\obj\Release\SIGESDOC.MEMORANDOMULTIPLE.pdb

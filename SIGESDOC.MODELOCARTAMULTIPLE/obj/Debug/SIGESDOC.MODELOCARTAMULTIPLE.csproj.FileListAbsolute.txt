@@ -1,0 +1,13 @@
+C:\Users\PSSPERU069\Documents\Proyecto\sigesdoc_sanipes\sigesdoc\SIGESDOC.MODELOCARTAMULTIPLE\bin\Debug\SIGESDOC.MODELOCARTAMULTIPLE.dll
+C:\Users\PSSPERU069\Documents\Proyecto\sigesdoc_sanipes\sigesdoc\SIGESDOC.MODELOCARTAMULTIPLE\bin\Debug\SIGESDOC.MODELOCARTAMULTIPLE.pdb
+C:\Users\PSSPERU069\Documents\Proyecto\sigesdoc_sanipes\sigesdoc\SIGESDOC.MODELOCARTAMULTIPLE\bin\Debug\SIGESDOC.MODELOCARTAMULTIPLE.dll.manifest
+C:\Users\PSSPERU069\Documents\Proyecto\sigesdoc_sanipes\sigesdoc\SIGESDOC.MODELOCARTAMULTIPLE\bin\Debug\SIGESDOC.MODELOCARTAMULTIPLE.vsto
+C:\Users\PSSPERU069\Documents\Proyecto\sigesdoc_sanipes\sigesdoc\SIGESDOC.MODELOCARTAMULTIPLE\bin\Debug\MODELO_DE_CARTA_MULTIPLE.docx
+C:\Users\PSSPERU069\Documents\Proyecto\sigesdoc_sanipes\sigesdoc\SIGESDOC.MODELOCARTAMULTIPLE\bin\Debug\Microsoft.Office.Tools.Common.v4.0.Utilities.dll
+C:\Users\PSSPERU069\Documents\Proyecto\sigesdoc_sanipes\sigesdoc\SIGESDOC.MODELOCARTAMULTIPLE\bin\Debug\Microsoft.Office.Tools.Word.v4.0.Utilities.dll
+C:\Users\PSSPERU069\Documents\Proyecto\sigesdoc_sanipes\sigesdoc\SIGESDOC.MODELOCARTAMULTIPLE\obj\Debug\SIGESDOC.MODELOCARTAMULTIPLE.Properties.Resources.resources
+C:\Users\PSSPERU069\Documents\Proyecto\sigesdoc_sanipes\sigesdoc\SIGESDOC.MODELOCARTAMULTIPLE\obj\Debug\SIGESDOC.MODELOCARTAMULTIPLE.csproj.GenerateResource.cache
+C:\Users\PSSPERU069\Documents\Proyecto\sigesdoc_sanipes\sigesdoc\SIGESDOC.MODELOCARTAMULTIPLE\obj\Debug\SIGESDOC.MODELOCARTAMULTIPLE.csproj.CoreCompileInputs.cache
+C:\Users\PSSPERU069\Documents\Proyecto\sigesdoc_sanipes\sigesdoc\SIGESDOC.MODELOCARTAMULTIPLE\obj\Debug\SIGESDOC.MODELOCARTAMULTIPLE.csproj.CopyComplete
+C:\Users\PSSPERU069\Documents\Proyecto\sigesdoc_sanipes\sigesdoc\SIGESDOC.MODELOCARTAMULTIPLE\obj\Debug\SIGESDOC.MODELOCARTAMULTIPLE.dll
+C:\Users\PSSPERU069\Documents\Proyecto\sigesdoc_sanipes\sigesdoc\SIGESDOC.MODELOCARTAMULTIPLE\obj\Debug\SIGESDOC.MODELOCARTAMULTIPLE.pdb

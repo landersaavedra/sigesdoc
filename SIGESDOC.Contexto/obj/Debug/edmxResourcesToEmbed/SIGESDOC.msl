@@ -2742,7 +2742,6 @@
         </ComplexTypeMapping>
       </ResultMapping>
     </FunctionImportMapping>
-    <FunctionImportMapping FunctionImportName="SP_OBTENER_DNI" FunctionName="DB_GESDOCModel.Store.SP_OBTENER_DNI" />
     <EntitySetMapping Name="VW_CONSULTA_EXPEDIENTE_X_EXPEDIENTE">
       <EntityTypeMapping TypeName="DB_GESDOCModel.VW_CONSULTA_EXPEDIENTE_X_EXPEDIENTE">
         <MappingFragment StoreEntitySet="VW_CONSULTA_EXPEDIENTE_X_EXPEDIENTE">

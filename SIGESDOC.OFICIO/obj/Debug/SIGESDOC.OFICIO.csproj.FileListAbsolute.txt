@@ -5,7 +5,6 @@ C:\Users\PSSPERU069\Documents\Proyecto\sigesdoc_sanipes\sigesdoc\SIGESDOC.OFICIO
 C:\Users\PSSPERU069\Documents\Proyecto\sigesdoc_sanipes\sigesdoc\SIGESDOC.OFICIO\bin\Debug\OFICIO.docx
 C:\Users\PSSPERU069\Documents\Proyecto\sigesdoc_sanipes\sigesdoc\SIGESDOC.OFICIO\bin\Debug\Microsoft.Office.Tools.Common.v4.0.Utilities.dll
 C:\Users\PSSPERU069\Documents\Proyecto\sigesdoc_sanipes\sigesdoc\SIGESDOC.OFICIO\bin\Debug\Microsoft.Office.Tools.Word.v4.0.Utilities.dll
-C:\Users\PSSPERU069\Documents\Proyecto\sigesdoc_sanipes\sigesdoc\SIGESDOC.OFICIO\obj\Debug\SIGESDOC.OFICIO.csprojAssemblyReference.cache
 C:\Users\PSSPERU069\Documents\Proyecto\sigesdoc_sanipes\sigesdoc\SIGESDOC.OFICIO\obj\Debug\SIGESDOC.OFICIO.Properties.Resources.resources
 C:\Users\PSSPERU069\Documents\Proyecto\sigesdoc_sanipes\sigesdoc\SIGESDOC.OFICIO\obj\Debug\SIGESDOC.OFICIO.csproj.GenerateResource.cache
 C:\Users\PSSPERU069\Documents\Proyecto\sigesdoc_sanipes\sigesdoc\SIGESDOC.OFICIO\obj\Debug\SIGESDOC.OFICIO.csproj.CoreCompileInputs.cache

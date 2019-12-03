@@ -48,7 +48,16 @@
     <Compile Include="ArchivadorDhcpaRequest.cs">
       <DependentUpon>RequestObjects.tt</DependentUpon>
     </Compile>
+    <Compile Include="CargaCartaMultipleWord.cs" />
+    <Compile Include="CargaCartaWord.cs" />
+    <Compile Include="CargaComunicadoWord.cs" />
+    <Compile Include="CargaInformeWord.cs" />
+    <Compile Include="CargaInvitacionWord.cs" />
+    <Compile Include="CargaMemorandoMultipleWord.cs" />
+    <Compile Include="CargaMemorandoWord.cs" />
+    <Compile Include="CargaOficioMultipleWord.cs" />
     <Compile Include="CargaOficioWord.cs" />
+    <Compile Include="CargaResolucionWord.cs" />
     <Compile Include="CargaWordCedulaNotificacion.cs" />
     <Compile Include="CargaWordInformeUTI.cs" />
     <Compile Include="CargaWordResolucionDirectoral.cs" />
@@ -651,6 +660,7 @@
     <Compile Include="TupaRequest.cs">
       <DependentUpon>RequestObjects.tt</DependentUpon>
     </Compile>
+    <Compile Include="UnidadesOrganicas.cs" />
     <Compile Include="VerPedientesGesdocRequest.cs">
       <DependentUpon>RequestObjects.tt</DependentUpon>
     </Compile>

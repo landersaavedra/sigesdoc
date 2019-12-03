@@ -1,0 +1,155 @@
+﻿@{
+    ViewBag.Title = "Operacion exportado";
+}
+
+<div class="bottom hidden"></div>
+<div id="mensajes"></div>
+
+<ol class="breadcrumb" style="margin-bottom: 5px;">
+    <li><a href="#">Mantenimiento</a></li>
+    <li class="active">Carga data operación exportación</li>
+</ol>
+
+<div class="bs-callout bs-callout-info">
+    <h4>Carga data operación</h4>
+    <p>Use el siguiente formulario para cargar listado de operaciones</p>
+</div>
+
+@Html.ActionLink("Formato de Carga", "Descarga_formato_carga_operacion_exportacion", "General", new { para1 = "_Parameter1" }, new { id = "Documentos_excel" })
+
+
+<div class="panel panel-primary">
+    <div class="panel-heading panet-heading-sm">Exportar Operaciones</div>
+    <div class="panel-body">
+        @using (Html.BeginForm("Movimiento_operacion_exportacion", "General", FormMethod.Post, new { @id = "nuevoForm", @enctype = "multipart/form-data" }))
+        {
+            @Html.AntiForgeryToken()
+            <div class="form-horizontal">
+                <div class="col-lg-12">
+                    @Html.Raw(ViewBag.Error)
+                    @Html.TextBox("txt_correcto_val", (string)ViewBag.Str_correcto, new { @class = "form-control input-sm hidden", @maxlength = "10" })
+                </div>
+
+                <div class="col-lg-12">
+                    <span>
+                        Excel Lista de Operacion para Ingresarlo:
+                    </span>
+                </div>
+
+                @if ((string)ViewBag.Str_correcto == "")
+                {
+                <div class="col-lg-12">
+                    <input id="btn_excel" type="file" name="excelfile" />
+                    <br />
+                    <input id="btn_evaluar" type="submit" value="Evaluar Operaciones" />
+                </div>
+                }
+                @if ((string)ViewBag.Str_correcto != "")
+                {
+                <div class="col-lg-12">
+                    <input id="btn_excel" type="file" name="excelfile" class="hidden" />
+                    <br />
+                    <input id="btn_evaluar" type="submit" value="Evaluar Operaciones" class="hidden" />
+                </div>
+                }
+                @if ((string)ViewBag.Str_correcto != "")
+                {
+                <div class="col-lg-12">
+                    <input id="btn_v_ev" type="button" value="Volver a evaluar" />
+                    <br />
+                    <input id="btn_guardar" type="button" value="Guardar" />
+                </div>
+                }
+                @if ((string)ViewBag.Str_correcto == "")
+                {
+                <div class="col-lg-12">
+                    <input id="btn_v_ev" type="button" value="Volver a evaluar" class="hidden" />
+                    <br />
+                    <input id="btn_guardar" type="button" value="Guardar" class="hidden" />
+                </div>
+                }
+
+
+            </div>
+        }
+
+    </div>
+</div>
+
+    @Html.Raw(ViewBag.MSExcelTable)
+
+<div class="modal fade" id="mdlConformidad" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title" id="myModalLabel">Mensaje</h4>
+            </div>
+            <div class="modal-body">
+                <span id="conformidad"></span>
+                <p>Presione aceptar para continuar.</p>
+            </div>
+
+            <div class="modal-footer">
+                <button id="btn_aceptar" type="button" class="btn btn-primary btn-sm">Aceptar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
+
+<script type="text/javascript">
+
+    function IsNumeric(dato) {
+        var valor = dato.indexOf(".");
+        if ((window.event.keyCode > 47 && window.event.keyCode < 58)) {
+            window.event.returnValue = true;
+        }
+        else {
+            window.event.returnValue = false;
+        }
+    }
+
+    $(document).ready(function () {
+
+        $("#btn_v_ev").click(function () {
+            $("#btn_excel").removeClass("hidden");
+            $("#btn_evaluar").removeClass("hidden");
+            $("#btn_v_ev").addClass("hidden");
+            $("#btn_guardar").addClass("hidden");
+        });
+
+        $("#mdlConformidad").on('hidden.bs.modal', function (e) {
+            var url_scan = "/General/Movimiento_operacion_exportacion";
+            window.location.href = url_scan;
+        });
+
+        $("#btn_aceptar").click(function () {
+            var url_scan = "/General/Movimiento_operacion_exportacion";
+            window.location.href = url_scan;
+        });
+
+        $("#btn_guardar").click(function () {
+
+            $.ajax({
+                cache: false,
+                type: "GET",
+                url: "@(Url.RouteUrl("llenar_operacion_exportados"))",
+                data: {},
+                beforeSend: function () {
+                    $('#btn_guardar').attr("disabled", "disabled");
+                },
+                success: function (result) {
+                    $("#conformidad").html("Se guardo correctamente");
+                    $('#mdlConformidad').modal();
+                }
+            });
+        });
+
+
+    });
+</script>

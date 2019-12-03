@@ -38,3 +38,4 @@ C:\Users\PSSPERU069\Documents\Proyecto\sigesdoc_sanipes\sigesdoc\SIGESDOC.INFORM
 C:\Users\PSSPERU069\Documents\Proyecto\sigesdoc_sanipes\sigesdoc\SIGESDOC.INFORMEUTI\obj\Debug\SIGESDOC.INFORMEUTI.csproj.CopyComplete
 C:\Users\PSSPERU069\Documents\Proyecto\sigesdoc_sanipes\sigesdoc\SIGESDOC.INFORMEUTI\obj\Debug\SIGESDOC.INFORMEUTI.dll
 C:\Users\PSSPERU069\Documents\Proyecto\sigesdoc_sanipes\sigesdoc\SIGESDOC.INFORMEUTI\obj\Debug\SIGESDOC.INFORMEUTI.pdb
+C:\Users\PSSPERU069\Documents\Proyecto\sigesdoc_sanipes\sigesdoc\SIGESDOC.INFORMEUTI\obj\Debug\SIGESDOC.INFORMEUTI.csprojAssemblyReference.cache

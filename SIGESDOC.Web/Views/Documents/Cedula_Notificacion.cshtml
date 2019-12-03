@@ -1,0 +1,440 @@
+﻿@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
+
+@{
+    Layout = "";
+}
+
+<!DOCTYPE html>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="x-ua-compatible" content="IE=edge">
+<head>
+    <title>Page 1</title>
+    @Scripts.Render("~/bundles/modernizr")
+    @Scripts.Render("~/bundles/jquery")
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+</head>
+<body>
+    <br>
+    <br>
+    <style>
+        body {
+            font-family: Gotham, "Helvetica Neue", Helvetica, Arial, sans-serif;
+        }
+        font {
+            font-family: Gotham, "Helvetica Neue", Helvetica, Arial, sans-serif;
+            font-size: 15px;
+        }
+        th {
+            font-weight: 100 !important;
+        }
+    </style>
+    <table width="791" border="0" cellpadding="0" cellspacing="0">
+        <tr>
+            <td colspan="9" align="center"><img src="http://www.sanipes.gob.pe/images/membrete-sanipes.jpg" width="791" height="74" alt="" /></td>
+        </tr>
+        <tr>
+            <td colspan="9" align="center"></td>
+        </tr>
+        <tr>
+            <td colspan="9" align="center"><span style=" line-height:12px; font-size:11px; text-align: center">“Decenio de la igualdad de Oportunidades para mujeres y hombres”</span></td>
+        </tr>
+        <tr>
+            <td colspan="9" align="center">&nbsp;</td>
+        </tr>
+        <tr align="center">
+            <td colspan="9">
+                <font style="font-family:Gotham, 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size:14px !important;">
+                    <strong>
+                        CÉDULA DE NOTIFICACIÓN N° @Html.Label("", (string)ViewBag.NON_DOC) @* &nbsp;1367-2018--DHCPA/SANIPES*@
+                    </strong>
+                </font>
+            </td>
+        </tr>
+        <tr>
+            <td width="165" align="left">&nbsp;</td>
+            <td width="30" align="left">&nbsp;</td>
+            <td colspan="7" align="right">&nbsp;</td>
+        </tr>
+        <tr>
+            <td height="24" align="left">
+                <strong>
+                    <span style="text-align: justify">
+                        <font size="2">
+                            Expediente N°
+
+                            <br>
+                        </font>
+                    </span>
+                </strong>
+            </td>
+            <td align="left">
+                <span style="text-align: justify">
+                    <font size="2">:</font><font size="2">
+                        <br>
+                    </font>
+                </span>
+            </td>
+            <td colspan="7" align="left">
+                <span style="text-align: justify">
+                    <font size="2">@Html.Label("", (string)ViewBag.NUM_DOC)</font><font size="2">
+                        <br>
+                    </font>
+                </span><span style="text-align: justify"></span>
+            </td>
+        </tr>
+        <tr>
+            <td height="28" align="left">
+                <strong>
+                    <span style="text-align: justify">
+                        <font size="2">
+                            Razón Social <br>
+                        </font>
+                    </span>
+                </strong>
+            </td>
+            <td align="left">
+                <span style="text-align: justify">
+                    <font size="2">:</font><font size="2">
+                        <br>
+                    </font>
+                </span>
+            </td>
+            <td colspan="7" align="left">
+                <span style="text-align: justify">
+                    <font size="2">@Html.Label("", (string)ViewBag.EMPRESA_CDL_NOTIF)</font><font size="2">
+                        <br>
+                    </font>
+                </span>
+            </td>
+        </tr>
+        <tr>
+            <td height="29" align="left">
+                <strong>
+                    <span style="text-align: justify">
+                        <font size="2">
+                            Asunto<br>
+                        </font>
+                    </span>
+                </strong>
+            </td>
+            <td align="left">
+                <span style="text-align: justify">
+                    <font size="2">:</font><font size="2">
+                        <br>
+                    </font>
+                </span>
+            </td>
+            <td colspan="7" align="LEFT">
+                <span style="text-align: justify">
+                    <font size="2">@Html.Label("", (string)ViewBag.ASUNTO)</font><font size="2">
+                        <br>
+                    </font>
+                </span>
+            </td>
+        </tr>
+        <tr>
+            <td height="26" align="left">
+                <strong>
+                    <span style="text-align: justify">
+                        <font size="2">
+                            Documento<br>
+                        </font>
+                    </span>
+                </strong>
+            </td>
+            <td align="left">
+                <span style="text-align: justify">
+                    <font size="2">:</font><font size="2">
+                        <br>
+                    </font>
+                </span>
+            </td>
+            <td colspan="7" align="left">
+                <span style="text-align: justify">
+                    <font size="2">@Html.Label("", (string)ViewBag.DOC_NOTIFICAR_CDL_NOTIF)</font><font size="2">
+                        <br>
+                    </font>
+                </span>
+            </td>
+        </tr>
+        <tr>
+            <td height="24" align="left">
+                <strong>
+                    <span style="text-align: justify">
+                        <font size="2">
+                            Número de folios
+                        </font>
+                    </span>
+                </strong>
+            </td>
+            <td align="left">
+                <span style="text-align: justify">
+                    <font size="2">:</font><font size="2">
+                        <br>
+                    </font>
+                </span>
+            </td>
+            <td colspan="7" align="left">
+                <span style="text-align: justify">
+                    <font size="2">
+                        @Html.Label("", (string)ViewBag.FOLIA_CDL_NOTIF)<br>
+                    </font>
+                </span>
+            </td>
+        </tr>
+        <tr>
+            <td align="left">
+            <strong>
+                <span style="text-align: justify">
+                <font size="2">Dirección </font>
+                </span></strong>
+            </td>
+            <td align="left">
+                <span style="text-align: justify">
+                    <font size="2">:</font><font size="2">
+                        <br>
+                    </font>
+                </span>
+            </td>
+            <td colspan="7" align="LEFT">
+                <span style="text-align: justify">
+                    <font size="2">@Html.Label("", (string)ViewBag.DIRECCION_CDL_NOTIF)</font><font size="2">
+                        <br>
+                    </font>
+                </span>
+            </td>
+        </tr>
+        <tr>
+            <td style="text-align: justify; border-bottom:2px solid #000;" colspan="9">&nbsp;</td>
+        </tr>
+        <tr>
+            <td colspan="9" align="left">
+                <span style="text-align: justify">
+                    <font size="2">
+                        Cumplimos con notificar el documento de la referencia, emitido por la Dirección de Habilitaciones y Certificaciones Pesqueras y Acuícolas, de conformidad con lo dispuesto en el artículo 21 del Texto Único Ordenado de la Ley Nº 27444, Ley de Procedimiento Administrativo General aprobado por Decreto Supremo N° 004-2019-JUS.
+                        A fin de cumplir con las formalidades y requisitos legales señalados en el artículo 24 de la mencionada norma, solicitamos completar todos los datos del cuadro de notificación que figura en la presente cedula
+                        <br>
+                    </font>
+                </span>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="9" align="left" style="text-align: justify; border-bottom:2px solid #000;">&nbsp;</td>
+        </tr>
+        <tr>
+            <td height="27" colspan="6" align="left"><font size="2"><strong>Datos de la persona que recibe</strong></font></td>
+            <td width="370" align="right">&nbsp;</td>
+            <td colspan="2" align="center"></td>
+        </tr>
+        <tr>
+            <td colspan="9" align="left">
+                <table width="100%" border="0">
+                    <tr>
+                        <td colspan="3">
+                            <table width="100%" border="0" cellpadding="0" cellspacing="0">
+                                <tr>
+                                    <td width="24%"><font size="2">Nombres y Apellidos</font>: </td>
+                                    <td style=" border-bottom:1px  dashed #000;" width="62%">&nbsp;</td>
+                                    <td width="14%">&nbsp;</td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td width="39%">
+                            <span style="text-align: justify">
+                                <font size="2">
+                                    Documento Identidad<br> (DNI) (C.E) (OTRO): <br>
+                                </font>
+                            </span>
+                        </td>
+                        <td style=" border-bottom:1px  dashed #000;" width="27%">&nbsp;</td>
+                        <td width="34%" rowspan="3">
+                            <div align="center" style="border:1px solid #000; border-radius:10px; height:80px; margin:10px; padding:5px;">
+                                <table width="100%" border="0">
+                                    <tr>
+                                        <td height="20">&nbsp;</td>
+                                    </tr>
+                                    <tr>
+                                        <td style="border-bottom:1px solid #000;" height="22">&nbsp;</td>
+                                    </tr>
+                                    <tr>
+                                        <td align="center" height="20"><font style="font-size:9px; line-height:1px;"><p>Firma </p>  <p>(de la persona que recibe la cédula de notificación)</p></font> </td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">
+                            <table width="100%" border="0" cellpadding="0" cellspacing="0">
+                                <tr>
+                                    <td width="6%"><font size="2">Fecha:</font></td>
+                                    <td style="border-bottom:1px solid #000;" width="6%">&nbsp;</td>
+                                    <td align="center" width="2%"><font size="2">/</font></td>
+                                    <td width="7%" style="border-bottom:1px solid #000;">&nbsp;</td>
+                                    <td align="center" width="1%"><font size="2">/</font></td>
+                                    <td style="border-bottom:1px solid #000;" width="6%">&nbsp;</td>
+                                    <td width="5%">&nbsp;</td>
+                                    <td width="6%"><font size="2">Hora:</font></td>
+                                    <td style="border-bottom:1px solid #000;" width="7%">&nbsp;</td>
+                                    <td align="center" width="2%"><font size="2">:</font></td>
+                                    <td style="border-bottom:1px solid #000;" width="8%">&nbsp;</td>
+                                    <td width="44%">&nbsp;</td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">
+                            <table width="100%" border="0" cellpadding="0" cellspacing="0">
+                                <tr>
+                                    <td width="36%"><font size="2">Vinculo con el destinatario</font>: </td>
+                                    <td style=" border-bottom:1px  dashed #000;" width="64%">&nbsp;</td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="text-align: justify; border-bottom:2px solid #000;" colspan="3">&nbsp;</td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td height="30" align="left"><font size="2"><strong>Datos del notificador</strong></font></td>
+            <td colspan="5" align="left">&nbsp;</td>
+            <td align="right">&nbsp;</td>
+            <td width="9" align="right">&nbsp;</td>
+            <td width="8" align="center"></td>
+        </tr>
+
+        <tr>
+            <td colspan="7" align="left">
+                <table width="100%" border="0" cellpadding="0" cellspacing="0">
+                    <tr>
+                        <td width="21%"><font size="2">Nombres y Apellidos</font>: </td>
+                        <td style=" border-bottom:1px  dashed #000;" width="67%">&nbsp;</td>
+                        <td width="12%">&nbsp;</td>
+                    </tr>
+                </table>
+            </td>
+            <td colspan="2" align="center"></td>
+        </tr>
+        <tr>
+            <td colspan="9" align="left">
+                <table width="100%" border="0" cellpadding="0" cellspacing="0">
+                    <tr>
+                        <td colspan="2"><font size="2"><strong>Caracteristicas del domicilio</strong></font></td>
+                        <td colspan="2"></td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">
+                            <table width="100%" border="0" cellpadding="0" cellspacing="0">
+                                <tr>
+                                    <td width="26%"><font size="2">Fachada color:</font></td>
+                                    <td width="21%" style="border-bottom:1px dashed #000;">&nbsp;</td>
+                                    <td align="center" width="1%">&nbsp;</td>
+                                    <td width="17%"><font size="2">Pisos:</font></td>
+                                    <td style="border-bottom:1px dashed #000;" align="center" width="21%">&nbsp;</td>
+                                    <td width="14%">&nbsp;</td>
+                                </tr>
+                                <tr>
+                                    <td><font size="2">Puerta color:</font></td>
+                                    <td style="border-bottom:1px dashed #000;">&nbsp;</td>
+                                    <td colspan="4" align="center">&nbsp;</td>
+                                </tr>
+                                <tr>
+                                    <td><font size="2">Suministro : Luz N°:</font></td>
+                                    <td style="border-bottom:1px dashed #000;">&nbsp;</td>
+                                    <td align="center">&nbsp;</td>
+                                    <td><font size="2">y/o agua N°:</font></td>
+                                    <td style="border-bottom:1px dashed #000;" align="center">&nbsp;</td>
+                                    <td>&nbsp;</td>
+                                </tr>
+                            </table>
+                        </td>
+                        <td colspan="2">
+                            <div align="center" style="border:1px solid #000; border-radius:10px; height:70px; margin:10px; padding:5px;">
+                                <table width="100%" border="0">
+                                    <tr>
+                                        <td height="20">&nbsp;</td>
+                                    </tr>
+                                    <tr>
+                                        <td style="border-bottom:1px solid #000;" height="22">&nbsp;</td>
+                                    </tr>
+                                    <tr>
+                                        <td align="center" height="20"><font style="font-size:9px; line-height:1px;"><p>Firma del notificador </p>  </font> </td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">
+                            <table width="100%" border="0" cellpadding="0" cellspacing="0">
+                                <tr>
+                                    <td width="19%"><font size="2">Observaciones</font>: </td>
+                                    <td style=" border-bottom:1px  dashed #000;" width="81%">&nbsp;</td>
+                                </tr>
+                            </table>
+                        </td>
+                        <td style=" border-bottom:1px  dashed #000;" width="16%"></td>
+                        <td width="18%"></td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" style=" border-bottom:1px  dashed #000;">&nbsp;</td>
+                        <td style=" border-bottom:1px  dashed #000;" width="16%"></td>
+                        <td width="18%"></td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">&nbsp;</td>
+                        <td colspan="2"></td>
+                    </tr>
+                    <tr>
+                        <td style="border-bottom:1px solid #000;" width="21%">&nbsp;</td>
+                        <td width="45%">&nbsp;</td>
+                        <td colspan="2"></td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">&nbsp;</td>
+                        <td colspan="2"></td>
+                    </tr>
+                    <tr>
+                        <td colspan="4"><font style="font-size:11px; line-height:18px;">En el caso de no poder efectuar la notificación personal, se procederá conforme las reglas establecidas en el artículo 20° del del Texto Único Ordenado de la Ley Nº 27444, Ley de Procedimiento Administrativo General aprobado por Decreto Supremo N° 006-2017-JUS. </font></td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">&nbsp;</td>
+                        <td colspan="2"></td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">&nbsp;</td>
+                        <td colspan="2"></td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">&nbsp;</td>
+                        <td align="right" style="border-right:1px solid #000; font-size:11px; line-height:18px; padding-right:10px;" valign="top">www.sanipes.gob.pe</td>
+                        <td style="font-size:11px; line-height:13px; padding-left:10px;" valign="top">
+                            Domingo Orue 160 Piso 7<br>
+                            Surquillo, Lima 34, Perú<br>
+                            T. (511) 2138-8570<br>&nbsp;
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+    <br>
+</body>
+</html>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        window.print();
+    });
+</script>

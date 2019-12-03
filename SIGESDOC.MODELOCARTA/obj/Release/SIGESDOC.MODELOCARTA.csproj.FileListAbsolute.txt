@@ -1,0 +1,14 @@
+C:\Users\PSSPERU069\Documents\Proyecto\sigesdoc_sanipes\sigesdoc\SIGESDOC.MODELOCARTA\bin\Release\SIGESDOC.MODELOCARTA.dll
+C:\Users\PSSPERU069\Documents\Proyecto\sigesdoc_sanipes\sigesdoc\SIGESDOC.MODELOCARTA\bin\Release\SIGESDOC.MODELOCARTA.pdb
+C:\Users\PSSPERU069\Documents\Proyecto\sigesdoc_sanipes\sigesdoc\SIGESDOC.MODELOCARTA\bin\Release\SIGESDOC.MODELOCARTA.dll.manifest
+C:\Users\PSSPERU069\Documents\Proyecto\sigesdoc_sanipes\sigesdoc\SIGESDOC.MODELOCARTA\bin\Release\SIGESDOC.MODELOCARTA.vsto
+C:\Users\PSSPERU069\Documents\Proyecto\sigesdoc_sanipes\sigesdoc\SIGESDOC.MODELOCARTA\bin\Release\MODELO_DE_CARTA.docx
+C:\Users\PSSPERU069\Documents\Proyecto\sigesdoc_sanipes\sigesdoc\SIGESDOC.MODELOCARTA\bin\Release\Microsoft.Office.Tools.Common.v4.0.Utilities.dll
+C:\Users\PSSPERU069\Documents\Proyecto\sigesdoc_sanipes\sigesdoc\SIGESDOC.MODELOCARTA\bin\Release\Microsoft.Office.Tools.Word.v4.0.Utilities.dll
+C:\Users\PSSPERU069\Documents\Proyecto\sigesdoc_sanipes\sigesdoc\SIGESDOC.MODELOCARTA\obj\Release\SIGESDOC.MODELOCARTA.csprojAssemblyReference.cache
+C:\Users\PSSPERU069\Documents\Proyecto\sigesdoc_sanipes\sigesdoc\SIGESDOC.MODELOCARTA\obj\Release\SIGESDOC.MODELOCARTA.Properties.Resources.resources
+C:\Users\PSSPERU069\Documents\Proyecto\sigesdoc_sanipes\sigesdoc\SIGESDOC.MODELOCARTA\obj\Release\SIGESDOC.MODELOCARTA.csproj.GenerateResource.cache
+C:\Users\PSSPERU069\Documents\Proyecto\sigesdoc_sanipes\sigesdoc\SIGESDOC.MODELOCARTA\obj\Release\SIGESDOC.MODELOCARTA.csproj.CoreCompileInputs.cache
+C:\Users\PSSPERU069\Documents\Proyecto\sigesdoc_sanipes\sigesdoc\SIGESDOC.MODELOCARTA\obj\Release\SIGESDOC.MODELOCARTA.csproj.CopyComplete
+C:\Users\PSSPERU069\Documents\Proyecto\sigesdoc_sanipes\sigesdoc\SIGESDOC.MODELOCARTA\obj\Release\SIGESDOC.MODELOCARTA.dll
+C:\Users\PSSPERU069\Documents\Proyecto\sigesdoc_sanipes\sigesdoc\SIGESDOC.MODELOCARTA\obj\Release\SIGESDOC.MODELOCARTA.pdb

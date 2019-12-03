@@ -1,0 +1,13 @@
+C:\Users\PSSPERU069\Documents\Proyecto\sigesdoc_sanipes\sigesdoc\SIGESDOC.INVITACION\bin\Debug\SIGESDOC.INVITACION.dll
+C:\Users\PSSPERU069\Documents\Proyecto\sigesdoc_sanipes\sigesdoc\SIGESDOC.INVITACION\bin\Debug\SIGESDOC.INVITACION.pdb
+C:\Users\PSSPERU069\Documents\Proyecto\sigesdoc_sanipes\sigesdoc\SIGESDOC.INVITACION\bin\Debug\SIGESDOC.INVITACION.dll.manifest
+C:\Users\PSSPERU069\Documents\Proyecto\sigesdoc_sanipes\sigesdoc\SIGESDOC.INVITACION\bin\Debug\SIGESDOC.INVITACION.vsto
+C:\Users\PSSPERU069\Documents\Proyecto\sigesdoc_sanipes\sigesdoc\SIGESDOC.INVITACION\bin\Debug\MODELO_DE_INVITACION.docx
+C:\Users\PSSPERU069\Documents\Proyecto\sigesdoc_sanipes\sigesdoc\SIGESDOC.INVITACION\bin\Debug\Microsoft.Office.Tools.Common.v4.0.Utilities.dll
+C:\Users\PSSPERU069\Documents\Proyecto\sigesdoc_sanipes\sigesdoc\SIGESDOC.INVITACION\bin\Debug\Microsoft.Office.Tools.Word.v4.0.Utilities.dll
+C:\Users\PSSPERU069\Documents\Proyecto\sigesdoc_sanipes\sigesdoc\SIGESDOC.INVITACION\obj\Debug\SIGESDOC.INVITACION.Properties.Resources.resources
+C:\Users\PSSPERU069\Documents\Proyecto\sigesdoc_sanipes\sigesdoc\SIGESDOC.INVITACION\obj\Debug\SIGESDOC.INVITACION.csproj.GenerateResource.cache
+C:\Users\PSSPERU069\Documents\Proyecto\sigesdoc_sanipes\sigesdoc\SIGESDOC.INVITACION\obj\Debug\SIGESDOC.INVITACION.csproj.CoreCompileInputs.cache
+C:\Users\PSSPERU069\Documents\Proyecto\sigesdoc_sanipes\sigesdoc\SIGESDOC.INVITACION\obj\Debug\SIGESDOC.INVITACION.csproj.CopyComplete
+C:\Users\PSSPERU069\Documents\Proyecto\sigesdoc_sanipes\sigesdoc\SIGESDOC.INVITACION\obj\Debug\SIGESDOC.INVITACION.dll
+C:\Users\PSSPERU069\Documents\Proyecto\sigesdoc_sanipes\sigesdoc\SIGESDOC.INVITACION\obj\Debug\SIGESDOC.INVITACION.pdb

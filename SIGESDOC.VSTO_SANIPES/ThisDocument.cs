@@ -34,6 +34,7 @@ namespace SIGESDOC.VSTO_SANIPES
         private void InternalStartup()
         {
             this.NON_DOC.SelectionChange += new Microsoft.Office.Tools.Word.SelectionEventHandler(this.NON_DOC_SelectionChange);
+            this.DIRECCION_CDL_NOTIF.SelectionChange += new Microsoft.Office.Tools.Word.SelectionEventHandler(this.DIRECCION_CDL_NOTIF_SelectionChange);
             this.A_DOC_NOTIFICAR_CDL_NOTIF1.SelectionChange += new Microsoft.Office.Tools.Word.SelectionEventHandler(this.A_DOC_NOTIFICAR_CDL_NOTIF1_SelectionChange);
             this.Startup += new System.EventHandler(this.ThisDocument_Startup);
             this.Shutdown += new System.EventHandler(this.ThisDocument_Shutdown);
@@ -46,6 +47,11 @@ namespace SIGESDOC.VSTO_SANIPES
         }
 
         private void NON_DOC_SelectionChange(object sender, SelectionEventArgs e)
+        {
+
+        }
+
+        private void DIRECCION_CDL_NOTIF_SelectionChange(object sender, SelectionEventArgs e)
         {
 
         }

@@ -1,0 +1,790 @@
+﻿@model SIGESDOC.Web.Models.HojaTramiteViewModel
+
+<div class="bottom hidden"></div>
+<div id="mensajes"></div>
+
+<ol class="breadcrumb" style="margin-bottom: 5px;">
+    <li><a href="#">Hoja Tramite</a></li>
+    <li class="active">Editar</li>
+</ol>
+
+<div class="bs-callout bs-callout-info">
+    <h4>HT: @Html.Label("", (string)ViewBag.Str_HT) </h4>
+    <h4>Editar hoja de Trámite</h4>
+    <p>Use el siguiente formulario para editar la hoja de trámite</p>
+</div>
+
+<div class="modal fade" id="mdlConfirmar_pagina" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title" id="myModalLabel">Alerta</h4>
+            </div>
+            <div class="modal-body">
+                <div id="menssage">
+                    <span id="conformidad"></span>
+                    <label id="lbl_valida_confirma_pagina">  </label>
+                    <input type="text" id="pagina_direccion" class="hidden" />
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary btn-sm" id="bntConfirmar_pagina">Si</button>
+                <button type="button" class="btn btn-default btn-sm" data-dismiss="modal">No</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+@using (Html.BeginForm("Editar_HojaTramite", "HojaTramite", FormMethod.Post, new { @id = "nuevoForm", @enctype = "multipart/form-data" }))
+{
+
+    @Html.AntiForgeryToken()
+    <div class="form-horizontal">
+
+        <div class="row hidden">
+            @Html.TextBox("var_guardar", (string)ViewBag.cond_grabar, new { @class = "form-control input-sm" })
+            @Html.TextBoxFor(m => m.id_documento, (string)ViewBag.Str_id_documento, new { @class = "form-control input-sm" })
+            @Html.TextBoxFor(m => m.Hoja_Tramite, (string)ViewBag.Str_HT, new { @class = "form-control input-sm" })
+            @Html.TextBoxFor(m => m.numero, (string)ViewBag.Str_id_HT, new { @class = "form-control input-sm" })
+            @Html.TextBox("ver_num_doc", (string)ViewBag.ver_numero_doc)
+            @Html.TextBox("ver_externo_interno", (string)ViewBag.var_id_tipo_tramite)
+            @Html.TextBox("persona_crea", (string)ViewBag.var_persona_crea)
+            @Html.TextBox("persona_num_documento")
+            @Html.TextBox("id_oficina")
+            @Html.TextBox("persona_externa_encontro")
+            @Html.TextBox("modifica_persona_externa")
+            @Html.TextBox("nom_externo")
+            
+            
+
+        </div>
+
+        <ol class="breadcrumb" style="margin-bottom:0px;">
+            <li class="active">Información del Documento</li>
+        </ol>
+
+        <div class="row">
+            
+            <div class="col-md-4 autonume" style="padding-top:0px;">
+                <div class="form-group" style="margin-left: 0px; margin-right: 0px; margin-bottom: 0px;">
+                    <label class=" control-label">Tipo Documento:</label>
+                    @Html.DropDownListFor(m => m.id_tipo_documento, (IEnumerable<SelectListItem>)ViewBag.lst_tipo_documento, new { @class = "form-control input-sm" })
+                </div>
+            </div>
+
+            <div class="col-md-2 autonume">
+                <div class="form-group" style="margin-left: 0px; margin-right: 0px; margin-bottom: 0px;">
+                    <label class=" control-label">Número:</label>
+                    @Html.ValidationMessageFor(m => m.numero_documento)
+                    @Html.TextBoxFor(m => m.numero_documento, new { @class = "form-control input-sm", @onpaste = "return false;", @maxlength = "10", @onkeypress = "return IsNumeric(this.value);" })
+                </div>
+            </div>
+            <div class="col-md-3 autonume" style="padding-top:8px; ">
+                <div class="form-group" style="margin-left: 0px; margin-right: 0px; margin-bottom: 0px;">
+                    <label class=" control-label"></label>
+                    @Html.ValidationMessageFor(m => m.nom_doc)
+                    <label id="lbl_valida_nom_doc" style="color: #B44D4D">  </label>
+                    @Html.TextBoxFor(m => m.nom_doc, new { @class = "form-control input-sm", @onpaste = "return false;", @maxlength = "250" })
+                </div>
+            </div>
+            <div class="col-md-2">
+                <div class="form-group" style="margin-left: 0px; margin-right: 0px; margin-bottom: 0px;">
+                    <label class=" control-label">Folios:</label>
+                    @Html.ValidationMessageFor(m => m.folios)
+                    <label id="lbl_valida_folios" style="color: #B44D4D">  </label>
+                    @Html.TextBoxFor(m => m.folios, new { @class = "form-control input-sm cold-md-1", @onpaste = "return false;", @maxlength = "10", @onkeypress = "return IsNumeric(this.value);" })
+                </div>
+            </div>
+
+        </div>
+
+        <div class="row">
+            <div class="col-md-3">
+                <div class="form-group" style="margin-left:0px; margin-right:0px;">
+                    <label class="control-label">SIGA:</label>
+                    <label id="lbl_valida_pedido_siga" style="color: #B44D4D">  </label>
+                    @Html.DropDownListFor(m => m.id_tipo_pedido_siga, (IEnumerable<SelectListItem>)ViewBag.lst_tipo_pedido_siga, new { @class = "form-control input-sm" })
+                </div>
+            </div>
+            <div class="col-md-2" style="padding-top:8px;">
+                <div class="form-group" style="margin-left: 0px; margin-right: 0px; margin-bottom: 0px;">
+                    <label class="control-label"></label>
+                    @Html.DropDownListFor(m => m.anno_siga, (IEnumerable<SelectListItem>)ViewBag.lst_anno_siga, new { @class = "form-control input-sm" })
+                </div>
+            </div>
+            <div class="col-md-2" style="padding-top:8px;">
+                <div class="form-group" style="margin-left: 0px; margin-right: 0px; margin-bottom: 0px;">
+                    <label class="control-label"></label>
+                    @Html.TextBoxFor(m => m.pedido_siga, new { @class = "form-control input-sm", @onpaste = "return false;", @maxlength = "10", @onkeypress = "return IsNumeric(this.value);" })
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="edit_act_oficina col-md-2" style="padding-top:0px;">
+                <div class="form-group" style="margin-left: 0px; margin-right: 0px;">
+                    <div class="checkbox">
+                        @Html.CheckBox("check_edit_exter")
+                        @Html.Label("Modificar Externo")
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="n_act_oficina col-md-3">
+                <div class="form-group" style="margin-left:0px; margin-right:0px;">
+                    <label class=" control-label">De:</label>
+                    @Html.DropDownList("cmbpersona_crea", (IEnumerable<SelectListItem>)ViewBag.lst_persona_crea, new { @class = "form-control input-sm" })
+                </div>
+            </div>
+            <div class="act_oficina col-md-2">
+                <div class="form-group" style="margin-left:0px; margin-right:0px;">
+                    <label class=" control-label">Externo:</label>
+                    @Html.DropDownList("cmb_tip_doc_iden", (IEnumerable<SelectListItem>)ViewBag.lst_tipo_documento_iden, new { @class = "form-control input-sm" })
+                </div>
+            </div>
+            <div class="act_oficina col-md-2">
+                <div class="form-group" style="margin-left:0px; margin-right:0px;">
+                    <label class=" control-label">Doc.:</label>
+                    <label id="lbl_valida_ext" style="color: #B44D4D">  </label>
+                    @Html.TextBox("num_documento_externo", null, new { @class = " form-control input-sm", @maxlength = "20", @onkeypress = "return IsNumeric_vista(this.value);", @onkeyup = "return Valida_back_vista(this.value);" })
+                </div>
+            </div>
+            <div class="act_oficina col-md-3">
+                <div class="form-group" style="margin-left:0px; margin-right:0px;">
+                    <label class=" control-label">Nombre:</label>
+                    @Html.TextBox("nom_document_Extern", null, new { @class = " form-control input-sm", @onkeypress = "return IsNom_vista(this.value);", @onkeyup = "return Valida_back_vista(this.value);" })
+                </div>
+            </div>
+            <div class="col-md-4" style="padding-top:30px;">
+                <div class="form-group" style="margin-left: 0px; margin-right: 0px; margin-bottom: 0px;">
+                    <label class="control-label"></label>
+                    <button id="btnNuevaPersona" type="button" class="btn btn-primary btn-sm act_oficina">Nueva Persona</button>
+                    <button id="btnNuevaOficina" type="button" class="btn btn-primary btn-sm act_oficina">Nueva Entidad</button>
+                </div>
+            </div>
+        </div>
+        <div class="act_oficina row">
+            <div class="col-md-3">
+                <div class="form-group" style="margin-left:0px; margin-right:0px;">
+                    <label class="unica_direccion control-label">Razón social:</label>
+                    <label class="varias_direcciones control-label">Razón social:</label>
+                    <label class="varias_personas control-label">Razón social:</label>
+                    @Html.TextBox("nombre_externo", null, new { @class = "form-control input-sm unica_direccion", @readonly = "readonly" })
+                    @Html.DropDownList("cmb_nombre_externo", (IEnumerable<SelectListItem>)ViewBag.lst_oficinas, new { @class = "form-control input-sm varias_direcciones" })
+                    @Html.DropDownList("cmb_persona_externo", (IEnumerable<SelectListItem>)ViewBag.lst_persona_ext, new { @class = "form-control input-sm varias_personas" })
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="form-group" style="margin-left:0px; margin-right:0px;">
+                    <label class="unica_direccion control-label">Dirección:</label>
+                    <label class="varias_direcciones control-label">Dirección:</label>
+                    <label class="varias_personas control-label">Dirección:</label>
+                    <label id="lbl_valida_direccion_combo" style="color: #B44D4D">  </label>
+                    @Html.TextBox("direccion_externo", null, new { @class = "form-control input-sm unica_direccion", @readonly = "readonly" })
+                    @Html.DropDownList("cmb_direccion", (IEnumerable<SelectListItem>)ViewBag.lst_direcciones, new { @class = "form-control input-sm varias_direcciones" })
+                    @Html.TextBox("direccion_per_externo", null, new { @class = "form-control input-sm varias_personas", @readonly = "readonly" })
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="form-group" style="margin-left:0px; margin-right:0px;">
+                    <label class="control-label">Asunto:</label>
+                    @Html.ValidationMessageFor(m => m.asunto)
+                    @Html.TextAreaFor(m => m.asunto, new { @class = "form-control input-sm", @rows = "4", @maxlength = "500" })
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="form-group" style="margin-left:0px; margin-right:0px;">
+                    <label class="control-label">Referencia:</label>
+                    @Html.ValidationMessageFor(m => m.referencia)
+                    @Html.TextAreaFor(m => m.referencia, new { @class = "form-control input-sm", @rows = "4" })
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="form-group" style="margin-left:0px; margin-right:0px;">
+                    <label class="control-label">Anexos:</label>
+                    @Html.ValidationMessageFor(m => m.anexos)
+                    @Html.TextAreaFor(m => m.anexos, new { @class = "form-control input-sm", rows = "4", @maxlength = "1500", wrap = "off" })
+
+                </div>
+            </div>
+        </div>
+            <hr>
+            <div class="form-group">
+                <div class="col-md-8">
+                    <input id="btnGrabar" type="submit" value="Guardar" class="btn btn-primary btn-sm" />
+                    <button type="button" class="btn btn-default btn-sm regresar">Cancelar</button>
+                </div>
+                <div class="col-md-1">
+                    <div id="loaderImage" class="hidden"></div>
+                </div>
+            </div>
+        </div>
+}
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
+
+<script type="text/javascript">
+
+    
+    function recupera_RUC_NOM(texto) {
+        var entra = 0;
+        $.ajax({
+            cache: false,
+            type: "GET",
+            url: "@(Url.RouteUrl("recupera_RUC_NOM_vista"))",
+            data: { "NOM": texto },
+            success: function (data) {
+                $("#cmb_nombre_externo").html('');
+                $.each(data, function (id, option) {
+                    if (option.Value != "NO") {
+                        $("#cmb_nombre_externo").append($('<option></option>').val(option.Value).html(option.Text));
+                        if (entra == 0) {
+                            recupera_RUC_DIRECCION(option.Value);
+                            entra = 1;
+                            $("#persona_externa_encontro").val("1");
+                            $('.varias_direcciones').show();
+                        }
+
+                    }
+                    else {
+                        
+                        $("#persona_externa_encontro").val("0");
+                        $('.varias_direcciones').hide();
+                    }
+                });
+            },
+            error: function (xhr, ajaxOptions, thrownError) {
+                alert('Failed to retrieve states.');
+            }
+        });
+    }
+    
+    function recupera_RUC_DIRECCION(texto) {
+        var ddldireccion = $("#cmb_direccion");
+        var entra = 0;
+        $.ajax({
+            cache: false,
+            type: "GET",
+            url: "@(Url.RouteUrl("recupera_RUC_DIRECCION_vista"))",
+            data: { "ID_OFICINA": texto },
+
+        success: function (data) {
+
+            ddldireccion.html('');
+            $.each(data, function (id, option) {
+                ddldireccion.append($('<option></option>').val(option.Value).html(option.Text));
+            });
+        },
+        error: function (xhr, ajaxOptions, thrownError) {
+            alert('Failed to retrieve states.');
+        }
+    });
+    }
+
+
+    function recupera_RUC(texto) {
+        var entra = 0;
+        $.ajax({
+            cache: false,
+            type: "GET",
+            url: "@(Url.RouteUrl("recupera_RUC_vista"))",
+            data: { "RUC": texto },
+        success: function (data) {
+            $("#cmb_nombre_externo").html('');
+            $.each(data, function (id, option) {
+                if (option.Value != "NO") {
+                    $("#cmb_nombre_externo").append($('<option></option>').val(option.Value).html(option.Text));
+                    if (entra == 0) {
+                        recupera_RUC_DIRECCION(option.Value);
+                        entra = 1;
+                        $("#persona_externa_encontro").val("1");
+                        $('.varias_direcciones').show();
+                    }
+                }
+                else {
+                    $("#persona_externa_encontro").val("0");
+                    $('.varias_direcciones').hide();
+                }
+            });
+        },
+        error: function (xhr, ajaxOptions, thrownError) {
+            alert('Failed to retrieve states.');
+        }
+    });
+    }
+
+    function IsNom_vista(dato) {
+        var valor = dato.indexOf(".");
+        var evento = window.event || dato;
+        
+        if ($("#nom_document_Extern").val().trim() != "") {
+            $("#nombre_externo").val("");
+            $("#direccion_externo").val("");
+            $("#direccion_per_externo").val("");
+            $("#persona_externa_encontro").val("0");
+            $('.unica_direccion').hide();
+            $('.varias_direcciones').hide();
+            $('.varias_personas').hide();
+            if ($("#cmb_tip_doc_iden").val() == 0) {
+                
+                recupera_RUC_NOM(($("#nom_document_Extern").val() + String.fromCharCode(evento.charCode)).trim());
+            }
+            else {
+                recupera_DNI_NOM(($("#nom_document_Extern").val() + String.fromCharCode(evento.charCode)).trim());
+            }
+        }
+    }
+
+    function Valida_back_vista(dato) {
+        if (window.event.keyCode == 8) {
+            if ($("#num_documento_externo").val().length < 20) {
+                $("#nombre_externo").val("");
+                $("#direccion_externo").val("");
+                $("#direccion_per_externo").val("");
+                $("#persona_externa_encontro").val("0");
+                $('.unica_direccion').hide();
+                $('.varias_direcciones').hide();
+                $('.varias_personas').hide();
+            }
+        }
+    }
+
+
+    function IsNumeric_vista(dato) {
+        var valor = dato.indexOf(".");
+        var evento = window.event || dato;
+        if ((window.event.keyCode > 47 && window.event.keyCode < 58)) {
+
+            if ($("#nom_document_Extern").val().trim() == "") {
+
+                if ($("#num_documento_externo").val().length < 7) {
+                    $("#nombre_externo").val("");
+                    $("#nom_document_Extern").val("");
+                    $("#direccion_externo").val("");
+                    $("#direccion_per_externo").val("");
+                    $("#persona_externa_encontro").val("0");
+                    $('.unica_direccion').hide();
+                    $('.varias_direcciones').hide();
+                    $('.varias_personas').hide();
+                }
+                else {
+                    if ($("#cmb_tip_doc_iden").val() == 0) {
+                        recupera_RUC(($("#num_documento_externo").val() + String.fromCharCode(evento.charCode)).trim());
+                    }
+                    else {
+                        recupera_DNI_CE(($("#num_documento_externo").val() + String.fromCharCode(evento.charCode)).trim());
+                    }
+                }
+            }
+            window.event.returnValue = true;
+        }
+        else {
+            window.event.returnValue = false;
+        }
+    }
+    
+    function recupera_DNI_CE_DIRECCION(texto) {
+        $.ajax({
+            cache: false,
+            type: "GET",
+            url: "@(Url.RouteUrl("Consultar_DNI_DIRECCION_vista"))",
+            data: { "DNI": texto },
+
+        success: function (data) {
+            $.each(data, function (id, option) {
+                $("#direccion_externo").val(option.Text);
+            });
+        },
+        error: function (xhr, ajaxOptions, thrownError) {
+            alert('Failed to retrieve states.');
+        }
+    });
+    }
+
+
+    function recupera_DNI_CE(texto) {
+        $.ajax({
+            cache: false,
+            type: "GET",
+            url: "@(Url.RouteUrl("Consultar_DNI_vista"))",
+            data: { "DNI": texto },
+
+        success: function (data) {
+            $.each(data, function (id, option) {
+                if (option.Value != "NO") {
+                    $("#persona_externa_encontro").val("1");
+                    $("#nombre_externo").val(option.Text);
+                    recupera_DNI_CE_DIRECCION(texto);
+                    $('.unica_direccion').show();
+                }
+                else {
+                    $("#nombre_externo").val("");
+                    $("#direccion_externo").val("");
+                    $("#direccion_per_externo").val("");
+                    $("#persona_externa_encontro").val("0");
+                    $('.unica_direccion').hide();
+                    $('.varias_direcciones').hide();
+                    $('.varias_personas').hide();
+                }
+            });
+        },
+        error: function (xhr, ajaxOptions, thrownError) {
+            alert('Failed to retrieve states.');
+        }
+    });
+    }
+    
+    function recupera_DNI_CE_DIRECCION_personas(texto) {
+        $.ajax({
+            cache: false,
+            type: "GET",
+            url: "@(Url.RouteUrl("Consultar_DNI_DIRECCION_vista"))",
+            data: {
+                "DNI": texto
+            },
+
+        success: function (data) {
+            $.each(data, function (id, option) {
+                $("#direccion_per_externo").val(option.Text);
+            });
+        },
+        error: function (xhr, ajaxOptions, thrownError) {
+            alert('Failed to retrieve states.');
+        }
+    });
+    }
+
+
+    function recupera_DNI_NOM(texto) {
+        var entra = 0;
+        $.ajax({
+            cache: false,
+            type: "GET",
+            url: "@(Url.RouteUrl("recupera_DNI_NOM_vista"))",
+            data: {
+                "NOM": texto,
+                "TIPO": $("#cmb_tip_doc_iden").val()
+            },
+        success: function (data) {
+            $("#cmb_persona_externo").html('');
+            $.each(data, function (id, option) {
+                if (option.Value != "NO") {
+                    $("#cmb_persona_externo").append($('<option></option>').val(option.Value).html(option.Text));
+                    if (entra == 0) {
+                        recupera_DNI_CE_DIRECCION_personas(option.Value);
+                        entra = 1;
+                        $("#persona_externa_encontro").val("1");
+                        $('.varias_personas').show();
+                    }
+
+                }
+                else {
+                    $("#persona_externa_encontro").val("0");
+                    $('.varias_personas').hide();
+                }
+            });
+        },
+        error: function (xhr, ajaxOptions, thrownError) {
+            alert('Failed to retrieve states.');
+        }
+    });
+    }
+
+
+    $(document).ready(function () {
+
+        if ($("#ver_externo_interno").val() == 1) {
+            $("#num_documento_externo").val("");
+            $("#nombre_externo").val("");
+            $("#nom_document_Extern").val("");
+            $("#id_oficina_externa").val("");
+            $("#id_tipo_per").val("");
+            document.getElementById('lbl_valida_ext').innerHTML = "";
+            $('.edit_act_oficina').show();
+            $('.act_oficina').hide();
+            $('.n_act_oficina').hide();
+            if ($("#ver_num_doc").val() == 0) {
+                $('.autonume').show();
+                $("#numero_documento").val("");
+                $("#nom_doc").val("");
+            }
+        } else {
+            $('#cmbpersona_crea').val($("#persona_crea").val()).change();
+            $("#persona_externa_encontro").val("0");
+            $("#num_documento_externo").val("");
+            $("#nombre_externo").val("");
+            $("#id_oficina_externa").val("");
+            $("#nom_document_Extern").val("");
+            $("#id_tipo_per").val("");
+            $('.edit_act_oficina').hide();
+            $('.act_oficina').hide();
+            $('.direccion').hide();
+            $('.unica_direccion').hide();
+            $('.varias_direcciones').hide();
+            $('.varias_personas').hide();
+            $('.n_act_oficina').show();
+            if ($("#ver_num_doc").val() == 0) {
+                $('.autonume').hide();
+                $("#numero_documento").val(1);
+                $("#nom_doc").val("xxx");
+            }
+        }
+
+        $('.unica_direccion').hide();
+        $('.varias_direcciones').hide();
+        $('.varias_personas').hide();
+        $('.act_oficina').hide();
+
+        $("#modifica_persona_externa").val("0");
+
+        $('input[type="checkbox"]').change(function () {
+            var id = $(this).attr('id');
+            if (id == "check_edit_exter") {
+                if ($("#modifica_persona_externa").val() == "0") {
+                    $("#modifica_persona_externa").val("1");
+                    $('.act_oficina').show();
+                }
+                else {
+                    $("#modifica_persona_externa").val("0");
+                    $('.act_oficina').hide();
+                }
+            }
+        });
+
+
+        $("#cmb_tip_doc_iden").change(function () {
+            $("#persona_externa_encontro").val("0");
+            $("#num_documento_externo").val("");
+            $("#nombre_externo").val("");
+            $("#nom_document_Extern").val("");
+            $("#id_oficina_externa").val("");
+            $("#id_tipo_per").val("");
+            $('.act_oficina').hide();
+            $('.direccion').hide();
+            $('.unica_direccion').hide();
+            $('.varias_direcciones').hide();
+            $('.varias_personas').hide();
+            $('.n_act_oficina').show();
+            document.getElementById('lbl_valida_ext').innerHTML = "";
+            $('.act_oficina').show();
+            $('.n_act_oficina').hide();
+        });
+
+        if ($("#ver_num_doc").val() == 0) {
+            $('.autonume').hide();
+        }
+
+        if ($('#pedido_siga').val() == "0") {
+            $('#pedido_siga').val("");
+        }
+        
+        $("#anexos").click(function () {
+            $("#anexos").attr("rows", 8);
+        });
+
+        $("#anexos").focusout(function () {
+            $("#anexos").attr("rows", 4);
+        });
+
+        $(document).on("click", ".regresar", function () {
+            window.location = '@Url.Action("Consultar_mis_HT", "HojaTramite")';
+        });
+
+
+        $('#btnNuevaPersona').click(function () {
+
+            $('#bntConfirmar_pagina').removeAttr("disabled", "disabled");
+            $("#pagina_direccion").val("nueva_persona");
+            document.getElementById('lbl_valida_confirma_pagina').innerHTML = "Esta seguro de salir del registro de HT, para registrar una nueva persona?";
+            $('#mdlConfirmar_pagina').modal();
+        });
+
+        $('#bntConfirmar_pagina').click(function () {
+            if ($("#pagina_direccion").val() == "nueva_persona") {
+                var url = "/Hojatramite/Nueva_Natural/";
+                window.location.href = url;
+            }
+            else {
+                if ($("#pagina_direccion").val() == "nueva_oficina") {
+                    var url = "/Oficina/Nueva_Oficina/";
+                    window.location.href = url;
+                }
+            }
+        });
+
+        $('#btnNuevaOficina').click(function () {
+            $('#bntConfirmar_pagina').removeAttr("disabled", "disabled");
+            $("#pagina_direccion").val("nueva_oficina");
+            document.getElementById('lbl_valida_confirma_pagina').innerHTML = "Esta seguro de salir del registro de HT, para registrar una nueva Entidad?";
+            $('#mdlConfirmar_pagina').modal();
+        });
+
+
+        $("#cmb_persona_externo").change(function () {
+            var selc_nombre = $(this).val();
+            recupera_DNI_CE_DIRECCION_personas(selc_nombre);
+        });
+
+        $("#cmb_nombre_externo").change(function () {
+            var selc_nombre = $(this).val();
+            recupera_RUC_DIRECCION(selc_nombre);
+        });
+
+
+        $('#nuevoForm').submit(function (e) {
+
+            $('#btnGrabar').attr("disabled", "disabled");
+
+            document.getElementById('lbl_valida_folios').innerHTML = "";
+            document.getElementById('lbl_valida_nom_doc').innerHTML = "";
+            document.getElementById('lbl_valida_pedido_siga').innerHTML = "";
+
+            var per_crea = "";
+            var entra = 0;
+            var var_xoficina = 0;
+            var var_xpersona_num_documento = null;
+            var var_nom_externo = null;
+            var var_xtipo_per = 0;
+            if ($("#ver_externo_interno").val() == "1") {
+
+                if ($("#modifica_persona_externa").val() == "1") {
+                    if ($("#persona_externa_encontro").val() == "0") {
+                        document.getElementById('lbl_valida_ext').innerHTML = "Seleccionar Persona Externa";
+                        entra = 1;
+                    }
+                    else {
+                        if ($("#cmb_tip_doc_iden").val() == "0") {
+                            if ($("#cmb_direccion").val() == "0") {
+                                document.getElementById('lbl_valida_direccion_combo').innerHTML = "Seleccionar dirección";
+                                entra = 1;
+                            }
+                            else {
+                                var_xoficina = $("#cmb_direccion").val();
+                                var_nom_externo = $('select[name="cmb_nombre_externo"] option:selected').text();
+                            }
+                        }
+                        else {
+                            if ($("#nombre_externo").val() == "") {
+                                var_xpersona_num_documento = $("#cmb_persona_externo").val();
+                                var_xtipo_per = parseInt($("#cmb_tip_doc_iden").val());
+                                var_nom_externo = $('select[name="cmb_persona_externo"] option:selected').text();
+                            }
+                            else {
+                                var_xpersona_num_documento = $("#num_documento_externo").val();
+                                var_xtipo_per = parseInt($("#cmb_tip_doc_iden").val());
+                                var_nom_externo = $("#num_documento_externo").val() + " - " + $("#nombre_externo").val();
+                            }
+                        }
+                    }
+                }                
+            }
+            else {
+                per_crea = $('#cmbpersona_crea').val();
+                var_nom_externo = null;
+            }
+            
+            $('#nom_externo').val(var_nom_externo);
+            $('#id_oficina').val(var_xoficina);
+            $('#persona_num_documento').val(var_xpersona_num_documento);
+            $('#persona_crea').val(per_crea);
+                        
+            var entra = 0;
+            
+            if ($('#folios').val() == 0 || $('#folios').val().trim() == "") //si no ingresa cantidad de folios
+            {
+                document.getElementById('lbl_valida_folios').innerHTML = "Ingresar folios";
+                entra = 1;
+            }
+
+            if ($('#nom_doc').val().trim() == "") {
+                document.getElementById('lbl_valida_nom_doc').innerHTML = "Ingresar Documento";
+                entra = 1;
+            }
+
+            if ($('#pedido_siga').val().trim() != "" || $("#id_tipo_pedido_siga").val() != "" || $("#anno_siga").val() != "") {
+                if ($('#pedido_siga').val().trim() == "" || $("#id_tipo_pedido_siga").val() == "" || $("#anno_siga").val() == "") {
+                    document.getElementById('lbl_valida_pedido_siga').innerHTML = "Seleccionar Tipo Pedido y digitar el número SIGA";
+                    entra = 1;
+                }
+            }
+            
+            if (!$("#nuevoForm").valid())//Si no pasa la validacion no entra
+            {
+                $('#btnGrabar').removeAttr("disabled", "disabled");
+                return false;
+            }
+            e.preventDefault();
+
+            if (entra == 1) {
+                $('#btnGrabar').removeAttr("disabled", "disabled");
+                return false;
+            }
+                        
+            $.ajax({
+                url: this.action,
+                type: this.method,
+                data: new FormData(this),
+                processData: false,
+                contentType: false,
+                beforeSend: function () {
+                    $('#loaderImage').removeClass("hidden").addClass("show");
+                },
+                complete: function () {
+                    $('#loaderImage').removeClass("show").addClass("hidden");
+                },
+                success: function (result) {
+
+                    $('.field-validation-error').each(function () {
+                        $(this).removeClass("field-validation-error").addClass("field-validation-valid");
+                        $(this).html('');
+                    });
+
+                    $("#mensajes").html(result).hide();
+                    $("html, body").animate({ scrollTop: 0 }, '500', 'swing', function () {
+                        $("#mensajes").slideDown(500, function () { });
+                        setTimeout(function () {
+                            window.location = '@Url.Action("Consultar_mis_HT", "HojaTramite")';
+                        }, 500);
+                    });
+                },
+
+                error: function (result) {
+                    if (result.status == 500) {
+                        $("#mensajes").html(result.responseText).hide();
+                        $("html, body").animate({ scrollTop: 0 }, '500', 'swing', function () {
+                            $("#mensajes").slideDown(500, function () { });
+                        });
+                    }
+                    else if (result.status == 400) {
+                        $('.field-validation-error').each(function () {
+                            $(this).removeClass("field-validation-error").addClass("field-validation-valid");
+                            $(this).html('');
+                        });
+                        $.each(result.responseJSON.errors, function (key, value) {
+                            if (value != null) {
+                                var container = $('span[data-valmsg-for="' + key + '"]');
+                                container.removeClass("field-validation-valid").addClass("field-validation-error");
+                                container.html(value);
+                            }
+                        });
+                        $("#mensajes").html(result.responseJSON.summary).hide();
+                        if (result.responseJSON.summary != "") {
+                            $("html, body").animate({ scrollTop: 0 }, '500', 'swing', function () {
+                                $("#mensajes").slideDown(500, function () { });
+                            });
+                        }
+                    }
+                }
+            });
+        });
+    });
+</script>
+
+
+

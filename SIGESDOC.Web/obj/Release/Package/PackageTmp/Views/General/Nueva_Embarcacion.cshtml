@@ -1,0 +1,297 @@
+﻿@model SIGESDOC.Response.ConsultaEmbarcacionesResponse
+
+@{
+    ViewBag.Title = "Nueva Embarcacion";
+}
+
+
+<div class="bottom hidden"></div>
+<div id="mensajes"></div>
+
+<ol class="breadcrumb" style="margin-bottom: 5px;">
+    <li><a href="#">Embarcación</a></li>
+    <li class="active">Nueva Embarcación</li>
+</ol>
+
+<div class="bs-callout bs-callout-info">
+    <h4>Registrar Nueva Embarcación</h4>
+    <p>Use el siguiente formulario para registrar una nueva embarcación</p>
+</div>
+
+
+<div class="panel panel-primary">
+    <div class="panel-heading panet-heading-sm">Embarcación</div>
+    <div class="panel-body">
+        @using (Ajax.BeginForm(new AjaxOptions { HttpMethod = "Get" }))
+        {
+
+            <div class="form-horizontal">
+
+                <ol class="breadcrumb">
+                    <li class="active">Información de la Embarcación</li>
+                </ol>
+                
+                <div class="row hidden">
+                    @Html.TextBox("var_guardar", null)
+                    @Html.TextBox("var_txt_fecha_construccion", null)
+
+                </div>
+
+                <div class="form-group">
+                    <label class="control-label col-md-2">Matricula</label>
+                    <div class="col-md-3">
+                        @Html.TextBox("TXT_MATRICULA", "", new { @class = "form-control input-sm", @maxlength = "100" })
+                    </div>
+                    <label id="lbl_valida_matricula" style="color: #B44D4D">  </label> 
+                </div>
+                
+                <div class="form-group">
+                    <label class="control-label col-md-2">Nombre de la Embarcación</label>
+                    <div class="col-md-6">
+                        @Html.TextBox("TXT_NOMBRE", "", new { @class = "form-control input-sm", @maxlength = "500" })
+                    </div>
+                    <label id="lbl_valida_nombre" style="color: #B44D4D">  </label> 
+                </div>
+
+                <div class="form-group">
+                    <label class="control-label col-md-2">Código Embarcacion: </label>
+                    <div class="col-md-1">
+                        @Html.DropDownList("cmb_codigo_emb", (IEnumerable<SelectListItem>)ViewBag.lista_codigo_emb, new { @class = "form-control input-sm" })
+                    </div>
+                    <div class="col-md-1">
+                        @Html.TextBox("txt_numero", "", new { @class = "form-control input-sm", @onpaste = "return false;", @maxlength = "10", @onkeypress = "return IsNumeric(this.value);" })
+                    </div>
+                    <div class="col-md-2">
+                        @Html.TextBox("txt_nombre", "", new { @class = "form-control input-sm", @placeholder = "Nombre del Código", @maxlength = "100" })
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label class="col-md-2 control-label">Actividad de Embarcación:</label>
+                    <div class="col-md-6">
+                        @Html.DropDownList("cmb_activ_embar", (IEnumerable<SelectListItem>)ViewBag.lista_actv_embarcacion, new { @class = "form-control input-sm" })
+                    </div>
+                </div>
+
+
+                <div class="form-group hidden">
+                    <label class="col-md-2 control-label" for="dtpFechaconstruccion">Fecha Construcción:</label>
+                    <div class="col-md-2">
+                        <div class="input-group date input-group-sm" id="dtpFechaconstruccion">
+                            <input class="form-control input-sm" id="txtFechaconstruccion" type="text" value="">
+                            <span class="input-group-addon input-sm add-on">
+                                <a href="#">
+                                    <i class="glyphicon glyphicon-calendar" data-date-icon="glyphicon glyphicon-calendar"></i>
+                                </a>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-md-2 control-label" for="cmb_tipo_embarcacion">Tipo de Embarcación:</label>
+                    <div class="col-md-6">
+                        @Html.DropDownList("cmb_tipo_embarcacion", (IEnumerable<SelectListItem>)ViewBag.lista_embarcacion, new { @class = "form-control input-sm" })
+                    </div>
+                    <label id="lbl_valida_tipo_embarcacion" style="color: #B44D4D">  </label> 
+                </div>
+                <hr>
+                <div class="form-group">
+                    <div class="col-md-8">
+                        <button id="btn_Grabar_Embarcacion" type="button" class="btn btn-primary btn-sm">Grabar Embarcación</button>
+                        <button type="button" class="btn btn-default btn-sm regresar">Cancelar</button>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>
+
+
+<div class="modal fade" id="mdlConformidad" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title" id="myModalLabel">Mensaje</h4>
+            </div>
+            <div class="modal-body">
+                <span id="conformidad"></span>
+                <p>Presione aceptar para continuar.</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary btn-sm" data-dismiss="modal" id="btn_satisfa">Aceptar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+
+    function IsNumeric(dato) {
+        var valor = dato.indexOf(".");
+        if ((window.event.keyCode > 47 && window.event.keyCode < 58)) {
+            window.event.returnValue = true;
+        }
+        else {
+            window.event.returnValue = false;
+        }
+    }
+
+    $(document).ready(function () {
+
+        $(function () {
+            $('#dtpFechaconstruccion').datetimepicker({
+                pickTime: false,
+                format: 'dd/MM/yyyy',
+                language: 'es'
+            });
+        });
+
+        $("#btn_satisfa").click(function () {
+            var url = "/General/Consulta_embarcacion/";
+            window.location.href = url;
+        });
+
+        $(document).on("click", ".regresar", function () {
+            window.location = '@Url.Action("Consulta_embarcacion", "General")';
+        });
+
+        $("#TXT_MATRICULA").focusout(function () {
+            var var_matr = $("#TXT_MATRICULA").val().toString().trim();
+            $.ajax({
+                cache: false, type: "GET", url: "@(Url.RouteUrl("Existe_matricula"))", data: { "var_matricula": var_matr },
+                success: function (result) {
+                    if (result == "SI") {
+                        document.getElementById('lbl_valida_matricula').innerHTML = "Matricula existe";
+                    }
+                    else {
+                        document.getElementById('lbl_valida_matricula').innerHTML = "";
+                    }
+                },
+                error: function (xhr, ajaxOptions, thrownError) {
+                    alert('Failed to retrieve states.');
+                }
+            });
+        });
+
+        $("#btn_Grabar_Embarcacion").click(function () {
+
+            $('#btn_Grabar_Embarcacion').attr("disabled", "disabled");
+
+            $("#TXT_MATRICULA").val($("#TXT_MATRICULA").val().toUpperCase());
+            $("#TXT_NOMBRE").val($("#TXT_NOMBRE").val().toUpperCase());
+            
+            document.getElementById('lbl_valida_nombre').innerHTML = "";
+            document.getElementById('lbl_valida_tipo_embarcacion').innerHTML = "";
+            
+            var entra = 0;
+
+            if (document.getElementById('lbl_valida_matricula').innerHTML != "") {
+                entra = 1;
+            }
+            
+            if ($("#TXT_NOMBRE").val().toString().trim() == "") {
+                document.getElementById('lbl_valida_nombre').innerHTML = "Ingresar Nombre de la Embarcación";
+                entra = 1;
+            }
+
+            if ($("#cmb_tipo_embarcacion").val() == "") {
+                document.getElementById('lbl_valida_tipo_embarcacion').innerHTML = "Selecciona tipo de embarcación";
+                entra = 1;
+            }
+            
+            if ($("#TXT_MATRICULA").val().toString().trim() == "") {
+                document.getElementById('lbl_valida_matricula').innerHTML = "Ingresar Matricula";
+                entra = 1;
+            }
+
+            if (entra == 1) {
+                $('#btn_Grabar_Embarcacion').removeAttr("disabled", "disabled");
+                return false;
+            }
+            if ($('#txt_numero').val().toString().trim() == "")
+            {
+                $('#txt_numero').val("0");
+            }
+                var var_matr = $("#TXT_MATRICULA").val().toString().trim();
+                
+                $.ajax({
+                    cache: false,
+                    type: "GET",
+                    url: "@(Url.RouteUrl("Existe_matricula"))",
+                    data: { "var_matricula": var_matr },
+                success: function (result) {
+                    if (result == "SI") {
+                        document.getElementById('lbl_valida_matricula').innerHTML = "Matricula existe";
+                        entra = 1;
+                    }
+
+                    if (entra == 1) {
+                        $('#btn_Grabar_Embarcacion').removeAttr("disabled", "disabled");
+                        return false;
+                    }
+
+                    $.ajax({
+                        cache: false,
+                        type: "GET",
+                        url: "/General/Grabar_Nueva_Embarcacion",
+                        data: {
+                            "matricula": $("#TXT_MATRICULA").val(),
+                            "nombre": $("#TXT_NOMBRE").val(),
+                            "id_tipo_embarcacion": $("#cmb_tipo_embarcacion").val(),
+                            "codigo": $("#cmb_codigo_emb").val(),
+                            "numero": $("#txt_numero").val(),
+                            "nombre_codigo": $("#txt_nombre").val(),
+                            "actividad": $("#cmb_activ_embar").val(),
+                            "fecha_construccion": $("#txtFechaconstruccion").val()
+                        },
+                        success: function (result) {
+                            $('.field-validation-error').each(function () {
+                                $(this).removeClass("field-validation-error").addClass("field-validation-valid");
+                                $(this).html('');
+                            });
+                            $("#conformidad").html(result)
+                            $('#mdlConformidad').modal();
+                            setTimeout(function () {
+                                $("#mdlConformidad").modal().hide();
+                                $("#btn_satisfa").click();
+                            }, 10000);
+
+                        },
+                        error: function (result) {
+                            if (result.status == 500) {
+                                $("#mensajes").html(result.responseText).hide();
+                                $("#mensajes").slideDown(500, function () { });
+                            }
+                            else if (result.status == 400) {
+                                $('.field-validation-error').each(function () {
+                                    $(this).removeClass("field-validation-error").addClass("field-validation-valid");
+                                    $(this).html('');
+                                });
+                                $.each(result.responseJSON.errors, function (key, value) {
+                                    if (value != null) {
+                                        var container = $('span[data-valmsg-for="' + key + '"]');
+                                        container.removeClass("field-validation-valid").addClass("field-validation-error");
+                                        container.html(value);
+                                    }
+                                });
+                                $("#mensajes").html(result.responseJSON.summary).hide();
+                                if (result.responseJSON.summary != "") {
+                                    $("#mensajes").slideDown(500, function () { });
+                                }
+                            }
+                        }
+                    });
+                },
+                error: function (xhr, ajaxOptions, thrownError) {
+                    alert('Failed to retrieve states.');
+                }
+            });
+            
+
+
+        });
+
+    });
+    </script>

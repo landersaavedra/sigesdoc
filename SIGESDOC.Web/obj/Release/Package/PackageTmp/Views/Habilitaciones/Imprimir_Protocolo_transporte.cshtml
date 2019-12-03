@@ -1,0 +1,246 @@
+﻿@{
+    Layout = "";
+}
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Documento sin título</title>
+
+    <style>
+        body {
+            font-family: Gotham, "Helvetica Neue", Helvetica, Arial, sans-serif;
+        }
+
+        font {
+            font-family: Gotham, "Helvetica Neue", Helvetica, Arial, sans-serif;
+            font-size: 17px;
+        }
+
+        th {
+            font-weight: 100 !important;
+        }
+    </style>
+</head>
+
+<body>
+
+    <br>
+    <br>
+    <table width="820" border="0" cellpadding="0" cellspacing="0" style="margin-left:60px;">
+        <tr>
+            <td colspan="2" align="center" width="820"><img src="http://www.sanipes.gob.pe/images/membrete-sanipes.jpg" width="820" height="74" alt="" /></td>
+        </tr>
+        <tr>
+            <td align="center">&nbsp;</td>
+            <td width="222">&nbsp;</td>
+        </tr>
+        <tr align="center">
+            <td colspan="2">
+                <strong>
+                    <font style="font-family:Gotham, 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size:11px !important;">
+                        "Decenio de la Igualdad de Oportunidades para mujeres y hombres"<br>
+                        "Año de la lucha contra la corrupción e impunidad"
+                    </font>
+                </strong>
+            </td>
+        </tr>
+        <tr>
+            <td align="center">&nbsp;</td>
+            <td width="222">&nbsp;</td>
+        </tr>
+        <tr align="center">
+            <td colspan="2">
+                <strong>
+                    <font style="font-family:Gotham, 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size:19px !important;">
+                        PROTOCOLO TECNICO PARA HABILITACION SANITARIA DE <br>
+                        TRANSPORTE TERRESTRE DE PRODUCTOS PESQUEROS Y ACUICOLAS
+                    </font>
+                </strong>
+            </td>
+        </tr>
+        <tr align="center">
+            <td height="48" colspan="2"><strong><font size="2">N° @Html.Label("", (string)ViewBag.nombre_protocolo)</font></strong></td>
+        </tr>
+        <tr>
+            <td align="center">&nbsp;</td>
+            <td width="222">&nbsp;</td>
+        </tr>
+        <tr>
+            <td align="left"><strong><font size="2">EMITIDO A :</font></strong></td>
+            <td align="right" width="300"><strong><font size="2">EXPEDIENTE: @Html.Label("", (string)ViewBag.expediente)</font></strong></td>
+        </tr>
+
+    </table>
+
+    <table style="margin-top:5px; margin-left:60px;" width="820" border="0" cellpadding="0" cellspacing="0">
+        <tr>
+            <th scope="col">
+
+                <table align="left" width="820" border="1" bordercolor="#A0A0A0" cellpadding="0" cellspacing="0">
+                    <tr bordercolor="#333333" style="">
+                        <th height="20" style="text-align: left; padding:5px;" scope="col" colspan="2">
+                            <strong>NOMBRE Y/O RAZON SOCIAL: </strong>
+                            <font size="1" style="text-align: justify">@Html.Label("", (string)ViewBag.razon_social) </font>
+                        </th>
+                    </tr>
+                    <tr bordercolor="#333333">
+                        <th width="159px;" height="20" style="text-align: left; vertical-align:top; padding:5px;  border-right-color:#fff;" scope="col">
+                            <strong>DIRECCION LEGAL: </strong>
+                        </th>
+                        <th height="20" style="text-align:justify; padding:5px; border-left-color:#fff; " scope="col">
+                            <font size="1"> @Html.Label("", (string)ViewBag.direccion_legal)</font>
+                        </th>
+                    </tr>
+                    <tr bordercolor="#333333">
+                        <th height="28" style="text-align: left; padding:5px;" scope="col" colspan="2">
+
+                            <strong>REPRESENTANTE LEGAL: </strong>
+                            <font size="1" style="text-align: justify"> @Html.Label("", (string)ViewBag.representante_legal) </font>
+                        </th>
+                    </tr>
+                </table>
+            </th>
+            <th scope="col">&nbsp;</th>
+        </tr>
+    </table>
+
+
+    <table style="margin-top:5px; margin-left:60px;" width="820" border="0" cellpadding="0" cellspacing="0">
+        <tr>
+            <th scope="col">
+
+                <table align="left" width="820" border="1" bordercolor="#A0A0A0" cellpadding="0" cellspacing="0">
+                    <tr bordercolor="#333333">
+                        <th width="267px;" height="20" style="text-align: left; vertical-align:top; padding:5px; border-right-color:#fff; border-top-color:#fff;" scope="col">
+                            <strong>INFRAESTRUCTURA PESQUERA: </strong><font size="1"> @Html.Label("", (string)ViewBag.infra_pesq) </font>
+                            <br />
+                            <font size="2">
+                                <strong>PLACA :</strong> @Html.Label("", (string)ViewBag.placa)
+                            </font>
+                            <br />
+                            <font size="2">
+                                <strong>CARROCERIA : </strong> @Html.Label("", (string)ViewBag.nombre_tipo_carr_tarpro)
+                            </font>
+                            <br />
+                            <span>
+                                <font size="2">
+                                    <strong>CARGA UTIL: </strong>@Html.Label("", (string)ViewBag.carga_util) @Html.Label("", (string)ViewBag.siglas_um)
+                                </font>
+                            </span>
+                        </th>
+                    </tr>
+                </table>
+            </th>
+            <th scope="col">&nbsp;</th>
+        </tr>
+    </table>
+
+    <table style="margin-top:5px; margin-left:60px;" width="820" border="0" cellpadding="0" cellspacing="0">
+        <tr>
+            <th scope="col">
+
+                <table align="left" width="820" border="1" bordercolor="#A0A0A0" cellpadding="0" cellspacing="0">
+                    <tr bordercolor="#333333">
+                        <th width="783" height="20" style="text-align: justify; padding:5px;" scope="col">
+                            <font size="2">
+                                <strong>MEDIANTE EL PRESENTE DOCUMENTO EL ORGANISMO NACIONAL DE SANIDAD PESQUERA (SANIPES) DECLARA:</strong>
+                                <br> Haber @Html.Label("", (string)ViewBag.nombre_tipo_atencion) el vehículo de transporte terrestre de productos
+                                hidrobiológicos,  mediante Acta
+                                Sanitaria N° @Html.Label("", (string)ViewBag.acta_inspeccion) de fecha @Html.Label("", (string)ViewBag.fecha_inicio);
+                                de acuerdo a los requisitos establecidos en la Norma Sanitaria para las Actividades Pesqueras y Acuícolas, aprobado
+                                por Decreto Supremo Nº 040-2001-PE.
+                                <br> Asimismo, conforme al Procedimiento P01-SDHPA-SANIPES: Atención a Servicios de Habilitación Sanitaria de Infraestructuras
+                                Pesqueras y Acuícolas se emitió el Informe Técnico de Evaluación - Pesca N° @Html.Label("", (string)ViewBag.informe_tecnico) e
+                                Informe N° @Html.Label("", (string)ViewBag.informe_sdhpa), en base al Informe de Supervisión Sanitaria Nº @Html.Label("", (string)ViewBag.informe_auditoria).
+                            </font>
+                        </th>
+                    </tr>
+                </table>
+
+            </th>
+            <th scope="col">&nbsp;</th>
+        </tr>
+    </table>
+    <table style="margin-top:5px; margin-left:60px;" width="892" border="0" cellpadding="0" cellspacing="0">
+        <tr>
+            <th scope="col">
+
+
+                <table align="left" width="820" border="1" bordercolor="#A0A0A0" cellpadding="0" cellspacing="0">
+                    <tr bordercolor="#333333">
+                        <th width="783" height="20" style="text-align: justify; padding:5px;" scope="col">
+                            <font size="2">
+                                <strong>CON EL RESULTADO SIGUIENTE:</strong>
+                                <br />El vehiculo de transporte terrestre de productos hidrobiológicos de placa
+                                <strong>@Html.Label("", (string)ViewBag.placa)</strong>, cumple con la normativa sanitaria vigente, por lo tanto, se emite la habilitación
+                                sanitaria de transporte terrestre de productos pesqueros y acuícolas <strong>@Html.Label("", (string)ViewBag.nombre_tipo_furgon)</strong> con código
+                                <strong> @Html.Label("", (string)ViewBag.cod_habilitacion)</strong>, con eficacia anticipada a partir del
+                                @Html.Label("", (string)ViewBag.fecha_inicio), de acuerdo a lo establecido en el artículo 26 del Reglamento de la Ley Nº 30063, Ley de creación
+                                del Organismo Nacional de Sanidad Pesquera (SANIPES), aprobado por Decreto Supremo N° 012-2013-PRODUCE.
+                                <br /> Asimismo, se incluye en el Listado Oficial de Vehículos de Transporte de Productos Hidrobiológicos Habilitados,
+                                conforme a las funciones establecidas en
+                                el artículo 53 del Reglamento de Organización y Funciones del SANIPES, aprobado por Decreto Supremo N° 009-2014-PRODUCE.
+                            </font>
+                        </th>
+                    </tr>
+                </table>
+
+
+            </th>
+            <th scope="col">&nbsp;</th>
+        </tr>
+    </table>
+    <table style="margin-top:5px; margin-left:60px;" width="820" border="0" cellpadding="0" cellspacing="0">
+        <tr>
+            <th scope="col">
+
+
+
+
+
+                <table align="left" width="820" border="1" bordercolor="#A0A0A0" cellpadding="0" cellspacing="0">
+                    <tr bordercolor="#333333">
+                        <th width="783" height="20" style="text-align: justify; padding:5px;" scope="col">
+                            <font size="2">
+                                <strong>OBSERVACIONES:</strong>
+                                <br>La habilitación sanitaria del vehículo de transporte terrestre de productos hidrobiológicos
+                                de placa @Html.Label("", (string)ViewBag.placa), está sujeta a fiscalización sanitaria por parte del SANIPES, de acuerdo a lo
+                                establecido en el artículo 25 del  Reglamento de la Ley N° 30063, Ley de Creación del SANIPES,
+                                aprobado por Decreto Supremo N° 010-2019-PRODUCE.
+                                <br>Cabe la revocación del presente protocolo, cuando sobrevenga la desaparición de las condiciones exigidas legalmente para la
+                                emisión del mismo, sin perjuicio de las sanciones y acciones legales que correspondan.
+
+
+                                <strong>@Html.Label("", (string)ViewBag.fecha_fin)</strong>
+
+                            </font>
+                        </th>
+                    </tr>
+                </table>
+
+
+
+            </th>
+        </tr>
+    </table>
+
+    <table style="margin-top:5px; margin-left:60px;" width="820" border="0" cellpadding="0" cellspacing="0">
+        <tr>
+            <th scope="col">
+
+                <table align="left" width="820" border="0" bordercolor="#A0A0A0" cellpadding="0" cellspacing="0">
+                    <tr bordercolor="#333333">
+                        <th align="left" width="783" height="20" style="text-align: left" scope="col">
+                            <font size="2">
+                                Lima, @Html.Label("", (string)ViewBag.fecha_emision)
+
+                            </font>
+                        </th>
+                    </tr>
+                </table>
+    </table>
+
+
+</body>
+</html>

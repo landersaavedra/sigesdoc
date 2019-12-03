@@ -1,0 +1,144 @@
+﻿@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
+
+
+
+@{
+    Layout = "";
+}
+
+<!doctype html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="x-ua-compatible" content="IE=edge">
+    <title>@ViewBag.Title - SANIPES</title>
+    @Scripts.Render("~/bundles/modernizr")
+    @Scripts.Render("~/bundles/jquery")
+
+</head>
+
+<body>
+
+    <table style="border: 1px solid #ffffff; font-size: 9px; font-family: Gotham, 'Helvetica Neue', Helvetica, Arial, sans-serif; text-align: center;" width="1000px" border="1" cellpadding="2" cellspacing="0">
+        <col width="35">
+        <col width="80" span="2">
+        <col width="84">
+        <col width="267">
+        <col width="171">
+        <col width="80" span="3">
+        <col width="89">
+        <col width="80" span="2">
+        <tr>
+
+            <td style=" border-right:0px solid #fff" valign="top" width="15" rowspan="2" align="right">1</td>
+            <td style="font-size:13px; border-bottom:0px solid #fff; border-right:1px solid #d1d1d1; font-weight:bold; border-left:0px solid #fff" colspan="11">RELACION DE RECIBOS    DE INGRESO SANIPES - SERIE 001</td>
+        </tr>
+        <tr>
+            <td style="border-right:0px solid #fff;border-top:0px solid #fff; border-left:0px solid #fff;" colspan="2"><strong>MES: FEBRERO  2019</strong></td>
+            <td colspan="9" style="border-right:1px solid #d1d1d1; border-top:0px solid #fff; border-left:0px solid #fff;">&nbsp;</td>
+        </tr>
+        <tr>
+            <td style="text-align: center"><strong>Nº</strong></td>
+            <td width="46" style="text-align: center"><strong>N° RECIBO</strong></td>
+            <td width="52" style="text-align: center"><strong>FECHA</strong></td>
+            <td width="61" style="text-align: center"><strong>RUC</strong></td>
+            <td width="225" style="text-align: center"><strong>NOMBRE</strong></td>
+            <td width="85" style="text-align: center"><strong>CONCEPTO</strong></td>
+            <td width="25" style="text-align: center"><strong>EXP.</strong></td>
+            <td width="56" style="text-align: center"><strong>CANTIDAD</strong></td>
+            <td width="27" style="text-align: center"><strong>TUPA</strong></td>
+            <td width="65" style="text-align: center"><strong>IMPORTE DE    PAPELETA DE DEPOSITO </strong></td>
+            <td width="62" style="text-align: center"><strong>NUMERO DE    DEPOSITO BANCARIO</strong></td>
+            <td width="73" style="text-align: center; border-right:1px solid #d1d1d1;"><strong>FECHA DE DEPOSITO    BANCARIO</strong></td>
+        </tr>
+
+        @Html.Raw(ViewBag.html_detalle_dia_recibo)
+
+
+    </table>
+
+    <br>
+    <br>
+
+
+    <table style="border: 1px solid #ffffff; font-size: 9px; font-family: Gotham, 'Helvetica Neue', Helvetica, Arial, sans-serif; text-align: center;" width="1000px" border="1" cellpadding="2" cellspacing="0">
+        <col width="35">
+        <col width="80" span="2">
+        <col width="84">
+        <col width="267">
+        <col width="171">
+        <col width="80" span="3">
+        <col width="89">
+        <col width="80">
+        <tr>
+            <td style="text-align: center"><strong>Nº</strong></td>
+            <td width="46" style="text-align: center"><strong>N° RECIBO</strong></td>
+            <td width="52" style="text-align: center"><strong>FECHA</strong></td>
+            <td width="61" style="text-align: center"><strong>RUC</strong></td>
+            <td width="225" style="text-align: center"><strong>NOMBRE</strong></td>
+            <td width="85" style="text-align: center"><strong>CONCEPTO</strong></td>
+            <td width="25" style="text-align: center"><strong>EXP.</strong></td>
+            <td width="56" style="text-align: center"><strong>CANTIDAD</strong></td>
+            <td width="27" style="text-align: center"><strong>TUPA</strong></td>
+            <td width="65" style="text-align: center"><strong>IMPORTE DE    PAPELETA DE DEPOSITO </strong></td>
+            <td width="62" style="text-align: center"><strong>NUMERO DE    DEPOSITO BANCARIO</strong></td>
+            <td width="73" style="text-align: center; border-right:1px solid #d1d1d1;"><strong>FECHA DE DEPOSITO    BANCARIO</strong></td>
+        </tr>
+        @Html.Raw(ViewBag.html_detalle_dia_fac)
+    </table>
+
+    <br>
+    <br>
+
+
+    <table style="border: 1px solid #ffffff; font-size: 9px; font-family: Gotham, 'Helvetica Neue', Helvetica, Arial, sans-serif; text-align: center;" width="1000px" border="0" cellpadding="2" cellspacing="0">
+        <col width="35">
+        <col width="80" span="2">
+        <col width="84">
+        <col width="267">
+        <col width="171">
+        <col width="80" span="3">
+        <col width="89">
+        <col width="80" span="2">
+        <tr>
+            <td style="text-align: center">&nbsp;</td>
+            <td width="61" style="text-align: left" colspan="1">CERTIFICACIONES</td>
+            <td style="text-align: right">@Html.Label("", (string)ViewBag.v_total_cert)</td>
+            <td colspan="6">&nbsp;</td>
+        </tr>
+        <tr>
+            <td style="text-align: center">&nbsp;</td>
+            <td width="61" style="text-align: left" colspan="1">PROTOCOLOS</td>
+            <td style="text-align: right">@Html.Label("", (string)ViewBag.v_total_prot)</td>
+            <td colspan="6">&nbsp;</td>
+        </tr>
+        <tr>
+            <td style="text-align: center">&nbsp;</td>
+            <td width="61" style="text-align: left" colspan="1">ACC. INFO.</td>
+            <td style="text-align: right">@Html.Label("", (string)ViewBag.v_total_ainfo)</td>
+            <td colspan="6">&nbsp;</td>
+        </tr>
+        <tr>
+            <td style="text-align: center">&nbsp;</td>
+            <td width="61" style="text-align: left" colspan="1">ENSAYO</td>
+            <td width="65" style="text-align: right; border-bottom:3px  solid #000; border-left:0px  solid #000; border-right:0px solid #fff;">@Html.Label("", (string)ViewBag.v_total_ensayo)</td>
+            <td colspan="6">&nbsp;</td>
+        </tr>
+        <tr>
+            <td style="text-align: center" colspan="2">&nbsp;</td>
+            <td width="65" style="text-align: right; border-bottom:3px  double #000; border-left:0px  solid #000; border-right:0px solid #fff;">@Html.Label("", (string)ViewBag.v_total_total)</td>
+            <td colspan="6">&nbsp;</td>
+        </tr>
+    </table>
+
+</body>
+</html>
+<script type="text/javascript">
+    $(document).ready(function () {
+        window.print();
+    });
+</script>

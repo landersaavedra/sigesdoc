@@ -1,0 +1,590 @@
+﻿@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
+
+@{
+    Layout = "";
+}
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="x-ua-compatible" content="IE=edge">
+    <title>@ViewBag.Title - SANIPES</title>
+    @Scripts.Render("~/bundles/modernizr")
+    @Scripts.Render("~/bundles/jquery")
+
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+    <style>
+        body {
+            font-family: Gotham, "Helvetica Neue", Helvetica, Arial, sans-serif;
+        }
+    </style>
+</head>
+
+<body>
+    <table width="791" border="0" cellpadding="0" cellspacing="0">
+        <tr>
+            <td align="center" width="604"><img src="~/Content/img/logo_recibo_serie1.jpg" width="569" height="45" alt="" /></td>
+            <td width="187" rowspan="6">
+                <table width="100%" height="94" border="2" cellpadding="0" cellspacing="0" bordercolor="#000000">
+                    <tr>
+                        <td>
+                            <table width="100%" border="0">
+                                <tr>
+                                    <td align="center">
+                                        <font size="2">R.U.C 20565429656</font>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td align="center"><font size="2">RECIBO DE INGRESOS</font></td>
+                                </tr>
+                                <tr>
+                                    <td align="center"><font size="2">N° @Html.Label("", (string)ViewBag.num_fact)</font></td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td align="center"><font size="2">Av. Carretera Ventanilla Km. 5200 - Ventanilla</font></td>
+        </tr>
+        <tr align="center">
+            <td><font size="2">Prov. Const. del Callao - Prov. Conts. del callao - Perú</font></td>
+        </tr>
+        <tr>
+            <td align="center"><font size="2">Telf: (511) 577-0116 / (511) 577-5133</font></td>
+        </tr>
+        <tr>
+            <td align="center"><font size="2">Sucursal: Av. Domingo Orué Piso 7 Surquillo, Lima - Lima - Lima</font></td>
+        </tr>
+        <tr>
+            <td align="center"><font size="2">Telf: (511) 213-8570</font></td>
+        </tr>
+    </table>
+
+    <br>
+
+    <table width="892" border="0" cellpadding="0" cellspacing="0">
+        <tr>
+            <th scope="col">
+
+                <table align="left" width="791" border="1" bordercolor="#A0A0A0" cellpadding="0" cellspacing="0">
+                    <tr bordercolor="#333333">
+                        <th width="69" scope="col"><font size="2">Señor (es): </font></th>
+                        <th align="left" colspan="4" scope="col"><font size="2"> @Html.Label("", (string)ViewBag.nombre) </font></th>
+                    </tr>
+                    <tr>
+                        <th scope="col"><font size="2">Dirección:</font></th>
+                        <th align="left" colspan="4" scope="col"><font size="2"> @Html.Label("", (string)ViewBag.direccion) </font></th>
+                    </tr>
+                    <tr>
+                        <th scope="col"><font size="2">R.U.C.:</font></th>
+                        <th align="left" colspan="2" scope="col"><font size="2"> @Html.Label("", (string)ViewBag.ruc_dni)</font></th>
+                        <th width="92" scope="col"><font size="2">Fecha Emisión:</font></th>
+                        <th width="91" scope="col"><font size="2">@Html.Label("", (string)ViewBag.fecha_emision)</font></th>
+                    </tr>
+                    <tr>
+                        <th scope="col"><font size="2">Cantidad </font></th>
+                        <th width="54" scope="col"><font size="2">Código</font></th>
+                        <th width="473" scope="col"><font size="2">Descripión</font></th>
+                        <th scope="col"><font size="2">Precio Unitario</font></th>
+                        <th scope="col"><font size="2">Valor de venta</font></th>
+                    </tr>
+                    <tr>
+                        <th rowspan="4" scope="col">@Html.Label("", (string)ViewBag.cantidad)</th>
+                        <th rowspan="4" scope="col">&nbsp;</th>
+                        <th rowspan="3" scope="col">
+                            <table align="left" width="100%" border="0">
+                                <tr>
+                                    <td width="4%">&nbsp;</td>
+                                    <td colspan="2" align="left"><font size="1">@Html.Label("", (string)ViewBag.nombre_vfe) </font></td>
+                                </tr>
+                                <tr>
+                                    <td>&nbsp;</td>
+                                    <td colspan="2" align="left"><font size="1">@Html.Label("", (string)ViewBag.tupa_serv) </font></td>
+                                </tr>
+                                <tr>
+                                    <td>&nbsp;</td>
+                                    <td colspan="2" align="left"><font size="2"></font></td>
+                                </tr>
+                                <tr>
+                                    <td>&nbsp;</td>
+                                    <td width="49%" align="left" font color="#FFFFFF"><font size="1">Son: @Html.Label("", (string)ViewBag.letra_importe) y @Html.Label("", (string)ViewBag.decimal_text)/100 SOLES</font></td>
+                                    <td width="47%" align="left" font color="#FFFFFF"></td>
+                                </tr>
+                                <tr>
+                                    <td>&nbsp;</td>
+                                    <td align="left"><font size="1">S.E.U.O.</font></td>
+                                    <td width="47%" rowspan="3" align="left" font color="#FFFFFF">
+                                        <table width="100%" height="78" border="2" cellpadding="0" cellspacing="0" bordercolor="#000000">
+                                            <tr>
+                                                <td>
+                                                    <table width="100%" border="0">
+                                                        <tr>
+                                                            <td align="center">
+                                                                <font size="1">ORGANISMO NACIONAL DE SANIDAD PESQUERA</font>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td align="center"><font size="3">CANCELADO</font></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td align="center"><font size="2">@Html.Label("", (string)ViewBag.fecha_nom)</font></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td align="center"><font size="1">UNIDAD DE CONTABILIDAD FINANZAS Y TESORERIA</font></td>
+                                                        </tr>
+                                                    </table>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>&nbsp;</td>
+                                    <td align="left"><font size="2"></font></td>
+                                </tr>
+                                <tr>
+                                    <td colspan="2">&nbsp;</td>
+                                </tr>
+                            </table>
+                        </th>
+                        <th scope="col">
+                            &nbsp;<br>
+                            <br>
+                            <br>
+                            <br>
+                            <br>
+
+                            <br>
+                            <br>
+                        </th>
+                        <th scope="col"><font size="2">@Html.Label("", (string)ViewBag.importe_total)</font></th>
+                    </tr>
+                    <tr>
+                        <th align="left" scope="col"><font size="2">TOTAL S/</font> </th>
+                        <th scope="col"><font size="2">@Html.Label("", (string)ViewBag.importe_total)</font></th>
+                        <th scope="col"><font size="2"></font></th>
+                    </tr>
+                </table>
+
+
+                <table width="791" border="0" cellpadding="0" cellspacing="0">
+                    <tr>
+                        <td width="126"><b><font size="1">N° Operación: </font></b></td>
+                        <td width="466" style="text-align:left;"> <font size="1">@Html.Label("", (string)ViewBag.operacion) </font></td>
+                        <td width="185"><p style="text-align:right"><strong><font size="2"> ADQUIRIENTE USUARIO </font></strong></p></td>
+                    </tr>
+                    <tr>
+                        <td><b><font size="1">Fecha Deposito: </font></b></td>
+                        <td style="text-align:left;" colspan="1"> <font size="1">@Html.Label("", (string)ViewBag.fecha_operacion)</font></td>
+                    </tr>
+                </table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+            </th>
+        </tr>
+    </table>
+    <br>
+    <br>
+    <table width="791" border="0" cellpadding="0" cellspacing="0">
+        <tr>
+            <td align="center" width="604"><img src="~/Content/img/logo_recibo_serie1.jpg" width="569" height="45" alt="" /></td>
+            <td width="187" rowspan="6">
+                <table width="100%" height="94" border="2" cellpadding="0" cellspacing="0" bordercolor="#000000">
+                    <tr>
+                        <td>
+                            <table width="100%" border="0">
+                                <tr>
+                                    <td align="center">
+                                        <font size="2">R.U.C 20565429656</font>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td align="center"><font size="2">RECIBO DE INGRESOS</font></td>
+                                </tr>
+                                <tr>
+                                    <td align="center"><font size="2">N° @Html.Label("", (string)ViewBag.num_fact)</font></td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td align="center"><font size="2">Av. Carretera Ventanilla Km. 5200 - Ventanilla</font></td>
+        </tr>
+        <tr align="center">
+            <td><font size="2">Prov. Const. del Callao - Prov. Conts. del callao - Perú</font></td>
+        </tr>
+        <tr>
+            <td align="center"><font size="2">Telf: (511) 577-0116 / (511) 577-5133</font></td>
+        </tr>
+        <tr>
+            <td align="center"><font size="2">Sucursal: Av. Domingo Orué Piso 7 Surquillo, Lima - Lima - Lima</font></td>
+        </tr>
+        <tr>
+            <td align="center"><font size="2">Telf: (511) 213-8570</font></td>
+        </tr>
+    </table>
+
+    <br>
+
+    <table width="892" border="0" cellpadding="0" cellspacing="0">
+        <tr>
+            <th scope="col">
+
+
+
+
+
+                <table align="left" width="791" border="1" bordercolor="#A0A0A0" cellpadding="0" cellspacing="0">
+                    <tr bordercolor="#333333">
+                        <th width="69" scope="col"><font size="2">Señor (es): </font></th>
+                        <th align="left" colspan="4" scope="col"><font size="2"> @Html.Label("", (string)ViewBag.nombre) </font></th>
+                    </tr>
+                    <tr>
+                        <th scope="col"><font size="2">Dirección:</font></th>
+                        <th align="left" colspan="4" scope="col"><font size="2"> @Html.Label("", (string)ViewBag.direccion) </font></th>
+                    </tr>
+                    <tr>
+                        <th scope="col"><font size="2">R.U.C.:</font></th>
+                        <th align="left" colspan="2" scope="col"><font size="2"> @Html.Label("", (string)ViewBag.ruc_dni)</font></th>
+                        <th width="92" scope="col"><font size="2">Fecha Emisión:</font></th>
+                        <th width="91" scope="col"><font size="2">@Html.Label("", (string)ViewBag.fecha_emision)</font></th>
+                    </tr>
+                    <tr>
+                        <th scope="col"><font size="2">Cantidad </font></th>
+                        <th width="54" scope="col"><font size="2">Código</font></th>
+                        <th width="473" scope="col"><font size="2">Descripión</font></th>
+                        <th scope="col"><font size="2">Precio Unitario</font></th>
+                        <th scope="col"><font size="2">Valor de venta</font></th>
+                    </tr>
+                    <tr>
+                        <th rowspan="4" scope="col">@Html.Label("", (string)ViewBag.cantidad)</th>
+                        <th rowspan="4" scope="col">&nbsp;</th>
+                        <th rowspan="3" scope="col">
+                            <table align="left" width="100%" border="0">
+                                <tr>
+                                    <td width="4%">&nbsp;</td>
+                                    <td colspan="2" align="left"><font size="1">@Html.Label("", (string)ViewBag.nombre_vfe) </font></td>
+                                </tr>
+                                <tr>
+                                    <td>&nbsp;</td>
+                                    <td colspan="2" align="left"><font size="1">@Html.Label("", (string)ViewBag.tupa_serv) </font></td>
+                                </tr>
+                                <tr>
+                                    <td>&nbsp;</td>
+                                    <td colspan="2" align="left"><font size="2"></font></td>
+                                </tr>
+                                <tr>
+                                    <td>&nbsp;</td>
+                                    <td width="49%" align="left" font color="#FFFFFF"><font size="1">Son: @Html.Label("", (string)ViewBag.letra_importe) y @Html.Label("", (string)ViewBag.decimal_text)/100 SOLES</font></td>
+                                    <td width="47%" align="left" font color="#FFFFFF"></td>
+                                </tr>
+                                <tr>
+                                    <td>&nbsp;</td>
+                                    <td align="left"><font size="1">S.E.U.O.</font></td>
+                                    <td width="47%" rowspan="3" align="left" font color="#FFFFFF">
+                                        <table width="100%" height="78" border="2" cellpadding="0" cellspacing="0" bordercolor="#000000">
+                                            <tr>
+                                                <td>
+                                                    <table width="100%" border="0">
+                                                        <tr>
+                                                            <td align="center">
+                                                                <font size="1">ORGANISMO NACIONAL DE SANIDAD PESQUERA</font>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td align="center"><font size="3">CANCELADO</font></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td align="center"><font size="2">@Html.Label("", (string)ViewBag.fecha_nom)</font></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td align="center"><font size="1">UNIDAD DE CONTABILIDAD FINANZAS Y TESORERIA</font></td>
+                                                        </tr>
+                                                    </table>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>&nbsp;</td>
+                                    <td align="left"><font size="2"></font></td>
+                                </tr>
+                                <tr>
+                                    <td colspan="2">&nbsp;</td>
+                                </tr>
+                            </table>
+                        </th>
+                        <th scope="col">
+                            &nbsp;<br>
+                            <br>
+                            <br>
+                            <br>
+                            <br>
+
+                            <br>
+                            <br>
+                        </th>
+                        <th scope="col"><font size="2">@Html.Label("", (string)ViewBag.importe_total)</font></th>
+                    </tr>
+                    <tr>
+                        <th align="left" scope="col"><font size="2">TOTAL S/</font> </th>
+                        <th scope="col"><font size="2">@Html.Label("", (string)ViewBag.importe_total)</font></th>
+                        <th scope="col"><font size="2"></font></th>
+                    </tr>
+                </table>
+
+
+                <table width="791" border="0" cellpadding="0" cellspacing="0">
+                    <tr>
+                        <td width="126"><b><font size="1">N° Operación: </font></b></td>
+                        <td width="466" style="text-align:left;"> <font size="1">@Html.Label("", (string)ViewBag.operacion) </font></td>
+                        <td width="185"><p style="text-align:right"><strong><font size="2"> EXPEDIENTE </font></strong></p></td>
+                    </tr>
+                    <tr>
+                        <td><b><font size="1">Fecha Deposito: </font></b></td>
+                        <td style="text-align:left;" colspan="1"> <font size="1">@Html.Label("", (string)ViewBag.fecha_operacion)</font></td>
+                    </tr>
+                </table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+            </th>
+        </tr>
+    </table>
+
+    <br>
+    <br><br>
+
+
+
+
+
+
+    <br>
+    <br><br>
+    <br>
+    <table width="791" border="0" cellpadding="0" cellspacing="0">
+        <tr>
+            <td align="center" width="604"><img src="~/Content/img/logo_recibo_serie1.jpg" width="569" height="45" alt="" /></td>
+            <td width="187" rowspan="6">
+                <table width="100%" height="94" border="2" cellpadding="0" cellspacing="0" bordercolor="#000000">
+                    <tr>
+                        <td>
+                            <table width="100%" border="0">
+                                <tr>
+                                    <td align="center">
+                                        <font size="2">R.U.C 20565429656</font>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td align="center"><font size="2">RECIBO DE INGRESOS</font></td>
+                                </tr>
+                                <tr>
+                                    <td align="center"><font size="2">N° @Html.Label("", (string)ViewBag.num_fact)</font></td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td align="center"><font size="2">Av. Carretera Ventanilla Km. 5200 - Ventanilla</font></td>
+        </tr>
+        <tr align="center">
+            <td><font size="2">Prov. Const. del Callao - Prov. Conts. del callao - Perú</font></td>
+        </tr>
+        <tr>
+            <td align="center"><font size="2">Telf: (511) 577-0116 / (511) 577-5133</font></td>
+        </tr>
+        <tr>
+            <td align="center"><font size="2">Sucursal: Av. Domingo Orué Piso 7 Surquillo, Lima - Lima - Lima</font></td>
+        </tr>
+        <tr>
+            <td align="center"><font size="2">Telf: (511) 213-8570</font></td>
+        </tr>
+    </table>
+
+    <br>
+
+    <table width="892" border="0" cellpadding="0" cellspacing="0">
+        <tr>
+            <th scope="col">
+
+
+
+
+
+                <table align="left" width="791" border="1" bordercolor="#A0A0A0" cellpadding="0" cellspacing="0">
+                    <tr bordercolor="#333333">
+                        <th width="69" scope="col"><font size="2">Señor (es): </font></th>
+                        <th align="left" colspan="4" scope="col"><font size="2"> @Html.Label("", (string)ViewBag.nombre) </font></th>
+                    </tr>
+                    <tr>
+                        <th scope="col"><font size="2">Dirección:</font></th>
+                        <th align="left" colspan="4" scope="col"><font size="2"> @Html.Label("", (string)ViewBag.direccion) </font></th>
+                    </tr>
+                    <tr>
+                        <th scope="col"><font size="2">R.U.C.:</font></th>
+                        <th align="left" colspan="2" scope="col"><font size="2"> @Html.Label("", (string)ViewBag.ruc_dni)</font></th>
+                        <th width="92" scope="col"><font size="2">Fecha Emisión:</font></th>
+                        <th width="91" scope="col"><font size="2">@Html.Label("", (string)ViewBag.fecha_emision)</font></th>
+                    </tr>
+                    <tr>
+                        <th scope="col"><font size="2">Cantidad </font></th>
+                        <th width="54" scope="col"><font size="2">Código</font></th>
+                        <th width="473" scope="col"><font size="2">Descripión</font></th>
+                        <th scope="col"><font size="2">Precio Unitario</font></th>
+                        <th scope="col"><font size="2">Valor de venta</font></th>
+                    </tr>
+                    <tr>
+                        <th rowspan="4" scope="col">@Html.Label("", (string)ViewBag.cantidad)</th>
+                        <th rowspan="4" scope="col">&nbsp;</th>
+                        <th rowspan="3" scope="col">
+                            <table align="left" width="100%" border="0">
+                                <tr>
+                                    <td width="4%">&nbsp;</td>
+                                    <td colspan="2" align="left"><font size="1">@Html.Label("", (string)ViewBag.nombre_vfe) </font></td>
+                                </tr>
+                                <tr>
+                                    <td>&nbsp;</td>
+                                    <td colspan="2" align="left"><font size="1">@Html.Label("", (string)ViewBag.tupa_serv) </font></td>
+                                </tr>
+                                <tr>
+                                    <td>&nbsp;</td>
+                                    <td colspan="2" align="left"><font size="2"></font></td>
+                                </tr>
+                                <tr>
+                                    <td>&nbsp;</td>
+                                    <td width="49%" align="left" font color="#FFFFFF"><font size="1">Son: @Html.Label("", (string)ViewBag.letra_importe) y @Html.Label("", (string)ViewBag.decimal_text)/100 SOLES</font></td>
+                                    <td width="47%" align="left" font color="#FFFFFF"></td>
+                                </tr>
+                                <tr>
+                                    <td>&nbsp;</td>
+                                    <td align="left"><font size="1">S.E.U.O.</font></td>
+                                    <td width="47%" rowspan="3" align="left" font color="#FFFFFF">
+                                        <table width="100%" height="78" border="2" cellpadding="0" cellspacing="0" bordercolor="#000000">
+                                            <tr>
+                                                <td>
+                                                    <table width="100%" border="0">
+                                                        <tr>
+                                                            <td align="center">
+                                                                <font size="1">ORGANISMO NACIONAL DE SANIDAD PESQUERA</font>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td align="center"><font size="3">CANCELADO</font></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td align="center"><font size="2">@Html.Label("", (string)ViewBag.fecha_nom)</font></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td align="center"><font size="1">UNIDAD DE CONTABILIDAD FINANZAS Y TESORERIA</font></td>
+                                                        </tr>
+                                                    </table>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>&nbsp;</td>
+                                    <td align="left"><font size="2"></font></td>
+                                </tr>
+                                <tr>
+                                    <td colspan="2">&nbsp;</td>
+                                </tr>
+                            </table>
+                        </th>
+                        <th scope="col">
+                            &nbsp;<br>
+                            <br>
+                            <br>
+                            <br>
+                            <br>
+
+                            <br>
+                            <br>
+                        </th>
+                        <th scope="col"><font size="2">@Html.Label("", (string)ViewBag.importe_total)</font></th>
+                    </tr>
+                    <tr>
+                        <th align="left" scope="col"><font size="2">TOTAL S/</font> </th>
+                        <th scope="col"><font size="2">@Html.Label("", (string)ViewBag.importe_total)</font></th>
+                        <th scope="col"><font size="2"></font></th>
+                    </tr>
+                </table>
+
+
+                <table width="791" border="0" cellpadding="0" cellspacing="0">
+                    <tr>
+                        <td width="126"><b><font size="1">N° Operación: </font></b></td>
+                        <td width="466" style="text-align:left;"> <font size="1">@Html.Label("", (string)ViewBag.operacion) </font></td>
+                        <td width="185"><p style="text-align:right"><strong><font size="2"> EMISOR / CONTROL ADMIN </font></strong></p></td>
+                    </tr>
+                    <tr>
+                        <td><b><font size="1">Fecha Deposito: </font></b></td>
+                        <td style="text-align:left;" colspan="1"> <font size="1">@Html.Label("", (string)ViewBag.fecha_operacion)</font></td>
+                    </tr>
+                </table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+            </th>
+        </tr>
+    </table>
+
+    <br>
+    <br>
+
+</body>
+</html>
+<script type="text/javascript">
+    $(document).ready(function () {
+        window.print();
+    });
+</script>

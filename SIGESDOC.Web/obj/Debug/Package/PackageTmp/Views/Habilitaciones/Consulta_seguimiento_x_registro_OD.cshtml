@@ -1,0 +1,980 @@
+﻿@using SIGESDOC.Web.Seguridad
+
+@model IEnumerable<SIGESDOC.Response.SeguimientoDhcpaResponse>
+
+@{
+    //WebGrid grid = new WebGrid(rowsPerPage: ServiceConfiguration.PageSize, ajaxUpdateContainerId: "grid");    //grid.Bind(Model, autoSortAndPage: false, rowCount: ViewBag.TotalRows);
+    ViewBag.Title = "Consulta Seguimiento";
+}
+
+<ol class="breadcrumb" style="margin-bottom: 5px;">
+    <li><a href="#">Habilitaciones</a></li>
+    <li class="active">Consulta Seguimiento</li>
+</ol>
+
+<div class="bs-callout bs-callout-info">
+    <h4>Consulta Seguimiento</h4>
+    <p>En esta sección usted puede Consultar el estado del seguimiento</p>
+</div>
+
+<div class="modal fade" id="mdl_lista_historial_evaluador" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-width">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title" id="myModalLabel">Historial Evaluadores <label id="titulo_lista_historial_evaluador">  </label> </h4>
+            </div>
+
+            <div class="modal-body">
+                <div class="form-horizontal">
+                    <div class="col-md-12">
+
+                        <div id="grid_historial_evaluador">
+                            <table class="table table-striped table-hover table-condensed tabla small" data-swhgajax="true" data-swhgcontainer="grid" data-swhgcallback="" id="tbl_lista_historial_evaluador">
+                                <thead>
+                                    <tr class="cabecera">
+                                        <th scope="col">Estado</th>
+                                        <th scope="col">Evaluador</th>
+                                        <th scope="col">Fecha recibido</th>
+                                    </tr>
+                                </thead>
+                                <tbody></tbody>
+                            </table>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default btn-sm" data-dismiss="modal">Salir</button>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="mdl_lista_observacion" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-width">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title" id="myModalLabel">Lista de Observaciones <label id="titulo_lista_observacion">  </label> </h4>
+
+            </div>
+            <input type="text" id="txt_id_oculto_observacion_seguimiento" class="hidden" />
+
+            <div class="modal-body">
+                <div class="form-horizontal">
+                    <div class="col-md-2 opc_add_observacion" style="text-align:left; ">
+                        <button type="button" class="btn btn-primary btn-sm" id="add_observacion">Agregar Observacion</button>
+                    </div>
+
+                    <div class="col-md-12 opc_add_new_observacion" style="text-align:left; padding-top:15px; padding-bottom:15px;">
+                        <textarea class="form-control input-sm" rows="4" maxlength="1000" placeholder="Ingresar la observación" id="txt_observacion"></textarea>
+                        <label id="lbl_valida_observacion" style="color: #B44D4D"></label>
+                    </div>
+
+                    <div class="col-md-3 opc_add_new_observacion" style="text-align:left; ">
+                        <button type="button" class="btn btn-primary btn-sm" id="add_guardar_observacion">Guardar Observacion</button>
+                    </div>
+
+                    <div class="col-md-2 opc_add_new_observacion" style="text-align:right; ">
+                        <button type="button" class="btn btn-default btn-sm" id="add_cancelar_observacion">Cancelar</button>
+                    </div>
+
+                    <div class="col-md-12" style="text-align:center;">
+                        <label class="control-label" style="font-weight: bold;">Listado de Observaciones</label>
+                    </div>
+
+                    <div class="col-md-12">
+
+                        <div id="grid_observacion">
+                            <table class="table table-striped table-hover table-condensed tabla small" data-swhgajax="true" data-swhgcontainer="grid" data-swhgcallback="" id="tbl_lista_observacion">
+                                <thead>
+                                    <tr class="cabecera">
+                                        <th scope="col">Observacion</th>
+                                        <th scope="col">Usuario</th>
+                                    </tr>
+                                </thead>
+                                <tbody></tbody>
+                            </table>
+                        </div>
+
+                    </div>
+
+
+                </div>
+            </div>
+
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default btn-sm" data-dismiss="modal">Salir</button>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="mdl_detalle" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-width">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title" id="myModalLabel">Documentos Emitidos <label id="titulo_50">  </label> </h4>
+
+            </div>
+
+            <div class="modal-body">
+                <div class="form-horizontal">
+
+                    <label class="control-label" style="font-weight: bold;">Listado de Solicitudes de Inspección</label>
+
+                    <div class="row">
+
+                        <div id="grid_solicitud">
+                            <table class="table table-striped table-hover table-condensed tabla small" data-swhgajax="true" data-swhgcontainer="grid" data-swhgcallback="" id="tblSolicitud">
+                                <thead>
+                                    <tr class="cabecera">
+                                        <th scope="col"> </th>
+                                        <th scope="col">Estado</th>
+                                        <th scope="col">Documento</th>
+                                        <th scope="col">Fecha</th>
+                                    </tr>
+                                </thead>
+                                <tbody></tbody>
+                            </table>
+                        </div>
+
+                    </div>
+                    <label class="control-label" style="font-weight: bold;">Listado de Informes Técnico de evaluación</label>
+
+                    <div class="row">
+
+                        <div id="grid_informe">
+                            <table class="table table-striped table-hover table-condensed tabla small" data-swhgajax="true" data-swhgcontainer="grid" data-swhgcallback="" id="tblInformes">
+                                <thead>
+                                    <tr class="cabecera">
+                                        <th scope="col">Documento</th>
+                                        <th scope="col">Fecha</th>
+                                    </tr>
+                                </thead>
+                                <tbody></tbody>
+                            </table>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default btn-sm" data-dismiss="modal">Salir</button>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="mdl_detalle_2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-width">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title" id="myModalLabel">Documentos <label id="titulo_80">  </label> </h4>
+
+            </div>
+
+            <div class="modal-body">
+                <div class="form-horizontal">
+
+                    <label class="control-label" style="font-weight: bold;">Listado de Documentos Recibidos</label>
+
+                    <div class="row">
+
+                        <div id="grid_recibidos">
+                            <table class="table table-striped table-hover table-condensed tabla small" data-swhgajax="true" data-swhgcontainer="grid" data-swhgcallback="" id="tblrecibidos">
+                                <thead>
+                                    <tr class="cabecera">
+                                        <th scope="col"> </th> 
+                                        <th scope="col">Identificador</th>
+                                        <th scope="col">Documento</th>
+                                        <th scope="col">Asunto</th>
+                                        <th scope="col">Fecha Documento</th>
+                                        <th scope="col">Fecha Recibido</th>
+                                        <th scope="col">Opciones</th>
+                                    </tr>
+                                </thead>
+                                <tbody></tbody>
+                            </table>
+                        </div>
+
+                    </div>
+                    <label class="control-label" style="font-weight: bold;">Listado de Documentos Emitidos</label>
+
+                    <div class="row">
+
+                        <div id="grid_emitidos">
+                            <table class="table table-striped table-hover table-condensed tabla small" data-swhgajax="true" data-swhgcontainer="grid" data-swhgcallback="" id="tblemitidos">
+                                <thead>
+                                    <tr class="cabecera">
+                                        <th scope="col">Documento</th>
+                                        <th scope="col">Asunto</th>
+                                        <th scope="col">Fecha</th>
+                                    </tr>
+                                </thead>
+                                <tbody></tbody>
+                            </table>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default btn-sm" data-dismiss="modal">Salir</button>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="mdl_detalle_3" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-width">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title" id="myModalLabel">Lista de Protocolos <label id="titulo_100">  </label> </h4>
+
+            </div>
+
+            <div class="modal-body">
+                <div class="form-horizontal">
+
+                    <label class="control-label" style="font-weight: bold;">Listado de Protocolos Emitidos</label>
+
+                    <div class="row">
+
+                        <div id="grid_protocolos">
+                            <table class="table table-striped table-hover table-condensed tabla small" data-swhgajax="true" data-swhgcontainer="grid" data-swhgcallback="" id="tbl_lista_protocolos">
+                                <thead>
+                                    <tr class="cabecera">
+                                        <th scope="col">Protocolo</th>
+                                        <th scope="col">Fecha inicio</th>
+                                        <th scope="col">Fecha Fin</th>
+                                        <th scope="col">Estado</th>
+                                    </tr>
+                                </thead>
+                                <tbody></tbody>
+                            </table>
+                        </div>
+
+                    </div>
+
+                    <div class="row">
+
+                        <div id="grid_haccp">
+                            <table class="table table-striped table-hover table-condensed tabla small" data-swhgajax="true" data-swhgcontainer="grid" data-swhgcallback="" id="tbl_lista_haccp">
+                                <thead>
+                                    <tr class="cabecera">
+                                        <th scope="col">Constancia HACCP</th>
+                                    </tr>
+                                </thead>
+                                <tbody></tbody>
+                            </table>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default btn-sm" data-dismiss="modal">Salir</button>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<button id="export_excel" type="button" style="background-color:green; border:1px solid white; color:white;"> Expediente - Evaluador (Excel) </button>
+
+<div class="panel panel-primary">
+    <div class="panel-heading panet-heading-sm">Búsqueda de Seguimiento</div>
+    <div class="panel-body">
+        @using (Ajax.BeginForm(new AjaxOptions { HttpMethod = "Get" }))
+        {
+            <p>
+                <div class="row">
+                    <div class="col-lg-3">
+                        <div class="input-group input-group-sm">
+                            <span class="input-group-addon">Expediente</span>
+                            @Html.TextBox("expediente", null, new { @class = "form-control input-sm", @maxlength = "50" })
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4">
+                        <div class="input-group input-group-sm">
+                            <span class="input-group-addon">Razón social</span>
+                            @Html.TextBox("externo", null, new { @class = "form-control input-sm", @maxlength = "300" })
+                        </div>
+                    </div>
+                </div>
+            </p>
+    <br />
+    <p>
+        <div class="row">
+            <div class="col-lg-3">
+                <div class="input-group input-group-sm">
+                    <span class="input-group-addon">Estado: </span>
+                    @Html.DropDownList("cmbestado", (IEnumerable<SelectListItem>)ViewBag.lst_estado, new { @class = "form-control input-sm" })
+                </div>
+            </div>
+            <div class="col-lg-2">
+                <div class="input-group input-group-sm">
+                    <span class="input-group-addon">Tupa: </span>
+                    @Html.DropDownList("cmbtupa", (IEnumerable<SelectListItem>)ViewBag.lst_tupa, new { @class = "form-control input-sm" })
+                </div>
+            </div>
+
+        </div>
+    </p>
+            <p>
+                <div class="row">
+                    <div class="col-lg-1">
+                        <input type="submit" id="btnBuscar" class="btn btn-primary btn-sm pull-left" value="Actualizar" />
+                    </div>
+                        <button id="btnNuevoSeguimiento" type="button" class="btn btn-primary btn-sm">Nuevo seguimiento</button>
+                        <button id="btnAgregarSeguimiento" type="button" class="btn btn-primary btn-sm">Agregar seguimiento</button>
+                </div>
+            </p>
+        }
+    </div>
+</div>
+
+<div id="grid">
+    <table id="grid_seguimiento" class="table table-striped table-hover table-condensed table-bordered tabla small">
+        <thead>
+            <tr class="cabecera text-center">
+                <th scope="col">Fecha Inicio</th>
+                <th scope="col">Expediente</th>
+                <th scope="col">TUPA</th>
+                <th scope="col">Procedimiento</th>
+                <th scope="col">Externo</th>
+                <th scope="col">Habilitante</th>
+                <th scope="col">Evaluador</th>
+                <th scope="col">Estado</th>
+                <th scope="col">Opciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            @if (ViewData["Seguimiento_Tabla"] != null)
+            {
+                foreach (System.Data.DataRow dr in (ViewData["Seguimiento_Tabla"] as System.Data.DataTable).Rows)
+                {
+                    <tr>
+                        <td style=" text-align:center;"> @dr["Fecha Inicio"] </td>
+                        <td style=" text-align:center;"> @dr["Expediente"] </td>
+                        <td style=" text-align:center;"> @dr["TUPA/SERV"] </td>
+                        <td> @dr["Procedimiento"] </td>
+                        <td> @dr["Externo"] </td>
+                        <td> @dr["Habilitante"] </td>
+                        <td style=" text-align:center;"> @dr["Evaluador"] </td>
+                        <td style=" text-align:center;"> @dr["Estado"]</td>
+                        <td style="text-align:center;">
+                            <ul class="list-inline" style="margin-bottom:0">
+                                <li>
+                                    <a class="ver_documentos_emitidos" id=@dr["Expediente_Id_seguimiento"] href="#" title="Ver Listado Solic. e Inf.">
+                                        <i class="blue glyphicon glyphicon-th-list"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="ver_documentos_otros" id=@dr["Expediente_Id_seguimiento"] href="#" title="Doc. Recibidos y Enviados">
+                                        <i class="red glyphicon glyphicon-th-list"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="ver_protocolos" id=@dr["Expediente_Id_seguimiento"] href="#" title="Ver Listado de Protocolos y Constancia HACCP">
+                                        <i class="green glyphicon glyphicon-th-list"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="ver_observacion" id=@dr["Expediente_Id_seguimiento_cond_finalizar"] href="#" title="Lista de Observacion">
+                                        <i class="black glyphicon glyphicon-th-list"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="ver_historial_evaluadores" id=@dr["Expediente_Id_seguimiento"] href="#" title="Historial de Evaluadores">
+                                        <img height="22" src="/Content/iconos/glyphicons-44-group.png" width="16.8">
+                                    </a>
+                                </li>
+                            </ul>
+                        </td>
+                    </tr>
+                }
+            }
+        </tbody>
+
+    </table>
+</div>
+
+<script type="text/javascript">
+
+    $(document).ready(function () {
+
+        $('#Expediente_Evaluador').attr('href', function () {
+            return this.href.replace('_Parameter1', "");
+        });
+
+        $('#export_excel').click(function () {
+            var url = "/Habilitaciones/Exportar_Excel_Expediente_Evaluador";
+            var win = window.open(url, '_blank');
+        });
+
+        $('#add_observacion').click(function () {
+            $('.opc_add_observacion').hide();
+            $('.opc_add_new_observacion').show();
+            $("#txt_observacion").val("");
+            document.getElementById('lbl_valida_observacion').innerHTML = "";
+        });
+
+        $('#add_cancelar_observacion').click(function () {
+            $('.opc_add_observacion').show();
+            $('.opc_add_new_observacion').hide();
+        });
+
+        $('#add_guardar_observacion').click(function () {
+            if ($("#txt_observacion").val() != "") {
+
+                $.ajax({
+                    cache: false,
+                    type: "GET",
+                    url: "/Habilitaciones/Guardar_Observacion_x_seguimiento",
+                    data: {
+                        "id_seguimiento": $("#txt_id_oculto_observacion_seguimiento").val(),
+                        "observacion": $("#txt_observacion").val()
+                    },
+                    success: function (result) {
+                        var nuevoTD = '<tr>';
+                        nuevoTD += '<td>' + $("#txt_observacion").val() + '</td>';
+                        nuevoTD += '<td>' + result.usuario_crea + '</td>';
+                        nuevoTD += '</tr>';
+                        jQuery("#tbl_lista_observacion").append(nuevoTD);
+                        $('.opc_add_observacion').show();
+                        $('.opc_add_new_observacion').hide();
+                    }
+                });
+            }
+            else {
+                document.getElementById('lbl_valida_observacion').innerHTML = "Debe de ingresar la observación en el recuadro";
+            }
+        });
+
+        $(document).on('click', '.ver_observacion', function () {
+
+            $('.opc_add_observacion').hide();
+            $('.opc_add_new_observacion').hide();
+
+
+            $('#mdl_lista_observacion').modal('show');
+            var id_seguimiento = $(this).attr('id').split('|');
+
+            document.getElementById('lbl_valida_observacion').innerHTML = "";
+            document.getElementById('titulo_lista_observacion').innerHTML = " - " + id_seguimiento[0];
+
+            if (id_seguimiento[2] == "True") {
+                $('.opc_add_observacion').show();
+            }
+            $("#txt_id_oculto_observacion_seguimiento").val(id_seguimiento[1]);
+            $("#tbl_lista_observacion td").remove();
+
+            $.ajax({
+                cache: false,
+                type: "GET",
+                url: "@(Url.RouteUrl("Listar_Observacion_x_seguimiento"))",
+                data: { "id_seguimiento": id_seguimiento[1] },
+                success: function (data) {
+                    $.each(data, function (id, option) {
+                        var nuevoTD = '<tr>';
+                        nuevoTD += '<td>' + option.observacion + '</td>';
+                        nuevoTD += '<td>' + option.nombre_persona_crea + '</td>';
+                        nuevoTD += '</tr>';
+
+                        jQuery("#tbl_lista_observacion").append(nuevoTD);
+                    });
+                },
+                error: function (xhr, ajaxOptions, thrownError) {
+                    alert('Failed to retrieve states.');
+                }
+            });
+
+        });
+
+
+
+
+
+        $("#grid_seguimiento").DataTable({
+            "ordering": false,
+            "lengthChange": false,
+            "searching": false,
+            //"info": false,
+            "language": {
+                "paginate": {
+                    "previous": "Anterior",
+                    "next": "Siguiente"
+                }
+            }
+        });
+
+        $("#grid_seguimiento thead tr th").eq(2).css({ "width": 31 });
+        $("#grid_seguimiento thead tr th").eq(3).css({ "width": 211 });
+
+        //$(function () {        //    $('#paginator ul li a').click(function () {        //        var url = $(this).attr('href') + '&' + $('form').serialize();        //        $(this).attr('href', url);        //    });        //});                //$(document).on('click', '.Crear_Protocolo', function () {        //    var id_expediente = $(this).attr('id').split('|');        //    var url = "/Habilitaciones/Nuevo_Protocolo/" + id_expediente[0] + "/" + id_expediente[1];        //    window.location.href = url;        //});
+
+        $('#btnNuevoSeguimiento').click(function () {
+            var url = "/Habilitaciones/Nuevo_Seguimiento_reistro_OD/";
+            window.location.href = url;
+        });
+
+        $('#btnAgregarSeguimiento').click(function () {
+            var url = "/Habilitaciones/Agregar_Seguimiento_registro_OD/";
+            window.location.href = url;
+        });
+
+
+        $(document).on('click', '.ver_protocolos', function () {
+
+            $('#mdl_detalle_3').modal('show');
+            var id_seguimiento = $(this).attr('id').split('|');
+            document.getElementById('titulo_100').innerHTML = " - " + id_seguimiento[0];
+
+            $("#tbl_lista_protocolos td").remove();
+            $("#tbl_lista_haccp td").remove();
+
+            $.ajax({
+                cache: false,
+                type: "GET",
+                url: "@(Url.RouteUrl("llenar_protocolos_seguimiento"))",
+                data: { "id_seguimiento": id_seguimiento[1] },
+                success: function (data) {
+                    $.each(data, function (id, option) {
+                        var nuevoTD = '<tr>';
+                        nuevoTD += '<td><ul class="list-inline" style="margin-bottom:0"><li><a href="' + option.ruta_archivo + '" target="_blank" >' + option.nombre + '</a></li></ul></td>';
+                        nuevoTD += '<td>' + option.cadena_fecha_inicio + '</td>';
+                        nuevoTD += '<td>' + option.cadena_fecha_fin + '</td>';
+                        if (option.activo == "1") {
+                            nuevoTD += '<td>ACTIVO</td>';
+                        }
+                        else {
+                            nuevoTD += '<td>INACTIVO</td>';
+                        }
+                        nuevoTD += '</tr>';
+
+                        jQuery("#tbl_lista_protocolos").append(nuevoTD);
+                    });
+                },
+                error: function (xhr, ajaxOptions, thrownError) {
+                    alert('Failed to retrieve states.');
+                }
+            });
+
+            $.ajax({
+                cache: false,
+                type: "GET",
+                url: "@(Url.RouteUrl("llenar_haccp_seguimiento"))",
+                data: { "id_seguimiento": id_seguimiento[1] },
+                success: function (data) {
+                    $.each(data, function (id, option) {
+                        var nuevoTD = '<tr>';
+                        nuevoTD += '<td>' + option.nombre + '</td>';
+                        nuevoTD += '</tr>';
+
+                        jQuery("#tbl_lista_haccp").append(nuevoTD);
+                    });
+                },
+                error: function (xhr, ajaxOptions, thrownError) {
+                    alert('Failed to retrieve states.');
+                }
+            });
+
+        });
+
+
+        $(document).on('click', '.Ver_PDF', function () {
+            var id_documento = $(this).attr('id');
+            var url = "/Habilitaciones/Ver_documento/" + id_documento;
+            window.open(url, '_blank');
+        });
+
+        $(document).on('click', '.Ver_doc_adjunto', function () {
+            var id_doc_adj = $(this).attr('id');
+            var url = "/Habilitaciones/Ver_doc_adj/" + id_doc_adj;
+            window.open(url, '_blank');
+        });
+
+        $(document).on('click', '.Ver_hijo', function () {
+            var id_hijo = $(this).attr('id');
+            if ($(".class_ver_hijo" + id_hijo).hasClass("hidden")) {
+                $(".class_ver_hijo" + id_hijo).removeClass("hidden");
+            }
+            else {
+                $(".class_ver_hijo" + id_hijo).addClass("hidden");
+            };
+        });
+
+        $(document).on('click', '.ver_historial_evaluadores', function () {
+
+            $('#mdl_lista_historial_evaluador').modal('show');
+
+            var id_seguimiento = $(this).attr('id').split('|');
+            document.getElementById('titulo_lista_historial_evaluador').innerHTML = " - " + id_seguimiento[0];
+
+            $("#tbl_lista_historial_evaluador td").remove();
+
+            $.ajax({
+                cache: false,
+                type: "GET",
+                url: "@(Url.RouteUrl("Listar_historial_evaluador"))",
+                data: { "id_seguimiento": id_seguimiento[1] },
+                success: function (data) {
+                    $.each(data, function (id, option) {
+                        var nuevoTD = '<tr>';
+                        nuevoTD += '<td>' + option.estado + '</td>';
+                        nuevoTD += '<td>' + option.paterno + ' ' + option.materno + ' ' + option.nombres + '</td>';
+                        nuevoTD += '<td>' + option.fecha_recibido + '</td>';
+                        nuevoTD += '</tr>';
+
+                        jQuery("#tbl_lista_historial_evaluador").append(nuevoTD);
+                    });
+                },
+                error: function (xhr, ajaxOptions, thrownError) {
+                    alert('Failed to retrieve states.');
+                }
+            });
+
+        });
+
+        $(document).on('click', '.ver_documentos_otros', function () {
+
+            $('#mdl_detalle_2').modal('show');
+
+            var id_seguimiento = $(this).attr('id').split('|');
+            document.getElementById('titulo_80').innerHTML = " - " + id_seguimiento[0];
+
+
+            $("#tblrecibidos td").remove();
+
+            $.ajax({
+                cache: false,
+                type: "GET",
+                url: "@(Url.RouteUrl("llenar_documentos_seguimiento_recibido"))",
+                data: { "id_seguimiento": id_seguimiento[1] },
+                success: function (data) {
+                    $.each(data, function (id, option) {
+                        $.ajax({
+                            cache: false,
+                            type: "GET",
+                            url: "@(Url.RouteUrl("llenar_documentos_adjuntos"))",
+                            data: { "id_documento_seg": option.id_documento_seg },
+                            success: function (data) {
+                                var nuevoTD = '<tr>';
+                                if (option.ruta_pdf == "" || option.ruta_pdf == null) {
+                                    nuevoTD += '<td><ul class="list-inline" style="margin-bottom:0"><li><a class="Ver_hijo" id=' + option.id_documento_seg + ' href="#" title="Detalle"><i class="blue glyphicon glyphicon-plus"></i></a></li></ul></td>';
+                                    nuevoTD += '<td>' + option.id_documento_seg + '</td>';
+                                    nuevoTD += '<td>' + option.nom_documento + '</td>';
+                                    nuevoTD += '<td>' + option.asunto + '</td>';
+                                    nuevoTD += '<td>' + option.fecha_documento_text + '</td>';
+                                    nuevoTD += '<td>' + option.fecha_crea_text + '</td>';
+                                    nuevoTD += '<td> </td>';
+                                    nuevoTD += '</tr>';
+                                }
+                                else {
+                                    nuevoTD += '<td><ul class="list-inline" style="margin-bottom:0"><li><a class="Ver_hijo" id=' + option.id_documento_seg + ' href="#" title="Detalle"><i class="blue glyphicon glyphicon-plus"></i></a></li></ul></td>';
+                                    nuevoTD += '<td>' + option.id_documento_seg + '</td>';
+                                    nuevoTD += '<td>' + option.nom_documento + '</td>';
+                                    nuevoTD += '<td>' + option.asunto + '</td>';
+                                    nuevoTD += '<td>' + option.fecha_documento_text + '</td>';
+                                    nuevoTD += '<td>' + option.fecha_crea_text + '</td>';
+                                    nuevoTD += '<td><ul class="list-inline" style="margin-bottom:0"><li><a class="Ver_PDF" id=' + option.id_documento_seg + ' href="#" title="PDF"> ver archivo </a></li></ul></td>';
+                                    nuevoTD += '</tr>';
+                                }
+
+                                jQuery("#tblrecibidos").append(nuevoTD);
+                                nuevoTD = '';
+
+                                $.each(data, function (id, var_option) {
+                                    nuevoTD += '<tr>';
+                                    nuevoTD += '<td><ul class="list-inline" style="margin-bottom:0"><li><a class="Ver_doc_adjunto" id=' + var_option.id_doc_seg_adjunto + ' href="#" title="PDF"> - ' + var_option.tipo_documento_seguimiento_adjunto.nombre + '</a></li></ul></td>';
+                                    nuevoTD += '</tr>';
+                                });
+
+                                if (nuevoTD == '') {
+                                    nuevoTD = '<tr class="class_ver_hijo' + option.id_documento_seg + ' hidden" >' +
+                                               '<td colspan="7">' +
+                                                 '<table>'
+                                                       + '<tr>'
+                                                           + '<td>NO HAY DOCUMENTOS ADJUNTOS</td>'
+                                                       + '</tr>'
+                                                   + '</table>' +
+                                               '</td>' +
+                                          '</tr>';
+                                }
+                                else {
+                                    nuevoTD = '<tr class="class_ver_hijo' + option.id_documento_seg + ' hidden" >'
+                                               + '<td colspan="7">'
+                                                 + '<table>'
+                                                    + nuevoTD
+                                                 + '</table>'
+                                               + '</td>'
+                                          + '</tr>';
+                                }
+                                jQuery("#tblrecibidos").append(nuevoTD);
+                            },
+                            error: function (xhr, ajaxOptions, thrownError) {
+                                alert('Failed to retrieve states.');
+                            }
+                        });
+                    });
+                },
+                error: function (xhr, ajaxOptions, thrownError) {
+                    alert('Failed to retrieve states.');
+                }
+            });
+
+
+            $("#tblemitidos td").remove();
+
+            $.ajax({
+                cache: false,
+                type: "GET",
+                url: "@(Url.RouteUrl("llenar_documentos_emitidos_dhcpa_seguimiento"))",
+                data: { "id_seguimiento": id_seguimiento[1] },
+                success: function (data) {
+                    $.each(data, function (id, option) {
+                        var nuevoTD = '<tr>';
+                        if (option.pdf == "1") {
+                            nuevoTD += '<td><style=" text-align:center;"><ul class="list-inline" style="margin-bottom:0"><li><a href="/Habilitaciones/var_documento_dhcpa_pdf/' + option.id_doc_dhcpa + '" target="_blank"> ' + option.nom_doc + ' </a></li></ul></td>';
+                        } else {
+                            nuevoTD += '<td>' + option.nom_doc + '</td>';
+                        }
+                        nuevoTD += '<td>' + option.asunto + '</td>';
+                        nuevoTD += '<td>' + option.fecha_doc_text + '</td>';
+                        nuevoTD += '</tr>';
+
+                        jQuery("#tblemitidos").append(nuevoTD);
+                    });
+                },
+                error: function (xhr, ajaxOptions, thrownError) {
+                    alert('Failed to retrieve states.');
+                }
+            });
+
+        });
+
+
+        $(document).on('click', '.ver_documentos_emitidos', function () {
+
+
+            var id_seguimiento = $(this).attr('id').split('|');
+
+            $('#mdl_detalle').modal('show');
+
+            document.getElementById('titulo_50').innerHTML = " - " + id_seguimiento[0];
+
+            $("#tblSolicitud td").remove();
+
+            $.ajax({
+                cache: false,
+                type: "GET",
+                url: "@(Url.RouteUrl("llenar_solicitud_seguimiento"))",
+                data: { "id_seguimiento": id_seguimiento[1] },
+                success: function (data) {
+                    $.each(data, function (id, option) {
+
+                        $.ajax({
+                            cache: false,
+                            type: "GET",
+                            url: "@(Url.RouteUrl("llenar_documentos_adjuntos_sol_insp_sdhpa"))",
+                            data: { "id_sol_ins": option.id_sol_ins },
+                            success: function (result) {
+
+                                var nuevoTD = '<tr>';
+                                nuevoTD += '<td style=" text-align:center;"><ul class="list-inline" style="margin-bottom:0"><li><a class="Ver_hijo_soli" id=' + option.id_sol_ins + ' href="#" title="Detalle"><i class="blue glyphicon glyphicon-plus"></i></a></li></ul></td>';
+                                nuevoTD += '<td style=" text-align:center;">' + option.estado_text + '</td>';
+                                nuevoTD += '<td style=" text-align:center;"><ul class="list-inline" style="margin-bottom:0"><li><a href="Imprimir_solicitud_inspeccion_transporte/' + option.id_sol_ins + '" target="_blank" >Solicitud N°' + option.numero_documento + '</a></li></ul></td>'
+                                nuevoTD += '<td style=" text-align:center;">' + option.fecha_text + '</td>';
+                                nuevoTD += '</tr>';
+
+                                jQuery("#tblSolicitud").append(nuevoTD);
+
+                                nuevoTD = '';
+                                var nuevoTD_hijo = '';
+
+                                if (result.acta_id == '0') {
+                                    nuevoTD_hijo = '<tr><td style="padding-right: 15px;"> - NO HAY ACTA ADJUNTA </td> <td><ul class="list-inline" style="margin-bottom:0"><li>'
+                                        + '<a class="adjuntar_acta_si" id=' + result.id_sol_ins + ' href="#" title="SUBIR ARCHIVO"> CLICK PARA ADJUNTAR ACTA </a></li></ul></td></tr>';
+                                }
+                                else {
+                                    nuevoTD_hijo = '<tr><td><ul class="list-inline" style="margin-bottom:0"><li>'
+                                        + '<a class="ver_acta_adjunta_si" id=' + result.acta_id + ' href="#" title="PDF"> - ' + result.acta_nombre + '</a></li></ul></td><td><ul class="list-inline" style="margin-bottom:0"><li>'
+                                        + '<a class="actualizar_acta_si" id=' + result.acta_id + ' href="#" title="ACTUALIZAR ARCHIVO"> CLICK PARA ACTUALIZAR ACTA </a></li></ul></td></tr>';
+                                }
+
+                                if (result.chkl_id == '0') {
+                                    nuevoTD_hijo = nuevoTD_hijo + '<tr><td style="padding-right: 15px;"> - NO HAY CHECK LIST ADJUNTA </td> <td><ul class="list-inline" style="margin-bottom:0"><li>'
+                                        + '<a class="adjuntar_chk_lis_si" id=' + result.id_sol_ins + ' href="#" title="SUBIR ARCHIVO"> CLICK PARA ADJUNTAR CHECK LIST </a></li></ul></td></tr>';
+                                }
+                                else {
+                                    nuevoTD_hijo = nuevoTD_hijo + '<tr><td><ul class="list-inline" style="margin-bottom:0"><li>'
+                                        + '<a class="ver_acta_chk_lis_si" id=' + result.chkl_id + ' href="#" title="PDF"> - ' + result.chkl_nombre + '</a></li></ul></td><td><ul class="list-inline" style="margin-bottom:0"><li>'
+                                        + '<a class="actualizar_chck_lst_si" id=' + result.chkl_id + ' href="#" title="ACTUALIZAR ARCHIVO"> CLICK PARA ACTUALIZAR CHECK LIST </a></li></ul></td></tr>';
+                                }
+
+                                if (result.info_id == '0') {
+                                    nuevoTD_hijo = nuevoTD_hijo + '<tr><td style="padding-right: 15px;"> - NO HAY INFORME ADJUNTO </td> <td><ul class="list-inline" style="margin-bottom:0"><li>'
+                                        + '<a class="adjuntar_informe_si" id=' + result.id_sol_ins + ' href="#" title="SUBIR ARCHIVO"> CLICK PARA ADJUNTAR INFORME </a></li></ul></td></tr>';
+                                }
+                                else {
+                                    nuevoTD_hijo = nuevoTD_hijo + '<tr><td><ul class="list-inline" style="margin-bottom:0"><li>'
+                                        + '<a class="ver_info_adjunto_si" id=' + result.info_id + ' href="#" title="PDF"> - ' + result.info_nombre + '</a></li></ul></td><td><ul class="list-inline" style="margin-bottom:0"><li>'
+                                        + '<a class="actualizar_info_si" id=' + result.info_id + ' href="#" title="ACTUALIZAR ARCHIVO"> CLICK PARA ACTUALIZAR INFORME </a></li></ul></td></tr>';
+                                }
+
+                                if (result.prue_cantidad == '0') {
+                                    nuevoTD_hijo = nuevoTD_hijo + '<tr><td style="padding-right: 15px;"> - SE TIENEN ' + result.prue_cantidad + ' IMAGENES </td>'
+                                }
+                                else {
+                                    nuevoTD_hijo = nuevoTD_hijo + '<tr><td style="padding-right: 15px;"><ul class="list-inline" style="margin-bottom:0"><li>'
+                                        + '<a class="ver_pruebas_adjunto_si" id=' + result.id_sol_ins + ' href="#" title="VER IMAGENES"> - CANTIDAD DE IMAGENES : ' + result.prue_cantidad + '</a></li></ul></td>';
+                                }
+
+                                nuevoTD_hijo = nuevoTD_hijo + '<td style="padding-right: 15px;"><ul class="list-inline" style="margin-bottom:0"><li>'
+                                        + '<a class="adjuntar_pruebas_si"  id=' + result.id_sol_ins + ' href="#" title="SUBIR IMAGENES"> CLICK PARA SUBIR IMAGENES AL ALBUM </a></li></ul></td></tr>';
+
+                                nuevoTD = '<tr class="class_detalle_sol' + option.id_sol_ins + ' hidden" >' +
+                                           '<td colspan="7">' +
+                                             '<table>'
+                                                   + nuevoTD_hijo
+                                               + '</table>' +
+                                           '</td>' +
+                                      '</tr>';
+
+                                jQuery("#tblSolicitud").append(nuevoTD);
+                            },
+                            error: function (xhr, ajaxOptions, thrownError) {
+                                alert('Failed to retrieve states.');
+                            }
+                        });
+
+
+
+                    });
+                },
+                error: function (xhr, ajaxOptions, thrownError) {
+                    alert('Failed to retrieve states.');
+                }
+            });
+
+            $("#tblInformes td").remove();
+
+            $.ajax({
+                cache: false,
+                type: "GET",
+                url: "@(Url.RouteUrl("llenar_informe_seguimiento"))",
+                data: { "id_seguimiento": id_seguimiento[1] },
+                success: function (data) {
+                    $.each(data, function (id, option) {
+                        var nuevoTD = '<tr>';
+                        nuevoTD += '<td>' + option.Text + '</td>';
+                        nuevoTD += '<td>' + option.Value + '</td>';
+                        nuevoTD += '</tr>';
+
+                        jQuery("#tblInformes").append(nuevoTD);
+                    });
+                },
+                error: function (xhr, ajaxOptions, thrownError) {
+                    alert('Failed to retrieve states.');
+                }
+            });
+        });
+
+
+        $(document).on('click', '.Ver_hijo_soli', function () {
+            var id_hijo = $(this).attr('id');
+            if ($(".class_detalle_sol" + id_hijo).hasClass("hidden")) {
+                $(".class_detalle_sol" + id_hijo).removeClass("hidden");
+            }
+            else {
+                $(".class_detalle_sol" + id_hijo).addClass("hidden");
+            };
+        });
+
+        $(document).on('click', '.adjuntar_acta_si', function () {
+            var id_sol_insp = $(this).attr('id');
+            var url_scan = "/Habilitaciones/variable_adjuntar_acta_si/" + id_sol_insp.toString();
+            window.location.href = url_scan;
+        });
+
+        $(document).on('click', '.actualizar_acta_si', function () {
+            var id_acta = $(this).attr('id');
+            var url_scan = "/Habilitaciones/variable_actualizar_acta_si/" + id_acta.toString();
+            window.location.href = url_scan;
+        });
+
+        $(document).on('click', '.actualizar_chck_lst_si', function () {
+            var id_check_list = $(this).attr('id');
+            var url_scan = "/Habilitaciones/variable_actualizar_chck_lst_si/" + id_check_list.toString();
+            window.location.href = url_scan;
+        });
+        $(document).on('click', '.actualizar_info_si', function () {
+            var id_info = $(this).attr('id');
+            var url_scan = "/Habilitaciones/variable_actualizar_info_si/" + id_info.toString();
+            window.location.href = url_scan;
+        });
+        
+        $(document).on('click', '.adjuntar_informe_si', function () {
+            var id_sol_insp = $(this).attr('id');
+            var url_scan = "/Habilitaciones/variable_adjuntar_informe_si/" + id_sol_insp.toString();
+            window.location.href = url_scan;
+        });
+        
+        $(document).on('click', '.adjuntar_chk_lis_si', function () {
+            var id_sol_insp = $(this).attr('id');
+            var url_scan = "/Habilitaciones/variable_adjuntar_chk_lis_si/" + id_sol_insp.toString();
+            window.location.href = url_scan;
+        });
+
+        $(document).on('click', '.adjuntar_pruebas_si', function () {
+            var id_sol_insp = $(this).attr('id');
+            var url_scan = "/Habilitaciones/variable_adjuntar_pruebas_si/" + id_sol_insp.toString();
+            window.location.href = url_scan;
+        });
+
+        $(document).on('click', '.ver_acta_adjunta_si', function () {
+            var id = $(this).attr('id');
+            var url = "/Habilitaciones/ver_acta_adjunta_si/" + id;
+            window.open(url, '_blank');
+        });
+
+        $(document).on('click', '.ver_info_adjunto_si', function () {
+            var id = $(this).attr('id');
+            var url = "/Habilitaciones/ver_info_adjunto_si/" + id;
+            window.open(url, '_blank');
+        });
+        
+        $(document).on('click', '.ver_acta_chk_lis_si', function () {
+            var id = $(this).attr('id');
+            var url = "/Habilitaciones/ver_acta_chk_lis_si/" + id;
+            window.open(url, '_blank');
+        });
+        $(document).on('click', '.ver_pruebas_adjunto_si', function () {
+            var id = $(this).attr('id');
+            var url = "/Habilitaciones/ver_pruebas_adjunto_si/" + id;
+            window.open(url, '_blank');
+
+        });
+
+    });
+</script>

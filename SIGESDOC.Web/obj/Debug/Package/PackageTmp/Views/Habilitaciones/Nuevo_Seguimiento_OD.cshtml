@@ -1,0 +1,1497 @@
+﻿@using SIGESDOC.Web.Seguridad
+@model SIGESDOC.Web.Models.SeguimientoViewModel
+
+@{
+    ViewBag.Title = "Nuevo Seguimiento";
+}
+
+<div class="bottom hidden"></div>
+<div id="mensajes"></div>
+
+<ol class="breadcrumb" style="margin-bottom: 5px;">
+    <li><a href="#">Habilitaciones</a></li>
+    <li class="active">Nuevo Seguimiento</li>
+</ol>
+
+<div class="bs-callout bs-callout-info">
+    <h4>Registro de Nuevo Seguimiento</h4>
+    <p>Use el siguiente formulario para registrar un nuevo seguimiento al Expediente</p>
+</div>
+
+<div class="modal fade" id="mdlfacturas" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title" id="myModalLabel">Buscar factura</h4>
+            </div>
+            <form method="post" id="formfactura">
+                <div class="modal-body">
+                    <div class="form-horizontal">
+                        <table id="tbl_factura" class="table" cellspacing="0" width="500px">
+                            <thead>
+                                <tr>
+                                    <th class="hidden">FACTURA</th>
+                                    <th class="hidden">NUM1</th>
+                                    <th class="hidden">NUM2</th>
+                                    <th width="100px">FACTURA</th>
+                                    <th width="50px">FECHA</th>
+                                    <th width="50px">IMPORTE</th>
+                                    <th width="25px">ACCIONES</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @if (ViewData["Facturas_Lista"] != null)
+                                {
+                                    foreach (System.Data.DataRow dr in (ViewData["Facturas_Lista"] as System.Data.DataTable).Rows)
+                                    {
+                                        <tr>
+                                            <td class="hidden"> @dr["ID_FACTURA"] </td>
+                                            <td class="hidden"> @dr["NUM1"] </td>
+                                            <td class="hidden"> @dr["NUM2"] </td>
+                                            <td> @dr["FACTURA"] </td>
+                                            <td> @dr["FECHA"] </td>
+                                            <td> @dr["IMPORTE"] </td>
+                                            <td class="add_fact">
+                                                <ul class="list-inline" style="margin-bottom:0">
+                                                    <li>
+                                                        <a class="Agregar" href="#" id="3" title="Agregar">
+                                                            <i class="glyphicon glyphicon-ok"></i>
+                                                        </a>
+                                                    </li>
+                                                </ul>
+                                            </td>
+                                        </tr>
+                                    }
+                                }
+                            </tbody>
+                        </table>
+
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="mdlexpedientes" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title" id="myModalLabel">Buscar Expediente</h4>
+            </div>
+            <form method="post" id="formExpediente">
+                <div class="modal-body">
+                    <div class="form-horizontal">
+                        <table id="tbl_expediente" class="table" cellspacing="0" width="500px">
+                            <thead>
+                                <tr>
+                                    <th class="hidden">ID_EXPEDIENTE</th>
+                                    <th width="100px">EXPEDIENTE</th>
+                                    <th width="25px">ACCIONES</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @if (ViewData["Expediente_Lista"] != null)
+                                {
+                                    foreach (System.Data.DataRow dr in (ViewData["Expediente_Lista"] as System.Data.DataTable).Rows)
+                                    {
+                                        <tr>
+                                            <td class="hidden"> @dr["ID_EXPEDIENTE"] </td>
+                                            <td> @dr["EXPEDIENTE"] </td>
+                                            <td class="add_exp">
+                                                <ul class="list-inline" style="margin-bottom:0">
+                                                    <li>
+                                                        <a class="Agregar" href="#" id="3" title="Agregar">
+                                                            <i class="glyphicon glyphicon-ok"></i>
+                                                        </a>
+                                                    </li>
+                                                </ul>
+                                            </td>
+                                        </tr>
+                                    }
+                                }
+                            </tbody>
+                        </table>
+
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+@using (Html.BeginForm("Nuevo_Seguimiento_OD", "Habilitaciones", FormMethod.Post, new { @id = "nuevoForm", @enctype = "multipart/form-data" }))
+{
+
+    @Html.AntiForgeryToken()
+    <div class="form-horizontal">
+        <ol class="breadcrumb">
+            <li class="active">Información del Seguimiento</li>
+        </ol>
+
+        <div class="row hidden">
+            @Html.TextBox("var_guardar", (string)ViewBag.cond_grabar)
+            @Html.TextBox("id_embarcacion")
+                        @Html.TextBox("id_almacen")
+            @Html.TextBox("id_concesion")
+            @Html.TextBox("id_oficina_externa")
+            @Html.TextBox("id_tipo_per")
+            @Html.TextBox("persona_externa_encontro")
+            @Html.TextBox("var_tupa")
+        </div>
+
+
+        <div class="form-group">
+            <label class="col-md-2 control-label" for="cmbtipo_documento">Tipo Documento:</label>
+            <div class="col-md-6">
+                @Html.DropDownList("cmbtipo_documento", (IEnumerable<SelectListItem>)ViewBag.lst_tipo_documento, new { @class = "form-control input-sm" })
+            </div>
+        </div>
+
+        <div class="act_oficina form-group">
+            <label class="col-md-2 control-label" for="cmb_tip_doc_iden">Tipo de Documento:</label>
+            <div class="col-md-6">
+                @Html.DropDownList("cmb_tip_doc_iden", (IEnumerable<SelectListItem>)ViewBag.lst_tipo_documento_iden, new { @class = "form-control input-sm" })
+            </div>
+        </div>
+
+        <div class="act_oficina form-group">
+            <label class="col-md-2 control-label" for="lbl_num_documento_externo">RUC/DNI/CE:</label>
+            <div class="col-md-2">
+                @Html.TextBox("num_documento_externo", null, new { @class = " form-control input-sm", @maxlength = "20", @onpaste = "return false;", @onkeypress = "return IsNumeric_vista(this.value);", @onkeyup = "return Valida_back_vista(this.value);" })
+            </div>
+            <div class="col-md-4">
+                @Html.TextBox("nom_document_Extern", null, new { @class = " form-control input-sm", @onkeypress = "return IsNom_vista(this.value);", @onkeyup = "return Valida_back_vista(this.value);" })
+            </div>
+            <button id="btnNuevaPersona" type="button" class="btn btn-primary btn-sm">Nueva Persona</button>
+            <button id="btnNuevaOficina" type="button" class="btn btn-primary btn-sm">Nueva Entidad</button>
+            <label id="lbl_valida_ext" style="color: #B44D4D">  </label>
+        </div>
+
+        <div class="act_oficina form-group">
+            <label class="col-md-2 control-label unica_direccion" for="lbl_nombre_externo">Razón social/Nombres:</label>
+            <label class="col-md-2 control-label varias_direcciones" for="lbl_nombre_externo">Razón social/Nombres:</label>
+            <label class="col-md-2 control-label varias_personas" for="lbl_nombre_externo">Razón social/Nombres:</label>
+            <div class="col-md-6">
+                @Html.TextBox("nombre_externo", null, new { @class = "form-control input-sm unica_direccion", @readonly = "readonly" })
+                @Html.DropDownList("cmb_nombre_externo", (IEnumerable<SelectListItem>)ViewBag.lst_oficinas, new { @class = "form-control input-sm varias_direcciones" })
+                @Html.DropDownList("cmb_persona_externo", (IEnumerable<SelectListItem>)ViewBag.lst_persona_ext, new { @class = "form-control input-sm varias_personas" })
+            </div>
+        </div>
+
+        <div class="act_oficina form-group">
+            <label class="col-md-2 control-label unica_direccion" for="lbl_direccion">Dirección:</label>
+            <label class="col-md-2 control-label varias_direcciones" for="lbl_direccion">Dirección:</label>
+            <label class="col-md-2 control-label varias_personas" for="lbl_direccion">Dirección:</label>
+            <div class="col-md-6 ">
+                @Html.TextBox("direccion_externo", null, new { @class = "form-control input-sm unica_direccion", @readonly = "readonly" })
+                @Html.DropDownList("cmb_direccion", (IEnumerable<SelectListItem>)ViewBag.lst_direcciones, new { @class = "form-control input-sm varias_direcciones" })
+                @Html.TextBox("direccion_per_externo", null, new { @class = "form-control input-sm varias_personas", @readonly = "readonly" })
+            </div>
+        </div>
+
+
+        <div class="form-group">
+            <label class="col-md-2 control-label" for="lbl_tipo_seguimiento">tipo seguimiento:</label>
+            <div class="col-md-6 ">
+                @Html.DropDownList("cmb_tipo_seguimiento", (IEnumerable<SelectListItem>)ViewBag.lst_tipo_seguimiento, new { @class = "form-control input-sm" })
+            </div>
+        </div>
+
+        <div class="act_desembarcadero_1 form-group">
+            <label class="col-md-2 control-label varias_direcciones">Desembarcadero:</label>
+            <div class="col-md-6 ">
+                @Html.DropDownList("cmb_desembarcadero", (IEnumerable<SelectListItem>)ViewBag.lst_desembarcadero, new { @class = "form-control input-sm varias_direcciones" })
+            </div>
+        </div>
+
+        <div class="act_planta_1 form-group">
+            <label class="col-md-2 control-label varias_direcciones">Planta:</label>
+            <div class="col-md-6 ">
+                @Html.DropDownList("cmb_planta", (IEnumerable<SelectListItem>)ViewBag.lst_plantas, new { @class = "form-control input-sm varias_direcciones" })
+            </div>
+        </div>
+
+        <div class="act_embarcacion_1 form-group">
+            <label class="col-md-2 control-label">Embarcación:</label>
+            <div class="col-md-4">
+                @Html.TextBox("num_matricula", null, new { @class = " form-control input-sm", @maxlength = "100", @onpaste = "return false;", @placeholder = "Matricula", @onkeypress = "return IsMatricula_vista(this.value);", @onkeyup = "return back_matricula(this.value);" })
+            </div>
+            <button id="btnNuevaEmbarcacion" type="button" class="btn btn-primary btn-sm">Nueva Embarcación</button>
+        </div>
+
+        <div class="act_embarcacion form-group">
+            <label class="col-md-2 control-label"></label>
+            <div class="col-md-6 ">
+                @Html.DropDownList("cmb_embarcacion", (IEnumerable<SelectListItem>)ViewBag.lst_embarcacion, new { @class = "form-control input-sm" })
+            </div>
+        </div>
+
+        <div class="act_almacen_1 form-group">
+            <label class="col-md-2 control-label varias_direcciones">Almacén:</label>
+            <div class="col-md-4 varias_direcciones">
+                @Html.TextBox("codigo_almacen", null, new { @class = " form-control input-sm ", @maxlength = "100", @onpaste = "return false;", @placeholder = "Codigo Almacén", @onkeypress = "return IsAlmacen_vista(this.value);", @onkeyup = "return back_almacen(this.value);" })
+            </div>
+            <button id="btnNuevoAlmacen" type="button" class="btn btn-primary btn-sm varias_direcciones">Nuevo Almacén</button>
+        </div>
+
+        <div class="act_almacen form-group">
+            <label class="col-md-2 control-label varias_direcciones"></label>
+            <div class="col-md-4">
+                @Html.DropDownList("cmb_almacen", (IEnumerable<SelectListItem>)ViewBag.lst_almacen, new { @class = "form-control input-sm varias_direcciones" })
+            </div>
+        </div>
+
+        <div class="act_concesion_1 form-group">
+            <label class="col-md-2 control-label">Concesión:</label>
+            <div class="col-md-4">
+                @Html.TextBox("codigo_concesion", null, new { @class = " form-control input-sm ", @maxlength = "50", @onpaste = "return false;", @placeholder = "Codigo Concesión/Centro de cultivo/Hatchery", @onkeypress = "return IsConcesion_vista(this.value);", @onkeyup = "return back_concesion(this.value);" })
+            </div>
+            <button id="btnNuevaConcesion" type="button" class="btn btn-primary btn-sm varias_direcciones">Nueva Concesión / Centro de Cultivo / Hatchery</button>
+        </div>
+
+        <div class="act_concesion form-group">
+            <label class="col-md-2 control-label"></label>
+            <div class="col-md-4">
+                @Html.DropDownList("cmb_concesion", (IEnumerable<SelectListItem>)ViewBag.lst_concesion, new { @class = "form-control input-sm" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="col-md-2 control-label">Número documento:</label>
+            <div class="col-md-1">
+                @Html.TextBoxFor(m => m.num_documento, new { @class = "form-control input-sm", @onpaste = "return false;", @maxlength = "5", @onkeypress = "return IsNumeric(this.value);" })
+                @Html.ValidationMessageFor(m => m.num_documento)
+            </div>
+            <div class="col-md-4">
+                @Html.TextBoxFor(m => m.nom_documento, new { @class = "form-control input-sm", @onpaste = "return false;", @placeholder = "Nombre del Documento", @maxlength = "100" })
+                @Html.ValidationMessageFor(m => m.nom_documento)
+                <label id="lbl_valida_nom_doc" style="color: #B44D4D">  </label>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="col-md-2 control-label">Folios:</label>
+            <div class="col-md-1">
+                @Html.TextBoxFor(m => m.folios, new { @class = "form-control input-sm", @onpaste = "return false;", @maxlength = "5", @onkeypress = "return IsNumeric(this.value);" })
+                @Html.ValidationMessageFor(m => m.folios)
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="col-md-2 control-label" for="dtpFechadocumento">Fecha Documento:</label>
+            <div class="col-md-2">
+                <div class="input-group date input-group-sm" id="dtpFechadocumento">
+                    <input class="form-control input-sm" id="txtFechadocumento" type="text" value="">
+                    <span class="input-group-addon input-sm add-on">
+                        <a href="#">
+                            <i class="glyphicon glyphicon-calendar" data-date-icon="glyphicon glyphicon-calendar"></i>
+                        </a>
+                    </span>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="form-group">
+            <label class="col-md-2 control-label" for="dtpFechaod">Fecha recibido OD:</label>
+            <div class="col-md-2">
+                <div class="input-group date input-group-sm" id="dtpFechaod">
+                    <input class="form-control input-sm" id="txtFechaod" type="text" value="">
+                    <span class="input-group-addon input-sm add-on">
+                        <a href="#">
+                            <i class="glyphicon glyphicon-calendar" data-date-icon="glyphicon glyphicon-calendar"></i>
+                        </a>
+                    </span>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="col-md-2 control-label" for="cmb_tupa">Tupa:</label>
+            <div class="col-md-3">
+                @Html.DropDownList("cmb_tupa", (IEnumerable<SelectListItem>)ViewBag.lst_tupa, new { @class = "form-control input-sm" })
+            </div>
+            <label class="col-md-2 control-label" style="text-align: left;" id="lbl_dias_tupa"></label>
+        </div>
+
+
+        <div class="form-group">
+            <label class="col-md-2 control-label" for="cmb_tip_procedimiento">Tipo de Procedimiento:</label>
+            <div class="col-md-6">
+                @Html.DropDownList("cmb_tipo_procedimiento", (IEnumerable<SelectListItem>)ViewBag.lst_tipo_procedimiento, new { @class = "form-control input-sm" })
+            </div>
+            <label id="lbl_valida_tip_proc" style="color: #B44D4D">  </label>
+        </div>
+        
+        <div class="form-group">
+            <label class="col-md-2 control-label">Asunto:</label>
+            <div class="col-md-6">
+                @Html.TextAreaFor(m => m.asunto, new { @class = "form-control input-sm", @row = "4", @maxlength = "500" })
+                @Html.ValidationMessageFor(m => m.asunto)
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-6 text-right">
+                <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#mdlexpedientes">
+                    Agregar Expedientes
+                </button>
+                <button type="button" class="btn btn-primary btn-sm" id="btn_nuevo_expediente">
+                    Nuevo Expediente
+                </button>
+            </div>
+        </div>
+
+        <div id="grid">
+            <table class="table table-striped table-hover table-condensed tabla small" data-swhgajax="true" data-swhgcontainer="grid" data-swhgcallback="" id="tblExpedientes">
+                <thead>
+                    <tr class="cabecera">
+                        <th scope="col" class="hidden">id_expediente</th>
+                        <th scope="col">Expediente</th>
+                        <th scope="col">Acciones</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </div>
+
+
+        <div class="form-group">
+
+            <div class="col-md-6 text-right">
+                <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#mdlfacturas">
+                    Agregar Facturas
+                </button>
+                <button type="button" class="btn btn-primary btn-sm" id="btn_nueva_factura">
+                    Nueva Factura
+                </button>
+            </div>
+
+
+
+        </div>
+
+        <div id="grid10">
+            <table class="table table-striped table-hover table-condensed tabla small" data-swhgajax="true" data-swhgcontainer="grid" data-swhgcallback="" id="tblFacturas">
+                <thead>
+                    <tr class="cabecera">
+                        <th scope="col" class="hidden">id_factura</th>
+                        <th scope="col" class="hidden">num1</th>
+                        <th scope="col" class="hidden">num2</th>
+                        <th scope="col">Número</th>
+                        <th scope="col">Fecha Factura</th>
+                        <th scope="col">Importe Total</th>
+                        <th scope="col">Acciones</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </div>
+
+        <hr>
+        <div class="form-group">
+            <div class="col-md-8">
+                <input id="btnGrabar" type="submit" value="Guardar" class="btn btn-primary btn-sm" />
+                <button type="button" class="btn btn-default btn-sm regresar">Cancelar</button>
+            </div>
+            <div class="col-md-1">
+                <div id="loaderImage" class="hidden"></div>
+            </div>
+        </div>
+
+    </div>
+}
+
+
+<div class="modal fade" id="myModal_Expediente" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title" id="myModalLabel">Mensaje</h4>
+            </div>
+            <div class="modal-body">
+                <p>No Existe relación con ningún expediente.</p>
+                <p>Por favor relacione por lo menos un expediente.</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary btn-sm" data-dismiss="modal">Aceptar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="mdlConformidad" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title" id="myModalLabel">Mensaje</h4>
+                <input type="text" id="txtId" class="hidden" />
+            </div>
+            <div class="modal-body">
+                <span id="conformidad"></span>
+                <p>Presione aceptar para continuar.</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary btn-sm" data-dismiss="modal" id="btn_satisfa">Aceptar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
+
+<script type="text/javascript">
+
+    function IsNumeric(dato) {
+        var valor = dato.indexOf(".");
+        if ((window.event.keyCode > 47 && window.event.keyCode < 58)) {
+            window.event.returnValue = true;
+        }
+        else {
+            window.event.returnValue = false;
+        }
+    }
+
+    function IsMatricula_vista(dato) {
+        var valor = dato.indexOf(".");
+        var evento = window.event || dato;
+        var escrito = (dato + String.fromCharCode(evento.charCode)).trim();
+        if (escrito.length > 2) {
+
+            $.ajax({
+                cache: false,
+                type: "GET",
+                url: "@(Url.RouteUrl("recupera_embarcacion"))",
+                data: { "MATRICULA": escrito },
+                success: function (data) {
+                    $("#cmb_embarcacion").html('');
+                    $.each(data, function (id, option) {
+                        if (option.Value != "NO") {
+                            $("#cmb_embarcacion").append($('<option></option>').val(option.Value).html(option.Text));
+                            $("#id_embarcacion").val("1");
+                            $('.act_embarcacion').show();
+                        }
+                        else {
+                            $("#id_embarcacion").val("0");
+                            $('.act_embarcacion').hide();
+                        }
+                    });
+                },
+                error: function (xhr, ajaxOptions, thrownError) {
+                    alert('Failed to retrieve states.');
+                }
+            });
+        }
+    }
+
+
+    function IsAlmacen_vista(dato) {
+        var valor = dato.indexOf(".");
+        var evento = window.event || dato;
+        var escrito = (dato + String.fromCharCode(evento.charCode)).trim();
+        if (escrito.length > 2) {
+
+            $.ajax({
+                cache: false,
+                type: "GET",
+                url: "@(Url.RouteUrl("recupera_almacen"))",
+                data: {
+                    "COD_ALMACEN": escrito,
+                    "VAR_ID_OFI_DIR": $("#cmb_direccion").val()
+                },
+                success: function (data) {
+                    $("#cmb_almacen").html('');
+                    $.each(data, function (id, option) {
+                        if (option.Value != "NO") {
+                            $("#cmb_almacen").append($('<option></option>').val(option.Value).html(option.Text));
+                            $("#id_almacen").val("1");
+                            $('.act_almacen').show();
+                        }
+                        else {
+                            $("#id_almacen").val("0");
+                            $('.act_almacen').hide();
+                        }
+                    });
+                },
+                error: function (xhr, ajaxOptions, thrownError) {
+                    alert('Failed to retrieve states.');
+                }
+            });
+        }
+    }
+
+    
+    function IsConcesion_vista(dato) {
+        var valor = dato.indexOf(".");
+        var evento = window.event || dato;
+        var escrito = (dato + String.fromCharCode(evento.charCode)).trim();
+
+        var var_xoficina = 0;
+        var var_xpersona_num_documento = "";
+        if (escrito.length > 2) {
+
+            if ($("#cmb_tip_doc_iden").val() == "0") {
+                var_xoficina = $("#cmb_direccion").val();
+            }
+            else {
+                if ($("#nombre_externo").val() == "") {
+                    var_xpersona_num_documento = $("#cmb_persona_externo").val();
+                }
+                else {
+                    var_xpersona_num_documento = $("#num_documento_externo").val();
+                }
+            }
+
+            $.ajax({
+                cache: false,
+                type: "GET",
+                url: "@(Url.RouteUrl("recupera_concesion"))",
+                data: {
+                    "COD_CONCESION": escrito,
+                    "VAR_ID_OFI": var_xoficina,
+                    "DOCUMENTO_PERSONA": var_xpersona_num_documento
+                },
+            success: function (data) {
+                $("#cmb_concesion").html('');
+                $.each(data, function (id, option) {
+                    if (option.Value != "NO") {
+                        $("#cmb_concesion").append($('<option></option>').val(option.Value).html(option.Text));
+                        $("#id_concesion").val("1");
+                        $('.act_concesion').show();
+                    }
+                    else {
+                        $("#id_concesion").val("0");
+                        $('.act_concesion').hide();
+                    }
+                });
+            },
+            error: function (xhr, ajaxOptions, thrownError) {
+                alert('Failed to retrieve states.');
+            }
+        });
+    }
+    }
+
+    function back_concesion(dato) {
+        if (window.event.keyCode == 8) {
+            $("#id_concesion").val("0");
+            $('.act_concesion').hide();
+        }
+    }
+
+    function back_matricula(dato) {
+        if (window.event.keyCode == 8) {
+            $("#id_embarcacion").val("0");
+            $('.act_embarcacion').hide();
+        }
+    }
+
+    function back_almacen(dato) {
+        if (window.event.keyCode == 8) {
+            $("#id_almacen").val("0");
+            $('.act_almacen').hide();
+        }
+    }
+
+    function Valida_back_vista(dato) {
+        if (window.event.keyCode == 8) {
+            if ($("#num_documento_externo").val().length < 20) {
+                $("#nombre_externo").val("");
+                $("#direccion_externo").val("");
+                $("#direccion_per_externo").val("");
+                $("#persona_externa_encontro").val("0");
+                $('.unica_direccion').hide();
+                $('.varias_direcciones').hide();
+
+                $('.act_planta_1').hide();
+                $('.act_desembarcadero_1').hide();
+                
+                $('.act_embarcacion').hide();
+                $('.act_almacen_1').hide();
+                $('.act_almacen').hide();
+
+
+                $("#id_concesion").val("0");
+                $("#codigo_concesion").val("");
+
+                $("#id_almacen").val("0");
+                $("#codigo_almacen").val("");
+
+                $("#id_embarcacion").val("0");
+                $('.varias_personas').hide();
+            }
+        }
+    }
+
+    function IsNom_vista(dato) {
+        var valor = dato.indexOf(".");
+        var evento = window.event || dato;
+
+        if ($("#nom_document_Extern").val().trim() != "") {
+            $("#nombre_externo").val("");
+            $("#direccion_externo").val("");
+            $("#direccion_per_externo").val("");
+            $("#persona_externa_encontro").val("0");
+            $('.unica_direccion').hide();
+            $("#id_concesion").val("0");
+            $("#id_almacen").val("0");
+            $("#id_embarcacion").val("0");
+            $('.varias_direcciones').hide();
+            $('.varias_personas').hide();
+            if ($("#cmb_tip_doc_iden").val() == 0) {
+                recupera_RUC_NOM(($("#nom_document_Extern").val() + String.fromCharCode(evento.charCode)).trim());
+            }
+            else {
+                recupera_DNI_NOM(($("#nom_document_Extern").val() + String.fromCharCode(evento.charCode)).trim());
+            }
+            verificar_seguimiento($("#cmb_tipo_seguimiento").val());
+        }
+    }
+
+    function IsNumeric_vista(dato) {
+        var valor = dato.indexOf(".");
+        var evento = window.event || dato;
+        if ((window.event.keyCode > 47 && window.event.keyCode < 58)) {
+
+            if ($("#nom_document_Extern").val().trim() == "") {
+
+                if ($("#num_documento_externo").val().length < 7) {
+                    $("#nombre_externo").val("");
+                    $("#nom_document_Extern").val("");
+                    $("#direccion_externo").val("");
+                    $("#direccion_per_externo").val("");
+                    $("#persona_externa_encontro").val("0");
+                    $("#id_concesion").val("0");
+                    $("#id_almacen").val("0");
+                    $("#id_embarcacion").val("0");
+                    $('.unica_direccion').hide();
+                    $('.varias_direcciones').hide();
+                    $('.varias_personas').hide();
+                }
+                else {
+                    if ($("#cmb_tip_doc_iden").val() == 0) {
+                        recupera_RUC(($("#num_documento_externo").val() + String.fromCharCode(evento.charCode)).trim());
+                    }
+                    else
+                    {
+                        recupera_DNI_CE(($("#num_documento_externo").val() + String.fromCharCode(evento.charCode)).trim());
+                    }
+                }
+                verificar_seguimiento($("#cmb_tipo_seguimiento").val());
+            }
+            window.event.returnValue = true;
+        }
+        else {
+            window.event.returnValue = false;
+        }
+    }
+
+    function recupera_DNI_CE(texto) {
+        $.ajax({
+            cache: false,
+            type: "GET",
+            url: "@(Url.RouteUrl("Consultar_DNI_vista"))",
+            data: { "DNI": texto },
+
+            success: function (data) {
+                $.each(data, function (id, option) {
+                    if (option.Value != "NO") {
+                        $("#persona_externa_encontro").val("1");
+                        $("#nombre_externo").val(option.Text);
+                        recupera_DNI_CE_DIRECCION(texto);
+                        $('.unica_direccion').show();
+                    }
+                    else {
+                        $("#nombre_externo").val("");
+                        $("#direccion_externo").val("");
+                        $("#direccion_per_externo").val("");
+                        $("#persona_externa_encontro").val("0");
+                        $("#id_concesion").val("0");
+                        $("#id_almacen").val("0");
+                        $("#id_embarcacion").val("0");
+                        $('.unica_direccion').hide();
+                        $('.varias_direcciones').hide();
+                        $('.varias_personas').hide();
+                    }
+                });
+                verificar_seguimiento($("#cmb_tipo_seguimiento").val());
+            },
+            error: function (xhr, ajaxOptions, thrownError) {
+                alert('Failed to retrieve states.');
+            }
+        });
+    }
+
+    function recupera_DNI_CE_DIRECCION(texto) {
+        $.ajax({
+            cache: false,
+            type: "GET",
+            url: "@(Url.RouteUrl("Consultar_DNI_DIRECCION_vista"))",
+            data: { "DNI": texto },
+
+            success: function (data) {
+                $.each(data, function (id, option) {
+                    $("#direccion_externo").val(option.Text);
+                });
+                verificar_seguimiento($("#cmb_tipo_seguimiento").val());
+            },
+            error: function (xhr, ajaxOptions, thrownError) {
+                alert('Failed to retrieve states.');
+            }
+        });
+    }
+
+    function recupera_DNI_CE_DIRECCION_personas(texto) {
+        $.ajax({
+            cache: false,
+            type: "GET",
+            url: "@(Url.RouteUrl("Consultar_DNI_DIRECCION_vista"))",
+            data: {
+                "DNI": texto
+            },
+
+            success: function (data) {
+                $.each(data, function (id, option) {
+                    $("#direccion_per_externo").val(option.Text);
+                });
+                verificar_seguimiento($("#cmb_tipo_seguimiento").val());
+            },
+            error: function (xhr, ajaxOptions, thrownError) {
+                alert('Failed to retrieve states.');
+            }
+        });
+    }
+
+    function recupera_DNI_NOM(texto) {
+        var entra = 0;
+        $.ajax({
+            cache: false,
+            type: "GET",
+            url: "@(Url.RouteUrl("recupera_DNI_NOM_vista"))",
+            data: {
+                "NOM": texto,
+                "TIPO": $("#cmb_tip_doc_iden").val()
+            },
+            success: function (data) {
+                $("#cmb_persona_externo").html('');
+                $.each(data, function (id, option) {
+                    if (option.Value != "NO") {
+                        $("#cmb_persona_externo").append($('<option></option>').val(option.Value).html(option.Text));
+                        if (entra == 0) {
+                            recupera_DNI_CE_DIRECCION_personas(option.Value);
+                            entra = 1;
+                            $("#persona_externa_encontro").val("1");
+                            $('.varias_personas').show();
+                        }
+
+                    }
+                    else {
+                        $("#persona_externa_encontro").val("0");
+                        $('.varias_personas').hide();
+                    }
+                });
+                verificar_seguimiento($("#cmb_tipo_seguimiento").val());
+            },
+            error: function (xhr, ajaxOptions, thrownError) {
+                alert('Failed to retrieve states.');
+            }
+        });
+    }
+
+    function recupera_RUC_NOM(texto) {
+        var entra = 0;
+        $.ajax({
+            cache: false,
+            type: "GET",
+            url: "@(Url.RouteUrl("recupera_RUC_NOM_vista_seguimiento"))",
+            data: { "NOM": texto },
+            success: function (data) {
+                $("#cmb_nombre_externo").html('');
+                $.each(data, function (id, option) {
+                    if (option.Value != "NO") {
+                        $("#cmb_nombre_externo").append($('<option></option>').val(option.Value).html(option.Text));
+                        if (entra == 0) {
+                            recupera_RUC_DIRECCION(option.Value);
+                            entra = 1;
+                            $("#persona_externa_encontro").val("1");
+                            $('.varias_direcciones').show();
+                        }
+
+                    }
+                    else {
+                        $("#persona_externa_encontro").val("0");
+                        $("#id_concesion").val("0");
+                        $("#id_almacen").val("0");
+                        $("#id_embarcacion").val("0");
+                        $('.varias_direcciones').hide();
+                    }
+                });
+                verificar_seguimiento($("#cmb_tipo_seguimiento").val());
+            },
+            error: function (xhr, ajaxOptions, thrownError) {
+                alert('Failed to retrieve states.');
+            }
+        });
+    }
+
+    function recupera_RUC(texto) {
+        var entra = 0;
+        $.ajax({
+            cache: false,
+            type: "GET",
+            url: "@(Url.RouteUrl("recupera_RUC_vista_seguimiento"))",
+            data: { "RUC": texto },
+            success: function (data) {
+                $("#cmb_nombre_externo").html('');
+                $.each(data, function (id, option) {
+                    if (option.Value != "NO") {
+                        $("#cmb_nombre_externo").append($('<option></option>').val(option.Value).html(option.Text));
+                        if (entra == 0) {
+                            recupera_RUC_DIRECCION(option.Value);
+                            entra = 1;
+                            $("#persona_externa_encontro").val("1");
+                            $('.varias_direcciones').show();
+                        }
+                    }
+                    else {
+                        $("#persona_externa_encontro").val("0");
+                        $("#id_concesion").val("0");
+                        $("#id_almacen").val("0");
+                        $("#id_embarcacion").val("0");
+                        $('.varias_direcciones').hide();
+                    }
+                });
+                verificar_seguimiento($("#cmb_tipo_seguimiento").val());
+            },
+            error: function (xhr, ajaxOptions, thrownError) {
+                alert('Failed to retrieve states.');
+            }
+        });
+    }
+
+    function recupera_RUC_DIRECCION(texto) {
+        var ddldireccion = $("#cmb_direccion");
+        var entra = 0;
+        $.ajax({
+            cache: false,
+            type: "GET",
+            url: "@(Url.RouteUrl("recupera_RUC_DIRECCION_vista"))",
+            data: { "ID_OFICINA": texto },
+
+            success: function (data) {
+                ddldireccion.html('');
+                $.each(data, function (id, option) {
+                    ddldireccion.append($('<option></option>').val(option.Value).html(option.Text));
+                    if (entra == 0) {
+                        recupera_PLANTA(option.Value);
+                        recupera_DESEMBARCADERO(option.Value);
+                        entra = 1;
+                    }
+                });
+                verificar_seguimiento($("#cmb_tipo_seguimiento").val());
+            },
+            error: function (xhr, ajaxOptions, thrownError) {
+                alert('Failed to retrieve states.');
+            }
+        });
+    }
+
+
+    function recupera_PLANTA(texto) {
+        var ddlplanta = $("#cmb_planta");
+        $.ajax({
+            cache: false,
+            type: "GET",
+            url: "@(Url.RouteUrl("recupera_PLANTA_vista"))",
+            data: { "ID_DIRECCION": texto },
+
+            success: function (data) {
+
+                ddlplanta.html('');
+                $.each(data, function (id, option) {
+                    ddlplanta.append($('<option></option>').val(option.Value).html(option.Text));
+                });
+                verificar_seguimiento($("#cmb_tipo_seguimiento").val());
+            },
+            error: function (xhr, ajaxOptions, thrownError) {
+                alert('Failed to retrieve states.');
+            }
+        });
+    }
+    
+    
+    function recupera_DESEMBARCADERO(texto) {
+        var ddldesembarcadero = $("#cmb_desembarcadero");
+        $.ajax({
+            cache: false, type: "GET", url: "@(Url.RouteUrl("recupera_DESEMBARCADERO_vista"))",
+            data: { "ID_DIRECCION": texto },
+        success: function (data) {
+            ddldesembarcadero.html('');
+            $.each(data, function (id, option) {
+                ddldesembarcadero.append($('<option></option>').val(option.Value).html(option.Text));
+            });
+            verificar_seguimiento($("#cmb_tipo_seguimiento").val());
+        },
+        error: function (xhr, ajaxOptions, thrownError) {
+            alert('Failed to retrieve states.');
+        }
+    });
+    }
+
+
+
+    function verificar_seguimiento(valor) {
+
+        $('.act_planta_1').hide();
+
+
+        $("#num_matricula").val("");
+        $('.act_embarcacion_1').hide();
+        $('.act_embarcacion').hide();
+
+        $('.act_almacen_1').hide();
+        $('.act_almacen').hide();
+        $("#codigo_almacen").val("");
+
+        $('.act_desembarcadero_1').hide();
+        $('.act_concesion_1').hide();
+        $('.act_transporte_1').hide();
+
+        var select_tipo_seg = valor;
+        if (select_tipo_seg == "1") {
+            $('.act_planta_1').show();
+        }
+        else {
+            if (select_tipo_seg == "2") {
+                $('.act_embarcacion_1').show();
+            }
+            else {
+                if (select_tipo_seg == "3") {
+                    $('.act_desembarcadero_1').show();
+                }
+                else {
+                    if (select_tipo_seg == "4") {
+                        $('.act_concesion_1').show();
+                    }
+                    else {
+                        if (select_tipo_seg == "5") {
+                            $('.act_transporte_1').show();
+                        }
+                        else {
+                            if (select_tipo_seg == "6") {
+                                $('.act_almacen_1').show();
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    $(document).ready(function () {
+
+        $("#ac_externo").val("1");
+        $("#num_documento_externo").val("");
+        $("#nombre_externo").val("");
+        $("#nom_document_Extern").val("");
+        $("#id_oficina_externa").val("");
+        $("#id_tipo_per").val("");
+
+        $("#id_embarcacion").val("0");
+        $("#id_almacen").val("0");
+        $("#id_concesion").val("0");
+
+        $('.act_embarcacion').hide();
+        $('.act_embarcacion_1').hide();
+        $('.act_desembarcadero_1').hide();
+
+        $('.act_concesion_1').hide();
+        $('.act_concesion').hide();
+
+        $('.act_transporte_1').hide();
+
+        $('.act_almacen_1').hide();
+        $('.act_almacen').hide();
+
+        $("#persona_externa_encontro").val("0");
+        $("#tupa").val("");
+        $("#num_documento").val("");
+
+        document.getElementById('lbl_dias_tupa').innerHTML = "";
+        document.getElementById('lbl_valida_ext').innerHTML = "";
+        document.getElementById('lbl_valida_nom_doc').innerHTML = "";
+
+        $(document).on("click", ".regresar", function () {
+            window.location = '@Url.Action("Consulta_seguimiento", "Habilitaciones")';
+        });
+
+        $('.unica_direccion').hide();
+        $('.varias_direcciones').hide();
+        $('.varias_personas').hide();
+
+        $('.act_oficina').show();
+        $('.n_act_oficina').hide();
+
+        $("#btn_satisfa").click(function () {
+            var url = "/Habilitaciones/Documentos_enviados/";
+            window.location.href = url;
+        });
+
+        $("#tbl_factura").DataTable({
+            "lengthChange": false
+        });
+
+        $("#tbl_expediente").DataTable({
+            "lengthChange": false
+        });
+
+
+        $("#cmb_tipo_seguimiento").change(function () {
+            verificar_seguimiento($(this).val());
+        });
+
+        $("#cmb_tupa").change(function () {
+
+            var selectupa = $(this).val().split('|');
+            if (selectupa[0] != "") {
+                $("#var_tupa").val(selectupa[0]);
+                $("#cmb_tipo_procedimiento").val(selectupa[1]);
+                $("#asunto").val(selectupa[2]);
+                $('#cmb_tipo_procedimiento').attr("disabled", "disabled");
+                if (selectupa[3] != "") {
+                    document.getElementById('lbl_dias_tupa').innerHTML = "Plazo para resolver: " + selectupa[3] + "días";
+                }
+            }
+            else {
+                var sin_tupa;
+                $("#var_tupa").val(sin_tupa);
+                $('#cmb_tipo_procedimiento').removeAttr("disabled", "disabled");
+                $('#cmb_tipo_procedimiento').val("0");
+                $('#asunto').val("");
+                document.getElementById('lbl_dias_tupa').innerHTML = "";
+            }
+
+        });
+        $(document).on("click", ".add_exp", function () {
+
+            $('#mdlexpedientes').modal('hide');
+
+            var nuevoTD = '<tr>';
+            nuevoTD += '<td class = "hidden">' + $(this).prev().prev().html() + '</td>';
+            nuevoTD += '<td>' + $(this).prev().html() + '</td>';
+            nuevoTD += '<td class="quitar"><ul class="list-inline" style="margin-bottom:0"><li><a class="quitar" href="#" id="5" title="Quitar"><i class="red glyphicon glyphicon-trash"></i></a></li></ul></td>'
+            nuevoTD += '</tr>';
+
+            jQuery("#tblExpedientes").append(nuevoTD);
+
+        });
+
+        $(document).on("click", ".add_fact", function () {
+
+            $('#mdlfacturas').modal('hide');
+
+            var nuevoTD = '<tr>';
+            nuevoTD += '<td class = "hidden">' + $(this).prev().prev().prev().prev().prev().prev().html() + '</td>';
+            nuevoTD += '<td class = "hidden">' + $(this).prev().prev().prev().prev().prev().html() + '</td>';
+            nuevoTD += '<td class = "hidden">' + $(this).prev().prev().prev().prev().html() + '</td>';
+            nuevoTD += '<td>' + $(this).prev().prev().prev().html() + '</td>';
+            nuevoTD += '<td>' + $(this).prev().prev().html() + '</td>';
+            nuevoTD += '<td>' + $(this).prev().html() + '</td>';
+            nuevoTD += '<td class="quitar"><ul class="list-inline" style="margin-bottom:0"><li><a class="quitar" href="#" id="5" title="Quitar"><i class="red glyphicon glyphicon-trash"></i></a></li></ul></td>'
+            nuevoTD += '</tr>';
+
+            jQuery("#tblFacturas").append(nuevoTD);
+
+        });
+
+        $(function () {
+            $('#dtpFechadocumento').datetimepicker({
+                pickTime: false,
+                format: 'dd/MM/yyyy',
+                language: 'es'
+            });
+        });
+
+        $(function () {
+            $('#dtpFechaod').datetimepicker({
+                pickTime: false,
+                format: 'dd/MM/yyyy',
+                language: 'es'
+            });
+        });
+
+
+        $("#cmb_nombre_externo").change(function () {
+            var selc_nombre = $(this).val();
+            recupera_RUC_DIRECCION(selc_nombre);
+        });
+
+        $("#cmb_persona_externo").change(function () {
+            var selc_nombre = $(this).val();
+            recupera_DNI_CE_DIRECCION_personas(selc_nombre);
+        });
+
+        $('input').bind('copy paste', function (e) {
+            e.preventDefault();
+        });
+
+        var f = new Date();
+        var fechaActual = (f.getDate() < 10 ? "0" + f.getDate() : f.getDate()) + "/" + ((f.getMonth() + 1) < 10 ? "0" + (f.getMonth() + 1) : (f.getMonth() + 1)) + "/" + f.getFullYear();
+
+        $("#txtFechadocumento").val(fechaActual);
+        $("#txtFechaod").val(fechaActual);
+
+        $(document).on("click", ".quitar", function () {
+            var parent = $(this).parents().get(0);
+            $(parent).remove();
+        });
+
+        $("#cmb_tip_doc_iden").change(function () {
+            $("#persona_externa_encontro").val("0");
+            $("#ac_externo").val("2");
+            $("#num_documento_externo").val("");
+            $("#nombre_externo").val("");
+            $("#nom_document_Extern").val("");
+            $("#id_oficina_externa").val("");
+            $("#id_embarcacion").val("0");
+            $("#id_concesion").val("0");
+            $("#id_almacen").val("0");
+            $("#id_tipo_per").val("");
+            $('.act_oficina').hide();
+            $('.direccion').hide();
+            $('.unica_direccion').hide();
+            $('.varias_direcciones').hide();
+            $('.varias_personas').hide();
+            $('.n_act_oficina').show();
+            $("#ac_externo").val("1");
+            document.getElementById('lbl_valida_ext').innerHTML = "";
+            $('.act_oficina').show();
+            $('.n_act_oficina').hide();
+        });
+
+        $("#cmbtipo_documento").change(function () {
+
+            var Selectpdoc = $(this).val();
+            if (Selectpdoc == "166") {
+
+                $("#num_documento").val("2");
+                $("#nom_documento").val(".");
+            }
+            else {
+
+                $("#num_documento").val("");
+                $("#nom_documento").val("");
+            }
+
+            $.ajax({
+                cache: false,
+                type: "GET",
+                url: "@(Url.RouteUrl("consultar_tipo_expediente"))",
+                data: { "id": Selectpdoc },
+            success: function (data) {
+                $.each(data, function (id, option) {
+                        $("#ac_externo").val("1");
+                        $("#num_documento_externo").val("");
+                        $("#nom_document_Extern").val("");
+
+                        $("#id_oficina_externa").val("");
+                        $("#id_tipo_per").val("");
+
+                        document.getElementById('lbl_valida_ext').innerHTML = "";
+                        $('.act_oficina').show();
+                        $('.n_act_oficina').hide();
+
+                        $("#nombre_externo").val("");
+                        $("#direccion_externo").val("");
+                        $("#direccion_per_externo").val("");
+                        $("#persona_externa_encontro").val("0");
+                        $('.unica_direccion').hide();
+                        $('.varias_direcciones').hide();
+                        $('.varias_personas').hide();
+
+                        $('.act_planta_1').hide();
+                        $('.act_desembarcadero_1').hide();
+
+                        $('.act_embarcacion').hide();
+                        $("#id_embarcacion").val("0");
+
+                        $('.act_almacen_1').hide();
+                        $('.act_almacen').hide();
+                        $("#id_almacen").val("0");
+                        $("#codigo_almacen").val("");
+                    
+                        $("#id_concesion").val("0");
+                        $('.act_concesion_1').hide();
+                        $('.act_concesion').hide();
+                        $("#codigo_concesion").val("");
+
+                });
+            },
+            error: function (xhr, ajaxOptions, thrownError) {
+                alert('Failed to retrieve states.');
+            }
+        });
+    });
+
+        $('#btnNuevaPersona').click(function () {
+            var url = "/Hojatramite/Nueva_Natural/";
+            window.location.href = url;
+        });
+
+        $('#btnNuevaOficina').click(function () {
+            var url = "/Oficina/Nueva_Oficina/";
+            window.location.href = url;
+        });
+
+        $('#btnNuevaEmbarcacion').click(function () {
+            var url = "/General/Nueva_Embarcacion/";
+            window.location.href = url;
+        });
+
+        $('#btnNuevoAlmacen').click(function () {
+            var url = "/General/Nuevo_Almacen/";
+            window.location.href = url;
+        });
+
+        $('#btn_nueva_factura').click(function () {
+            var url = "/General/Nueva_Factura/";
+            window.location.href = url;
+        });
+
+        $('#btn_nuevo_expediente').click(function () {
+            var url = "/General/Nuevo_Expediente/";
+            window.location.href = url;
+        });
+
+        $('#mdlConformidad').on('hide.bs.modal', function (e) {
+            setTimeout(function () {
+                window.location = '@Url.Action("Consulta_seguimiento", "Habilitaciones")';
+        }, 300);
+    });
+
+    $('#nuevoForm').submit(function (e) {
+
+        e.preventDefault();
+
+        $('#btnGrabar').attr("disabled", "disabled");
+
+        document.getElementById('lbl_valida_ext').innerHTML = "";
+        document.getElementById('lbl_valida_tip_proc').innerHTML = "";
+        document.getElementById('lbl_valida_nom_doc').innerHTML = "";
+
+        var entra = 0;
+        var var_xoficina =0;
+        var var_xpersona_num_documento = "";
+        var var_nom_externo = null;
+        var var_xtipo_per =0;
+
+
+        if ($("#cmb_tipo_procedimiento").val() == "0") {
+            document.getElementById('lbl_valida_tip_proc').innerHTML = "Seleccionar Tipo Procedimiento";
+            entra = 1;
+        }
+        if ($("#persona_externa_encontro").val() == "0") {
+            document.getElementById('lbl_valida_ext').innerHTML = "Seleccionar Persona Externa";
+            entra = 1;
+        }
+        else {
+            if ($("#cmb_tip_doc_iden").val() == "0") {
+                var_xoficina = $("#cmb_direccion").val();
+                var_nom_externo = $('select[name="cmb_nombre_externo"] option:selected').text();
+            }
+            else {
+                if ($("#nombre_externo").val() == "") {
+                    var_xpersona_num_documento = $("#cmb_persona_externo").val();
+                    var_xtipo_per = parseInt($("#cmb_tip_doc_iden").val());
+                    var_nom_externo = $('select[name="cmb_persona_externo"] option:selected').text();
+                }
+                else {
+                    var_xpersona_num_documento = $("#num_documento_externo").val();
+                    var_xtipo_per = parseInt($("#cmb_tip_doc_iden").val());
+                    var_nom_externo = $("#num_documento_externo").val() + " - " + $("#nombre_externo").val();
+                }
+            }
+        }
+
+        if (var_xoficina == null && var_xpersona_num_documento == null) {
+            document.getElementById('lbl_valida_ext').innerHTML = "Seleccionar Persona Externa";
+            entra = 1;
+        }
+
+        var select_tipo_seg = $("#cmb_tipo_seguimiento").val()
+        var var_id_habilitante = "0";
+        var var_cod_habilitante = "";
+        if (select_tipo_seg == "1") {
+            var_id_habilitante = $("#cmb_planta").val();
+            if ($("#cmb_planta").val() == "") {
+                var_cod_habilitante = "";
+            }
+            else {
+                var_cod_habilitante = $("#cmb_planta :selected").text();
+            }
+
+        }
+        else {
+            if (select_tipo_seg == "2") {
+                if ($("#num_matricula").val() != "") {
+                    if ($("#id_embarcacion").val() == "1") {
+                        var_id_habilitante = $("#cmb_embarcacion").val();
+                        var_cod_habilitante = $("#cmb_embarcacion :selected").text();
+                    }
+                }
+            }
+            else {
+                if (select_tipo_seg == "3") {
+                    var_id_habilitante = $("#cmb_desembarcadero").val();
+                    if ($("#cmb_desembarcadero").val() == "") {
+                        var_cod_habilitante = "";
+                    }
+                    else {
+                        var_cod_habilitante = $("#cmb_desembarcadero :selected").text();
+                    }
+                }
+                else {
+                    if (select_tipo_seg == "4" && $("#cmb_concesion").val() != "" && $("#id_concesion").val() == "1") {
+                        var_id_habilitante = $("#cmb_concesion").val();
+                        var_cod_habilitante = $("#cmb_concesion :selected").text();
+                    }
+                    else {
+                        if (select_tipo_seg == "5") {
+                            $('.act_transporte_1').show();
+                        }
+                        else {
+                            if (select_tipo_seg == "6" && $("#codigo_almacen").val() != "" && $("#id_almacen").val() == "1") {
+                                var_id_habilitante = $("#cmb_almacen").val();
+                                var_cod_habilitante = $("#cmb_almacen :selected").text();
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        if ($('#nom_documento').val().trim() == "") {
+            document.getElementById('lbl_valida_nom_doc').innerHTML = "Ingresar Documento";
+            entra = 1;
+        }
+
+
+        if (entra == 1) {
+            $('#btnGrabar').removeAttr("disabled", "disabled");
+            return false;
+        }
+
+        //Llena un arreglo de objetos que son pasados a data
+
+        var lstfacturas = new Array();
+        if ($('#tblFacturas >tbody >tr').length >= 0)//Valida que haya elementos en la tabla
+        {
+            var band = false;
+            $('#tblFacturas tr').each(function () {
+                if (band) {
+                    var item = {
+                        "id_factura": $(this).find("td").eq(0).html(),
+                        "num1": $(this).find("td").eq(1).html(),
+                        "num2": $(this).find("td").eq(2).html(),
+                        "fecha_fact": $(this).find("td").eq(4).html(),
+                        "importe_total": $(this).find("td").eq(5).html()
+                    };
+                    lstfacturas.push(item);
+                }
+                band = true;
+            });
+        }
+
+        var lstexpediente = new Array();
+        if ($('#tblExpedientes >tbody >tr').length >= 0)//Valida que haya elementos en la tabla
+        {
+            var band = false;
+            $('#tblExpedientes tr').each(function () {
+                if (band) {
+                    var item = {
+                        "id_expediente": $(this).find("td").eq(0).html(),
+                        "expediente": $(this).find("td").eq(1).html()
+                    };
+                    lstexpediente.push(item);
+                }
+                band = true;
+            });
+        }
+
+        $('#cmb_tipo_procedimiento').removeAttr("disabled", "disabled");
+
+        var data = {//Objeto que se envia al controlador
+            "id_tipo_documento": $("#cmbtipo_documento").val(),
+            "det_fac_doc": lstfacturas,
+            "det_seg_exp": lstexpediente,
+            "num_documento": $("#num_documento").val(),
+            "nom_documento": $("#nom_documento").val(),
+            "folios": $("#folios").val(),
+            "asunto": $("#asunto").val(),
+            "fecha_documento": $("#txtFechadocumento").val(),
+            "tupa": $("#var_tupa").val(),
+            "id_tipo_procedimiento": $("#cmb_tipo_procedimiento").val(),
+            "id_ofi_dir": var_xoficina,
+            "persona_num_documento": var_xpersona_num_documento,
+            "id_tipo_seguimiento": $("#cmb_tipo_seguimiento").val(),
+            "id_habilitante": var_id_habilitante,
+            "cod_habilitante": var_cod_habilitante,
+            "fecha_recibido_od": $("#txtFechaod").val(),
+            "nombre_externo": var_nom_externo
+        };
+
+        $.ajax({
+            url: this.action,
+            type: this.method,
+            data: JSON.stringify(data), // Datos a enviar
+            processData: false,
+            contentType: 'application/json', // Tipo de datos que envío
+            success: function (result) {
+                var url_scan = "/Habilitaciones/variable_archivo_nuevo_seguimiento/" + result.toString();
+                window.location.href = url_scan;
+            },
+            error: function (result) {
+                if (result.status == 500) {
+                    $("#mensajes").html(result.responseText).hide();
+                    $("html, body").animate({ scrollTop: 0 }, '500', 'swing', function () {
+                        $("#mensajes").slideDown(500, function () { });
+                    });
+                }
+                else if (result.status == 400) {
+                    $('.field-validation-error').each(function () {
+                        $(this).removeClass("field-validation-error").addClass("field-validation-valid");
+                        $(this).html('');
+                    });
+                    $.each(result.responseJSON.errors, function (key, value) {
+                        if (value != null) {
+                            var container = $('span[data-valmsg-for="' + key + '"]');
+                            container.removeClass("field-validation-valid").addClass("field-validation-error");
+                            container.html(value);
+                        }
+                    });
+                    $("#mensajes").html(result.responseJSON.summary).hide();
+                    if (result.responseJSON.summary != "") {
+                        $("html, body").animate({ scrollTop: 0 }, '500', 'swing', function () {
+                            $("#mensajes").slideDown(500, function () { });
+                        });
+                    }
+                }
+            }
+        });
+
+        //$('#nuevoForm').submit();
+    });
+
+    });
+</script>
+
+

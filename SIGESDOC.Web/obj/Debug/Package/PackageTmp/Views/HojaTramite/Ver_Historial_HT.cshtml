@@ -1,0 +1,154 @@
+﻿@{
+    Layout = "";
+}
+
+<html>
+<head>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    @Scripts.Render("~/bundles/modernizr")
+    @Scripts.Render("~/bundles/jquery")   
+</head>
+
+<body>
+
+    <div style="display: none">
+        @Html.TextBox("lbl_numero", (string)ViewBag.var_numero)
+    </div>
+
+    <div id="chart_div"></div>
+
+</body>
+
+<script type="text/javascript">
+    google.charts.load('current', { packages: ["orgchart"] });
+    google.charts.setOnLoadCallback(drawChart);
+
+    function ToJavaScriptDate(value) {
+        var pattern = /Date\(([^)]+)\)/;
+        var results = pattern.exec(value);
+        var dt = new Date(parseFloat(results[1]));
+        return (dt.getMonth() + 1) + "/" + dt.getDate() + "/" + dt.getFullYear();
+    }
+
+    function drawChart() {
+
+        var texto_principal = "";
+
+        $.ajax({
+            cache: false,
+            type: "GET",
+            url: "@(Url.RouteUrl("llenar_datos_HT"))",
+            data: { "numero": $("#lbl_numero").val() },
+            //data: { "numero": 512 },
+            success: function (data_principal) {
+
+                var tipo_ped_siga = "";
+                var var_nom_ext = "";
+                var var_refe = "";
+
+                if (data_principal.id_tipo_pedido_siga == "1") { tipo_ped_siga = 'Pedido SIGA: <strong>(Servicio)' + data_principal.pedido_siga + ' del ' + data_principal.anno_siga + '</strong><br>'; }
+
+                if (data_principal.id_tipo_pedido_siga == "2") { tipo_ped_siga = 'Pedido SIGA: <strong>(Compra)' + data_principal.pedido_siga + ' del ' + data_principal.anno_siga + '</strong><br>'; }
+
+                if (data_principal.nombre_externo != null) { var_nom_ext = 'Nombre externo: <strong>' + data_principal.nombre_externo + '</strong><br>'; }
+
+                if (data_principal.referencia != null) { var_refe = 'Referencia: <strong>' + data_principal.referencia + '</strong><br>'; }
+
+                texto_principal = '<div style="text-align:center;"><strong> <h2> HT - ' + data_principal.hoja_tramite + '</h2></strong></div>'
+                                + '<div style="text-align:left;">Fecha:' + ToJavaScriptDate(data_principal.fecha_emision) + '<br>'
+                                //+ 'Tupa: falta<br>'
+                                + var_nom_ext
+                                + 'Asunto: ' + data_principal.asunto + '<br>'
+                                + var_refe
+                                + tipo_ped_siga
+                                + '</div>';
+
+                $.ajax({
+                    cache: false,
+                    type: "GET",
+                    url: "@(Url.RouteUrl("llenar_Historial_HT"))",
+                    data: { "numero": $("#lbl_numero").val() },
+                    //data: { "numero": 512 },
+                    success: function (data_hist) {
+                        var data = new google.visualization.DataTable();
+                        data.addColumn('string', 'Name');
+                        data.addColumn('string', 'Manager');
+                        data.addColumn('string', 'ToolTip');
+
+                        data.addRows([[{ v: 'null', f: texto_principal }, '', '']]);
+
+                        $.each(data_hist, function (id, option) {
+                            var id_det_doc_text = "" + option.id_det_documento;
+                            var id_cab_det_doc_text = "" + option.id_cab_det_documento;
+                            if (option.ruta_pdf == "null") {
+                                data.addRows([[{
+                                    v: id_det_doc_text,
+                                    f: '<div style="text-align:left;">' + option.fecha_crea + '<br>'
+                                    + 'Para: <strong>' + option.designado + '</strong><br>'
+                                    + option.nom_oficina + ' / ' + option.nom_sede + '<br>'
+                                    + 'Fecha recepción: ' + option.fecha_recepcion + '<br>'
+                                    + 'Documento: <strong>' + option.documento + '</strong>'
+                                    + '</div>'
+
+                                }, id_cab_det_doc_text, 'The President']]);
+                            } else {
+                                data.addRows([[{
+                                    v: id_det_doc_text,
+                                    f: '<div style="text-align:left;">' + option.fecha_crea + '<br>'
+                                    + 'Para: <strong>' + option.designado + '</strong><br>'
+                                    + option.nom_oficina + ' / ' + option.nom_sede + '<br>'
+                                    + 'Fecha recepción: ' + option.fecha_recepcion + '<br>'
+                                    + '<a class="ver_pdf" id="' + option.id_documento + '" href="#"> Documento: <strong>' + option.documento + '</strong></a>'
+                                    + '</div>'
+
+                                }, id_cab_det_doc_text, 'The President']]);
+                            }
+
+
+
+                        });
+
+                        var chart = new google.visualization.OrgChart(document.getElementById('chart_div'));
+                        // Draw the chart, setting the allowHtml option to true for the tooltips.
+                        chart.draw(data, { allowHtml: true });
+                    },
+                    error: function (xhr, ajaxOptions, thrownError) {
+                        alert('Failed to retrieve states.');
+                    }
+                });
+
+            },
+            error: function (xhr, ajaxOptions, thrownError) {
+                alert('Failed to retrieve states.');
+            }
+        });
+
+
+
+
+
+
+        // For each orgchart box, provide the name, manager, and tooltip to show.
+        //data.addRows([[{ v: 'Mike', f: 'Mike<div style="color:red; font-style:italic">President</div>' }, '', 'The President']]);
+        //data.addRows([[{ v: 'Jim', f: 'Jim<div style="color:red; font-style:italic">Vice President</div>' }, 'Mike', 'VP']]);
+        //data.addRows([['Alice', 'Mike', '']]);
+        //data.addRows([['Bob', 'Jim', 'Bob Sponge']]);
+        //data.addRows([['Carol', 'Bob', '']]);
+
+        // Create the chart.
+    }
+
+
+    $(document).ready(function () {
+
+        $(document).on('click', '.ver_pdf', function () {
+            var docu = $(this).attr('id');
+            var url = "/Hojatramite/Ver_docu_ht_PDF/" + docu;
+            window.open(url, '_blank');
+        });
+
+    });
+
+</script>
+
+</html>

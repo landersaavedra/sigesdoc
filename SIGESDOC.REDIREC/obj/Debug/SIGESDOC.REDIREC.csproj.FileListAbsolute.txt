@@ -20,7 +20,6 @@ C:\inetpub\wwwroot\sigesdoc\SIGESDOC.REDIREC\bin\Debug\SIGESDOC.REDIREC.vsto
 C:\inetpub\wwwroot\sigesdoc\SIGESDOC.REDIREC\bin\Debug\RESOLUCION_DIRECTORAL.docx
 C:\inetpub\wwwroot\sigesdoc\SIGESDOC.REDIREC\bin\Debug\Microsoft.Office.Tools.Common.v4.0.Utilities.dll
 C:\inetpub\wwwroot\sigesdoc\SIGESDOC.REDIREC\bin\Debug\Microsoft.Office.Tools.Word.v4.0.Utilities.dll
-C:\inetpub\wwwroot\sigesdoc\SIGESDOC.REDIREC\obj\Debug\SIGESDOC.REDIREC.csprojAssemblyReference.cache
 C:\inetpub\wwwroot\sigesdoc\SIGESDOC.REDIREC\obj\Debug\SIGESDOC.REDIREC.ThisDocument.resources
 C:\inetpub\wwwroot\sigesdoc\SIGESDOC.REDIREC\obj\Debug\SIGESDOC.REDIREC.Properties.Resources.resources
 C:\inetpub\wwwroot\sigesdoc\SIGESDOC.REDIREC\obj\Debug\SIGESDOC.REDIREC.csproj.GenerateResource.cache

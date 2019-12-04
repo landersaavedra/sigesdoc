@@ -1,0 +1,252 @@
+﻿
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+    <title>Page 1</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+
+    <br>
+    <br>
+
+    <style>
+        body {
+            font-family: Gotham, "Helvetica Neue", Helvetica, Arial, sans-serif;
+            font-size: 13px;
+        }
+
+        font {
+            font-family: Gotham, "Helvetica Neue", Helvetica, Arial, sans-serif;
+            font-size: 11px;
+        }
+
+        th {
+            font-weight: 100 !important;
+        }
+    </style>
+
+
+    <ol class="breadcrumb" style="margin-bottom: 5px;">
+        <li><a href="#">Reportes</a></li>
+        <li class="active">Pendientes</li>
+    </ol>
+
+    <div class="bs-callout bs-callout-info">
+        <h4>Consultar Trámites Pendientes</h4>
+        <p>En esta sección usted puedes Consultar los trámites pendientes de SANIPES</p>
+    </div>
+
+    <div class="panel panel-primary">
+        <div class="panel-heading panet-heading-sm">Búsqueda por Año</div>
+        <div class="panel-body">
+            @using (Ajax.BeginForm(new AjaxOptions { HttpMethod = "Get" }))
+            {
+                <div class="row">
+
+                    <div class="row hidden">
+                        @Html.TextBox("val_txtfechainicio", null, new { @class = "form-control input-sm", @maxlength = "50" })
+                        @Html.TextBox("val_txtfechafin", null, new { @class = "form-control input-sm", @maxlength = "50" })
+                    </div>
+
+
+                    <div class="col-lg-5">
+                        <div class="input-group input-group-sm">
+                            <span class="input-group-addon">Fecha</span>
+                            <div class="input-group date input-group-sm" id="dtpFechainicio">
+                                <input class="form-control input-sm validaFechaInicio" id="txtFechainicio" type="text" name="txtFechainicio" value="">
+                                <span class="input-group-addon input-sm add-on">
+                                    <a href="#">
+                                        <i class="glyphicon glyphicon-calendar" data-date-icon="glyphicon glyphicon-calendar"></i>
+                                    </a>
+                                </span>
+                            </div>
+                            <span class="input-group-addon">Hasta</span>
+                            <div class="input-group date input-group-sm" id="dtpFechafin">
+                                <input class="form-control input-sm validaFechaFin" id="txtFechafin" type="text" name="txtFechafin" value="">
+                                <span class="input-group-addon input-sm add-on">
+                                    <a href="#">
+                                        <i class="glyphicon glyphicon-calendar" data-date-icon="glyphicon glyphicon-calendar"></i>
+                                    </a>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <br>
+
+                <div class="row">
+                    <div class="col-lg-1">
+                        <input type="submit" id="btnBuscar" class="btn btn-primary btn-sm pull-left" value="Actualizar" />
+                    </div>
+
+                    <div class="col-lg-1">
+                        <input type="button" id="btnimprimir" class="btn btn-primary btn-sm pull-left" value="Imprimir" />
+                    </div>
+                </div>
+            }
+
+        </div>
+    </div>
+
+
+    <table width="1024" border="0" cellpadding="0" cellspacing="0">
+        <tr>
+            <td width="729" align="center">
+                <table style="border:1px solid #fff;" width="100%" border="0" cellpadding="10">
+                    <tr>
+                        <td width="23%" height="67"><img src="http://www.sanipes.gob.pe/imagenes/logo-aviso.jpg" width="210" height="70" alt="" /></td>
+                        <td width="61%" align="left">
+                            <font size="2" style="text-align: left">
+                                <strong style="font-size:15px;">
+                                    Unidad de Tecnologías de la Información<br>
+                                    Sistema de Gestión de Documentos (SIGESDOC)
+                                </strong>
+                            </font>
+                        </td>
+
+                        <td width="16%" align="center"><br></td>
+                    </tr>
+                </table><br>
+                <br><br><br><br>
+            </td>
+        </tr>
+        <tr>
+            <td align="center"></td>
+        </tr>
+        <tr>
+            <td align="center">
+                <table width="100%" border="0" cellpadding="5" cellspacing="0">
+                    <tr>
+                        <td width="100%" style="text-align: center"><font size="2" style="text-align: left"><strong style="font-size:15px;">Reporte de actividades</strong></font><br><br></td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td align="center">&nbsp;</td>
+        </tr>
+        <tr align="center">
+            <td>
+                <table style="border:1px solid #fff;" width="100%" border="0" cellpadding="5" cellspacing="0">
+                    <tr>
+                        <td colspan="2"><div style=" line-height:12px; font-size:11px; text-align: center"><font size="2" style="text-align: left"><strong style="font-size:15px;">Nombre</strong></font>:</div></td>
+                        <td colspan="3">@User.Identity.Name.Split('|')[3].Trim()</td>
+                    </tr>
+                    <tr>
+                        <td colspan="2"><div style=" line-height:12px; font-size:11px; text-align: center"><font size="2" style="text-align: left"><strong style="font-size:15px;">Periodo</strong></font>:</div></td>
+                        <td colspan="3">@Html.Raw(ViewBag.lst_desdehasta)</td>
+                    </tr>
+                    <tr>
+                        <td colspan="2"><div style=" line-height:12px; font-size:11px; text-align: center"><strong><font size="2" style="text-align: left"><strong style="font-size:15px;">Creación</strong></font>:</strong></div></td>
+                        <td colspan="3">&nbsp;</td>
+                    </tr>
+                    <tr>
+                        <td width="12%">&nbsp;</td>
+                        <td width="12%">&nbsp;</td>
+                        <td width="3%">&nbsp;</td>
+                        <td width="55%">@Html.Raw(ViewBag.text_registro)</td>
+                        <td width="18%">&nbsp;</td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr align="center">
+            <td height="18">&nbsp;</td>
+        </tr>
+    </table>
+
+
+    <br>
+</body>
+</html>
+
+
+
+<script type="text/javascript">
+
+    function compare_dates(fecha, fecha2) {
+        var xMonth = fecha.substring(3, 5);
+        var xDay = fecha.substring(0, 2);
+        var xYear = fecha.substring(6, 10);
+        var yMonth = fecha2.substring(3, 5);
+        var yDay = fecha2.substring(0, 2);
+        var yYear = fecha2.substring(6, 10);
+        if (xYear > yYear) {
+            return (true)
+        }
+        else {
+            if (xYear == yYear) {
+                if (xMonth > yMonth) {
+                    return (true)
+                }
+                else {
+                    if (xMonth == yMonth) {
+                        if (xDay > yDay)
+                            return (true);
+                        else
+                            return (false);
+                    }
+                    else
+                        return (false);
+                }
+            }
+            else
+                return (false);
+        }
+    }
+
+    function sumarDias(fecha, dias) {
+        fecha.setDate(fecha.getDate() + dias);
+        return fecha;
+    }
+
+    $(document).ready(function () {
+
+        $("#txtFechainicio").val($("#val_txtfechainicio").val());
+        $("#txtFechafin").val($("#val_txtfechafin").val());
+
+        $(function () {
+            $('#dtpFechafin').datetimepicker({
+                pickTime: false,
+                format: 'dd/MM/yyyy',
+                language: 'es'
+            });
+
+            $('#dtpFechainicio').datetimepicker({
+                pickTime: false,
+                format: 'dd/MM/yyyy',
+                language: 'es'
+            });
+        });
+
+        $(this).submit(function (e) {
+
+            var var_fecha_fin = $("#txtFechafin").val();
+            var var_fecha_ini = $("#txtFechainicio").val();
+            if (var_fecha_ini != "" && var_fecha_fin != "") {
+                if (compare_dates(var_fecha_ini, var_fecha_fin)) {
+                    $("#txtFechafin").val($("#txtFechainicio").val());
+                }
+            }
+            $("#val_txtfechainicio").val($("#txtFechainicio").val());
+            $("#val_txtfechafin").val($("#txtFechafin").val());
+        });
+
+        $('#btnimprimir').click(function () {
+            var fec_ini = "";
+            var fec_fin = "";
+            if ($("#txtFechainicio").val() == "") { fec_ini = "0"; } else {
+                fec_ini = $("#txtFechainicio").val().replace("/", "-").replace("/", "-");
+            }
+            if ($("#txtFechafin").val() == "") { fec_fin = "0"; } else {
+                fec_fin = $("#txtFechafin").val().replace("/", "-").replace("/", "-");
+            }
+            var url = "/HojaTramite/imprimir_reporte_usuario_ss_new/" + fec_ini + "/" + fec_fin;
+            var win = window.open(url, '_blank');
+            win.focus();
+        });
+
+    });
+</script>

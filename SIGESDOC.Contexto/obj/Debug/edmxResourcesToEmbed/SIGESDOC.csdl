@@ -1471,7 +1471,7 @@
     <Property Name="DIRECCION_CDL_NOTIF" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
     <Property Name="EMPRESA_CDL_NOTIF" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
     <Property Name="FOLIA_CDL_NOTIF" Type="Int32" />
-    <Property Name="DOC_NOTIFICAR_CDL_NOTIF" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="DOC_NOTIFICAR_CDL_NOTIF" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
     <Property Name="EXP_O_HT_CDL_NOTIF" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
     <Property Name="EXP_O_HT_N_CDL_NOTIF" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
     <Property Name="RUC" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
@@ -3940,7 +3940,7 @@
     <Property Name="ID_SEGUIMIENTO" Type="Int32" Nullable="false" />
     <Property Name="NUM_DOCUMENTO" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
     <Property Name="EXTERNO" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
-    <Property Name="DIRECCION" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="DIRECCION" Type="String" MaxLength="359" FixedLength="false" Unicode="false" />
     <Property Name="EVALUADOR" Type="String" MaxLength="152" FixedLength="false" Unicode="false" />
   </EntityType>
 </Schema>

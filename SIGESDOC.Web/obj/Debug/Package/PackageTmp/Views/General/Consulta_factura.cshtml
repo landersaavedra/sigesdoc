@@ -1,0 +1,197 @@
+﻿@using SIGESDOC.Web.Seguridad
+
+@model IEnumerable<SIGESDOC.Response.ConsultaFacturasResponse>
+@{
+    ViewBag.Title = "Consulta Comprobantes";
+}
+
+<ol class="breadcrumb" style="margin-bottom: 5px;">
+    <li><a href="#">Mantenimiento</a></li>
+    <li class="active">Comprobantes</li>
+</ol>
+
+<div class="bs-callout bs-callout-info">
+    <h4>Consulta de Comprobantes</h4>
+    <p>En esta sección usted puede consultar los comprobantes creadas</p>
+</div>
+
+<div class="panel panel-primary">
+    <div class="panel-heading panet-heading-sm">Búsqueda de Comprobantes registradas</div>
+    <div class="panel-body">
+        @using (Ajax.BeginForm(new AjaxOptions { HttpMethod = "Get" }))
+        {
+            <div class="row">
+                <div class="col-md-2">
+                    <div class="input-group input-group-sm">
+                        <span class="input-group-addon">Tipo Comprobante</span>
+                        @Html.TextBox("tipo_comprobante", null, new { @class = "form-control input-sm", @maxlength = "20" })
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <div class="input-group input-group-sm">
+                        <span class="input-group-addon">Comprobante</span>
+                        @Html.TextBox("comprobante", null, new { @class = "form-control input-sm"})
+                    </div>
+                </div>
+
+                <div class="col-md-2">
+                    <div class="input-group input-group-sm">
+                        <span class="input-group-addon">Operaciones</span>
+                        @Html.TextBox("operac", null, new { @class = "form-control input-sm"})
+                    </div>
+                </div>
+            </div>
+            <br>
+            <div class="row">
+                <div class="col-md-2">
+                    <div class="input-group input-group-sm">
+                        <span class="input-group-addon">RUC/DNI</span>
+                        @Html.TextBox("documento", null, new { @class = "form-control input-sm"})
+                    </div>
+                </div>
+
+                <div class="col-md-3">
+                    <div class="input-group input-group-sm">
+                        <span class="input-group-addon">Nombre</span>
+                        @Html.TextBox("externo", null, new { @class = "form-control input-sm" })
+                    </div>
+                </div>
+            </div>
+    <br>
+            <div class="row">
+
+                <div class="col-md-1">
+                    <input type="submit" id="btnBuscar" class="btn btn-primary btn-sm pull-left" value="Actualizar" />
+                </div>
+                <button id="btnNuevafactura" type="button" class="btn btn-primary btn-sm">Nuevo Comprobante</button>
+            </div>
+        }
+    </div>
+</div>
+
+<button id="export_excel" type="button" style="background-color:green; border:1px solid white; color:white;"> Exportar Excel</button>
+<br />
+<br />
+<div id="grid">
+    <table id="grid_factura" class="table table-striped table-hover table-condensed tabla small">
+        <thead>
+            <tr class="cabecera text-center">
+                <th scope="col">Usuario crea</th>
+                <th scope="col">Fecha</th>
+                <th scope="col">Tipo Comprobante</th>
+                <th scope="col">Comprobante</th>
+                <th scope="col">Tupa/Serv</th>
+                <th scope="col">Valor FE</th>
+                <th scope="col">Importe</th>
+                <th scope="col">RUC/DNI</th>
+                <th scope="col">Datos</th>
+                <th scope="col">Direccion</th>
+                <th scope="col">Operaciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            @if (ViewData["Comprobante_tabla"] != null)
+            {
+                foreach (System.Data.DataRow dr in (ViewData["Comprobante_tabla"] as System.Data.DataTable).Rows)
+                {
+                    <tr>
+                        <td style=" text-align:center;"> @dr["USUARIO_REGISTRO"] </td>
+                        <td style=" text-align:center;"> @dr["FECHA_TEXT"] </td>
+                        <td style=" text-align:center;"> @dr["TIPO_COMPROBANTE"] </td>
+                        <td style=" text-align:center;"><ul class="list-inline" style="margin-bottom:0"><li><a href="/General/Imprimir_recibo_serie1/@dr["ID_COMPROBANTE"]" target="_blank">@dr["COMPROBANTE"]</a></li></ul> </td>
+                        <td style=" text-align:center;"> @dr["TUPA_SERV"] </td>
+                        <td style=" text-align:center;"> @dr["VALOR_FACT_EXP"] </td>
+                        <td style=" text-align:center;"> @dr["IMPORTE_TOTAL"] </td>
+                        <td style=" text-align:center;"> @dr["DOCUMENTO"] </td>
+                        <td style=" text-align:center;"> @dr["EXTERNO"] </td>
+                        <td style=" text-align:center;"> @dr["DIRECCION"] </td>
+                        @if (dr["RUTA_PDF"].ToString() == "")
+                        {
+                            <td style="text-align:center;">
+                                <ul class="list-inline" style="margin-bottom:0">
+                                    <li>
+                                        <a class="Subir_archivo" id=@dr["ID_OPERACION"] href="#" title="Subir Archivo">
+                                            <i class="blue glyphicon glyphicon-upload"></i>
+                                        </a>
+                                    </li>
+                                    @dr["OPERACIONES"]
+                                </ul>
+                            </td>
+                        }
+                        else
+                        {
+                            <td style=" text-align:center;">
+                                <ul class="list-inline" style="margin-bottom:0"><li><a class="ver_pdf" id=@dr["ID_OPERACION"] href="#"> @dr["OPERACIONES"] </a></li></ul>
+                            </td>
+                        }
+                    </tr>
+                }
+            }
+        </tbody>
+    </table>
+</div>
+
+
+
+@*<div id="grid">    @grid.GetHtml(        tableStyle: "table table-striped table-hover table-condensed tabla small",        headerStyle: "cabecera",        columns: new[] {                        grid.Column(null, header:"Id Factura",format: p=> p.id_factura),            grid.Column(null, header:"Factura",format: p=> p.num1_fact.ToString("000") + "-" + p.num2_fact.ToString("000000")),           grid.Column(null, header:"Importe Total", format: p=> p.importe_total.ToString())        }                                         , footerStyle: "hidden"                                         )    @if (Model.Count() == 0)    {        <div class="row">            <div class="col-lg-12 text-center">                <div class="well well-sm">                    No se encontraron registros                </div>            </div>        </div>    }    else    {        <div class="row">            <div id="paginator" class="col-lg-12">                @grid.PagerList(mode: WebGridPagerModes.All, firstText: "Primero", previousText: "Anterior", nextText: "Siguiente", lastText: "Último")            </div>        </div>    }</div>*@
+
+<script type="text/javascript">
+
+    function IsNumeric(dato) {
+        var valor = dato.indexOf(".");
+        if ((window.event.keyCode > 47 && window.event.keyCode < 58) || window.event.keyCode == 13) {
+            window.event.returnValue = true;
+        }
+        else {
+            window.event.returnValue = false;
+        }
+    }
+
+
+    $(document).ready(function () {
+
+
+
+        $(document).on('click', '.Subir_archivo', function () {
+            var id_operacion = $(this).attr('id');
+            var url = "/General/variable_Subir_archivo_operacion/" + id_operacion;
+            window.location.href = url;
+        });
+
+        $(document).on('click', '.ver_pdf', function () {
+            var id_operacion = $(this).attr('id');
+            var url = "/General/Ver_voucher_oper/" + id_operacion;
+            window.open(url, '_blank');
+        });
+
+
+        $('#btnNuevafactura').click(function () {
+            var url = "/General/Nueva_Factura/";
+            window.location.href = url;
+        });
+
+        $('#export_excel').click(function () {
+            var url = "/General/Export_Excel_comprobantes/" + $('#comprobante').val() + "/" + $('#tipo_comprobante').val() + "/" + $('#documento').val() + "/" + $('#externo').val() + "/" + $('#operac').val();
+            var win = window.open(url, '_blank');
+        });
+
+        $("#grid_factura").DataTable({
+            "ordering": false,
+            "lengthChange": false,
+            "searching": false,
+            "info": false,
+            "language": {
+                "paginate": {
+                    "previous": "Anterior",
+                    "next": "Siguiente"
+                }
+            }
+        });
+
+
+
+        //$(function () {            $('#paginator ul li a').click(function () {                var url = $(this).attr('href') + '&' + $('form').serialize();                $(this).attr('href', url);            });        });
+
+
+    });
+</script>

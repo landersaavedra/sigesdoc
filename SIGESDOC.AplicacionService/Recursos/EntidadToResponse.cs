@@ -28,7 +28,14 @@ namespace SIGESDOC.AplicacionService
                 numero_ht = entidad.NUMERO_HT,
                 pdf = entidad.PDF,
                 id_oficina_direccion = entidad.ID_OFICINA_DIRECCION,
-                ruc = entidad.RUC
+                ruc = entidad.RUC,
+                evaluador_cdl_notif = entidad.EVALUADOR_CDL_NOTIF,
+                direccion_cdl_notif = entidad.DIRECCION_CDL_NOTIF,
+                empresa_cdl_notif = entidad.EMPRESA_CDL_NOTIF,
+                folia_cdl_notif = entidad.FOLIA_CDL_NOTIF,
+                doc_notificar_cdl_notif = entidad.DOC_NOTIFICAR_CDL_NOTIF,
+                exp_o_ht_cdl_notif = entidad.EXP_O_HT_CDL_NOTIF,
+                exp_o_ht_n_cdl_notif = entidad.EXP_O_HT_N_CDL_NOTIF
 
             };
             return item;

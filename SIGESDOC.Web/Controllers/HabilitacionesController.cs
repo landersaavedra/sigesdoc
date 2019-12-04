@@ -10368,7 +10368,10 @@ namespace SIGESDOC.Web.Controllers
                     tbl.Columns.Add("DOC_NOTIFICAR_CDL_NOTIF");
                     tbl.Columns.Add("EXP_O_HT_CDL_NOTIF");
                     tbl.Columns.Add("EXP_O_HT_N_CDL_NOTIF");
+                    //Add by AA - 03/12/2019
 
+
+                    tbl.Columns.Add("ID_TIPO_DOCUMENTO");
 
 
                     var documento_dhcpa = _HabilitacionesService.Lista_Documentos_dhcpa(var_evaluador, cmbtipo_documento, asunto, cmbanno_documento);
@@ -10399,7 +10402,8 @@ namespace SIGESDOC.Web.Controllers
                             result.folia_cdl_notif,
                             result.doc_notificar_cdl_notif,
                             result.exp_o_ht_cdl_notif,
-                            result.exp_o_ht_n_cdl_notif
+                            result.exp_o_ht_n_cdl_notif,
+                            result.id_tipo_documento
                             );
                     };
 
@@ -10418,6 +10422,25 @@ namespace SIGESDOC.Web.Controllers
                 return RedirectToAction("Index", "Inicio");
             }
         }
+
+        [AllowAnonymous]
+        public ActionResult Imprimir_cedula_notificacion_dhcpa(int id)
+        {
+
+            DocumentoDhcpaResponse doc = new DocumentoDhcpaResponse();
+            doc = _HabilitacionesService.Lista_Documento_dhcpa_x_id_rs(id);
+
+            ViewBag.Str_documento = _HojaTramiteService.Consult_tipo_docuemnto(doc.id_tipo_documento ?? 0) + " Nº " + doc.num_doc.ToString() + " " + doc.nom_doc;
+            ViewBag.Str_exp_o_ht_n_cdl_notif = doc.exp_o_ht_n_cdl_notif;
+            ViewBag.Str_empresa_cdl_notif = doc.empresa_cdl_notif;
+            ViewBag.Str_asunto = doc.asunto;
+            ViewBag.Str_doc_notificar_cdl_notif = doc.doc_notificar_cdl_notif;
+            ViewBag.Str_folios = doc.folia_cdl_notif.ToString();
+            ViewBag.Str_direccion_cdl_notif = doc.direccion_cdl_notif;
+            
+            return View();
+        }
+
 
         [AllowAnonymous]
         public ActionResult Consulta_Solicitudes_dhcpa(int page = 1)

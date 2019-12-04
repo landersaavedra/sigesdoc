@@ -1,0 +1,37 @@
+﻿@using MvcReportViewer
+
+@{
+    ViewBag.Title = "Impresión de Pendientes";
+}
+
+<ol class="breadcrumb" style="margin-bottom: 5px;">
+    <li><a href="#">Reporte</a></li>
+    <li class="active">Imprimir Pendientes</li>
+</ol>
+
+@Html.MvcReportViewer(
+                        "/GesdocReportes/RptHojaTramitePendientes",
+        //"/SISBIVALVOS.Reports/rptDer",
+                new
+                {
+                    PERSONA = @ViewBag.persona_num_documento,
+                    OFICINA = User.Identity.Name.Split('|')[4].ToString()
+                },
+        //new { Height = 632, Width = 1500, style = "border: none", AsynRendering = "false" })
+    new { Height = 632, Width = 1140, style = "border: none" })
+
+<div class="form-group">
+    <div class="col-md-12">
+        <button type="button" class="btn btn-primary btn-sm regresar"><< Regresar</button>
+    </div>
+</div>
+<hr>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('.regresar').click(function () {
+            var url = "javascript:history.back(1)";
+            window.location.href = url;
+        });
+    });
+</script>

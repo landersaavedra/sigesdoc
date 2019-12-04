@@ -1,0 +1,533 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="x-ua-compatible" content="IE=edge">
+    <title>@ViewBag.Title - SANIPES</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    @Styles.Render("~/Content/Comun")
+    @Scripts.Render("~/bundles/jquery")
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0-rc2/css/bootstrap-glyphicons.css" rel="stylesheet" />
+    <link href="~/Content/bootstrap-datetimepicker.min.css" rel="stylesheet" />
+    <script src="~/Scripts/bootstrap-datetimepicker.min.js"></script>
+</head>
+<body>
+
+    <div class="modal fade" id="mdl_detalle_bd_principal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog" id="mdl_detalle_mod_bd_principal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                    <h4 class="modal-title" id="myModalLabel">Documentos Pendientes <label id="titulo_50">  </label> </h4>
+                </div>
+
+                <div class="modal-body">
+                    <div class="form-horizontal">
+
+
+                        <div class="col-lg-12" id="finalizar_documento_bd_principal">
+                            <label class="control-label" style="font-weight: bold;" id="Texto_finalizar_documento_bd_principal"></label>
+                            <input type="text" class="form-control hidden" id="txt_id_ht_cerrado_bd_principal" />
+                            <input type="text" class="form-control hidden" id="txt_fecha_bd_principal" />
+                            <input type="text" class="form-control hidden" id="txt_tipo_cerrado_bd_principal" />
+                            <input type="text" class="form-control" id="txt_observacion_cerrado_bd_principal" />
+                            <button type="button" class="btn btn-primary btn-sm" id="btn_confirmar_finalizar_bd_principal">Confirmar</button>
+
+                        </div>
+
+                        <label class="control-label" style="font-weight: bold;">Listado de Documentos Pendientes</label>
+
+                        <div class="row" id="row_regresar_ly">
+                            <button type="button" class="btn btn-primary btn-sm" id="regresar_ly">Retornar</button><br />
+                        </div>
+
+                            <div class="row">
+
+                                <div id="grid_pendiente_detalle">
+                                    <table class="table table-striped table-hover table-condensed tabla small" data-swhgajax="true" data-swhgcontainer="grid" data-swhgcallback="" id="tblbody_detalle_pendiente">
+                                        <thead>
+                                            <tr class="cabecera">
+                                                <th scope="col">Dias</th>
+                                                <th scope="col">Fecha</th>
+                                                <th scope="col">Cantidad</th>
+                                                <th scope="col">Detalle</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody></tbody>
+                                    </table>
+                                </div>
+
+                                <div id="grid_pendiente_detalle_detalle">
+
+                                    <table class="table table-striped table-hover table-condensed tabla small" data-swhgajax="true" data-swhgcontainer="grid" data-swhgcallback="" id="tblbody_detalle_pendiente_detalle">
+                                        <thead>
+                                            <tr class="cabecera">
+                                                <th scope="col">Fecha Recibida</th>
+                                                <th scope="col">Fecha Derivada</th>
+                                                <th scope="col">Hoja Trámite</th>
+                                                <th scope="col">Asunto</th>
+                                                <th scope="col">Documento</th>
+                                                <th scope="col">Externo</th>
+                                                <th scope="col">Oficina que Deriva</th>
+                                                <th scope="col">Servidor Público</th>
+                                                <th scope="col">Opciones</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody></tbody>
+                                    </table>
+                                </div>
+
+                            </div>
+
+                        </div>
+                </div>
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default btn-sm" data-dismiss="modal">Salir</button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <ul class="nav nav-pills nav-stacked">
+            <li class=" navbar-left"><img alt="sanipes" src="@Url.Content("~/Content/img/logo_sanipes.jpg")" height="70" /></li>
+        </ul>
+        <br />
+
+        @if (Request.IsAuthenticated)
+        {
+            <input type="text" class="form-control hidden" id="txt_autentica" value="entro"/>
+            <div class="text-left" style="display:inline-block; width:50%;">
+                <label class="text-info">@string.Format("Bienvenido, {0}", User.Identity.Name.Split('|')[3].Trim())</label>
+            </div>
+
+            <div class="pull-right text-right" style="display:inline-block; width:50%;">
+        @if (User.Identity.Name.Split('|')[5].ToString().Split(',')[0].Trim() == "8" || User.Identity.Name.Split('|')[5].ToString().Split(',')[0].Trim() == "9"
+                || User.Identity.Name.Split('|')[5].ToString().Split(',')[0].Trim() == "16" || User.Identity.Name.Split('|')[5].ToString().Split(',')[0].Trim() == "20")
+        {
+            <a href="#" id="user_document_pendiente"></a>
+        }
+    </div>
+        }
+        else
+        {
+            <input type="text" class="form-control hidden" id="txt_autentica" />
+        }
+        <div class="navbar navbar-inverse navbar-default">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+            </div>
+
+            <div class="navbar-collapse collapse">
+
+                @{Html.RenderAction("Menu", "Inicio", new { area = "" });}
+                @{Html.RenderAction("LoginMenu", "Inicio", new { area = "" });}
+
+            </div>
+
+        </div>
+    </div>
+
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+        <footer>
+            @if (Request.IsAuthenticated)
+            {
+            <p>&copy; @DateTime.Now.Year - SANIPES - @string.Format("{0}", User.Identity.Name.Split('|')[8].Trim())</p>
+            
+            }
+            else
+            {
+            <p>&copy; @DateTime.Now.Year - SANIPES</p>                
+            }
+
+            <ul class="nav nav-pills">
+                <li class=" navbar-right">
+                <img alt="produce" src="@Url.Content("~/Content/img/logo.png")" />
+                <img alt="peru" src="@Url.Content("~/Content/img/logo_peru_progreso_para_todos.jpg")" height="57" />
+                </li>
+            </ul>
+        </footer>
+
+        
+    </div>
+
+    @Scripts.Render("~/bundles/bootstrap")
+
+    <script type="text/javascript">
+    $.ajaxSetup({
+        cache: false
+    });
+    </script>
+
+    @if (Request.IsAuthenticated)
+            {
+        if (User.Identity.Name.Split('|')[5].ToString().Split(',')[0].Trim() == "8" || User.Identity.Name.Split('|')[5].ToString().Split(',')[0].Trim() == "9"
+                || User.Identity.Name.Split('|')[5].ToString().Split(',')[0].Trim() == "16" || User.Identity.Name.Split('|')[5].ToString().Split(',')[0].Trim() == "20")
+        {
+
+            <script type="text/javascript">
+
+                $.ajax({
+                    cache: false,
+                    type: "GET",
+                    url: "@(Url.RouteUrl("consultar_documentos_pendientes_principal"))",
+                    data: {},
+                    success: function (data) {
+                        document.getElementById('user_document_pendiente').innerHTML = data;
+                    }
+                });
+                $("#user_document_pendiente").click(function () {
+                    if ($("#txt_autentica").val() == "entro") {
+                        $("#finalizar_documento_bd_principal").addClass("hidden");
+                        $('#mdl_detalle_mod_bd_principal').css('width', '500px');
+
+                        $('#mdl_detalle_bd_principal').modal('show');
+
+                        $("#grid_pendiente_detalle_detalle").addClass("hidden");
+                        $("#grid_pendiente_detalle").removeClass("hidden");
+                        $("#regresar_ly").addClass("hidden");
+                        $("#grid_pendiente_detalle").html('');
+
+                        jQuery("#grid_pendiente_detalle").append('<table class="table table-striped table-hover table-condensed tabla small" data-swhgajax="true" data-swhgcontainer="grid" data-swhgcallback="" id="tblbody_detalle_pendiente"><thead><tr class="cabecera"><th scope="col">Dias</th><th scope="col">Fecha</th><th scope="col">Cantidad</th><th scope="col">Detalle</th></tr></thead><tbody></tbody></table>');
+
+                        $.ajax({
+                            cache: false,
+                            type: "GET",
+                            url: "@(Url.RouteUrl("consultar_documentos_pendientes_principal_detalle"))",
+                            data: {},
+                            success: function (data) {
+                                $.each(data, function (id, option) {
+                                    var nuevoTD = '<tr>';
+                                    nuevoTD += '<td style="text-align:center;">' + option.diferencia + '</td>';
+                                    nuevoTD += '<td style="text-align:center;">' + option.fecha + '</td>';
+                                    nuevoTD += '<td style="text-align:center;">' + option.cantidad + '</td>';
+                                    nuevoTD += '<td style="text-align:center;" > <ul class="list-inline" style="margin-bottom:0"> <li> <a class="seleccionar_bd_doc_pendiente" href="#" id="' + option.fecha + '" title="seleccionar"> <i class="blue glyphicon glyphicon-th-list"></i> </a> </li> </ul> </td>';
+                                    nuevoTD += '</tr>';
+
+                                    jQuery("#tblbody_detalle_pendiente").append(nuevoTD);
+                                });
+
+                                $("#tblbody_detalle_pendiente").DataTable({
+                                    "lengthChange": false,
+                                    "searching": false,
+                                    //"info": false,
+                                    "language": {
+                                        "paginate": {
+                                            "previous": "Anterior",
+                                            "next": "Siguiente"
+                                        }
+                                    }
+                                });
+
+                            },
+                            error: function (xhr, ajaxOptions, thrownError) {
+                                alert('Failed to retrieve states.');
+                            }
+                        });
+                    }
+                });
+                $(document).on('click', '.seleccionar_bd_doc_pendiente', function () {
+                    if ($("#txt_autentica").val() == "entro") {
+                        $("#finalizar_documento_bd_principal").addClass("hidden");
+                        $("#row_regresar_ly").css('padding-bottom', '15px');
+                        $("#row_regresar_ly").css('padding-top', '15px');
+
+                        $('#mdl_detalle_mod_bd_principal').css('width', '100%');
+                        var v_fecha = $(this).attr('id');
+                        $("#grid_pendiente_detalle").addClass("hidden");
+                        $("#grid_pendiente_detalle_detalle").removeClass("hidden");
+                        $("#regresar_ly").removeClass("hidden");
+
+                        $("#grid_pendiente_detalle_detalle").html('');
+                        $("#txt_fecha_bd_principal").val(v_fecha);
+                        jQuery("#grid_pendiente_detalle_detalle").append('<table class="table table-striped table-hover table-condensed tabla small" data-swhgajax="true" data-swhgcontainer="grid" data-swhgcallback="" id="tblbody_detalle_pendiente_detalle"><thead><tr class="cabecera"><th scope="col">Fecha Recibida</th><th scope="col">Fecha Derivada</th><th scope="col">Hoja Trámite</th><th scope="col">Asunto</th><th scope="col">Documento</th><th scope="col">Externo</th><th scope="col">Oficina que Deriva</th><th scope="col">Servidor Público</th><th scope="col">Opciones</th></tr></thead><tbody></tbody></table>');
+
+                        $.ajax({
+                            cache: false,
+                            type: "GET",
+                            url: "@(Url.RouteUrl("Consultar_documentos_pendientes_detalle_desagregado"))",
+                            data: { fecha: v_fecha },
+                            success: function (data) {
+                                $.each(data, function (id, option) {
+                                    var nuevoTD = '<tr>';
+
+                                    nuevoTD += '<td style="text-align:center;">' + option.fecha_recibida + '</td>';
+                                    nuevoTD += '<td style="text-align:center;">' + option.fecha_derivada + '</td>';
+                                    nuevoTD += '<td style="text-align:center;">' + option.hoja_tramite + '</td>';
+                                    nuevoTD += '<td style="text-align:center;">' + option.asunto + '</td>';
+                                    nuevoTD += '<td style="text-align:center;">' + option.documento + '</td>';
+                                    nuevoTD += '<td style="text-align:center;">' + option.externo + '</td>';
+                                    nuevoTD += '<td style="text-align:center;">' + option.oficina_deriva + '</td>';
+                                    nuevoTD += '<td style="text-align:center;">' + option.servidor_publico + '</td>';
+                                    nuevoTD += '<td style="text-align:center;"> <ul class="list-inline" style="margin-bottom:0">' +
+                                        '<li><a class="Derivar_bd_principal" id=' + option.id_det_documento + '|' + option.hoja_tramite + '|' + option.numero + ' href="#" title="Derivar">' +
+                                                '<i class="blue glyphicon glyphicon-arrow-right"></i>' +
+                                            '</a></li>' +
+                                        '<li><a class="Atendido_bd_principal" id=' + option.id_det_documento + '|' + option.hoja_tramite + ' href="#" title="Atendido">' +
+                                                '<i class="blue glyphicon glyphicon-thumbs-up"></i>' +
+                                            '</a></li>' +
+                                        '<li><a class="Archivo_bd_principal" id=' + option.id_det_documento + '|' + option.hoja_tramite + ' href="#" title="Archivo">' +
+                                                '<i class="blue glyphicon glyphicon-briefcase"></i>' +
+                                            '</a></li>' +
+                                        '</ul></td>';
+                                    nuevoTD += '</tr>';
+
+                                    jQuery("#tblbody_detalle_pendiente_detalle").append(nuevoTD);
+                                });
+
+                                $("#tblbody_detalle_pendiente_detalle").DataTable({
+                                    "lengthChange": false,
+                                    "searching": false,
+                                    //"info": false,
+                                    "language": {
+                                        "paginate": {
+                                            "previous": "Anterior",
+                                            "next": "Siguiente"
+                                        }
+                                    }
+                                });
+
+                            },
+                            error: function (xhr, ajaxOptions, thrownError) {
+                                alert('Failed to retrieve states.');
+                            }
+                        });
+                    }
+                });
+
+                $('#regresar_ly').click(function () {
+                    if ($("#txt_autentica").val() == "entro") {
+                        $("#finalizar_documento_bd_principal").addClass("hidden");
+                        $("#row_regresar_ly").css('padding-bottom', '0px');
+                        $("#row_regresar_ly").css('padding-top', '0px');
+
+                        $('#mdl_detalle_mod_bd_principal').css('width', '500px');
+                        $("#grid_pendiente_detalle").removeClass("hidden");
+                        $("#grid_pendiente_detalle_detalle").addClass("hidden");
+                        $("#regresar_ly").addClass("hidden");
+                        $("#grid_pendiente_detalle").html('');
+
+                        jQuery("#grid_pendiente_detalle").append('<table class="table table-striped table-hover table-condensed tabla small" data-swhgajax="true" data-swhgcontainer="grid" data-swhgcallback="" id="tblbody_detalle_pendiente"><thead><tr class="cabecera"><th scope="col">Dias</th><th scope="col">Fecha</th><th scope="col">Cantidad</th><th scope="col">Detalle</th></tr></thead><tbody></tbody></table>');
+
+                        $.ajax({
+                            cache: false,
+                            type: "GET",
+                            url: "@(Url.RouteUrl("consultar_documentos_pendientes_principal_detalle"))",
+                            data: {},
+                            success: function (data) {
+                                $.each(data, function (id, option) {
+                                    var nuevoTD = '<tr>';
+                                    nuevoTD += '<td style="text-align:center;">' + option.diferencia + '</td>';
+                                    nuevoTD += '<td style="text-align:center;">' + option.fecha + '</td>';
+                                    nuevoTD += '<td style="text-align:center;">' + option.cantidad + '</td>';
+                                    nuevoTD += '<td style="text-align:center;" > <ul class="list-inline" style="margin-bottom:0"> <li> <a class="seleccionar_bd_doc_pendiente" href="#" id="' + option.fecha + '" title="seleccionar"> <i class="blue glyphicon glyphicon-th-list"></i> </a> </li> </ul> </td>';
+                                    nuevoTD += '</tr>';
+
+                                    jQuery("#tblbody_detalle_pendiente").append(nuevoTD);
+                                });
+
+                                $("#tblbody_detalle_pendiente").DataTable({
+                                    "lengthChange": false,
+                                    "searching": false,
+                                    //"info": false,
+                                    "language": {
+                                        "paginate": {
+                                            "previous": "Anterior",
+                                            "next": "Siguiente"
+                                        }
+                                    }
+                                });
+
+                            },
+                            error: function (xhr, ajaxOptions, thrownError) {
+                                alert('Failed to retrieve states.');
+                            }
+                        });
+                    }
+                });
+
+
+                $(document).on('click', '.Derivar_bd_principal', function () {
+                    var id_derivacion = $(this).attr('id').split('|');
+                    window.location.href = "/HojaTramite/Nuevo_Documento/" + id_derivacion[0] + "/" + id_derivacion[1] + "/" + id_derivacion[2];
+                });
+
+                $(document).on('click', '.Atendido_bd_principal', function () {
+                    $("#btn_confirmar_finalizar_bd_principal").removeClass("hidden");
+                    $("#finalizar_documento_bd_principal").removeClass("hidden");
+                    var id_atendido = $(this).attr('id').split('|');
+                    document.getElementById('Texto_finalizar_documento_bd_principal').innerHTML = "Ingrese la observación para Atender la HT : " + id_atendido[1];
+                    $("#txt_tipo_cerrado_bd_principal").val("ATENDER");
+                    $("#txt_id_ht_cerrado_bd_principal").val(id_atendido[0]);
+                });
+
+                $('#btn_confirmar_finalizar_bd_principal').click(function () {
+                    if ($("#txt_autentica").val() == "entro") {
+                        $("#btn_confirmar_finalizar_bd_principal").addClass("hidden");
+                        if ($("#txt_tipo_cerrado_bd_principal").val() == "ATENDER") {
+                            $.ajax({
+                                cache: false,
+                                type: "GET",
+                                url: "/HojaTramite/HT_atender",
+                                data: {
+                                    "id": $("#txt_id_ht_cerrado_bd_principal").val(),
+                                    "observacion": $('#txt_observacion_cerrado_bd_principal').val()
+                                },
+                                success: function (result) {
+                                    $("#finalizar_documento_bd_principal").addClass("hidden");
+                                    $("#grid_pendiente_detalle_detalle").html('');
+                                    var v_fecha = $("#txt_fecha_bd_principal").val();
+                                    jQuery("#grid_pendiente_detalle_detalle").append('<table class="table table-striped table-hover table-condensed tabla small" data-swhgajax="true" data-swhgcontainer="grid" data-swhgcallback="" id="tblbody_detalle_pendiente_detalle"><thead><tr class="cabecera"><th scope="col">Fecha Recibida</th><th scope="col">Fecha Derivada</th><th scope="col">Hoja Trámite</th><th scope="col">Asunto</th><th scope="col">Documento</th><th scope="col">Externo</th><th scope="col">Oficina que Deriva</th><th scope="col">Servidor Público</th><th scope="col">Opciones</th></tr></thead><tbody></tbody></table>');
+
+                                    $.ajax({
+                                        cache: false,
+                                        type: "GET",
+                                        url: "@(Url.RouteUrl("Consultar_documentos_pendientes_detalle_desagregado"))",
+                                        data: { fecha: v_fecha },
+                                        success: function (data) {
+                                            $.each(data, function (id, option) {
+                                                var nuevoTD = '<tr>';
+
+                                                nuevoTD += '<td style="text-align:center;">' + option.fecha_recibida + '</td>';
+                                                nuevoTD += '<td style="text-align:center;">' + option.fecha_derivada + '</td>';
+                                                nuevoTD += '<td style="text-align:center;">' + option.hoja_tramite + '</td>';
+                                                nuevoTD += '<td style="text-align:center;">' + option.asunto + '</td>';
+                                                nuevoTD += '<td style="text-align:center;">' + option.documento + '</td>';
+                                                nuevoTD += '<td style="text-align:center;">' + option.externo + '</td>';
+                                                nuevoTD += '<td style="text-align:center;">' + option.oficina_deriva + '</td>';
+                                                nuevoTD += '<td style="text-align:center;">' + option.servidor_publico + '</td>';
+                                                nuevoTD += '<td style="text-align:center;"> <ul class="list-inline" style="margin-bottom:0">' +
+                                                    '<li><a class="Derivar_bd_principal" id=' + option.id_det_documento + '|' + option.hoja_tramite + '|' + option.numero + ' href="#" title="Derivar">' +
+                                                            '<i class="blue glyphicon glyphicon-arrow-right"></i>' +
+                                                        '</a></li>' +
+                                                    '<li><a class="Atendido_bd_principal" id=' + option.id_det_documento + '|' + option.hoja_tramite + ' href="#" title="Atendido">' +
+                                                            '<i class="blue glyphicon glyphicon-thumbs-up"></i>' +
+                                                        '</a></li>' +
+                                                    '<li><a class="Archivo_bd_principal" id=' + option.id_det_documento + '|' + option.hoja_tramite + ' href="#" title="Archivo">' +
+                                                            '<i class="blue glyphicon glyphicon-briefcase"></i>' +
+                                                        '</a></li>' +
+                                                    '</ul></td>';
+                                                nuevoTD += '</tr>';
+
+                                                jQuery("#tblbody_detalle_pendiente_detalle").append(nuevoTD);
+                                            });
+
+                                            $("#tblbody_detalle_pendiente_detalle").DataTable({
+                                                "lengthChange": false,
+                                                "searching": false,
+                                                //"info": false,
+                                                "language": {
+                                                    "paginate": {
+                                                        "previous": "Anterior",
+                                                        "next": "Siguiente"
+                                                    }
+                                                }
+                                            });
+
+                                        },
+                                        error: function (xhr, ajaxOptions, thrownError) {
+                                            alert('Failed to retrieve states.');
+                                        }
+                                    });
+                                }
+                            });
+                        }
+                        else {
+                            $.ajax({
+                                cache: false,
+                                type: "GET",
+                                url: "/HojaTramite/HT_archivar",
+                                data: {
+                                    "id": $("#txt_id_ht_cerrado_bd_principal").val(),
+                                    "observacion": $('#txt_observacion_cerrado_bd_principal').val()
+                                },
+                                success: function (result) {
+                                    $("#finalizar_documento_bd_principal").addClass("hidden");
+                                    $("#grid_pendiente_detalle_detalle").html('');
+                                    var v_fecha = $("#txt_fecha_bd_principal").val();
+                                    jQuery("#grid_pendiente_detalle_detalle").append('<table class="table table-striped table-hover table-condensed tabla small" data-swhgajax="true" data-swhgcontainer="grid" data-swhgcallback="" id="tblbody_detalle_pendiente_detalle"><thead><tr class="cabecera"><th scope="col">Fecha Recibida</th><th scope="col">Fecha Derivada</th><th scope="col">Hoja Trámite</th><th scope="col">Asunto</th><th scope="col">Documento</th><th scope="col">Externo</th><th scope="col">Oficina que Deriva</th><th scope="col">Servidor Público</th><th scope="col">Opciones</th></tr></thead><tbody></tbody></table>');
+
+                                    $.ajax({
+                                        cache: false,
+                                        type: "GET",
+                                        url: "@(Url.RouteUrl("Consultar_documentos_pendientes_detalle_desagregado"))",
+                                        data: { fecha: v_fecha },
+                                        success: function (data) {
+                                            $.each(data, function (id, option) {
+                                                var nuevoTD = '<tr>';
+
+                                                nuevoTD += '<td style="text-align:center;">' + option.fecha_recibida + '</td>';
+                                                nuevoTD += '<td style="text-align:center;">' + option.fecha_derivada + '</td>';
+                                                nuevoTD += '<td style="text-align:center;">' + option.hoja_tramite + '</td>';
+                                                nuevoTD += '<td style="text-align:center;">' + option.asunto + '</td>';
+                                                nuevoTD += '<td style="text-align:center;">' + option.documento + '</td>';
+                                                nuevoTD += '<td style="text-align:center;">' + option.externo + '</td>';
+                                                nuevoTD += '<td style="text-align:center;">' + option.oficina_deriva + '</td>';
+                                                nuevoTD += '<td style="text-align:center;">' + option.servidor_publico + '</td>';
+                                                nuevoTD += '<td style="text-align:center;"> <ul class="list-inline" style="margin-bottom:0">' +
+                                                    '<li><a class="Derivar_bd_principal" id=' + option.id_det_documento + '|' + option.hoja_tramite + '|' + option.numero + ' href="#" title="Derivar">' +
+                                                            '<i class="blue glyphicon glyphicon-arrow-right"></i>' +
+                                                        '</a></li>' +
+                                                    '<li><a class="Atendido_bd_principal" id=' + option.id_det_documento + '|' + option.hoja_tramite + ' href="#" title="Atendido">' +
+                                                            '<i class="blue glyphicon glyphicon-thumbs-up"></i>' +
+                                                        '</a></li>' +
+                                                    '<li><a class="Archivo_bd_principal" id=' + option.id_det_documento + '|' + option.hoja_tramite + ' href="#" title="Archivo">' +
+                                                            '<i class="blue glyphicon glyphicon-briefcase"></i>' +
+                                                        '</a></li>' +
+                                                    '</ul></td>';
+                                                nuevoTD += '</tr>';
+
+                                                jQuery("#tblbody_detalle_pendiente_detalle").append(nuevoTD);
+                                            });
+
+                                            $("#tblbody_detalle_pendiente_detalle").DataTable({
+                                                "lengthChange": false,
+                                                "searching": false,
+                                                //"info": false,
+                                                "language": {
+                                                    "paginate": {
+                                                        "previous": "Anterior",
+                                                        "next": "Siguiente"
+                                                    }
+                                                }
+                                            });
+
+                                        },
+                                        error: function (xhr, ajaxOptions, thrownError) {
+                                            alert('Failed to retrieve states.');
+                                        }
+                                    });
+                                }
+                            });
+                        }
+                    }
+                });
+
+                $(document).on('click', '.Archivo_bd_principal', function () {
+                    $("#btn_confirmar_finalizar_bd_principal").removeClass("hidden");
+                    $("#finalizar_documento_bd_principal").removeClass("hidden");
+                    var id_archivo = $(this).attr('id').split('|');
+                    document.getElementById('Texto_finalizar_documento_bd_principal').innerHTML = "Ingrese la observación para Archivar la HT : " + id_archivo[1];
+                    $("#txt_tipo_cerrado_bd_principal").val("ARCHIVAR");
+                    $("#txt_id_ht_cerrado_bd_principal").val(id_archivo[0]);
+                });
+
+
+            </script>
+
+        }
+    }
+    @RenderSection("scripts", required: false)
+</body>
+</html>

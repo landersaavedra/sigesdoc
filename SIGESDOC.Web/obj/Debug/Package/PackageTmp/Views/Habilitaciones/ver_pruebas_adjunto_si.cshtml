@@ -1,0 +1,55 @@
+﻿
+@{
+    ViewBag.Title = "Galeria Imagenes";
+}
+
+
+@Html.TextBox("id_imagenes", (string)ViewBag.Catalogo_imagenes, new { @class = "form-control input-sm hidden", })
+
+<ul class="galeria" id="tab_gallery">
+</ul>
+
+<link rel="stylesheet" href="~/Content/gallery_image.css">
+
+<script type="text/javascript">
+
+    var id_imagenes = $("#id_imagenes").val().split(',');
+
+    $("#tab_gallery li").remove();
+
+    var imagenes = [];
+
+    $.each(id_imagenes, function (index, value) {
+
+        var imagen = '';
+        imagen = '@Url.Action("Vista_imagenes_pruebas_si", new { id = "-1" })';
+        imagen = imagen.replace("-1", value.toString());
+
+        var nuevoTD = '';
+
+        nuevoTD = '<li class="galeria__item"><img style="max-width: 100%; display: block;" class="galeria__img" id="' + value + '"></li>';
+
+        jQuery("#tab_gallery").append(nuevoTD);
+
+        $("#" + value.toString()).attr('src', imagen);
+
+    });
+
+    $(".galeria__img").click(function (e) {
+        var img = e.target.src;
+        var modal = '<div class="modal_img1" id="modal_gallery"><img src="' + img + '" class="modal__img"><div class="modal__boton" id="modal__boton">X</div></div>';
+        $('body').append(modal);
+        $('#modal__boton').click(function () {
+            $('#modal_gallery').remove();
+        })
+    });
+
+    $(document).keyup(function (e) {
+        if (e.which == 27) {
+            $('#modal_gallery').remove();
+        }
+    })
+
+
+
+</script>

@@ -1,0 +1,292 @@
+﻿@using SIGESDOC.Web.Seguridad
+
+@model IEnumerable<SIGESDOC.Response.DocumentoDetalleResponse>
+@{
+    WebGrid grid = new WebGrid(rowsPerPage: ServiceConfiguration.PageSize, ajaxUpdateContainerId: "grid");
+    grid.Bind(Model, autoSortAndPage: false, rowCount: ViewBag.TotalRows);
+    ViewBag.Title = "Consulta Mis Hojas de Trámite atendidas";
+}
+
+<ol class="breadcrumb" style="margin-bottom: 5px;">
+    <li><a href="#">Hoja de Trámite</a></li>
+    <li class="active">Consulta Mis HT Atendidos</li>
+</ol>
+
+<div class="bs-callout bs-callout-info">
+    <h4>Consultar Hojas de Trámite</h4>
+    <p>En esta sección usted puede Consultar las Hojas de Trámite que ha atendido</p>
+</div>
+
+
+<div class="modal fade" id="mdlConformidad2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title" id="myModalLabel">
+                    <label id="txt_titulo">  </label>
+                    <label id="HT_titulo">  </label>
+                </h4>
+            </div>
+            <div class="modal-body">
+                <div id="mensajesPopup"></div>
+                <div id="progress" class="progress hidden">
+                    <div class="progress progress-striped active">
+                        <div class="progress-bar" style="width: 100%">
+                            <p>Procesando</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="menssage">
+                    <span id="conformidad"></span>
+                    <p>¿Está Seguro de Desatender la HT?.</p>
+                    <input type="text" id="txtId5" class="hidden" />
+
+                    <div class="form-group">
+                        <div class="col-md-2">
+                            <label class="control-label" for="txt_observacion_desatender">Observación:</label>
+                        </div>
+                        <div class="col-lg-9">
+                            <textarea class="form-control input-sm" id="txt_observacion_desatender" name="txt_observacion_desatender" maxlength="500"></textarea>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary btn-sm" id="bntConfirmar2">Si</button>
+                <button type="button" class="btn btn-default btn-sm" data-dismiss="modal">No</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="panel panel-primary">
+    <div class="panel-heading panet-heading-sm">Búsqueda de hoja de trámite</div>
+    <div class="panel-body">
+        @using (Ajax.BeginForm(new AjaxOptions { HttpMethod = "Get" }))
+        {
+            <div class="row">
+
+                <div class="col-lg-3">
+                    <div class="input-group input-group-sm">
+                        <span class="input-group-addon">Hoja Trámite</span>
+                        @Html.TextBox("HT", null, new { @class = "form-control input-sm", @maxlength = "11" })
+                    </div>
+                </div>
+
+                <div class="col-lg-3">
+                    <div class="input-group input-group-sm">
+                        <span class="input-group-addon">Asunto</span>
+                        @Html.TextBox("Asunto", null, new { @class = "form-control input-sm", @maxlength = "500" })
+                    </div>
+                </div>
+
+                <div class="col-lg-4">
+                    <div class="input-group input-group-sm">
+                        <span class="input-group-addon">Entidad/Persona Natural</span>
+                        @Html.TextBox("Empresa", null, new { @class = "form-control input-sm", @maxlength = "500", style = "width:265px" })
+                    </div>
+                </div>
+            </div>
+
+            <br>
+
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="input-group input-group-sm">
+                        <span class="input-group-addon">Tipo Documento: </span>
+                        @Html.DropDownList("cmbtipo_documento", (IEnumerable<SelectListItem>)ViewBag.lst_tipo_documento, new { @class = "form-control input-sm" })
+                    </div>
+                </div>
+
+                <div class="col-lg-6">
+                    <div class="input-group input-group-sm">
+                        <span class="input-group-addon">Nro / Nombre</span>
+                        <div class="row">
+                            <div class="col-lg-3">
+                                @Html.TextBox("num_documento", null, new { @class = " form-control input-sm", @onpaste = "return false;", @maxlength = "11", @onkeypress = "return IsNumeric_vista(this.value);" })
+                            </div>
+                            <div class="col-lg-6">
+                                @Html.TextBox("nom_documento", null, new { @class = " form-control input-sm" })
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <br>
+            <div class="row">
+                <div class="col-lg-1">
+                    <input type="submit" id="btnBuscar" class="btn btn-primary btn-sm pull-left" value="Actualizar" />
+                </div>
+            </div>
+        }
+    </div>
+</div>
+
+<div id="grid">
+    @grid.GetHtml(
+        tableStyle: "table table-striped table-hover table-condensed tabla small",
+        headerStyle: "cabecera",
+        columns: new[] {
+            
+            grid.Column(null, header:"Nro HT",format: p=> p.documento.hoja_tramite.hoja_tramite),
+            grid.Column(null, header:"Externa/Interna",format: p=>(p.documento.hoja_tramite.nombre_tipo_tramite)),
+            grid.Column(null, header:"Documento",format: p=>p.documento.nom_doc),
+            grid.Column(null, header:"Asunto",format: p=>p.documento.hoja_tramite.asunto),
+            grid.Column(null, header:"Fecha Emisión", format: p=> p.documento.hoja_tramite.fecha_emision),
+            grid.Column(null, header:"Fecha Atendido", format: p=> p.fecha_atendido),
+            grid.Column(null, header:"Oficina Atendido", format: p=> p.nombre_oficina_destino),
+            grid.Column(null, header:"Observación Atendido", format: p=> p.observacion_atendido),
+            grid.Column(null, header:"Entidad/Persona Natural",format: p=>p.documento.hoja_tramite.nombre_oficina),
+            grid.Column(null, header:"Opciones",format: p => MvcHtmlString.Create("<ul class='list-inline' style='margin-bottom:0'><li>"+
+                            Html.IconlinkItem("Inicial", "Imprimir_Inicio", (string)p.documento.hoja_tramite.numero.ToString(), "glyphicon glyphicon-print", "green", true).ToString()  + "</li><li>" +
+                            Html.IconlinkItem("Vacia", "Imprimir", (string)p.documento.hoja_tramite.numero.ToString(), "glyphicon glyphicon-print", "blue", true).ToString()  + "</li><li>" +
+                            Html.IconlinkItem("Historial", "Imprimir_History", (string)p.documento.hoja_tramite.numero.ToString(), "glyphicon glyphicon-th-list", "blue", true).ToString()  + "</li><li>" +
+                            Html.IconlinkItem("Desatender", "Desatender", (string)p.documento.hoja_tramite.hoja_tramite.ToString() + "|"+ (string)p.id_det_documento.ToString(), "glyphicon glyphicon-remove", "red", true).ToString()  + "</li></ul>")
+
+                            )
+        }
+                                         , footerStyle: "hidden"
+                                         )
+    @if (Model.Count() == 0)
+    {
+        <div class="row">
+            <div class="col-lg-12 text-center">
+                <div class="well well-sm">
+                    No se encontraron registros
+                </div>
+            </div>
+        </div>
+    }
+    else
+    {
+        <div class="row">
+            <div id="paginator" class="col-lg-12">
+                @grid.PagerList(mode: WebGridPagerModes.All, firstText: "Primero", previousText: "Anterior", nextText: "Siguiente", lastText: "Último")
+            </div>
+        </div>
+    }
+
+</div>
+
+<script type="text/javascript">
+
+
+    function IsNumeric_vista(dato) {
+        var valor = dato.indexOf(".");
+        var evento = window.event || dato;
+        if ((window.event.keyCode > 47 && window.event.keyCode < 58) || window.event.keyCode == 13) {
+            window.event.returnValue = true;
+        }
+        else {
+            window.event.returnValue = false;
+        }
+    }
+
+
+    $(document).ready(function () {
+
+
+        $(function () {
+            $('#paginator ul li a').click(function () {
+                var url = $(this).attr('href') + '&' + $('form').serialize();
+                $(this).attr('href', url);
+            });
+        });
+
+        $('#bntConfirmar2').click(function () {
+
+            $.ajax({
+                cache: false,
+                type: "GET",
+                url: "/HojaTramite/HT_Desatender",
+                data: {
+                    "id": $('#txtId5').val(),
+                    "observacion": $('#txt_observacion_desatender').val(),
+                },
+                beforeSend: function () {
+                    $('#message').addClass("hidden");
+                    $('#progress').removeClass("hidden").addClass("show");
+                    $('#bntConfirmar2').attr("disabled", "disabled");
+                    $('#btnCancelar').attr("disabled", "disabled");
+                },
+                complete: function () {
+                    $('#progress').removeClass("show").addClass("hidden");
+                    $('#bntConfirmar2').removeAttr("disabled", "disabled");
+                    $('#btnCancelar').removeAttr("disabled", "disabled");
+                },
+                success: function (result) {
+                    $('.field-validation-error').each(function () {
+                        $(this).removeClass("field-validation-error").addClass("field-validation-valid");
+                        $(this).html('');
+                    });
+                    $("#mensajesPopup").html(result).hide();
+                    $("#mensajesPopup").slideDown(500, function () { });
+                    setTimeout(function () {
+                        $('#txtId5').val('');
+                        $("#mensajesPopup").hide();
+                        $('#mdlConformidad2').modal('hide');
+                        $('#btnBuscar').trigger("click");
+                    }, 1000);
+                },
+                error: function (result) {
+                    if (result.status == 500) {
+                        $("#mensajesPopup").html(result.responseText).hide();
+                        $("#mensajesPopup").slideDown(500, function () { });
+                    }
+                    else if (result.status == 400) {
+                        $('.field-validation-error').each(function () {
+                            $(this).removeClass("field-validation-error").addClass("field-validation-valid");
+                            $(this).html('');
+                        });
+                        $.each(result.responseJSON.errors, function (key, value) {
+                            if (value != null) {
+                                var container = $('span[data-valmsg-for="' + key + '"]');
+                                container.removeClass("field-validation-valid").addClass("field-validation-error");
+                                container.html(value);
+                            }
+                        });
+                        $("#mensajesPopup").html(result.responseJSON.summary).hide();
+                        if (result.responseJSON.summary != "") {
+                            $("#mensajesPopup").slideDown(500, function () { });
+                        }
+                    }
+                }
+            });
+        });
+
+        $(document).on('click', '.Desatender', function () {
+            $('#txtId5').val($(this).attr('id'));
+            var id_det_documento = $('#txtId5').val().split('|');
+            document.getElementById('txt_titulo').innerHTML = "Aviso Quitar Atención - ";
+            document.getElementById('HT_titulo').innerHTML = id_det_documento[0];
+            $('#txtId5').val(id_det_documento[1]);
+            $('#mdlConformidad2').modal();
+        });
+
+        $(document).on('click', '.Imprimir', function () {
+            var hoja_tramite = $(this).attr('id');
+            var url = "/Hojatramite/Imprimir_Vacia/" + hoja_tramite;
+            window.location.href = url;
+        });
+
+        $(document).on('click', '.Imprimir_History', function () {
+            var hoja_tramite = $(this).attr('id');
+            var url = "/Hojatramite/Imprimir_History/" + hoja_tramite;
+            window.location.href = url;
+        });
+
+        $(document).on('click', '.Imprimir_Inicio', function () {
+            var hoja_tramite = $(this).attr('id');
+            var url = "/Hojatramite/Imprimir_Nuevo/" + hoja_tramite;
+            window.location.href = url;
+        });
+
+
+    });
+
+</script>

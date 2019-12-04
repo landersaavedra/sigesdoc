@@ -1,0 +1,192 @@
+﻿@model SIGESDOC.Web.Models.ConsultarUsuarioViewModel
+
+@{
+    ViewBag.Title = "Ingreso";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="bs-callout bs-callout-info">
+    <h4>Ingreso al Sistema</h4>
+</div>
+
+@using (Html.BeginForm("Login", "Account", FormMethod.Post, new { @id = "nuevoForm", @enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        @Html.ValidationSummary(true, "Falla de Ingreso, Verificar datos", new { @class = "text-danger" })
+        
+
+        <div class="form-group">
+            @Html.Label("Usuario", new { @class = "control-label col-md-1" })
+            <div class="col-md-2">
+                @Html.TextBoxFor(model => model.persona_num_documento, new { @class = "form-control input-sm", @maxlength = "20", @onpaste = "return false;", @onkeypress = "return IsNumeric_vista(this.value);" })
+                @Html.ValidationMessageFor(model => model.persona_num_documento)
+            </div>
+            <div class="col-md-4">
+                <label id="lbl_valida_dni" style="color: #B44D4D">  </label>
+            </div>
+        </div>
+
+
+        <div class="form-group">
+            @Html.Label("Clave", new { @class = "control-label col-md-1" })
+            <div class="col-md-2">
+                @Html.EditorFor(model => model.clave, new { @class = "form-control input-sm" })
+                @Html.ValidationMessageFor(model => model.clave)
+            </div>
+
+            <div class="col-md-4">
+                <label id="lbl_valida_clave" style="color: #B44D4D">  </label>
+            </div>
+
+        </div>
+
+        <div class="row hidden">
+            @Html.TextBox("var_consul", (string)ViewBag.cond_ofi, new { @class = "form-control input-sm", @HiddenInputAttribute="false" })
+            @Html.TextBoxFor(model => model.persona, new { @class = "form-control input-sm", @HiddenInputAttribute="false"  })
+        </div>
+
+        <div class="form-group oculto">   
+            @Html.Label("Sede", new { @class = "control-label col-md-1" })
+            <div class="col-md-5">
+                @Html.DropDownList("cmbsede", (IEnumerable<SelectListItem>)ViewBag.lstSede, new { @class = "form-control input-sm" })
+            </div>     
+               
+        </div>
+        
+        <div class="form-group oculto">
+
+            @Html.Label("Oficina", new { @class = "control-label col-md-1" })
+            <div class="col-md-5">
+                @Html.DropDownList("cmboficina", (IEnumerable<SelectListItem>)ViewBag.lstOficina, new { @class = "form-control input-sm" })
+            </div>
+        </div>
+
+        <hr>
+        <div class="form-group">
+            <div class="col-md-12">
+                <input id="btnGrabar" type="submit" value="Ingresar" class="btn btn-primary btn-sm" />
+                <button type="button" class="btn btn-default btn-sm regresar">Limpiar</button>
+            </div>
+            <div class="col-md-1">
+                <div id="loaderImage" class="hidden"></div>
+            </div>
+        </div>
+    </div>
+}
+
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
+
+<script type="text/javascript">
+
+
+    function IsNumeric_vista(dato) {
+        var valor = dato.indexOf(".");
+        var evento = window.event || dato;
+        if ((window.event.keyCode > 47 && window.event.keyCode < 58)) {
+            window.event.returnValue = true;
+        }
+        else {
+            window.event.returnValue = false;
+        }
+    }
+
+
+    $(document).ready(function () {
+
+        $("#cmbsede").change(function () {
+            var SelectOficina = $(this).val();
+            var ddloficina = $("#cmboficina");
+            $.ajax({
+                cache: false,
+                type: "GET",
+                url: "@(Url.RouteUrl("Llenar_oficina_sede"))",
+                data: {
+                    "dni": $("#persona_num_documento").val(),
+                    "id_sede": SelectOficina
+                },
+            success: function (data) {
+                ddloficina.html('');
+                $.each(data, function (id, option) {
+                    ddloficina.append($('<option></option>').val(option.Value).html(option.Text));
+                });
+            },
+            error: function (xhr, ajaxOptions, thrownError) {
+                alert('Failed to retrieve states.');
+            }
+        });
+    });
+
+        //$('.oculto_consul').hide();
+        $('.oculto').hide();
+        if ($("#var_consul").val()=="1")
+        {
+            $('.oculto').show();
+            $("#persona_num_documento").attr("disabled", true);
+            $("#clave").attr("disabled", true);
+        }
+        else
+        {
+            $('.oculto').hide();
+            $("#persona_num_documento").attr("disabled", false);
+            $("#clave").attr("disabled", false);
+            $('#persona_num_documento').val('');
+            $('#clave').val('');
+            $('#persona_num_documento').focus();
+        }
+
+        document.getElementById('lbl_valida_dni').innerHTML = "";
+        document.getElementById('lbl_valida_clave').innerHTML = "";
+
+        $(document).on("click", ".regresar", function () {
+            $('.oculto').hide();
+            $("#persona_num_documento").attr("disabled", false);
+            $("#clave").attr("disabled", false);
+        });
+        
+
+
+        $("#persona_num_documento").focus();
+
+        $('#nuevoForm').submit(function (e) {
+
+
+            if ($("#nuevoForm").valid() == false) {
+
+                return false;
+            }
+            else {
+
+                document.getElementById('lbl_valida_dni').innerHTML = "";
+                document.getElementById('lbl_valida_clave').innerHTML = "";
+
+                if ($("#clave").val().trim().length < 1)//Si no pasa la validacion no entra
+                {
+                    document.getElementById('lbl_valida_clave').innerHTML = "INGRESAR CLAVE";
+                    return false;
+                }
+
+
+                if ($("#persona_num_documento").val().trim().length < 8 && $("#persona_num_documento").val().trim().length > 0)//Si no pasa la validacion no entra
+                {
+                    if ($("#persona_num_documento").val().trim().length < 8 && $("#persona_num_documento").val().trim().length > 0) {
+                        document.getElementById('lbl_valida_dni').innerHTML = "DNI incorrecto";
+                        $("#persona_num_documento").focus();
+                    }
+                    return false;
+                }
+                $("#persona_num_documento").attr("disabled", false);
+                $("#clave").attr("disabled", false);
+                $("#persona").val($("#cmboficina").val() + "|" + $("#cmbsede option:selected").text() + "-" + $("#cmboficina option:selected").text());
+
+            }
+
+        });
+    });
+</script>

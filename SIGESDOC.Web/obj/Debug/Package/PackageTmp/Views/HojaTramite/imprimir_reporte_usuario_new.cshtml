@@ -1,0 +1,120 @@
+﻿@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
+
+@{
+    Layout = "";
+}
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="x-ua-compatible" content="IE=edge">
+    <title>@ViewBag.Title - SANIPES</title>
+    @Scripts.Render("~/bundles/modernizr")
+    @Scripts.Render("~/bundles/jquery")
+
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+
+    <br>
+    <br>
+
+    <style>
+        body {
+            font-family: Gotham, "Helvetica Neue", Helvetica, Arial, sans-serif;
+            font-size: 13px;
+        }
+
+        font {
+            font-family: Gotham, "Helvetica Neue", Helvetica, Arial, sans-serif;
+            font-size: 11px;
+        }
+
+        th {
+            font-weight: 100 !important;
+        }
+    </style>
+
+    <table width="1024" border="0" cellpadding="0" cellspacing="0">
+        <tr>
+            <td width="729" align="center">
+                <table style="border:1px solid #fff;" width="100%" border="0" cellpadding="10">
+                    <tr>
+                        <td width="23%" height="67"><img src="http://www.sanipes.gob.pe/imagenes/logo-aviso.jpg" width="210" height="70" alt="" /></td>
+                        <td width="61%" align="left">
+                            <font size="2" style="text-align: left">
+                                <strong style="font-size:15px;">
+                                    Unidad de Tecnologías de la Información<br>
+                                    Sistema de Gestión de Documentos (SIGESDOC)
+                                </strong>
+                            </font>
+                        </td>
+
+                        <td width="16%" align="center"><br></td>
+                    </tr>
+                </table><br>
+                <br><br><br><br>
+            </td>
+        </tr>
+        <tr>
+            <td align="center"></td>
+        </tr>
+        <tr>
+            <td align="center">
+                <table width="100%" border="0" cellpadding="5" cellspacing="0">
+                    <tr>
+                        <td width="100%" style="text-align: center"><font size="2" style="text-align: left"><strong style="font-size:15px;">Reporte de actividades</strong></font><br><br></td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td align="center">&nbsp;</td>
+        </tr>
+        <tr align="center">
+            <td>
+                <table style="border:1px solid #fff;" width="100%" border="0" cellpadding="5" cellspacing="0">
+                    <tr>
+                        <td colspan="2"><div style=" line-height:12px; font-size:11px; text-align: center"><font size="2" style="text-align: left"><strong style="font-size:15px;">Nombre</strong></font>:</div></td>
+                        <td colspan="3">@User.Identity.Name.Split('|')[3].Trim()</td>
+                    </tr>
+                    <tr>
+                        <td colspan="2"><div style=" line-height:12px; font-size:11px; text-align: center"><font size="2" style="text-align: left"><strong style="font-size:15px;">Periodo</strong></font>:</div></td>
+                        <td colspan="3">@Html.Raw(ViewBag.lst_desdehasta)</td>
+                    </tr>
+                    <tr>
+                        <td colspan="2"><div style=" line-height:12px; font-size:11px; text-align: center"><strong><font size="2" style="text-align: left"><strong style="font-size:15px;">Creación</strong></font>:</strong></div></td>
+                        <td colspan="3">&nbsp;</td>
+                    </tr>
+                    <tr>
+                        <td width="12%">&nbsp;</td>
+                        <td width="12%">&nbsp;</td>
+                        <td width="3%">&nbsp;</td>
+                        <td width="55%">@Html.Raw(ViewBag.text_registro)</td>
+                        <td width="18%">&nbsp;</td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr align="center">
+            <td height="18">&nbsp;</td>
+        </tr>
+    </table>
+
+
+    <br>
+</body>
+</html>
+
+
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        window.print();
+    });
+</script>

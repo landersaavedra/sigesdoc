@@ -3668,6 +3668,7 @@ namespace SIGESDOC.Repositorio
                                       num_doc = MDCHPA.NUM_DOC,
                                       nom_doc = MDCHPA.NOM_DOC,
                                       nom_tipo_documento = MTDOC.NOMBRE,
+                                      id_tipo_documento = MTDOC.ID_TIPO_DOCUMENTO,
                                       asunto = MDCHPA.ASUNTO,
                                       anexos = MDCHPA.ANEXOS,
                                       pdf = MDCHPA.PDF,

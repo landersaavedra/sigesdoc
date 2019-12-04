@@ -1,0 +1,102 @@
+﻿@{
+    ViewBag.Title = "Nuevo Protocolo";
+}
+
+<div class="bottom hidden"></div>
+<div id="mensajes"></div>
+
+<ol class="breadcrumb" style="margin-bottom: 5px;">
+    <li><a href="#">Habilitaciones</a></li>
+    <li class="active">Subir Protocolo</li>
+</ol>
+
+<div class="bs-callout bs-callout-info">
+    <h4>Subir Protocolo</h4>
+    <p>Use el siguiente Subir un archivo</p>
+
+</div>
+
+@using (Html.BeginForm("Subir_Protocolo_transporte", "Habilitaciones", FormMethod.Post, new { @id = "nuevoForm", @enctype = "multipart/form-data" }))
+{
+
+    @Html.AntiForgeryToken()
+    <div class="form-horizontal">
+        <ol class="breadcrumb">
+            <li class="active">Información del Protocolo</li>
+            @Html.TextBox("id_protocolo", (string)ViewBag.id_protocolo, new { @class = "form-control input-sm hidden" })
+            @Html.TextBox("check", (string)ViewBag.id_protocolo, new { @class = "form-control input-sm hidden" })
+
+            <div class="form-group">
+                <input type="file" name="file" id="fileUpload" />
+            </div>
+
+
+        </ol>
+
+        <hr>
+
+        <div class="form-group">
+            <div class="col-md-8">
+                <input id="btnGrabar" type="submit" value="Subir Archivo" class="btn btn-primary btn-sm" />
+                <button type="button" class="btn btn-default btn-sm regresar">Cancelar</button>
+            </div>
+            <div class="col-md-1">
+                <div id="loaderImage" class="hidden"></div>
+            </div>
+        </div>
+
+    </div>
+
+
+}
+
+<div class="modal fade" id="mdlConformidad" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title" id="myModalLabel">Mensaje</h4>
+            </div>
+            <div class="modal-body">
+                <span id="conformidad"></span>
+                <p>Se subio el archivo correctamente.</p>
+            </div>
+            <div class="modal-footer">
+                <button id="cerrar_page" type="button" class="btn btn-primary btn-sm" onclick="window.close();">Aceptar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
+
+
+<script type="text/javascript">
+
+    $(document).ready(function () {
+
+        if ($("#check").val() == "") {
+            $('#mdlConformidad').modal();
+            setTimeout(function () {
+                window.close();
+            }, 5000);
+            
+        }
+
+        $('#mdlConformidad').on('hidden.bs.modal', function () {
+            window.close();
+        })
+
+        $('.regresar').click(function () {
+            var url = "javascript:history.back(1)";
+            window.location.href = url;
+        });
+        
+        $('#nuevoForm').submit(function (e) {
+            $("#check").val("-1");
+        });
+
+    });
+</script>

@@ -1,0 +1,124 @@
+﻿
+<div class="bottom hidden"></div>
+<div id="mensajes"></div>
+
+<ol class="breadcrumb" style="margin-bottom: 5px;">
+    <li>Adjuntar Archivo Imagenes de la Insección</li>
+</ol>
+
+<div class="bs-callout bs-callout-info">
+    <h4>@Html.Label("", (string)ViewBag.Str_Solicitud) </h4>
+    <h4>Adjuntar Imagenes de la Inspección</h4>
+    <p>Use el siguiente formulario para adjuntar las imagenes de la inspección</p>
+</div>
+
+@using (Html.BeginForm("Adjuntar_archivo_pruebas_si", "Habilitaciones", FormMethod.Post, new { @id = "nuevoForm", @enctype = "multipart/form-data" }))
+{
+
+    @Html.AntiForgeryToken()
+    <div class="form-horizontal">
+
+        <div class="row hidden">
+            @Html.TextBox("Id_solicitud_sdhpa", (string)ViewBag.id_sol_in)
+        </div>
+
+        <div class="form-group">
+            @Html.Label("IMAGENES DE LA INSPECCIÓN", new { @class = "col-md-3 control-label" })
+            <div class="col-md-3">
+                <input multiple type="file" name="files" value="Buscar" accept="image/jpeg" />
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.Label("SELECCIONAR INSPECTOR", new { @class = "col-md-3 control-label" })
+            <div class="col-md-3">
+                @Html.DropDownList("CMBINSPECTOR", (IEnumerable<SelectListItem>)ViewBag.lst_personal_od, new { @class = "form-control input-sm" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <input id="btnGrabar" type="submit" value="Guardar Imagenes" class="btn btn-primary btn-sm" />
+            <button type="button" class="btn btn-default btn-sm regresar">Cancelar</button>
+        </div>
+    </div>
+}
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
+
+<script type="text/javascript">
+
+    $(document).ready(function () {
+
+        $(document).on("click", ".regresar", function () {
+            window.location = '@Url.Action("Consulta_seguimiento_x_registro_OD", "Habilitaciones")';
+        });
+
+        $('#nuevoForm').submit(function (e) {
+
+            e.preventDefault();
+            $.ajax({
+                url: this.action,
+                type: this.method,
+                data: new FormData(this),
+                processData: false,
+                contentType: false,
+                beforeSend: function () {
+                    $('#loaderImage').removeClass("hidden").addClass("show");
+                    $('#btnGrabar').attr("disabled", "disabled");
+                },
+                complete: function () {
+                    $('#loaderImage').removeClass("show").addClass("hidden");
+                    $('#btnGrabar').removeAttr("disabled", "disabled");
+                },
+                success: function (result) {
+
+                    $('.field-validation-error').each(function () {
+                        $(this).removeClass("field-validation-error").addClass("field-validation-valid");
+                        $(this).html('');
+                    });
+
+                    $("#mensajes").html(result).hide();
+                    $("html, body").animate({ scrollTop: 0 }, '1000', 'swing', function () {
+                        $("#mensajes").slideDown(1000, function () { });
+                        setTimeout(function () {
+                            window.location = '@Url.Action("Consulta_seguimiento_x_registro_OD", "Habilitaciones")';
+                        }, 1000);
+                    });
+                },
+
+                error: function (result) {
+                    if (result.status == 500) {
+                        $("#mensajes").html(result.responseText).hide();
+                        $("html, body").animate({ scrollTop: 0 }, '500', 'swing', function () {
+                            $("#mensajes").slideDown(500, function () { });
+                        });
+                    }
+                    else if (result.status == 400) {
+                        $('.field-validation-error').each(function () {
+                            $(this).removeClass("field-validation-error").addClass("field-validation-valid");
+                            $(this).html('');
+                        });
+                        $.each(result.responseJSON.errors, function (key, value) {
+                            if (value != null) {
+                                var container = $('span[data-valmsg-for="' + key + '"]');
+                                container.removeClass("field-validation-valid").addClass("field-validation-error");
+                                container.html(value);
+                            }
+                        });
+                        $("#mensajes").html(result.responseJSON.summary).hide();
+                        if (result.responseJSON.summary != "") {
+                            $("html, body").animate({ scrollTop: 0 }, '500', 'swing', function () {
+                                $("#mensajes").slideDown(500, function () { });
+                            });
+                        }
+                    }
+                }
+            });
+        });
+    });
+</script>
+
+
+

@@ -7061,21 +7061,25 @@ namespace SIGESDOC.Web.Controllers
 
                                                 listDniOut.Add(dni);
                                             }
-                                            else if(dni.coResultado == "0001")
+                                            else if(dni.coResultado.Trim() == "0001")
                                             {
                                                 dni.msg = "El número de DNI corresponde a un menor de edad";
+                                                listDniOut.Add(dni);
                                             }
-                                            else if (dni.coResultado == "0999")
+                                            else if (dni.coResultado.Trim() == "0999")
                                             {
                                                 dni.msg = "No se ha encontrado información para el número de DNI";
+                                                listDniOut.Add(dni);
                                             }
-                                            else if (dni.coResultado == "1999")
+                                            else if (dni.coResultado.Trim() == "1999")
                                             {
                                                 dni.msg = "Error desconocido / inesperado";
+                                                listDniOut.Add(dni);
                                             }
-                                            else if (dni.coResultado == "1001")
+                                            else if (dni.coResultado.Trim() == "1001")
                                             {
                                                 dni.msg = "Uno o más datos de la petición no son válidos";
+                                                listDniOut.Add(dni);
                                             }
                                             else
                                             {

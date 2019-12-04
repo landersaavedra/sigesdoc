@@ -1,0 +1,86 @@
+﻿@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
+
+
+
+@{
+    Layout = "";
+}
+
+<!doctype html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="x-ua-compatible" content="IE=edge">
+    <title>@ViewBag.Title - SANIPES</title>
+    @Scripts.Render("~/bundles/modernizr")
+    @Scripts.Render("~/bundles/jquery")
+
+</head>
+
+<body>
+    <table style="border: 1px solid #ffffff; font-size: 11px; font-family: Gotham, 'Helvetica Neue', Helvetica, Arial, sans-serif; text-align: left;" width="800" border="1" cellpadding="2" cellspacing="0">
+
+        <tr>
+            <td style=" font-size:18px; text-align: center; border:0px solid #fff;" colspan="8"><strong>ANEXO A</strong></td>
+        </tr>
+
+        <tr style="font-size:15px;">
+            <td colspan="8" style="text-align: center; border:0px solid #fff;">
+                <strong>(PAPELETA DE DEPOSITO)@Html.Label("", (string)ViewBag.mes_anio_text)  </strong><br>
+                REPORTE RESUMEN DE LIQUIDACIÓN DIARIA DE INGRESOS<br> (PAPELETAS DE DEPOSITO)@Html.Label("", (string)ViewBag.mes_anio_text)
+
+            </td>
+        </tr>
+        <tr>
+            <td style="font-size: 18px; border: 0px solid #fff; text-align: center;" colspan="8">
+                <strong>
+                    <br>
+                    SERIE 1
+                </strong>
+            </td>
+        </tr>
+
+
+        <tr>
+            <td width="84" style="text-align: center"><strong>MES</strong>&nbsp;</td>
+            <td width="61" style="text-align: center"><strong>DIA</strong></td>
+            <td width="61" style="text-align: center"><strong>DIA</strong></td>
+            <td width="157" style="text-align: center">
+                <strong>
+                    INGRESOS POR<br>
+                    CERTIFICACIONES
+                </strong>
+            </td>
+            <td width="125" style="text-align: center">
+                <strong>
+                    INGRESOS POR    <br>
+                    PROTOCOLO
+                </strong>
+            </td>
+            <td width="95" style="text-align: center"><strong>INGRESOS POR    ENSAYO DE LABORATORIO </strong></td>
+            <td width="79" style="text-align: center"><strong>ACCESO    INFORMACION PUBLICA</strong></td>
+            <td width="88" bgcolor="#CCCCCC" style="text-align: center; border-right:1px solid #d1d1d1;"><strong>TOTAL</strong></td>
+        </tr>
+        @Html.Raw(ViewBag.html_detalle_mes)
+        @Html.Raw(ViewBag.html_detalle_mes_total)
+
+
+        <tr>
+            <td style="font-size:16px;  border-left:0px solid #fff;" colspan="8">&nbsp;</td>
+        </tr>
+        <tr>
+            <td colspan="9" style="font-size:16px; border-top:0px solid #fff; border-left:0px solid #fff;"><strong>Surquillo @Html.Raw(ViewBag.dia_text)</strong></td>
+        </tr>
+    </table>
+
+</body>
+</html>
+<script type="text/javascript">
+    $(document).ready(function () {
+        window.print();
+    });
+</script>

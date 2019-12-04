@@ -1,0 +1,530 @@
+﻿@using SIGESDOC.Web.Seguridad
+
+@model IEnumerable<SIGESDOC.Response.ConsultarPersonalResponse>
+
+@{
+    WebGrid grid = new WebGrid(rowsPerPage: ServiceConfiguration.PageSize, ajaxUpdateContainerId: "grid");
+    grid.Bind(Model, autoSortAndPage: false, rowCount: ViewBag.TotalRows);
+    ViewBag.Title = "Editar Persona Natural";
+}
+
+<ol class="breadcrumb" style="margin-bottom: 5px;">
+    <li><a href="#">DNI / CE</a></li>
+    <li class="active">Nuevo</li>
+</ol>
+
+<div class="bs-callout bs-callout-info">
+    @Html.TextBox("doc_iden", (string)ViewBag.Doc_iden, new { @class = "form-control input-sm hidden", })
+    <h4>DOC: @Html.Label("", (string)ViewBag.Doc_iden) </h4>
+    <h4>Nombre Completo: @Html.Label("", (string)ViewBag.Nom_completo) </h4>
+    <p>Use el siguiente formulario para asignar oficina</p>
+</div>
+
+<div class="modal fade" id="mdloficina_asigna" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title" id="myModalLabel">
+                    <label> Agregar Oficina </label>
+                </h4>
+
+            </div>
+            <form method="post" id="formdestino">
+                <div class="modal-body">
+                    <div class="form-horizontal">
+
+                        <div class="form-group">
+                            <div class="col-md-2">
+                                <label class="control-label" for="cmbempresa_asigna">Empresa:</label>
+                            </div>
+                            <div class="col-md-10">
+                                @Html.DropDownList("cmbempresa_asigna", (IEnumerable<SelectListItem>)ViewBag.lista_combo, new { @class = "form-control input-sm" })
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="col-md-2">
+                                <label class="control-label" for="cmbsede_asigna">Sede:</label>
+                            </div>
+                            <div class="col-md-10">
+                                @Html.DropDownList("cmbsede_asigna", (IEnumerable<SelectListItem>)ViewBag.lista_combo, new { @class = "form-control input-sm" })
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="col-md-2">
+                                <label class="control-label" for="cmboficina_asigna">Oficina:</label>
+                            </div>
+                            <div class="col-md-10">
+                                @Html.DropDownList("cmboficina_asigna", (IEnumerable<SelectListItem>)ViewBag.lista_combo, new { @class = "form-control input-sm" })
+                                <label id="lbl_valida_oficina_asigna" style="color: #B44D4D">  </label>
+                            </div>
+                        </div>
+                        
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary btn-sm" id="btn_Aceptar">Aceptar</button>
+                    <button type="button" class="btn btn-default btn-sm" data-dismiss="modal">Cancelar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="mdlConformidad2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title" id="myModalLabel">
+                    <label id="txt_titulo_10">  </label>
+                </h4>
+            </div>
+            <div class="modal-body">
+                <div id="mensajesPopup"></div>
+                <div id="progress" class="progress hidden">
+                    <div class="progress progress-striped active">
+                        <div class="progress-bar" style="width: 100%">
+                            <p>Procesando</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="menssage">
+                    <span id="conformidad"></span>
+                    <p>¿Está seguro de quitar Oficina?.</p>
+                    <input type="text" id="txtId5" class="hidden" />
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary btn-sm" id="bntConfirmar2">Si</button>
+                <button type="button" class="btn btn-default btn-sm" data-dismiss="modal">No</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="row">
+    @Html.TextBox("txt_int_ubigeo", (string)ViewBag.ubigeo_per, new { @class = "form-control input-sm hidden" })
+    <div class="col-md-4">
+        <div class="form-group" style="margin-left: 0px; margin-right: 0px; margin-bottom: 0px;">
+            <label class=" control-label">Paterno:</label>
+            @Html.TextBox("txt_paterno_edit", (string)ViewBag.paterno_per, new { @class = "form-control input-sm" })
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="form-group" style="margin-left: 0px; margin-right: 0px; margin-bottom: 0px;">
+            <label class=" control-label">Materno:</label>
+            @Html.TextBox("txt_materno_edit", (string)ViewBag.materno_per, new { @class = "form-control input-sm" })
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="form-group" style="margin-left: 0px; margin-right: 0px; margin-bottom: 0px;">
+            <label class=" control-label">Materno:</label>
+            @Html.TextBox("txt_nombres_edit", (string)ViewBag.nombres_per, new { @class = "form-control input-sm" })
+        </div>
+    </div>
+</div>
+
+<div class="row">
+
+    <div class="col-md-12">
+        <div class="form-group" style="margin-left: 0px; margin-right: 0px; margin-bottom: 0px;">
+            <label class=" control-label">Direccion:</label>
+            @Html.TextBox("txt_direccion_edit", (string)ViewBag.direccion_per, new { @class = "form-control input-sm" })
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-4">
+        <div class="form-group" style="margin-left:0px; margin-right:0px;">
+            <label class="control-label">Departamento:</label>
+            @Html.DropDownList("cmblista_departamento_edit", (IEnumerable<SelectListItem>)ViewBag.lst_departamento, new { @class = "form-control input-sm" })
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="form-group" style="margin-left:0px; margin-right:0px;">
+            <label class="control-label">Provincia:</label>
+            @Html.DropDownList("cmblista_provincia_edit", (IEnumerable<SelectListItem>)ViewBag.lst_provincia, new { @class = "form-control input-sm" })
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="form-group" style="margin-left:0px; margin-right:0px;">
+            <label class="control-label">Distrito:</label>
+            @Html.DropDownList("cmblista_distrito_edit", (IEnumerable<SelectListItem>)ViewBag.lst_distrito, new { @class = "form-control input-sm" })
+        </div>
+    </div>
+</div>
+
+<br>
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="form-group" style="margin-left: 0px; margin-right: 0px; margin-bottom: 0px;">
+            <button type="button" class="btn btn-primary btn-sm" id="btn_guardar_cambios">Guardar Cambios</button>
+            <button type="button" class="btn btn-primary btn-sm" id="Btn_asignar_oficina">Asignar Oficina</button>
+            <button type="submit" class="btn btn-primary btn-sm hidden" id="btnBuscar">Buscar</button>
+            <button type="button" class="btn btn-default btn-sm regresar">Regresar</button>
+        </div>
+    </div>
+</div>
+
+
+
+<h2></h2>
+
+<div id="grid">
+    @grid.GetHtml(
+        tableStyle: "table table-striped table-hover table-condensed tabla small",
+        headerStyle: "cabecera",
+        columns: new[] {
+
+            grid.Column(null, header:"Empresa",format: p=> p.Razon_social),
+            grid.Column(null, header:"Oficina",format: p=> p.nom_ofi),
+            grid.Column(null, header:"Sede", format: p=> p.nom_sede),
+            grid.Column(null, header:"Opciones",format: p => MvcHtmlString.Create("<ul class='list-inline' style='margin-bottom:0'><li>"+
+                Html.IconlinkItem("Eliminar", "Eliminar", (string)p.id_per_empresa.ToString(), "glyphicon glyphicon-remove", "red", true).ToString()  + "</li></ul>")
+                       )
+        }
+                        , footerStyle: "hidden"
+                        )
+    @if (Model.Count() == 0)
+    {
+        <div class="row">
+            <div class="col-lg-12 text-center">
+                <div class="well well-sm">
+                    No se encontraron registros
+                </div>
+            </div>
+        </div>
+    }
+    else
+    {
+        <div class="row">
+            <div id="paginator" class="col-lg-12">
+                @grid.PagerList(mode: WebGridPagerModes.All, firstText: "Primero", previousText: "Anterior", nextText: "Siguiente", lastText: "Último")
+            </div>
+        </div>
+    }
+
+</div>
+
+
+<script type="text/javascript">
+
+    function IsNumeric(dato) {
+        var valor = dato.indexOf(".");
+        if ((window.event.keyCode > 47 && window.event.keyCode < 58)) {
+            window.event.returnValue = true;
+        }
+        else {
+            window.event.returnValue = false;
+        }
+    }
+
+    function Llena_empresa() {
+        var ddlempresa = $("#cmbempresa_asigna");
+        $.ajax({
+            cache: false,
+            type: "GET",
+            url: "@(Url.RouteUrl("Llenar_empresa"))",
+            data: {},
+            success: function (data) {
+                ddlempresa.html('');
+                var entra = 0;
+                $.each(data, function (id, option) {
+                    ddlempresa.append($('<option></option>').val(option.Value).html(option.Text));
+                    if (entra == 0) {
+
+                        llena_sede(option.Value);
+                        entra = 1;
+                    }
+                });
+            },
+            error: function (xhr, ajaxOptions, thrownError) {
+                alert('Failed to retrieve states.');
+            }
+        });
+    }
+
+    function llena_sede(empresa) {
+        var ddlsede = $("#cmbsede_asigna");
+
+        $.ajax({
+            cache: false,
+            type: "GET",
+            url: "@(Url.RouteUrl("Llenar_Sedes_empresa"))",
+            data: { "ruc": empresa },
+            success: function (data) {
+                ddlsede.html('');
+                var entra = 0;
+                $.each(data, function (id, option) {
+                    ddlsede.append($('<option></option>').val(option.Value).html(option.Text));
+                    if (entra == 0) {
+                        llena_oficina(option.Value);
+                        entra = 1;
+                    }
+                });
+            },
+            error: function (xhr, ajaxOptions, thrownError) {
+                alert('Failed to retrieve states.');
+            }
+        });
+    }
+
+    function llena_oficina(sede) {
+        var ddloficina = $("#cmboficina_asigna");
+        $.ajax({
+            cache: false,
+            type: "GET",
+            url: "@(Url.RouteUrl("Llenar_oficina_sede_externo"))",
+            data: { "id_sede": sede },
+            success: function (data) {
+
+                ddloficina.html('');
+                $.each(data, function (id, option) {
+                    ddloficina.append($('<option></option>').val(option.Value).html(option.Text));
+                });
+            },
+            error: function (xhr, ajaxOptions, thrownError) {
+                alert('Failed to retrieve states.');
+            }
+        });
+    }
+
+    $(document).ready(function () {
+        
+        $("#cmblista_departamento_edit").val($("#txt_int_ubigeo").val().substring(0, 2));
+        var selectdepartamento = $("#txt_int_ubigeo").val().substring(0, 2);
+        var ddlprovincia = $("#cmblista_provincia_edit");
+        $.ajax({
+            cache: false,
+            type: "GET",
+            url: "@(Url.RouteUrl("llenar_provincia_x_departamento"))",
+            data: { "id_departamento": selectdepartamento },
+            success: function (data) {
+                ddlprovincia.html('');
+                $.each(data, function (id, option) {
+                    ddlprovincia.append($('<option></option>').val(option.Value).html(option.Text));
+                });
+                $("#cmblista_provincia_edit").val($("#txt_int_ubigeo").val().substring(2, 4));
+                var selectprovincia = $("#txt_int_ubigeo").val().substring(0, 4);
+                var ddldistrito = $("#cmblista_distrito_edit");
+                $.ajax({
+                    cache: false,
+                    type: "GET",
+                    url: "@(Url.RouteUrl("llenar_distrito_x_provincia"))",
+                    data: { "id_provincia": selectprovincia },
+                    success: function (data) {
+                        ddldistrito.html('');
+                        $.each(data, function (id, option) {
+                            ddldistrito.append($('<option></option>').val(option.Value).html(option.Text));
+                        });
+                        $("#cmblista_distrito_edit").val($("#txt_int_ubigeo").val());
+                    },
+                    error: function (xhr, ajaxOptions, thrownError) {
+                        alert('Failed to retrieve states.');
+                    }
+                });
+            },
+            error: function (xhr, ajaxOptions, thrownError) {
+                alert('Failed to retrieve states.');
+            }
+        });
+        
+        $("#cmblista_departamento_edit").change(function () {
+            var selectdepartamento = $(this).val();
+            var ddlprovincia = $("#cmblista_provincia_edit");
+            $.ajax({
+                cache: false,
+                type: "GET",
+                url: "@(Url.RouteUrl("llenar_provincia_x_departamento"))",
+                data: { "id_departamento": selectdepartamento },
+                success: function (data) {
+                    ddlprovincia.html('');
+                    $.each(data, function (id, option) {
+                        ddlprovincia.append($('<option></option>').val(option.Value).html(option.Text));
+                    });
+                    $("#cmblista_provincia_edit").change();
+                },
+                error: function (xhr, ajaxOptions, thrownError) {
+                    alert('Failed to retrieve states.');
+                }
+            });
+        });
+
+        $(document).on("click", ".regresar", function () {
+            window.location = '@Url.Action("Listar_Persona_Natural", "HojaTramite")';
+        });
+
+        $("#cmblista_provincia_edit").change(function () {
+            var selectprovincia = $("#cmblista_departamento_edit").val() + $(this).val();
+            var ddldistrito = $("#cmblista_distrito_edit");
+            $.ajax({
+                cache: false,
+                type: "GET",
+                url: "@(Url.RouteUrl("llenar_distrito_x_provincia"))",
+                data: { "id_provincia": selectprovincia },
+                success: function (data) {
+                    ddldistrito.html('');
+                    $.each(data, function (id, option) {
+                        ddldistrito.append($('<option></option>').val(option.Value).html(option.Text));
+                    });
+                },
+                error: function (xhr, ajaxOptions, thrownError) {
+                    alert('Failed to retrieve states.');
+                }
+            });
+        });
+
+
+        $("#btn_guardar_cambios").click(function () {
+
+            $.ajax({
+                cache: false,
+                type: "GET",
+                url: "/HojaTramite/Ht_editar_persona",
+                data: {
+                    "persona_num_documento": $('#doc_iden').val(),
+                    "nombres": $('#txt_nombres_edit').val(),
+                    "paterno": $('#txt_paterno_edit').val(),
+                    "materno": $('#txt_materno_edit').val(),
+                    "direccion": $('#txt_direccion_edit').val(),
+                    "ubigeo": $('#cmblista_distrito_edit').val(),
+                },
+                success: function (result) {
+                    location.reload();
+                },
+                error: function (result) {
+                    alert('Failed to retrieve states.');
+                }
+            });
+
+        });
+
+        $('#Btn_asignar_oficina').click(function () {
+            $('#btn_Aceptar').removeAttr("disabled", "disabled");
+            Llena_empresa();
+            $('#mdloficina_asigna').modal();
+        });
+
+        $("#cmbempresa_asigna").change(function () {
+            llena_sede($(this).val());
+        });
+
+        $("#cmbsede_asigna").change(function () {
+            llena_oficina($(this).val());
+        });
+        
+        $('#btn_Aceptar').click(function () {
+
+            $('#btn_Aceptar').attr("disabled", "disabled");
+            $('#btnCancelar').attr("disabled", "disabled");
+
+            document.getElementById('lbl_valida_oficina_asigna').innerHTML = "";
+
+            if ($("#cmboficina_asigna").val() == "0") {
+                document.getElementById('lbl_valida_oficina_asigna').innerHTML = "Seleccionar Oficina";
+                $('#btn_Aceptar').removeAttr("disabled", "disabled");
+                $('#btnCancelar').removeAttr("disabled", "disabled");
+                return
+            }
+
+            $.ajax({
+                cache: false,
+                type: "GET",
+                url: "/Oficina/Asignar_Oficina",
+                data: {
+                    "id_oficina_dir" : $("#cmboficina_asigna").val(),
+                    "person_num_doc": $("#doc_iden").val()
+                },
+                success: function (result) {
+                    location.reload();
+                },
+                error: function (result) {
+                    $('.field-validation-error').each(function () {
+                        $(this).removeClass("field-validation-error").addClass("field-validation-valid");
+                        $(this).html('');
+                    });
+                    $.each(result.responseJSON.errors, function (key, value) {
+                        if (value != null) {
+                            var container = $('span[data-valmsg-for="' + key + '"]');
+                            container.removeClass("field-validation-valid").addClass("field-validation-error");
+                            container.html(value);
+                        }
+                    });
+                }
+            });
+
+        });
+
+        $(function () {
+            $('#paginator ul li a').click(function () {
+                var url = $(this).attr('href') + '&' + $('form').serialize();
+                $(this).attr('href', url);
+            });
+        });
+
+        $(document).on('click', '.Eliminar', function () {
+
+            $('#txtId5').val($(this).attr('id'));
+            document.getElementById('txt_titulo_10').innerHTML = "Aviso de Quitar Oficina";
+            $('#mdlConformidad2').modal();
+
+        });
+
+
+        $('#bntConfirmar2').click(function () {
+
+
+            $.ajax({
+                cache: false,
+                type: "GET",
+                url: "/Oficina/Quitar_Oficina",
+                data: { "id_per_emp": $('#txtId5').val() },
+                beforeSend: function () {
+                    $('#message').addClass("hidden");
+                    $('#progress').removeClass("hidden").addClass("show");
+                    $('#bntConfirmar2').attr("disabled", "disabled");
+                    $('#btnCancelar').attr("disabled", "disabled");
+                },
+                complete: function () {
+                    $('#progress').removeClass("show").addClass("hidden");
+                    $('#bntConfirmar2').removeAttr("disabled", "disabled");
+                    $('#btnCancelar').removeAttr("disabled", "disabled");
+                },
+                success: function (result) {
+                    location.reload();
+                },
+                error: function (result) {
+                    if (result.status == 500) {
+                        $("#mensajesPopup").html(result.responseText).hide();
+                        $("#mensajesPopup").slideDown(500, function () { });
+                    }
+                    else if (result.status == 400) {
+                        $('.field-validation-error').each(function () {
+                            $(this).removeClass("field-validation-error").addClass("field-validation-valid");
+                            $(this).html('');
+                        });
+                        $.each(result.responseJSON.errors, function (key, value) {
+                            if (value != null) {
+                                var container = $('span[data-valmsg-for="' + key + '"]');
+                                container.removeClass("field-validation-valid").addClass("field-validation-error");
+                                container.html(value);
+                            }
+                        });
+                        $("#mensajesPopup").html(result.responseJSON.summary).hide();
+                        if (result.responseJSON.summary != "") {
+                            $("#mensajesPopup").slideDown(500, function () { });
+                        }
+                    }
+                }
+            });
+        });
+
+    });
+</script>

@@ -1,0 +1,147 @@
+﻿@using SIGESDOC.Web.Seguridad
+
+@model IEnumerable<SIGESDOC.Response.ConsultarDbGeneralMaeAlmacenSedeResponse>
+@{
+    ViewBag.Title = "Consulta Almacenes";
+}
+
+<ol class="breadcrumb" style="margin-bottom: 5px;">
+    <li><a href="#">Mantenimiento</a></li>
+    <li class="active">Almacen</li>
+</ol>
+
+<div class="bs-callout bs-callout-info">
+    <h4>Consulta de Almacenes</h4>
+    <p>En esta sección usted puede consultar los almacenes registrados</p>
+</div>
+
+<div class="panel panel-primary">
+    <div class="panel-heading panet-heading-sm">Búsqueda de Almacenes registrados</div>
+    <div class="panel-body">
+        @using (Ajax.BeginForm(new AjaxOptions { HttpMethod = "Get" }))
+        {
+            <div class="row">
+                @*CODIGO_ALMACEN="",int ID_ACTIVIDAD_ALMACEN=0,int ID_FILIAL=0,string EXTERNO=""
+                    ViewBag.lista_actividad = lista_actividad;
+                    ViewBag.lista_filial = lista_od_filial;
+                *@
+                <div class="col-md-4">
+                    <div class="input-group input-group-sm">
+                        <span class="input-group-addon">Codigo Almacén</span>
+                        @Html.TextBox("CODIGO_ALMACEN", null, new { @class = "form-control input-sm", @maxlength = "100" })
+                    </div>
+                </div>
+
+                <div class="col-md-6">
+                    <div class="input-group input-group-sm">
+                        <span class="input-group-addon">Externo</span>
+                        @Html.TextBox("EXTERNO", null, new { @class = "form-control input-sm", @maxlength = "100" })
+                    </div>
+                </div>
+            </div>
+            <br />
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="input-group input-group-sm">
+                        <span class="input-group-addon">Actividad</span>
+                        @Html.DropDownList("ID_ACTIVIDAD_ALMACEN", (IEnumerable<SelectListItem>)ViewBag.lista_actividad, new { @class = "form-control input-sm" })
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="input-group input-group-sm">
+                        <span class="input-group-addon">Filial</span>
+                        @Html.DropDownList("ID_FILIAL", (IEnumerable<SelectListItem>)ViewBag.lista_filial, new { @class = "form-control input-sm" })
+                    </div>
+                </div>
+            </div>
+            
+            <br />
+            
+            <div class="row">
+                <div class="col-md-1">
+                    <input type="submit" id="btnBuscar" class="btn btn-primary btn-sm pull-left" value="Actualizar" />
+                </div>
+                <button id="btnNuevoAlmacen" type="button" class="btn btn-primary btn-sm">Nuevo Almacén</button>
+            </div>
+        }
+    </div>
+</div>
+
+
+<div id="grid">
+    <table id="grid_almacen" class="table table-striped table-hover table-condensed tabla small">
+        <thead>
+            <tr class="cabecera text-center">
+                <th hidden="hidden">Id Almacen</th>
+                <th scope="col">Externo</th>
+                <th scope="col" class="visible-lg">Dirección</th>
+                <th scope="col">Código </th>
+                <th scope="col" class="visible-lg">Actividad </th>
+                <th scope="col" class="visible-lg">Filial </th>
+            </tr>
+        </thead>
+        <tbody>
+            @if (ViewData["Almacen_Tabla"] != null)
+            {
+                foreach (System.Data.DataRow dr in (ViewData["Almacen_Tabla"] as System.Data.DataTable).Rows)
+                {
+                    <tr>
+                        <td hidden="hidden"> @dr["ID_ALMACEN"] </td>
+                        <td style=" text-align:center;"> @dr["EXTERNO"] </td>
+                        <td class="visible-lg visible-md" style=" text-align:center;"> @dr["DIRECCION"] </td>
+                        <td style=" text-align:center;"> @dr["COD_HABILITANTE"] </td>
+                        <td class="visible-lg visible-md" style=" text-align:center;"> @dr["ACTIVIDAD"] </td>
+                        <td class="visible-lg visible-md" style=" text-align:center;"> @dr["FILIAL"] </td>
+                    </tr>
+                }
+            }
+        </tbody>
+
+    </table>
+</div>
+
+
+
+@*<div id="grid">    @grid.GetHtml(        tableStyle: "table table-striped table-hover table-condensed tabla small",        headerStyle: "cabecera",        columns: new[] {                        grid.Column(null, header:"Id Factura",format: p=> p.id_factura),            grid.Column(null, header:"Factura",format: p=> p.num1_fact.ToString("000") + "-" + p.num2_fact.ToString("000000")),           grid.Column(null, header:"Importe Total", format: p=> p.importe_total.ToString())        }                                         , footerStyle: "hidden"                                         )    @if (Model.Count() == 0)    {        <div class="row">            <div class="col-lg-12 text-center">                <div class="well well-sm">                    No se encontraron registros                </div>            </div>        </div>    }    else    {        <div class="row">            <div id="paginator" class="col-lg-12">                @grid.PagerList(mode: WebGridPagerModes.All, firstText: "Primero", previousText: "Anterior", nextText: "Siguiente", lastText: "Último")            </div>        </div>    }</div>*@
+
+<script type="text/javascript">
+
+    function IsNumeric(dato) {
+        var valor = dato.indexOf(".");
+        if ((window.event.keyCode > 47 && window.event.keyCode < 58) || window.event.keyCode == 13) {
+            window.event.returnValue = true;
+        }
+        else {
+            window.event.returnValue = false;
+        }
+    }
+
+
+    $(document).ready(function () {
+
+        $('#btnNuevoAlmacen').click(function () {
+            var url = "/General/Nuevo_Almacen/";
+            window.location.href = url;
+        });
+
+        $("#grid_almacen").DataTable({
+            "ordering": false,
+            "lengthChange": false,
+            "searching": false,
+            "info": false,
+            "language": {
+                "paginate": {
+                    "previous": "Anterior",
+                    "next": "Siguiente"
+                }
+            }
+        });
+
+        $("#grid_almacen thead tr th").eq(1).css({ "width": 100 });
+        $("#grid_almacen thead tr th").eq(2).css({ "width": 100 });
+        $("#grid_almacen thead tr th").eq(3).css({ "width": 20 });
+        $("#grid_almacen thead tr th").eq(4).css({ "width": 80 });
+        $("#grid_almacen thead tr th").eq(5).css({ "width": 40 });
+
+    });
+</script>

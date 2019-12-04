@@ -1,0 +1,198 @@
+﻿@using SIGESDOC.Web.Seguridad
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
+
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Documento sin título</title>
+
+    <style type="text/css">
+        html, body {
+            margin: 0;
+            padding: 0;
+            overflow: auto;
+        }
+
+        body {
+            background: #f2f2f2;
+            font-family: Arial;
+            font-size: 11px;
+            line-height: 1.6;
+            color: #000;
+        }
+
+        #dina4 {
+            width: 190mm;
+            height: 280mm;
+            padding: 20px 30px;
+            border: 1px solid #FFF;
+            background: #fff;
+            margin: 0px auto;
+            overflow: hidden;
+        }
+    </style>
+</head>
+
+
+
+    <ol class="breadcrumb" style="margin-bottom: 5px;">
+        <li><a href="#">Reportes</a></li>
+        <li class="active">Pendientes</li>
+    </ol>
+
+    <div class="bs-callout bs-callout-info">
+        <h4>Consultar Trámites Pendientes</h4>
+        <p>En esta sección usted puedes Consultar los trámites pendientes de SANIPES</p>
+    </div>
+
+    <div class="panel panel-primary">
+        <div class="panel-heading panet-heading-sm">Búsqueda por Año</div>
+        <div class="panel-body">
+            @using (Ajax.BeginForm(new AjaxOptions { HttpMethod = "Get" }))
+            {
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div class="input-group input-group-sm">
+                            <span class="input-group-addon">Desde: </span>
+                            @Html.DropDownList("aniodesde", (IEnumerable<SelectListItem>)ViewBag.lst_aniodesde, new { @class = "form-control input-sm" })
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="input-group input-group-sm">
+                            <span class="input-group-addon">Hasta: </span>
+                            @Html.DropDownList("aniohasta", (IEnumerable<SelectListItem>)ViewBag.lst_aniohasta, new { @class = "form-control input-sm" })
+                        </div>
+                    </div>
+                </div>
+
+                <br>
+
+                <div class="row">
+                    <div class="col-lg-1">
+                        <input type="submit" id="btnBuscar" class="btn btn-primary btn-sm pull-left" value="Actualizar" />
+                    </div>
+
+                    <div class="col-lg-1">
+                        <input type="button" id="btnimprimir" class="btn btn-primary btn-sm pull-left" value="Imprimir" />
+                    </div>
+                </div>
+            }
+
+        </div>
+    </div>
+
+    <br>
+
+@Html.ActionLink("Exportar a Excel", "Export_Excel_documentos_pendientes_sanipes", "HojaTramite", new { aniodesde = "_Parameter1", aniohasta = "_Parameter2" }, new { id = "Documentos_excel" })
+
+<br>
+<br>
+
+@Html.ActionLink("Exportar a Excel detalle", "Export_Excel_documentos_pendientes_sanipes_detalle", "HojaTramite", new { aniodesdex = "_Parameter1x", aniohastax = "_Parameter2x" }, new { id = "Documentos_excel_detalle" })
+
+<br>
+
+
+    <div id="dina4">
+
+        <table width="791" border="0" cellpadding="0" cellspacing="0">
+            <tr>
+                <td width="791" height="37" align="center"><font style=" font-weight:bold; font-size:13px;"><strong> <b>Cuadro de Pendientes</b></strong></font></td>
+            </tr>
+            <tr>
+                <td align="center">&nbsp;</td>
+            </tr>
+        </table>
+
+
+        <table width="100%" border="0">
+            <tr>
+                <td><strong><font>I) PENDIENTES (HOJA TRAMITE) </font></strong></td>
+            </tr>
+            <tr>
+                <td>
+                    <table width="100%" border="0" cellpadding="1" cellspacing="0" style="border:1px solid #CCC;">
+                        <tr align="center" style="font-size:11px; font-weight:bold; background-color:#EEE ;">
+                            <td style="border-bottom:1px solid #CCC; border-right:1px solid #CCC;" width="43%"><font>Resumen</font></td>
+
+                            @Html.Raw(ViewBag.html_llenar_anio)
+                        </tr>
+                        @Html.Raw(ViewBag.html_llenar_det)
+                    </table>
+                </td>
+            </tr>
+            <tr>
+                <td>&nbsp;</td>
+            </tr>
+            <tr>
+                <td><strong><font>II) PENDIENTES (TRAMITE TUPA) </font></strong></td>
+            </tr>
+            <tr>
+                <td>
+                    <table width="100%" border="0" cellpadding="1" cellspacing="0" style="border:1px solid #CCC;">
+                        <tr align="center" style="font-size:11px; font-weight:bold; background-color:#EEE ;">
+                            <td style="border-bottom:1px solid #CCC; border-right:1px solid #CCC;" width="43%"><font>Resumen</font></td>
+                            @Html.Raw(ViewBag.html_llenar_anio)
+                        </tr>
+                        @Html.Raw(ViewBag.html_llenar_det_tup)
+                    </table>
+                </td>
+            </tr>
+            <tr>
+                <td>&nbsp;</td>
+            </tr>
+            <tr>
+                <td><strong><font>III)   PENDIENTES (HOJA TRAMITE + TRAMITE TUPA) </font></strong></td>
+            </tr>
+            <tr>
+                <td>
+                    <table width="100%" border="0" cellpadding="1" cellspacing="0" style="border:1px solid #CCC;">
+                        <tr align="center" style="font-size:11px; font-weight:bold; background-color:#EEE ;">
+                            <td style="border-bottom:1px solid #CCC; border-right:1px solid #CCC;" width="43%"><font>Resumen</font></td>
+                            @Html.Raw(ViewBag.html_llenar_anio)
+                        </tr>
+                        @Html.Raw(ViewBag.html_llenar_tot)
+                    </table>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <br>
+                    <br>
+                    <strong>
+                        <font>Fuente: </font><br>
+                        Sistema de Gestión de Documentos (SIGESDOC)<br>
+                        Sistema Integrado de Sanidad Pesquera (SISP)
+                    </strong>
+                </td>
+            </tr>
+        </table>
+    </div>
+</html>
+
+
+<script type="text/javascript">
+    $(document).ready(function () {
+
+        $('#btnimprimir').click(function () {
+            var url = "/HojaTramite/Imprimir_pendientes_new/" + $("#aniodesde").val() + "/" + $("#aniohasta").val();
+            var win = window.open(url, '_blank');
+            win.focus();
+        });
+
+        $('#Documentos_excel').attr('href', function () {
+            //return this.href.replace('_Parameter1', "").replace('_Parameter2', "");
+            return this.href.replace('_Parameter1', $("#aniodesde").val()).replace('_Parameter2', $("#aniohasta").val());
+        });
+        
+        $('#Documentos_excel_detalle').attr('href', function () {
+            //return this.href.replace('_Parameter1', "").replace('_Parameter2', "");
+            return this.href.replace('_Parameter1x', $("#aniodesde").val()).replace('_Parameter2x', $("#aniohasta").val());
+        });
+        
+    });
+    </script>

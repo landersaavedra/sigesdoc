@@ -1,0 +1,165 @@
+﻿@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
+
+
+
+@{
+    Layout = "";
+}
+
+<!doctype html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="x-ua-compatible" content="IE=edge">
+    <title>@ViewBag.Title - SANIPES</title>
+    @Scripts.Render("~/bundles/modernizr")
+    @Scripts.Render("~/bundles/jquery")
+    <script src="~/Scripts/bootstrap-datetimepicker.min.js"></script>
+    <link href="http://www.sanipes.gob.pe/bootstrap/css/serie1.css?v=2.0" rel="stylesheet" type="text/css">
+</head>
+
+<div id="dina4">
+
+    <table width="650" border="0" cellpadding="0" cellspacing="0">
+        <tr>
+            <td height="26" colspan="2" align="center"><font size="3"><strong>LIQUIDACIÓN DE INGRESOS DE SERVICIOS SANIPES @Html.Raw(ViewBag.anio_text)</strong></font></td>
+        </tr>
+        <tr>
+            <td colspan="2" align="center"><strong><font size="4">SERIE  0001</font></strong></td>
+        </tr>
+        <tr>
+            <td width="604" align="LEFT"><strong><font size="2">FECHA: @Html.Raw(ViewBag.dia_text)</font></strong></td>
+            <td >&nbsp;</td>
+        </tr>
+    </table>
+
+    <table width="650" border="1" cellpadding="0" cellspacing="0">
+        <tr>
+            <td align="center" width="553" height="28"><font size="2"><strong>&nbsp;&nbsp;DESCRIPCIÓN - PAPELETAS DE DEPOSITO</strong></font></td>
+            <td align="center" width="139"><font size="2">SUB-TOTAL</font></td>
+            <td align="center" width="91"><font size="2"><strong>TOTAL</strong></font></td>
+        </tr>
+
+        <!-- inicio -->
+        <tr style="border-bottom:0px solid #fff; ">
+            <td><font size="2"><strong>* INGRESOS POR CERTIFICACIONES <font size="1">(DEPOSITO EN CUENTA)</font></strong></font></td>
+            <td style="border-bottom:0px solid #fff;">&nbsp;</td>
+            <td>&nbsp;</td>
+        </tr>
+        <tr>
+            <td style="border-top:solid 0px #fff; border-bottom:0px solid #fff; ">&nbsp;</td>
+
+            <td style="border-bottom:0px solid #fff; border-top:0px solid #FFF;">&nbsp;</td>
+            <td style="border-bottom:0px solid #fff; border-top:0px solid #FFF;">&nbsp;</td>
+        </tr>
+        <tr>
+            <td style="border-top:solid 0px #fff; border-bottom:0px solid #fff; "><strong> - RECIBO</strong></td>
+            <td style="border-bottom:0px solid #fff; border-top:0px solid #FFF;">&nbsp;</td>
+            <td style="border-bottom:0px solid #fff; border-top:0px solid #FFF;">&nbsp;</td>
+        </tr>
+        <tr height="30">
+            <td style="border-top:solid 0px #fff;" bgcolor="#F0F0F0">@Html.Label("", (string)ViewBag.v_txt_compr_cert)</td>
+            <td style="border-top:0px solid #FFF; text-align:right;" bgcolor="#F0F0F0">@Html.Label("", (string)ViewBag.v_txt_val_cert)</td>
+            <td style="border-top:0px solid #FFF; text-align:right;" bgcolor="#F0F0F0">@Html.Label("", (string)ViewBag.v_txt_val_cert)</td>
+        </tr>
+
+        <!-- fin -->
+        <!-- inicio -->
+        <tr style="border-bottom:0px solid #fff; ">
+            <td><font size="2"><strong>* INGRESOS POR PROTOCOLOS <font size="1">(DEPOSITO EN CUENTA)</font></strong></font></td>
+            <td style="border-bottom:0px solid #fff;">&nbsp;</td>
+            <td>&nbsp;</td>
+        </tr>
+        <tr>
+            <td style="border-top:solid 0px #fff; border-bottom:0px solid #fff; ">&nbsp;</td>
+
+            <td style="border-bottom:0px solid #fff; border-top:0px solid #FFF;">&nbsp;</td>
+            <td style="border-bottom:0px solid #fff; border-top:0px solid #FFF;">&nbsp;</td>
+        </tr>
+        <tr>
+            <td style="border-top:solid 0px #fff; border-bottom:0px solid #fff; "><strong> - RECIBO</strong></td>
+            <td style="border-bottom:0px solid #fff; border-top:0px solid #FFF;">&nbsp;</td>
+            <td style="border-bottom:0px solid #fff; border-top:0px solid #FFF;">&nbsp;</td>
+        </tr>
+        <tr height="30">
+            <td style="border-top:solid 0px #fff;" bgcolor="#F0F0F0">@Html.Label("", (string)ViewBag.v_txt_compr_prot)</td>
+            <td style="border-top:0px solid #FFF; text-align:right;" bgcolor="#F0F0F0">@Html.Label("", (string)ViewBag.v_txt_val_prot)</td>
+            <td style="border-top:0px solid #FFF; text-align:right;" bgcolor="#F0F0F0">@Html.Label("", (string)ViewBag.v_txt_val_prot)</td>
+        </tr>
+
+        <!-- fin --><!-- inicio -->
+<tr style="border-bottom:0px solid #fff; ">
+    <td><font size="2"><strong>* ACCESO A LA INFORMACION PUBLICA <font size="1">(DEPOSITO EN CUENTA)</font></strong></font></td>
+    <td style="border-bottom:0px solid #fff;">&nbsp;</td>
+    <td>&nbsp;</td>
+</tr>
+<tr>
+    <td style="border-top:solid 0px #fff; border-bottom:0px solid #fff; ">&nbsp;</td>
+
+    <td style="border-bottom:0px solid #fff; border-top:0px solid #FFF;">&nbsp;</td>
+    <td style="border-bottom:0px solid #fff; border-top:0px solid #FFF;">&nbsp;</td>
+</tr>
+<tr>
+    <td style="border-top:solid 0px #fff; border-bottom:0px solid #fff; "><strong> - RECIBO</strong></td>
+    <td style="border-bottom:0px solid #fff; border-top:0px solid #FFF;">&nbsp;</td>
+    <td style="border-bottom:0px solid #fff; border-top:0px solid #FFF;">&nbsp;</td>
+</tr>
+<tr height="30">
+    <td style="border-top:solid 0px #fff;" bgcolor="#F0F0F0">@Html.Label("", (string)ViewBag.v_txt_compr_ainfo)</td>
+    <td style="border-top:0px solid #FFF; text-align:right;" bgcolor="#F0F0F0">@Html.Label("", (string)ViewBag.v_txt_val_ainfo)</td>
+    <td style="border-top:0px solid #FFF; text-align:right;" bgcolor="#F0F0F0">@Html.Label("", (string)ViewBag.v_txt_val_ainfo)</td>
+</tr>
+
+<!-- fin -->
+        <!-- inicio -->
+        <tr style="border-bottom:0px solid #fff; ">
+            <td><font size="2"><strong>* TUSNE <font size="1">(DEPOSITO EN CUENTA)</font></strong></font></td>
+            <td style="border-bottom:0px solid #fff;">&nbsp;</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td style="border-top:solid 0px #fff; border-bottom:0px solid #fff; ">&nbsp;</td>
+
+            <td style="border-bottom:0px solid #fff; border-top:0px solid #FFF;">&nbsp;</td>
+            <td style="border-bottom:0px solid #fff; border-top:0px solid #FFF;">&nbsp;</td>
+        </tr>
+        <tr>
+            <td style="border-top:solid 0px #fff; border-bottom:0px solid #fff; "><strong> - FACTURA ELECTRONICA</strong></td>
+            <td style="border-bottom:0px solid #fff; border-top:0px solid #FFF;">&nbsp;</td>
+            <td style="border-bottom:0px solid #fff; border-top:0px solid #FFF;">&nbsp;</td>
+        </tr>
+        <tr height="30">
+            <td style="border-top:solid 0px #fff;" bgcolor="#F0F0F0">@Html.Label("", (string)ViewBag.v_txt_compr_ensa)</td>
+            <td style="border-top:0px solid #FFF; text-align:right;" bgcolor="#F0F0F0">@Html.Label("", (string)ViewBag.v_txt_val_ensa)</td>
+            <td style="border-top:0px solid #FFF; text-align:right;" bgcolor="#F0F0F0">@Html.Label("", (string)ViewBag.v_txt_val_ensa)</td>
+        </tr>
+
+        <!-- fin -->
+        <tr height="30">
+            <td>&nbsp;</td>
+            <td align="right"><font size="2"><strong>@Html.Label("", (string)ViewBag.v_txt_sub_total)</strong></font></td>
+            <td align="right"><font size="2"><strong>@Html.Label("", (string)ViewBag.v_txt_sub_total)</strong></font></td>
+        </tr>
+    </table>
+    <br>
+    <br>
+    <br>
+    <br>
+
+
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+</div>
+</html>
+<script type="text/javascript">
+    $(document).ready(function () {
+        window.print();
+    });
+</script>

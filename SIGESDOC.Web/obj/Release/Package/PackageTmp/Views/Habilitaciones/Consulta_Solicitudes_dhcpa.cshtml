@@ -1,0 +1,422 @@
+﻿@using SIGESDOC.Web.Seguridad
+
+@model IEnumerable<SIGESDOC.Response.SeguimientoDhcpaResponse>
+
+@{
+    //WebGrid grid = new WebGrid(rowsPerPage: ServiceConfiguration.PageSize, ajaxUpdateContainerId: "grid");    grid.Bind(Model, autoSortAndPage: false, rowCount: ViewBag.TotalRows);
+    ViewBag.Title = "Consulta Seguimiento";
+}
+
+<ol class="breadcrumb" style="margin-bottom: 5px;">
+    <li><a href="#">Habilitaciones</a></li>
+    <li class="active">Consulta Solicitud</li>
+</ol>
+
+<div class="bs-callout bs-callout-info">
+    <h4>Consulta Solicitud</h4>
+    <p>En esta sección usted puede Consultar las solicitudes creadas</p>
+</div>
+
+<div class="modal fade" id="mdl_detalle" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-width">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title" id="myModalLabel">Documentos Emitidos <label id="titulo_50">  </label> </h4>
+
+            </div>
+
+            <div class="modal-body">
+                <div class="form-horizontal">
+
+                    <label class="control-label" style="font-weight: bold;">Listado de Solicitudes de Inspección</label>
+
+                    <div class="row">
+
+                        <div id="grid_solicitud">
+                            <table class="table table-striped table-hover table-condensed tabla small" data-swhgajax="true" data-swhgcontainer="grid" data-swhgcallback="" id="tblSolicitud">
+                                <thead>
+                                    <tr class="cabecera">
+                                        <th scope="col">Documento</th>
+                                        <th scope="col">Fecha</th>
+                                    </tr>
+                                </thead>
+                                <tbody></tbody>
+                            </table>
+                        </div>
+
+                    </div>
+                    <label class="control-label" style="font-weight: bold;">Listado de Informes Técnico de evaluación</label>
+
+                    <div class="row">
+
+                        <div id="grid_informe">
+                            <table class="table table-striped table-hover table-condensed tabla small" data-swhgajax="true" data-swhgcontainer="grid" data-swhgcallback="" id="tblInformes">
+                                <thead>
+                                    <tr class="cabecera">
+                                        <th scope="col">Documento</th>
+                                        <th scope="col">Fecha</th>
+                                    </tr>
+                                </thead>
+                                <tbody></tbody>
+                            </table>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default btn-sm" data-dismiss="modal">Salir</button>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="mdl_detalle_2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-width">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title" id="myModalLabel">Documentos <label id="titulo_80">  </label> </h4>
+
+            </div>
+
+            <div class="modal-body">
+                <div class="form-horizontal">
+
+                    <label class="control-label" style="font-weight: bold;">Listado de Documentos Recibidos</label>
+
+                    <div class="row">
+
+                        <div id="grid_recibidos">
+                            <table class="table table-striped table-hover table-condensed tabla small" data-swhgajax="true" data-swhgcontainer="grid" data-swhgcallback="" id="tblrecibidos">
+                                <thead>
+                                    <tr class="cabecera">
+                                        <th scope="col">Documento</th>
+                                        <th scope="col">Fecha</th>
+                                    </tr>
+                                </thead>
+                                <tbody></tbody>
+                            </table>
+                        </div>
+
+                    </div>
+                    <label class="control-label" style="font-weight: bold;">Listado de Documentos Emitidos</label>
+
+                    <div class="row">
+
+                        <div id="grid_emitidos">
+                            <table class="table table-striped table-hover table-condensed tabla small" data-swhgajax="true" data-swhgcontainer="grid" data-swhgcallback="" id="tblemitidos">
+                                <thead>
+                                    <tr class="cabecera">
+                                        <th scope="col">Documento</th>
+                                        <th scope="col">Fecha</th>
+                                    </tr>
+                                </thead>
+                                <tbody></tbody>
+                            </table>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default btn-sm" data-dismiss="modal">Salir</button>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="mdl_detalle_3" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-width">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title" id="myModalLabel">Lista de Protocolos <label id="titulo_100">  </label> </h4>
+
+            </div>
+
+            <div class="modal-body">
+                <div class="form-horizontal">
+
+                    <label class="control-label" style="font-weight: bold;">Listado de Protocolos Emitidos</label>
+
+                    <div class="row">
+
+                        <div id="grid_protocolos">
+                            <table class="table table-striped table-hover table-condensed tabla small" data-swhgajax="true" data-swhgcontainer="grid" data-swhgcallback="" id="tbl_lista_protocolos">
+                                <thead>
+                                    <tr class="cabecera">
+                                        <th scope="col">Protocolo</th>
+                                        <th scope="col">Fecha inicio</th>
+                                        <th scope="col">Fecha Fin</th>
+                                    </tr>
+                                </thead>
+                                <tbody></tbody>
+                            </table>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default btn-sm" data-dismiss="modal">Salir</button>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<div class="panel panel-primary">
+    <div class="panel-heading panet-heading-sm">Búsqueda de Seguimiento</div>
+    <div class="panel-body">
+        @using (Ajax.BeginForm(new AjaxOptions { HttpMethod = "Get" }))
+        {
+            <div class="row">
+
+                <div class="col-lg-1">
+                    <input type="submit" id="btnBuscar" class="btn btn-primary btn-sm pull-left" value="Actualizar" />
+                </div>
+
+            </div>
+        }
+    </div>
+</div>
+
+@Html.ActionLink("Exportar a Excel", "Export_Excel_solicitud", "Habilitaciones", new { para1 = "_Parameter1", para2 = "_Parameter2" }, new { id = "Solicitudes_excel" })
+
+<div id="grid">
+    <table id="grid_solicitud_dhcpa" class="table table-striped table-hover table-condensed tabla small">
+        <thead>
+            <tr class="cabecera text-center">
+                <th scope="col" class="visible-lg">Fecha Inicio</th>
+                <th scope="col">Expediente</th>
+                <th scope="col">Nro Solicitud</th>
+                <th scope="col" class="visible-lg">Fecha Crea</th>
+                <th scope="col" class="visible-lg">TUPA</th>
+                <th scope="col" class="visible-lg">Procedimiento</th>
+                <th scope="col" class="visible-lg visible-md">Externo</th>
+                <th scope="col" class="visible-lg visible-md">Habilitante</th>
+                <th scope="col" class="visible-lg">Evaluador</th>
+                <th scope="col" class="visible-lg">Estado</th>
+                <th scope="col">Opciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            @if (ViewData["solicitudes_tabla"] != null)
+            {
+                foreach (System.Data.DataRow dr in (ViewData["solicitudes_tabla"] as System.Data.DataTable).Rows)
+                {
+                    <tr>
+                        <td class="visible-lg" style=" text-align:center;"> @dr["FECHA_INICIO"] </td>
+                        <td style=" text-align:center;"> @dr["EXPEDIENTE"] </td>
+                        <td style=" text-align:center;"> @dr["NRO_SOLICITUD"] </td>
+                        <td class="visible-lg" style=" text-align:center;"> @dr["FECHA_CREA"] </td>
+                        <td class="visible-lg" style=" text-align:center;"> @dr["TUPA"] </td>
+                        <td class="visible-lg"> @dr["PROCEDIMIENTO"] </td>
+                        <td class="visible-lg visible-md" style=" text-align:center;"> @dr["EXTERNO"] </td>
+                        <td class="visible-lg visible-md" style=" text-align:center;"> @dr["HABILITANTE"] </td>
+                        <td class="visible-lg" style=" text-align:center;"> @dr["EVALUADOR"] </td>
+                        <td class="visible-lg" style=" text-align:center;"> @dr["ESTADO"] </td>
+                        <td>
+                            <ul class="list-inline" style="margin-bottom:0">
+                                <li>
+                                    <a class="ver_documentos_emitidos" id=@dr["EXPEDIENTE_ID_SEGUIMIENTO"] href="#" title="Ver Listado Solic. e Inf.">
+                                        <i class="blue glyphicon glyphicon-th-list"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="ver_documentos_otros" id=@dr["EXPEDIENTE_ID_SEGUIMIENTO"] href="#" title="Doc. Recibidos y Enviados">
+                                        <i class="red glyphicon glyphicon-th-list"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="ver_protocolos" id=@dr["EXPEDIENTE_ID_SEGUIMIENTO"] href="#" title="Ver Listado de Protocolos">
+                                        <i class="green glyphicon glyphicon-th-list"></i>
+                                    </a>
+                                </li>
+                                
+                            </ul>
+                        </td>
+                    </tr>
+                }
+            }
+        </tbody>
+
+    </table>
+</div>
+
+@*<div id="grid">    @grid.GetHtml(        tableStyle: "table table-striped table-hover table-condensed tabla small",        headerStyle: "cabecera",        columns: new[] {            grid.Column(null, header:"Fecha Inicio",format: p=> p.fecha_inicio),            grid.Column(null, header:"Expediente",format: p=> p.Expediente),            grid.Column(null, header:"Nro. Solicitud",format: p=> p.num_solicitud_dhcpa),            grid.Column(null, header:"Fecha Crea",format: p=> p.fecha_solicitud_dhcpa),            grid.Column(null, header:"TUPA",format: p=> p.num_tupa),            grid.Column(null, header:"Procedimiento",format: p=> p.nom_tipo_procedimiento),            grid.Column(null, header:"Externo",format: p=> p.nom_oficina_ext),            grid.Column(null, header:"Embarcación",format: p=> p.nom_embarcacion),            grid.Column(null, header:"Planta",format: p=> p.nom_planta),            grid.Column(null, header:"Evaluador",format: p=> p.nom_evaluador),            grid.Column(null, header:"Estado",format: p=> p.nom_estado),               grid.Column(null, header:"Opciones",format: p => MvcHtmlString.Create("<ul class='list-inline' style='margin-bottom:0'><li>" +                        Html.IconlinkItem("Ver Listado Solic. e Inf.", "ver_documentos_emitidos", (string)p.Expediente+'|'+(string)p.id_seguimiento.ToString(), "glyphicon glyphicon-th-list", "blue", true).ToString()+ "</li><li>" +                        Html.IconlinkItem("Doc. Recibidos y Enviados", "ver_documentos_otros", (string)p.Expediente+'|'+(string)p.id_seguimiento.ToString(), "glyphicon glyphicon-th-list", "red", true).ToString()+ "</li><li>" +                        Html.IconlinkItem("Ver Listado de Protocolos", "ver_protocolos", (string)p.Expediente+'|'+(string)p.id_seguimiento.ToString(), "glyphicon glyphicon-th-list", "green", true).ToString()+ "</li></ul>")                       )        }                                         , footerStyle: "hidden"                                         )    @if (Model.Count() == 0)    {        <div class="row">            <div class="col-lg-12 text-center">                <div class="well well-sm">                    No se encontraron registros                </div>            </div>        </div>    }    else    {        <div class="row">            <div id="paginator" class="col-lg-12">                @grid.PagerList(mode: WebGridPagerModes.All, firstText: "Primero", previousText: "Anterior", nextText: "Siguiente", lastText: "Último")            </div>        </div>    }</div>*@
+
+<script type="text/javascript">
+
+    $(document).ready(function () {
+        
+        $("#grid_solicitud_dhcpa").DataTable({
+            "ordering": false,
+            "lengthChange": false,
+            "searching": false,
+            //"info": false,
+            "language": {
+                "paginate": {
+                    "previous": "Anterior",
+                    "next": "Siguiente"
+                }
+            }
+        });
+
+        $('#Solicitudes_excel').attr('href', function () {
+            return this.href.replace('_Parameter1', "").replace('_Parameter2', "");
+        });
+        
+        //function () {            $('#paginator ul li a').click(function () {                var url = $(this).attr('href') + '&' + $('form').serialize();                $(this).attr('href', url);            });        });
+        
+
+        
+        $(document).on('click', '.ver_protocolos', function () {
+
+            $('#mdl_detalle_3').modal('show');
+            var id_seguimiento = $(this).attr('id').split('|');
+            document.getElementById('titulo_100').innerHTML = " - " + id_seguimiento[0];
+
+            $("#tbl_lista_protocolos td").remove();
+
+            $.ajax({
+                cache: false,
+                type: "GET",
+                url: "@(Url.RouteUrl("llenar_protocolos_seguimiento"))",
+                data: { "id_seguimiento": id_seguimiento[1] },
+                success: function (data) {
+                    $.each(data, function (id, option) {
+                        var nuevoTD = '<tr>';
+                        nuevoTD += '<td>' + option.nombre + '</td>';
+                        nuevoTD += '<td>' + option.cadena_fecha_inicio + '</td>';
+                        nuevoTD += '<td>' + option.cadena_fecha_fin + '</td>';
+                        nuevoTD += '</tr>';
+
+                        jQuery("#tbl_lista_protocolos").append(nuevoTD);
+                    });
+                },
+                error: function (xhr, ajaxOptions, thrownError) {
+                    alert('Failed to retrieve states.');
+                }
+            });
+
+        });
+
+        $(document).on('click', '.ver_documentos_otros', function () {
+
+            $('#mdl_detalle_2').modal('show');
+
+            var id_seguimiento = $(this).attr('id').split('|');
+            document.getElementById('titulo_80').innerHTML = " - " + id_seguimiento[0];
+
+
+            $("#tblrecibidos td").remove();
+
+            $.ajax({
+                cache: false,
+                type: "GET",
+                url: "@(Url.RouteUrl("llenar_documentos_seguimiento_recibido"))",
+                data: { "id_seguimiento": id_seguimiento[1] },
+                success: function (data) {
+                    $.each(data, function (id, option) {
+                        var nuevoTD = '<tr>';
+                        nuevoTD += '<td>' + option.Text + '</td>';
+                        nuevoTD += '<td>' + option.Value + '</td>';
+                        nuevoTD += '</tr>';
+
+                        jQuery("#tblrecibidos").append(nuevoTD);
+                    });
+                },
+                error: function (xhr, ajaxOptions, thrownError) {
+                    alert('Failed to retrieve states.');
+                }
+            });
+
+            $("#tblemitidos td").remove();
+
+            $.ajax({
+                cache: false,
+                type: "GET",
+                url: "@(Url.RouteUrl("llenar_documentos_emitidos_dhcpa_seguimiento"))",
+                data: { "id_seguimiento": id_seguimiento[1] },
+                success: function (data) {
+                    $.each(data, function (id, option) {
+                        var nuevoTD = '<tr>';
+                        nuevoTD += '<td>' + option.nom_doc + '</td>';
+                        nuevoTD += '<td>' + option.fecha_doc_text + '</td>';
+                        nuevoTD += '</tr>';
+
+                        jQuery("#tblemitidos").append(nuevoTD);
+                    });
+                },
+                error: function (xhr, ajaxOptions, thrownError) {
+                    alert('Failed to retrieve states.');
+                }
+            });
+
+        });
+
+        $(document).on('click', '.ver_documentos_emitidos', function () {
+
+            $('#mdl_detalle').modal('show');
+
+            var id_seguimiento = $(this).attr('id').split('|');
+            document.getElementById('titulo_50').innerHTML = " - " + id_seguimiento[0];
+
+            $("#tblSolicitud td").remove();
+
+            $.ajax({
+                cache: false,
+                type: "GET",
+                url: "@(Url.RouteUrl("llenar_solicitud_seguimiento"))",
+                data: { "id_seguimiento": id_seguimiento[1] },
+                success: function (data) {
+                    $.each(data, function (id, option) {
+                        var nuevoTD = '<tr>';
+                        nuevoTD += '<td>' + option.Text + '</td>';
+                        nuevoTD += '<td>' + option.Value + '</td>';
+                        nuevoTD += '</tr>';
+
+                        jQuery("#tblSolicitud").append(nuevoTD);
+                    });
+                },
+                error: function (xhr, ajaxOptions, thrownError) {
+                    alert('Failed to retrieve states.');
+                }
+            });
+
+            $("#tblInformes td").remove();
+
+            $.ajax({
+                cache: false,
+                type: "GET",
+                url: "@(Url.RouteUrl("llenar_informe_seguimiento"))",
+                data: { "id_seguimiento": id_seguimiento[1] },
+                success: function (data) {
+                    $.each(data, function (id, option) {
+                        var nuevoTD = '<tr>';
+                        nuevoTD += '<td>' + option.Text + '</td>';
+                        nuevoTD += '<td>' + option.Value + '</td>';
+                        nuevoTD += '</tr>';
+
+                        jQuery("#tblInformes").append(nuevoTD);
+                    });
+                },
+                error: function (xhr, ajaxOptions, thrownError) {
+                    alert('Failed to retrieve states.');
+                }
+            });
+        });
+
+    });
+</script>

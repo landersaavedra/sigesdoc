@@ -1,0 +1,65 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title></title>
+</head>
+<body>
+    <div class="row con_documento">
+        <div class="col-md-5" style="padding-top:0px;">
+            <div class="form-group" style="margin-left: 0px; margin-right: 0px;">
+                <label class="control-label">Persona crea:</label>
+                @Html.DropDownList("cmbpersona_crea", (IEnumerable<SelectListItem>)ViewBag.lst_persona_crea, new { @class = "form-control input-sm" })
+            </div>
+        </div>
+    </div>
+
+
+    <div class="row con_documento">
+        <div class="col-md-4" style="padding-top:0px;">
+            <div class="form-group" style="margin-left: 0px; margin-right: 0px;">
+                <label class="control-label">Tipo Documento:</label>
+                @Html.DropDownList("cmbtipo_documento", (IEnumerable<SelectListItem>)ViewBag.lst_tipo_documento, new { @class = "form-control input-sm" })
+            </div>
+        </div>
+        <div class="col-md-2 autonumero" style="padding-top:0px;">
+            <div class="form-group" style="margin-left: 0px; margin-right: 0px;">
+                <label class="control-label">Número:</label>
+                @Html.TextBoxFor(m => m.numero_documento, new { @class = "form-control input-sm", @onpaste = "return false;", @maxlength = "5", @onkeypress = "return IsNumeric(this.value);" })
+                @Html.ValidationMessageFor(m => m.numero_documento)
+            </div>
+        </div>
+        <div class="col-md-3 autonumero" style="padding-top:8px;">
+            <div class="form-group" style="margin-left: 0px; margin-right: 0px;">
+                <label class="control-label"></label>
+                @Html.ValidationMessageFor(m => m.nom_doc)
+                <label id="lbl_valida_nom_doc" style="color: #B44D4D">  </label>
+                @Html.TextBoxFor(m => m.nom_doc, new { @class = "form-control input-sm", @onpaste = "return false;", @maxlength = "250" })
+            </div>
+        </div>
+        <div class="col-md-2" style="padding-top:0px;">
+            <div class="form-group" style="margin-left: 0px; margin-right: 0px;">
+                <label class="control-label">Folios:</label>
+                @Html.ValidationMessageFor(m => m.folios)
+                <label id="lbl_valida_folios" style="color: #B44D4D">  </label>
+                @Html.TextBoxFor(m => m.folios, new { @class = "form-control input-sm cold-md-1", @onpaste = "return false;", @maxlength = "10", @onkeypress = "return IsNumeric(this.value);" })
+            </div>
+        </div>
+    </div>
+
+    <div class="row con_documento">
+        <div class="col-md-4" style="padding-top:0px;">
+            <div class="form-group" style="margin-left: 0px; margin-right: 0px;">
+                <label class="control-label">Anexos:</label>
+                @Html.TextAreaFor(m => m.anexos, new { @class = "form-control input-sm", rows = "4", @maxlength = "1500", wrap = "off" })
+                @Html.ValidationMessageFor(m => m.anexos)
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,1783 @@
+﻿@using SIGESDOC.Web.Seguridad
+
+@model IEnumerable<SIGESDOC.Response.ConsultarDireccionResponse>
+@{
+    WebGrid grid = new WebGrid(rowsPerPage: ServiceConfiguration.PageSize, ajaxUpdateContainerId: "grid");
+    grid.Bind(Model, autoSortAndPage: false, rowCount: ViewBag.TotalRows);
+    ViewBag.Title = "Registrar Nueva Entidad";
+}
+
+<div class="bottom hidden"></div>
+<div id="mensajes"></div>
+
+<ol class="breadcrumb" style="margin-bottom: 5px;">
+    <li><a href="#">RUC - Oficina</a></li>
+    <li class="active">Nuevo</li>
+</ol>
+
+<div class="bs-callout bs-callout-info">
+    <h4>Registrar Nuevo RUC - Entidad</h4>
+    <p>Use el siguiente formulario para registrar una nueva entidad</p>
+</div>
+
+<div class="modal fade" id="mdldireccion_crea" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title" id="myModalLabel">Agregar Dirección</h4>
+            </div>
+            <form method="post" id="formdirección">
+                <div class="modal-body">
+                    <div class="form-horizontal">
+
+                        <div class="form-group">
+
+                            <label class="control-label col-md-3">Dirección</label>
+                            <div class="col-lg-7">
+                                @Html.TextBox("txt_new_direccion_oficina_padre", null, new { @class = "form-control input-sm", @maxlength = "200" })
+                                <label id="lbl_valida_new_direccion_padre" style="color: #B44D4D">  </label>
+                            </div>
+
+                        </div>
+
+                        <div class="form-group">
+
+                            <label class="control-label col-md-3">Nombre Sede</label>
+                            <div class="col-lg-7">
+                                @Html.TextBox("txt_new_nombre_sede_padre", null, new { @class = "form-control input-sm", @maxlength = "100" })
+                                <label id="lbl_valida_new_nom_sede_padre" style="color: #B44D4D">  </label>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+
+                            <label class="control-label col-md-3">Referencia</label>
+                            <div class="col-lg-7">
+                                @Html.TextBox("txt_new_referencia_padre", null, new { @class = "form-control input-sm", @maxlength = "200" })
+                            </div>
+                        </div>
+
+
+                        <div class="form-group">
+
+                            <label class="control-label col-md-3">Departamento</label>
+                            <div class="col-md-7">
+                                @Html.DropDownList("cmblista_departamento_new_oficina_padre", (IEnumerable<SelectListItem>)ViewBag.lst_departamento_new_oficina, new { @class = "form-control input-sm" })
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+
+                            <label class="control-label col-md-3">Provincia</label>
+                            <div class="col-md-7">
+                                @Html.DropDownList("cmblista_provincia_new_oficina_padre", (IEnumerable<SelectListItem>)ViewBag.lst_provincia_new_oficina, new { @class = "form-control input-sm" })
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="control-label col-md-3">Distrito</label>
+                            <div class="col-md-7">
+                                @Html.DropDownList("cmblista_distrito_new_oficina_padre", (IEnumerable<SelectListItem>)ViewBag.lst_distrito_new_oficina, new { @class = "form-control input-sm" })
+                                <label id="lbl_valida_distrito_new_oficina_padre" style="color: #B44D4D">  </label>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary btn-sm" id="btnGuardar_new_direccion">Guardar</button>
+                    <button type="button" class="btn btn-default btn-sm" data-dismiss="modal">Cancelar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="mdloficina_crea" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title" id="myModalLabel">Agregar Oficina</h4>
+            </div>
+            <form method="post" id="formoficina">
+                <div class="modal-body">
+                    <div class="form-horizontal">
+                        @Html.TextBox("txt_new_ubigeo_new_oficina", null, new { @class = "form-control input-sm hidden", @maxlength = "6" })
+                        @Html.TextBox("txt_check_new_direccion", null, new { @class = "form-control input-sm hidden", @maxlength = "1" })
+                        <div class="form-group">
+                            <label class="control-label col-md-3">Nombre</label>
+                            <div class="col-lg-7">
+                                @Html.TextBox("txt_new_nombre_oficina", null, new { @class = "form-control input-sm", @maxlength = "100" })
+                                <label id="lbl_valida_new_nombre_oficina" style="color: #B44D4D">  </label>
+                            </div>
+
+                        </div>
+
+                        <div class="form-group">
+                            <label class="control-label col-md-3">Siglas</label>
+                            <div class="col-lg-7">
+                                @Html.TextBox("txt_new_siglas_oficina", null, new { @class = "form-control input-sm", @maxlength = "50" })
+                            </div>
+                        </div>
+
+                        <div class="form-group ver_ofi_direccion">
+                            <label class="control-label col-md-3">Dirección</label>
+                            <div class="col-md-7">
+                                @Html.DropDownList("cmblista_new_direccion", (IEnumerable<SelectListItem>)ViewBag.lst_new_direccion, new { @class = "form-control input-sm" })
+                                <label id="lbl_valida_new_oficina_direccion" style="color: #B44D4D">  </label>
+                            </div>
+
+                        </div>
+
+                        <div class="form-group">
+                            <div class="col-md-offset-3 col-md-10">
+                                <div class="checkbox">
+                                    @Html.CheckBox("check_new_direccion")
+                                    @Html.Label("Dirección no Existe")
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group new_ofi_direccion">
+
+                            <label class="control-label col-md-3">Dirección</label>
+                            <div class="col-lg-7">
+                                @Html.TextBox("txt_new_direccion_oficina", null, new { @class = "form-control input-sm", @maxlength = "200" })
+                                <label id="lbl_valida_new_direccion" style="color: #B44D4D">  </label>
+                            </div>
+
+                        </div>
+
+                        <div class="form-group new_ofi_direccion">
+
+                            <label class="control-label col-md-3">Nombre Sede</label>
+                            <div class="col-lg-7">
+                                @Html.TextBox("txt_new_nombre_sede", null, new { @class = "form-control input-sm", @maxlength = "100" })
+                                <label id="lbl_valida_new_nom_sede" style="color: #B44D4D">  </label>
+                            </div>
+                        </div>
+
+                        <div class="form-group new_ofi_direccion">
+
+                            <label class="control-label col-md-3">Referencia</label>
+                            <div class="col-lg-7">
+                                @Html.TextBox("txt_new_referencia", null, new { @class = "form-control input-sm", @maxlength = "200" })
+                            </div>
+                        </div>
+
+
+                        <div class="form-group new_ofi_direccion">
+
+                            <label class="control-label col-md-3">Departamento</label>
+                            <div class="col-md-7">
+                                @Html.DropDownList("cmblista_departamento_new_oficina", (IEnumerable<SelectListItem>)ViewBag.lst_departamento_new_oficina, new { @class = "form-control input-sm" })
+                            </div>
+                        </div>
+
+                        <div class="form-group new_ofi_direccion">
+
+                            <label class="control-label col-md-3">Provincia</label>
+                            <div class="col-md-7">
+                                @Html.DropDownList("cmblista_provincia_new_oficina", (IEnumerable<SelectListItem>)ViewBag.lst_provincia_new_oficina, new { @class = "form-control input-sm" })
+                            </div>
+                        </div>
+
+                        <div class="form-group new_ofi_direccion">
+                            <label class="control-label col-md-3">Distrito</label>
+                            <div class="col-md-7">
+                                @Html.DropDownList("cmblista_distrito_new_oficina", (IEnumerable<SelectListItem>)ViewBag.lst_distrito_new_oficina, new { @class = "form-control input-sm" })
+                                <label id="lbl_valida_distrito_new_oficina" style="color: #B44D4D">  </label>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary btn-sm" id="btnGuardar_new_oficina">Guardar</button>
+                    <button type="button" class="btn btn-default btn-sm" data-dismiss="modal">Cancelar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+<div class="modal fade" id="mdldireccion_legal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title" id="myModalLabel">Dirección Legal</h4>
+            </div>
+            <div id="mensajes_direccion_legal"></div>
+            <form method="post" id="formdireccionlegal">
+                <div class="modal-body">
+                    <div class="form-horizontal">
+                        <div>
+                            <label id="lbl_carga_data_dir">  </label>
+                        </div>
+
+                        <br />
+
+                        <div class="bus_tbl_dir_legal_cls" id="bus_tbl_dir_legal">
+                            <table id="tbl_dir_legal" class="table table-striped table-hover table-condensed tabla small">
+                                <thead>
+                                    <tr class="cabecera text-center">
+                                        <th hidden="hidden">ACTIVO</th>
+                                        <th scope="col">DIRECCION</th>
+                                        <th scope="col">UBIGEO</th>
+                                        <th scope="col">SELECCIONAR</th>
+                                    </tr>
+                                </thead>
+                                <tbody></tbody>
+                            </table>
+                        </div>
+                        <div class="bus_tbl_dir_legal_cls_edit">
+                            @Html.TextBox("txt_id_sede_direccion_edit", null, new { @class = "form-control input-sm hidden" })
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group" style="margin-left:0px; margin-right:0px;">
+                                        <label class="control-label">Sede:</label>
+                                        @Html.TextBox("txt_sede_edit", null, new { @class = "form-control input-sm" })
+                                    </div>
+                                </div>
+                                <div class="col-md-12">
+                                    <div class="form-group" style="margin-left:0px; margin-right:0px;">
+                                        <label class="control-label">Dirección:</label>
+                                        @Html.TextBox("txt_direccion_edit", null, new { @class = "form-control input-sm" })
+                                    </div>
+                                </div>
+                                <div class="col-md-12">
+                                    <div class="form-group" style="margin-left:0px; margin-right:0px;">
+                                        <label class="control-label">Referencia:</label>
+                                        @Html.TextBox("txt_referencia_edit", null, new { @class = "form-control input-sm" })
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <div class="form-group" style="margin-left:0px; margin-right:0px;">
+                                        <label class="control-label">Departamento:</label>
+                                        @Html.DropDownList("cmblista_departamento_edit", (IEnumerable<SelectListItem>)ViewBag.lst_departamento, new { @class = "form-control input-sm" })
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group" style="margin-left:0px; margin-right:0px;">
+                                        <label class="control-label">Provincia:</label>
+                                        @Html.DropDownList("cmblista_provincia_edit", (IEnumerable<SelectListItem>)ViewBag.lst_provincia, new { @class = "form-control input-sm" })
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group" style="margin-left:0px; margin-right:0px;">
+                                        <label class="control-label">Distrito:</label>
+                                        @Html.DropDownList("cmblista_distrito_edit", (IEnumerable<SelectListItem>)ViewBag.lst_distrito, new { @class = "form-control input-sm" })
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+
+                                <div class="col-md-2">
+                                    <button id="btn_edit_direc" type="button" class="btn btn-primary btn-sm pull-left"> Guardar Cambio </button>
+                                </div>
+                                <div class="col-md-2">
+                                    <button id="btn_canc_direc" type="button" class="btn btn-default btn-sm"> Cancelar </button>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+<div class="modal fade" id="mdlpersona_legal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title" id="myModalLabel">Persona Legal</h4>
+            </div>
+            <div id="mensajes_persona_legal"></div>
+            <form method="post" id="formpersonalegal">
+                <div class="modal-body">
+                    <div class="form-horizontal">
+                        <div>
+                            <label id="lbl_carga_data_persona_legal">  </label>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-md-2">Documento</label>
+                            <div class="col-md-2">
+                                @Html.TextBox("txt_persona_legal_documento", null, new { @class = "form-control input-sm", @maxlength = "20", @onkeypress = "return IsNumeric_vista(this.value);", @onkeyup = "return Valida_back_vista_legal(this.value);" })
+                            </div>
+                            <label id="lbl_valida_persona_legal" style="text-align:left;" class="control-label col-md-6"></label>
+                            <label id="lbl_valida_persona_legal_x" style="color: #B44D4D">  </label>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-md-2">Telefono</label>
+                            <div class="col-md-2">
+                                @Html.TextBox("txt_persona_legal_telefono", null, new { @class = "form-control input-sm", @maxlength = "50" })
+                            </div>
+                            <label class="control-label col-md-2">Correo</label>
+                            <div class="col-md-3">
+                                @Html.TextBox("txt_persona_legal_correo", null, new { @class = "form-control input-sm", @maxlength = "50" })
+                            </div>
+                            <button id="btn_agregar_persona_legal" type="button" class="btn btn-primary btn-sm">
+                                Agregar Persona Legal
+                            </button>
+                        </div>
+
+                        <br />
+                        <div id="bus_tbl_persona_legal">
+                            <table id="tbl_persona_legal" class="table table-striped table-hover table-condensed tabla small">
+                                <thead>
+                                    <tr class="cabecera text-center">
+                                        <th hidden="hidden">ACTIVO</th>
+                                        <th scope="col">DOCUMENTO</th>
+                                        <th scope="col">NOMBRES Y APELLIDOS</th>
+                                        <th scope="col">TELEFONO</th>
+                                        <th scope="col">CORREO</th>
+                                        <th scope="col">SELECCIONAR</th>
+                                    </tr>
+                                </thead>
+                                <tbody></tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+<div class="panel panel-primary">
+    <div class="panel-heading panet-heading-sm">Persona Natural</div>
+    <div class="panel-body">
+        @using (Ajax.BeginForm(new AjaxOptions { HttpMethod = "Get" }))
+        {
+
+            <div class="form-horizontal">
+
+                <ol class="breadcrumb">
+                    <li class="active">Información de la Persona</li>
+                </ol>
+
+
+                <div class="row hidden">
+
+                    @Html.TextBox("var_guardar", null)
+                    @Html.TextBox("id_oficina_direccion", null)
+                    @Html.TextBox("id_oficina", null)
+                    @Html.TextBox("agregar_persona_legal", null)
+
+                </div>
+
+                <div class="form-group">
+                    <label class="control-label col-md-2">RUC</label>
+                    <div class="col-md-2">
+                        @Html.TextBox("TXT_RUC", (string)ViewBag.vb_ruc, new { @class = "form-control input-sm", @maxlength = "11", @onkeypress = "return IsNumeric_vista(this.value);", @onkeyup = "return Valida_back_vista(this.value);" })
+                    </div>
+                    <label class="control-label col-md-1">Siglas</label>
+                    <div class="col-md-2">
+                        @Html.TextBox("TXT_SIGLAS", null, new { @class = "form-control input-sm", @disabled = "disabled", @maxlength = "50" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="control-label col-md-2">Nombre</label>
+                    <div class="col-md-5">
+                        @Html.TextBox("TXT_NOMBRE", null, new { @class = "form-control input-sm", @disabled = "disabled", @maxlength = "100" })
+                    </div>
+                    <label id="lbl_valida_nombre_empresa" style="color: #B44D4D">  </label>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-md-2">Nombre de Sede</label>
+                    <div class="col-md-5">
+                        @Html.TextBox("TXT_SEDE", null, new { @class = "form-control input-sm", @disabled = "disabled", @maxlength = "100" })
+                    </div>
+                    <label id="lbl_valida_nombre_sede" style="color: #B44D4D">  </label>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-md-2">Dirección</label>
+                    <div class="col-md-5">
+                        @Html.TextBox("TXT_DIRECCION", null, new { @class = "form-control input-sm", @disabled = "disabled", @maxlength = "200" })
+                    </div>
+                    <label id="lbl_valida_direccion_principal" style="color: #B44D4D">  </label>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-md-2">Referencia</label>
+                    <div class="col-md-5">
+                        @Html.TextBox("TXT_REFERENCIA", null, new { @class = "form-control input-sm", @disabled = "disabled", @maxlength = "200" })
+                    </div>
+                </div>
+
+                <div class="form-group valida_ubigeo">
+                    <label class="control-label col-md-2">Ubigeo</label>
+                    <div class="col-md-5">
+                        @Html.TextBox("TXT_UBIGEO", null, new { @class = "form-control input-sm", @disabled = "disabled", @maxlength = "6" })
+                    </div>
+                </div>
+
+                <div class="form-group nuevo_ubigeo">
+                    <label class="control-label col-md-2" for="cmblista_departamento">Departamento</label>
+                    <div class="col-md-5">
+                        @Html.DropDownList("cmblista_departamento", (IEnumerable<SelectListItem>)ViewBag.lst_departamento, new { @class = "form-control input-sm" })
+                    </div>
+                </div>
+
+                <div class="form-group nuevo_ubigeo">
+                    <label class="control-label col-md-2" for="cmblista_provincia">Provincia</label>
+                    <div class="col-md-5">
+                        @Html.DropDownList("cmblista_provincia", (IEnumerable<SelectListItem>)ViewBag.lst_provincia, new { @class = "form-control input-sm" })
+                    </div>
+                </div>
+
+                <div class="form-group nuevo_ubigeo">
+                    <label class="control-label col-md-2" for="cmblista_distrito">Distrito</label>
+                    <div class="col-md-5">
+                        @Html.DropDownList("cmblista_distrito", (IEnumerable<SelectListItem>)ViewBag.lst_distrito, new { @class = "form-control input-sm" })
+                    </div>
+
+                    <div class="col-md-3">
+                        <label id="lbl_valida_distrito" style="color: #B44D4D">  </label>
+                    </div>
+                </div>
+
+                <hr>
+                <div class="form-group">
+                    <div class="col-md-8">
+                        <button id="btn_Grabar_Empresa" type="button" class="btn btn-primary btn-sm hidden">Grabar Empresa</button>
+                        <button type="button" class="btn btn-default btn-sm regresar">Cancelar</button>
+                        <input type="submit" id="btn_ver_direccion" class="btn btn-primary btn-sm pull-left hidden" value="Buscar" />
+                        <button id="btn_nueva_oficina" type="button" class="btn btn-primary btn-sm hidden" data-toggle="modal" data-target="#mdloficina_crea">
+                            Nueva Oficina
+                        </button>
+                        <button id="btn_nueva_direccion" type="button" class="btn btn-primary btn-sm hidden" data-toggle="modal" data-target="#mdldireccion_crea">
+                            Nueva Dirección
+                        </button>
+                        <button id="btn_direccion_legal" type="button" class="btn btn-primary btn-sm hidden" data-toggle="modal" data-target="#mdldireccion_legal">
+                            Dirección
+                        </button>
+                        <button id="btn_persona_legal" type="button" class="btn btn-primary btn-sm hidden" data-toggle="modal" data-target="#mdlpersona_legal">
+                            Persona Legal
+                        </button>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>
+
+<div id="grid">
+    @grid.GetHtml(
+        tableStyle: "table table-striped table-hover table-condensed tabla small",
+        headerStyle: "cabecera",
+        columns: new[] {
+
+            grid.Column(null, header:"Oficina",format: p=> p.nom_oficina),
+            grid.Column(null, header:"Dirección",format: p=> p.direccion),
+            grid.Column(null, header:"Ubigeo",format: p=> p.nom_ubigeo),
+            grid.Column(null, header:"Activo",format: p=> ((bool)p.activo) ? "Activo" : "Inactivo" )
+        }
+                        , footerStyle: "hidden"
+                        )
+    @if (Model.Count() == 0)
+    {
+        <div class="row">
+            <div class="col-lg-12 text-center">
+                <div class="well well-sm">
+                    No se encontraron registros
+                </div>
+            </div>
+        </div>
+    }
+    else
+    {
+        <div class="row">
+            <div id="paginator" class="col-lg-12">
+                @grid.PagerList(mode: WebGridPagerModes.All, firstText: "Primero", previousText: "Anterior", nextText: "Siguiente", lastText: "Último")
+            </div>
+        </div>
+    }
+
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="loadMe" tabindex="-1" role="dialog" aria-labelledby="loadMeLabel">
+    <div class="modal-dialog modal-sm" role="document">
+        <div class="modal-content">
+            <div class="modal-body text-center">
+                <div class="loader"></div>
+                <div clas="loader-txt">
+                    <p>Consultando información, por favor espere...</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    /** SPINNER CREATION **/
+    .loader {
+        position: relative;
+        text-align: center;
+        margin: 15px auto 35px auto;
+        z-index: 9999;
+        display: block;
+        width: 80px;
+        height: 80px;
+        border: 10px solid rgba(0, 0, 0, .3);
+        border-radius: 50%;
+        border-top-color: #000;
+        animation: spin 1s ease-in-out infinite;
+        -webkit-animation: spin 1s ease-in-out infinite;
+    }
+
+    @@keyframes spin {
+        to {
+            -webkit-transform: rotate(360deg);
+        }
+    }
+
+    @@-webkit-keyframes spin {
+        to {
+            -webkit-transform: rotate(360deg);
+        }
+    }
+
+    /** MODAL STYLING **/
+    .modal-content {
+        border-radius: 0px;
+        box-shadow: 0 0 20px 8px rgba(0, 0, 0, 0.7);
+    }
+
+    .modal-backdrop.show {
+        opacity: 0.75;
+    }
+</style>
+
+<script type="text/javascript">
+
+    function IsNumeric(dato) {
+        var valor = dato.indexOf(".");
+        if ((window.event.keyCode > 47 && window.event.keyCode < 58)) {
+            window.event.returnValue = true;
+        }
+        else {
+            window.event.returnValue = false;
+        }
+    }
+
+    function valida_ruc(num_ruc) {
+        $.ajax({
+            cache: false,
+            type: "GET",
+            url: "@(Url.RouteUrl("recupera_datos_del_ruc"))",
+            data: { "persona_num_documento": num_ruc },
+
+            success: function (data) {
+                var entra = 0;
+                var cont = 1;
+
+                $.each(data, function (id, option) {
+                    if (option.Value == "NO") {
+                        entra = 1;
+                    }
+                    else {
+                        if (cont == 1) { $('#id_oficina_direccion').val(option.Value); }
+                        if (cont == 2) { $('#TXT_NOMBRE').val(option.Value); }
+                        if (cont == 3) { $('#TXT_SIGLAS').val(option.Value); }
+                        if (cont == 4) { $('#TXT_SEDE').val(option.Value); }
+                        if (cont == 5) { $('#TXT_DIRECCION').val(option.Value); }
+                        if (cont == 6) { $('#TXT_REFERENCIA').val(option.Value); }
+                        if (cont == 7) { $('#TXT_UBIGEO').val(option.Value); }
+                        if (cont == 8) { $('#id_oficina').val(option.Value); }
+                        cont += 1;
+                    }
+                });
+
+                if (entra == 1) {
+                    //Add by HM
+                    recupera_datos_del_SUNAT(num_ruc);
+
+                    $('#btn_Grabar_Empresa').removeClass("hidden");
+                    $('#id_oficina_direccion').val("");
+                    $('#id_oficina').val("");
+                    $('#TXT_NOMBRE').val("");
+                    $('#TXT_SIGLAS').val("");
+                    $('#TXT_SEDE').val("");
+                    $('#TXT_DIRECCION').val("");
+                    $('#TXT_REFERENCIA').val("");
+                    $('#TXT_UBIGEO').val("");
+                    $('#TXT_SIGLAS').removeAttr("disabled", "disabled");
+                    $('#TXT_NOMBRE').removeAttr("disabled", "disabled");
+                    $('#TXT_SEDE').removeAttr("disabled", "disabled");
+                    $('#TXT_DIRECCION').removeAttr("disabled", "disabled");
+                    $('#TXT_REFERENCIA').removeAttr("disabled", "disabled");
+                    $('#TXT_UBIGEO').removeAttr("disabled", "disabled");
+                    $('.valida_ubigeo').hide();
+                    $('.nuevo_ubigeo').show();
+
+                }
+                else
+                {
+                    $('#btn_nueva_oficina').removeClass("hidden");
+                    $('#btn_nueva_direccion').removeClass("hidden");
+                    $('#btn_direccion_legal').removeClass("hidden");
+                    $('#btn_persona_legal').removeClass("hidden");
+                    $("#loadMe").modal("hide");
+
+                }
+            },
+            error: function (xhr, ajaxOptions, thrownError) {
+                $("#loadMe").modal("hide");
+                alert('Failed to retrieve states.');
+            }
+        });
+    }
+
+    //Add by HM
+    function recupera_datos_del_SUNAT(num_ruc) {
+
+        $.ajax({
+            cache: false,
+            type: "GET",
+            url: "@(Url.RouteUrl("recupera_datos_del_SUNAT"))",
+            data: { "persona_num_documento": num_ruc },
+
+            success: function (data) {
+                $('#TXT_NOMBRE').val(data[0].ddp_nombre);
+                $('#TXT_SEDE').val(data[0].ddp_nomzon);
+                $('#TXT_REFERENCIA').val(data[0].ddp_refer1);
+                $('#TXT_DIRECCION').val(data[0].domicilioLegal);
+
+                //Setea Texto y Evento CHANGED de Listas de Ubigeo
+                //----->Departamento
+                $("#cmblista_departamento option").filter(function () {
+                    return this.text == data[0].desc_dep;
+                }).attr('selected', true);
+
+                //----->Provincia
+                $('#cmblista_provincia option:selected').text(data[0].desc_prov);
+
+                //Recupera Datos de Ubigeo --> Distrito
+                var id_Dep = $("#cmblista_departamento").val();
+                recupera_datos_Ubigeo(id_Dep, data[0].desc_prov, data[0].desc_dist);
+                $("#loadMe").modal("hide");
+            },
+            error: function (xhr, ajaxOptions, thrownError) {
+                $("#loadMe").modal("hide");
+                alert('Se encontro un problema al intentar conectar con el servicio de SUNAT.');
+            }
+        })
+    }
+
+    //Add by HM
+    function recupera_datos_Ubigeo(id_departamento, desc_Provincia, desc_Distrito) {
+        $.ajax({
+            cache: false,
+            type: "GET",
+            url: "@(Url.RouteUrl("ObtieneUbigeo"))",
+            data: {
+                "id_departamento": id_departamento,
+                "desc_Provincia": desc_Provincia,
+                "desc_Distrito": desc_Distrito
+                },
+            success: function (data) {
+                $('#cmblista_distrito').append($('<option></option>').val(data).html(desc_Distrito));
+                $("#cmblista_distrito option").filter(function () {
+                    return this.text == desc_Distrito;
+                }).attr('selected', true);
+            },
+            error: function (xhr, ajaxOptions, thrownError) {
+                $("#loadMe").modal("hide");
+                alert('Se encontro un problema al intentar encontrar Ubigeo');
+            }
+        })
+    }
+
+    function IsNumeric_vista(dato) {
+        var valor = dato.indexOf(".");
+        var evento = window.event || dato;
+        if ((window.event.keyCode > 47 && window.event.keyCode < 58)) {
+            if ($("#TXT_RUC").val().trim().length != 11) {
+                if ($("#TXT_RUC").val().trim().length == 10) {
+                    $("#page").val("1");
+                    $("#TXT_RUC").val(($("#TXT_RUC").val() + String.fromCharCode(evento.charCode)).trim());
+                    $("#btn_ver_direccion").click();
+                }
+                else {
+                    limpiar_empresa();
+                }
+            }
+
+            if ($("#txt_persona_legal_documento").val().trim().length >= 7) {
+                document.getElementById('lbl_valida_persona_legal').innerHTML = "Cargando...";
+                document.getElementById('lbl_valida_persona_legal_x').innerHTML = "";
+                $.ajax({
+                    cache: false,
+                    type: "GET",
+                    url: "@(Url.RouteUrl("Consultar_DNI_vista"))",
+                    data: { "DNI": ($("#txt_persona_legal_documento").val() + String.fromCharCode(evento.charCode)) },
+
+                    success: function (data) {
+                        $.each(data, function (id, option) {
+                            if (option.Value != "NO") {
+                                $("#agregar_persona_legal").val("1");
+                                document.getElementById('lbl_valida_persona_legal_x').innerHTML = "";
+                                document.getElementById('lbl_valida_persona_legal').innerHTML = option.Text;
+                            }
+                            else {
+                                $("#agregar_persona_legal").val("0");
+                                document.getElementById('lbl_valida_persona_legal_x').innerHTML = "";
+                                document.getElementById('lbl_valida_persona_legal').innerHTML = "";
+                            }
+                        });
+                    },
+                    error: function (xhr, ajaxOptions, thrownError) {
+                        alert('Failed to retrieve states.');
+                    }
+                });
+            }
+            window.event.returnValue = true;
+        }
+        else {
+            window.event.returnValue = false;
+        }
+    }
+
+    function Valida_back_vista(dato) {
+        if (window.event.keyCode == 8) {
+            if ($("#TXT_RUC").val().trim().length < 11) {
+                limpiar_empresa();
+            }
+        }
+    }
+
+    function Valida_back_vista_legal(dato) {
+        if (window.event.keyCode == 8) {
+            if ($("#txt_persona_legal_documento").val().trim().length < 8) {
+                document.getElementById('lbl_valida_persona_legal').innerHTML = "";
+            }
+        }
+    }
+
+    function limpiar_empresa() {
+        $('#id_oficina_direccion').val("");
+        $('#id_oficina').val("");
+        $('#TXT_NOMBRE').val("");
+        $('#TXT_SIGLAS').val("");
+        $('#TXT_SEDE').val("");
+        $('#TXT_DIRECCION').val("");
+        $('#TXT_REFERENCIA').val("");
+        $('#TXT_UBIGEO').val("");
+        $('#btn_Grabar_Empresa').addClass("hidden");
+        $('#TXT_SIGLAS').attr("disabled", "disabled");
+        $('#TXT_NOMBRE').attr("disabled", "disabled");
+        $('#TXT_SEDE').attr("disabled", "disabled");
+        $('#TXT_DIRECCION').attr("disabled", "disabled");
+        $('#TXT_REFERENCIA').attr("disabled", "disabled");
+        $('#TXT_UBIGEO').attr("disabled", "disabled");
+        $('.valida_ubigeo').show();
+        $('.nuevo_ubigeo').hide();
+        $('#btn_nueva_oficina').addClass("hidden");
+        $('#btn_nueva_direccion').addClass("hidden");
+        $('#btn_direccion_legal').addClass("hidden");
+        $('#btn_persona_legal').addClass("hidden");
+    }
+
+    $(document).ready(function () {
+        $("#agregar_persona_legal").val("0");
+        $("#txt_check_new_direccion").val("0");
+        $('.valida_ubigeo').show();
+        $('.nuevo_ubigeo').hide();
+        $('.bus_tbl_dir_legal_cls_edit').hide();
+
+        if ($("#TXT_RUC").val() != "") {
+            $("#loadMe").modal({
+                backdrop: "static", //remove ability to close modal with click
+                keyboard: false, //remove option to close with keyboard
+                show: true //Display loader!
+            });
+            valida_ruc($("#TXT_RUC").val());
+        }
+
+        $(function () {
+            $('#paginator ul li a').click(function () {
+                var url = $(this).attr('href') + '&' + $('form').serialize();
+                $(this).attr('href', url);
+            });
+        });
+
+        $('input[type="checkbox"]').change(function () {
+            var id = $(this).attr('id');
+            if (id == "check_new_direccion") {
+                if ($("#txt_check_new_direccion").val() == "0") {
+                    $("#txt_new_direccion_oficina").val("");
+                    $("#txt_new_nombre_sede").val("");
+                    $("#txt_new_referencia").val("");
+                    $("#cmblista_departamento_new_oficina").val("");
+                    $("#cmblista_provincia_new_oficina").val("");
+                    $("#cmblista_distrito_new_oficina").val("");
+                    document.getElementById('lbl_valida_distrito_new_oficina').innerHTML = "";
+                    $('.ver_ofi_direccion').hide();
+                    $('.new_ofi_direccion').show();
+                    $("#txt_check_new_direccion").val("1");
+                }
+                else {
+                    $("#txt_new_direccion_oficina").val("");
+                    $("#txt_new_nombre_sede").val("");
+                    $("#txt_new_referencia").val("");
+                    $("#cmblista_departamento_new_oficina").val("");
+                    $("#cmblista_provincia_new_oficina").val("");
+                    $("#cmblista_distrito_new_oficina").val("");
+                    document.getElementById('lbl_valida_distrito_new_oficina').innerHTML = "";
+                    $('.ver_ofi_direccion').show();
+                    $('.new_ofi_direccion').hide();
+                    $("#txt_check_new_direccion").val("0");
+                }
+
+            }
+        });
+
+
+        $(document).on("click", ".regresar", function () {
+            window.location = '@Url.Action("Listar_Oficina", "Oficina")';
+        });
+
+        $("#cmblista_departamento_new_oficina_padre").change(function () {
+            var selectdepartamento = $(this).val();
+            var ddlprovincia = $("#cmblista_provincia_new_oficina_padre");
+            $.ajax({
+                cache: false,
+                type: "GET",
+                url: "@(Url.RouteUrl("llenar_provincia_x_departamento"))",
+                data: { "id_departamento": selectdepartamento },
+                success: function (data) {
+                    ddlprovincia.html('');
+                    $.each(data, function (id, option) {
+                        ddlprovincia.append($('<option></option>').val(option.Value).html(option.Text));
+                    });
+                    $("#cmblista_provincia_new_oficina_padre").change();
+                },
+                error: function (xhr, ajaxOptions, thrownError) {
+                    alert('Failed to retrieve states.');
+                }
+            });
+        });
+
+        $("#cmblista_provincia_new_oficina_padre").change(function () {
+            var selectprovincia = $("#cmblista_departamento_new_oficina_padre").val() + $(this).val();
+            var ddldistrito = $("#cmblista_distrito_new_oficina_padre");
+            $.ajax({
+                cache: false,
+                type: "GET",
+                url: "@(Url.RouteUrl("llenar_distrito_x_provincia"))",
+                data: { "id_provincia": selectprovincia },
+                success: function (data) {
+                    ddldistrito.html('');
+                    $.each(data, function (id, option) {
+                        ddldistrito.append($('<option></option>').val(option.Value).html(option.Text));
+                    });
+                },
+                error: function (xhr, ajaxOptions, thrownError) {
+                    alert('Failed to retrieve states.');
+                }
+            });
+        });
+
+
+        $("#cmblista_departamento_new_oficina").change(function () {
+            var selectdepartamento = $(this).val();
+            var ddlprovincia = $("#cmblista_provincia_new_oficina");
+            $.ajax({
+                cache: false,
+                type: "GET",
+                url: "@(Url.RouteUrl("llenar_provincia_x_departamento"))",
+                data: { "id_departamento": selectdepartamento },
+                success: function (data) {
+                    ddlprovincia.html('');
+                    $.each(data, function (id, option) {
+                        ddlprovincia.append($('<option></option>').val(option.Value).html(option.Text));
+                    });
+                    $("#cmblista_provincia_new_oficina").change();
+                },
+                error: function (xhr, ajaxOptions, thrownError) {
+                    alert('Failed to retrieve states.');
+                }
+            });
+        });
+
+        $("#cmblista_provincia_new_oficina").change(function () {
+            var selectprovincia = $("#cmblista_departamento_new_oficina").val() + $(this).val();
+            var ddldistrito = $("#cmblista_distrito_new_oficina");
+            $.ajax({
+                cache: false,
+                type: "GET",
+                url: "@(Url.RouteUrl("llenar_distrito_x_provincia"))",
+                data: { "id_provincia": selectprovincia },
+                success: function (data) {
+                    ddldistrito.html('');
+                    $.each(data, function (id, option) {
+                        ddldistrito.append($('<option></option>').val(option.Value).html(option.Text));
+                    });
+                },
+                error: function (xhr, ajaxOptions, thrownError) {
+                    alert('Failed to retrieve states.');
+                }
+            });
+        });
+
+        $("#cmblista_departamento").change(function () {
+            var selectdepartamento = $(this).val();
+            var ddlprovincia = $("#cmblista_provincia");
+            $.ajax({
+                cache: false,
+                type: "GET",
+                url: "@(Url.RouteUrl("llenar_provincia_x_departamento"))",
+                data: { "id_departamento": selectdepartamento },
+                success: function (data) {
+                    ddlprovincia.html('');
+                    $.each(data, function (id, option) {
+                        ddlprovincia.append($('<option></option>').val(option.Value).html(option.Text));
+                    });
+                    $("#cmblista_provincia").change();
+                },
+                error: function (xhr, ajaxOptions, thrownError) {
+                    alert('Failed to retrieve states.');
+                }
+            });
+        });
+
+        $("#cmblista_provincia").change(function () {
+            var selectprovincia = $("#cmblista_departamento").val() + $(this).val();
+            var ddldistrito = $("#cmblista_distrito");
+            $.ajax({
+                cache: false,
+                type: "GET",
+                url: "@(Url.RouteUrl("llenar_distrito_x_provincia"))",
+                data: { "id_provincia": selectprovincia },
+                success: function (data) {
+                    ddldistrito.html('');
+                    $.each(data, function (id, option) {
+                        ddldistrito.append($('<option></option>').val(option.Value).html(option.Text));
+                    });
+                },
+                error: function (xhr, ajaxOptions, thrownError) {
+                    alert('Failed to retrieve states.');
+                }
+            });
+        });
+
+        $('#mdloficina_crea').on('show.bs.modal', function (e) {
+            $("#txt_new_ubigeo_new_oficina").val("");
+            $("#txt_check_new_direccion").val("0");
+            $("#txt_new_nombre_oficina").val("");
+            $("#txt_new_siglas_oficina").val("");
+            $("#cmblista_new_direccion").val("");
+            $('#check_new_direccion').attr('checked', false);
+            $("#txt_new_direccion_oficina").val("");
+            $("#txt_new_nombre_sede").val("");
+            $("#txt_new_referencia").val("");
+            $("#cmblista_departamento_new_oficina").val("");
+            $("#cmblista_provincia_new_oficina").val("");
+            $("#cmblista_distrito_new_oficina").val("");
+            $('.ver_ofi_direccion').show();
+            $('.new_ofi_direccion').hide();
+            document.getElementById('lbl_valida_distrito_new_oficina').innerHTML = "";
+        });
+
+        $('#mdldireccion_crea').on('show.bs.modal', function (e) {
+            $("#txt_new_direccion_oficina_padre").val("");
+            $("#txt_check_new_direccion").val("2");
+            $("#txt_new_nombre_sede_padre").val("");
+            $("#txt_new_referencia_padre").val("");
+            $("#cmblista_departamento_new_oficina_padre").val("");
+            $("#cmblista_provincia_new_oficina_padre").val("");
+            $("#cmblista_distrito_new_oficina_padre").val("");
+
+            document.getElementById('lbl_valida_new_direccion_padre').innerHTML = "";
+            document.getElementById('lbl_valida_new_nom_sede_padre').innerHTML = "";
+            document.getElementById('lbl_valida_distrito_new_oficina_padre').innerHTML = "";
+        });
+
+        $("#btnGuardar_new_direccion").click(function () {
+
+            document.getElementById('lbl_valida_new_direccion_padre').innerHTML = "";
+            document.getElementById('lbl_valida_new_nom_sede_padre').innerHTML = "";
+            document.getElementById('lbl_valida_distrito_new_oficina_padre').innerHTML = "";
+
+            $('#btnGuardar_new_direccion').attr("disabled", "disabled");
+
+            var entra = 0;
+
+
+
+            if ($("#txt_new_direccion_oficina_padre").val().toString().trim() == "") {
+                document.getElementById('lbl_valida_new_direccion_padre').innerHTML = "Ingresar Dirección";
+                entra = 1;
+            }
+
+            if ($("#txt_new_nombre_sede_padre").val().toString().trim() == "") {
+                document.getElementById('lbl_valida_new_nom_sede_padre').innerHTML = "Ingresar Nombre de la sede";
+                entra = 1;
+            }
+
+            if ($("#cmblista_distrito_new_oficina_padre").val().toString().trim() == "") {
+                document.getElementById('lbl_valida_distrito_new_oficina_padre').innerHTML = "Seleccionar Distrito";
+                entra = 1;
+            }
+
+            if (entra == 1) {
+                $('#btnGuardar_new_direccion').removeAttr("disabled", "disabled");
+                return false;
+            }
+
+
+            $.ajax({
+                cache: false,
+                type: "GET",
+                url: "/Oficina/Grabar_Nueva_Oficina",
+                data: {
+                    "new_oficina_direccion": $("#txt_new_nombre_oficina").val(),
+                    "new_oficina_siglas": $("#txt_new_siglas_oficina").val(),
+                    "new_oficina_id_sede": $("#cmblista_new_direccion").val(),
+                    "new_oficina_dir_condicion": $("#txt_check_new_direccion").val(),
+                    "new_oficina_nom_direccion": $("#txt_new_direccion_oficina_padre").val(),
+                    "new_oficina_nom_sede": $("#txt_new_nombre_sede_padre").val(),
+                    "new_oficina_nom_referencia": $("#txt_new_referencia_padre").val(),
+                    "new_oficina_ubigeo": $("#cmblista_distrito_new_oficina_padre").val(),
+                    "id_oficina_padre": $("#id_oficina").val(),
+                    "new_oficina_ruc": $("#TXT_RUC").val()
+                },
+                beforeSend: function () {
+                    $('#btnGuardar_new_direccion').attr("disabled", "disabled");
+                },
+                complete: function () {
+                    $('#btnGuardar_new_direccion').attr("disabled", "disabled");
+                },
+                success: function (result) {
+                    $('.field-validation-error').each(function () {
+                        $(this).removeClass("field-validation-error").addClass("field-validation-valid");
+                        $(this).html('');
+                    });
+                    $('#mdldireccion_crea').modal('hide');
+                    $("#mensajes").html(result).hide();
+                    $("html, body").animate({ scrollTop: 0 }, '500', 'swing', function () {
+                        $("#mensajes").slideDown(500, function () { });
+                        setTimeout(function () {
+
+                            $("#mensajes").html(result).hide();
+                            $("#btn_ver_direccion").click();
+                        }, 500);
+                    });
+                },
+                error: function (result) {
+                    if (result.status == 500) {
+                        $("#mensajes").html(result.responseText).hide();
+                        $("#mensajes").slideDown(500, function () { });
+                    }
+                    else if (result.status == 400) {
+                        $('.field-validation-error').each(function () {
+                            $(this).removeClass("field-validation-error").addClass("field-validation-valid");
+                            $(this).html('');
+                        });
+                        $.each(result.responseJSON.errors, function (key, value) {
+                            if (value != null) {
+                                var container = $('span[data-valmsg-for="' + key + '"]');
+                                container.removeClass("field-validation-valid").addClass("field-validation-error");
+                                container.html(value);
+                            }
+                        });
+                        $("#mensajes").html(result.responseJSON.summary).hide();
+                        if (result.responseJSON.summary != "") {
+                            $("#mensajes").slideDown(500, function () { });
+                        }
+                    }
+                }
+            });
+        });
+
+        $("#btnGuardar_new_oficina").click(function () {
+
+            document.getElementById('lbl_valida_new_nombre_oficina').innerHTML = "";
+            document.getElementById('lbl_valida_new_nom_sede').innerHTML = "";
+            document.getElementById('lbl_valida_new_oficina_direccion').innerHTML = "";
+            document.getElementById('lbl_valida_new_direccion').innerHTML = "";
+            document.getElementById('lbl_valida_distrito_new_oficina').innerHTML = "";
+
+            $('#btnGuardar_new_oficina').attr("disabled", "disabled");
+
+            var entra = 0;
+
+            $("#txt_new_ubigeo_new_oficina").val($("#cmblista_distrito_new_oficina").val());
+
+            if ($("#txt_new_nombre_oficina").val().toString().trim() == "") {
+                document.getElementById('lbl_valida_new_nombre_oficina').innerHTML = "Ingresar Nombre de la Oficina";
+                entra = 1;
+            }
+
+
+            if ($("#txt_check_new_direccion").val() == "0") {
+
+                if ($("#cmblista_new_direccion").val().toString().trim() == "") {
+                    document.getElementById('lbl_valida_new_oficina_direccion').innerHTML = "Seleccionar Dirección";
+                    entra = 1;
+                }
+
+            }
+            else {
+
+                if ($("#txt_new_direccion_oficina").val().toString().trim() == "") {
+                    document.getElementById('lbl_valida_new_direccion').innerHTML = "Ingresar Dirección";
+                    entra = 1;
+                }
+
+                if ($("#txt_new_nombre_sede").val().toString().trim() == "") {
+                    document.getElementById('lbl_valida_new_nom_sede').innerHTML = "Ingresar Nombre de la sede";
+                    entra = 1;
+                }
+
+                if ($("#cmblista_distrito_new_oficina").val().toString().trim() == "") {
+                    document.getElementById('lbl_valida_distrito_new_oficina').innerHTML = "Seleccionar Distrito";
+                    entra = 1;
+                }
+
+            }
+
+            if (entra == 1) {
+                $('#btnGuardar_new_oficina').removeAttr("disabled", "disabled");
+                return false;
+            }
+
+
+            $.ajax({
+                cache: false,
+                type: "GET",
+                url: "/Oficina/Grabar_Nueva_Oficina",
+                data: {
+                    "new_oficina_direccion": $("#txt_new_nombre_oficina").val(),
+                    "new_oficina_siglas": $("#txt_new_siglas_oficina").val(),
+                    "new_oficina_id_sede": $("#cmblista_new_direccion").val(),
+                    "new_oficina_dir_condicion": $("#txt_check_new_direccion").val(),
+                    "new_oficina_nom_direccion": $("#txt_new_direccion_oficina").val(),
+                    "new_oficina_nom_sede": $("#txt_new_nombre_sede").val(),
+                    "new_oficina_nom_referencia": $("#txt_new_referencia").val(),
+                    "new_oficina_ubigeo": $("#txt_new_ubigeo_new_oficina").val(),
+                    "id_oficina_padre": $("#id_oficina").val(),
+                    "new_oficina_ruc": $("#TXT_RUC").val()
+                },
+                beforeSend: function () {
+                    $('#btnGuardar_new_oficina').attr("disabled", "disabled");
+                },
+                complete: function () {
+                    $('#btnGuardar_new_oficina').attr("disabled", "disabled");
+                },
+                success: function (result) {
+                    $('.field-validation-error').each(function () {
+                        $(this).removeClass("field-validation-error").addClass("field-validation-valid");
+                        $(this).html('');
+                    });
+                    $('#mdloficina_crea').modal('hide');
+                    $("#mensajes").html(result).hide();
+                    $("html, body").animate({ scrollTop: 0 }, '500', 'swing', function () {
+                        $("#mensajes").slideDown(500, function () { });
+                        setTimeout(function () {
+
+                            $("#mensajes").html(result).hide();
+                            $("#btn_ver_direccion").click();
+                        }, 500);
+                    });
+                },
+                error: function (result) {
+                    if (result.status == 500) {
+                        $("#mensajes").html(result.responseText).hide();
+                        $("#mensajes").slideDown(500, function () { });
+                    }
+                    else if (result.status == 400) {
+                        $('.field-validation-error').each(function () {
+                            $(this).removeClass("field-validation-error").addClass("field-validation-valid");
+                            $(this).html('');
+                        });
+                        $.each(result.responseJSON.errors, function (key, value) {
+                            if (value != null) {
+                                var container = $('span[data-valmsg-for="' + key + '"]');
+                                container.removeClass("field-validation-valid").addClass("field-validation-error");
+                                container.html(value);
+                            }
+                        });
+                        $("#mensajes").html(result.responseJSON.summary).hide();
+                        if (result.responseJSON.summary != "") {
+                            $("#mensajes").slideDown(500, function () { });
+                        }
+                    }
+                }
+            });
+        });
+
+
+        $(document).on('click', '.seleccionar_persona_legal', function () {
+
+            var id_persona_legal = $(this).attr('id');
+
+            if (id_persona_legal != undefined) {
+                $.ajax({
+                    cache: false,
+                    type: "GET",
+                    url: "/Oficina/Grabar_Nueva_Persona_Legal",
+                    data: {
+                        "id_persona_legal": id_persona_legal,
+                        "documento": "",
+                        "telefono": "",
+                        "correo": "",
+                        "RUC": $("#TXT_RUC").val()
+                    },
+                    success: function (result) {
+                        $('.field-validation-error').each(function () {
+                            $(this).removeClass("field-validation-error").addClass("field-validation-valid");
+                            $(this).html('');
+                        });
+                        $("#mensajes_persona_legal").html(result);
+                        $("#agregar_persona_legal").val("0");
+                        $("#txt_persona_legal_documento").val("");
+                        $("#txt_persona_legal_telefono").val("");
+                        $("#txt_persona_legal_correo").val("");
+                        document.getElementById('lbl_valida_persona_legal').innerHTML = "";
+                        document.getElementById('lbl_valida_persona_legal_x').innerHTML = "";
+
+                        $("#mensajes_persona_legal").slideDown(500, function () { });
+                        $("#bus_tbl_persona_legal").html('');
+                        document.getElementById('lbl_carga_data_persona_legal').innerHTML = "Cargando...";
+
+                        setTimeout(function () {
+                            $("#btn_persona_legal").click();
+                        }, 2000);
+                    },
+                    error: function (result) {
+                        if (result.status == 500) {
+                            $("#mensajes_persona_legal").html(result.responseText).hide();
+                            $("#mensajes_persona_legal").slideDown(500, function () { });
+                        }
+                        else if (result.status == 400) {
+                            $('.field-validation-error').each(function () {
+                                $(this).removeClass("field-validation-error").addClass("field-validation-valid");
+                                $(this).html('');
+                            });
+                            $.each(result.responseJSON.errors, function (key, value) {
+                                if (value != null) {
+                                    var container = $('span[data-valmsg-for="' + key + '"]');
+                                    container.removeClass("field-validation-valid").addClass("field-validation-error");
+                                    container.html(value);
+                                }
+                            });
+                            $("#mensajes_persona_legal").html(result.responseJSON.summary).hide();
+                            if (result.responseJSON.summary != "") {
+                                $("#mensajes_persona_legal").slideDown(500, function () { });
+                            }
+                        }
+                    }
+                });
+            }
+        });
+
+
+        $("#btn_agregar_persona_legal").click(function () {
+            if ($("#agregar_persona_legal").val() == "0")
+            {
+                document.getElementById('lbl_valida_persona_legal_x').innerHTML = "Debe ingresar Documento Correcto";
+                document.getElementById('lbl_valida_persona_legal').innerHTML = "";
+                return false;
+            }
+            else {
+                $.ajax({
+                    cache: false,
+                    type: "GET",
+                    url: "/Oficina/Grabar_Nueva_Persona_Legal",
+                    data: {
+                        "id_persona_legal": 0,
+                        "documento": $("#txt_persona_legal_documento").val(),
+                        "telefono": $("#txt_persona_legal_telefono").val(),
+                        "correo": $("#txt_persona_legal_correo").val(),
+                        "RUC": $("#TXT_RUC").val()
+                    },
+                    success: function (result) {
+                        $('.field-validation-error').each(function () {
+                            $(this).removeClass("field-validation-error").addClass("field-validation-valid");
+                            $(this).html('');
+                        });
+                        $("#mensajes_persona_legal").html(result);
+                        $("#agregar_persona_legal").val("0");
+                        $("#txt_persona_legal_documento").val("");
+                        $("#txt_persona_legal_telefono").val("");
+                        $("#txt_persona_legal_correo").val("");
+                        document.getElementById('lbl_valida_persona_legal').innerHTML = "";
+                        document.getElementById('lbl_valida_persona_legal_x').innerHTML = "";
+                        $("#bus_tbl_persona_legal").html('');
+
+                        $("#mensajes_persona_legal").slideDown(500, function () { });
+                        document.getElementById('lbl_carga_data_persona_legal').innerHTML = "Cargando...";
+
+                        setTimeout(function () {
+                            $("#btn_persona_legal").click();
+                        }, 2000);
+                    },
+                    error: function (result) {
+                        if (result.status == 500) {
+                            $("#mensajes_persona_legal").html(result.responseText).hide();
+                            $("#mensajes_persona_legal").slideDown(500, function () { });
+                        }
+                        else if (result.status == 400) {
+                            $('.field-validation-error').each(function () {
+                                $(this).removeClass("field-validation-error").addClass("field-validation-valid");
+                                $(this).html('');
+                            });
+                            $.each(result.responseJSON.errors, function (key, value) {
+                                if (value != null) {
+                                    var container = $('span[data-valmsg-for="' + key + '"]');
+                                    container.removeClass("field-validation-valid").addClass("field-validation-error");
+                                    container.html(value);
+                                }
+                            });
+                            $("#mensajes_persona_legal").html(result.responseJSON.summary).hide();
+                            if (result.responseJSON.summary != "") {
+                                $("#mensajes_persona_legal").slideDown(500, function () { });
+                            }
+                        }
+                    }
+                });
+            }
+        });
+
+
+        $(document).on('click', '.seleccionar', function () {
+
+            var id_dir_legal_sede = $(this).attr('id').split('||');
+            if (id_dir_legal_sede[0] != undefined) {
+                $.ajax({
+                    cache: false,
+                    type: "GET",
+                    url: "/Oficina/Grabar_Nueva_Direccion_Legal",
+                    data: {
+                        "id_oficina_direccion_legal": id_dir_legal_sede[0],
+                        "id_sede": id_dir_legal_sede[1],
+                        "RUC": $("#TXT_RUC").val()
+                    },
+                    success: function (result) {
+                        $('.field-validation-error').each(function () {
+                            $(this).removeClass("field-validation-error").addClass("field-validation-valid");
+                            $(this).html('');
+                        });
+                        $("#mensajes_direccion_legal").html(result);
+
+                        $("#mensajes_direccion_legal").slideDown(500, function () { });
+                        $("#bus_tbl_dir_legal").html('');
+                        document.getElementById('lbl_carga_data_dir').innerHTML = "Cargando...";
+
+                        setTimeout(function () {
+                            $("#btn_direccion_legal").click();
+                        }, 2000);
+                    },
+                    error: function (result) {
+                        if (result.status == 500) {
+                            $("#mensajes_direccion_legal").html(result.responseText).hide();
+                            $("#mensajes_direccion_legal").slideDown(500, function () { });
+                        }
+                        else if (result.status == 400) {
+                            $('.field-validation-error').each(function () {
+                                $(this).removeClass("field-validation-error").addClass("field-validation-valid");
+                                $(this).html('');
+                            });
+                            $.each(result.responseJSON.errors, function (key, value) {
+                                if (value != null) {
+                                    var container = $('span[data-valmsg-for="' + key + '"]');
+                                    container.removeClass("field-validation-valid").addClass("field-validation-error");
+                                    container.html(value);
+                                }
+                            });
+                            $("#mensajes_direccion_legal").html(result.responseJSON.summary).hide();
+                            if (result.responseJSON.summary != "") {
+                                $("#mensajes_direccion_legal").slideDown(500, function () { });
+                            }
+                        }
+                    }
+                });
+            }
+        });
+
+
+        $("#btn_persona_legal").click(function () {
+
+            $("#mensajes_persona_legal").html('').hide();
+
+            $("#bus_tbl_persona_legal").html('');
+
+            document.getElementById('lbl_carga_data_persona_legal').innerHTML = "Cargando...";
+
+            jQuery("#bus_tbl_persona_legal").append('<table id="tbl_persona_legal" class="table table-striped table-hover table-condensed tabla small" cellspacing="0"> <thead> <tr class="cabecera"> ' +
+                '<th hidden="hidden">ACTIVO</th><th scope="col">DOCUMENTO</th><th scope="col">NOMBRES Y APELLIDOS</th><th scope="col">TELEFONO</th><th scope="col">CORREO</th><th scope="col">SELECCIONAR</th></thead> <tbody></tbody> </table>');
+
+            $.ajax({
+                cache: false,
+                type: "GET",
+                url: "@(Url.RouteUrl("LLENAR_PERSONA_LEGAL_X_ENTIDAD"))",
+                data: { "RUC": $("#TXT_RUC").val() },
+                success: function (data) {
+                    document.getElementById('lbl_carga_data_persona_legal').innerHTML = "";
+                    $.each(data, function (id, option) {
+                        var nuevoTD = '<tr>';
+                        nuevoTD += '<td hidden="hidden">' + option.activo + '</td>';
+                        nuevoTD += '<td style="text-align:center;">' + option.documento + '</td>';
+                        nuevoTD += '<td style="width:100px; text-align:center;">' + option.nombres_y_apellidos + '</td>';
+                        nuevoTD += '<td style="width:100px; text-align:center;">' + option.telefono + '</td>';
+                        nuevoTD += '<td style="width:100px; text-align:center;">' + option.correo + '</td>';
+                        if (option.activo == "0") {
+                            nuevoTD += '<td style="text-align:center;" class="seleccionar_persona_legal"> <ul class="list-inline" style="margin-bottom:0"> <li> <a class="seleccionar_persona_legal" href="#" id="' + option.id_persona_legal + '" title="seleccionar"> <i class="glyphicon glyphicon-ok"></i> </a> </li> </ul> </td>';
+                        }
+                        else {
+                            nuevoTD += '<td style="text-align:center;"> PERSONA LEGAL ACTUAL</td>';
+                        }
+                        nuevoTD += '</tr>';
+
+                        jQuery("#tbl_persona_legal").append(nuevoTD);
+                    });
+
+                    $("#tbl_persona_legal").DataTable({
+                        "lengthChange": false,
+                        "searching": false,
+                        "ordering": false,
+                        "order": [[0, "desc"], [2, "asc"]],
+                        "info": false,
+                        "language": {
+                            "paginate": {
+                                "previous": "Anterior",
+                                "next": "Siguiente"
+                            }
+                        }
+                    });
+
+                    $("#tbl_persona_legal thead tr th").eq(1).css({ "width": 30 });
+                    $("#tbl_persona_legal thead tr th").eq(2).css({ "width": 180 });
+                    $("#tbl_persona_legal thead tr th").eq(3).css({ "width": 30 });
+                    $("#tbl_persona_legal thead tr th").eq(4).css({ "width": 30 });
+                    $("#tbl_persona_legal thead tr th").eq(5).css({ "width": 30 });
+                },
+                error: function (xhr, ajaxOptions, thrownError) {
+                    alert('Failed to retrieve states.');
+                }
+            });
+        });
+
+        /*
+        $(".bus_tbl_dir_legal").slideUp(1000);
+        $(".Oculto_dinamico").slideDown(1000);
+        */
+
+
+        $("#cmblista_departamento_edit").change(function () {
+            var selectdepartamento = $(this).val();
+            var ddlprovincia = $("#cmblista_provincia_edit");
+            $.ajax({
+                cache: false,
+                type: "GET",
+                url: "@(Url.RouteUrl("llenar_provincia_x_departamento"))",
+                data: { "id_departamento": selectdepartamento },
+                success: function (data) {
+                    ddlprovincia.html('');
+                    $.each(data, function (id, option) {
+                        ddlprovincia.append($('<option></option>').val(option.Value).html(option.Text));
+                    });
+                    $("#cmblista_provincia_edit").change();
+                },
+                error: function (xhr, ajaxOptions, thrownError) {
+                    alert('Failed to retrieve states.');
+                }
+            });
+        });
+
+        $("#cmblista_provincia_edit").change(function () {
+            var selectprovincia = $("#cmblista_departamento_edit").val() + $(this).val();
+            var ddldistrito = $("#cmblista_distrito_edit");
+            $.ajax({
+                cache: false,
+                type: "GET",
+                url: "@(Url.RouteUrl("llenar_distrito_x_provincia"))",
+                data: { "id_provincia": selectprovincia },
+                success: function (data) {
+                    ddldistrito.html('');
+                    $.each(data, function (id, option) {
+                        ddldistrito.append($('<option></option>').val(option.Value).html(option.Text));
+                    });
+                },
+                error: function (xhr, ajaxOptions, thrownError) {
+                    alert('Failed to retrieve states.');
+                }
+            });
+        });
+
+        $(document).on('click', '.Editar_dir', function () {
+            var id = $(this).attr('id').split('||');
+            $("#txt_id_sede_direccion_edit").val(id[0]);
+            $(".bus_tbl_dir_legal_cls").slideUp(1000);
+            $(".bus_tbl_dir_legal_cls_edit").slideDown(1000);
+            $("#txt_sede_edit").val(id[4]);
+            $("#txt_direccion_edit").val(id[1]);
+            $("#txt_referencia_edit").val(id[3]);
+            $("#cmblista_departamento_edit").val(id[2].substring(0, 2));
+            var selectdepartamento = id[2].substring(0, 2);
+            var ddlprovincia = $("#cmblista_provincia_edit");
+            $.ajax({
+                cache: false,
+                type: "GET",
+                url: "@(Url.RouteUrl("llenar_provincia_x_departamento"))",
+                data: { "id_departamento": selectdepartamento },
+                success: function (data) {
+                    ddlprovincia.html('');
+                    $.each(data, function (id, option) {
+                        ddlprovincia.append($('<option></option>').val(option.Value).html(option.Text));
+                    });
+                    $("#cmblista_provincia_edit").val(id[2].substring(2, 4));
+                    var selectprovincia = id[2].substring(0, 4);
+                    var ddldistrito = $("#cmblista_distrito_edit");
+                    $.ajax({
+                        cache: false,
+                        type: "GET",
+                        url: "@(Url.RouteUrl("llenar_distrito_x_provincia"))",
+                        data: { "id_provincia": selectprovincia },
+                        success: function (data) {
+                            ddldistrito.html('');
+                            $.each(data, function (id, option) {
+                                ddldistrito.append($('<option></option>').val(option.Value).html(option.Text));
+                            });
+                            $("#cmblista_distrito_edit").val(id[2]);
+                        },
+                        error: function (xhr, ajaxOptions, thrownError) {
+                            alert('Failed to retrieve states.');
+                        }
+                    });
+                },
+                error: function (xhr, ajaxOptions, thrownError) {
+                    alert('Failed to retrieve states.');
+                }
+            });
+
+        });
+
+        $("#btn_canc_direc").click(function () {
+            $(".bus_tbl_dir_legal_cls_edit").slideUp(1000)
+            $(".bus_tbl_dir_legal_cls").slideDown(1000);
+        });
+
+        $("#btn_direccion_legal").click(function () {
+
+            $(".bus_tbl_dir_legal_cls").slideDown(1);
+            $(".bus_tbl_dir_legal_cls_edit").slideUp(1);
+
+            $("#mensajes_direccion_legal").html('').hide();
+
+            $("#bus_tbl_dir_legal").html('');
+
+            document.getElementById('lbl_carga_data_dir').innerHTML = "Cargando...";
+
+            jQuery("#bus_tbl_dir_legal").append('<table id="tbl_dir_legal" class="table table-striped table-hover table-condensed tabla small" cellspacing="0"> <thead> <tr class="cabecera"> ' +
+                '<th hidden="hidden">ACTIVO</th><th scope="col">DIRECCION</th> <th scope="col">UBIGEO</th> <th scope="col" >ELEGIR DIR. LEGAL</th></thead> <tbody></tbody> </table>');
+
+            $.ajax({
+                cache: false,
+                type: "GET",
+                url: "@(Url.RouteUrl("LLENAR_DIR_LEGAL_X_ENTIDAD"))",
+            data: { "RUC": $("#TXT_RUC").val() },
+            success: function (data) {
+                document.getElementById('lbl_carga_data_dir').innerHTML = "";
+                $.each(data, function (id, option) {
+                    var nuevoTD = '<tr>';
+                    nuevoTD += '<td hidden="hidden">' + option.activo + '</td>';
+                    nuevoTD += '<td style=" text-align:center;"> <div class="col-md-1"> <ul class="list-inline" style="margin-bottom:0"><li><a class="Editar_dir" id="' + option.id_sede + '||' + option.nom_direccion + '||' + option.id_ubigeo + '||' + option.nom_referencia + '||' + option.nom_sede + '" href="#" title="Editar"><i class="blue glyphicon glyphicon-edit"></i></a></li></ul></div>' + option.direccion + '</td>';
+                    nuevoTD += '<td style="width:100px; text-align:center;">' + option.ubigeo + '</td>';
+                    /*nuevoTD += '<td style="width:100px; text-align:center;">' + option.fecha_registro + '</td>';
+                    nuevoTD += '<td style="width:100px; text-align:center;">' + option.fecha_desactivado + '</td>';*/
+                    if (option.activo == "0") {
+                        nuevoTD += '<td style="text-align:center;" class="seleccionar"> <ul class="list-inline" style="margin-bottom:0"> <li> <a class="seleccionar" href="#" id="' + option.id_oficina_direccion_legal + '||' + option.id_sede + '" title="seleccionar"> <i class="glyphicon glyphicon-ok"></i> </a> </li> </ul> </td>';
+                    }
+                    else {
+                        nuevoTD += '<td style="text-align:center;"> DIRECCION LEGAL ACTUAL</td>';
+                    }
+                    nuevoTD += '</tr>';
+
+                    jQuery("#tbl_dir_legal").append(nuevoTD);
+                });
+
+                $("#tbl_dir_legal").DataTable({
+                    "lengthChange": false,
+                    "searching": false,
+                    "ordering": false,
+                    "order": [[0, "desc"], [1, "desc"]],
+                    "info": false,
+                    "language": {
+                        "paginate": {
+                            "previous": "Anterior",
+                            "next": "Siguiente"
+                        }
+                    }
+                });
+
+                $("#tbl_dir_legal thead tr th").eq(1).css({ "width": 250 });
+                $("#tbl_dir_legal thead tr th").eq(2).css({ "width": 30 });
+                $("#tbl_dir_legal thead tr th").eq(2).css({ "width": 20 });
+            },
+            error: function (xhr, ajaxOptions, thrownError) {
+                alert('Failed to retrieve states.');
+            }
+        });
+    });
+
+        $("#btn_Grabar_Empresa").click(function () {
+
+            $("#TXT_RUC").val($("#TXT_RUC").val().toUpperCase());
+            $("#TXT_SIGLAS").val($("#TXT_SIGLAS").val().toUpperCase());
+            $("#TXT_NOMBRE").val($("#TXT_NOMBRE").val().toUpperCase());
+            $("#TXT_SEDE").val($("#TXT_SEDE").val().toUpperCase());
+            $("#TXT_DIRECCION").val($("#TXT_DIRECCION").val().toUpperCase());
+            $("#TXT_REFERENCIA").val($("#TXT_REFERENCIA").val().toUpperCase());
+
+            var entra = 0;
+
+            $("#TXT_UBIGEO").val($("#cmblista_distrito").val());
+
+            if ($("#TXT_RUC").val().toString().length != 11) {
+                limpiar_empresa();
+                return false;
+            }
+
+            if ($("#TXT_UBIGEO").val().toString().trim() == "") {
+                document.getElementById('lbl_valida_distrito').innerHTML = "Seleccionar Distrito";
+                entra = 1;
+            }
+
+            if ($("#TXT_NOMBRE").val().toString().trim() == "") {
+                document.getElementById('lbl_valida_nombre_empresa').innerHTML = "Ingresar Nombre o Razon Social";
+                entra = 1;
+            }
+            if ($("#TXT_SEDE").val().toString().trim() == "") {
+                document.getElementById('lbl_valida_nombre_sede').innerHTML = "Ingresar Nombre de la Sede";
+                entra = 1;
+            }
+
+
+            if ($("#TXT_DIRECCION").val().toString().trim() == "") {
+                document.getElementById('lbl_valida_direccion_principal').innerHTML = "Ingresar Dirección";
+                entra = 1;
+            }
+
+
+            if (entra == 1) {
+                return false;
+            }
+
+            if ($("#var_guardar").val() == "1") {
+                return false;
+            }
+            else {
+                $("#var_guardar").val("1");
+                $.ajax({
+                    cache: false,
+                    type: "GET",
+                    url: "/Oficina/Grabar_Nueva_Empresa",
+                    data: {
+                        "ruc": $("#TXT_RUC").val(),
+                        "nombre_empresa": $("#TXT_NOMBRE").val(),
+                        "siglas": $("#TXT_SIGLAS").val(),
+                        "nombre_sede": $("#TXT_SEDE").val(),
+                        "direccion": $("#TXT_DIRECCION").val(),
+                        "referencia": $("#TXT_REFERENCIA").val(),
+                        "ubigeo": $("#TXT_UBIGEO").val()
+                    },
+                    beforeSend: function () {
+                        $('#btn_Grabar_Empresa').attr("disabled", "disabled");
+                    },
+                    complete: function () {
+                        $('#btn_Grabar_Empresa').attr("disabled", "disabled");
+                    },
+                    success: function (result) {
+                        $('.field-validation-error').each(function () {
+                            $(this).removeClass("field-validation-error").addClass("field-validation-valid");
+                            $(this).html('');
+                        });
+
+                        $("#mensajes").html(result).hide();
+                        $("html, body").animate({ scrollTop: 0 }, '500', 'swing', function () {
+                            $("#mensajes").slideDown(500, function () { });
+                            setTimeout(function () {
+                                $("#mensajes").html(result).hide();
+                                $("#btn_ver_direccion").click();
+                            }, 500);
+                        });
+                    },
+                    error: function (result) {
+                        if (result.status == 500) {
+                            $("#mensajes").html(result.responseText).hide();
+                            $("#mensajes").slideDown(500, function () { });
+                        }
+                        else if (result.status == 400) {
+                            $('.field-validation-error').each(function () {
+                                $(this).removeClass("field-validation-error").addClass("field-validation-valid");
+                                $(this).html('');
+                            });
+                            $.each(result.responseJSON.errors, function (key, value) {
+                                if (value != null) {
+                                    var container = $('span[data-valmsg-for="' + key + '"]');
+                                    container.removeClass("field-validation-valid").addClass("field-validation-error");
+                                    container.html(value);
+                                }
+                            });
+                            $("#mensajes").html(result.responseJSON.summary).hide();
+                            if (result.responseJSON.summary != "") {
+                                $("#mensajes").slideDown(500, function () { });
+                            }
+                        }
+                    }
+                });
+            }
+        });
+
+        $("#btn_edit_direc").click(function () {
+
+            $.ajax({
+                cache: false,
+                type: "GET",
+                url: "/General/HT_editar_direccion",
+                data: {
+                    "id_sede": $('#txt_id_sede_direccion_edit').val(),
+                    "direccion": $('#txt_direccion_edit').val(),
+                    "ubigeo": $('#cmblista_distrito_edit').val(),
+                    "sede": $('#txt_sede_edit').val(),
+                    "referencia": $('#txt_referencia_edit').val(),
+                },
+                success: function (result) {
+                    $('.field-validation-error').each(function () {
+                        $(this).removeClass("field-validation-error").addClass("field-validation-valid");
+                        $(this).html('');
+                    });
+                    $("#mensajes_direccion_legal").html(result);
+                    $("#mensajes_direccion_legal").slideDown(500, function () { });
+                    $("#bus_tbl_dir_legal").html('');
+                    document.getElementById('lbl_carga_data_dir').innerHTML = "Cargando...";
+
+                    setTimeout(function () {
+                        $("#btn_direccion_legal").click();
+                    }, 2000);
+                },
+                error: function (result) {
+                    alert('Failed to retrieve states.');
+                }
+            });
+
+        });
+
+    });
+</script>

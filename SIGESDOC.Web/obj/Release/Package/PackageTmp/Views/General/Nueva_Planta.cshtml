@@ -1,0 +1,367 @@
+﻿@model SIGESDOC.Response.ConsultarPlantasResponse
+
+@{
+    ViewBag.Title = "Nueva Planta";
+}
+
+<div class="bottom hidden"></div>
+<div id="mensajes"></div>
+
+<ol class="breadcrumb" style="margin-bottom: 5px;">
+    <li><a href="#">Planta</a></li>
+    <li class="active">Nueva Planta</li>
+</ol>
+
+<div class="bs-callout bs-callout-info">
+    <h4>Registrar Nueva Planta</h4>
+    <p>Use el siguiente formulario para registrar una nueva Planta</p>
+</div>
+
+
+<div class="panel panel-primary">
+    <div class="panel-heading panet-heading-sm">Planta</div>
+    <div class="panel-body">
+        @using (Ajax.BeginForm(new AjaxOptions { HttpMethod = "Get" }))
+        {
+
+            <div class="form-horizontal">
+
+                <ol class="breadcrumb">
+                    <li class="active">Información de la Planta</li>
+                </ol>
+
+                <div class="form-group">
+                    <label class="col-md-2 control-label" for="cmbtipo_documento">Entidad:</label>
+                    <div class="col-md-6">
+                        @Html.DropDownList("cmb_entidad", (IEnumerable<SelectListItem>)ViewBag.lista_combo, new { @class = "form-control input-sm" })
+                        <label id="lbl_valida_entidad" style="color: #B44D4D" hidden="hidden">  </label>
+                    </div>
+                    
+                </div>
+                
+                <div class="form-group">
+                    <label class="col-md-2 control-label" for="cmb_sede">Sede:</label>
+                    <div class="col-md-6">
+                        @Html.DropDownList("cmb_sede", (IEnumerable<SelectListItem>)ViewBag.lista_combo, new { @class = "form-control input-sm" })
+                        <label id="lbl_valida_sede" style="color: #B44D4D" hidden="hidden">  </label>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="control-label col-md-2">Código Planta: </label>
+                    <div class="col-md-10">
+                        <div class="row">
+                            <div class="col-md-2" style="width:100px;">
+                                @Html.DropDownList("cmb_tipo_planta", (IEnumerable<SelectListItem>)ViewBag.lista_combo, new { @class = "form-control input-sm" })
+                            </div>
+                            <div class="col-md-1">
+                                @Html.TextBox("txt_numero", "", new { @class = "form-control input-sm", @onpaste = "return false;", @maxlength = "10", @onkeypress = "return IsNumeric(this.value);" })
+                            </div>
+                            <div class="col-md-2">
+                                @Html.TextBox("txt_nombre", "", new { @class = "form-control input-sm", @onpaste = "return false;", @placeholder = "Nombre del Código", @maxlength = "100" })
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-4">
+                                <label id="lbl_valida_planta" style="color: #B44D4D" hidden="hidden">  </label>
+                            </div>
+                        </div>
+                    </div>                    
+                </div>
+
+                <div class="form-group">
+                    <label class="col-md-2 control-label" for="cmb_actividad">Actividad:</label>
+                    <div class="col-md-6">
+                        @Html.DropDownList("cmb_actividad", (IEnumerable<SelectListItem>)ViewBag.lista_combo, new { @class = "form-control input-sm" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-md-2 control-label" for="cmb_od">OD:</label>
+                    <div class="col-md-4">
+                        @Html.DropDownList("cmb_od", (IEnumerable<SelectListItem>)ViewBag.lista_combo, new { @class = "form-control input-sm" })
+                    </div>
+                </div>
+
+                <hr>
+                <div class="form-group">
+                    <div class="col-md-8">
+                        <button id="btn_Grabar_Planta" type="button" class="btn btn-primary btn-sm">Grabar Planta</button>
+                        <button type="button" class="btn btn-default btn-sm regresar">Cancelar</button>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>
+
+
+<div class="modal fade" id="mdlConformidad" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title" id="myModalLabel">Mensaje</h4>
+            </div>
+            <div class="modal-body">
+                <span id="conformidad"></span>
+                <p>Presione aceptar para continuar.</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary btn-sm" data-dismiss="modal" id="btn_satisfa">Aceptar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
+
+<script type="text/javascript">
+    
+    
+    
+    function Llena_empresa()
+    {
+        var ddlentidad = $("#cmb_entidad");
+        $.ajax({
+            cache: false,
+            type: "GET",
+            url: "@(Url.RouteUrl("Llenar_empresa"))",
+            data: {  },
+        success: function (data) {
+            ddlentidad.html('');
+            var entra = 0;
+            $.each(data, function (id, option) {
+                ddlentidad.append($('<option></option>').val(option.Value).html(option.Text));
+                if (entra == 0) {
+                    llena_sede_externa(option.Value);
+                    entra = 1;
+                }                    
+            });
+        },
+        error: function (xhr, ajaxOptions, thrownError) {
+            alert('Failed to retrieve states.');
+        }
+    });
+    }
+
+    
+    function llena_sede_externa(empresa) {
+        var ddlsede = $("#cmb_sede");
+        $.ajax({
+            cache: false,
+            type: "GET",
+            url: "@(Url.RouteUrl("Llenar_Sedes_empresa_planta"))",
+            data: { "ruc": empresa },
+        success: function (data) {
+            ddlsede.html('');
+            var entra = 0;
+            $.each(data, function (id, option) {
+                ddlsede.append($('<option></option>').val(option.Value).html(option.Text));
+            });
+        },
+        error: function (xhr, ajaxOptions, thrownError) {
+            alert('Failed to retrieve states.');
+        }
+    });
+    }
+
+    function llena_tipo_planta() {
+        var ddltip_planta = $("#cmb_tipo_planta");
+        $.ajax({
+            cache: false,
+            type: "GET",
+            url: "@(Url.RouteUrl("Llenar_tipo_planta"))",
+            data: { },
+        success: function (data) {
+            ddltip_planta.html('');
+            var entra = 0;
+            $.each(data, function (id, option) {
+                ddltip_planta.append($('<option></option>').val(option.Value).html(option.Text));
+                if (entra == 0) {
+                    entra = 1;
+                    llena_actividad(option.Value);
+                }
+            });
+        },
+        error: function (xhr, ajaxOptions, thrownError) {
+            alert('Failed to retrieve states.');
+        }
+    });
+    }
+       
+
+
+    function llena_actividad(tipo_planta) {
+        var ddlactividad = $("#cmb_actividad");
+        $.ajax({
+            cache: false,
+            type: "GET",
+            url: "@(Url.RouteUrl("Llenar_tipo_actividad_planta"))",
+            data: { "id_codigo": tipo_planta },
+        success: function (data) {
+            ddlactividad.html('');
+            $.each(data, function (id, option) {
+                ddlactividad.append($('<option></option>').val(option.Value).html(option.Text));
+            });
+        },
+        error: function (xhr, ajaxOptions, thrownError) {
+            alert('Failed to retrieve states.');
+        }
+    });
+    }
+    
+
+    function llena_OD() {
+        var ddl_od = $("#cmb_od");
+        $.ajax({
+            cache: false,
+            type: "GET",
+            url: "@(Url.RouteUrl("llenar_OD"))",
+            data: { },
+        success: function (data) {
+            ddl_od.html('');
+            $.each(data, function (id, option) {
+                ddl_od.append($('<option></option>').val(option.Value).html(option.Text));
+            });
+        },
+        error: function (xhr, ajaxOptions, thrownError) {
+            alert('Failed to retrieve states.');
+        }
+    });
+    }
+
+    function IsNumeric(dato) {
+        var valor = dato.indexOf(".");
+        if ((window.event.keyCode > 47 && window.event.keyCode < 58)) {
+            window.event.returnValue = true;
+        }
+        else {
+            window.event.returnValue = false;
+        }
+    }
+
+
+
+    $(document).ready(function () {
+
+        $("#cmb_entidad").change(function () {
+            llena_sede_externa($("#cmb_entidad").val());
+        });
+
+        Llena_empresa();
+        llena_tipo_planta();
+        llena_OD();
+        
+        $("#cmb_tipo_planta").change(function () {
+            llena_actividad($("#cmb_tipo_planta").val());
+        });
+
+        $("#btn_satisfa").click(function () {
+            var url = "/General/Consulta_Planta/";
+            window.location.href = url;
+        });
+
+        $('#mdlConformidad').on('hide.bs.modal', function (e) {
+            setTimeout(function () {
+                window.location = '@Url.Action("Consulta_Planta", "General")';
+            }, 300);
+        });     
+
+        $("#btn_Grabar_Planta").click(function () {
+            
+            $("#btn_Grabar_Planta").attr("disabled", "disabled");
+
+            var entra = 0;
+
+            document.getElementById('lbl_valida_entidad').innerHTML = "";
+            $("#lbl_valida_entidad").attr("hidden", "hidden");
+
+            document.getElementById('lbl_valida_sede').innerHTML = "";
+            $("#lbl_valida_sede").attr("hidden", "hidden");
+
+            document.getElementById('lbl_valida_planta').innerHTML = "";
+            $("#lbl_valida_planta").attr("hidden", "hidden");
+            
+            if ($("#cmb_entidad").val() == "0") {
+                entra = 1;
+                document.getElementById('lbl_valida_entidad').innerHTML = "Seleccionar Entidad";
+                $("#lbl_valida_entidad").removeAttr("hidden", "hidden");
+            }
+
+            if ($("#cmb_sede").val() == "") {
+                entra = 1;
+                document.getElementById('lbl_valida_sede').innerHTML = "Seleccionar Sede";
+                $("#lbl_valida_sede").removeAttr("hidden", "hidden");
+            }
+
+            if ($("#txt_numero").val() == "" || $("#txt_nombre").val().trim() == "") {
+                entra = 1;
+                document.getElementById('lbl_valida_planta').innerHTML = "Ingresar código de Planta correctamente";
+                $("#lbl_valida_planta").removeAttr("hidden", "hidden");
+            }
+
+            if (entra == 1) {
+                $("#btn_Grabar_Planta").removeAttr("disabled", "disabled");
+                return false;
+            }
+
+            $.ajax({
+                cache: false,
+                type: "GET",
+                url: "/General/Grabar_Nueva_Planta",
+                data: {
+                    "id_sede": $("#cmb_sede").val(),
+                    "id_tipo_planta": $("#cmb_tipo_planta").val(),
+                    "numero": $("#txt_numero").val(),
+                    "nombre_planta": $("#txt_nombre").val(),
+                    "id_tipo_actividad" : $("#cmb_actividad").val(),
+                    "id_filial" : $("#cmb_od").val()
+                },
+                success: function (result) {
+                    $('.field-validation-error').each(function () {
+                        $(this).removeClass("field-validation-error").addClass("field-validation-valid");
+                        $(this).html('');
+                    });
+                    $("#conformidad").html(result);
+                    $('#mdlConformidad').modal();
+                    setTimeout(function () {
+                        $("#mdlConformidad").modal().hide();
+                        $("#btn_satisfa").click();
+                    }, 10000);
+                },
+                error: function (result) {
+                    if (result.status == 500) {
+                        $("#mensajes").html(result.responseText).hide();
+                        $("html, body").animate({ scrollTop: 0 }, '500', 'swing', function () {
+                            $("#mensajes").slideDown(500, function () { });
+                        });
+                    }
+                    else if (result.status == 400) {
+                        $('.field-validation-error').each(function () {
+                            $(this).removeClass("field-validation-error").addClass("field-validation-valid");
+                            $(this).html('');
+                        });
+                        $.each(result.responseJSON.errors, function (key, value) {
+                            if (value != null) {
+                                var container = $('span[data-valmsg-for="' + key + '"]');
+                                container.removeClass("field-validation-valid").addClass("field-validation-error");
+                                container.html(value);
+                            }
+                        });
+                        $("#mensajes").html(result.responseJSON.summary).hide();
+                        if (result.responseJSON.summary != "") {
+                            $("html, body").animate({ scrollTop: 0 }, '500', 'swing', function () {
+                                $("#mensajes").slideDown(500, function () { });
+                            });
+                        }
+                    }
+                }
+            });
+        });
+        
+    });
+
+    </script>

@@ -1,0 +1,54 @@
+﻿@model SIGESDOC.Web.Models.HojaTramiteViewModel
+
+<div class="bottom hidden"></div>
+<div id="mensajes"></div>
+
+<ol class="breadcrumb" style="margin-bottom: 5px;">
+    <li><a href="#">Reporte</a></li>
+    <li class="active">Imprimir Pendientes</li>
+</ol>
+
+<div class="bs-callout bs-callout-info">
+    <h4>Imprimir HT Pendientes</h4>
+    <p>Use el siguiente formulario para imprimir HT pendientes</p>
+</div>
+
+@using (Html.BeginForm("Imprimir_Pendientes_x_persona", "HojaTramite", FormMethod.Post, new { @id = "nuevoForm", @enctype = "multipart/form-data" }))
+{
+
+    @Html.AntiForgeryToken()
+    <div class="form-horizontal">
+
+        <div class="form-group">
+            <div class="col-md-2">
+                <label class="control-label" for="cmbencargado">Elija Persona :</label>
+            </div>
+            <div class="col-md-4">
+                @Html.DropDownList("cmbpersonal", (IEnumerable<SelectListItem>)ViewBag.listar_personal, new { @class = "form-control input-sm" })
+            </div>
+            <div class="col-md-2">
+                <button type="button" class="btn btn-primary btn-sm btn_imprimir">Imprimir Pendientes</button>
+            </div>
+        </div>   
+
+    </div>
+}
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/bundles/loader")
+}
+
+<script type="text/javascript">
+
+
+    $(document).ready(function () {
+
+        $('.btn_imprimir').click(function ()
+        {
+            var url = "/Hojatramite/Imprimir_Pendientes/" + $("#cmbpersonal").val();
+            window.location.href = url;
+        });
+
+    });
+</script>

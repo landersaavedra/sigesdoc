@@ -1,0 +1,162 @@
+﻿@model SIGESDOC.Web.Models.HojaTramiteViewModel
+
+<div class="bottom hidden"></div>
+<div id="mensajes"></div>
+
+<ol class="breadcrumb" style="margin-bottom: 5px;">
+    <li><a href="#">Reporte</a></li>
+    <li class="active">Imprimir HT (Nueva - Historial)</li>
+</ol>
+
+<div class="bs-callout bs-callout-info">
+    <h4>Imprimir HT</h4>
+    <p>Use el siguiente formulario para imprimir HT</p>
+</div>
+
+@using (Html.BeginForm("Imprimir_HT", "HojaTramite", FormMethod.Post, new { @id = "nuevoForm", @enctype = "multipart/form-data" }))
+{
+
+    @Html.AntiForgeryToken()
+    <div class="form-horizontal">
+        <ol class="breadcrumb">
+            <li class="active">Información de la HT</li>
+
+        </ol>
+
+        <div class="row hidden">
+            @Html.TextBox("var_imprimir", (string)ViewBag.str_imprimir, new { @class = "form-control input-sm" })
+            @Html.TextBox("var_ht", new { @class = "form-control input-sm" })
+        </div>   
+
+        <div class="form-group">
+            @Html.Label("Ingresar Nro:", new { @class = "col-md-2 control-label " })
+            <div class="col-md-3">
+                @Html.TextBox("txt_numero", "",new { @class = "form-control input-sm", @maxlength = "11"})
+            </div>            
+            <button type="button" class="btn btn-primary btn-sm btn_buscar">Buscar</button>
+        </div>    
+         
+        <div class="oculto form-group">            
+            @Html.Label("Hoja de Trámite:", new { @class = "col-md-2 control-label " })
+            <div class="col-md-3">
+                @Html.TextBoxFor(m => m.numero_HT, new { @class = "form-control input-sm", @readonly="readonly"})
+            </div>
+        </div>
+
+        <div class="oculto form-group">
+            @Html.Label("Procedencia:", new { @class = "col-md-2 control-label " })
+            <div class="col-md-6">
+                @Html.TextBoxFor(m => m.nombre_tipo_tramite, new { @class = "form-control input-sm", @readonly = "readonly" })
+            </div>
+        </div>
+
+        <div class="oculto form-group">
+            @Html.Label("Documento:", new { @class = "col-md-2 control-label " })
+            <div class="col-md-6">
+                @Html.TextBoxFor(m => m.nom_doc, new { @class = "form-control input-sm", @readonly = "readonly" })
+            </div>
+        </div>
+
+        <div class="oculto form-group">
+            @Html.Label("Asunto:", new { @class = "col-md-2 control-label " })
+            <div class="col-md-6">
+                @Html.TextBoxFor(m => m.asunto, new { @class = "form-control input-sm", @readonly = "readonly" })
+            </div>
+        </div>
+
+        <div class="oculto_ext form-group">
+            @Html.Label("Organización:", new { @class = "col-md-2 control-label " })
+            <div class="col-md-6">
+                @Html.TextBoxFor(m => m.nombre_oficina_tramite, new { @class = "form-control input-sm", @readonly = "readonly" })
+            </div>
+        </div>
+
+        <button type="button" class="btn btn-primary btn-sm btn_imprimir_ht oculto">Imprimir HT</button>
+        <button type="button" class="btn btn-primary btn-sm btn_imprimir_ht_vacia oculto">Imprimir Vacia</button>
+        <button type="button" class="btn btn-primary btn-sm btn_imprimir_hs oculto">Historial</button>
+
+
+    </div>
+}
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/bundles/loader")
+}
+
+<script type="text/javascript">
+    
+
+    $(document).ready(function () {
+
+        if ($('#var_imprimir').val == "1")
+        {
+            $('.oculto').show();
+        }
+        else
+        {
+            $('.oculto').hide();
+            $('.oculto_ext').hide();
+            
+        }
+
+        $('.btn_buscar').click(function () {
+            /*
+            var num_bus = "000000" + $("#numero").val();
+            var fecha = new Date();
+            var ano = fecha.getFullYear();
+                if ($("#numero").val().toString().trim().length > 0 && $("#numero").val().toString().trim().length < 7) {
+                $("#numero").val(ano.toString() + num_bus.toString().substring((num_bus.toString().length - 6), num_bus.toString().length));
+            } */
+            $.ajax({
+                cache: false, type: "GET", url: "@(Url.RouteUrl("HT_Llenar"))", data: { "HT": $("#txt_numero").val() }, success: function (data) {
+                        if (data.id_documento != "0")
+                        {
+                            $('#numero_HT').val(data.Hoja_Tramite);
+                            $('#var_ht').val(data.numero);                            
+                            $('#nombre_oficina_tramite').val(data.nombre_oficina_tramite);
+                            $('#nombre_tipo_tramite').val(data.nombre_tipo_tramite);
+                            $('#nom_doc').val(data.nombre_tipo_documento_tramite + " " + data.nom_doc);
+                            $('#asunto').val(data.asunto);
+                            $('.oculto').show();
+                            $('#var_imprimir').val("1");
+                            if ($('#nombre_tipo_tramite') == "EXTERNO")
+                            {
+                                $('.oculto_ext').show();
+                            }
+                        }
+                        else
+                        {
+                            $('#var_imprimir').val("0");
+                            $('#var_ht').val("");
+                            $('#numero_HT').val("");
+                            $('#nombre_oficina_tramite').val("");
+                            $('#nombre_tipo_tramite').val("");
+                            $('#nom_doc').val("");
+                            $('#asunto').val("");
+                            $('.oculto').hide();
+                            $('.oculto_ext').hide();
+                        }
+        }, error: function (xhr, ajaxOptions, thrownError) { alert('Failed to retrieve states.'); }
+        });
+        });
+
+        $('.btn_imprimir_ht').click(function ()
+        {
+            var url = "/Hojatramite/Imprimir_Nuevo/" + $('#var_ht').val();
+            window.location.href = url;
+        });
+
+        $('.btn_imprimir_ht_vacia').click(function () {
+            var url = "/Hojatramite/Imprimir_Vacia/" + $('#var_ht').val();
+            window.location.href = url;
+        });
+
+        $('.btn_imprimir_hs').click(function () {
+            var url = "/Hojatramite/Imprimir_History/" + $('#var_ht').val();
+            window.location.href = url;
+        });
+        
+        
+    });
+</script>

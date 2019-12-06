@@ -71,12 +71,6 @@ C:\Users\PSSPERU069\Proyectos\sigesdoc_net\SIGESDOC.Entidades\bin\Debug\SIGESDOC
 C:\Users\PSSPERU069\Proyectos\sigesdoc_net\SIGESDOC.Entidades\obj\Debug\SIGESDOC.Entidades.csproj.CoreCompileInputs.cache
 C:\Users\PSSPERU069\Proyectos\sigesdoc_net\SIGESDOC.Entidades\obj\Debug\SIGESDOC.Entidades.dll
 C:\Users\PSSPERU069\Proyectos\sigesdoc_net\SIGESDOC.Entidades\obj\Debug\SIGESDOC.Entidades.pdb
-C:\Henry.Medina\Proyectos\SIGESDOC\Proyectos\sigesdoc\SIGESDOC.Entidades\bin\Debug\SIGESDOC.Entidades.dll
-C:\Henry.Medina\Proyectos\SIGESDOC\Proyectos\sigesdoc\SIGESDOC.Entidades\bin\Debug\SIGESDOC.Entidades.pdb
-C:\Henry.Medina\Proyectos\SIGESDOC\Proyectos\sigesdoc\SIGESDOC.Entidades\obj\Debug\SIGESDOC.Entidades.csprojAssemblyReference.cache
-C:\Henry.Medina\Proyectos\SIGESDOC\Proyectos\sigesdoc\SIGESDOC.Entidades\obj\Debug\SIGESDOC.Entidades.csproj.CoreCompileInputs.cache
-C:\Henry.Medina\Proyectos\SIGESDOC\Proyectos\sigesdoc\SIGESDOC.Entidades\obj\Debug\SIGESDOC.Entidades.dll
-C:\Henry.Medina\Proyectos\SIGESDOC\Proyectos\sigesdoc\SIGESDOC.Entidades\obj\Debug\SIGESDOC.Entidades.pdb
 C:\Users\PSSPERU069\Documents\Proyecto\sigesdoc\SIGESDOC.Entidades\bin\Debug\SIGESDOC.Entidades.dll
 C:\Users\PSSPERU069\Documents\Proyecto\sigesdoc\SIGESDOC.Entidades\bin\Debug\SIGESDOC.Entidades.pdb
 C:\Users\PSSPERU069\Documents\Proyecto\sigesdoc\SIGESDOC.Entidades\obj\Debug\SIGESDOC.Entidades.csproj.CoreCompileInputs.cache

@@ -469,15 +469,15 @@
     <Content Include="Views\HojaTramite\imprimir_reporte_usuario_new.cshtml" />
     <Content Include="Views\Habilitaciones\Consulta_seguimiento_habilitaciones.cshtml" />
     <Content Include="Views\HojaTramite\Nuevo_Documento_Informacion.cshtml" />
-<<<<<<< HEAD
+
     <Content Include="Views\Habilitaciones\Imprimir_cedula_notificacion_dhcpa.cshtml" />
-=======
+
     <Content Include="Views\Recepcion\Consulta_Recepcion.cshtml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Views\Recepcion\Detalle_Recepcion.cshtml" />
     <Content Include="Views\Documents\Cedula_Notificacion.cshtml" />
->>>>>>> ab5a8b811dc67e229addadc7d2127be8ecba5098
+
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

@@ -1,0 +1,5 @@
+C:\Users\PSSERU-TI\Documents\PROYECTOS\sigesdoc\SIGESDOC.Request\bin\Debug\SIGESDOC.Request.dll
+C:\Users\PSSERU-TI\Documents\PROYECTOS\sigesdoc\SIGESDOC.Request\bin\Debug\SIGESDOC.Request.pdb
+C:\Users\PSSERU-TI\Documents\PROYECTOS\sigesdoc\SIGESDOC.Request\obj\Debug\SIGESDOC.Request.csprojAssemblyReference.cache
+C:\Users\PSSERU-TI\Documents\PROYECTOS\sigesdoc\SIGESDOC.Request\obj\Debug\SIGESDOC.Request.dll
+C:\Users\PSSERU-TI\Documents\PROYECTOS\sigesdoc\SIGESDOC.Request\obj\Debug\SIGESDOC.Request.pdb

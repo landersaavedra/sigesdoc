@@ -279,6 +279,8 @@
         <hr>
         <div class="form-group">
 
+
+
             <div class="col-md-4">
                 <label class="control-label" for="cmbsede_destino">Sede:</label>
                 @Html.DropDownList("cmbsede_destino", (IEnumerable<SelectListItem>)ViewBag.lstsede_destino, new { @class = "form-control input-sm" })
@@ -292,6 +294,11 @@
                 <label class="control-label" for="cmbencargado">Encargado:</label>
                 @Html.DropDownList("cmbencargado", (IEnumerable<SelectListItem>)ViewBag.lstpersonal_oficina, new { @class = "form-control input-sm" })
                 <label id="lbl_valida_encarg_dest" style="color: #B44D4D">  </label>
+            </div>
+
+            <div class="col-md-4">
+                <label id="idlblCheckDestinoPrincipal" hidden="hidden"  class="control-label" for="CheckBox_DestinoPrincipal">Identifica Destino Principal:</label>
+                <input id="idCheckDestinoPrincipal" type="checkbox" hidden="hidden" />
             </div>
             <div class="col-md-12">
                 <label class="control-label" for="txt_observacion">Observación:</label>
@@ -378,6 +385,7 @@
                                 <th scope="col">persona</th>
                                 <th scope="col" class="hidden">ind_11</th>
                                 <th scope="col">Acciones</th>
+                                <th scope="col">Destino Principal</th>
                             </tr>
                         </thead>
                         <tbody></tbody>
@@ -426,6 +434,25 @@
 }
 
 <script type="text/javascript">
+
+   
+    $('#cmbtipo_documento').change(function () {
+
+        var cmbtipo_documento = $('#cmbtipo_documento').val();
+
+        if ((cmbtipo_documento == 76) || (cmbtipo_documento == 161) || (cmbtipo_documento == 95) ) {
+
+            document.getElementById('idlblCheckDestinoPrincipal').hidden = false;
+            document.getElementById('idCheckDestinoPrincipal').hidden = false;
+
+        } else {
+            document.getElementById('idlblCheckDestinoPrincipal').hidden = true;
+            document.getElementById('idCheckDestinoPrincipal').hidden = true;
+        }
+    });
+
+
+
 
     function valida_enter(dato)
     {
@@ -1048,7 +1075,7 @@
         });
 
         $('#btnAceptar').click(function () {
-
+            var ckeck = document.getElementById('idCheckDestinoPrincipal').check;
             document.getElementById('lbl_valida_encarg_dest').innerHTML = "";
 
             if ($("#cmbencargado").val() == "") {
@@ -1088,6 +1115,13 @@
             nuevoTD += '<td>' + $("#cmbencargado option:selected").text() + '</td>';
             nuevoTD += '<td class = "hidden">' + v_ind_11 + '</td>';
             nuevoTD += '<td class="quitar"><ul class="list-inline" style="margin-bottom:0"><li><a class="quitar" href="#" id="5" title="Quitar"><i class="red glyphicon glyphicon-trash"></i></a></li></ul></td>'
+            
+            if (document.getElementById('idCheckDestinoPrincipal').checked == true) {
+                nuevoTD += '<td id="1" class="ok"><ul id="1" class="list-inline" style="margin-bottom:0"><li><a class="ok" href="#" id="1" title="Destino Principal"><i class="gree glyphicon glyphicon-ok"></i></a></li></ul></td>'
+            }
+            else {
+                 nuevoTD += '<td id="0" class="ok"><ul id="0" class="list-inline" style="margin-bottom:0"><li><a class="ok" href="#" id="0" title="Destino Secundario"><i class="red glyphicon glyphicon-ok"></i></a></li></ul></td>'
+            }
             nuevoTD += '</tr>';
 
             jQuery("#tblDestinoDetalle").append(nuevoTD);
@@ -1244,9 +1278,11 @@
                             "ind_09": $(this).find("td").eq(12).html(),
                             "ind_10": $(this).find("td").eq(13).html(),
                             "persona_num_documento": $(this).find("td").eq(14).html(),
-                            "ind_11": $(this).find("td").eq(16).html()
+                            "ind_11": $(this).find("td").eq(16).html(),
+                            "flag_destino_principal": $(this).find("td").eq(4).html()
                         };
                         lstDetalle.push(item);
+                        console.log(lstDetalle);
                     }
                     band = true;
                 });
@@ -1282,7 +1318,7 @@
                     "persona_crea": per_crea,
                     "referencia": $("#referencia").val(),
                     "HT_PADRE": HT_DAD,
-                    "nom_externo" : var_nom_externo
+                    "nom_externo": var_nom_externo,
                 };
 
                 $("#var_guardar").val("1");

@@ -35,7 +35,7 @@ namespace SIGESDOC.Web.Controllers
         private readonly IGeneralService _GeneralService;
         private readonly IOficinaService _OficinaService;
 
-
+       
 
         public HabilitacionesController(IHabilitacionesService HabilitacionesService, IGeneralService GeneralService, IOficinaService OficinaService, IHojaTramiteService HojaTramiteService)
         {
@@ -4710,12 +4710,12 @@ namespace SIGESDOC.Web.Controllers
             IEnumerable<Response.SP_CONSULTAR_CORREO_OD_POR_FILIAL_DHCPA_Result> correo_res = new List<Response.SP_CONSULTAR_CORREO_OD_POR_FILIAL_DHCPA_Result>();
             correo_res = (from p in _HabilitacionesService.consulta_correo_x_solicitud(id_solicitud)
                           select new Response.SP_CONSULTAR_CORREO_OD_POR_FILIAL_DHCPA_Result
-                          {
-                              correo_responsable = p.correo_responsable,
-                              persona_num_documento = p.persona_num_documento,
-                              id_cargo = p.id_cargo,
-                              nombre_cargo = p.nombre_cargo
-                          });
+                             {
+                                 correo_responsable = p.correo_responsable,
+                                 persona_num_documento = p.persona_num_documento,
+                                 id_cargo = p.id_cargo,
+                                 nombre_cargo = p.nombre_cargo
+                             });
 
             return Json(correo_res, JsonRequestBehavior.AllowGet);
         }
@@ -5164,7 +5164,7 @@ namespace SIGESDOC.Web.Controllers
                     && HttpContext.User.Identity.Name.Split('|')[4].Trim() == "18")))
                 // Oficina 18: Sub Dirección de Habilitaciones
                 {
-
+                    
                     //model.id_oficina_direccion = Convert.ToInt32(HttpContext.User.Identity.Name.Split('|')[4].Trim());
                     model.num_doc = _HabilitacionesService.CountDocumentos_x_tipo(model.id_tipo_documento) + 1;
                     model.nom_doc = "-" + DateTime.Now.Year.ToString() + "- DHCPA/SANIPES";
@@ -5215,10 +5215,10 @@ namespace SIGESDOC.Web.Controllers
                     {
                         string mensaje = "";
                         mensaje = "Se creó el Documento : " + model.nom_tipo_documento + " N° " + model.num_doc.ToString() + model.nom_doc;
-
+                        
                         if (model.id_tipo_documento == 136)
                         {
-                            model.doc_notificar_cdl_notif = model.nom_tipo_documento + " N° " + model.num_doc.ToString() + model.nom_doc;
+                            model.doc_notificar_cdl_notif= model.nom_tipo_documento + " N° " + model.num_doc.ToString() + model.nom_doc;
                         }
                         // 21 : CEDULA DE NOTIFICACION
                         model.id_tipo_documento = 21;
@@ -9120,10 +9120,10 @@ namespace SIGESDOC.Web.Controllers
                     foreach (var result in recupera_tipo_servicio_hab)
                     {
                         Lista_tipo_servicio_habilitaciones.Add(new SelectListItem()
-                        {
-                            Text = result.nombre,
-                            Value = result.id_tipo_ser_hab.ToString()
-                        });
+                            {
+                                Text = result.nombre,
+                                Value = result.id_tipo_ser_hab.ToString()
+                            });
                     };
 
                     ViewBag.lst_si_tipo_servicio_habilitaciones = Lista_tipo_servicio_habilitaciones;
@@ -10001,13 +10001,13 @@ namespace SIGESDOC.Web.Controllers
                 return RedirectToAction("Index", "Inicio");
             }
         }
-
+        
         [AcceptVerbs(HttpVerbs.Get)]
         public ActionResult Buscar_expediente_documento_externo(string expediente) /// ME QUEDE ACA
         {
             return Json(_HabilitacionesService.Consulta_expediente_x_expediente(expediente), JsonRequestBehavior.AllowGet);
         }
-
+        
         [AllowAnonymous]
         public ActionResult Nuevo_Documento_dhcpa_Certificaciones()
         {
@@ -10196,7 +10196,7 @@ namespace SIGESDOC.Web.Controllers
                             req_documento_dhcpa_seguimiento.activo = "1";
                             req_documento_dhcpa_seguimiento.id_det_dsdhcpa = _HabilitacionesService.Create_documento_dhcpa_seguimiento(req_documento_dhcpa_seguimiento);
                         }
-                        catch (Exception) { }
+                        catch (Exception){ }
                     }
 
                     if (model.documento_dhcpa_detalle != null)
@@ -10225,7 +10225,7 @@ namespace SIGESDOC.Web.Controllers
                         // 21 : CEDULA DE NOTIFICACION
                         model.id_tipo_documento = 21;
                         model.num_doc = _HabilitacionesService.CountDocumentos_x_tipo(model.id_tipo_documento) + 1;
-
+                        
                         DocumentoDhcpaRequest req_documento_dhcpa2 = ModelToRequest.Documento_dhcpa(model);
                         req_documento_dhcpa2.fecha_registro = DateTime.Now;
                         req_documento_dhcpa2.usuario_registro = HttpContext.User.Identity.Name.Split('|')[0].Trim() + " - " + HttpContext.User.Identity.Name.Split('|')[1].Trim();
@@ -10281,7 +10281,7 @@ namespace SIGESDOC.Web.Controllers
                             @ViewBag.Mensaje = "";
                         }
                     }
-
+                    
                     return PartialView("_Success");
                 }
                 else
@@ -10351,7 +10351,7 @@ namespace SIGESDOC.Web.Controllers
                     }
 
                     DataTable tbl = new DataTable();
-
+                    
                     tbl.Columns.Add("NOM_TIPO_DOCUMENTO");
                     tbl.Columns.Add("DOCUMENTO");
                     tbl.Columns.Add("FECHA_DOCUMENTO");
@@ -10371,10 +10371,7 @@ namespace SIGESDOC.Web.Controllers
                     tbl.Columns.Add("DOC_NOTIFICAR_CDL_NOTIF");
                     tbl.Columns.Add("EXP_O_HT_CDL_NOTIF");
                     tbl.Columns.Add("EXP_O_HT_N_CDL_NOTIF");
-                    //Add by AA - 03/12/2019
 
-
-                    tbl.Columns.Add("ID_TIPO_DOCUMENTO");
 
 
                     var documento_dhcpa = _HabilitacionesService.Lista_Documentos_dhcpa(var_evaluador, cmbtipo_documento, asunto, cmbanno_documento);
@@ -10405,8 +10402,7 @@ namespace SIGESDOC.Web.Controllers
                             result.folia_cdl_notif,
                             result.doc_notificar_cdl_notif,
                             result.exp_o_ht_cdl_notif,
-                            result.exp_o_ht_n_cdl_notif,
-                            result.id_tipo_documento
+                            result.exp_o_ht_n_cdl_notif
                             );
                     };
 
@@ -10425,25 +10421,6 @@ namespace SIGESDOC.Web.Controllers
                 return RedirectToAction("Index", "Inicio");
             }
         }
-
-        [AllowAnonymous]
-        public ActionResult Imprimir_cedula_notificacion_dhcpa(int id)
-        {
-
-            DocumentoDhcpaResponse doc = new DocumentoDhcpaResponse();
-            doc = _HabilitacionesService.Lista_Documento_dhcpa_x_id_rs(id);
-
-            ViewBag.Str_documento = _HojaTramiteService.Consult_tipo_docuemnto(doc.id_tipo_documento ?? 0) + " Nº " + doc.num_doc.ToString() + " " + doc.nom_doc;
-            ViewBag.Str_exp_o_ht_n_cdl_notif = doc.exp_o_ht_n_cdl_notif;
-            ViewBag.Str_empresa_cdl_notif = doc.empresa_cdl_notif;
-            ViewBag.Str_asunto = doc.asunto;
-            ViewBag.Str_doc_notificar_cdl_notif = doc.doc_notificar_cdl_notif;
-            ViewBag.Str_folios = doc.folia_cdl_notif.ToString();
-            ViewBag.Str_direccion_cdl_notif = doc.direccion_cdl_notif;
-            
-            return View();
-        }
-
 
         [AllowAnonymous]
         public ActionResult Consulta_Solicitudes_dhcpa(int page = 1)
@@ -11120,8 +11097,234 @@ namespace SIGESDOC.Web.Controllers
 
         #endregion
 
-      
+        #region Cedula de Notificacion
+        public void CedulaNotificacionWord(CargaWordCedulaNotificacion tableData)
+        {
+            DateTime fecha_PATH = DateTime.Now;
+            //DESARROLLO
+            // string path = @"C:\Users\PSSPERU069\Documents\Proyecto\sigesdoc_sanipes\sigesdoc\documentos externos";
+            
+            //alterar en web.config para pre-produccion o/u produccion
+            string path = ConfigurationManager.AppSettings["cedula"];
+
+            byte[] byteArray = System.IO.File.ReadAllBytes(path+@"/CÉDULANOTIFICACIÓN.docx");
+
+            using (MemoryStream stream = new MemoryStream())
+            {
+                stream.Write(byteArray, 0, (int)byteArray.Length);
+
+                using (WordprocessingDocument wordDocument = WordprocessingDocument.Open(stream, true))
+                {
+
+                    IDictionary<String, BookmarkStart> bookmarkMaps = new Dictionary<String, BookmarkStart>();
+
+                    foreach (BookmarkStart bookmarkStart in wordDocument.MainDocumentPart.RootElement.Descendants<BookmarkStart>())
+                    {
+                        bookmarkMaps[bookmarkStart.Name] = bookmarkStart;
+                    }
+
+                    Run NOM_DOC_TITULO = bookmarkMaps["A_NON_DOC"].NextSibling<Run>();
+                    NOM_DOC_TITULO.GetFirstChild<Text>().Text = tableData.NON_DOC;
+
+                    Run NUM_DOC = bookmarkMaps["NUM_DOC"].NextSibling<Run>();
+                    NUM_DOC.GetFirstChild<Text>().Text = tableData.EXP_O_HT_N_CDL_NOTIF;
+
+                    Run ASUNTO = bookmarkMaps["ASUNTO"].NextSibling<Run>();
+                    ASUNTO.GetFirstChild<Text>().Text = tableData.ASUNTO;
+
+                    Run DIRECCION_CDL_NOTIF = bookmarkMaps["DIRECCION_CDL_NOTIF"].NextSibling<Run>();
+                    DIRECCION_CDL_NOTIF.GetFirstChild<Text>().Text = tableData.DIRECCION_CDL_NOTIF;
+
+                    Run EMPRESA_CDL_NOTIF = bookmarkMaps["EMPRESA_CDL_NOTIF"].NextSibling<Run>();
+                    EMPRESA_CDL_NOTIF.GetFirstChild<Text>().Text = tableData.EMPRESA_CDL_NOTIF;
+
+                    Run FOLIA_CDL_NOTIF = bookmarkMaps["FOLIA_CDL_NOTIF"].NextSibling<Run>();
+                    FOLIA_CDL_NOTIF.GetFirstChild<Text>().Text = tableData.FOLIA_CDL_NOTIF;
+
+                    Run DOC_NOTIFICAR_CDL_NOTIF = bookmarkMaps["DOC_NOTIFICAR_CDL_NOTIF"].NextSibling<Run>();
+                    DOC_NOTIFICAR_CDL_NOTIF.GetFirstChild<Text>().Text = tableData.DOC_NOTIFICAR_CDL_NOTIF;
+
+                    //Run EXP_O_HT_N_CDL_NOTIF = bookmarkMaps["EXP_O_HT_N_CDL_NOTIF"].NextSibling<Run>();
+                    //EXP_O_HT_N_CDL_NOTIF.GetFirstChild<Text>().Text = tableData.EXP_O_HT_N_CDL_NOTIF;
+
+                    #region Acta de CD notificacion 1
+                    Run A_NON_DOC1 = bookmarkMaps["A_NON_DOC1"].NextSibling<Run>();
+                    A_NON_DOC1.GetFirstChild<Text>().Text = tableData.NON_DOC;
+
+                    Run A_DIRECCION_CDL_NOTIF1 = bookmarkMaps["A_DIRECCION_CDL_NOTIF1"].NextSibling<Run>();
+                    A_DIRECCION_CDL_NOTIF1.GetFirstChild<Text>().Text = tableData.DIRECCION_CDL_NOTIF;
+
+                    Run A_DOC_NOTIFICAR_CDL_NOTIF1 = bookmarkMaps["A_DOC_NOTIFICAR_CDL_NOTIF1"].NextSibling<Run>();
+                    A_DOC_NOTIFICAR_CDL_NOTIF1.GetFirstChild<Text>().Text = tableData.DOC_NOTIFICAR_CDL_NOTIF;
+
+                    Run A_EXP_O_HT_N_CDL_NOTIF1 = bookmarkMaps["A_EXP_O_HT_N_CDL_NOTIF1"].NextSibling<Run>();
+                    A_EXP_O_HT_N_CDL_NOTIF1.GetFirstChild<Text>().Text = tableData.EXP_O_HT_N_CDL_NOTIF;
+
+                    #endregion
+
+                    #region Acta de CD notificacion 2
+                    Run A_NON_DOC2 = bookmarkMaps["A_NON_DOC2"].NextSibling<Run>();
+                    A_NON_DOC2.GetFirstChild<Text>().Text = tableData.NON_DOC;
+
+                    Run A_DIRECCION_CDL_NOTIF2 = bookmarkMaps["A_DIRECCION_CDL_NOTIF2"].NextSibling<Run>();
+                    A_DIRECCION_CDL_NOTIF2.GetFirstChild<Text>().Text = tableData.DIRECCION_CDL_NOTIF;
+
+                    Run A_DOC_NOTIFICAR_CDL_NOTIF2 = bookmarkMaps["A_DOC_NOTIFICAR_CDL_NOTIF2"].NextSibling<Run>();
+                    A_DOC_NOTIFICAR_CDL_NOTIF2.GetFirstChild<Text>().Text = tableData.DOC_NOTIFICAR_CDL_NOTIF;
+
+                    Run A_EXP_O_HT_N_CDL_NOTIF2 = bookmarkMaps["A_EXP_O_HT_N_CDL_NOTIF2"].NextSibling<Run>();
+                    A_EXP_O_HT_N_CDL_NOTIF2.GetFirstChild<Text>().Text = tableData.EXP_O_HT_N_CDL_NOTIF;
+
+                    #endregion
+
+                    #region Acta de CD notificacion 3
+                    Run A_NON_DOC3 = bookmarkMaps["A_NON_DOC3"].NextSibling<Run>();
+                    A_NON_DOC3.GetFirstChild<Text>().Text = tableData.NON_DOC;
+
+                    Run A_DIRECCION_CDL_NOTIF3 = bookmarkMaps["A_DIRECCION_CDL_NOTIF3"].NextSibling<Run>();
+                    A_DIRECCION_CDL_NOTIF3.GetFirstChild<Text>().Text = tableData.DIRECCION_CDL_NOTIF;
+
+                    Run A_DOC_NOTIFICAR_CDL_NOTIF3 = bookmarkMaps["A_DOC_NOTIFICAR_CDL_NOTIF3"].NextSibling<Run>();
+                    A_DOC_NOTIFICAR_CDL_NOTIF3.GetFirstChild<Text>().Text = tableData.DOC_NOTIFICAR_CDL_NOTIF;
+
+                    Run A_EXP_O_HT_N_CDL_NOTIF3 = bookmarkMaps["A_EXP_O_HT_N_CDL_NOTIF3"].NextSibling<Run>();
+                    A_EXP_O_HT_N_CDL_NOTIF3.GetFirstChild<Text>().Text = tableData.EXP_O_HT_N_CDL_NOTIF;
+
+                    #endregion 
+
+                    #region  Acta de CD notificacion 4
+                    Run A_NON_DOC4 = bookmarkMaps["A_NON_DOC4"].NextSibling<Run>();
+                    A_NON_DOC4.GetFirstChild<Text>().Text = tableData.NON_DOC;
+
+                    Run A_DIRECCION_CDL_NOTIF4 = bookmarkMaps["A_DIRECCION_CDL_NOTIF4"].NextSibling<Run>();
+                    A_DIRECCION_CDL_NOTIF4.GetFirstChild<Text>().Text = tableData.DIRECCION_CDL_NOTIF;
+
+                    Run A_DOC_NOTIFICAR_CDL_NOTIF4 = bookmarkMaps["A_DOC_NOTIFICAR_CDL_NOTIF4"].NextSibling<Run>();
+                    A_DOC_NOTIFICAR_CDL_NOTIF4.GetFirstChild<Text>().Text = tableData.DOC_NOTIFICAR_CDL_NOTIF;
+
+                    Run A_EXP_O_HT_N_CDL_NOTIF4 = bookmarkMaps["A_EXP_O_HT_N_CDL_NOTIF4"].NextSibling<Run>();
+                    A_EXP_O_HT_N_CDL_NOTIF4.GetFirstChild<Text>().Text = tableData.EXP_O_HT_N_CDL_NOTIF;
 
 
+                    #endregion
+
+                    wordDocument.MainDocumentPart.Document.Save();
+                    wordDocument.Close();
+                }
+                string nuevopath = Path.Combine(path, "/CEDULA_NOTIFICACION_" + fecha_PATH.ToString("ddMMyy")+".docx");
+                stream.Close();
+                System.IO.File.WriteAllBytes(nuevopath, stream.ToArray());
+                
+                //Process process = new Process();
+               // process.StartInfo.FileName = Server.MapPath(nuevopath);
+               // process.Start();
+                Process.Start("WINWORD.EXE", nuevopath);
+                
+            }
+        }
+
+        #endregion
+
+        #region RESOLUCION DIRECTORAL
+        [HttpGet]
+        public void ResolucionDirectoralWord(CargaWordResolucionDirectoral tableData)
+        {
+            DateTime fecha_PATH = DateTime.Now;
+            
+             DateTime fecha = DateTime.Now;
+            tableData.FECHA_ACTUAL = fecha.ToString("dd MMMM yyyy");
+            //desarrollo
+            //string path  = @"C:\Users\PSSPERU069\Documents\Proyecto\sigesdoc_sanipes\sigesdoc\documentos externos";
+
+            string path = ConfigurationManager.AppSettings["resoluciondirectoral"];
+            byte[] byteArray = System.IO.File.ReadAllBytes(path + @"/RESOLUCION_DIRECTORAL.docx");
+
+            using (MemoryStream stream = new MemoryStream())
+            {
+                stream.Write(byteArray, 0, (int)byteArray.Length);
+
+                using (WordprocessingDocument wordDocument = WordprocessingDocument.Open(stream, true))
+                {
+
+                    IDictionary<String, BookmarkStart> bookmarkMaps = new Dictionary<String, BookmarkStart>();
+
+                    foreach (BookmarkStart bookmarkStart in wordDocument.MainDocumentPart.RootElement.Descendants<BookmarkStart>())
+                    {
+                        bookmarkMaps[bookmarkStart.Name] = bookmarkStart;
+                    }
+
+                    Run EMPRESA = bookmarkMaps["EMPRESA"].NextSibling<Run>();
+                    EMPRESA.GetFirstChild<Text>().Text = tableData.EMPRESA_CDL_NOTIF;
+
+                    Run EMPRESA_1 = bookmarkMaps["EMPRESA_1"].NextSibling<Run>();
+                    EMPRESA_1.GetFirstChild<Text>().Text = tableData.EMPRESA_CDL_NOTIF;
+
+                    Run EMPRESA_2 = bookmarkMaps["EMPRESA_2"].NextSibling<Run>();
+                    EMPRESA_2.GetFirstChild<Text>().Text = tableData.EMPRESA_CDL_NOTIF;
+
+                    Run FECHA_ACTUAL = bookmarkMaps["FECHA_ACTUAL"].NextSibling<Run>();
+                    FECHA_ACTUAL.GetFirstChild<Text>().Text = tableData.FECHA_ACTUAL;
+
+                    Run NOM_DOC = bookmarkMaps["NOM_DOC"].NextSibling<Run>();
+                    NOM_DOC.GetFirstChild<Text>().Text = tableData.NOM_DOC;
+
+                    Run RUC = bookmarkMaps["RUC"].NextSibling<Run>();
+                    RUC.GetFirstChild<Text>().Text = tableData.RUC;
+
+                    Run RUC_1 = bookmarkMaps["RUC_1"].NextSibling<Run>();
+                    RUC_1.GetFirstChild<Text>().Text = tableData.RUC;
+
+                    Run RUC_2 = bookmarkMaps["RUC_2"].NextSibling<Run>();
+                    RUC_2.GetFirstChild<Text>().Text = tableData.RUC;
+
+                    Run EXPEDIENTE = bookmarkMaps["EXPEDIENTE"].NextSibling<Run>();
+                    EXPEDIENTE.GetFirstChild<Text>().Text = tableData.EXPEDIENTE;
+
+                    Run EXPEDIENTE_1 = bookmarkMaps["EXPEDIENTE_1"].NextSibling<Run>();
+                    EXPEDIENTE_1.GetFirstChild<Text>().Text = tableData.EXPEDIENTE;
+
+                    Run EXPEDIENTE_2 = bookmarkMaps["EXPEDIENTE_2"].NextSibling<Run>();
+                    EXPEDIENTE_2.GetFirstChild<Text>().Text = tableData.EXPEDIENTE;
+                    wordDocument.MainDocumentPart.Document.Save();
+                    wordDocument.Close();
+                }
+
+                // string nuevopath = path + @"\RESOLUCION_DIRECTORAL_"+fecha_PATH.ToString("ddMMyy")+".docx";
+                string nuevopath = Path.Combine(path, "RESOLUCION_DIRECTORAL_" + fecha_PATH.ToString("ddMMyy") + ".docx");
+
+                System.IO.File.WriteAllBytes(nuevopath, stream.ToArray());
+                //Process process = new Process();
+                //process.StartInfo.FileName = nuevopath;
+                //process.Start();
+                Process.Start("WINWORD.EXE", nuevopath);
+            }
+         }
+        #endregion
+
+        #region Informe
+        public void informeUTIWord(CargaWordInformeUTI informe)
+        {
+            object missing = System.Reflection.Missing.Value;
+            Word.Application application = new Word.Application();
+            application.Visible = true;
+            Word.Document document = application.Documents.Open(@"C:\Users\PSSPERU069\Documents\Proyecto\sigesdoc\SIGESDOC.INFORMEUTI\bin\Debug\INFORME_UTI.docx", ref missing, false);
+
+        }
+
+        #endregion
+        #region OFICIO
+
+        [HttpGet]
+        public void OficioWord(CargaOficioWord oficioWord)
+        {
+            object missing = System.Reflection.Missing.Value;
+            Word.Application application = new Word.Application();
+            Word.Document document = application.Documents.Open(@"C:\Users\PSSPERU069\Documents\Proyecto\sigesdoc\SIGESDOC.OFICIO\bin\Debug\OFICIO.docx", ref missing);
+
+        }
+
+        #endregion
+
+       
     }
 }

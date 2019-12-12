@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using SIGESDOC.Entidades;
 using SIGESDOC.Response;
 
 namespace SIGESDOC.IRepositorio
@@ -70,6 +71,7 @@ namespace SIGESDOC.IRepositorio
         IEnumerable<Response.SP_CONSULTAR_DOCUMENTOS_PENDIENTES_DETALLE_DESAGREGADO_Result> Consultar_documentos_pendientes_detalle_desagregado(string documento, int id_ofi_dir, string fecha);
         string genera_clave_documento_externo();
         IEnumerable<DocDetObservacionesResponse> Listar_Observacion_x_det_documento(int id_det_documento);
+       // IEnumerable<Consulta_Detalle_Mae_Documento> Listar_Detalle_Documento_Interno(string num_doc);
 
     }
 }

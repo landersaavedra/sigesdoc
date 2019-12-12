@@ -42,6 +42,7 @@ namespace SIGESDOC.Entidades
         public string EXP_O_HT_CDL_NOTIF { get; set; }
         public string EXP_O_HT_N_CDL_NOTIF { get; set; }
         public string RUC { get; set; }
+        public Nullable<int> ID_DET_DOCUMENTO { get; set; }
     
         public virtual ICollection<DAT_DET_SEG_DOC_DHCPA> DAT_DET_SEG_DOC_DHCPA { get; set; }
         public virtual ICollection<DAT_DOCUMENTO_DHCPA_DETALLE> DAT_DOCUMENTO_DHCPA_DETALLE { get; set; }

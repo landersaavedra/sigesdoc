@@ -258,5 +258,7 @@ namespace SIGESDOC.IAplicacionService
         [OperationContract]
         IEnumerable<ConsultarPendientesHtParaAdjuntar20190104Response> GetAllpendienteshtadjuntar(string expediente);
 
+        [OperationContract]
+        IEnumerable<DetalleMaeDocumentoResponse> Listar_Detalle_Documento_Interno(int id_documento);
     }
 }

@@ -1,0 +1,194 @@
+C:\Users\PSSPERU069\Documents\Proyecto\sigesdoc_sanipes\sigesdoc\SIGESDOC.Web\bin\SqlServerTypes\x64\msvcr100.dll
+C:\Users\PSSPERU069\Documents\Proyecto\sigesdoc_sanipes\sigesdoc\SIGESDOC.Web\bin\SqlServerTypes\x64\SqlServerSpatial110.dll
+C:\Users\PSSPERU069\Documents\Proyecto\sigesdoc_sanipes\sigesdoc\SIGESDOC.Web\bin\SqlServerTypes\x86\msvcr100.dll
+C:\Users\PSSPERU069\Documents\Proyecto\sigesdoc_sanipes\sigesdoc\SIGESDOC.Web\bin\SqlServerTypes\x86\SqlServerSpatial110.dll
+C:\Users\PSSPERU069\Documents\Proyecto\sigesdoc_sanipes\sigesdoc\SIGESDOC.Web\bin\Views\Recepcion\Consulta_Recepcion.cshtml
+C:\Users\PSSPERU069\Documents\Proyecto\sigesdoc_sanipes\sigesdoc\SIGESDOC.Web\bin\SIGESDOC.Web.dll.config
+C:\Users\PSSPERU069\Documents\Proyecto\sigesdoc_sanipes\sigesdoc\SIGESDOC.Web\bin\SIGESDOC.Web.dll
+C:\Users\PSSPERU069\Documents\Proyecto\sigesdoc_sanipes\sigesdoc\SIGESDOC.Web\bin\SIGESDOC.Web.pdb
+C:\Users\PSSPERU069\Documents\Proyecto\sigesdoc_sanipes\sigesdoc\SIGESDOC.Web\bin\Antlr3.Runtime.dll
+C:\Users\PSSPERU069\Documents\Proyecto\sigesdoc_sanipes\sigesdoc\SIGESDOC.Web\bin\Autofac.Configuration.dll
+C:\Users\PSSPERU069\Documents\Proyecto\sigesdoc_sanipes\sigesdoc\SIGESDOC.Web\bin\Autofac.dll
+C:\Users\PSSPERU069\Documents\Proyecto\sigesdoc_sanipes\sigesdoc\SIGESDOC.Web\bin\Autofac.Integration.Mvc.dll
+C:\Users\PSSPERU069\Documents\Proyecto\sigesdoc_sanipes\sigesdoc\SIGESDOC.Web\bin\Autofac.Integration.Wcf.dll
+C:\Users\PSSPERU069\Documents\Proyecto\sigesdoc_sanipes\sigesdoc\SIGESDOC.Web\bin\EntityFramework.dll
+C:\Users\PSSPERU069\Documents\Proyecto\sigesdoc_sanipes\sigesdoc\SIGESDOC.Web\bin\EntityFramework.SqlServer.dll
+C:\Users\PSSPERU069\Documents\Proyecto\sigesdoc_sanipes\sigesdoc\SIGESDOC.Web\bin\itextsharp.dll
+C:\Users\PSSPERU069\Documents\Proyecto\sigesdoc_sanipes\sigesdoc\SIGESDOC.Web\bin\itextsharp.xmlworker.dll
+C:\Users\PSSPERU069\Documents\Proyecto\sigesdoc_sanipes\sigesdoc\SIGESDOC.Web\bin\Microsoft.Office.Tools.v4.0.Framework.dll
+C:\Users\PSSPERU069\Documents\Proyecto\sigesdoc_sanipes\sigesdoc\SIGESDOC.Web\bin\Microsoft.Office.Tools.Word.v4.0.Utilities.dll
+C:\Users\PSSPERU069\Documents\Proyecto\sigesdoc_sanipes\sigesdoc\SIGESDOC.Web\bin\Microsoft.ReportViewer.Common.dll
+C:\Users\PSSPERU069\Documents\Proyecto\sigesdoc_sanipes\sigesdoc\SIGESDOC.Web\bin\Microsoft.ReportViewer.DataVisualization.DLL
+C:\Users\PSSPERU069\Documents\Proyecto\sigesdoc_sanipes\sigesdoc\SIGESDOC.Web\bin\Microsoft.ReportViewer.Design.DLL
+C:\Users\PSSPERU069\Documents\Proyecto\sigesdoc_sanipes\sigesdoc\SIGESDOC.Web\bin\Microsoft.ReportViewer.ProcessingObjectModel.DLL
+C:\Users\PSSPERU069\Documents\Proyecto\sigesdoc_sanipes\sigesdoc\SIGESDOC.Web\bin\Microsoft.ReportViewer.WebDesign.DLL
+C:\Users\PSSPERU069\Documents\Proyecto\sigesdoc_sanipes\sigesdoc\SIGESDOC.Web\bin\Microsoft.ReportViewer.WebForms.DLL
+C:\Users\PSSPERU069\Documents\Proyecto\sigesdoc_sanipes\sigesdoc\SIGESDOC.Web\bin\Microsoft.ReportViewer.WinForms.DLL
+C:\Users\PSSPERU069\Documents\Proyecto\sigesdoc_sanipes\sigesdoc\SIGESDOC.Web\bin\Microsoft.SqlServer.Types.dll
+C:\Users\PSSPERU069\Documents\Proyecto\sigesdoc_sanipes\sigesdoc\SIGESDOC.Web\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\PSSPERU069\Documents\Proyecto\sigesdoc_sanipes\sigesdoc\SIGESDOC.Web\bin\MvcReportViewer.dll
+C:\Users\PSSPERU069\Documents\Proyecto\sigesdoc_sanipes\sigesdoc\SIGESDOC.Web\bin\Newtonsoft.Json.dll
+C:\Users\PSSPERU069\Documents\Proyecto\sigesdoc_sanipes\sigesdoc\SIGESDOC.Web\bin\RazorPDF.dll
+C:\Users\PSSPERU069\Documents\Proyecto\sigesdoc_sanipes\sigesdoc\SIGESDOC.Web\bin\SIGESDOC.IAplicacionService.dll
+C:\Users\PSSPERU069\Documents\Proyecto\sigesdoc_sanipes\sigesdoc\SIGESDOC.Web\bin\SIGESDOC.Request.dll
+C:\Users\PSSPERU069\Documents\Proyecto\sigesdoc_sanipes\sigesdoc\SIGESDOC.Web\bin\SIGESDOC.Response.dll
+C:\Users\PSSPERU069\Documents\Proyecto\sigesdoc_sanipes\sigesdoc\SIGESDOC.Web\bin\SIGESDOC.VSTO_SANIPES.dll
+C:\Users\PSSPERU069\Documents\Proyecto\sigesdoc_sanipes\sigesdoc\SIGESDOC.Web\bin\System.Net.Http.Formatting.dll
+C:\Users\PSSPERU069\Documents\Proyecto\sigesdoc_sanipes\sigesdoc\SIGESDOC.Web\bin\System.Web.Helpers.dll
+C:\Users\PSSPERU069\Documents\Proyecto\sigesdoc_sanipes\sigesdoc\SIGESDOC.Web\bin\System.Web.Http.dll
+C:\Users\PSSPERU069\Documents\Proyecto\sigesdoc_sanipes\sigesdoc\SIGESDOC.Web\bin\System.Web.Http.WebHost.dll
+C:\Users\PSSPERU069\Documents\Proyecto\sigesdoc_sanipes\sigesdoc\SIGESDOC.Web\bin\System.Web.Mvc.dll
+C:\Users\PSSPERU069\Documents\Proyecto\sigesdoc_sanipes\sigesdoc\SIGESDOC.Web\bin\System.Web.Optimization.dll
+C:\Users\PSSPERU069\Documents\Proyecto\sigesdoc_sanipes\sigesdoc\SIGESDOC.Web\bin\System.Web.Razor.dll
+C:\Users\PSSPERU069\Documents\Proyecto\sigesdoc_sanipes\sigesdoc\SIGESDOC.Web\bin\System.Web.WebPages.Deployment.dll
+C:\Users\PSSPERU069\Documents\Proyecto\sigesdoc_sanipes\sigesdoc\SIGESDOC.Web\bin\System.Web.WebPages.dll
+C:\Users\PSSPERU069\Documents\Proyecto\sigesdoc_sanipes\sigesdoc\SIGESDOC.Web\bin\System.Web.WebPages.Razor.dll
+C:\Users\PSSPERU069\Documents\Proyecto\sigesdoc_sanipes\sigesdoc\SIGESDOC.Web\bin\WebGrease.dll
+C:\Users\PSSPERU069\Documents\Proyecto\sigesdoc_sanipes\sigesdoc\SIGESDOC.Web\bin\Microsoft.VisualStudio.Tools.Applications.Runtime.dll
+C:\Users\PSSPERU069\Documents\Proyecto\sigesdoc_sanipes\sigesdoc\SIGESDOC.Web\bin\Microsoft.Office.Tools.Common.dll
+C:\Users\PSSPERU069\Documents\Proyecto\sigesdoc_sanipes\sigesdoc\SIGESDOC.Web\bin\Microsoft.Office.Tools.Common.v4.0.Utilities.dll
+C:\Users\PSSPERU069\Documents\Proyecto\sigesdoc_sanipes\sigesdoc\SIGESDOC.Web\bin\EnvDTE.dll
+C:\Users\PSSPERU069\Documents\Proyecto\sigesdoc_sanipes\sigesdoc\SIGESDOC.Web\bin\Microsoft.VisualStudio.Shell.Interop.dll
+C:\Users\PSSPERU069\Documents\Proyecto\sigesdoc_sanipes\sigesdoc\SIGESDOC.Web\bin\Microsoft.VisualStudio.Shell.Interop.8.0.dll
+C:\Users\PSSPERU069\Documents\Proyecto\sigesdoc_sanipes\sigesdoc\SIGESDOC.Web\bin\EnvDTE80.dll
+C:\Users\PSSPERU069\Documents\Proyecto\sigesdoc_sanipes\sigesdoc\SIGESDOC.Web\bin\stdole.dll
+C:\Users\PSSPERU069\Documents\Proyecto\sigesdoc_sanipes\sigesdoc\SIGESDOC.Web\bin\Microsoft.VisualStudio.OLE.Interop.dll
+C:\Users\PSSPERU069\Documents\Proyecto\sigesdoc_sanipes\sigesdoc\SIGESDOC.Web\bin\Microsoft.VisualStudio.TextManager.Interop.dll
+C:\Users\PSSPERU069\Documents\Proyecto\sigesdoc_sanipes\sigesdoc\SIGESDOC.Web\bin\Microsoft.VisualStudio.TextManager.Interop.8.0.dll
+C:\Users\PSSPERU069\Documents\Proyecto\sigesdoc_sanipes\sigesdoc\SIGESDOC.Web\bin\Microsoft.MSXML.dll
+C:\Users\PSSPERU069\Documents\Proyecto\sigesdoc_sanipes\sigesdoc\SIGESDOC.Web\bin\SIGESDOC.IAplicacionService.pdb
+C:\Users\PSSPERU069\Documents\Proyecto\sigesdoc_sanipes\sigesdoc\SIGESDOC.Web\bin\SIGESDOC.Request.pdb
+C:\Users\PSSPERU069\Documents\Proyecto\sigesdoc_sanipes\sigesdoc\SIGESDOC.Web\bin\SIGESDOC.Response.pdb
+C:\Users\PSSPERU069\Documents\Proyecto\sigesdoc_sanipes\sigesdoc\SIGESDOC.Web\bin\SIGESDOC.VSTO_SANIPES.pdb
+C:\Users\PSSPERU069\Documents\Proyecto\sigesdoc_sanipes\sigesdoc\SIGESDOC.Web\bin\Autofac.xml
+C:\Users\PSSPERU069\Documents\Proyecto\sigesdoc_sanipes\sigesdoc\SIGESDOC.Web\bin\Autofac.Configuration.xml
+C:\Users\PSSPERU069\Documents\Proyecto\sigesdoc_sanipes\sigesdoc\SIGESDOC.Web\bin\Autofac.Integration.Mvc.xml
+C:\Users\PSSPERU069\Documents\Proyecto\sigesdoc_sanipes\sigesdoc\SIGESDOC.Web\bin\Autofac.Integration.Wcf.xml
+C:\Users\PSSPERU069\Documents\Proyecto\sigesdoc_sanipes\sigesdoc\SIGESDOC.Web\bin\EntityFramework.xml
+C:\Users\PSSPERU069\Documents\Proyecto\sigesdoc_sanipes\sigesdoc\SIGESDOC.Web\bin\EntityFramework.SqlServer.xml
+C:\Users\PSSPERU069\Documents\Proyecto\sigesdoc_sanipes\sigesdoc\SIGESDOC.Web\bin\itextsharp.xml
+C:\Users\PSSPERU069\Documents\Proyecto\sigesdoc_sanipes\sigesdoc\SIGESDOC.Web\bin\Newtonsoft.Json.xml
+C:\Users\PSSPERU069\Documents\Proyecto\sigesdoc_sanipes\sigesdoc\SIGESDOC.Web\bin\System.Net.Http.Formatting.xml
+C:\Users\PSSPERU069\Documents\Proyecto\sigesdoc_sanipes\sigesdoc\SIGESDOC.Web\bin\System.Web.Http.xml
+C:\Users\PSSPERU069\Documents\Proyecto\sigesdoc_sanipes\sigesdoc\SIGESDOC.Web\bin\System.Web.Http.WebHost.xml
+C:\Users\PSSPERU069\Documents\Proyecto\sigesdoc_sanipes\sigesdoc\SIGESDOC.Web\bin\System.Web.Helpers.xml
+C:\Users\PSSPERU069\Documents\Proyecto\sigesdoc_sanipes\sigesdoc\SIGESDOC.Web\bin\System.Web.Mvc.xml
+C:\Users\PSSPERU069\Documents\Proyecto\sigesdoc_sanipes\sigesdoc\SIGESDOC.Web\bin\System.Web.Optimization.xml
+C:\Users\PSSPERU069\Documents\Proyecto\sigesdoc_sanipes\sigesdoc\SIGESDOC.Web\bin\System.Web.Razor.xml
+C:\Users\PSSPERU069\Documents\Proyecto\sigesdoc_sanipes\sigesdoc\SIGESDOC.Web\bin\System.Web.WebPages.xml
+C:\Users\PSSPERU069\Documents\Proyecto\sigesdoc_sanipes\sigesdoc\SIGESDOC.Web\bin\System.Web.WebPages.Deployment.xml
+C:\Users\PSSPERU069\Documents\Proyecto\sigesdoc_sanipes\sigesdoc\SIGESDOC.Web\bin\System.Web.WebPages.Razor.xml
+C:\Users\PSSPERU069\Documents\Proyecto\sigesdoc_sanipes\sigesdoc\SIGESDOC.Web\bin\Antlr3.Runtime.pdb
+C:\Users\PSSPERU069\Documents\Proyecto\sigesdoc_sanipes\sigesdoc\SIGESDOC.Web\bin\es\System.Web.Helpers.resources.dll
+C:\Users\PSSPERU069\Documents\Proyecto\sigesdoc_sanipes\sigesdoc\SIGESDOC.Web\bin\es\System.Web.Mvc.resources.dll
+C:\Users\PSSPERU069\Documents\Proyecto\sigesdoc_sanipes\sigesdoc\SIGESDOC.Web\bin\es\System.Web.Optimization.resources.dll
+C:\Users\PSSPERU069\Documents\Proyecto\sigesdoc_sanipes\sigesdoc\SIGESDOC.Web\bin\es\System.Web.Razor.resources.dll
+C:\Users\PSSPERU069\Documents\Proyecto\sigesdoc_sanipes\sigesdoc\SIGESDOC.Web\bin\es\System.Web.WebPages.resources.dll
+C:\Users\PSSPERU069\Documents\Proyecto\sigesdoc_sanipes\sigesdoc\SIGESDOC.Web\bin\es\System.Web.WebPages.Deployment.resources.dll
+C:\Users\PSSPERU069\Documents\Proyecto\sigesdoc_sanipes\sigesdoc\SIGESDOC.Web\bin\es\System.Web.WebPages.Razor.resources.dll
+C:\Users\PSSPERU069\Documents\Proyecto\sigesdoc_sanipes\sigesdoc\SIGESDOC.Web\obj\Release\SIGESDOC.Web.csprojAssemblyReference.cache
+C:\Users\PSSPERU069\Documents\Proyecto\sigesdoc_sanipes\sigesdoc\SIGESDOC.Web\obj\Release\SIGESDOC.Web.csproj.CoreCompileInputs.cache
+C:\Users\PSSPERU069\Documents\Proyecto\sigesdoc_sanipes\sigesdoc\SIGESDOC.Web\obj\Release\SIGESDOC.Web.csproj.CopyComplete
+C:\Users\PSSPERU069\Documents\Proyecto\sigesdoc_sanipes\sigesdoc\SIGESDOC.Web\obj\Release\SIGESDOC.Web.dll
+C:\Users\PSSPERU069\Documents\Proyecto\sigesdoc_sanipes\sigesdoc\SIGESDOC.Web\obj\Release\SIGESDOC.Web.pdb
+C:\Users\PSSPERU069\Documents\Proyecto\sigesdoc_sanipes\sigesdoc\SIGESDOC.Web\bin\Microsoft.VisualStudio.Tools.Applications.Hosting.dll
+C:\Users\PSSPERU069\Documents\Proyecto\sigesdoc_sanipes\sigesdoc\SIGESDOC.Web\bin\Microsoft.VisualStudio.Tools.Applications.ServerDocument.dll
+C:\Users\PSSPERU069\Documents\Proyecto\sigesdoc_sanipes\sigesdoc\SIGESDOC.Web\bin\DocumentFormat.OpenXml.dll
+C:\Users\PSSPERU069\Documents\Proyecto\sigesdoc_sanipes\sigesdoc\SIGESDOC.Web\bin\DocumentFormat.OpenXml.xml
+C:\Users\andres.albarracin\Desktop\PROYECTO LANDER\sigesdoc\SIGESDOC.Web\bin\SqlServerTypes\x64\msvcr100.dll
+C:\Users\andres.albarracin\Desktop\PROYECTO LANDER\sigesdoc\SIGESDOC.Web\bin\SqlServerTypes\x64\SqlServerSpatial110.dll
+C:\Users\andres.albarracin\Desktop\PROYECTO LANDER\sigesdoc\SIGESDOC.Web\bin\SqlServerTypes\x86\msvcr100.dll
+C:\Users\andres.albarracin\Desktop\PROYECTO LANDER\sigesdoc\SIGESDOC.Web\bin\SqlServerTypes\x86\SqlServerSpatial110.dll
+C:\Users\andres.albarracin\Desktop\PROYECTO LANDER\sigesdoc\SIGESDOC.Web\bin\Views\Recepcion\Consulta_Recepcion.cshtml
+C:\Users\andres.albarracin\Desktop\PROYECTO LANDER\sigesdoc\SIGESDOC.Web\bin\SIGESDOC.Web.dll.config
+C:\Users\andres.albarracin\Desktop\PROYECTO LANDER\sigesdoc\SIGESDOC.Web\bin\SIGESDOC.Web.dll
+C:\Users\andres.albarracin\Desktop\PROYECTO LANDER\sigesdoc\SIGESDOC.Web\bin\SIGESDOC.Web.pdb
+C:\Users\andres.albarracin\Desktop\PROYECTO LANDER\sigesdoc\SIGESDOC.Web\bin\Antlr3.Runtime.dll
+C:\Users\andres.albarracin\Desktop\PROYECTO LANDER\sigesdoc\SIGESDOC.Web\bin\Autofac.Configuration.dll
+C:\Users\andres.albarracin\Desktop\PROYECTO LANDER\sigesdoc\SIGESDOC.Web\bin\Autofac.dll
+C:\Users\andres.albarracin\Desktop\PROYECTO LANDER\sigesdoc\SIGESDOC.Web\bin\Autofac.Integration.Mvc.dll
+C:\Users\andres.albarracin\Desktop\PROYECTO LANDER\sigesdoc\SIGESDOC.Web\bin\Autofac.Integration.Wcf.dll
+C:\Users\andres.albarracin\Desktop\PROYECTO LANDER\sigesdoc\SIGESDOC.Web\bin\DocumentFormat.OpenXml.dll
+C:\Users\andres.albarracin\Desktop\PROYECTO LANDER\sigesdoc\SIGESDOC.Web\bin\EntityFramework.dll
+C:\Users\andres.albarracin\Desktop\PROYECTO LANDER\sigesdoc\SIGESDOC.Web\bin\EntityFramework.SqlServer.dll
+C:\Users\andres.albarracin\Desktop\PROYECTO LANDER\sigesdoc\SIGESDOC.Web\bin\Excel.dll
+C:\Users\andres.albarracin\Desktop\PROYECTO LANDER\sigesdoc\SIGESDOC.Web\bin\itextsharp.dll
+C:\Users\andres.albarracin\Desktop\PROYECTO LANDER\sigesdoc\SIGESDOC.Web\bin\itextsharp.xmlworker.dll
+C:\Users\andres.albarracin\Desktop\PROYECTO LANDER\sigesdoc\SIGESDOC.Web\bin\Microsoft.Office.Tools.v4.0.Framework.dll
+C:\Users\andres.albarracin\Desktop\PROYECTO LANDER\sigesdoc\SIGESDOC.Web\bin\Microsoft.Office.Tools.Word.v4.0.Utilities.dll
+C:\Users\andres.albarracin\Desktop\PROYECTO LANDER\sigesdoc\SIGESDOC.Web\bin\Microsoft.ReportViewer.Common.dll
+C:\Users\andres.albarracin\Desktop\PROYECTO LANDER\sigesdoc\SIGESDOC.Web\bin\Microsoft.ReportViewer.DataVisualization.DLL
+C:\Users\andres.albarracin\Desktop\PROYECTO LANDER\sigesdoc\SIGESDOC.Web\bin\Microsoft.ReportViewer.Design.DLL
+C:\Users\andres.albarracin\Desktop\PROYECTO LANDER\sigesdoc\SIGESDOC.Web\bin\Microsoft.ReportViewer.ProcessingObjectModel.DLL
+C:\Users\andres.albarracin\Desktop\PROYECTO LANDER\sigesdoc\SIGESDOC.Web\bin\Microsoft.ReportViewer.WebDesign.DLL
+C:\Users\andres.albarracin\Desktop\PROYECTO LANDER\sigesdoc\SIGESDOC.Web\bin\Microsoft.ReportViewer.WebForms.DLL
+C:\Users\andres.albarracin\Desktop\PROYECTO LANDER\sigesdoc\SIGESDOC.Web\bin\Microsoft.ReportViewer.WinForms.DLL
+C:\Users\andres.albarracin\Desktop\PROYECTO LANDER\sigesdoc\SIGESDOC.Web\bin\Microsoft.SqlServer.Types.dll
+C:\Users\andres.albarracin\Desktop\PROYECTO LANDER\sigesdoc\SIGESDOC.Web\bin\Microsoft.VisualStudio.Tools.Applications.Hosting.dll
+C:\Users\andres.albarracin\Desktop\PROYECTO LANDER\sigesdoc\SIGESDOC.Web\bin\Microsoft.VisualStudio.Tools.Applications.Runtime.dll
+C:\Users\andres.albarracin\Desktop\PROYECTO LANDER\sigesdoc\SIGESDOC.Web\bin\Microsoft.VisualStudio.Tools.Applications.ServerDocument.dll
+C:\Users\andres.albarracin\Desktop\PROYECTO LANDER\sigesdoc\SIGESDOC.Web\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\andres.albarracin\Desktop\PROYECTO LANDER\sigesdoc\SIGESDOC.Web\bin\MvcReportViewer.dll
+C:\Users\andres.albarracin\Desktop\PROYECTO LANDER\sigesdoc\SIGESDOC.Web\bin\Newtonsoft.Json.dll
+C:\Users\andres.albarracin\Desktop\PROYECTO LANDER\sigesdoc\SIGESDOC.Web\bin\RazorPDF.dll
+C:\Users\andres.albarracin\Desktop\PROYECTO LANDER\sigesdoc\SIGESDOC.Web\bin\SIGESDOC.IAplicacionService.dll
+C:\Users\andres.albarracin\Desktop\PROYECTO LANDER\sigesdoc\SIGESDOC.Web\bin\SIGESDOC.Request.dll
+C:\Users\andres.albarracin\Desktop\PROYECTO LANDER\sigesdoc\SIGESDOC.Web\bin\SIGESDOC.Response.dll
+C:\Users\andres.albarracin\Desktop\PROYECTO LANDER\sigesdoc\SIGESDOC.Web\bin\System.Net.Http.Formatting.dll
+C:\Users\andres.albarracin\Desktop\PROYECTO LANDER\sigesdoc\SIGESDOC.Web\bin\System.Web.Helpers.dll
+C:\Users\andres.albarracin\Desktop\PROYECTO LANDER\sigesdoc\SIGESDOC.Web\bin\System.Web.Http.dll
+C:\Users\andres.albarracin\Desktop\PROYECTO LANDER\sigesdoc\SIGESDOC.Web\bin\System.Web.Http.WebHost.dll
+C:\Users\andres.albarracin\Desktop\PROYECTO LANDER\sigesdoc\SIGESDOC.Web\bin\System.Web.Mvc.dll
+C:\Users\andres.albarracin\Desktop\PROYECTO LANDER\sigesdoc\SIGESDOC.Web\bin\System.Web.Optimization.dll
+C:\Users\andres.albarracin\Desktop\PROYECTO LANDER\sigesdoc\SIGESDOC.Web\bin\System.Web.Razor.dll
+C:\Users\andres.albarracin\Desktop\PROYECTO LANDER\sigesdoc\SIGESDOC.Web\bin\System.Web.WebPages.Deployment.dll
+C:\Users\andres.albarracin\Desktop\PROYECTO LANDER\sigesdoc\SIGESDOC.Web\bin\System.Web.WebPages.dll
+C:\Users\andres.albarracin\Desktop\PROYECTO LANDER\sigesdoc\SIGESDOC.Web\bin\System.Web.WebPages.Razor.dll
+C:\Users\andres.albarracin\Desktop\PROYECTO LANDER\sigesdoc\SIGESDOC.Web\bin\WebGrease.dll
+C:\Users\andres.albarracin\Desktop\PROYECTO LANDER\sigesdoc\SIGESDOC.Web\bin\ICSharpCode.SharpZipLib.dll
+C:\Users\andres.albarracin\Desktop\PROYECTO LANDER\sigesdoc\SIGESDOC.Web\bin\EnvDTE.dll
+C:\Users\andres.albarracin\Desktop\PROYECTO LANDER\sigesdoc\SIGESDOC.Web\bin\Microsoft.VisualStudio.Shell.Interop.dll
+C:\Users\andres.albarracin\Desktop\PROYECTO LANDER\sigesdoc\SIGESDOC.Web\bin\Microsoft.VisualStudio.Shell.Interop.8.0.dll
+C:\Users\andres.albarracin\Desktop\PROYECTO LANDER\sigesdoc\SIGESDOC.Web\bin\EnvDTE80.dll
+C:\Users\andres.albarracin\Desktop\PROYECTO LANDER\sigesdoc\SIGESDOC.Web\bin\stdole.dll
+C:\Users\andres.albarracin\Desktop\PROYECTO LANDER\sigesdoc\SIGESDOC.Web\bin\Microsoft.VisualStudio.OLE.Interop.dll
+C:\Users\andres.albarracin\Desktop\PROYECTO LANDER\sigesdoc\SIGESDOC.Web\bin\Microsoft.VisualStudio.TextManager.Interop.dll
+C:\Users\andres.albarracin\Desktop\PROYECTO LANDER\sigesdoc\SIGESDOC.Web\bin\Microsoft.VisualStudio.ProjectAggregator.dll
+C:\Users\andres.albarracin\Desktop\PROYECTO LANDER\sigesdoc\SIGESDOC.Web\bin\Microsoft.VisualStudio.VSHelp.dll
+C:\Users\andres.albarracin\Desktop\PROYECTO LANDER\sigesdoc\SIGESDOC.Web\bin\Microsoft.VisualStudio.TextManager.Interop.8.0.dll
+C:\Users\andres.albarracin\Desktop\PROYECTO LANDER\sigesdoc\SIGESDOC.Web\bin\Microsoft.MSXML.dll
+C:\Users\andres.albarracin\Desktop\PROYECTO LANDER\sigesdoc\SIGESDOC.Web\bin\SIGESDOC.IAplicacionService.pdb
+C:\Users\andres.albarracin\Desktop\PROYECTO LANDER\sigesdoc\SIGESDOC.Web\bin\SIGESDOC.Request.pdb
+C:\Users\andres.albarracin\Desktop\PROYECTO LANDER\sigesdoc\SIGESDOC.Web\bin\SIGESDOC.Response.pdb
+C:\Users\andres.albarracin\Desktop\PROYECTO LANDER\sigesdoc\SIGESDOC.Web\bin\Autofac.xml
+C:\Users\andres.albarracin\Desktop\PROYECTO LANDER\sigesdoc\SIGESDOC.Web\bin\Autofac.Configuration.xml
+C:\Users\andres.albarracin\Desktop\PROYECTO LANDER\sigesdoc\SIGESDOC.Web\bin\Autofac.Integration.Mvc.xml
+C:\Users\andres.albarracin\Desktop\PROYECTO LANDER\sigesdoc\SIGESDOC.Web\bin\Autofac.Integration.Wcf.xml
+C:\Users\andres.albarracin\Desktop\PROYECTO LANDER\sigesdoc\SIGESDOC.Web\bin\DocumentFormat.OpenXml.xml
+C:\Users\andres.albarracin\Desktop\PROYECTO LANDER\sigesdoc\SIGESDOC.Web\bin\EntityFramework.xml
+C:\Users\andres.albarracin\Desktop\PROYECTO LANDER\sigesdoc\SIGESDOC.Web\bin\EntityFramework.SqlServer.xml
+C:\Users\andres.albarracin\Desktop\PROYECTO LANDER\sigesdoc\SIGESDOC.Web\bin\Excel.pdb
+C:\Users\andres.albarracin\Desktop\PROYECTO LANDER\sigesdoc\SIGESDOC.Web\bin\itextsharp.xml
+C:\Users\andres.albarracin\Desktop\PROYECTO LANDER\sigesdoc\SIGESDOC.Web\bin\Newtonsoft.Json.xml
+C:\Users\andres.albarracin\Desktop\PROYECTO LANDER\sigesdoc\SIGESDOC.Web\bin\System.Net.Http.Formatting.xml
+C:\Users\andres.albarracin\Desktop\PROYECTO LANDER\sigesdoc\SIGESDOC.Web\bin\System.Web.Http.xml
+C:\Users\andres.albarracin\Desktop\PROYECTO LANDER\sigesdoc\SIGESDOC.Web\bin\System.Web.Http.WebHost.xml
+C:\Users\andres.albarracin\Desktop\PROYECTO LANDER\sigesdoc\SIGESDOC.Web\bin\System.Web.Helpers.xml
+C:\Users\andres.albarracin\Desktop\PROYECTO LANDER\sigesdoc\SIGESDOC.Web\bin\System.Web.Mvc.xml
+C:\Users\andres.albarracin\Desktop\PROYECTO LANDER\sigesdoc\SIGESDOC.Web\bin\System.Web.Optimization.xml
+C:\Users\andres.albarracin\Desktop\PROYECTO LANDER\sigesdoc\SIGESDOC.Web\bin\System.Web.Razor.xml
+C:\Users\andres.albarracin\Desktop\PROYECTO LANDER\sigesdoc\SIGESDOC.Web\bin\System.Web.WebPages.xml
+C:\Users\andres.albarracin\Desktop\PROYECTO LANDER\sigesdoc\SIGESDOC.Web\bin\System.Web.WebPages.Deployment.xml
+C:\Users\andres.albarracin\Desktop\PROYECTO LANDER\sigesdoc\SIGESDOC.Web\bin\System.Web.WebPages.Razor.xml
+C:\Users\andres.albarracin\Desktop\PROYECTO LANDER\sigesdoc\SIGESDOC.Web\bin\Antlr3.Runtime.pdb
+C:\Users\andres.albarracin\Desktop\PROYECTO LANDER\sigesdoc\SIGESDOC.Web\bin\es\System.Web.Helpers.resources.dll
+C:\Users\andres.albarracin\Desktop\PROYECTO LANDER\sigesdoc\SIGESDOC.Web\bin\es\System.Web.Mvc.resources.dll
+C:\Users\andres.albarracin\Desktop\PROYECTO LANDER\sigesdoc\SIGESDOC.Web\bin\es\System.Web.Optimization.resources.dll
+C:\Users\andres.albarracin\Desktop\PROYECTO LANDER\sigesdoc\SIGESDOC.Web\bin\es\System.Web.Razor.resources.dll
+C:\Users\andres.albarracin\Desktop\PROYECTO LANDER\sigesdoc\SIGESDOC.Web\bin\es\System.Web.WebPages.resources.dll
+C:\Users\andres.albarracin\Desktop\PROYECTO LANDER\sigesdoc\SIGESDOC.Web\bin\es\System.Web.WebPages.Deployment.resources.dll
+C:\Users\andres.albarracin\Desktop\PROYECTO LANDER\sigesdoc\SIGESDOC.Web\bin\es\System.Web.WebPages.Razor.resources.dll
+C:\Users\andres.albarracin\Desktop\PROYECTO LANDER\sigesdoc\SIGESDOC.Web\obj\Release\SIGESDOC.Web.csprojAssemblyReference.cache
+C:\Users\andres.albarracin\Desktop\PROYECTO LANDER\sigesdoc\SIGESDOC.Web\obj\Release\SIGESDOC.Web.csproj.CopyComplete
+C:\Users\andres.albarracin\Desktop\PROYECTO LANDER\sigesdoc\SIGESDOC.Web\obj\Release\SIGESDOC.Web.dll
+C:\Users\andres.albarracin\Desktop\PROYECTO LANDER\sigesdoc\SIGESDOC.Web\obj\Release\SIGESDOC.Web.pdb

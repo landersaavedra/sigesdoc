@@ -1,0 +1,355 @@
+﻿@using SIGESDOC.Web.Seguridad
+
+@model IEnumerable<SIGESDOC.Response.DocumentoDetalleResponse>
+@{
+    ViewBag.Title = "Hoja de Trámite Atendidos y Archivados";
+}
+
+<ol class="breadcrumb" style="margin-bottom: 5px;">
+    <li><a href="#">Movimiento</a></li>
+    <li class="active">Hoja de Trámite Archivadas y Atendidas</li>
+</ol>
+
+<div class="bs-callout bs-callout-info">
+    <h4>Hoja de Trámite Archivadas y Atendidas</h4>
+    <p>En esta sección usted puede visualizar las Hoja de Trámite que se encuentran Archivadas y Atendidas</p>
+</div>
+
+<div class="modal fade" id="mdldetalle" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-width">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title" id="myModalLabel">Detalle</h4>
+            </div>
+            <div class="modal-body">
+                <div class="form-horizontal">
+                    <div class="form-group">
+                        @Html.Label("Acciones: ", new { @class = "col-md-2 control-label" })
+                        <div class="col-md-3">
+                            @Html.TextBox("V_IND", "", new { @class = "form-control input-sm", @readonly = "readonly" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        @Html.Label("Observación: ", new { @class = "col-md-2 control-label" })
+                        <div class="col-md-8">
+                            @Html.TextArea("V_OBS", "", new { @class = "form-control input-sm", @readonly = "readonly" })
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default btn-sm" data-dismiss="modal">Salir</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="modal fade" id="mdlConformidad_editar" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title" id="myModalLabel">
+                    <label id="txt_titulo_editar">  </label>
+                    <label id="HT_titulo_editar">  </label>
+                </h4>
+            </div>
+            <div class="modal-body">
+                <div id="mensajesPopup"></div>
+                <div id="progress" class="progress hidden">
+                    <div class="progress progress-striped active">
+                        <div class="progress-bar" style="width: 100%">
+                            <p>Procesando</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="menssage">
+                    <span id="conformidad"></span>
+                    <p>Editar la Observación.</p>
+
+                    <div class="form-group">
+                        <div class="col-md-2">
+                            <label class="control-label">Observación:</label>
+                        </div>
+                        <div class="col-lg-9">
+                            <textarea class="form-control input-sm" id="txt_observacion" name="txt_observacion" maxlength="500"></textarea>
+                        </div>
+                    </div>
+
+                    <input type="text" id="txtId_editar" class="hidden" />
+
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary btn-sm" id="bntConfirmar_editar">Si</button>
+                <button type="button" class="btn btn-default btn-sm" data-dismiss="modal">No</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="panel panel-primary">
+    <div class="panel-heading panet-heading-sm">Búsqueda de hoja de trámite Archivadas y Atendidas</div>
+    <div class="panel-body">
+        @using (Ajax.BeginForm(new AjaxOptions { HttpMethod = "Get" }))
+        { <div class="row">
+            <div class="col-md-2">
+                <div class="input-group input-group-sm">
+                    <span class="input-group-addon">Hoja Trámite</span>
+                    @Html.TextBox("HT", null, new { @class = "form-control input-sm", @maxlength = "11" })
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="input-group input-group-sm">
+                    <span class="input-group-addon">Asunto</span>
+                    @Html.TextBox("Asunto", null, new { @class = "form-control input-sm", @maxlength = "500" })
+                </div>
+            </div>
+
+        </div>
+            <br />
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="input-group input-group-sm">
+                        <span class="input-group-addon">Entidad/Persona Natural</span>
+                        @Html.TextBox("Empresa", null, new { @class = "form-control input-sm", @maxlength = "500" })
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <div class="input-group input-group-sm">
+                        <span class="input-group-addon">Estado</span>
+                        @Html.DropDownList("Estado", (IEnumerable<SelectListItem>)ViewBag.lstestado, new { @class = "form-control input-sm" })
+                    </div>
+                </div>
+            </div>
+            <br />
+            <div class="row">
+                <div class="col-md-1">
+                    <input type="submit" id="btnBuscar" class="btn btn-primary btn-sm pull-left" value="Actualizar" />
+                </div>
+            </div>
+        }
+    </div>
+</div>
+
+<button id="export_excel" type="button" style="background-color:green; border:1px solid white; color:white;"> Exportar Excel</button>
+<br />
+<br />
+
+
+
+<div id="grid">
+    <table id="grid_HT_archivado_atendido" class="table table-striped table-hover table-condensed tabla small">
+        <thead>
+            <tr class="cabecera text-center">
+                <th scope="col">Nro HT</th>
+                <th scope="col" class="visible-lg">Externa/Interna</th>
+                <th scope="col" class="visible-lg visible-md">Fecha Archivo/Atendido</th>
+                <th scope="col" class="visible-lg visible-md">Documento</th>
+                <th scope="col">Asunto</th>
+                <th scope="col" class="visible-lg visible-md">Entidad/Persona Natural</th>
+                <th scope="col" class="visible-lg">Oficina Derivo</th>
+                <th scope="col" class="visible-lg">Folios</th>
+                <th scope="col" class="visible-lg">Encargado</th>
+                <th scope="col" class="visible-lg visible-md">Observacion</th>
+                <th scope="col">Opciones</th>
+            </tr>
+        </thead>
+        <tbody>
+                        @if (ViewData["HT_ATENDIDO_ARCHIVO"] != null)
+            {
+                foreach (System.Data.DataRow dr in (ViewData["HT_ATENDIDO_ARCHIVO"] as System.Data.DataTable).Rows)
+                {
+                    <tr>
+                        <td style=" text-align:center;"> @dr["HOJA_TRAMITE"] </td>
+                        <td class="visible-lg" style=" text-align:center;"> @dr["TIPO_HOJA_TRAMITE"] </td>
+                        <td class="visible-lg visible-md"> @dr["FECHA_FIN"] </td>
+                        <td class="visible-lg visible-md"> @dr["DOCUMENTO"] </td>
+                        <td> @dr["ASUNTO"] </td>
+                        <td class="visible-lg visible-md"> @dr["EXTERNO"] </td>
+                        <td class="visible-lg"> @dr["OFICINA_DERIVA"] </td>
+                        <td class="visible-lg"> @dr["FOLIOS"] </td>
+                        <td class="visible-lg"> @dr["ENCARGADO"] </td>
+                        <td class="visible-lg visible-md">
+                            <div class="col-md-1">
+                                <ul class="list-inline" style="margin-bottom:0">
+                                    <li> 
+                                        <a class="Editar" id="@dr["OBSERVACION_HT_ID"]" href="#" title="Editar">
+                                            <i class="blue glyphicon glyphicon-edit"></i>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="col-md-10">
+                                @dr["OBSERVACION_ATENDIDO_ARCHIVO"]
+                            </div>
+                        </td>    
+                         
+                        <td style="text-align:center;">
+                            <ul class="list-inline" style="margin-bottom:0">
+                                <li>
+                                    <a class="Imprimir" id=@dr["NRO_HOJA_TRAMITE"] href="#" title="Imprimir">
+                                        <i class="blue glyphicon glyphicon-print"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="Detalle" id=@dr["OBSERVACION_INDICADORES"] href="#" title="Detalle">
+                                        <i class="blue glyphicon glyphicon-list-alt"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    @if ((string)dr["VER_PDF"] == "True")
+                                    {
+                                        <a class="Ver_PDF" id=@dr["HOJA_TRAMITE"] href="#" title="PDF">
+                                            <i class="blue glyphicon glyphicon-file"></i>
+                                        </a>
+                                    }
+                                </li>
+                            </ul>
+                        </td>
+
+                    </tr>
+                }
+            }
+        </tbody>
+
+    </table>
+</div>
+
+<script type="text/javascript">
+
+
+    function IsNumeric(dato) {
+        var valor = dato.indexOf(".");
+        if ((window.event.keyCode > 47 && window.event.keyCode < 58) || window.event.keyCode == 13) {
+            window.event.returnValue = true;
+        }
+        else {
+            window.event.returnValue = false;
+        }
+    }
+
+    $(document).ready(function () {
+
+
+        $(document).on('click', '.Imprimir', function () {
+            var hoja_tramite = $(this).attr('id');
+            var url = "/Hojatramite/Imprimir_Vacia/" + hoja_tramite;
+            window.location.href = url;
+        });
+
+        $("#grid_HT_archivado_atendido").DataTable({
+            "ordering": false,
+            "lengthChange": false,
+            "searching": false,
+            //"info": false,
+            "language": {
+                "paginate": {
+                    "previous": "Anterior",
+                    "next": "Siguiente"
+                }
+            }
+        });
+
+        $(document).on('click', '.Editar', function () {
+
+            $('#txtId_editar').val($(this).attr('id'));
+
+            var id_det_documento = $('#txtId_editar').val().split('|');
+            document.getElementById('txt_titulo_editar').innerHTML = "Aviso - Editar - ";
+            document.getElementById('HT_titulo_editar').innerHTML = id_det_documento[1];
+            $('#txt_observacion').val(id_det_documento[2]);
+            $('#txtId_editar').val(id_det_documento[0]);
+            $('#mdlConformidad_editar').modal();
+
+        });
+
+        $('#bntConfirmar_editar').click(function () {
+
+            $.ajax({
+                cache: false,
+                type: "GET",
+                url: "/HojaTramite/HT_editar_observacion",
+                data: {
+                    "id": $('#txtId_editar').val(),
+                    "observacion": $('#txt_observacion').val(),
+                },
+                beforeSend: function () {
+                    $('#message').addClass("hidden");
+                    $('#progress').removeClass("hidden").addClass("show");
+                    $('#bntConfirmar_editar').attr("disabled", "disabled");
+                    $('#btnCancelar').attr("disabled", "disabled");
+                },
+                complete: function () {
+                    $('#progress').removeClass("show").addClass("hidden");
+                    $('#bntConfirmar_editar').removeAttr("disabled", "disabled");
+                    $('#btnCancelar').removeAttr("disabled", "disabled");
+                },
+                success: function (result) {
+                    $('.field-validation-error').each(function () {
+                        $(this).removeClass("field-validation-error").addClass("field-validation-valid");
+                        $(this).html('');
+                    });
+                    $("#mensajesPopup").html(result).hide();
+                    $("#mensajesPopup").slideDown(500, function () { });
+                    setTimeout(function () {
+                        $('#txtId_editar').val('');
+                        $("#mensajesPopup").hide();
+                        $('#mdlConformidad_editar').modal('hide');
+                        $('#btnBuscar').trigger("click");
+                    }, 1000);
+                },
+                error: function (result) {
+                    if (result.status == 500) {
+                        $("#mensajesPopup").html(result.responseText).hide();
+                        $("#mensajesPopup").slideDown(500, function () { });
+                    }
+                    else if (result.status == 400) {
+                        $('.field-validation-error').each(function () {
+                            $(this).removeClass("field-validation-error").addClass("field-validation-valid");
+                            $(this).html('');
+                        });
+                        $.each(result.responseJSON.errors, function (key, value) {
+                            if (value != null) {
+                                var container = $('span[data-valmsg-for="' + key + '"]');
+                                container.removeClass("field-validation-valid").addClass("field-validation-error");
+                                container.html(value);
+                            }
+                        });
+                        $("#mensajesPopup").html(result.responseJSON.summary).hide();
+                        if (result.responseJSON.summary != "") {
+                            $("#mensajesPopup").slideDown(500, function () { });
+                        }
+                    }
+                }
+            });
+        });
+
+        $('#export_excel').click(function () {
+            var url = "/HojaTramite/Export_Excel_documentos_ht_archivadas_atendidas";
+            var win = window.open(url, '_blank');
+        });
+
+        $(document).on('click', '.Detalle', function () {
+            var detalle_doc = $(this).attr('id').split('|');
+            $('#V_OBS').val(detalle_doc[0]);
+            $('#V_IND').val(detalle_doc[1]);
+            $('#mdldetalle').modal();
+        });
+
+        $(document).on('click', '.Ver_PDF', function () {
+            var hoja_tramite = $(this).attr('id');
+            var url = "/Hojatramite/Ver_PDF/" + hoja_tramite;
+            window.open(url, '_blank');
+        });
+
+        $('#btnBuscar').click(function () {
+            return true;
+        });
+    });
+</script>

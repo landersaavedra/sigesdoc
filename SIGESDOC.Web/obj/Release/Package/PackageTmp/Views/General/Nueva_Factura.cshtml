@@ -1,0 +1,1275 @@
+﻿@using SIGESDOC.Web.Seguridad
+
+@model SIGESDOC.Response.ConsultaFacturasResponse
+
+@{
+    ViewBag.Title = "Nuevo Comprobante";
+}
+
+
+<div class="bottom hidden"></div>
+<div id="mensajes"></div>
+
+<ol class="breadcrumb" style="margin-bottom: 5px;">
+    <li><a href="#">Comprobante</a></li>
+    <li class="active">Nuevo Comprobante</li>
+</ol>
+
+<div class="bs-callout bs-callout-info">
+    <h4>Registrar Nuevo Comprobante</h4>
+    <p>Use el siguiente formulario para registrar una nuevo Comprobante</p>
+</div>
+
+
+<div class="panel panel-primary">
+    <div class="panel-heading panet-heading-sm">Comprobante</div>
+    <div class="panel-body">
+        @using (Ajax.BeginForm(new AjaxOptions { HttpMethod = "Get" }))
+        {
+
+            <div class="form-horizontal">
+
+                <ol class="breadcrumb">
+                    <li class="active">Información del Comprobante</li>
+                </ol>
+                
+                @Html.TextBox("txt_id_sub_tupa", null, new { @class = "form-control input-sm hidden" })
+
+                <div class="row hidden">
+                    @Html.TextBox("var_guardar", null)
+
+                </div>
+
+                <div class="row">
+                    <div class="col-lg-2 col-md-4 col-sm-4 col-xs-6" style="padding-top:0px;">
+                        <div class="form-group" style="margin-left: 0px; margin-right: 0px; margin-bottom: 0px;">
+                            <label class=" control-label">Tipo Comprobante:</label>
+                            @Html.DropDownList("cmb_tipo_comprobante", (IEnumerable<SelectListItem>)ViewBag.lst_tipo_comprobante, new { @class = "form-control input-sm" })
+                        </div>
+                    </div>
+                    <div class="col-lg-1 col-md-1 col-sm-1 col-xs-3" style="padding-top:0px;">
+                        <div class="form-group" style="margin-left: 0px; margin-right: 0px; margin-bottom: 0px;">
+                            <label class=" control-label">Cantidad:</label>
+                            @Html.TextBox("txt_cantidad", "", new { @class = "form-control input-sm", @onkeypress = "return IsNumericdoc(this.value);", @maxlength = "8" })
+                        </div>
+                    </div>
+                    <div class="num_secue col-lg-2 col-md-3 col-sm-3 col-xs-6 hidden" style="padding-top:0px;">
+                        <div class="form-group" style="margin-left: 0px; margin-right: 0px; margin-bottom: 0px;">
+                            <label class=" control-label">Numero de Comprobante:</label>
+                            @Html.TextBox("txt_num2", "", new { @class = "form-control input-sm", @onkeypress = "return IsNumericdoc(this.value);", @maxlength = "8" })
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="row">
+                    <div class="col-lg-2 col-md-3 col-sm-3 col-xs-6" style="padding-top:0px;">
+                        <div class="form-group" style="margin-left: 0px; margin-right: 0px; margin-bottom: 0px;">
+                            <label class=" control-label">Operación 1:</label>
+                            @Html.TextBox("txt_operacion_1", "", new { @class = "form-control input-sm", @onkeypress = "return recupera_op1(this.value);", @maxlength = "16" })
+                        </div>
+                    </div>
+                    <div class="col-lg-2 col-md-3 col-sm-3 col-xs-6" style="padding-top:0px;">
+                        <div class="form-group" style="margin-left: 0px; margin-right: 0px; margin-bottom: 0px;">
+                            <label class=" control-label">Operación 1:</label>
+                            @Html.DropDownList("cmb_operacion_1", (IEnumerable<SelectListItem>)ViewBag.lst_x, new { @class = "form-control input-sm" })
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4 col-md-4 col-sm-10 col-xs-12" style="padding-top:0px;">
+                        <div class="form-group" style="margin-left: 0px; margin-right: 0px; margin-bottom: 0px;">
+                            <label class=" control-label">Tupa:</label>
+                            @Html.DropDownList("cmb_tupa", (IEnumerable<SelectListItem>)ViewBag.lst_x, new { @class = "form-control input-sm" })
+                        </div>
+                    </div>
+
+                    <div class="col-lg-2 col-md-4 col-sm-4 col-xs-6" style="padding-top:0px;">
+                        <div class="form-group" style="margin-left: 0px; margin-right: 0px; margin-bottom: 0px;">
+                            <label class=" control-label">Opcion:</label><br>
+                            <button id="btn_listar_todo_tupa" type="button" class="btn btn-primary btn-sm">Todo TUPA</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-lg-2 col-md-4 col-sm-4 col-xs-6" style="padding-top:0px;">
+                        <div class="form-group" style="margin-left: 0px; margin-right: 0px; margin-bottom: 0px;">
+                            <label class=" control-label">RUC/DNI:</label>
+                            @Html.TextBox("txt_documento", "", new { @class = "form-control input-sm", @onkeypress = "return recupera_RUC_DNI(this.value);", @maxlength = "20" })
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-4 col-sm-10 col-xs-12" style="padding-top:0px;">
+                        <div class="form-group" style="margin-left: 0px; margin-right: 0px; margin-bottom: 0px;">
+                            <label class=" control-label">Persona:</label>
+                            @Html.DropDownList("cmb_persona", (IEnumerable<SelectListItem>)ViewBag.lst_x, new { @class = "form-control input-sm" })
+                            <button id="btn_editar_nom_persona" type="button" class="btn btn-primary btn-sm">Editar Datos</button>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-4 col-sm-10 col-xs-12" style="padding-top:0px;">
+                        <div class="form-group" style="margin-left: 0px; margin-right: 0px; margin-bottom: 0px;">
+                            <label class=" control-label">Dirección:</label>
+                            @Html.DropDownList("cmb_direccion", (IEnumerable<SelectListItem>)ViewBag.lst_x, new { @class = "form-control input-sm" })
+                            <button id="btn_nueva_direccion" type="button" class="btn btn-primary btn-sm">Nueva Direccion</button>
+                            <button id="btn_editar_direccion" type="button" class="btn btn-primary btn-sm">Editar Direccion</button>
+                        </div>
+                    </div>
+                </div>
+
+                <hr>
+                <div class="form-group">
+                    <div class="col-lg-8">
+                        <button id="btn_Grabar_Factura" type="button" class="btn btn-primary btn-sm">Grabar Comprobante</button>
+                        <button type="button" class="btn btn-default btn-sm regresar">Cancelar</button>
+                        <button id="btn_ver_formato" type="button" class="btn btn-success btn-sm">Pre visualización</button>
+                    </div>
+                </div>
+
+            </div>
+        }
+    </div>
+
+</div>
+
+<div class="modal fade" id="mdlformato" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog" style="width:830px; height:650px;">
+        <div class="modal-content" style="height:650px;">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title" id="myModalLabel">Formato</h4>
+            </div>
+            <div style="height:650px; padding-left:15px; padding-top:15px; color:black; font-size:1em;">
+                <table width="791" border="0" cellpadding="0" cellspacing="0">
+                    <tr>
+                        <td align="center" width="604"><img src="~/Content/img/logo_recibo_serie1.jpg" width="569" height="45" alt="" /></td>
+                        <td width="187" rowspan="6">
+                            <table width="100%" height="94" border="2" cellpadding="0" cellspacing="0" bordercolor="#000000">
+                                <tr>
+                                    <td>
+                                        <table width="100%" border="0">
+                                            <tr>
+                                                <td align="center">
+                                                    <font size="2">R.U.C 20565429656</font>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td align="center"><font size="2">RECIBO DE INGRESOS</font></td>
+                                            </tr>
+                                            <tr>
+                                                <td align="center"><font size="2">N° 001 - XXXX </font></td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="center"><font size="2">Av. Carretera Ventanilla Km. 5200 - Ventanilla</font></td>
+                    </tr>
+                    <tr align="center">
+                        <td><font size="2">Prov. Const. del Callao - Prov. Conts. del callao - Perú</font></td>
+                    </tr>
+                    <tr>
+                        <td align="center"><font size="2">Telf: (511) 577-0116 / (511) 577-5133</font></td>
+                    </tr>
+                    <tr>
+                        <td align="center"><font size="2">Sucursal: Av. Domingo Orué Piso 7 Surquillo, Lima - Lima - Lima</font></td>
+                    </tr>
+                    <tr>
+                        <td align="center"><font size="2">Telf: (511) 213-8570</font></td>
+                    </tr>
+                </table>
+                <br>
+                <table width="892" border="0" cellpadding="0" cellspacing="0">
+                    <tr>
+                        <th scope="col">
+
+                            <table align="left" width="791" border="1" bordercolor="#A0A0A0" cellpadding="0" cellspacing="0">
+                                <tr bordercolor="#333333">
+                                    <th width="69" scope="col"><font size="2">Señor (es): </font></th>
+                                    <th align="left" colspan="4" scope="col"><font size="2"> <label id="impr_nom"></label> </font></th>
+                                </tr>
+                                <tr>
+                                    <th scope="col"><font size="2">Dirección:</font></th>
+                                    <th align="left" colspan="4" scope="col"><font size="2"> <label id="impr_direccion"></label> </font></th>
+                                </tr>
+                                <tr>
+                                    <th scope="col"><font size="2">R.U.C.:</font></th>
+                                    <th align="left" colspan="2" scope="col"><font size="2"> <label id="impr_ruc_dni"></label></font></th>
+                                    <th width="92" scope="col"><font size="2">Fecha Emisión:</font></th>
+                                    <th width="91" scope="col"><font size="2"><label id="impr_fecha_emision"></label></font></th>
+                                </tr>
+                                <tr>
+                                    <th scope="col"><font size="2">Cantidad </font></th>
+                                    <th width="54" scope="col"><font size="2">Código</font></th>
+                                    <th width="473" scope="col"><font size="2">Descripión</font></th>
+                                    <th scope="col"><font size="2">Precio Unitario</font></th>
+                                    <th scope="col"><font size="2">Valor de venta</font></th>
+                                </tr>
+                                <tr>
+                                    <th rowspan="4" scope="col"><label id="impr_cantidad"></label></th>
+                                    <th rowspan="4" scope="col">&nbsp;</th>
+                                    <th rowspan="3" scope="col">
+                                        <table align="left" width="100%" border="0">
+                                            <tr>
+                                                <td width="4%">&nbsp;</td>
+                                                <td colspan="2" align="left"><font size="1"><label id="impr_nom_vf"></label></font></td>
+                                            </tr>
+                                            <tr>
+                                                <td>&nbsp;</td>
+                                                <td colspan="2" align="left"><font size="1"><label id="impr_tupa_serv"></label> </font></td>
+                                            </tr>
+                                            
+                                            <tr>
+                                                <td>&nbsp;</td>
+                                                <td colspan="2" align="left"><font size="2"></font></td>
+                                            </tr>
+                                            <tr>
+                                                <td>&nbsp;</td>
+                                                <td width="49%" align="left" font color="#FFFFFF"><font size="1">Son: xxxx y xxxx/100 SOLES</font></td>
+                                                <td width="47%" align="left" font color="#FFFFFF"></td>
+                                            </tr>
+                                            <tr>
+                                                <td>&nbsp;</td>
+                                                <td align="left"><font size="1">S.E.U.O.</font></td>
+                                                <td width="47%" rowspan="3" align="left" font color="#FFFFFF">
+                                                    <table width="100%" height="78" border="2" cellpadding="0" cellspacing="0" bordercolor="#000000">
+                                                        <tr>
+                                                            <td>
+                                                                <table width="100%" border="0">
+                                                                    <tr>
+                                                                        <td align="center">
+                                                                            <font size="1">ORGANISMO NACIONAL DE SANIDAD PESQUERA</font>
+                                                                        </td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td align="center"><font size="3">CANCELADO</font></td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td align="center"><font size="2"><label id="impr_fecha_nom"></label></font></td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td align="center"><font size="1">UNIDAD DE CONTABILIDAD FINANZAS Y TESORERIA</font></td>
+                                                                    </tr>
+                                                                </table>
+                                                            </td>
+                                                        </tr>
+                                                    </table>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>&nbsp;</td>
+                                                <td align="left"><font size="2"></font></td>
+                                            </tr>
+                                            <tr>
+                                                <td colspan="2">&nbsp;</td>
+                                            </tr>
+                                        </table>
+                                    </th>
+                                    <th scope="col">
+                                        &nbsp;<br>
+                                        <br>
+                                        <br>
+                                        <br>
+                                        <br>
+
+                                        <br>
+                                        <br>
+                                    </th>
+                                    <th scope="col"><font size="2"><label id="impr_importe_total"></label></font></th>
+                                </tr>
+                                <tr>
+                                    <th align="left" scope="col"><font size="2">TOTAL S/</font> </th>
+                                    <th scope="col" colspan="2"><font size="2"><label id="impr_importe_total_2"></label></font></th>
+                                    
+                                </tr>
+                            </table>
+                            
+                            <table width="791" border="0" cellpadding="0" cellspacing="0">
+                                <tr>
+                                    <td width="126"><b><font size="1">N° Operación: </font></b></td>
+                                    <td width="466" style="text-align:left;"> <font size="1"><label id="impr_numero_depos"></label></font></td>
+                                    <td width="185"><p style="text-align:right"><strong><font size="2"> ADQUIRIENTE USUARIO </font></strong></p></td>
+                                </tr>
+                                <tr>
+                                    <td><b><font size="1">Fecha Deposito: </font></b></td>
+                                    <td style="text-align:left;" colspan="1"> <font size="1"><label id="impr_fecha_depos"></label></font></td>
+                                </tr>
+                            </table>
+
+
+
+                        </th>
+                    </tr>
+                </table>
+                <br>
+                <br>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="mdldireccion_crea" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title" id="myModalLabel">Agregar Dirección</h4>
+            </div>
+            <form method="post" id="formdirección">
+                <div class="modal-body">
+                    <div class="form-horizontal">
+
+                        <div class="form-group">
+
+                            <label class="control-label col-md-3">Dirección</label>
+                            <div class="col-lg-7">
+                                @Html.TextBox("txt_new_direccion_oficina_padre", null, new { @class = "form-control input-sm", @maxlength = "200" })
+                                <label id="lbl_valida_new_direccion_padre" style="color: #B44D4D">  </label>
+                            </div>
+
+                        </div>
+
+                        <div class="form-group">
+
+                            <label class="control-label col-md-3">Nombre Sede</label>
+                            <div class="col-lg-7">
+                                @Html.TextBox("txt_new_nombre_sede_padre", null, new { @class = "form-control input-sm", @maxlength = "100" })
+                                <label id="lbl_valida_new_nom_sede_padre" style="color: #B44D4D">  </label>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+
+                            <label class="control-label col-md-3">Referencia</label>
+                            <div class="col-lg-7">
+                                @Html.TextBox("txt_new_referencia_padre", null, new { @class = "form-control input-sm", @maxlength = "200" })
+                            </div>
+                        </div>
+
+
+                        <div class="form-group">
+
+                            <label class="control-label col-md-3">Departamento</label>
+                            <div class="col-md-7">
+                                @Html.DropDownList("cmblista_departamento_new_oficina_padre", (IEnumerable<SelectListItem>)ViewBag.lst_departamento_new_oficina, new { @class = "form-control input-sm" })
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+
+                            <label class="control-label col-md-3">Provincia</label>
+                            <div class="col-md-7">
+                                @Html.DropDownList("cmblista_provincia_new_oficina_padre", (IEnumerable<SelectListItem>)ViewBag.lst_provincia_new_oficina, new { @class = "form-control input-sm" })
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="control-label col-md-3">Distrito</label>
+                            <div class="col-md-7">
+                                @Html.DropDownList("cmblista_distrito_new_oficina_padre", (IEnumerable<SelectListItem>)ViewBag.lst_distrito_new_oficina, new { @class = "form-control input-sm" })
+                                <label id="lbl_valida_distrito_new_oficina_padre" style="color: #B44D4D">  </label>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary btn-sm" id="btnGuardar_new_direccion">Guardar</button>
+                    <button type="button" class="btn btn-default btn-sm" data-dismiss="modal">Cancelar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="mdldireccion_editar" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title" id="myModalLabel">Dirección Legal</h4>
+            </div>
+            <div id="mensajes_direccion_legal"></div>
+            <form method="post" id="formdireccionlegal">
+                <div class="modal-body">
+                    <div class="form-horizontal">
+                        <div>
+                            <label id="lbl_carga_data_dir">  </label>
+                        </div>
+
+                        <br />
+
+                        <div class="bus_tbl_dir_legal_cls" id="bus_tbl_dir_legal">
+                            <table id="tbl_dir_legal" class="table table-striped table-hover table-condensed tabla small">
+                                <thead>
+                                    <tr class="cabecera text-center">
+                                        <th hidden="hidden">ACTIVO</th>
+                                        <th scope="col">DIRECCION</th>
+                                        <th scope="col">UBIGEO</th>
+                                        <th scope="col">SELECCIONAR</th>
+                                    </tr>
+                                </thead>
+                                <tbody></tbody>
+                            </table>
+                        </div>
+                        <div class="bus_tbl_dir_legal_cls_edit">
+                            @Html.TextBox("txt_id_sede_direccion_edit", null, new { @class = "form-control input-sm hidden" })
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group" style="margin-left:0px; margin-right:0px;">
+                                        <label class="control-label">Sede:</label>
+                                        @Html.TextBox("txt_sede_edit", null, new { @class = "form-control input-sm" })
+                                    </div>
+                                </div>
+                                <div class="col-md-12">
+                                    <div class="form-group" style="margin-left:0px; margin-right:0px;">
+                                        <label class="control-label">Dirección:</label>
+                                        @Html.TextBox("txt_direccion_edit", null, new { @class = "form-control input-sm" })
+                                    </div>
+                                </div>
+                                <div class="col-md-12">
+                                    <div class="form-group" style="margin-left:0px; margin-right:0px;">
+                                        <label class="control-label">Referencia:</label>
+                                        @Html.TextBox("txt_referencia_edit", null, new { @class = "form-control input-sm" })
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <div class="form-group" style="margin-left:0px; margin-right:0px;">
+                                        <label class="control-label">Departamento:</label>
+                                        @Html.DropDownList("cmblista_departamento_edit", (IEnumerable<SelectListItem>)ViewBag.lst_departamento, new { @class = "form-control input-sm" })
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group" style="margin-left:0px; margin-right:0px;">
+                                        <label class="control-label">Provincia:</label>
+                                        @Html.DropDownList("cmblista_provincia_edit", (IEnumerable<SelectListItem>)ViewBag.lst_provincia, new { @class = "form-control input-sm" })
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group" style="margin-left:0px; margin-right:0px;">
+                                        <label class="control-label">Distrito:</label>
+                                        @Html.DropDownList("cmblista_distrito_edit", (IEnumerable<SelectListItem>)ViewBag.lst_distrito, new { @class = "form-control input-sm" })
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-2">
+                                    <button id="btn_edit_direc" type="button" class="btn btn-primary btn-sm pull-left"> Guardar Cambio </button>
+                                </div>
+                                <div class="col-md-2">
+                                    <button id="btn_canc_direc" type="button" class="btn btn-default btn-sm"> Cancelar </button>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="mdlConformidad" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title" id="myModalLabel">Mensaje</h4>
+            </div>
+            <div class="modal-body">
+                <span id="conformidad"></span>
+                <p>Presione aceptar para continuar.</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary btn-sm" data-dismiss="modal" id="btn_satisfa">Aceptar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="modal fade" id="mdldatos_persona_juridica" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title" id="myModalLabel">Datos</h4>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="form-group" style="margin-left:0px; margin-right:0px;">
+                            <label class="control-label">Nombre:</label>
+                            @Html.TextBox("txt_datos_persona_juridica", null, new { @class = "form-control input-sm" })
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary btn-sm" data-dismiss="modal" id="btn_guardar_datos_pj">Aceptar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
+
+<script type="text/javascript">
+
+
+    function recupera_op1(texto) {
+        var valor = texto.indexOf(".");
+        if (window.event.keyCode == 13) {
+            if ($("#txt_operacion_1").val().trim() != "") {
+                $.ajax({
+                    cache: false,
+                    type: "GET",
+                    url: "@(Url.RouteUrl("recupera_operacion"))",
+                    data: { "operacion": texto },
+                    success: function (data) {
+                        $("#cmb_operacion_1").html('');
+                        var x = 0;
+                        $.each(data, function (id, option) {
+                            if (option.Value != "NO") {
+                                $("#cmb_operacion_1").append($('<option></option>').val(option.Value).html(option.Text));
+                            }
+                            if (x == 0) {
+                                x = 1;
+                                $("#cmb_tupa").html('');
+                                $.ajax({
+                                    cache: false,
+                                    type: "GET",
+                                    url: "@(Url.RouteUrl("recupera_sub_tupa_x_monto"))",
+                                    data: { "monto": option.Value.split('|')[1] },
+
+                                    success: function (data) {
+                                        $.each(data, function (id, option) {
+                                            var val = option.Value;
+                                            $("#cmb_tupa").append($('<option></option>').val(option.Value).html(option.Text));
+                                        });
+                                    },
+                                    error: function (xhr, ajaxOptions, thrownError) {
+                                        alert('Failed to retrieve states: TUPA');
+                                    }
+                                });
+                            }
+                        });
+                    },
+                    error: function (xhr, ajaxOptions, thrownError) {
+                        alert('Failed to retrieve states.');
+                    }
+                });
+            }
+        }
+        else {
+            if (window.event.keyCode > 47 && window.event.keyCode < 58) {
+                window.event.returnValue = true;
+            }
+            else {
+                window.event.returnValue = false;
+            }
+        }
+    }
+
+
+    function lst_todo_tupa() {
+        $("#cmb_tupa").html('');
+        $.ajax({
+            cache: false,
+            type: "GET",
+            url: "@(Url.RouteUrl("recupera_sub_tupa_x_monto"))",
+            data: { "monto": 0 },
+
+            success: function (data) {
+                $.each(data, function (id, option) {
+                    var val = option.Value;
+                    $("#cmb_tupa").append($('<option></option>').val(option.Value).html(option.Text));
+                });
+            },
+            error: function (xhr, ajaxOptions, thrownError) {
+                alert('Failed to retrieve states: TUPA');
+            }
+        });
+    }
+
+
+
+
+    /*
+    var specialKeys = new Array();
+    specialKeys.push(8); //Backspace
+
+    function IsNumeric(e) {
+        var keyCode = e.which ? e.which : e.keyCode
+        var ret = ((keyCode >= 48 && keyCode <= 57) || specialKeys.indexOf(keyCode) != -1);
+        return ret;
+    }*/
+
+    function recupera_RUC_DNI(texto) {
+        var valor = texto.indexOf(".");
+        if (window.event.keyCode == 13) {
+            if ($("#txt_documento").val().trim() != "") {
+                var entra = 0;
+                $.ajax({
+                    cache: false,
+                    type: "GET",
+                    url: "@(Url.RouteUrl("recupera_RUC_DNI_recibo_serie1"))",
+                    data: { "RUC_DNI": texto },
+                    success: function (data) {
+                        $("#cmb_persona").html('');
+                        $.each(data, function (id, option) {
+                            if (option.Value != "NO") {
+                                $("#cmb_persona").append($('<option></option>').val(option.Value).html(option.Text));
+                                if (entra == 0) {
+                                    recupera_RUC_DIRECCION(option.Value.split('|')[0]);
+                                    entra = 1;
+                                }
+                            }
+                        });
+                    },
+                    error: function (xhr, ajaxOptions, thrownError) {
+                        alert('Failed to retrieve states.');
+                    }
+                });
+            }
+        }
+        else {
+            if (window.event.keyCode > 47 && window.event.keyCode < 58) {
+                window.event.returnValue = true;
+            }
+            else {
+                window.event.returnValue = false;
+            }
+        }
+    }
+
+    function recupera_RUC_DIRECCION(texto) {
+        var ddldireccion = $("#cmb_direccion");
+        var entra = 0;
+        $.ajax({
+            cache: false,
+            type: "GET",
+            url: "@(Url.RouteUrl("recupera_RUC_DNI_DIRECCION_serie1"))",
+            data: { "DOC": texto },
+
+            success: function (data) {
+
+                ddldireccion.html('');
+                $.each(data, function (id, option) {
+                    ddldireccion.append($('<option></option>').val(option.Value).html(option.Text));
+                });
+            },
+            error: function (xhr, ajaxOptions, thrownError) {
+                alert('Failed to retrieve states.');
+            }
+        });
+    }
+
+    function IsNumericdoc(dato) {
+
+        var valor = dato.indexOf(".");
+        if ((window.event.keyCode > 47 && window.event.keyCode < 58)) {
+            window.event.returnValue = true;
+        }
+        else {
+            window.event.returnValue = false;
+        }
+    }
+
+    function ValidaDecimal(dato) {
+        var valor = dato.indexOf(".");
+        if ((window.event.keyCode > 47 && window.event.keyCode < 58) || window.event.keyCode == 46) {
+            if (window.event.keyCode == 46) {
+                if (valor >= 0) {
+                    window.event.returnValue = false;
+                }
+            }
+        }
+        else {
+            window.event.returnValue = false;
+        }
+    }
+
+    $(document).ready(function () {
+        $("#txt_cantidad").val("1");
+        $("#cmb_tipo_comprobante").val(2);
+
+        $("#btn_satisfa").click(function () {
+            var url = "/General/Consulta_factura/";
+            window.location.href = url;
+        });
+
+        $(document).on("click", ".regresar", function () {
+            window.location = '@Url.Action("Consulta_factura", "General")';
+        });
+
+        $("#cmb_persona").change(function () {
+            var selc_nombre = $(this).val();
+            recupera_RUC_DIRECCION(selc_nombre.split('|')[0]);
+        });
+
+
+        $("#cmb_tipo_comprobante").change(function () {
+            var selc_comprobante = $(this).val();
+            if (selc_comprobante == 1) {
+                $('.num_secue').removeClass("hidden").addClass("show");
+            } else { $('.num_secue').removeClass("show").addClass("hidden"); }
+        });
+
+        $("#btn_ver_formato").click(function () {
+
+            $("#impr_nom").text($("#cmb_persona").val().split('|')[1]);
+            $("#impr_direccion").text($("#cmb_direccion").val());
+            $("#impr_ruc_dni").text($("#cmb_persona").val().split('|')[0]);
+
+            $("#impr_tupa_serv").text($("#cmb_tupa").val().split('|')[3]);
+            $("#impr_nom_vf").text($("#cmb_tupa").val().split('|')[2]);
+
+            $("#impr_cantidad").text($("#txt_cantidad").val());
+            $("#impr_importe_total").text($("#cmb_operacion_1").val().split('|')[1]);
+            $("#impr_importe_total_2").text($("#cmb_operacion_1").val().split('|')[1]);
+
+            $("#impr_numero_depos").text($("#cmb_operacion_1").val().split('|')[2]);
+            $("#impr_fecha_depos").text($("#cmb_operacion_1").val().split('|')[3]);
+
+
+            $('#mdlformato').modal('show');
+        });
+
+        $("#btn_listar_todo_tupa").click(function () {
+            lst_todo_tupa();
+        });
+
+        $("#btn_Grabar_Factura").click(function () {
+
+            $('#btn_Grabar_Factura').attr("disabled", "disabled");
+
+            var op1 = 0;
+            var op2 = 0;
+            var op3 = 0;
+            var op4 = 0;
+
+            var sum_ope = 0;
+
+            var x_tupa = 0;
+
+            x_tupa = 0 + $("#cmb_tupa").val().split('|')[1];
+
+            if ($("#cmb_operacion_1").val() != null) { op1 = $("#cmb_operacion_1").val().split('|')[0]; sum_ope = sum_ope + $("#cmb_operacion_1").val().split('|')[1]; }
+
+            var numero_sec = 0;
+            if ($("#cmb_tipo_comprobante").val() == 1) {
+                numero_sec = 0 + $("#txt_num2").val();
+            }
+
+            /*
+
+            */
+            if (sum_ope == 0) {
+                alert("El comprobante que emitirá debe de tener por lo menos una voucher de operación.");
+                $('#btn_Grabar_Factura').removeAttr("disabled", "disabled");
+            }
+            else {
+                $.ajax({
+                    cache: false,
+                    type: "GET",
+                    url: "/General/Grabar_Nueva_Factura",
+                    data: {
+                        "tipo_comprobante": $("#cmb_tipo_comprobante").val(),
+                        "documento": $("#cmb_persona").val().split('|')[0],
+                        "datos": $("#cmb_persona").val().split('|')[1],
+                        "direccion": $("#cmb_direccion").val(),
+                        "importe_total": sum_ope,
+                        "id_sub_tupa": $("#cmb_tupa").val().split('|')[0],
+                        "opera1": op1,
+                        "opera2": op2,
+                        "opera3": op3,
+                        "opera4": op4,
+                        "num2": numero_sec,
+                        "cantidad": $("#txt_cantidad").val()
+                    },
+                    success: function (result) {
+
+                        if ($("#cmb_tipo_comprobante").val() == 2) {
+
+                            var url2 = "/General/Imprimir_recibo_serie1/" + result;
+                            window.open(url2, '_blank');
+                            $("#btn_satisfa").click();
+                        }
+                        else {
+                            $('.field-validation-error').each(function () {
+                                $(this).removeClass("field-validation-error").addClass("field-validation-valid");
+                                $(this).html('');
+                            });
+                            $("#conformidad").html(result)
+                            $('#mdlConformidad').modal();
+                            setTimeout(function () {
+                                $("#mdlConformidad").modal().hide();
+                                $("#btn_satisfa").click();
+                            }, 10000);
+                        }
+                    },
+                    error: function (result) {
+                        if (result.status == 500) {
+                            $("#mensajes").html(result.responseText).hide();
+                            $("#mensajes").slideDown(500, function () { });
+                        }
+                        else if (result.status == 400) {
+                            $('.field-validation-error').each(function () {
+                                $(this).removeClass("field-validation-error").addClass("field-validation-valid");
+                                $(this).html('');
+                            });
+                            $.each(result.responseJSON.errors, function (key, value) {
+                                if (value != null) {
+                                    var container = $('span[data-valmsg-for="' + key + '"]');
+                                    container.removeClass("field-validation-valid").addClass("field-validation-error");
+                                    container.html(value);
+                                }
+                            });
+                            $("#mensajes").html(result.responseJSON.summary).hide();
+                            if (result.responseJSON.summary != "") {
+                                $("#mensajes").slideDown(500, function () { });
+                            }
+                        }
+                    }
+                });
+
+            }
+        });
+
+
+
+
+        
+        
+
+        $("#btn_nueva_direccion").click(function () {
+            
+            var var_ruc = $("#cmb_persona").val().split('|')[0];
+
+            if (var_ruc.length == 11) {
+                $("#txt_new_direccion_oficina_padre").val("");
+                $("#txt_check_new_direccion").val("2");
+                $("#txt_new_nombre_sede_padre").val("");
+                $("#txt_new_referencia_padre").val("");
+                $("#cmblista_departamento_new_oficina_padre").val("");
+                $("#cmblista_provincia_new_oficina_padre").val("");
+                $("#cmblista_distrito_new_oficina_padre").val("");
+
+                document.getElementById('lbl_valida_new_direccion_padre').innerHTML = "";
+                document.getElementById('lbl_valida_new_nom_sede_padre').innerHTML = "";
+                document.getElementById('lbl_valida_distrito_new_oficina_padre').innerHTML = "";
+
+                $('#mdldireccion_crea').modal('show');
+            }
+            
+        });
+
+        $("#btnGuardar_new_direccion").click(function () {
+
+            var var_ruc = $("#cmb_persona").val().split('|')[0];
+
+            document.getElementById('lbl_valida_new_direccion_padre').innerHTML = "";
+            document.getElementById('lbl_valida_new_nom_sede_padre').innerHTML = "";
+            document.getElementById('lbl_valida_distrito_new_oficina_padre').innerHTML = "";
+
+            $('#btnGuardar_new_direccion').attr("disabled", "disabled");
+
+            var entra = 0;
+
+            if ($("#txt_new_direccion_oficina_padre").val().toString().trim() == "") {
+                document.getElementById('lbl_valida_new_direccion_padre').innerHTML = "Ingresar Dirección";
+                entra = 1;
+            }
+
+            if ($("#txt_new_nombre_sede_padre").val().toString().trim() == "") {
+                document.getElementById('lbl_valida_new_nom_sede_padre').innerHTML = "Ingresar Nombre de la sede";
+                entra = 1;
+            }
+
+            if ($("#cmblista_distrito_new_oficina_padre").val().toString().trim() == "") {
+                document.getElementById('lbl_valida_distrito_new_oficina_padre').innerHTML = "Seleccionar Distrito";
+                entra = 1;
+            }
+
+            if (entra == 1) {
+                $('#btnGuardar_new_direccion').removeAttr("disabled", "disabled");
+                return false;
+            }
+
+
+            $.ajax({
+                cache: false,
+                type: "GET",
+                url: "/General/Grabar_Nueva_Direccion",
+                data: {
+                    "new_oficina_nom_direccion": $("#txt_new_direccion_oficina_padre").val(),
+                    "new_oficina_nom_sede": $("#txt_new_nombre_sede_padre").val(),
+                    "new_oficina_nom_referencia": $("#txt_new_referencia_padre").val(),
+                    "new_oficina_ubigeo": $("#cmblista_distrito_new_oficina_padre").val(),
+                    "id_oficina_padre": 0,
+                    "new_oficina_ruc": var_ruc
+                },
+                beforeSend: function () {
+                    $('#btnGuardar_new_direccion').attr("disabled", "disabled");
+                },
+                complete: function () {
+                    $('#btnGuardar_new_direccion').attr("disabled", "disabled");
+                },
+                success: function (result) {
+                    $('.field-validation-error').each(function () {
+                        $(this).removeClass("field-validation-error").addClass("field-validation-valid");
+                        $(this).html('');
+                    });
+                    $('#mdldireccion_crea').modal('hide');
+                    $("#mensajes").html(result).hide();
+                    $("html, body").animate({ scrollTop: 0 }, '500', 'swing', function () {
+                        $("#mensajes").slideDown(500, function () { });
+                        setTimeout(function () {
+
+                            $("#mensajes").html(result).hide();
+                            $("#btn_ver_direccion").click();
+                        }, 500);
+                    });
+                },
+                error: function (result) {
+                    if (result.status == 500) {
+                        $("#mensajes").html(result.responseText).hide();
+                        $("#mensajes").slideDown(500, function () { });
+                    }
+                    else if (result.status == 400) {
+                        $('.field-validation-error').each(function () {
+                            $(this).removeClass("field-validation-error").addClass("field-validation-valid");
+                            $(this).html('');
+                        });
+                        $.each(result.responseJSON.errors, function (key, value) {
+                            if (value != null) {
+                                var container = $('span[data-valmsg-for="' + key + '"]');
+                                container.removeClass("field-validation-valid").addClass("field-validation-error");
+                                container.html(value);
+                            }
+                        });
+                        $("#mensajes").html(result.responseJSON.summary).hide();
+                        if (result.responseJSON.summary != "") {
+                            $("#mensajes").slideDown(500, function () { });
+                        }
+                    }
+                }
+            });
+        });
+
+        $("#cmblista_departamento_edit").change(function () {
+            var selectdepartamento = $(this).val();
+            var ddlprovincia = $("#cmblista_provincia_edit");
+            $.ajax({
+                cache: false,
+                type: "GET",
+                url: "@(Url.RouteUrl("llenar_provincia_x_departamento"))",
+                data: { "id_departamento": selectdepartamento },
+                success: function (data) {
+                    ddlprovincia.html('');
+                    $.each(data, function (id, option) {
+                        ddlprovincia.append($('<option></option>').val(option.Value).html(option.Text));
+                    });
+                    $("#cmblista_provincia_edit").change();
+                },
+                error: function (xhr, ajaxOptions, thrownError) {
+                    alert('Failed to retrieve states.');
+                }
+            });
+        });
+
+        $("#cmblista_provincia_edit").change(function () {
+            var selectprovincia = $("#cmblista_departamento_edit").val() + $(this).val();
+            var ddldistrito = $("#cmblista_distrito_edit");
+            $.ajax({
+                cache: false,
+                type: "GET",
+                url: "@(Url.RouteUrl("llenar_distrito_x_provincia"))",
+                data: { "id_provincia": selectprovincia },
+                success: function (data) {
+                    ddldistrito.html('');
+                    $.each(data, function (id, option) {
+                        ddldistrito.append($('<option></option>').val(option.Value).html(option.Text));
+                    });
+                },
+                error: function (xhr, ajaxOptions, thrownError) {
+                    alert('Failed to retrieve states.');
+                }
+            });
+        });
+
+        
+        $("#cmblista_departamento_new_oficina_padre").change(function () {
+            var selectdepartamento = $(this).val();
+            var ddlprovincia = $("#cmblista_provincia_new_oficina_padre");
+            $.ajax({
+                cache: false,
+                type: "GET",
+                url: "@(Url.RouteUrl("llenar_provincia_x_departamento"))",
+                data: { "id_departamento": selectdepartamento },
+                success: function (data) {
+                    ddlprovincia.html('');
+                    $.each(data, function (id, option) {
+                        ddlprovincia.append($('<option></option>').val(option.Value).html(option.Text));
+                    });
+                    $("#cmblista_provincia_new_oficina_padre").change();
+                },
+                error: function (xhr, ajaxOptions, thrownError) {
+                    alert('Failed to retrieve states.');
+                }
+            });
+        });
+
+        $("#cmblista_provincia_new_oficina_padre").change(function () {
+            var selectprovincia = $("#cmblista_departamento_new_oficina_padre").val() + $(this).val();
+            var ddldistrito = $("#cmblista_distrito_new_oficina_padre");
+            $.ajax({
+                cache: false,
+                type: "GET",
+                url: "@(Url.RouteUrl("llenar_distrito_x_provincia"))",
+                data: { "id_provincia": selectprovincia },
+                success: function (data) {
+                    ddldistrito.html('');
+                    $.each(data, function (id, option) {
+                        ddldistrito.append($('<option></option>').val(option.Value).html(option.Text));
+                    });
+                },
+                error: function (xhr, ajaxOptions, thrownError) {
+                    alert('Failed to retrieve states.');
+                }
+            });
+        });
+
+
+
+        
+        $("#btn_editar_direccion").click(function () {
+
+            var var_ruc = $("#cmb_persona").val().split('|')[0];
+
+            if (var_ruc.length == 11) {
+                $(".bus_tbl_dir_legal_cls").slideDown(1);
+                $(".bus_tbl_dir_legal_cls_edit").slideUp(1);
+
+                $("#mensajes_direccion_legal").html('').hide();
+
+                $("#bus_tbl_dir_legal").html('');
+
+                document.getElementById('lbl_carga_data_dir').innerHTML = "Cargando...";
+
+                jQuery("#bus_tbl_dir_legal").append('<table id="tbl_dir_legal" class="table table-striped table-hover table-condensed tabla small" cellspacing="0"> <thead> <tr class="cabecera"> ' +
+                    '<th hidden="hidden">ACTIVO</th><th scope="col">DIRECCION</th> <th scope="col">UBIGEO</th></thead> <tbody></tbody> </table>');
+
+
+
+                $.ajax({
+                    cache: false,
+                    type: "GET",
+                    url: "@(Url.RouteUrl("LLENAR_DIR_LEGAL_X_ENTIDAD"))",
+                    data: { "RUC": var_ruc },
+                    success: function (data) {
+                        document.getElementById('lbl_carga_data_dir').innerHTML = "";
+                        $.each(data, function (id, option) {
+                            var nuevoTD = '<tr>';
+                            nuevoTD += '<td hidden="hidden">' + option.activo + '</td>';
+                            nuevoTD += '<td style=" text-align:center;"> <div class="col-md-1"> <ul class="list-inline" style="margin-bottom:0"><li><a class="Editar_dir" id="' + option.id_sede + '||' + option.nom_direccion + '||' + option.id_ubigeo + '||' + option.nom_referencia + '||' + option.nom_sede + '" href="#" title="Editar"><i class="blue glyphicon glyphicon-edit"></i></a></li></ul></div>' + option.direccion + '</td>';
+                            nuevoTD += '<td style="width:100px; text-align:center;">' + option.ubigeo + '</td>';
+                            nuevoTD += '</tr>';
+
+                            jQuery("#tbl_dir_legal").append(nuevoTD);
+                        });
+
+                        $("#tbl_dir_legal").DataTable({
+                            "lengthChange": false,
+                            "searching": false,
+                            "ordering": false,
+                            "order": [[0, "desc"], [1, "desc"]],
+                            "info": false,
+                            "language": {
+                                "paginate": {
+                                    "previous": "Anterior",
+                                    "next": "Siguiente"
+                                }
+                            }
+                        });
+
+                        $("#tbl_dir_legal thead tr th").eq(1).css({ "width": 250 });
+                        $("#tbl_dir_legal thead tr th").eq(2).css({ "width": 30 });
+                        $("#tbl_dir_legal thead tr th").eq(2).css({ "width": 20 });
+                    },
+                    error: function (xhr, ajaxOptions, thrownError) {
+                        alert('Failed to retrieve states.');
+                    }
+                });
+                $('#mdldireccion_editar').modal('show');
+            }
+            else {
+
+            }
+
+        });
+
+        
+        $(document).on('click', '.Editar_dir', function () {
+            var id = $(this).attr('id').split('||');
+            $("#txt_id_sede_direccion_edit").val(id[0]);
+            $(".bus_tbl_dir_legal_cls").slideUp(1000);
+            $(".bus_tbl_dir_legal_cls_edit").slideDown(1000);
+            $("#txt_sede_edit").val(id[4]);
+            $("#txt_direccion_edit").val(id[1]);
+            $("#txt_referencia_edit").val(id[3]);
+            $("#cmblista_departamento_edit").val(id[2].substring(0, 2));
+            var selectdepartamento = id[2].substring(0, 2);
+            var ddlprovincia = $("#cmblista_provincia_edit");
+            $.ajax({
+                cache: false,
+                type: "GET",
+                url: "@(Url.RouteUrl("llenar_provincia_x_departamento"))",
+                data: { "id_departamento": selectdepartamento },
+                success: function (data) {
+                    ddlprovincia.html('');
+                    $.each(data, function (id, option) {
+                        ddlprovincia.append($('<option></option>').val(option.Value).html(option.Text));
+                    });
+                    $("#cmblista_provincia_edit").val(id[2].substring(2, 4));
+                    var selectprovincia = id[2].substring(0, 4);
+                    var ddldistrito = $("#cmblista_distrito_edit");
+                    $.ajax({
+                        cache: false,
+                        type: "GET",
+                        url: "@(Url.RouteUrl("llenar_distrito_x_provincia"))",
+                        data: { "id_provincia": selectprovincia },
+                        success: function (data) {
+                            ddldistrito.html('');
+                            $.each(data, function (id, option) {
+                                ddldistrito.append($('<option></option>').val(option.Value).html(option.Text));
+                            });
+                            $("#cmblista_distrito_edit").val(id[2]);
+                        },
+                        error: function (xhr, ajaxOptions, thrownError) {
+                            alert('Failed to retrieve states.');
+                        }
+                    });
+                },
+                error: function (xhr, ajaxOptions, thrownError) {
+                    alert('Failed to retrieve states.');
+                }
+            });
+
+        });
+        
+        $("#btn_edit_direc").click(function () {
+
+            $.ajax({
+                cache: false,
+                type: "GET",
+                url: "/General/HT_editar_direccion",
+                data: {
+                    "id_sede": $('#txt_id_sede_direccion_edit').val(),
+                    "direccion": $('#txt_direccion_edit').val(),
+                    "ubigeo": $('#cmblista_distrito_edit').val(),
+                    "sede": $('#txt_sede_edit').val(),
+                    "referencia": $('#txt_referencia_edit').val(),
+                },
+                success: function (result) {
+                    $('.field-validation-error').each(function () {
+                        $(this).removeClass("field-validation-error").addClass("field-validation-valid");
+                        $(this).html('');
+                    });
+                    $("#mensajes_direccion_legal").html(result);
+                    $("#mensajes_direccion_legal").slideDown(500, function () { });
+                    $("#bus_tbl_dir_legal").html('');
+                    document.getElementById('lbl_carga_data_dir').innerHTML = "Cargando...";
+
+                    setTimeout(function () {
+                        $("#btn_direccion_legal").click();
+                    }, 2000);
+                },
+                error: function (result) {
+                    alert('Failed to retrieve states.');
+                }
+            });
+
+        });
+
+
+        $("#btn_canc_direc").click(function () {
+            $(".bus_tbl_dir_legal_cls_edit").slideUp(1000)
+            $(".bus_tbl_dir_legal_cls").slideDown(1000);
+        });
+
+        $("#btn_editar_nom_persona").click(function () {
+            
+            var var_ruc = $("#cmb_persona").val().split('|')[0];
+
+            if (var_ruc.length == 11) {
+                $("#txt_datos_persona_juridica").val($("#cmb_persona").val().split('|')[1]);
+
+                $('#mdldatos_persona_juridica').modal('show');
+
+            }
+            
+        });
+
+        
+        $("#btn_guardar_datos_pj").click(function () {
+
+            var var_ruc = $("#cmb_persona").val().split('|')[0];
+
+            $.ajax({
+                cache: false,
+                type: "GET",
+                url: "/General/Actualizar_nombre_pj",
+                data: {
+                    "actualiza_nom_pj": $("#txt_datos_persona_juridica").val(),
+                    "actualiza_ruc": var_ruc
+                },
+                success: function (result) {
+                    $('#mdldatos_persona_juridica').modal('hide');
+                    var entra = 0;
+                    $.ajax({
+                        cache: false,
+                        type: "GET",
+                        url: "@(Url.RouteUrl("recupera_RUC_DNI_recibo_serie1"))",
+                        data: { "RUC_DNI": $("#txt_documento").val() },
+                        success: function (data) {
+                            $("#cmb_persona").html('');
+                            $.each(data, function (id, option) {
+                                if (option.Value != "NO") {
+                                    $("#cmb_persona").append($('<option></option>').val(option.Value).html(option.Text));
+                                    if (entra == 0) {
+                                        recupera_RUC_DIRECCION(option.Value.split('|')[0]);
+                                        entra = 1;
+                                    }
+                                }
+                            });
+                        },
+                        error: function (xhr, ajaxOptions, thrownError) {
+                            alert('Failed to retrieve states.');
+                        }
+                    });
+                }
+            });
+        });
+
+
+
+
+
+
+
+
+
+    });
+
+</script>
+
+
+

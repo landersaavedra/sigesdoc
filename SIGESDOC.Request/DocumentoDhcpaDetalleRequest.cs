@@ -24,6 +24,7 @@ namespace SIGESDOC.Request
         public string usuario_modifica { get; set; }
         public Nullable<System.DateTime> fecha_modifica { get; set; }
         public string nombre_persona_destino { get; set; }
+        public Nullable<bool> flag_tipo_carta { get; set; }
     
         public virtual DocumentoDhcpaRequest documento_dhcpa { get; set; }
     }

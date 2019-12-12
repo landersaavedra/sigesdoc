@@ -285,6 +285,9 @@
       <DependentUpon>IRepositorioObjects.tt</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="IDetalleMaeDocumentoRepositorio.cs">
+      <DependentUpon>IRepositorioObjects.tt</DependentUpon>
+    </Compile>
     <Compile Include="IDetDocFactRepositorio.cs">
       <DependentUpon>IRepositorioObjects.tt</DependentUpon>
       <SubType>Code</SubType>

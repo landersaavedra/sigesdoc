@@ -1,2 +1,4 @@
 *.log
 .vs/SIGESDOC_SANIPES/v16/Server/sqlite3/db.lock
+.vs/SIGESDOC_SANIPES/v15/Server/sqlite3/db.lock
+.vs/SIGESDOC_SANIPES/v15/.suo

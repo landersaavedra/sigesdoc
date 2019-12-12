@@ -24,6 +24,7 @@ namespace SIGESDOC.Entidades
         public string USUARIO_MODIFICA { get; set; }
         public Nullable<System.DateTime> FECHA_MODIFICA { get; set; }
         public string NOMBRE_PERSONA_DESTINO { get; set; }
+        public Nullable<bool> FLAG_TIPO_CARTA { get; set; }
     
         public virtual MAE_DOCUMENTO_DHCPA MAE_DOCUMENTO_DHCPA { get; set; }
     }

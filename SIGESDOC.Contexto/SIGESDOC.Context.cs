@@ -153,6 +153,7 @@ namespace SIGESDOC.Contexto
         public virtual DbSet<MAE_TUPA> MAE_TUPA { get; set; }
         public virtual DbSet<MAE_DOCUMENTO_ANEXO> MAE_DOCUMENTO_ANEXO { get; set; }
         public virtual DbSet<VW_CONSULTA_EXPEDIENTE_X_EXPEDIENTE> VW_CONSULTA_EXPEDIENTE_X_EXPEDIENTE { get; set; }
+        public virtual DbSet<Consulta_Detalle_Mae_Documento> Consulta_Detalle_Mae_Documento { get; set; }
     
         public virtual ObjectResult<p_MODIFICAR_CONTRASEÑA_Result> p_MODIFICAR_CONTRASEÑA(string ruc, string dni, string clave_ini, string clave_fin)
         {

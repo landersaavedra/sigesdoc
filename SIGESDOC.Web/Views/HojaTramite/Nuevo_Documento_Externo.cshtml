@@ -24,7 +24,6 @@
                 <div class="modal-body">
                     <div class="form-horizontal">
 
-
                         <div class="form-group">
                             <div class="col-md-2">
                                 <label class="control-label" for="cmdoficina_destino">Destino:</label>
@@ -33,7 +32,7 @@
                                 @Html.DropDownList("cmb_destino", (IEnumerable<SelectListItem>)ViewBag.lst_destino, new { @class = "form-control input-sm" })
                             </div>
                         </div>
-                        
+
                         <div class="form-group">
                             <div class="col-md-2">
                                 <label class="control-label" for="txt_observacion">Observación:</label>
@@ -94,12 +93,12 @@
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-primary btn-sm" id="btnAceptar">Aceptar</button>
-                    <button type="button" class="btn btn-default btn-sm" data-dismiss="modal">Cancelar</button>
-                </div>
-            </form>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-primary btn-sm" id="btnAceptar">Aceptar</button>
+                            <button type="button" class="btn btn-default btn-sm" data-dismiss="modal">Cancelar</button>
+                        </div>
+</form>
         </div>
     </div>
 </div>
@@ -342,8 +341,7 @@
 
 <script type="text/javascript">
 
-
-    function valida_enter(dato) {
+  function valida_enter(dato) {
         if (window.event.keyCode == 13) {
             window.event.returnValue = false;
         }

@@ -1,0 +1,242 @@
+﻿@model SIGESDOC.Response.ExpedientesResponse
+
+@{
+    ViewBag.Title = "Nuevo Expediente";
+}
+
+<div class="bottom hidden"></div>
+<div id="mensajes"></div>
+
+<ol class="breadcrumb" style="margin-bottom: 5px;">
+    <li><a href="#">Expediente</a></li>
+    <li class="active">Nuevo Expediente</li>
+</ol>
+
+<div class="bs-callout bs-callout-info">
+    <h4>Registrar Nuevo Expediente</h4>
+    <p>Use el siguiente formulario para registrar un nuevo Expediente</p>
+</div>
+
+
+<div class="panel panel-primary">
+    <div class="panel-heading panet-heading-sm">Expediente</div>
+    <div class="panel-body">
+        @using (Ajax.BeginForm(new AjaxOptions { HttpMethod = "Get" }))
+        {
+
+            <div class="form-horizontal">
+
+                <ol class="breadcrumb">
+                    <li class="active">Información del Expediente</li>
+                </ol>
+
+                <div class="row hidden">
+                    @Html.TextBox("var_guardar", null)
+
+                </div>
+
+                @*<div class="form-group">
+                    <label class="control-label col-md-2">Expediente: </label>
+                    <div class="col-md-2">
+                        @Html.TextBox("TXT_EXPEDIENTE", "", new { @class = "form-control input-sm", @onpaste = "return false;", @maxlength = "10", @onkeypress = "return IsNumeric(this.value);" })
+                    </div>
+                    <label id="lbl_valida_expediente" style="color: #B44D4D">  </label>
+                </div>
+
+                <div class="form-group">
+                    <label class="control-label col-md-2">Tipo Expediente: </label>
+                    <div class="col-md-2">
+                        @Html.DropDownList("cmb_tipo_expediente", (IEnumerable<SelectListItem>)ViewBag.lst_tipo_expediente, new { @class = "form-control input-sm" })
+                    </div>
+                </div>*@
+
+                <hr>
+                <div class="form-group">
+                    <div class="col-md-8">
+                        <button id="btn_Grabar_Expediente" type="button" class="btn btn-primary btn-sm">Generar expediente</button>
+                        <button type="button" class="btn btn-default btn-sm regresar">Cancelar</button>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>
+
+
+<div class="modal fade" id="mdlConformidad" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title" id="myModalLabel">Mensaje</h4>
+            </div>
+            <div class="modal-body">
+                <span id="conformidad"></span>
+                <p>Presione aceptar para continuar.</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary btn-sm" data-dismiss="modal" id="btn_satisfa">Aceptar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
+
+<script type="text/javascript">
+
+    function IsNumeric(dato) {
+        var valor = dato.indexOf(".");
+        if ((window.event.keyCode > 47 && window.event.keyCode < 58)) {
+            window.event.returnValue = true;
+        }
+        else {
+            window.event.returnValue = false;
+        }
+    }
+    
+    
+    @*function verifica_data() {
+
+        document.getElementById('lbl_valida_expediente').innerHTML = "";
+
+        if ($("#TXT_EXPEDIENTE").val().toString().trim() != "") {
+            var num_exp = $("#TXT_EXPEDIENTE").val().toString().trim();
+            var tip_exp = $("#cmb_tipo_expediente").val();
+            $.ajax({
+                cache: false,
+                type: "GET",
+                url: "@(Url.RouteUrl("Existe_expediente"))",
+                data: {
+                    "num_expediente": num_exp,
+                    "id_tipo_expediente": tip_exp
+                    },
+            success: function (result) {
+                if (result == "SI") {
+                    document.getElementById('lbl_valida_expediente').innerHTML = "Expediente Existe";
+                }
+            },
+            error: function (xhr, ajaxOptions, thrownError) {
+                alert('Failed to retrieve states.');
+            }
+        });
+    }
+    }*@
+
+    $(document).ready(function () {
+
+        
+        /*
+        $("#TXT_EXPEDIENTE").focusout(function () {
+            verifica_data();
+        });
+        */
+
+
+        $(document).on("click", ".regresar", function () {
+            window.location = '@Url.Action("Consulta_expediente", "General")';
+        });
+
+        $("#btn_satisfa").click(function () {
+            var url = "/General/Consulta_expediente/";
+            window.location.href = url;
+        });
+        
+        $("#btn_Grabar_Expediente").click(function () {
+
+            $('#btn_Grabar_Expediente').attr("disabled", "disabled");
+
+            //document.getElementById('lbl_valida_expediente').innerHTML = "";
+
+            //if ($("#TXT_EXPEDIENTE").val().toString().trim() == "") {
+            //    document.getElementById('lbl_valida_expediente').innerHTML = "Ingresar Expediente";
+            //    $('#btn_Grabar_Expediente').removeAttr("disabled", "disabled");
+            //    return false;
+            //}
+            //else
+            //{
+            //    var num_exp = $("#TXT_EXPEDIENTE").val().toString().trim();
+            //    var tip_exp = $("#cmb_tipo_expediente").val();
+                @*$.ajax({
+                    cache: false,
+                    type: "GET",
+                    url: "@(Url.RouteUrl("Existe_expediente"))",
+                    data: {
+                        "num_expediente": num_exp,
+                        "id_tipo_expediente": tip_exp
+                    },
+                success: function (result) {*@
+                    /*
+                    if (result == "SI") {
+                        document.getElementById('lbl_valida_expediente').innerHTML = "Expediente Existe";
+                        $('#btn_Grabar_Expediente').removeAttr("disabled", "disabled");
+                        return false;
+                    }
+                    else
+                    {
+                        */
+                        $.ajax({
+                            cache: false,
+                            type: "GET",
+                            url: "/General/Grabar_Nuevo_Expediente",
+                            data: {
+                                "num_expediente": "1",
+                                "id_tipo_expediente": "2"
+                            },
+                            success: function (result) {
+                                $('.field-validation-error').each(function () {
+                                    $(this).removeClass("field-validation-error").addClass("field-validation-valid");
+                                    $(this).html('');
+                                });
+                                $("#conformidad").html(result)
+                                $('#mdlConformidad').modal();
+                                setTimeout(function () {
+                                    $("#mdlConformidad").modal().hide();
+                                    $("#btn_satisfa").click();
+                                }, 10000);
+
+                            },
+                            error: function (result) {
+                                if (result.status == 500) {
+                                    $("#mensajes").html(result.responseText).hide();
+                                    $("#mensajes").slideDown(500, function () { });
+                                }
+                                else if (result.status == 400) {
+                                    $('.field-validation-error').each(function () {
+                                        $(this).removeClass("field-validation-error").addClass("field-validation-valid");
+                                        $(this).html('');
+                                    });
+                                    $.each(result.responseJSON.errors, function (key, value) {
+                                        if (value != null) {
+                                            var container = $('span[data-valmsg-for="' + key + '"]');
+                                            container.removeClass("field-validation-valid").addClass("field-validation-error");
+                                            container.html(value);
+                                        }
+                                    });
+                                    $("#mensajes").html(result.responseJSON.summary).hide();
+                                    if (result.responseJSON.summary != "") {
+                                        $("#mensajes").slideDown(500, function () { });
+                                    }
+                                }
+                            }
+                        });/*
+                    }*/
+                /*},
+                error: function (xhr, ajaxOptions, thrownError) {
+                    alert('Failed to retrieve states.');
+                }
+                });*/
+                
+            //}
+                      
+
+
+        });
+
+    });
+
+</script>
+
+

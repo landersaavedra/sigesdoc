@@ -42,6 +42,9 @@
     <Compile Include="Consultar_ptocolo_transporte_x_id_transporte_2018_v1.cs">
       <DependentUpon>SIGESDOC.tt</DependentUpon>
     </Compile>
+    <Compile Include="Consulta_Detalle_Mae_Documento.cs">
+      <DependentUpon>SIGESDOC.tt</DependentUpon>
+    </Compile>
     <Compile Include="COUNT_EXPEDIENTE_UNICO.cs">
       <DependentUpon>SIGESDOC.tt</DependentUpon>
     </Compile>

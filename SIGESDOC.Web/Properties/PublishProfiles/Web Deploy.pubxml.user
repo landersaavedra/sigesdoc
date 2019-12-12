@@ -5,61 +5,10 @@ by editing this MSBuild file. In order to learn more about this please visit htt
 -->
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
-    <_PublishTargetUrl>C:\inetpub\wwwroot\SIGESDOC\WEB</_PublishTargetUrl>
+    <_PublishTargetUrl>C:\Users\andres.albarracin\Desktop\PREPRO SIGESDOC\WEB</_PublishTargetUrl>
   </PropertyGroup>
   <ItemGroup>
     <File Include="bin/Antlr3.Runtime.dll">
-<<<<<<< HEAD
-      <publishTime>11/21/2019 17:08:21</publishTime>
-    </File>
-    <File Include="bin/Antlr3.Runtime.pdb">
-      <publishTime>11/21/2019 17:08:21</publishTime>
-    </File>
-    <File Include="bin/Autofac.Configuration.dll">
-      <publishTime>11/21/2019 17:08:22</publishTime>
-    </File>
-    <File Include="bin/Autofac.dll">
-      <publishTime>11/21/2019 17:08:22</publishTime>
-    </File>
-    <File Include="bin/Autofac.Integration.Mvc.dll">
-      <publishTime>11/21/2019 17:08:22</publishTime>
-    </File>
-    <File Include="bin/Autofac.Integration.Wcf.dll">
-      <publishTime>11/21/2019 17:08:22</publishTime>
-    </File>
-    <File Include="bin/EntityFramework.dll">
-      <publishTime>11/21/2019 17:08:23</publishTime>
-    </File>
-    <File Include="bin/EntityFramework.SqlServer.dll">
-      <publishTime>11/21/2019 17:08:23</publishTime>
-    </File>
-    <File Include="bin/EnvDTE.dll">
-      <publishTime>07/01/2019 09:01:36</publishTime>
-    </File>
-    <File Include="bin/EnvDTE80.dll">
-      <publishTime>07/01/2019 09:01:36</publishTime>
-    </File>
-    <File Include="bin/es/System.Web.Helpers.resources.dll">
-      <publishTime>11/21/2019 17:08:26</publishTime>
-    </File>
-    <File Include="bin/es/System.Web.Mvc.resources.dll">
-      <publishTime>11/21/2019 17:08:26</publishTime>
-    </File>
-    <File Include="bin/es/System.Web.Optimization.resources.dll">
-      <publishTime>11/21/2019 17:08:26</publishTime>
-    </File>
-    <File Include="bin/es/System.Web.Razor.resources.dll">
-      <publishTime>11/21/2019 17:08:26</publishTime>
-    </File>
-    <File Include="bin/es/System.Web.WebPages.Deployment.resources.dll">
-      <publishTime>11/21/2019 17:08:26</publishTime>
-    </File>
-    <File Include="bin/es/System.Web.WebPages.Razor.resources.dll">
-      <publishTime>11/21/2019 17:08:26</publishTime>
-    </File>
-    <File Include="bin/es/System.Web.WebPages.resources.dll">
-      <publishTime>11/21/2019 17:08:26</publishTime>
-=======
       <publishTime>11/26/2019 11:14:49</publishTime>
     </File>
     <File Include="bin/Antlr3.Runtime.pdb">
@@ -87,35 +36,34 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>11/26/2019 11:14:49</publishTime>
     </File>
     <File Include="bin/EnvDTE.dll">
-      <publishTime>10/25/2018 23:42:36</publishTime>
+      <publishTime>11/29/2019 12:08:18</publishTime>
     </File>
     <File Include="bin/EnvDTE80.dll">
-      <publishTime>10/25/2018 23:42:36</publishTime>
+      <publishTime>11/29/2019 12:08:18</publishTime>
     </File>
     <File Include="bin/es/System.Web.Helpers.resources.dll">
-      <publishTime>11/26/2019 11:14:50</publishTime>
+      <publishTime>02/19/2014 09:49:52</publishTime>
     </File>
     <File Include="bin/es/System.Web.Mvc.resources.dll">
-      <publishTime>11/26/2019 11:14:50</publishTime>
+      <publishTime>02/19/2014 09:48:28</publishTime>
     </File>
     <File Include="bin/es/System.Web.Optimization.resources.dll">
-      <publishTime>11/26/2019 11:14:50</publishTime>
+      <publishTime>02/11/2014 15:28:40</publishTime>
     </File>
     <File Include="bin/es/System.Web.Razor.resources.dll">
-      <publishTime>11/26/2019 11:14:50</publishTime>
+      <publishTime>02/19/2014 09:48:34</publishTime>
     </File>
     <File Include="bin/es/System.Web.WebPages.Deployment.resources.dll">
-      <publishTime>11/26/2019 11:14:50</publishTime>
+      <publishTime>02/19/2014 09:49:52</publishTime>
     </File>
     <File Include="bin/es/System.Web.WebPages.Razor.resources.dll">
-      <publishTime>11/26/2019 11:14:50</publishTime>
+      <publishTime>02/19/2014 09:49:52</publishTime>
     </File>
     <File Include="bin/es/System.Web.WebPages.resources.dll">
-      <publishTime>11/26/2019 11:14:50</publishTime>
->>>>>>> ab5a8b811dc67e229addadc7d2127be8ecba5098
+      <publishTime>02/19/2014 09:49:52</publishTime>
     </File>
     <File Include="bin/Excel.dll">
-      <publishTime>11/21/2019 17:08:18</publishTime>
+      <publishTime>02/02/2017 14:04:36</publishTime>
     </File>
     <File Include="bin/Excel.pdb">
       <publishTime>02/02/2017 14:04:36</publishTime>
@@ -124,88 +72,13 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>02/02/2017 14:04:36</publishTime>
     </File>
     <File Include="bin/itextsharp.dll">
-<<<<<<< HEAD
-      <publishTime>11/21/2019 17:08:30</publishTime>
-    </File>
-    <File Include="bin/itextsharp.xmlworker.dll">
-      <publishTime>11/21/2019 17:08:30</publishTime>
-    </File>
-    <File Include="bin/Microsoft.MSXML.dll">
-      <publishTime>07/01/2019 09:01:36</publishTime>
-    </File>
-    <File Include="bin/Microsoft.Office.Tools.Common.dll">
-      <publishTime>11/22/2019 08:24:23</publishTime>
-    </File>
-    <File Include="bin/Microsoft.Office.Tools.Common.v4.0.Utilities.dll">
-      <publishTime>11/22/2019 08:24:23</publishTime>
-    </File>
-    <File Include="bin/Microsoft.Office.Tools.v4.0.Framework.dll">
-      <publishTime>11/22/2019 08:24:23</publishTime>
-    </File>
-    <File Include="bin/Microsoft.Office.Tools.Word.v4.0.Utilities.dll">
-      <publishTime>11/22/2019 08:24:23</publishTime>
-    </File>
-    <File Include="bin/Microsoft.ReportViewer.Common.dll">
-      <publishTime>11/21/2019 17:08:28</publishTime>
-    </File>
-    <File Include="bin/Microsoft.ReportViewer.DataVisualization.DLL">
-      <publishTime>11/21/2019 17:08:28</publishTime>
-    </File>
-    <File Include="bin/Microsoft.ReportViewer.Design.DLL">
-      <publishTime>11/21/2019 17:08:28</publishTime>
-    </File>
-    <File Include="bin/Microsoft.ReportViewer.ProcessingObjectModel.DLL">
-      <publishTime>11/21/2019 17:08:28</publishTime>
-    </File>
-    <File Include="bin/Microsoft.ReportViewer.WebDesign.DLL">
-      <publishTime>11/21/2019 17:08:28</publishTime>
-    </File>
-    <File Include="bin/Microsoft.ReportViewer.WebForms.DLL">
-      <publishTime>11/21/2019 17:08:28</publishTime>
-    </File>
-    <File Include="bin/Microsoft.ReportViewer.WinForms.DLL">
-      <publishTime>11/21/2019 17:08:28</publishTime>
-    </File>
-    <File Include="bin/Microsoft.SqlServer.Types.dll">
-      <publishTime>11/21/2019 17:08:29</publishTime>
-    </File>
-    <File Include="bin/Microsoft.VisualStudio.OLE.Interop.dll">
-      <publishTime>07/01/2019 09:01:36</publishTime>
-    </File>
-    <File Include="bin/Microsoft.VisualStudio.Shell.Interop.8.0.dll">
-      <publishTime>07/01/2019 09:01:36</publishTime>
-    </File>
-    <File Include="bin/Microsoft.VisualStudio.Shell.Interop.dll">
-      <publishTime>07/01/2019 09:01:36</publishTime>
-    </File>
-    <File Include="bin/Microsoft.VisualStudio.TextManager.Interop.8.0.dll">
-      <publishTime>07/01/2019 09:01:36</publishTime>
-    </File>
-    <File Include="bin/Microsoft.VisualStudio.TextManager.Interop.dll">
-      <publishTime>07/01/2019 09:01:36</publishTime>
-    </File>
-    <File Include="bin/Microsoft.VisualStudio.Tools.Applications.Runtime.dll">
-      <publishTime>11/22/2019 08:24:23</publishTime>
-    </File>
-    <File Include="bin/Microsoft.Web.Infrastructure.dll">
-      <publishTime>11/21/2019 17:08:29</publishTime>
-    </File>
-    <File Include="bin/MvcReportViewer.dll">
-      <publishTime>11/21/2019 17:08:29</publishTime>
-    </File>
-    <File Include="bin/Newtonsoft.Json.dll">
-      <publishTime>11/21/2019 17:08:29</publishTime>
-    </File>
-    <File Include="bin/RazorPDF.dll">
-      <publishTime>11/21/2019 17:08:30</publishTime>
-=======
       <publishTime>11/26/2019 11:14:51</publishTime>
     </File>
     <File Include="bin/itextsharp.xmlworker.dll">
       <publishTime>11/26/2019 11:14:51</publishTime>
     </File>
     <File Include="bin/Microsoft.MSXML.dll">
-      <publishTime>10/25/2018 23:42:36</publishTime>
+      <publishTime>11/29/2019 12:08:18</publishTime>
     </File>
     <File Include="bin/Microsoft.Office.Tools.Common.dll">
       <publishTime>10/25/2018 23:42:36</publishTime>
@@ -214,10 +87,10 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>10/25/2018 23:42:36</publishTime>
     </File>
     <File Include="bin/Microsoft.Office.Tools.v4.0.Framework.dll">
-      <publishTime>10/25/2018 23:42:36</publishTime>
+      <publishTime>11/29/2019 12:08:18</publishTime>
     </File>
     <File Include="bin/Microsoft.Office.Tools.Word.v4.0.Utilities.dll">
-      <publishTime>10/25/2018 23:42:36</publishTime>
+      <publishTime>11/29/2019 12:08:18</publishTime>
     </File>
     <File Include="bin/Microsoft.ReportViewer.Common.dll">
       <publishTime>11/26/2019 11:14:50</publishTime>
@@ -244,28 +117,34 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>11/26/2019 11:14:50</publishTime>
     </File>
     <File Include="bin/Microsoft.VisualStudio.OLE.Interop.dll">
-      <publishTime>10/25/2018 23:42:36</publishTime>
+      <publishTime>11/29/2019 12:08:18</publishTime>
+    </File>
+    <File Include="bin/Microsoft.VisualStudio.ProjectAggregator.dll">
+      <publishTime>11/29/2019 12:08:18</publishTime>
     </File>
     <File Include="bin/Microsoft.VisualStudio.Shell.Interop.8.0.dll">
-      <publishTime>10/25/2018 23:42:36</publishTime>
+      <publishTime>11/29/2019 12:08:18</publishTime>
     </File>
     <File Include="bin/Microsoft.VisualStudio.Shell.Interop.dll">
-      <publishTime>10/25/2018 23:42:36</publishTime>
+      <publishTime>11/29/2019 12:08:18</publishTime>
     </File>
     <File Include="bin/Microsoft.VisualStudio.TextManager.Interop.8.0.dll">
-      <publishTime>10/25/2018 23:42:36</publishTime>
+      <publishTime>11/29/2019 12:08:18</publishTime>
     </File>
     <File Include="bin/Microsoft.VisualStudio.TextManager.Interop.dll">
-      <publishTime>10/25/2018 23:42:36</publishTime>
+      <publishTime>11/29/2019 12:08:18</publishTime>
     </File>
     <File Include="bin/Microsoft.VisualStudio.Tools.Applications.Hosting.dll">
-      <publishTime>10/25/2018 23:42:36</publishTime>
+      <publishTime>11/29/2019 12:08:18</publishTime>
     </File>
     <File Include="bin/Microsoft.VisualStudio.Tools.Applications.Runtime.dll">
-      <publishTime>10/25/2018 23:42:36</publishTime>
+      <publishTime>11/29/2019 12:08:18</publishTime>
     </File>
     <File Include="bin/Microsoft.VisualStudio.Tools.Applications.ServerDocument.dll">
-      <publishTime>10/25/2018 23:42:36</publishTime>
+      <publishTime>11/29/2019 12:08:18</publishTime>
+    </File>
+    <File Include="bin/Microsoft.VisualStudio.VSHelp.dll">
+      <publishTime>11/29/2019 12:08:18</publishTime>
     </File>
     <File Include="bin/Microsoft.Web.Infrastructure.dll">
       <publishTime>11/26/2019 11:14:50</publishTime>
@@ -278,58 +157,27 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     </File>
     <File Include="bin/RazorPDF.dll">
       <publishTime>11/26/2019 11:14:51</publishTime>
->>>>>>> ab5a8b811dc67e229addadc7d2127be8ecba5098
     </File>
     <File Include="bin/Seguridad.PRODUCE.dll">
       <publishTime>05/28/2015 10:03:11</publishTime>
     </File>
     <File Include="bin/SIGESDOC.IAplicacionService.dll">
-<<<<<<< HEAD
-      <publishTime>12/04/2019 09:57:30</publishTime>
+      <publishTime>12/02/2019 08:43:21</publishTime>
     </File>
     <File Include="bin/SIGESDOC.IAplicacionService.pdb">
-      <publishTime>12/04/2019 09:57:30</publishTime>
+      <publishTime>12/02/2019 08:43:21</publishTime>
     </File>
     <File Include="bin/SIGESDOC.Request.dll">
-      <publishTime>12/04/2019 09:57:29</publishTime>
+      <publishTime>12/02/2019 08:43:20</publishTime>
     </File>
     <File Include="bin/SIGESDOC.Request.pdb">
-      <publishTime>12/04/2019 09:57:29</publishTime>
+      <publishTime>12/02/2019 08:43:20</publishTime>
     </File>
     <File Include="bin/SIGESDOC.Response.dll">
-      <publishTime>12/04/2019 09:57:29</publishTime>
+      <publishTime>12/02/2019 08:43:20</publishTime>
     </File>
     <File Include="bin/SIGESDOC.Response.pdb">
-      <publishTime>12/04/2019 09:57:29</publishTime>
-    </File>
-    <File Include="bin/SIGESDOC.VSTO_SANIPES.dll">
-      <publishTime>12/04/2019 09:57:29</publishTime>
-    </File>
-    <File Include="bin/SIGESDOC.VSTO_SANIPES.pdb">
-      <publishTime>12/04/2019 09:57:29</publishTime>
-    </File>
-    <File Include="bin/SIGESDOC.Web.dll">
-      <publishTime>12/04/2019 09:57:33</publishTime>
-    </File>
-    <File Include="bin/SIGESDOC.Web.pdb">
-      <publishTime>12/04/2019 09:57:33</publishTime>
-=======
-      <publishTime>11/27/2019 08:20:44</publishTime>
-    </File>
-    <File Include="bin/SIGESDOC.IAplicacionService.pdb">
-      <publishTime>11/27/2019 08:20:44</publishTime>
-    </File>
-    <File Include="bin/SIGESDOC.Request.dll">
-      <publishTime>11/27/2019 08:20:41</publishTime>
-    </File>
-    <File Include="bin/SIGESDOC.Request.pdb">
-      <publishTime>11/27/2019 08:20:41</publishTime>
-    </File>
-    <File Include="bin/SIGESDOC.Response.dll">
-      <publishTime>11/27/2019 08:20:42</publishTime>
-    </File>
-    <File Include="bin/SIGESDOC.Response.pdb">
-      <publishTime>11/27/2019 08:20:42</publishTime>
+      <publishTime>12/02/2019 08:43:20</publishTime>
     </File>
     <File Include="bin/SIGESDOC.VSTO_SANIPES.dll">
       <publishTime>11/29/2019 09:14:15</publishTime>
@@ -338,11 +186,10 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>11/29/2019 09:14:15</publishTime>
     </File>
     <File Include="bin/SIGESDOC.Web.dll">
-      <publishTime>11/29/2019 13:46:18</publishTime>
+      <publishTime>12/02/2019 16:47:16</publishTime>
     </File>
     <File Include="bin/SIGESDOC.Web.pdb">
-      <publishTime>11/29/2019 13:46:18</publishTime>
->>>>>>> ab5a8b811dc67e229addadc7d2127be8ecba5098
+      <publishTime>12/02/2019 16:47:16</publishTime>
     </File>
     <File Include="bin/SISBIVALVOS.IAplicacionService.dll">
       <publishTime>06/08/2015 18:44:15</publishTime>
@@ -360,192 +207,6 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>06/11/2015 16:03:59</publishTime>
     </File>
     <File Include="bin/SqlServerTypes/x64/msvcr100.dll">
-<<<<<<< HEAD
-      <publishTime>11/21/2019 17:08:29</publishTime>
-    </File>
-    <File Include="bin/SqlServerTypes/x64/SqlServerSpatial110.dll">
-      <publishTime>11/21/2019 17:08:29</publishTime>
-    </File>
-    <File Include="bin/SqlServerTypes/x86/msvcr100.dll">
-      <publishTime>11/21/2019 17:08:29</publishTime>
-    </File>
-    <File Include="bin/SqlServerTypes/x86/SqlServerSpatial110.dll">
-      <publishTime>11/21/2019 17:08:29</publishTime>
-    </File>
-    <File Include="bin/stdole.dll">
-      <publishTime>07/01/2019 09:01:36</publishTime>
-    </File>
-    <File Include="bin/System.Net.Http.Formatting.dll">
-      <publishTime>11/21/2019 17:08:26</publishTime>
-    </File>
-    <File Include="bin/System.Web.Helpers.dll">
-      <publishTime>11/21/2019 17:08:26</publishTime>
-    </File>
-    <File Include="bin/System.Web.Http.dll">
-      <publishTime>11/21/2019 17:08:26</publishTime>
-    </File>
-    <File Include="bin/System.Web.Http.WebHost.dll">
-      <publishTime>11/21/2019 17:08:26</publishTime>
-    </File>
-    <File Include="bin/System.Web.Mvc.dll">
-      <publishTime>11/21/2019 17:08:26</publishTime>
-    </File>
-    <File Include="bin/System.Web.Optimization.dll">
-      <publishTime>11/21/2019 17:08:26</publishTime>
-    </File>
-    <File Include="bin/System.Web.Razor.dll">
-      <publishTime>11/21/2019 17:08:26</publishTime>
-    </File>
-    <File Include="bin/System.Web.WebPages.Deployment.dll">
-      <publishTime>11/21/2019 17:08:26</publishTime>
-    </File>
-    <File Include="bin/System.Web.WebPages.dll">
-      <publishTime>11/21/2019 17:08:26</publishTime>
-    </File>
-    <File Include="bin/System.Web.WebPages.Razor.dll">
-      <publishTime>11/21/2019 17:08:26</publishTime>
-    </File>
-    <File Include="bin/WebGrease.dll">
-      <publishTime>11/21/2019 17:08:30</publishTime>
-    </File>
-    <File Include="Content/bootstrap-datetimepicker.min.css">
-      <publishTime>11/21/2019 17:08:14</publishTime>
-    </File>
-    <File Include="Content/bootstrap-theme.css">
-      <publishTime>11/21/2019 17:08:14</publishTime>
-    </File>
-    <File Include="Content/bootstrap-theme.min.css">
-      <publishTime>11/21/2019 17:08:14</publishTime>
-    </File>
-    <File Include="Content/bootstrap-timepicker.css">
-      <publishTime>11/21/2019 17:08:14</publishTime>
-    </File>
-    <File Include="Content/bootstrap-timepicker.min.css">
-      <publishTime>11/21/2019 17:08:14</publishTime>
-    </File>
-    <File Include="Content/bootstrap.css">
-      <publishTime>11/21/2019 17:08:14</publishTime>
-    </File>
-    <File Include="Content/bootstrap.min.css">
-      <publishTime>11/21/2019 17:08:14</publishTime>
-    </File>
-    <File Include="Content/dataTables.css">
-      <publishTime>11/21/2019 17:08:14</publishTime>
-    </File>
-    <File Include="Content/Error.css">
-      <publishTime>11/21/2019 17:08:14</publishTime>
-    </File>
-    <File Include="Content/formularios/bootstrap-datetimepicker.min.css">
-      <publishTime>11/21/2019 17:08:14</publishTime>
-    </File>
-    <File Include="Content/formularios/bootstrap.docs.css">
-      <publishTime>11/21/2019 17:08:14</publishTime>
-    </File>
-    <File Include="Content/formularios/bootstrap.docs.min.css">
-      <publishTime>11/21/2019 17:08:14</publishTime>
-    </File>
-    <File Include="Content/formularios/Comun.css">
-      <publishTime>11/21/2019 17:08:14</publishTime>
-    </File>
-    <File Include="Content/gallery_image.css">
-      <publishTime>11/21/2019 17:08:14</publishTime>
-    </File>
-    <File Include="Content/iconos/glyphicons-44-group.png">
-      <publishTime>11/21/2019 17:08:14</publishTime>
-    </File>
-    <File Include="Content/iconos/icono-almacen.png">
-      <publishTime>11/21/2019 17:08:14</publishTime>
-    </File>
-    <File Include="Content/iconos/icono-barco.png">
-      <publishTime>11/21/2019 17:08:14</publishTime>
-    </File>
-    <File Include="Content/iconos/icono-concesion.png">
-      <publishTime>11/21/2019 17:08:14</publishTime>
-    </File>
-    <File Include="Content/iconos/icono-desembarcadero.png">
-      <publishTime>11/21/2019 17:08:14</publishTime>
-    </File>
-    <File Include="Content/iconos/icono-planta.png">
-      <publishTime>11/21/2019 17:08:14</publishTime>
-    </File>
-    <File Include="Content/iconos/icono-transporte.png">
-      <publishTime>11/21/2019 17:08:14</publishTime>
-    </File>
-    <File Include="Content/img/20190610-1.jpg">
-      <publishTime>11/21/2019 17:08:14</publishTime>
-    </File>
-    <File Include="Content/img/20190610-2.jpg">
-      <publishTime>11/21/2019 17:08:14</publishTime>
-    </File>
-    <File Include="Content/img/20190610-3.jpg">
-      <publishTime>11/21/2019 17:08:14</publishTime>
-    </File>
-    <File Include="Content/img/bienvenida-01.jpg">
-      <publishTime>11/21/2019 17:08:14</publishTime>
-    </File>
-    <File Include="Content/img/carrusel1.png">
-      <publishTime>11/21/2019 17:08:14</publishTime>
-    </File>
-    <File Include="Content/img/carrusel2.png">
-      <publishTime>11/21/2019 17:08:14</publishTime>
-    </File>
-    <File Include="Content/img/carrusel3.png">
-      <publishTime>11/21/2019 17:08:14</publishTime>
-    </File>
-    <File Include="Content/img/carrusel4.png">
-      <publishTime>11/21/2019 17:08:14</publishTime>
-    </File>
-    <File Include="Content/img/carrusel5.png">
-      <publishTime>11/21/2019 17:08:14</publishTime>
-    </File>
-    <File Include="Content/img/glyphicons-44-group.png">
-      <publishTime>11/21/2019 17:08:14</publishTime>
-    </File>
-    <File Include="Content/img/glyphicons-halflings.png">
-      <publishTime>11/21/2019 17:08:14</publishTime>
-    </File>
-    <File Include="Content/img/logo.png">
-      <publishTime>11/21/2019 17:08:14</publishTime>
-    </File>
-    <File Include="Content/img/logoapp.png">
-      <publishTime>11/21/2019 17:08:14</publishTime>
-    </File>
-    <File Include="Content/img/logo_peru_progreso_para_todos.jpg">
-      <publishTime>11/21/2019 17:08:14</publishTime>
-    </File>
-    <File Include="Content/img/logo_recibo_serie1.jpg">
-      <publishTime>11/21/2019 17:08:14</publishTime>
-    </File>
-    <File Include="Content/img/logo_sanipes.jpg">
-      <publishTime>11/21/2019 17:08:14</publishTime>
-    </File>
-    <File Include="Content/img/noticia.jpg">
-      <publishTime>11/21/2019 17:08:14</publishTime>
-    </File>
-    <File Include="Content/img/sanito.png">
-      <publishTime>11/21/2019 17:08:14</publishTime>
-    </File>
-    <File Include="Content/Site.css">
-      <publishTime>11/21/2019 17:08:14</publishTime>
-    </File>
-    <File Include="favicon.ico">
-      <publishTime>11/21/2019 17:08:21</publishTime>
-    </File>
-    <File Include="fonts/glyphicons-halflings-regular.eot">
-      <publishTime>11/21/2019 17:08:21</publishTime>
-    </File>
-    <File Include="fonts/glyphicons-halflings-regular.svg">
-      <publishTime>11/21/2019 17:08:21</publishTime>
-    </File>
-    <File Include="fonts/glyphicons-halflings-regular.ttf">
-      <publishTime>11/21/2019 17:08:21</publishTime>
-    </File>
-    <File Include="fonts/glyphicons-halflings-regular.woff">
-      <publishTime>11/21/2019 17:08:21</publishTime>
-    </File>
-    <File Include="Global.asax">
-      <publishTime>11/21/2019 17:08:14</publishTime>
-=======
       <publishTime>11/26/2019 11:14:50</publishTime>
     </File>
     <File Include="bin/SqlServerTypes/x64/SqlServerSpatial110.dll">
@@ -558,7 +219,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>11/26/2019 11:14:50</publishTime>
     </File>
     <File Include="bin/stdole.dll">
-      <publishTime>10/25/2018 23:42:36</publishTime>
+      <publishTime>11/29/2019 12:08:18</publishTime>
     </File>
     <File Include="bin/System.Net.Http.Formatting.dll">
       <publishTime>11/26/2019 11:14:50</publishTime>
@@ -733,93 +394,11 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     </File>
     <File Include="Global.asax">
       <publishTime>11/26/2019 11:14:48</publishTime>
->>>>>>> ab5a8b811dc67e229addadc7d2127be8ecba5098
     </File>
     <File Include="Librerias/Seguridad.PRODUCE.dll">
       <publishTime>05/28/2015 10:03:11</publishTime>
     </File>
     <File Include="MvcReportViewer.aspx">
-<<<<<<< HEAD
-      <publishTime>11/21/2019 17:08:14</publishTime>
-    </File>
-    <File Include="MvcReportViewerErrorPage.html">
-      <publishTime>11/21/2019 17:08:14</publishTime>
-    </File>
-    <File Include="packages.config">
-      <publishTime>11/21/2019 17:08:21</publishTime>
-    </File>
-    <File Include="Scripts/bootstrap-datetimepicker.es.js">
-      <publishTime>11/21/2019 17:08:14</publishTime>
-    </File>
-    <File Include="Scripts/bootstrap-datetimepicker.min.js">
-      <publishTime>11/21/2019 17:08:14</publishTime>
-    </File>
-    <File Include="Scripts/bootstrap-timepicker.js">
-      <publishTime>11/21/2019 17:08:14</publishTime>
-    </File>
-    <File Include="Scripts/bootstrap-timepicker.min.js">
-      <publishTime>11/21/2019 17:08:14</publishTime>
-    </File>
-    <File Include="Scripts/bootstrap.js">
-      <publishTime>11/21/2019 17:08:14</publishTime>
-    </File>
-    <File Include="Scripts/bootstrap.min.js">
-      <publishTime>11/21/2019 17:08:14</publishTime>
-    </File>
-    <File Include="Scripts/jquery-1.10.2.js">
-      <publishTime>11/21/2019 17:08:14</publishTime>
-    </File>
-    <File Include="Scripts/jquery-1.10.2.min.js">
-      <publishTime>11/21/2019 17:08:14</publishTime>
-    </File>
-    <File Include="Scripts/jquery-1.10.2.min.map">
-      <publishTime>11/21/2019 17:08:14</publishTime>
-    </File>
-    <File Include="Scripts/jquery.dataTables.js">
-      <publishTime>11/21/2019 17:08:14</publishTime>
-    </File>
-    <File Include="Scripts/jquery.validate.js">
-      <publishTime>11/21/2019 17:08:14</publishTime>
-    </File>
-    <File Include="Scripts/jquery.validate.min.js">
-      <publishTime>11/21/2019 17:08:14</publishTime>
-    </File>
-    <File Include="Scripts/jquery.validate.unobtrusive.js">
-      <publishTime>11/21/2019 17:08:14</publishTime>
-    </File>
-    <File Include="Scripts/jquery.validate.unobtrusive.min.js">
-      <publishTime>11/21/2019 17:08:14</publishTime>
-    </File>
-    <File Include="Scripts/modernizr-2.6.2.js">
-      <publishTime>11/21/2019 17:08:14</publishTime>
-    </File>
-    <File Include="Scripts/MvcReportViewer.js">
-      <publishTime>11/21/2019 17:08:14</publishTime>
-    </File>
-    <File Include="Scripts/respond.js">
-      <publishTime>11/21/2019 17:08:14</publishTime>
-    </File>
-    <File Include="Scripts/respond.min.js">
-      <publishTime>11/21/2019 17:08:14</publishTime>
-    </File>
-    <File Include="Scripts/_references.js">
-      <publishTime>11/21/2019 17:08:14</publishTime>
-    </File>
-    <File Include="SqlServerTypes/readme.htm">
-      <publishTime>11/21/2019 17:08:14</publishTime>
-    </File>
-    <File Include="SqlServerTypes/x64/msvcr100.dll">
-      <publishTime>11/21/2019 17:08:29</publishTime>
-    </File>
-    <File Include="SqlServerTypes/x64/SqlServerSpatial110.dll">
-      <publishTime>11/21/2019 17:08:29</publishTime>
-    </File>
-    <File Include="SqlServerTypes/x86/msvcr100.dll">
-      <publishTime>11/21/2019 17:08:29</publishTime>
-    </File>
-    <File Include="SqlServerTypes/x86/SqlServerSpatial110.dll">
-      <publishTime>11/21/2019 17:08:29</publishTime>
-=======
       <publishTime>11/26/2019 11:14:48</publishTime>
     </File>
     <File Include="MvcReportViewerErrorPage.html">
@@ -899,21 +478,11 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     </File>
     <File Include="SqlServerTypes/x86/SqlServerSpatial110.dll">
       <publishTime>11/26/2019 11:14:50</publishTime>
->>>>>>> ab5a8b811dc67e229addadc7d2127be8ecba5098
     </File>
     <File Include="Views/Account/AccesoDenegado.cshtml">
       <publishTime>05/28/2015 10:03:11</publishTime>
     </File>
     <File Include="Views/Account/Error_Logeo.cshtml">
-<<<<<<< HEAD
-      <publishTime>11/21/2019 17:08:14</publishTime>
-    </File>
-    <File Include="Views/Account/Login.cshtml">
-      <publishTime>11/21/2019 17:08:14</publishTime>
-    </File>
-    <File Include="Views/Account/Modificar_Clave.cshtml">
-      <publishTime>11/21/2019 17:08:14</publishTime>
-=======
       <publishTime>11/26/2019 11:14:48</publishTime>
     </File>
     <File Include="Views/Account/Login.cshtml">
@@ -921,7 +490,6 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     </File>
     <File Include="Views/Account/Modificar_Clave.cshtml">
       <publishTime>11/26/2019 11:14:48</publishTime>
->>>>>>> ab5a8b811dc67e229addadc7d2127be8ecba5098
     </File>
     <File Include="Views/AreaProduccion/Actualizar.cshtml">
       <publishTime>07/21/2015 08:19:36</publishTime>
@@ -1062,240 +630,6 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>08/05/2015 10:28:09</publishTime>
     </File>
     <File Include="Views/General/Adjuntar_archivo_operacion.cshtml">
-<<<<<<< HEAD
-      <publishTime>11/21/2019 17:08:14</publishTime>
-    </File>
-    <File Include="Views/General/Consulta_almacen.cshtml">
-      <publishTime>11/21/2019 17:08:14</publishTime>
-    </File>
-    <File Include="Views/General/Consulta_comprobantes_x_mes.cshtml">
-      <publishTime>11/21/2019 17:08:14</publishTime>
-    </File>
-    <File Include="Views/General/Consulta_comprobantes_x_mes_pdf.cshtml">
-      <publishTime>11/21/2019 17:08:14</publishTime>
-    </File>
-    <File Include="Views/General/Consulta_concesion.cshtml">
-      <publishTime>11/21/2019 17:08:14</publishTime>
-    </File>
-    <File Include="Views/General/Consulta_desembarcadero.cshtml">
-      <publishTime>11/21/2019 17:08:14</publishTime>
-    </File>
-    <File Include="Views/General/Consulta_embarcacion.cshtml">
-      <publishTime>11/21/2019 17:08:14</publishTime>
-    </File>
-    <File Include="Views/General/Consulta_expediente.cshtml">
-      <publishTime>11/21/2019 17:08:14</publishTime>
-    </File>
-    <File Include="Views/General/Consulta_factura.cshtml">
-      <publishTime>11/21/2019 17:08:14</publishTime>
-    </File>
-    <File Include="Views/General/Consulta_Operaciones.cshtml">
-      <publishTime>11/21/2019 17:08:14</publishTime>
-    </File>
-    <File Include="Views/General/Consulta_planta.cshtml">
-      <publishTime>11/21/2019 17:08:14</publishTime>
-    </File>
-    <File Include="Views/General/duplicado.cshtml">
-      <publishTime>11/21/2019 17:08:15</publishTime>
-    </File>
-    <File Include="Views/General/Imprimir_li.cshtml">
-      <publishTime>11/21/2019 17:08:14</publishTime>
-    </File>
-    <File Include="Views/General/Imprimir_liquidacion_ingreso_serie_1.cshtml">
-      <publishTime>11/21/2019 17:08:14</publishTime>
-    </File>
-    <File Include="Views/General/Imprimir_rd.cshtml">
-      <publishTime>11/21/2019 17:08:14</publishTime>
-    </File>
-    <File Include="Views/General/Imprimir_recibo_serie1.cshtml">
-      <publishTime>11/21/2019 17:08:14</publishTime>
-    </File>
-    <File Include="Views/General/Movimiento_operacion_exportacion.cshtml">
-      <publishTime>11/21/2019 17:08:15</publishTime>
-    </File>
-    <File Include="Views/General/Nueva_Concesion.cshtml">
-      <publishTime>11/21/2019 17:08:15</publishTime>
-    </File>
-    <File Include="Views/General/Nueva_Embarcacion.cshtml">
-      <publishTime>11/21/2019 17:08:15</publishTime>
-    </File>
-    <File Include="Views/General/Nueva_Factura.cshtml">
-      <publishTime>11/21/2019 17:08:15</publishTime>
-    </File>
-    <File Include="Views/General/Nueva_Operacion.cshtml">
-      <publishTime>11/21/2019 17:08:15</publishTime>
-    </File>
-    <File Include="Views/General/Nueva_Planta.cshtml">
-      <publishTime>11/21/2019 17:08:15</publishTime>
-    </File>
-    <File Include="Views/General/Nuevo_Almacen.cshtml">
-      <publishTime>11/21/2019 17:08:15</publishTime>
-    </File>
-    <File Include="Views/General/Nuevo_Desembarcadero.cshtml">
-      <publishTime>11/21/2019 17:08:15</publishTime>
-    </File>
-    <File Include="Views/General/Nuevo_Expediente.cshtml">
-      <publishTime>11/21/2019 17:08:15</publishTime>
-    </File>
-    <File Include="Views/General/Ver_Protocolos_x_planta.cshtml">
-      <publishTime>11/21/2019 17:08:15</publishTime>
-    </File>
-    <File Include="Views/General/_SuccessGN.cshtml">
-      <publishTime>11/21/2019 17:08:15</publishTime>
-    </File>
-    <File Include="Views/Habilitaciones/actualizar_archivo_acta_si.cshtml">
-      <publishTime>11/21/2019 17:08:15</publishTime>
-    </File>
-    <File Include="Views/Habilitaciones/actualizar_archivo_chck_lst_si.cshtml">
-      <publishTime>11/21/2019 17:08:15</publishTime>
-    </File>
-    <File Include="Views/Habilitaciones/actualizar_archivo_info_si.cshtml">
-      <publishTime>11/21/2019 17:08:15</publishTime>
-    </File>
-    <File Include="Views/Habilitaciones/Adjuntar_archivo_acta_si.cshtml">
-      <publishTime>11/21/2019 17:08:15</publishTime>
-    </File>
-    <File Include="Views/Habilitaciones/Adjuntar_archivo_chk_list_si.cshtml">
-      <publishTime>11/21/2019 17:08:15</publishTime>
-    </File>
-    <File Include="Views/Habilitaciones/Adjuntar_archivo_document_dhcpa.cshtml">
-      <publishTime>11/21/2019 17:08:15</publishTime>
-    </File>
-    <File Include="Views/Habilitaciones/Adjuntar_archivo_informe_si.cshtml">
-      <publishTime>11/21/2019 17:08:15</publishTime>
-    </File>
-    <File Include="Views/Habilitaciones/Adjuntar_archivo_nuevo_seguimiento.cshtml">
-      <publishTime>11/21/2019 17:08:15</publishTime>
-    </File>
-    <File Include="Views/Habilitaciones/Adjuntar_archivo_nuevo_seguimiento_OD.cshtml">
-      <publishTime>11/21/2019 17:08:15</publishTime>
-    </File>
-    <File Include="Views/Habilitaciones/Adjuntar_archivo_pruebas_si.cshtml">
-      <publishTime>11/21/2019 17:08:15</publishTime>
-    </File>
-    <File Include="Views/Habilitaciones/Agregar_Seguimiento.cshtml">
-      <publishTime>11/21/2019 17:08:15</publishTime>
-    </File>
-    <File Include="Views/Habilitaciones/Agregar_Seguimiento_OD.cshtml">
-      <publishTime>11/21/2019 17:08:15</publishTime>
-    </File>
-    <File Include="Views/Habilitaciones/Agregar_Seguimiento_registro_OD.cshtml">
-      <publishTime>11/21/2019 17:08:15</publishTime>
-    </File>
-    <File Include="Views/Habilitaciones/Consulta_Documentos_emitidos_dhcpa.cshtml">
-      <publishTime>12/03/2019 15:34:45</publishTime>
-    </File>
-    <File Include="Views/Habilitaciones/Consulta_Documentos_OD_Por_Recibir.cshtml">
-      <publishTime>11/21/2019 17:08:15</publishTime>
-    </File>
-    <File Include="Views/Habilitaciones/Consulta_seguimiento.cshtml">
-      <publishTime>11/21/2019 17:08:15</publishTime>
-    </File>
-    <File Include="Views/Habilitaciones/Consulta_seguimiento_asitente.cshtml">
-      <publishTime>11/21/2019 17:08:15</publishTime>
-    </File>
-    <File Include="Views/Habilitaciones/Consulta_seguimiento_evaluador.cshtml">
-      <publishTime>11/21/2019 17:08:15</publishTime>
-    </File>
-    <File Include="Views/Habilitaciones/Consulta_seguimiento_habilitaciones.cshtml">
-      <publishTime>11/21/2019 17:08:15</publishTime>
-    </File>
-    <File Include="Views/Habilitaciones/Consulta_seguimiento_x_registro_OD.cshtml">
-      <publishTime>11/21/2019 17:08:15</publishTime>
-    </File>
-    <File Include="Views/Habilitaciones/Consulta_Solicitudes_dhcpa.cshtml">
-      <publishTime>11/21/2019 17:08:15</publishTime>
-    </File>
-    <File Include="Views/Habilitaciones/Documentos_enviados.cshtml">
-      <publishTime>11/21/2019 17:08:15</publishTime>
-    </File>
-    <File Include="Views/Habilitaciones/Documentos_enviados_registrado_x_OD.cshtml">
-      <publishTime>11/21/2019 17:08:15</publishTime>
-    </File>
-    <File Include="Views/Habilitaciones/Documentos_por_recibir_sdhpa.cshtml">
-      <publishTime>11/21/2019 17:08:15</publishTime>
-    </File>
-    <File Include="Views/Habilitaciones/Documentos_por_recibir_x_evaluador.cshtml">
-      <publishTime>11/21/2019 17:08:15</publishTime>
-    </File>
-    <File Include="Views/Habilitaciones/Doc_Asignar_Evaluador.cshtml">
-      <publishTime>11/21/2019 17:08:15</publishTime>
-    </File>
-    <File Include="Views/Habilitaciones/Editar_protocolo_transporte.cshtml">
-      <publishTime>11/21/2019 17:08:15</publishTime>
-    </File>
-    <File Include="Views/Habilitaciones/Imprimir_cedula_notificacion_dhcpa.cshtml">
-      <publishTime>12/04/2019 09:15:14</publishTime>
-    </File>
-    <File Include="Views/Habilitaciones/Imprimir_masivo.cshtml">
-      <publishTime>11/21/2019 17:08:15</publishTime>
-    </File>
-    <File Include="Views/Habilitaciones/Imprimir_masivo_evaluador.cshtml">
-      <publishTime>11/21/2019 17:08:15</publishTime>
-    </File>
-    <File Include="Views/Habilitaciones/Imprimir_Protocolo_transporte.cshtml">
-      <publishTime>11/21/2019 17:08:15</publishTime>
-    </File>
-    <File Include="Views/Habilitaciones/Listado_protocolos.cshtml">
-      <publishTime>11/21/2019 17:08:15</publishTime>
-    </File>
-    <File Include="Views/Habilitaciones/Listado_transportes_hab.cshtml">
-      <publishTime>11/21/2019 17:08:15</publishTime>
-    </File>
-    <File Include="Views/Habilitaciones/Nuevo_Documento_dhcpa.cshtml">
-      <publishTime>12/04/2019 09:08:29</publishTime>
-    </File>
-    <File Include="Views/Habilitaciones/Nuevo_Documento_dhcpa_Certificaciones.cshtml">
-      <publishTime>12/04/2019 09:55:36</publishTime>
-    </File>
-    <File Include="Views/Habilitaciones/Nuevo_Protocolo.cshtml">
-      <publishTime>11/21/2019 17:08:15</publishTime>
-    </File>
-    <File Include="Views/Habilitaciones/Nuevo_Protocolo_Almacen.cshtml">
-      <publishTime>11/21/2019 17:08:15</publishTime>
-    </File>
-    <File Include="Views/Habilitaciones/Nuevo_Protocolo_autorizacion_instalacion.cshtml">
-      <publishTime>11/21/2019 17:08:15</publishTime>
-    </File>
-    <File Include="Views/Habilitaciones/Nuevo_Protocolo_Concesion.cshtml">
-      <publishTime>11/21/2019 17:08:15</publishTime>
-    </File>
-    <File Include="Views/Habilitaciones/Nuevo_Protocolo_Desembarcadero.cshtml">
-      <publishTime>11/21/2019 17:08:15</publishTime>
-    </File>
-    <File Include="Views/Habilitaciones/Nuevo_Protocolo_Embarcacion.cshtml">
-      <publishTime>11/21/2019 17:08:15</publishTime>
-    </File>
-    <File Include="Views/Habilitaciones/Nuevo_Protocolo_licencia_operacion.cshtml">
-      <publishTime>11/21/2019 17:08:15</publishTime>
-    </File>
-    <File Include="Views/Habilitaciones/Nuevo_Protocolo_transporte.cshtml">
-      <publishTime>11/21/2019 17:08:15</publishTime>
-    </File>
-    <File Include="Views/Habilitaciones/Nuevo_Seguimiento.cshtml">
-      <publishTime>11/21/2019 17:08:15</publishTime>
-    </File>
-    <File Include="Views/Habilitaciones/Nuevo_Seguimiento_OD.cshtml">
-      <publishTime>11/21/2019 17:08:15</publishTime>
-    </File>
-    <File Include="Views/Habilitaciones/Nuevo_Seguimiento_reistro_OD.cshtml">
-      <publishTime>11/21/2019 17:08:15</publishTime>
-    </File>
-    <File Include="Views/Habilitaciones/publicar_protocolos.cshtml">
-      <publishTime>11/21/2019 17:08:15</publishTime>
-    </File>
-    <File Include="Views/Habilitaciones/Reporte_TUPA_SDHPA.cshtml">
-      <publishTime>11/21/2019 17:08:15</publishTime>
-    </File>
-    <File Include="Views/Habilitaciones/Subir_Protocolo_transporte.cshtml">
-      <publishTime>11/21/2019 17:08:15</publishTime>
-    </File>
-    <File Include="Views/Habilitaciones/ver_pruebas_adjunto_si.cshtml">
-      <publishTime>11/21/2019 17:08:15</publishTime>
-    </File>
-    <File Include="Views/Habilitaciones/_Success_NS.cshtml">
-      <publishTime>11/21/2019 17:08:15</publishTime>
-=======
       <publishTime>11/26/2019 11:14:48</publishTime>
     </File>
     <File Include="Views/General/Consulta_almacen.cshtml">
@@ -1525,90 +859,11 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     </File>
     <File Include="Views/Habilitaciones/_Success_NS.cshtml">
       <publishTime>11/26/2019 11:14:48</publishTime>
->>>>>>> ab5a8b811dc67e229addadc7d2127be8ecba5098
     </File>
     <File Include="Views/Habilitaciones_Protocolos/Nuevo_Protocolo_Antiguo_Planta.cshtml">
       <publishTime>12/28/2016 11:26:17</publishTime>
     </File>
     <File Include="Views/HojaTramite/Adjuntar_Documento_anexo_ht.cshtml">
-<<<<<<< HEAD
-      <publishTime>11/21/2019 17:08:15</publishTime>
-    </File>
-    <File Include="Views/HojaTramite/Adjuntar_Documento_ht.cshtml">
-      <publishTime>11/21/2019 17:08:15</publishTime>
-    </File>
-    <File Include="Views/HojaTramite/Adjuntar_HT.cshtml">
-      <publishTime>11/21/2019 17:08:15</publishTime>
-    </File>
-    <File Include="Views/HojaTramite/Consultar_Documentos_x_oficina.cshtml">
-      <publishTime>11/21/2019 17:08:16</publishTime>
-    </File>
-    <File Include="Views/HojaTramite/Consultar_HT_General.cshtml">
-      <publishTime>11/21/2019 17:08:16</publishTime>
-    </File>
-    <File Include="Views/HojaTramite/Consultar_mis_Archivados.cshtml">
-      <publishTime>11/21/2019 17:08:16</publishTime>
-    </File>
-    <File Include="Views/HojaTramite/Consultar_mis_Atendidos.cshtml">
-      <publishTime>11/21/2019 17:08:16</publishTime>
-    </File>
-    <File Include="Views/HojaTramite/Consultar_mis_Finalizados.cshtml">
-      <publishTime>11/21/2019 17:08:16</publishTime>
-    </File>
-    <File Include="Views/HojaTramite/Consultar_mis_HT.cshtml">
-      <publishTime>11/21/2019 17:08:16</publishTime>
-    </File>
-    <File Include="Views/HojaTramite/Editar_HojaTramite.cshtml">
-      <publishTime>11/21/2019 17:08:16</publishTime>
-    </File>
-    <File Include="Views/HojaTramite/Editar_Persona.cshtml">
-      <publishTime>11/21/2019 17:08:16</publishTime>
-    </File>
-    <File Include="Views/HojaTramite/Imprimir_Administrado.cshtml">
-      <publishTime>11/21/2019 17:08:16</publishTime>
-    </File>
-    <File Include="Views/HojaTramite/Imprimir_cuadro_pendientes.cshtml">
-      <publishTime>11/21/2019 17:08:16</publishTime>
-    </File>
-    <File Include="Views/HojaTramite/Imprimir_History.cshtml">
-      <publishTime>11/21/2019 17:08:16</publishTime>
-    </File>
-    <File Include="Views/HojaTramite/Imprimir_HT.cshtml">
-      <publishTime>11/21/2019 17:08:16</publishTime>
-    </File>
-    <File Include="Views/HojaTramite/Imprimir_masivo.cshtml">
-      <publishTime>11/21/2019 17:08:16</publishTime>
-    </File>
-    <File Include="Views/HojaTramite/Imprimir_Nuevo.cshtml">
-      <publishTime>11/21/2019 17:08:16</publishTime>
-    </File>
-    <File Include="Views/HojaTramite/Imprimir_Orden_Ensayo.cshtml">
-      <publishTime>11/21/2019 17:08:16</publishTime>
-    </File>
-    <File Include="Views/HojaTramite/Imprimir_Pendientes.cshtml">
-      <publishTime>11/21/2019 17:08:16</publishTime>
-    </File>
-    <File Include="Views/HojaTramite/Imprimir_pendientes_new.cshtml">
-      <publishTime>11/21/2019 17:08:16</publishTime>
-    </File>
-    <File Include="Views/HojaTramite/Imprimir_Pendientes_x_persona.cshtml">
-      <publishTime>11/21/2019 17:08:16</publishTime>
-    </File>
-    <File Include="Views/HojaTramite/Imprimir_reporte_usuario.cshtml">
-      <publishTime>11/21/2019 17:08:16</publishTime>
-    </File>
-    <File Include="Views/HojaTramite/imprimir_reporte_usuario_new.cshtml">
-      <publishTime>11/21/2019 17:08:16</publishTime>
-    </File>
-    <File Include="Views/HojaTramite/Imprimir_Vacia.cshtml">
-      <publishTime>11/21/2019 17:08:16</publishTime>
-    </File>
-    <File Include="Views/HojaTramite/Listar_Persona_Natural.cshtml">
-      <publishTime>11/21/2019 17:08:16</publishTime>
-    </File>
-    <File Include="Views/HojaTramite/Lista_Hojas_Tramite_x_pedido.cshtml">
-      <publishTime>11/21/2019 17:08:16</publishTime>
-=======
       <publishTime>11/26/2019 11:14:48</publishTime>
     </File>
     <File Include="Views/HojaTramite/Adjuntar_Documento_ht.cshtml">
@@ -1685,45 +940,11 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     </File>
     <File Include="Views/HojaTramite/Lista_Hojas_Tramite_x_pedido.cshtml">
       <publishTime>11/26/2019 11:14:48</publishTime>
->>>>>>> ab5a8b811dc67e229addadc7d2127be8ecba5098
     </File>
     <File Include="Views/HojaTramite/Nueva_HojaTramite.cshtml">
       <publishTime>09/02/2015 14:43:48</publishTime>
     </File>
     <File Include="Views/HojaTramite/Nueva_Natural.cshtml">
-<<<<<<< HEAD
-      <publishTime>11/25/2019 08:55:31</publishTime>
-    </File>
-    <File Include="Views/HojaTramite/Nuevo_Documento.cshtml">
-      <publishTime>11/21/2019 17:08:16</publishTime>
-    </File>
-    <File Include="Views/HojaTramite/Nuevo_Documento_Externo.cshtml">
-      <publishTime>11/21/2019 17:08:16</publishTime>
-    </File>
-    <File Include="Views/HojaTramite/Nuevo_Documento_Informacion.cshtml">
-      <publishTime>11/21/2019 17:08:16</publishTime>
-    </File>
-    <File Include="Views/HojaTramite/Nuevo_Externo.cshtml">
-      <publishTime>11/21/2019 17:08:16</publishTime>
-    </File>
-    <File Include="Views/HojaTramite/Por_Recibir_Ht.cshtml">
-      <publishTime>11/21/2019 17:08:16</publishTime>
-    </File>
-    <File Include="Views/HojaTramite/Recibidos_Archivados_Atendidos.cshtml">
-      <publishTime>11/21/2019 17:08:16</publishTime>
-    </File>
-    <File Include="Views/HojaTramite/Recibidos_HT.cshtml">
-      <publishTime>11/21/2019 17:08:16</publishTime>
-    </File>
-    <File Include="Views/HojaTramite/Salida_HT.cshtml">
-      <publishTime>11/21/2019 17:08:16</publishTime>
-    </File>
-    <File Include="Views/HojaTramite/Ver_Historial_HT.cshtml">
-      <publishTime>11/21/2019 17:08:16</publishTime>
-    </File>
-    <File Include="Views/HojaTramite/Ver_PDF.cshtml">
-      <publishTime>11/21/2019 17:08:16</publishTime>
-=======
       <publishTime>11/27/2019 09:10:16</publishTime>
     </File>
     <File Include="Views/HojaTramite/Nuevo_Documento.cshtml">
@@ -1755,24 +976,11 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     </File>
     <File Include="Views/HojaTramite/Ver_PDF.cshtml">
       <publishTime>11/26/2019 11:14:48</publishTime>
->>>>>>> ab5a8b811dc67e229addadc7d2127be8ecba5098
     </File>
     <File Include="Views/HojaTramite/_Success.cshtml">
       <publishTime>05/28/2015 10:03:11</publishTime>
     </File>
     <File Include="Views/HojaTramite/_SuccessHT.cshtml">
-<<<<<<< HEAD
-      <publishTime>11/21/2019 17:08:16</publishTime>
-    </File>
-    <File Include="Views/Inicio/Index.cshtml">
-      <publishTime>11/21/2019 17:08:16</publishTime>
-    </File>
-    <File Include="Views/Inspeccion/Consulta_Solicitud_Inspeccion_OD.cshtml">
-      <publishTime>11/21/2019 17:08:16</publishTime>
-    </File>
-    <File Include="Views/Inspeccion/c_solicitud_inspeccion_x_inspector_od.cshtml">
-      <publishTime>11/21/2019 17:08:16</publishTime>
-=======
       <publishTime>11/26/2019 11:14:48</publishTime>
     </File>
     <File Include="Views/Inicio/Index.cshtml">
@@ -1783,7 +991,6 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     </File>
     <File Include="Views/Inspeccion/c_solicitud_inspeccion_x_inspector_od.cshtml">
       <publishTime>11/26/2019 11:14:48</publishTime>
->>>>>>> ab5a8b811dc67e229addadc7d2127be8ecba5098
     </File>
     <File Include="Views/LoteExportacion/CertificarLoteExportacionAprobado.cshtml">
       <publishTime>05/28/2015 10:03:11</publishTime>
@@ -1822,15 +1029,6 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>05/28/2015 10:03:11</publishTime>
     </File>
     <File Include="Views/Oficina/Listar_Oficina.cshtml">
-<<<<<<< HEAD
-      <publishTime>11/21/2019 17:08:16</publishTime>
-    </File>
-    <File Include="Views/Oficina/Nueva_Oficina.cshtml">
-      <publishTime>11/21/2019 17:08:16</publishTime>
-    </File>
-    <File Include="Views/Oficina/_Success_OFICINA.cshtml">
-      <publishTime>11/21/2019 17:08:16</publishTime>
-=======
       <publishTime>11/26/2019 11:14:48</publishTime>
     </File>
     <File Include="Views/Oficina/Nueva_Oficina.cshtml">
@@ -1838,7 +1036,6 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     </File>
     <File Include="Views/Oficina/_Success_OFICINA.cshtml">
       <publishTime>11/26/2019 11:14:48</publishTime>
->>>>>>> ab5a8b811dc67e229addadc7d2127be8ecba5098
     </File>
     <File Include="Views/PackingList/Actualizar.cshtml">
       <publishTime>07/21/2015 16:58:44</publishTime>
@@ -1949,21 +1146,6 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>05/28/2015 10:03:11</publishTime>
     </File>
     <File Include="Views/Shared/_Layout.cshtml">
-<<<<<<< HEAD
-      <publishTime>11/21/2019 17:08:16</publishTime>
-    </File>
-    <File Include="Views/Shared/_LoginPartial.cshtml">
-      <publishTime>11/21/2019 17:08:16</publishTime>
-    </File>
-    <File Include="Views/Shared/_MenuPartial.cshtml">
-      <publishTime>11/25/2019 13:23:00</publishTime>
-    </File>
-    <File Include="Views/Shared/_Success.cshtml">
-      <publishTime>11/21/2019 17:08:16</publishTime>
-    </File>
-    <File Include="Views/Web.config">
-      <publishTime>11/21/2019 17:08:16</publishTime>
-=======
       <publishTime>11/26/2019 11:14:48</publishTime>
     </File>
     <File Include="Views/Shared/_LoginPartial.cshtml">
@@ -1977,7 +1159,6 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     </File>
     <File Include="Views/Web.config">
       <publishTime>11/26/2019 11:14:48</publishTime>
->>>>>>> ab5a8b811dc67e229addadc7d2127be8ecba5098
     </File>
     <File Include="Views/ZonaProduccion/Actualizar.cshtml">
       <publishTime>07/22/2015 08:32:30</publishTime>
@@ -1992,11 +1173,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>05/28/2015 10:03:11</publishTime>
     </File>
     <File Include="Views/_ViewStart.cshtml">
-<<<<<<< HEAD
-      <publishTime>11/21/2019 17:08:16</publishTime>
-=======
       <publishTime>11/26/2019 11:14:48</publishTime>
->>>>>>> ab5a8b811dc67e229addadc7d2127be8ecba5098
     </File>
     <File Include="Web References/ServiceReniec/BuscarPersonaResult.datasource">
       <publishTime>06/10/2015 17:59:36</publishTime>
@@ -2005,11 +1182,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>06/10/2015 17:59:35</publishTime>
     </File>
     <File Include="Web.config">
-<<<<<<< HEAD
-      <publishTime>12/04/2019 10:02:24</publishTime>
-=======
-      <publishTime>11/29/2019 10:19:45</publishTime>
->>>>>>> ab5a8b811dc67e229addadc7d2127be8ecba5098
+      <publishTime>12/02/2019 16:47:17</publishTime>
     </File>
   </ItemGroup>
 </Project>

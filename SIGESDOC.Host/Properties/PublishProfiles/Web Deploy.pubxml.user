@@ -6,88 +6,13 @@ by editing this MSBuild file. In order to learn more about this please visit htt
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <TimeStampOfAssociatedLegacyPublishXmlFile />
-    <_PublishTargetUrl>C:\inetpub\wwwroot\SIGESDOC\HOST</_PublishTargetUrl>
+    <_PublishTargetUrl>C:\Users\andres.albarracin\Desktop\PREPRO SIGESDOC\HOST</_PublishTargetUrl>
   </PropertyGroup>
   <ItemGroup>
     <File Include="bin/Aspose.Words.dll">
-      <publishTime>11/04/2019 09:30:26</publishTime>
+      <publishTime>04/11/2019 09:30:26</publishTime>
     </File>
     <File Include="bin/Autofac.dll">
-<<<<<<< HEAD
-      <publishTime>11/21/2019 17:08:22</publishTime>
-    </File>
-    <File Include="bin/Autofac.Integration.Wcf.dll">
-      <publishTime>11/21/2019 17:08:22</publishTime>
-    </File>
-    <File Include="bin/EntityFramework.dll">
-      <publishTime>11/21/2019 17:08:25</publishTime>
-    </File>
-    <File Include="bin/EntityFramework.SqlServer.dll">
-      <publishTime>11/21/2019 17:08:25</publishTime>
-    </File>
-    <File Include="bin/SIGESDOC.AplicacionService.dll">
-      <publishTime>12/04/2019 09:57:32</publishTime>
-    </File>
-    <File Include="bin/SIGESDOC.AplicacionService.pdb">
-      <publishTime>12/04/2019 09:57:32</publishTime>
-    </File>
-    <File Include="bin/SIGESDOC.Contexto.dll">
-      <publishTime>12/04/2019 09:57:30</publishTime>
-    </File>
-    <File Include="bin/SIGESDOC.Contexto.dll.config">
-      <publishTime>12/04/2019 08:59:30</publishTime>
-    </File>
-    <File Include="bin/SIGESDOC.Contexto.pdb">
-      <publishTime>12/04/2019 09:57:30</publishTime>
-    </File>
-    <File Include="bin/SIGESDOC.Entidades.dll">
-      <publishTime>12/04/2019 09:57:29</publishTime>
-    </File>
-    <File Include="bin/SIGESDOC.Entidades.pdb">
-      <publishTime>12/04/2019 09:57:29</publishTime>
-    </File>
-    <File Include="bin/SIGESDOC.Host.dll">
-      <publishTime>12/04/2019 09:57:35</publishTime>
-    </File>
-    <File Include="bin/SIGESDOC.Host.pdb">
-      <publishTime>12/04/2019 09:57:35</publishTime>
-    </File>
-    <File Include="bin/SIGESDOC.IAplicacionService.dll">
-      <publishTime>12/04/2019 09:57:30</publishTime>
-    </File>
-    <File Include="bin/SIGESDOC.IAplicacionService.pdb">
-      <publishTime>12/04/2019 09:57:30</publishTime>
-    </File>
-    <File Include="bin/SIGESDOC.IRepositorio.dll">
-      <publishTime>12/04/2019 09:57:30</publishTime>
-    </File>
-    <File Include="bin/SIGESDOC.IRepositorio.dll.config">
-      <publishTime>11/21/2019 17:08:11</publishTime>
-    </File>
-    <File Include="bin/SIGESDOC.IRepositorio.pdb">
-      <publishTime>12/04/2019 09:57:30</publishTime>
-    </File>
-    <File Include="bin/SIGESDOC.Repositorio.dll">
-      <publishTime>12/04/2019 09:57:34</publishTime>
-    </File>
-    <File Include="bin/SIGESDOC.Repositorio.dll.config">
-      <publishTime>11/21/2019 17:08:11</publishTime>
-    </File>
-    <File Include="bin/SIGESDOC.Repositorio.pdb">
-      <publishTime>12/04/2019 09:57:34</publishTime>
-    </File>
-    <File Include="bin/SIGESDOC.Request.dll">
-      <publishTime>12/04/2019 09:57:29</publishTime>
-    </File>
-    <File Include="bin/SIGESDOC.Request.pdb">
-      <publishTime>12/04/2019 09:57:29</publishTime>
-    </File>
-    <File Include="bin/SIGESDOC.Response.dll">
-      <publishTime>12/04/2019 09:57:29</publishTime>
-    </File>
-    <File Include="bin/SIGESDOC.Response.pdb">
-      <publishTime>12/04/2019 09:57:29</publishTime>
-=======
       <publishTime>11/26/2019 11:14:49</publishTime>
     </File>
     <File Include="bin/Autofac.Integration.Wcf.dll">
@@ -100,110 +25,97 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>11/26/2019 11:14:49</publishTime>
     </File>
     <File Include="bin/SIGESDOC.AplicacionService.dll">
-      <publishTime>11/29/2019 10:20:28</publishTime>
+      <publishTime>12/02/2019 08:44:35</publishTime>
     </File>
     <File Include="bin/SIGESDOC.AplicacionService.pdb">
-      <publishTime>11/29/2019 10:20:28</publishTime>
+      <publishTime>12/02/2019 08:44:35</publishTime>
     </File>
     <File Include="bin/SIGESDOC.Contexto.dll">
-      <publishTime>11/29/2019 10:20:24</publishTime>
+      <publishTime>12/02/2019 08:44:29</publishTime>
     </File>
     <File Include="bin/SIGESDOC.Contexto.dll.config">
-      <publishTime>11/29/2019 09:13:27</publishTime>
+      <publishTime>11/29/2019 14:10:32</publishTime>
     </File>
     <File Include="bin/SIGESDOC.Contexto.pdb">
-      <publishTime>11/29/2019 10:20:24</publishTime>
+      <publishTime>12/02/2019 08:44:29</publishTime>
     </File>
     <File Include="bin/SIGESDOC.Entidades.dll">
-      <publishTime>11/29/2019 10:20:23</publishTime>
+      <publishTime>12/02/2019 08:44:22</publishTime>
     </File>
     <File Include="bin/SIGESDOC.Entidades.pdb">
-      <publishTime>11/29/2019 10:20:23</publishTime>
+      <publishTime>12/02/2019 08:44:22</publishTime>
     </File>
     <File Include="bin/SIGESDOC.Host.dll">
-      <publishTime>11/29/2019 13:46:59</publishTime>
+      <publishTime>12/02/2019 16:20:32</publishTime>
     </File>
     <File Include="bin/SIGESDOC.Host.pdb">
-      <publishTime>11/29/2019 13:46:59</publishTime>
+      <publishTime>12/02/2019 16:20:32</publishTime>
     </File>
     <File Include="bin/SIGESDOC.IAplicacionService.dll">
-      <publishTime>11/27/2019 08:20:44</publishTime>
+      <publishTime>12/02/2019 08:43:21</publishTime>
     </File>
     <File Include="bin/SIGESDOC.IAplicacionService.pdb">
-      <publishTime>11/27/2019 08:20:44</publishTime>
+      <publishTime>12/02/2019 08:43:21</publishTime>
     </File>
     <File Include="bin/SIGESDOC.IRepositorio.dll">
-      <publishTime>11/29/2019 10:20:25</publishTime>
+      <publishTime>12/02/2019 08:44:33</publishTime>
     </File>
     <File Include="bin/SIGESDOC.IRepositorio.dll.config">
       <publishTime>11/26/2019 11:14:46</publishTime>
     </File>
     <File Include="bin/SIGESDOC.IRepositorio.pdb">
-      <publishTime>11/29/2019 10:20:25</publishTime>
+      <publishTime>12/02/2019 08:44:33</publishTime>
     </File>
     <File Include="bin/SIGESDOC.Repositorio.dll">
-      <publishTime>11/29/2019 10:20:27</publishTime>
+      <publishTime>12/02/2019 08:44:41</publishTime>
     </File>
     <File Include="bin/SIGESDOC.Repositorio.dll.config">
       <publishTime>11/26/2019 11:14:47</publishTime>
     </File>
     <File Include="bin/SIGESDOC.Repositorio.pdb">
-      <publishTime>11/29/2019 10:20:27</publishTime>
+      <publishTime>12/02/2019 08:44:41</publishTime>
     </File>
     <File Include="bin/SIGESDOC.Request.dll">
-      <publishTime>11/27/2019 08:20:41</publishTime>
+      <publishTime>12/02/2019 08:43:20</publishTime>
     </File>
     <File Include="bin/SIGESDOC.Request.pdb">
-      <publishTime>11/27/2019 08:20:41</publishTime>
+      <publishTime>12/02/2019 08:43:20</publishTime>
     </File>
     <File Include="bin/SIGESDOC.Response.dll">
-      <publishTime>11/27/2019 08:20:42</publishTime>
+      <publishTime>12/02/2019 08:43:20</publishTime>
     </File>
     <File Include="bin/SIGESDOC.Response.pdb">
-      <publishTime>11/27/2019 08:20:42</publishTime>
->>>>>>> ab5a8b811dc67e229addadc7d2127be8ecba5098
+      <publishTime>12/02/2019 08:43:20</publishTime>
     </File>
     <File Include="bin/SISBIVALVOS.AplicacionService.dll">
-      <publishTime>08/06/2015 18:44:16</publishTime>
+      <publishTime>06/08/2015 18:44:16</publishTime>
     </File>
     <File Include="bin/SISBIVALVOS.Contexto.dll">
-      <publishTime>08/06/2015 18:44:14</publishTime>
+      <publishTime>06/08/2015 18:44:14</publishTime>
     </File>
     <File Include="bin/SISBIVALVOS.Entidades.dll">
-      <publishTime>08/06/2015 18:44:14</publishTime>
+      <publishTime>06/08/2015 18:44:14</publishTime>
     </File>
     <File Include="bin/SISBIVALVOS.Host.dll">
-      <publishTime>08/06/2015 18:44:16</publishTime>
+      <publishTime>06/08/2015 18:44:16</publishTime>
     </File>
     <File Include="bin/SISBIVALVOS.IAplicacionService.dll">
-      <publishTime>08/06/2015 18:44:15</publishTime>
+      <publishTime>06/08/2015 18:44:15</publishTime>
     </File>
     <File Include="bin/SISBIVALVOS.IRepositorio.dll">
-      <publishTime>08/06/2015 18:44:15</publishTime>
+      <publishTime>06/08/2015 18:44:15</publishTime>
     </File>
     <File Include="bin/SISBIVALVOS.Repositorio.dll">
-      <publishTime>08/06/2015 18:44:16</publishTime>
+      <publishTime>06/08/2015 18:44:16</publishTime>
     </File>
     <File Include="bin/SISBIVALVOS.Request.dll">
-      <publishTime>08/06/2015 18:44:15</publishTime>
+      <publishTime>06/08/2015 18:44:15</publishTime>
     </File>
     <File Include="bin/SISBIVALVOS.Response.dll">
-      <publishTime>08/06/2015 18:44:15</publishTime>
+      <publishTime>06/08/2015 18:44:15</publishTime>
     </File>
     <File Include="Connected Services/MesaVirtualService/SIGESDOC.Host.MesaVirtualService.RecepcionResponse.datasource">
-<<<<<<< HEAD
-      <publishTime>11/21/2019 17:08:11</publishTime>
-    </File>
-    <File Include="Global.asax">
-      <publishTime>11/21/2019 17:08:11</publishTime>
-    </File>
-    <File Include="packages.config">
-      <publishTime>11/21/2019 17:08:11</publishTime>
-    </File>
-    <File Include="Web.config">
-      <publishTime>12/04/2019 10:02:52</publishTime>
-=======
-      <publishTime>11/26/2019 11:14:45</publishTime>
+      <publishTime>01/01/0001 00:00:00</publishTime>
     </File>
     <File Include="Global.asax">
       <publishTime>11/26/2019 11:14:45</publishTime>
@@ -212,8 +124,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>11/28/2019 17:08:21</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>11/29/2019 10:20:30</publishTime>
->>>>>>> ab5a8b811dc67e229addadc7d2127be8ecba5098
+      <publishTime>12/02/2019 08:44:47</publishTime>
     </File>
   </ItemGroup>
 </Project>

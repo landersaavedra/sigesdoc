@@ -9,6 +9,9 @@ namespace SIGESDOC.Request
     public class CargaInvitacionWord
     {
         public string FECHA_ACTUAL { get; set; }
-            
+        public string NOM_DOC { get; set; }
+
+        public string ASUNTO { get; set; }
+
     }
 }

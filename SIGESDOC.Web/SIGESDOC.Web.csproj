@@ -54,6 +54,9 @@
       <HintPath>..\packages\Autofac.Wcf.3.0.1\lib\net40\Autofac.Integration.Wcf.dll</HintPath>
     </Reference>
     <Reference Include="DocumentFormat.OpenXml, Version=2.5.5631.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="DotCMIS, Version=0.6.0.0, Culture=neutral, PublicKeyToken=0377a82433ccbb00, processorArchitecture=MSIL">
+      <HintPath>..\packages\Apache.DotCMIS.0.6\lib\DotCMIS.dll</HintPath>
+    </Reference>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\EntityFramework.6.1.1\lib\net45\EntityFramework.dll</HintPath>
@@ -315,6 +318,7 @@
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="login.json" />
     <None Include="Properties\PublishProfiles\CustomProfile.pubxml" />
     <None Include="Properties\PublishProfiles\Web Deploy.pubxml" />
     <None Include="Properties\Settings.settings">
@@ -469,15 +473,10 @@
     <Content Include="Views\HojaTramite\imprimir_reporte_usuario_new.cshtml" />
     <Content Include="Views\Habilitaciones\Consulta_seguimiento_habilitaciones.cshtml" />
     <Content Include="Views\HojaTramite\Nuevo_Documento_Informacion.cshtml" />
-
-    <Content Include="Views\Habilitaciones\Imprimir_cedula_notificacion_dhcpa.cshtml" />
-
     <Content Include="Views\Recepcion\Consulta_Recepcion.cshtml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Views\Recepcion\Detalle_Recepcion.cshtml" />
-    <Content Include="Views\Documents\Cedula_Notificacion.cshtml" />
-
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -489,7 +488,6 @@
     <Folder Include="App_Data\" />
     <Folder Include="Planillas\" />
     <Folder Include="Reports\" />
-    <Folder Include="Views\Recepcion\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />

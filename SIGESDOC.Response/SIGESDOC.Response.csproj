@@ -228,6 +228,9 @@
     <Compile Include="DestinoSolicitudInspeccionResponse.cs">
       <DependentUpon>ResponseObjects.tt</DependentUpon>
     </Compile>
+    <Compile Include="DetalleMaeDocumentoResponse.cs">
+      <DependentUpon>ResponseObjects.tt</DependentUpon>
+    </Compile>
     <Compile Include="DetDocFactResponse.cs">
       <DependentUpon>ResponseObjects.tt</DependentUpon>
     </Compile>

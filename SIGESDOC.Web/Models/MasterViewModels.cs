@@ -261,6 +261,7 @@ namespace SIGESDOC.Web.Models
         public string indicadores { get; set; }
         public string usuario_cancelar { get; set; }
         public Nullable<System.DateTime> fecha_cancelar { get; set; }
+        public bool flag_destino_principal { get; set; }
 
     }
     

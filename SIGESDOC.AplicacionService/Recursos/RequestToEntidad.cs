@@ -147,7 +147,8 @@ namespace SIGESDOC.AplicacionService
                 USUARIO_CANCELAR = request.usuario_cancelar,
                 FECHA_CANCELAR = request.fecha_cancelar,
                 NOM_OFICINA_CREA = request.nom_oficina_crea,
-                NOM_OFICINA_DESTINO = request.nom_oficina_destino
+                NOM_OFICINA_DESTINO = request.nom_oficina_destino,
+                FLAG_DESTINO_PRINCIPAL = request.flag_destino_principal
             };
             return item;
         }

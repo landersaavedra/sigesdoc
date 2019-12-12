@@ -71,7 +71,7 @@ namespace SIGESDOC.Web.Controllers
         private readonly IHojaTramiteService _HojaTramiteService;
         private readonly IGeneralService _GeneralService;
         private readonly IOficinaService _OficinaService;
-
+        
         public HojaTramiteController(IHojaTramiteService HojaTramiteService, IGeneralService GeneralService, IOficinaService OficinaService)
         {
             _HojaTramiteService = HojaTramiteService;
@@ -381,6 +381,7 @@ namespace SIGESDOC.Web.Controllers
                                 }
                             }
                         }
+                        
 
                         model.id_documento = _HojaTramiteService.Documento_Create(request2);
 
@@ -419,6 +420,7 @@ namespace SIGESDOC.Web.Controllers
                                 request3.id_documento = model.id_documento;
                                 request3.nom_oficina_crea = model.nom_oficina_crea;
                                 request3.id_est_tramite = 1;
+                                request3.flag_destino_principal = obj.flag_destino_principal;
                                 request3.nom_oficina_destino = _GeneralService.recupera_oficina(request3.oficina_destino).nombre + " - " + _GeneralService.Recupera_sede_x_id_ofi_dir(request3.oficina_destino).nombre;
                                 _HojaTramiteService.Documento_detalle_Create(request3);
                             }
@@ -426,9 +428,9 @@ namespace SIGESDOC.Web.Controllers
                         @ViewBag.Mensaje = "Hoja de Trámite Nro : " + request.hoja_tramite + " : " + model.numero.ToString() + "  Clave: " + model.clave;
 
                     }
-                    catch (Exception)
+                    catch (Exception e)
                     {
-                        @ViewBag.Mensaje = "";
+                        @ViewBag.Mensaje = e.Message;
                     }
                     return PartialView("_SuccessHT");
                 }
@@ -732,8 +734,6 @@ namespace SIGESDOC.Web.Controllers
                 return RedirectToAction("Index", "Inicio");
             }
         }
-
-
         [AllowAnonymous]
         public ActionResult Adjuntar_Documento(string id)
         {
@@ -1933,6 +1933,7 @@ namespace SIGESDOC.Web.Controllers
                     ViewBag.Crear = true;
 
                     DataTable tbl = new DataTable();
+                    tbl.Columns.Add("NOMBRE_TIPO_DOCUMENTO");
                     tbl.Columns.Add("HOJA_TRAMITE");
                     tbl.Columns.Add("NOMBRE_TIPO_TRAMITE");
                     tbl.Columns.Add("TUPA");
@@ -1952,6 +1953,7 @@ namespace SIGESDOC.Web.Controllers
                     foreach (var result in documento)
                     {
                         tbl.Rows.Add(
+                            result.hoja_tramite.nombre_tipo_documento,
                             result.hoja_tramite.hoja_tramite,
                             result.hoja_tramite.nombre_tipo_tramite,
                             result.hoja_tramite.nom_tupa,
@@ -7150,6 +7152,9 @@ namespace SIGESDOC.Web.Controllers
             application.Visible = true;
 
         }
+
+       
+        
     }
 }
 

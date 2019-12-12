@@ -14,6 +14,7 @@ namespace SIGESDOC.Response
 
     public partial class HojaTramiteResponse
     {
+        public string nombre_tipo_documento { get; set; }
         public string nombre_oficina { get; set; }
         public string nombre_tipo_tramite { get; set; }
         public string fecha_emision_text { get; set; }

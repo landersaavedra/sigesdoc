@@ -1,0 +1,161 @@
+﻿
+<div class="bottom hidden"></div>
+<div id="mensajes"></div>
+
+<ol class="breadcrumb" style="margin-bottom: 5px;">
+    <li>Adjuntar Archivo</li>
+</ol>
+
+<div class="bs-callout bs-callout-info">
+    <h4>@Html.Label("", (string)ViewBag.Str_HT) </h4>
+    <h4>Adjuntar Archivo</h4>
+    <p>Use el siguiente formulario para adjuntar archivo al expediente</p>
+</div>
+
+@using (Html.BeginForm("Adjuntar_archivo_nuevo_seguimiento", "Habilitaciones", FormMethod.Post, new { @id = "nuevoForm", @enctype = "multipart/form-data" }))
+{
+
+    @Html.AntiForgeryToken()
+    <div class="form-horizontal">
+
+        <div class="row hidden">
+                        @Html.TextBox("id_documento", (string)ViewBag.Str_HT)
+                        @Html.TextBox("id_adjunto_uno", (int)ViewBag.id_uno)
+                        @Html.TextBox("id_adjunto_dos", (int)ViewBag.id_dos)
+                        @Html.TextBox("id_adjunto_tres", (int)ViewBag.id_tres)
+                        @Html.TextBox("id_adjunto_cuatro", (int)ViewBag.id_cuatro)
+        </div>
+
+        <div class="form-group">
+            @Html.Label("DOCUMENTO", new { @class = "col-md-6 control-label" })
+            <div class="col-md-6">
+                <input type="file" name="file" />
+            </div>
+        </div>
+        <h2></h2>
+        @if (1 <= (int)ViewBag.cantidad_archivo)
+        {
+            <div class="form-group">
+                @Html.Label("", (string)ViewBag.texto_uno, new { @class = "col-md-6 control-label" })
+                <div class="col-md-2">
+                    <input type="file" name="file2" />
+                </div>
+            </div>
+            <h2></h2>
+        }
+        @if (2 <= (int)ViewBag.cantidad_archivo)
+        {
+        <div class="form-group">
+            @Html.Label("", (string)ViewBag.texto_dos, new { @class = "col-md-6 control-label" })
+            <div class="col-md-2">
+                <input type="file" name="file3" />
+            </div>
+        </div>
+        <h2></h2>
+        } 
+        @if (3 <= (int)ViewBag.cantidad_archivo)
+        {
+            <div class="form-group">
+                @Html.Label("", (string)ViewBag.texto_tres, new { @class = "col-md-6 control-label" })
+                <div class="col-md-2">
+                    <input type="file" name="file4" />
+                </div>
+            </div>
+            <h2></h2>
+        }
+        @if (4 <= (int)ViewBag.cantidad_archivo)
+        {
+            <div class="form-group">
+                @Html.Label("", (string)ViewBag.texto_cuatro, new { @class = "col-md-6 control-label" })
+                <div class="col-md-2">
+                    <input type="file" name="file5" />
+                </div>
+            </div>
+            <h2></h2>
+        }
+        <div class="form-group">
+            <input id="btnGrabar" type="submit" value="Guardar Archivo" class="btn btn-primary btn-sm" />
+            <button type="button" class="btn btn-default btn-sm regresar">Cancelar</button>
+        </div>
+    </div>
+}
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
+
+<script type="text/javascript">
+
+    $(document).ready(function () {
+
+        $(document).on("click", ".regresar", function () {
+            window.location = '@Url.Action("Documentos_enviados", "Habilitaciones")';
+        });
+
+        $('#nuevoForm').submit(function (e) {
+
+            e.preventDefault();
+            $.ajax({
+                url: this.action,
+                type: this.method,
+                data: new FormData(this),
+                processData: false,
+                contentType: false,
+                beforeSend: function () {
+                    $('#loaderImage').removeClass("hidden").addClass("show");
+                    $('#btnGrabar').attr("disabled", "disabled");
+                },
+                complete: function () {
+                    $('#loaderImage').removeClass("show").addClass("hidden");
+                    $('#btnGrabar').removeAttr("disabled", "disabled");
+                },
+                success: function (result) {
+
+                    $('.field-validation-error').each(function () {
+                        $(this).removeClass("field-validation-error").addClass("field-validation-valid");
+                        $(this).html('');
+                    });
+
+                    $("#mensajes").html(result).hide();
+                    $("html, body").animate({ scrollTop: 0 }, '500', 'swing', function () {
+                        $("#mensajes").slideDown(500, function () { });
+                        setTimeout(function () {
+                            window.location = '@Url.Action("Documentos_enviados", "Habilitaciones")';
+                        }, 500);
+                    });
+                },
+
+                error: function (result) {
+                    if (result.status == 500) {
+                        $("#mensajes").html(result.responseText).hide();
+                        $("html, body").animate({ scrollTop: 0 }, '500', 'swing', function () {
+                            $("#mensajes").slideDown(500, function () { });
+                        });
+                    }
+                    else if (result.status == 400) {
+                        $('.field-validation-error').each(function () {
+                            $(this).removeClass("field-validation-error").addClass("field-validation-valid");
+                            $(this).html('');
+                        });
+                        $.each(result.responseJSON.errors, function (key, value) {
+                            if (value != null) {
+                                var container = $('span[data-valmsg-for="' + key + '"]');
+                                container.removeClass("field-validation-valid").addClass("field-validation-error");
+                                container.html(value);
+                            }
+                        });
+                        $("#mensajes").html(result.responseJSON.summary).hide();
+                        if (result.responseJSON.summary != "") {
+                            $("html, body").animate({ scrollTop: 0 }, '500', 'swing', function () {
+                                $("#mensajes").slideDown(500, function () { });
+                            });
+                        }
+                    }
+                }
+            });
+        });
+    });
+</script>
+
+
+

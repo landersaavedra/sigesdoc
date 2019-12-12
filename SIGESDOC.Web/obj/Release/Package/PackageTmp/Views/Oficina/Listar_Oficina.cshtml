@@ -1,0 +1,110 @@
+﻿@using SIGESDOC.Web.Seguridad
+
+@model IEnumerable<SIGESDOC.Response.ConsultarOficinaResponse>
+@{
+    WebGrid grid = new WebGrid(rowsPerPage: ServiceConfiguration.PageSize, ajaxUpdateContainerId: "grid");
+    grid.Bind(Model, autoSortAndPage: false, rowCount: ViewBag.TotalRows);
+    ViewBag.Title = "Consultar Persona Juridica";
+}
+
+<ol class="breadcrumb" style="margin-bottom: 5px;">
+    <li><a href="#">Registro Persona</a></li>
+    <li class="active">Persona Juridica</li>
+</ol>
+
+<div class="bs-callout bs-callout-info">
+    <h4>Buscar Persona Juridica</h4>
+    <p>En esta sección usted puede Consultar con el número de RUC o nombre de la entidad</p>
+</div>
+
+<div class="panel panel-primary">
+    <div class="panel-heading panet-heading-sm">Búsqueda de Persona Juridica</div>
+    <div class="panel-body">
+        @using (Ajax.BeginForm(new AjaxOptions { HttpMethod = "Get" }))
+        {
+            <div class="row">
+                <div class="col-lg-3">
+                    <div class="input-group input-group-sm">
+                        <span class="input-group-addon">Número de RUC</span>
+                        @Html.TextBox("RUC", (string)ViewBag.vb_ruc, new { @class = "form-control input-sm", @maxlength = "11", @onkeypress = "return IsNumeric(this.value);" })
+                    </div>
+                </div>
+
+                <div class="col-lg-3">
+                    <div class="input-group input-group-sm">
+                        <span class="input-group-addon">Nombre</span>
+                        @Html.TextBox("NOMBRE", (string)ViewBag.vb_nombre, new { @class = "form-control input-sm"})
+                    </div>
+                </div>
+                <div class="col-lg-1">
+                    <input type="submit" id="btnBuscar" class="btn btn-primary btn-sm pull-left" value="Buscar" />
+                </div>
+                <button id="btnNuevaOficina" type="button" class="btn btn-primary btn-sm">Nueva Entidad</button>
+            </div>
+        }
+    </div>
+</div>
+
+<div id="grid">
+    @grid.GetHtml(
+        tableStyle: "table table-striped table-hover table-condensed tabla small",
+        headerStyle: "cabecera",
+        columns: new[] {
+
+            grid.Column(null, header:"RUC",format: p=> p.ruc),
+            grid.Column(null, header:"Nombre",format: p=> p.nombre),
+            grid.Column(null, header:"Siglas", format: p=> p.siglas),
+            grid.Column(null, header:"Dirección", format: p=> p.nombre_direccion),
+            grid.Column(null, header:"Activo",format: p=>((bool)p.activo_direccion) ? "Activo" : "Inactivo" )
+        }
+                        , footerStyle: "hidden"
+                        )
+    @if (Model.Count() == 0)
+    {
+        <div class="row">
+            <div class="col-lg-12 text-center">
+                <div class="well well-sm">
+                    No se encontraron registros
+                </div>
+            </div>
+        </div>
+    }
+    else
+    {
+        <div class="row">
+            <div id="paginator" class="col-lg-12">
+                @grid.PagerList(mode: WebGridPagerModes.All, firstText: "Primero", previousText: "Anterior", nextText: "Siguiente", lastText: "Último")
+            </div>
+        </div>
+    }
+
+</div>
+
+<script type="text/javascript">
+
+    function IsNumeric(dato) {
+        var valor = dato.indexOf(".");
+        if ((window.event.keyCode > 47 && window.event.keyCode < 58)) {
+            window.event.returnValue = true;
+        }
+        else {
+            window.event.returnValue = false;
+        }
+    }
+
+    $(document).ready(function () {
+
+        $(function () {
+            $('#paginator ul li a').click(function () {
+                var url = $(this).attr('href') + '&' + $('form').serialize();
+                $(this).attr('href', url);
+            });
+        });
+
+        $('#btnNuevaOficina').click(function () {
+            var url = "/Oficina/Nueva_Oficina/";
+            window.location.href = url;
+        });
+
+    });
+</script>

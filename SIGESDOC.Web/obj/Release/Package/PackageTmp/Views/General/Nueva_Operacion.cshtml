@@ -1,0 +1,217 @@
+﻿@using SIGESDOC.Web.Seguridad
+
+@{
+    ViewBag.Title = "Nueva Operación";
+}
+
+
+<div class="bottom hidden"></div>
+<div id="mensajes"></div>
+
+<ol class="breadcrumb" style="margin-bottom: 5px;">
+    <li><a href="#">Mantenimiento</a></li>
+    <li class="active">Nueva Operación</li>
+</ol>
+
+<div class="bs-callout bs-callout-info">
+    <h4>Registrar Nueva Operación</h4>
+    <p>Use el siguiente formulario para registrar una nueva Operación</p>
+</div>
+
+
+<div class="panel panel-primary">
+    <div class="panel-heading panet-heading-sm">Operación</div>
+    <div class="panel-body">
+        @using (Ajax.BeginForm(new AjaxOptions { HttpMethod = "Get" }))
+        {
+
+            <div class="form-horizontal">
+
+                <ol class="breadcrumb">
+                    <li class="active">Información de la Operación</li>
+                </ol>
+                
+                <div class="row hidden">
+                    @Html.TextBox("var_guardar", null)
+
+                </div>
+
+                <div class="row">
+                    <div class="col-lg-2 col-md-3 col-sm-3 col-xs-6" style="padding-top:0px;">
+                        <div class="form-group" style="margin-left: 0px; margin-right: 0px; margin-bottom: 0px;">
+                            <label class=" control-label">Número operación:</label>
+                            @Html.TextBox("txt_operacion", "", new { @class = "form-control input-sm", @onkeypress = "return IsNumericdoc(this.value);", @maxlength = "16" })
+                        </div>
+                    </div>
+                    <div class="col-lg-2 col-md-3 col-sm-3 col-xs-6" style="padding-top:0px;">
+                        <div class="form-group" style="margin-left: 0px; margin-right: 0px; margin-bottom: 0px;">
+                            <label class=" control-label">Oficina:</label>
+                            @Html.TextBox("txt_oficina", "", new { @class = "form-control input-sm", @onkeypress = "return IsNumericdoc(this.value);", @maxlength = "16" })
+                        </div>
+                    </div>
+
+                    <div class="col-lg-2 col-md-3 col-sm-3 col-xs-6" style="padding-top:0px;">
+                        <div class="form-group" style="margin-left: 0px; margin-right: 0px; margin-bottom: 0px;">
+                            <label class=" control-label">Abono:</label>
+                            @Html.TextBox("txt_abono", "", new { @class = "form-control input-sm", @onkeypress = "return ValidaDecimal(this.value);", @maxlength = "16" })
+                        </div>
+                    </div>
+
+                    <div class="col-lg-2 col-md-3 col-sm-3 col-xs-6" style="padding-top:0px;">
+                        <div class="form-group" style="margin-left: 0px; margin-right: 0px; margin-bottom: 0px;">
+                            <label class=" control-label">Fecha Operación:</label>
+                            <div class="input-group date input-group-sm" id="dtpFechaoperacion">
+                                <input class="form-control input-sm" id="txtFechaoperacion" type="text" value="">
+                                <span class="input-group-addon input-sm add-on">
+                                    <a href="#">
+                                        <i class="glyphicon glyphicon-calendar" data-date-icon="glyphicon glyphicon-calendar"></i>
+                                    </a>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                
+                <hr>
+                <div class="form-group">
+                    <div class="col-lg-8">
+                        <button id="btn_Grabar_Operacion" type="button" class="btn btn-primary btn-sm">Grabar Operación</button>
+                        <button type="button" class="btn btn-default btn-sm regresar">Cancelar</button>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>
+
+
+<div class="modal fade" id="mdlConformidad" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title" id="myModalLabel">Mensaje</h4>
+            </div>
+            <div class="modal-body">
+                <span id="conformidad"></span>
+                <p>Presione aceptar para continuar.</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary btn-sm" data-dismiss="modal" id="btn_satisfa">Aceptar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
+
+<script type="text/javascript">
+
+    function IsNumericdoc(dato) {
+
+        var valor = dato.indexOf(".");
+        if ((window.event.keyCode > 47 && window.event.keyCode < 58)) {
+            window.event.returnValue = true;
+        }
+        else {
+            window.event.returnValue = false;
+        }
+    }
+
+    function ValidaDecimal(dato) {
+        var valor = dato.indexOf(".");
+        if ((window.event.keyCode > 47 && window.event.keyCode < 58) || window.event.keyCode == 46) {
+            if (window.event.keyCode == 46) {
+                if (valor >= 0) {
+                    window.event.returnValue = false;
+                }
+            }
+        }
+        else {
+            window.event.returnValue = false;
+        }
+    }
+
+    $(document).ready(function () {
+
+
+        $(function () {
+            $('#dtpFechaoperacion').datetimepicker({
+                pickTime: false,
+                format: 'dd/MM/yyyy',
+                language: 'es'
+            });
+        });
+
+
+        var f = new Date();
+        var fechaActual = (f.getDate() < 10 ? "0" + f.getDate() : f.getDate()) + "/" + ((f.getMonth() + 1) < 10 ? "0" + (f.getMonth() + 1) : (f.getMonth() + 1)) + "/" + f.getFullYear();
+
+        $("#txtFechaoperacion").val(fechaActual);
+
+        $("#btn_satisfa").click(function () {
+            var url = "/General/Consulta_Operaciones/";
+            window.location.href = url;
+        });
+
+        $(document).on("click", ".regresar", function () {
+            window.location = '@Url.Action("Consulta_Operaciones", "General")';
+        });
+
+        $("#btn_Grabar_Operacion").click(function () {
+
+            $.ajax({
+                cache: false,
+                type: "GET",
+                url: "/General/Grabar_Nueva_Operacion",
+                data: {
+                    "numero": $("#txt_operacion").val(),
+                    "oficina": $("#txt_oficina").val(),
+                    "importe": $("#txt_abono").val(),
+                    "fecha": $("#txtFechaoperacion").val()
+                },
+                success: function (result) {
+                    $('.field-validation-error').each(function () {
+                        $(this).removeClass("field-validation-error").addClass("field-validation-valid");
+                        $(this).html('');
+                    });
+                    $("#conformidad").html(result)
+                    $('#mdlConformidad').modal();
+                    setTimeout(function () {
+                        $("#mdlConformidad").modal().hide();
+                        $("#btn_satisfa").click();
+                    }, 10000);
+
+                },
+                error: function (result) {
+                    if (result.status == 500) {
+                        $("#mensajes").html(result.responseText).hide();
+                        $("#mensajes").slideDown(500, function () { });
+                    }
+                    else if (result.status == 400) {
+                        $('.field-validation-error').each(function () {
+                            $(this).removeClass("field-validation-error").addClass("field-validation-valid");
+                            $(this).html('');
+                        });
+                        $.each(result.responseJSON.errors, function (key, value) {
+                            if (value != null) {
+                                var container = $('span[data-valmsg-for="' + key + '"]');
+                                container.removeClass("field-validation-valid").addClass("field-validation-error");
+                                container.html(value);
+                            }
+                        });
+                        $("#mensajes").html(result.responseJSON.summary).hide();
+                        if (result.responseJSON.summary != "") {
+                            $("#mensajes").slideDown(500, function () { });
+                        }
+                    }
+                }
+            });
+        });
+
+    });
+
+</script>

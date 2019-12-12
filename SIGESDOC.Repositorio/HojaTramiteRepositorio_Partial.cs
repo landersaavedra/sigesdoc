@@ -140,6 +140,7 @@ namespace SIGESDOC.Repositorio
                               nom_doc = r.DOCUMENTO,
                               hoja_tramite = new HojaTramiteResponse
                               {
+                                 // nombre_tipo_documento = r.NOMBRE_TIPO_DOCUMENTO,
                                   numero = r.NUMERO,
                                   nombre_tipo_tramite = r.TIPO_TRAMITE,
                                   asunto = r.ASUNTO,
@@ -194,6 +195,8 @@ namespace SIGESDOC.Repositorio
             var result = (from r in _dataContext.SP_CONSULTAR_DOC_X_OFICINA_X_TUPA(id_oficina_logeo.ToString(), ival_txtfechainicio, ival_txtfechafin, HT, asunto, Empresa, num_documento, cmbtipo_documento, nom_documento, id_tupa, anexos)
                           select new DocumentoResponse()
                           {
+
+                              //nombre_tipo_documento = r.NOMBRE_TIPO_DOCUMENTO,
                               id_documento = r.ID_DOCUMENTO,
                               nom_doc = r.DOCUMENTO,
                               anexos = r.ANEXOS,
@@ -201,6 +204,7 @@ namespace SIGESDOC.Repositorio
                               ruta_pdf = r.RUTA_PDF,
                               hoja_tramite = new HojaTramiteResponse
                               {
+                                 // nombre_tipo_documento = r.NOMBRE_TIPO_DOCUMENTO,
                                   numero = r.NUMERO,
                                   nombre_tipo_tramite = r.TIPO_TRAMITE,
                                   asunto = r.ASUNTO,

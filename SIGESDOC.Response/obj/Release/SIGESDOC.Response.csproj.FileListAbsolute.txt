@@ -1,0 +1,11 @@
+C:\Users\PSSPERU069\Documents\Proyecto\sigesdoc_sanipes\sigesdoc\SIGESDOC.Response\bin\Release\SIGESDOC.Response.dll
+C:\Users\PSSPERU069\Documents\Proyecto\sigesdoc_sanipes\sigesdoc\SIGESDOC.Response\bin\Release\SIGESDOC.Response.pdb
+C:\Users\PSSPERU069\Documents\Proyecto\sigesdoc_sanipes\sigesdoc\SIGESDOC.Response\obj\Release\SIGESDOC.Response.csprojAssemblyReference.cache
+C:\Users\PSSPERU069\Documents\Proyecto\sigesdoc_sanipes\sigesdoc\SIGESDOC.Response\obj\Release\SIGESDOC.Response.csproj.CoreCompileInputs.cache
+C:\Users\PSSPERU069\Documents\Proyecto\sigesdoc_sanipes\sigesdoc\SIGESDOC.Response\obj\Release\SIGESDOC.Response.dll
+C:\Users\PSSPERU069\Documents\Proyecto\sigesdoc_sanipes\sigesdoc\SIGESDOC.Response\obj\Release\SIGESDOC.Response.pdb
+C:\Users\andres.albarracin\Desktop\PROYECTO LANDER\sigesdoc\SIGESDOC.Response\bin\Release\SIGESDOC.Response.dll
+C:\Users\andres.albarracin\Desktop\PROYECTO LANDER\sigesdoc\SIGESDOC.Response\bin\Release\SIGESDOC.Response.pdb
+C:\Users\andres.albarracin\Desktop\PROYECTO LANDER\sigesdoc\SIGESDOC.Response\obj\Release\SIGESDOC.Response.csprojAssemblyReference.cache
+C:\Users\andres.albarracin\Desktop\PROYECTO LANDER\sigesdoc\SIGESDOC.Response\obj\Release\SIGESDOC.Response.dll
+C:\Users\andres.albarracin\Desktop\PROYECTO LANDER\sigesdoc\SIGESDOC.Response\obj\Release\SIGESDOC.Response.pdb

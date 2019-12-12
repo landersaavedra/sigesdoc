@@ -186,6 +186,7 @@
         <EntityTypeShape EntityType="DB_GESDOCModel.MAE_DOCUMENTO_ANEXO" Width="1.5" PointX="13" PointY="48.25" />
         <AssociationConnector Association="DB_GESDOCModel.FK_MAE_DOCUMENTO_ANEXO_MAE_DOCUMENTO" />
         <EntityTypeShape EntityType="DB_GESDOCModel.VW_CONSULTA_EXPEDIENTE_X_EXPEDIENTE" Width="1.5" PointX="28.375" PointY="0.75" />
+        <EntityTypeShape EntityType="DB_GESDOCModel.Consulta_Detalle_Mae_Documento" Width="1.5" PointX="2.3544903985944066" PointY="18.127514594293906" />
         </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

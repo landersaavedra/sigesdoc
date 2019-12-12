@@ -47,6 +47,8 @@ namespace SIGESDOC.AplicacionService
         private readonly IConsultaPendientesSanipesDetalleRepositorio _ConsultaPendientesSanipesDetalleRepositorio;
         private readonly IEstadoTramiteRepositorio _EstadoTramiteRepositorio;
         private readonly IDocumentoAnexoRepositorio _DocumentoAnexoRepositorio;
+        private readonly IDetalleMaeDocumentoRepositorio _DetalleMaeDocumentoRepositorio;
+        
 
         public HojaTramiteService(
             /*01*/  IHojaTramiteRepositorio hojatramiteRepositorio,
@@ -68,7 +70,8 @@ namespace SIGESDOC.AplicacionService
             IVerPedientesGesdocRepositorio VerPedientesGesdocRepositorio,
             IConsultaPendientesSanipesDetalleRepositorio ConsultaPendientesSanipesDetalleRepositorio,
             IEstadoTramiteRepositorio EstadoTramiteRepositorio,
-            IDocumentoAnexoRepositorio DocumentoAnexoRepositorio
+            IDocumentoAnexoRepositorio DocumentoAnexoRepositorio,
+        IDetalleMaeDocumentoRepositorio DetalleMaeDocumentoRepositorio
 
             )
         {
@@ -105,6 +108,8 @@ namespace SIGESDOC.AplicacionService
             _ConsultaPendientesSanipesDetalleRepositorio = ConsultaPendientesSanipesDetalleRepositorio;
             _EstadoTramiteRepositorio = EstadoTramiteRepositorio;
             _DocumentoAnexoRepositorio = DocumentoAnexoRepositorio;
+
+            _DetalleMaeDocumentoRepositorio = DetalleMaeDocumentoRepositorio;
         }
 
 
@@ -1408,6 +1413,21 @@ namespace SIGESDOC.AplicacionService
                 rr = result.ToList().First().num_ext ?? 0;
             }
             return rr;
+        }
+
+        public IEnumerable<DetalleMaeDocumentoResponse> Listar_Detalle_Documento_Interno(int id_documento)
+        {
+            var result = (from x in _DetalleMaeDocumentoRepositorio.Listar()
+                          where x.ID_DOCUMENTO == id_documento
+                          select new DetalleMaeDocumentoResponse
+                          {
+                            nombres = x.NOMBRES,
+                            asunto = x.ASUNTO,
+                            nom_doc = x.NUMERO_DOCUMENTO + x.NOM_DOC,
+                            flag_destino_principal = x.FLAG_DESTINO_PRINCIPAL
+
+                          }).OrderBy(z => z.flag_destino_principal);
+            return result.ToList();
         }
     }
 }

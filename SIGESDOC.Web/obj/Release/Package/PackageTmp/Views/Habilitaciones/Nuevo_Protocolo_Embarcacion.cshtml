@@ -1,0 +1,1272 @@
+﻿@model SIGESDOC.Web.Models.ProtocoloViewModel
+
+@{
+    ViewBag.Title = "Nuevo Protocolo";
+}
+
+<div class="bottom hidden"></div>
+<div id="mensajes"></div>
+
+<ol class="breadcrumb" style="margin-bottom: 5px;">
+    <li><a href="#">Habilitaciones</a></li>
+    <li class="active">Nuevo Protocolo</li>
+</ol>
+
+<div class="bs-callout bs-callout-info">
+    <h4>Registrar Nuevo Protocolo</h4>
+    <p>Use el siguiente formulario para registrar un nuevo protocolo</p>
+    <hr />
+    <h4>Expediente: @Html.Label("", (string)ViewBag.Str_Expediente) </h4>
+    <h4>Empresa: @Html.Label("", (string)ViewBag.Str_Empresa) </h4>
+
+</div>
+
+<div class="modal fade" id="mdldireccion_legal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title" id="myModalLabel">Dirección Legal</h4>
+            </div>
+            <div id="mensajes_direccion_legal"></div>
+            <form method="post" id="formdireccionlegal">
+                <div class="modal-body">
+                    <div class="form-horizontal">
+                        <div>
+                            <label id="lbl_carga_data_dir">  </label>
+                        </div>
+
+                        <br />
+
+                        <div id="bus_tbl_dir_legal">
+                            <table id="tbl_dir_legal" class="table table-striped table-hover table-condensed tabla small">
+                                <thead>
+                                    <tr class="cabecera text-center">
+                                        <th hidden="hidden">ACTIVO</th>
+                                        <th scope="col">DIRECCION</th>
+                                        <th scope="col">UBIGEO</th>
+                                        <th scope="col">SELECCIONAR</th>
+                                    </tr>
+                                </thead>
+                                <tbody></tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="mdldireccion_crea" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title" id="myModalLabel">Agregar Dirección</h4>
+            </div>
+            <form method="post" id="formdirección">
+                <div class="modal-body">
+                    <div class="form-horizontal">
+
+                        <div class="form-group">
+
+                            <label class="control-label col-md-3">Dirección</label>
+                            <div class="col-lg-7">
+                                @Html.TextBox("txt_new_direccion_oficina_padre", null, new { @class = "form-control input-sm", @maxlength = "200" })
+                                <label id="lbl_valida_new_direccion_padre" style="color: #B44D4D">  </label>
+                            </div>
+
+                        </div>
+
+                        <div class="form-group">
+
+                            <label class="control-label col-md-3">Nombre Sede</label>
+                            <div class="col-lg-7">
+                                @Html.TextBox("txt_new_nombre_sede_padre", null, new { @class = "form-control input-sm", @maxlength = "100" })
+                                <label id="lbl_valida_new_nom_sede_padre" style="color: #B44D4D">  </label>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+
+                            <label class="control-label col-md-3">Referencia</label>
+                            <div class="col-lg-7">
+                                @Html.TextBox("txt_new_referencia_padre", null, new { @class = "form-control input-sm", @maxlength = "200" })
+                            </div>
+                        </div>
+
+
+                        <div class="form-group">
+
+                            <label class="control-label col-md-3">Departamento</label>
+                            <div class="col-md-7">
+                                @Html.DropDownList("cmblista_departamento_new_oficina_padre", (IEnumerable<SelectListItem>)ViewBag.lst_departamento_new_oficina, new { @class = "form-control input-sm" })
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+
+                            <label class="control-label col-md-3">Provincia</label>
+                            <div class="col-md-7">
+                                @Html.DropDownList("cmblista_provincia_new_oficina_padre", (IEnumerable<SelectListItem>)ViewBag.lst_provincia_new_oficina, new { @class = "form-control input-sm" })
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="control-label col-md-3">Distrito</label>
+                            <div class="col-md-7">
+                                @Html.DropDownList("cmblista_distrito_new_oficina_padre", (IEnumerable<SelectListItem>)ViewBag.lst_distrito_new_oficina, new { @class = "form-control input-sm" })
+                                <label id="lbl_valida_distrito_new_oficina_padre" style="color: #B44D4D">  </label>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary btn-sm" id="btnGuardar_new_direccion">Guardar</button>
+                    <button type="button" class="btn btn-default btn-sm" data-dismiss="modal">Cancelar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+<div class="modal fade" id="mdlpersona_legal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title" id="myModalLabel">Persona Legal</h4>
+            </div>
+            <div id="mensajes_persona_legal"></div>
+            <form method="post" id="formpersonalegal">
+                <div class="modal-body">
+                    <div class="form-horizontal">
+                        <div>
+                            <label id="lbl_carga_data_persona_legal">  </label>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-md-2">Documento</label>
+                            <div class="col-md-2">
+                                @Html.TextBox("txt_persona_legal_documento", null, new { @class = "form-control input-sm", @maxlength = "20", @onkeypress = "return IsNumeric_vista(this.value);", @onkeyup = "return Valida_back_vista_legal(this.value);" })
+                            </div>
+                            <label id="lbl_valida_persona_legal" style="text-align:left;" class="control-label col-md-6"></label>
+                            <label id="lbl_valida_persona_legal_x" style="color: #B44D4D">  </label>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-md-2">Telefono</label>
+                            <div class="col-md-2">
+                                @Html.TextBox("txt_persona_legal_telefono", null, new { @class = "form-control input-sm", @maxlength = "50" })
+                            </div>
+                            <label class="control-label col-md-2">Correo</label>
+                            <div class="col-md-3">
+                                @Html.TextBox("txt_persona_legal_correo", null, new { @class = "form-control input-sm", @maxlength = "50" })
+                            </div>
+                            <button id="btn_agregar_persona_legal" type="button" class="btn btn-primary btn-sm">
+                                Agregar Persona Legal
+                            </button>
+                        </div>
+
+                        <br />
+                        <div id="bus_tbl_persona_legal">
+                            <table id="tbl_persona_legal" class="table table-striped table-hover table-condensed tabla small">
+                                <thead>
+                                    <tr class="cabecera text-center">
+                                        <th hidden="hidden">ACTIVO</th>
+                                        <th scope="col">DOCUMENTO</th>
+                                        <th scope="col">NOMBRES Y APELLIDOS</th>
+                                        <th scope="col">TELEFONO</th>
+                                        <th scope="col">CORREO</th>
+                                        <th scope="col">SELECCIONAR</th>
+                                    </tr>
+                                </thead>
+                                <tbody></tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+@using (Html.BeginForm("Nuevo_Protocolo_Embarcacion", "Habilitaciones", FormMethod.Post, new { @id = "nuevoForm", @enctype = "multipart/form-data" }))
+{
+
+    @Html.AntiForgeryToken()
+    <div class="form-horizontal">
+        <ol class="breadcrumb">
+            <li class="active">Información del Protocolo</li>
+            @Html.TextBox("agregar_persona_legal", null, new { @class = "form-control input-sm hidden" })
+            @Html.TextBox("txt_RUC", (string)ViewBag.var_RUC, new { @class = "form-control input-sm hidden" })
+            @Html.TextBox("txt_id_seguimiento", (string)ViewBag.id_seguimiento, new { @class = "form-control input-sm hidden" })
+            @Html.TextBox("txt_id_direccion_legal", (string)ViewBag.id_direccion_legal, new { @class = "form-control input-sm hidden" })
+            @Html.TextBox("txt_id_nombre_legal", (string)ViewBag.id_persona_legal, new { @class = "form-control input-sm hidden" })
+            @Html.TextBox("txt_id_condicion", (string)ViewBag.id_condicion_seguimiento, new { @class = "form-control input-sm hidden" }) 
+            @Html.TextBox("txt_id_persona_natural_telefono", (string)ViewBag.id_persona_natural_telefono, new { @class = "form-control input-sm hidden" }) @*si es 0 no tiene telefono si es 1 si tiene telefono*@
+            @Html.TextBox("txt_fecha_inicio", null, new { @class = "form-control input-sm hidden" })
+            @Html.TextBox("txt_especie_add", null, new { @class = "form-control input-sm hidden" })
+            
+
+            <div class="form-group">
+                <label class="col-md-2 control-label">Tipo Protocolo:</label>
+                <div class="col-md-6">
+                    @Html.DropDownList("cmbtipo_protocolo_emb", (IEnumerable<SelectListItem>)ViewBag.lst_tipo_protocolo_emb, new { @class = "form-control input-sm" })
+                </div>
+            </div>
+            @*si es 1 - entidad si es 0 natural*@
+            @if ((string)ViewBag.id_condicion_seguimiento == "1") 
+            {
+                <div class="form-group">
+                    @Html.Label("Direccion Legal", new { @class = "col-md-2 control-label" })
+                    <div class="col-md-6">
+                        @Html.TextBox("lbl_Direccion_legal", (string)ViewBag.Str_Direccion_Legal, new { @class = "form-control input-sm", @readonly = "readonly" })
+                    </div>
+                    <label id="lbl_valida_direccion_legal" style="color: #B44D4D" hidden="hidden">  </label>
+                    <button id="btn_direccion_legal" type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#mdldireccion_legal">
+                        Cambiar Dirección Legal
+                    </button>
+                    <button id="btn_nueva_direccion" type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#mdldireccion_crea">
+                        Nueva Dirección
+                    </button>
+                </div>
+
+                <div class="form-group">
+                    @Html.Label("Persona Legal", new { @class = "col-md-2 control-label" })
+                    <div class="col-md-6">
+                        @Html.TextBox("lbl_persona_legal", (string)ViewBag.Str_Persona_Legal, new { @class = "form-control input-sm", @readonly = "readonly" })
+                    </div>
+                    <label id="lbl_valida_nombre_legal" style="color: #B44D4D" hidden="hidden">  </label>
+                    <button id="btn_persona_legal" type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#mdlpersona_legal">
+                        Persona Legal
+                    </button>
+                </div>
+                <div class="form-group">
+                    @Html.Label("Telefono", new { @class = "col-md-2 control-label" })
+                    <div class="col-md-6">
+                        @Html.TextBox("lbl_telefono", (string)ViewBag.Str_Telefono_Legal, new { @class = "form-control input-sm", @readonly = "readonly" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.Label("Correo", new { @class = "col-md-2 control-label" })
+                    <div class="col-md-6">
+                        @Html.TextBox("lbl_Correo", (string)ViewBag.Str_Correo_Legal, new { @class = "form-control input-sm", @readonly = "readonly" })
+                    </div>
+                </div>
+            }
+            else
+            {
+                <div class="form-group">
+                    @Html.Label("Direccion ", new { @class = "col-md-2 control-label" })
+                    <div class="col-md-6">
+                        @Html.TextBox("lbl_Direccion_persona_natural", (string)ViewBag.Str_Direccion_persona_natural, new { @class = "form-control input-sm", @readonly = "readonly" })
+                    </div>
+                    <label id="lbl_valida_persona_natural" style="color: #B44D4D" hidden="hidden">  </label>
+                </div>
+
+                <div class="form-group">
+                    @Html.Label("Persona ", new { @class = "col-md-2 control-label" })
+                    <div class="col-md-6">
+                        @Html.TextBox("lbl_persona_natural", (string)ViewBag.Str_Persona_natural, new { @class = "form-control input-sm", @readonly = "readonly" })
+                    </div>
+                </div>
+                if ((string)ViewBag.id_persona_natural_telefono == "0")
+                {
+                    <div class="form-group">
+                        @Html.Label("Telefono ", new { @class = "col-md-2 control-label" })
+                        <div class="col-md-6">
+                            @Html.TextBox("txt_telefono_persona_natural", "", new { @class = "form-control input-sm", @maxlength = "100" })
+                        </div>
+                    </div>
+                }
+                else
+                {
+                    <div class="form-group">
+                        @Html.Label("Telefono ", new { @class = "col-md-2 control-label" })
+                        <div class="col-md-6">
+                            @Html.TextBox("lbl_telefono_persona_natural", (string)ViewBag.var_lbl_telefono_Persona_natural, new { @class = "form-control input-sm", @readonly = "readonly" })
+                        </div>
+                    </div>
+                }
+            }
+
+
+            <div class="form-group">
+                @Html.Label("Nombre del protocolo:", new { @class = "col-md-2 control-label" })
+                <div class="col-md-6">
+                    @Html.TextBox("txt_nombre", "", new { @class = "form-control input-sm", @maxlength = "100" })
+                </div>
+                <label id="lbl_valida_nombre" style="color: #B44D4D">  </label>
+            </div>
+
+            <div class="form-group">
+                @Html.Label("Resolucion", new { @class = "col-md-2 control-label" })
+                <div class="col-md-6">
+                    @Html.TextBox("txt_resolucion", "", new { @class = "form-control input-sm", @maxlength = "100" })
+                </div>
+                <label id="lbl_valida_resolucion" style="color: #B44D4D">  </label>
+            </div>
+
+            <div class="form-group">
+                <input type="file" name="file" id="fileUpload" />
+            </div>
+            <div class="form-group">
+                <label class="col-md-2 control-label" for="dtpFechainicio">Fecha Inicio:</label>
+                <div class="col-md-2">
+                    <div class="input-group date input-group-sm" id="dtpFechainicio">
+                        <input class="form-control input-sm" id="txtFechainicio" type="text" value="">
+                        <span class="input-group-addon input-sm add-on">
+                            <a href="#">
+                                <i class="glyphicon glyphicon-calendar" data-date-icon="glyphicon glyphicon-calendar"></i>
+                            </a>
+                        </span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group" hidden="hidden">
+                <label class="col-md-2 control-label">Especie:</label>
+                <div class="col-md-6">
+                    @Html.DropDownList("cmb_lst_indicadorprotocoloespecie", (IEnumerable<SelectListItem>)ViewBag.lst_indicador_especie, new { @class = "form-control input-sm" })
+                </div>
+            </div>
+        </ol>
+
+        <hr>
+        <div class="form-group">
+            <div class="col-md-8">
+                <input id="btnGrabar" type="submit" value="Guardar" class="btn btn-primary btn-sm" />
+                <button type="button" class="btn btn-default btn-sm regresar">Cancelar</button>
+            </div>
+            <div class="col-md-1">
+                <div id="loaderImage" class="hidden"></div>
+            </div>
+        </div>
+
+    </div>
+}
+
+<div class="modal fade" id="mdl_agregar_especie" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title" id="myModalLabel">Buscar Especie</h4>
+            </div>
+            <form method="post" id="formespecie">
+                <div class="modal-body">
+                    <div class="form-horizontal">
+                        <div>
+                            @Html.Label("Nombre Comun:")
+                            @Html.TextBox("txt_nombre_comun", null, new { @onkeypress = "return valida_enter(this.value);" })
+                        </div>
+                        <div>
+                            @Html.Label("Nombre Cientifico:")
+                            @Html.TextBox("txt_nombre_cientifico", null, new { @onkeypress = "return valida_enter(this.value);" })
+                            <button type="button" class="btn btn-default btn-sm buscar_especie">Buscar</button>
+                            <label id="lbl_carga_data_especie">  </label>
+                        </div>
+
+                        <br />
+
+                        <div id="bus_especie">
+                            <table id="tbl_add_especie" class="table table-striped table-hover table-condensed tabla small">
+                                <thead>
+                                    <tr class="cabecera text-center">
+                                        <th scope="col">NOMBRE COMUN</th>
+                                        <th scope="col">NOMBRE CIENTIFICO</th>
+                                        <th scope="col">TIPO ESPECIE</th>
+                                        <th scope="col">ACCIONES</th>
+                                    </tr>
+                                </thead>
+                                <tbody></tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<div id="grid_protocolo_especie">
+
+    <div class="form-group">
+        <div class="col-md-12 text-center">
+            <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#mdl_agregar_especie">Agregar Especie</button>
+        </div>
+    </div>
+    <h2></h2>
+    <br />
+
+    <table class="table table-striped table-hover table-condensed tabla small" data-swhgajax="true" data-swhgcontainer="grid" data-swhgcallback="" id="tbl_protocolo_especie">
+        <thead>
+            <tr class="cabecera text-center">
+                <th class="hidden">ID_ESPECIE</th>
+                <th width="200px">NOMBRE COMUN</th>
+                <th width="200px">NOMBRE CIENTIFICO</th>
+                <th width="85px">TIPO DE ESPECIE</th>
+                <th width="25px">ACCIONES</th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+</div>
+
+<div class="modal fade" id="myModal_especie" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title" id="myModalLabel">Mensaje</h4>
+            </div>
+            <div class="modal-body">
+                <p>No Agrego ninguna Especie</p>
+                <p>Por favor agregar por lo menos una especie.</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary btn-sm" data-dismiss="modal">Aceptar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="mdlConformidad" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title" id="myModalLabel">Mensaje</h4>
+            </div>
+            <div class="modal-body">
+                <span id="conformidad"></span>
+                <p>Presione aceptar para continuar.</p>
+            </div>
+            <div class="modal-footer">
+                @if (User.Identity.Name.Split('|')[5].ToString().Split(',')[0].Trim() == "18")
+{
+    <button id="btn_aceptar_evaluador" type="button" class="btn btn-primary btn-sm">Aceptar</button>
+}
+@if (User.Identity.Name.Split('|')[5].ToString().Split(',')[0].Trim() == "8")
+{
+    <button id="btn_aceptar_asistente" type="button" class="btn btn-primary btn-sm">Aceptar</button>
+}
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
+
+
+<script type="text/javascript">
+
+
+
+    function valida_enter(dato) {
+        if (window.event.keyCode == 13) {
+            window.event.returnValue = false;
+        }
+        else {
+            window.event.returnValue = true;
+        }
+    }
+
+
+    function IsNumeric_vista(dato) {
+        var valor = dato.indexOf(".");
+        var evento = window.event || dato;
+        if ((window.event.keyCode > 47 && window.event.keyCode < 58)) {
+
+            if ($("#txt_persona_legal_documento").val().trim().length >= 7) {
+                document.getElementById('lbl_valida_persona_legal').innerHTML = "Cargando...";
+                document.getElementById('lbl_valida_persona_legal_x').innerHTML = "";
+                $.ajax({
+                    cache: false,
+                    type: "GET",
+                    url: "@(Url.RouteUrl("Consultar_DNI_vista"))",
+                    data: { "DNI": ($("#txt_persona_legal_documento").val() + String.fromCharCode(evento.charCode)) },
+
+                success: function (data) {
+                    $.each(data, function (id, option) {
+                        if (option.Value != "NO") {
+                            $("#agregar_persona_legal").val("1");
+                            document.getElementById('lbl_valida_persona_legal_x').innerHTML = "";
+                            document.getElementById('lbl_valida_persona_legal').innerHTML = option.Text;
+                        }
+                        else {
+                            $("#agregar_persona_legal").val("0");
+                            document.getElementById('lbl_valida_persona_legal_x').innerHTML = "";
+                            document.getElementById('lbl_valida_persona_legal').innerHTML = "";
+                        }
+                    });
+                },
+                error: function (xhr, ajaxOptions, thrownError) {
+                    alert('Failed to retrieve states.');
+                }
+            });
+        }
+        window.event.returnValue = true;
+    }
+    else {
+            window.event.returnValue = false;
+    }
+    }
+
+    function Valida_back_vista_legal(dato) {
+        if (window.event.keyCode == 8) {
+            if ($("#txt_persona_legal_documento").val().trim().length < 8) {
+                $("#agregar_persona_legal").val("0");
+                document.getElementById('lbl_valida_persona_legal').innerHTML = "";
+            }
+        }
+    }
+
+    $(document).ready(function () {
+
+        $("#agregar_persona_legal").val("0");
+        $("#btn_persona_legal").click(function () {
+
+            $("#mensajes_persona_legal").html('').hide();
+
+            $("#bus_tbl_persona_legal").html('');
+
+            document.getElementById('lbl_carga_data_persona_legal').innerHTML = "Cargando...";
+
+            jQuery("#bus_tbl_persona_legal").append('<table id="tbl_persona_legal" class="table table-striped table-hover table-condensed tabla small" cellspacing="0"> <thead> <tr class="cabecera"> ' +
+                '<th hidden="hidden">ACTIVO</th><th scope="col">DOCUMENTO</th><th scope="col">NOMBRES Y APELLIDOS</th><th scope="col">TELEFONO</th><th scope="col">CORREO</th><th scope="col">SELECCIONAR</th></thead> <tbody></tbody> </table>');
+
+            $.ajax({
+                cache: false,
+                type: "GET",
+                url: "@(Url.RouteUrl("LLENAR_PERSONA_LEGAL_X_ENTIDAD"))",
+                data: { "RUC": $("#txt_RUC").val() },
+            success: function (data) {
+                document.getElementById('lbl_carga_data_persona_legal').innerHTML = "";
+                $.each(data, function (id, option) {
+                    var nuevoTD = '<tr>';
+                    nuevoTD += '<td hidden="hidden">' + option.activo + '</td>';
+                    nuevoTD += '<td style="text-align:center;">' + option.documento + '</td>';
+                    nuevoTD += '<td style="width:100px; text-align:center;">' + option.nombres_y_apellidos + '</td>';
+                    nuevoTD += '<td style="width:100px; text-align:center;">' + option.telefono + '</td>';
+                    nuevoTD += '<td style="width:100px; text-align:center;">' + option.correo + '</td>';
+                    if (option.activo == "0") {
+                        nuevoTD += '<td style="text-align:center;" class="seleccionar_persona_legal"> <ul class="list-inline" style="margin-bottom:0"> <li> <a class="seleccionar_persona_legal" href="#" id="' + option.id_persona_legal + '" title="seleccionar"> <i class="glyphicon glyphicon-ok"></i> </a> </li> </ul> </td>';
+                    }
+                    else {
+                        $("#txt_id_nombre_legal").val(option.id_persona_legal);
+                        $("#lbl_persona_legal").val(option.nombres_y_apellidos);
+                        $("#lbl_telefono").val(option.telefono);
+                        $("#lbl_Correo").val(option.correo);
+                        nuevoTD += '<td style="text-align:center;"> PERSONA LEGAL ACTUAL</td>';
+                    }
+                    nuevoTD += '</tr>';
+
+                    jQuery("#tbl_persona_legal").append(nuevoTD);
+                });
+
+                $("#tbl_persona_legal").DataTable({
+                    "lengthChange": false,
+                    "searching": false,
+                    "ordering": false,
+                    "order": [[0, "desc"], [2, "asc"]],
+                    "info": false,
+                    "language": {
+                        "paginate": {
+                            "previous": "Anterior",
+                            "next": "Siguiente"
+                        }
+                    }
+                });
+
+                $("#tbl_persona_legal thead tr th").eq(1).css({ "width": 30 });
+                $("#tbl_persona_legal thead tr th").eq(2).css({ "width": 180 });
+                $("#tbl_persona_legal thead tr th").eq(3).css({ "width": 30 });
+                $("#tbl_persona_legal thead tr th").eq(4).css({ "width": 30 });
+                $("#tbl_persona_legal thead tr th").eq(5).css({ "width": 30 });
+            },
+            error: function (xhr, ajaxOptions, thrownError) {
+                alert('Failed to retrieve states.');
+            }
+        });
+    });
+
+        $("#btn_agregar_persona_legal").click(function () {
+            if ($("#agregar_persona_legal").val() == "0") {
+                document.getElementById('lbl_valida_persona_legal_x').innerHTML = "Debe ingresar Documento Correcto";
+                document.getElementById('lbl_valida_persona_legal').innerHTML = "";
+                return false;
+            }
+            else {
+                $.ajax({
+                    cache: false,
+                    type: "GET",
+                    url: "/Oficina/Grabar_Nueva_Persona_Legal",
+                    data: {
+                        "id_persona_legal": 0,
+                        "documento": $("#txt_persona_legal_documento").val(),
+                        "telefono": $("#txt_persona_legal_telefono").val(),
+                        "correo": $("#txt_persona_legal_correo").val(),
+                        "RUC": $("#txt_RUC").val()
+                    },
+                    success: function (result) {
+                        $('.field-validation-error').each(function () {
+                            $(this).removeClass("field-validation-error").addClass("field-validation-valid");
+                            $(this).html('');
+                        });
+                        $("#mensajes_persona_legal").html(result);
+                        $("#agregar_persona_legal").val("0");
+                        $("#txt_persona_legal_documento").val("");
+                        $("#txt_persona_legal_telefono").val("");
+                        $("#txt_persona_legal_correo").val("");
+                        document.getElementById('lbl_valida_persona_legal').innerHTML = "";
+                        document.getElementById('lbl_valida_persona_legal_x').innerHTML = "";
+                        $("#bus_tbl_persona_legal").html('');
+
+                        $("#mensajes_persona_legal").slideDown(500, function () { });
+                        document.getElementById('lbl_carga_data_persona_legal').innerHTML = "Cargando...";
+
+                        setTimeout(function () {
+                            $("#btn_persona_legal").click();
+                        }, 2000);
+                    },
+                    error: function (result) {
+                        if (result.status == 500) {
+                            $("#mensajes_persona_legal").html(result.responseText).hide();
+                            $("#mensajes_persona_legal").slideDown(500, function () { });
+                        }
+                        else if (result.status == 400) {
+                            $('.field-validation-error').each(function () {
+                                $(this).removeClass("field-validation-error").addClass("field-validation-valid");
+                                $(this).html('');
+                            });
+                            $.each(result.responseJSON.errors, function (key, value) {
+                                if (value != null) {
+                                    var container = $('span[data-valmsg-for="' + key + '"]');
+                                    container.removeClass("field-validation-valid").addClass("field-validation-error");
+                                    container.html(value);
+                                }
+                            });
+                            $("#mensajes_persona_legal").html(result.responseJSON.summary).hide();
+                            if (result.responseJSON.summary != "") {
+                                $("#mensajes_persona_legal").slideDown(500, function () { });
+                            }
+                        }
+                    }
+                });
+            }
+        });
+
+        $(document).on('click', '.seleccionar_persona_legal', function () {
+
+            var id_persona_legal = $(this).attr('id');
+
+            if (id_persona_legal != undefined) {
+                $.ajax({
+                    cache: false,
+                    type: "GET",
+                    url: "/Oficina/Grabar_Nueva_Persona_Legal",
+                    data: {
+                        "id_persona_legal": id_persona_legal,
+                        "documento": "",
+                        "telefono": "",
+                        "correo": "",
+                        "RUC": $("#txt_RUC").val()
+                    },
+                    success: function (result) {
+                        $('.field-validation-error').each(function () {
+                            $(this).removeClass("field-validation-error").addClass("field-validation-valid");
+                            $(this).html('');
+                        });
+                        $("#mensajes_persona_legal").html(result);
+                        $("#agregar_persona_legal").val("0");
+                        $("#txt_persona_legal_documento").val("");
+                        $("#txt_persona_legal_telefono").val("");
+                        $("#txt_persona_legal_correo").val("");
+                        document.getElementById('lbl_valida_persona_legal').innerHTML = "";
+                        document.getElementById('lbl_valida_persona_legal_x').innerHTML = "";
+
+                        $("#mensajes_persona_legal").slideDown(500, function () { });
+                        $("#bus_tbl_persona_legal").html('');
+                        document.getElementById('lbl_carga_data_persona_legal').innerHTML = "Cargando...";
+
+                        setTimeout(function () {
+                            $("#btn_persona_legal").click();
+                        }, 2000);
+                    },
+                    error: function (result) {
+                        if (result.status == 500) {
+                            $("#mensajes_persona_legal").html(result.responseText).hide();
+                            $("#mensajes_persona_legal").slideDown(500, function () { });
+                        }
+                        else if (result.status == 400) {
+                            $('.field-validation-error').each(function () {
+                                $(this).removeClass("field-validation-error").addClass("field-validation-valid");
+                                $(this).html('');
+                            });
+                            $.each(result.responseJSON.errors, function (key, value) {
+                                if (value != null) {
+                                    var container = $('span[data-valmsg-for="' + key + '"]');
+                                    container.removeClass("field-validation-valid").addClass("field-validation-error");
+                                    container.html(value);
+                                }
+                            });
+                            $("#mensajes_persona_legal").html(result.responseJSON.summary).hide();
+                            if (result.responseJSON.summary != "") {
+                                $("#mensajes_persona_legal").slideDown(500, function () { });
+                            }
+                        }
+                    }
+                });
+            }
+        });
+        $("#cmblista_departamento_new_oficina_padre").change(function () {
+            var selectdepartamento = $(this).val();
+            var ddlprovincia = $("#cmblista_provincia_new_oficina_padre");
+            $.ajax({
+                cache: false,
+                type: "GET",
+                url: "@(Url.RouteUrl("llenar_provincia_x_departamento"))",
+            data: { "id_departamento": selectdepartamento },
+            success: function (data) {
+                ddlprovincia.html('');
+                $.each(data, function (id, option) {
+                    ddlprovincia.append($('<option></option>').val(option.Value).html(option.Text));
+                });
+                $("#cmblista_provincia_new_oficina_padre").change();
+            },
+            error: function (xhr, ajaxOptions, thrownError) {
+                alert('Failed to retrieve states.');
+            }
+        });
+    });
+
+    $("#cmblista_provincia_new_oficina_padre").change(function () {
+        var selectprovincia = $("#cmblista_departamento_new_oficina_padre").val() + $(this).val();
+        var ddldistrito = $("#cmblista_distrito_new_oficina_padre");
+        $.ajax({
+            cache: false,
+            type: "GET",
+            url: "@(Url.RouteUrl("llenar_distrito_x_provincia"))",
+            data: { "id_provincia": selectprovincia },
+            success: function (data) {
+                ddldistrito.html('');
+                $.each(data, function (id, option) {
+                    ddldistrito.append($('<option></option>').val(option.Value).html(option.Text));
+                });
+            },
+            error: function (xhr, ajaxOptions, thrownError) {
+                alert('Failed to retrieve states.');
+            }
+        });
+    });
+
+    $("#btnGuardar_new_direccion").click(function () {
+
+        document.getElementById('lbl_valida_new_direccion_padre').innerHTML = "";
+        document.getElementById('lbl_valida_new_nom_sede_padre').innerHTML = "";
+        document.getElementById('lbl_valida_distrito_new_oficina_padre').innerHTML = "";
+
+        $('#btnGuardar_new_direccion').attr("disabled", "disabled");
+
+        var entra = 0;
+
+
+
+        if ($("#txt_new_direccion_oficina_padre").val().toString().trim() == "") {
+            document.getElementById('lbl_valida_new_direccion_padre').innerHTML = "Ingresar Dirección";
+            entra = 1;
+        }
+
+        if ($("#txt_new_nombre_sede_padre").val().toString().trim() == "") {
+            document.getElementById('lbl_valida_new_nom_sede_padre').innerHTML = "Ingresar Nombre de la sede";
+            entra = 1;
+        }
+
+        if ($("#cmblista_distrito_new_oficina_padre").val().toString().trim() == "") {
+            document.getElementById('lbl_valida_distrito_new_oficina_padre').innerHTML = "Seleccionar Distrito";
+            entra = 1;
+        }
+
+        if (entra == 1) {
+            $('#btnGuardar_new_direccion').removeAttr("disabled", "disabled");
+            return false;
+        }
+
+
+        $.ajax({
+            cache: false,
+            type: "GET",
+            url: "/Oficina/Grabar_Nueva_Oficina",
+            data: {
+                "new_oficina_direccion": $("#txt_new_nombre_oficina").val(),
+                "new_oficina_siglas": $("#txt_new_siglas_oficina").val(),
+                "new_oficina_id_sede": $("#cmblista_new_direccion").val(),
+                "new_oficina_dir_condicion": $("#txt_check_new_direccion").val(),
+                "new_oficina_nom_direccion": $("#txt_new_direccion_oficina_padre").val(),
+                "new_oficina_nom_sede": $("#txt_new_nombre_sede_padre").val(),
+                "new_oficina_nom_referencia": $("#txt_new_referencia_padre").val(),
+                "new_oficina_ubigeo": $("#cmblista_distrito_new_oficina_padre").val(),
+                "id_oficina_padre": 0,
+                "new_oficina_ruc": $("#txt_RUC").val()
+            },
+            beforeSend: function () {
+                $('#btnGuardar_new_direccion').removeAttr("disabled", "disabled");
+            },
+            complete: function () {
+                $('#btnGuardar_new_direccion').removeAttr("disabled", "disabled");
+            },
+            success: function (result) {
+                $('.field-validation-error').each(function () {
+                    $(this).removeClass("field-validation-error").addClass("field-validation-valid");
+                    $(this).html('');
+                });
+
+                document.getElementById('lbl_valida_new_direccion_padre').innerHTML = "";
+                document.getElementById('lbl_valida_new_nom_sede_padre').innerHTML = "";
+                document.getElementById('lbl_valida_distrito_new_oficina_padre').innerHTML = "";
+
+                $("#txt_new_nombre_oficina").val("");
+                $("#txt_new_siglas_oficina").val("");
+                $("#cmblista_new_direccion").val("");
+                $("#txt_check_new_direccion").val("");
+                $("#txt_new_direccion_oficina_padre").val("");
+                $("#txt_new_nombre_sede_padre").val("");
+                $("#txt_new_referencia_padre").val("");
+                $("#cmblista_departamento_new_oficina_padre option[value='']").attr("selected", true);
+                $("#cmblista_departamento_new_oficina_padre").change();
+                $('#btnGuardar_new_direccion').removeAttr("disabled", "disabled");
+
+                $('#mdldireccion_crea').modal('hide');
+            },
+            error: function (result) {
+                if (result.status == 500) {
+                    $("#mensajes").html(result.responseText).hide();
+                    $("#mensajes").slideDown(500, function () { });
+                }
+                else if (result.status == 400) {
+                    $('.field-validation-error').each(function () {
+                        $(this).removeClass("field-validation-error").addClass("field-validation-valid");
+                        $(this).html('');
+                    });
+                    $.each(result.responseJSON.errors, function (key, value) {
+                        if (value != null) {
+                            var container = $('span[data-valmsg-for="' + key + '"]');
+                            container.removeClass("field-validation-valid").addClass("field-validation-error");
+                            container.html(value);
+                        }
+                    });
+                    $("#mensajes").html(result.responseJSON.summary).hide();
+                    if (result.responseJSON.summary != "") {
+                        $("#mensajes").slideDown(500, function () { });
+                    }
+                }
+            }
+        });
+    });
+    document.getElementById('lbl_carga_data_especie').innerHTML = "";
+
+    if ($("#txt_id_condicion").val() == "1") {
+        document.getElementById('lbl_valida_direccion_legal').innerHTML = "";
+        document.getElementById('lbl_valida_nombre_legal').innerHTML = "";
+        $("#lbl_valida_direccion_legal").attr("hidden", "hidden");
+        $("#lbl_valida_nombre_legal").attr("hidden", "hidden");
+    }
+    else {
+        document.getElementById('lbl_valida_persona_natural').innerHTML = "";
+
+        $("#lbl_valida_persona_natural").attr("hidden", "hidden");
+    }
+
+    var f = new Date();
+    var fechaActual = (f.getDate() < 10 ? "0" + f.getDate() : f.getDate()) + "/" + ((f.getMonth() + 1) < 10 ? "0" + (f.getMonth() + 1) : (f.getMonth() + 1)) + "/" + f.getFullYear();
+
+    $("#txtFechainicio").val(fechaActual);
+
+    $("#grid_protocolo_especie").addClass("hidden", "hidden");
+
+    $(document).on("click", ".quitar", function () {
+        var parent = $(this).parents().get(0);
+        $(parent).remove();
+    });
+
+    $(document).on("click", ".add_especie", function () {
+
+        if ($(this).prev().html() != null) {
+            var nuevoTD = '<tr>';
+            nuevoTD += '<td class = "hidden" >' + $(this).prev().prev().prev().prev().html() + '</td>';
+            nuevoTD += '<td >' + $(this).prev().prev().prev().html() + '</td>';
+            nuevoTD += '<td >' + $(this).prev().prev().html() + '</td>';
+            nuevoTD += '<td >' + $(this).prev().html() + '</td>';
+            nuevoTD += '<td class="quitar"><ul class="list-inline" style="margin-bottom:0"><li><a class="quitar" href="#" id="5" title="Quitar"><i class="red glyphicon glyphicon-trash"></i></a></li></ul></td>'
+            nuevoTD += '</tr>';
+
+            jQuery("#tbl_protocolo_especie").append(nuevoTD);
+        }
+
+        $('#mdl_agregar_especie').modal('hide');
+    });
+
+    $(document).on("click", ".buscar_especie", function () {
+
+        $("#bus_especie").html('');
+
+        document.getElementById('lbl_carga_data_especie').innerHTML = "Cargando...";
+        jQuery("#bus_especie").append('<table id="tbl_add_especie" class="table table-striped table-hover table-condensed tabla small"><thead><tr class="cabecera text-center">' +
+            '<th class="hidden"></th><th scope="col">NOMBRE COMUN</th><th scope="col">NOMBRE CIENTIFICO</th><th scope="col">TIPO ESPECIE</th><th scope="col">ACCIONES</th></tr></thead><tbody></tbody></table>');
+        $.ajax({
+            cache: false,
+            type: "GET",
+            url: "@(Url.RouteUrl("llenar_Especie_habilitaciones"))",
+            data: { "nombre_comun": $("#txt_nombre_comun").val(), "nombre_cientifico": $("#txt_nombre_cientifico").val() },
+            success: function (data) {
+                document.getElementById('lbl_carga_data_especie').innerHTML = "";
+
+                $.each(data, function (id, option) {
+                    var nuevoTD = '<tr>';
+                    //id_det_espec_hab, nombre_comun, nombre_cientifico, especie_categoria
+                    nuevoTD += '<td class="hidden">' + option.id_det_espec_hab + '</td>';
+                    nuevoTD += '<td >' + option.nombre_comun + '</td>';
+                    nuevoTD += '<td >' + option.nombre_cientifico + '</td>';
+                    nuevoTD += '<td style="width:100px; text-align:center;">' + option.especie_categoria + '</td>';
+                    nuevoTD += '<td style="text-align:center;" class="add_especie"> <ul class="list-inline" style="margin-bottom:0"> <li> <a class="add_especie" href="#" id="' + option.id_det_espec_hab + '" title="agregar especie"> <i class="glyphicon glyphicon-ok"></i> </a> </li> </ul> </td>';
+                    nuevoTD += '</tr>';
+
+                    jQuery("#tbl_add_especie").append(nuevoTD);
+                });
+
+                $("#tbl_add_especie").DataTable({
+                    "lengthChange": false,
+                    "searching": false,
+                    "info": false,
+                    "language": {
+                        "paginate": {
+                            "previous": "Anterior",
+                            "next": "Siguiente"
+                        }
+                    }
+                });
+
+                $("#tbl_add_especie thead tr th").eq(1).css({ "width": 25 });
+                $("#tbl_add_especie thead tr th").eq(2).css({ "width": 170 });
+                $("#tbl_add_especie thead tr th").eq(3).css({ "width": 80 });
+                $("#tbl_add_especie thead tr th").eq(4).css({ "width": 25 });
+            },
+            error: function (xhr, ajaxOptions, thrownError) {
+                alert('Failed to retrieve states.');
+            }
+        });
+    });
+
+    $("#cmb_lst_indicadorprotocoloespecie").change(function () {
+        var select_indicador = $(this).val();
+        if (select_indicador == 3 || select_indicador == 4)
+        {
+            $("#grid_protocolo_especie").removeClass("hidden", "hidden");
+        }
+        else
+        {
+            $("#grid_protocolo_especie").addClass("hidden", "hidden");
+        }
+    });
+
+    $(document).on('click', '.seleccionar', function () {
+
+        var id_dir_legal_sede = $(this).attr('id').split('||');
+        $("#lbl_Direccion_legal").val($(this).parent().parent().parent().parent().find("td").eq(1).html());
+        if (id_dir_legal_sede[0] != undefined) {
+            $.ajax({
+                cache: false,
+                type: "GET",
+                url: "/Oficina/Grabar_Nueva_Direccion_Legal_recuera_id",
+                data: {
+                    "id_oficina_direccion_legal": id_dir_legal_sede[0],
+                    "id_sede": id_dir_legal_sede[1],
+                    "RUC": $("#txt_RUC").val()
+                },
+                success: function (result) {
+                    $("#txt_id_direccion_legal").val(result);
+                    $('.field-validation-error').each(function () {
+                        $(this).removeClass("field-validation-error").addClass("field-validation-valid");
+                        $(this).html('');
+                    });
+                    $("#mensajes_direccion_legal").html("Se grabo correctamente");
+
+                    $("#mensajes_direccion_legal").slideDown(500, function () { });
+                    $("#bus_tbl_dir_legal").html('');
+                    document.getElementById('lbl_carga_data_dir').innerHTML = "Cargando...";
+
+                    setTimeout(function () {
+                        $("#btn_direccion_legal").click();
+                    }, 2000);
+                },
+                error: function (result) {
+                    if (result.status == 500) {
+                        $("#mensajes_direccion_legal").html(result.responseText).hide();
+                        $("#mensajes_direccion_legal").slideDown(500, function () { });
+                    }
+                    else if (result.status == 400) {
+                        $('.field-validation-error').each(function () {
+                            $(this).removeClass("field-validation-error").addClass("field-validation-valid");
+                            $(this).html('');
+                        });
+                        $.each(result.responseJSON.errors, function (key, value) {
+                            if (value != null) {
+                                var container = $('span[data-valmsg-for="' + key + '"]');
+                                container.removeClass("field-validation-valid").addClass("field-validation-error");
+                                container.html(value);
+                            }
+                        });
+                        $("#mensajes_direccion_legal").html(result.responseJSON.summary).hide();
+                        if (result.responseJSON.summary != "") {
+                            $("#mensajes_direccion_legal").slideDown(500, function () { });
+                        }
+                    }
+                }
+            });
+        }
+    });
+
+    $("#btn_direccion_legal").click(function () {
+
+        $("#mensajes_direccion_legal").html('').hide();
+
+        $("#bus_tbl_dir_legal").html('');
+
+        document.getElementById('lbl_carga_data_dir').innerHTML = "Cargando...";
+
+        jQuery("#bus_tbl_dir_legal").append('<table id="tbl_dir_legal" class="table table-striped table-hover table-condensed tabla small" cellspacing="0"> <thead> <tr class="cabecera"> ' +
+            '<th hidden="hidden">ACTIVO</th><th scope="col">DIRECCION</th> <th scope="col">UBIGEO</th> <th scope="col" >SELECCIONAR</th></thead> <tbody></tbody> </table>');
+
+        $.ajax({
+            cache: false,
+            type: "GET",
+            url: "@(Url.RouteUrl("LLENAR_DIR_LEGAL_X_ENTIDAD"))",
+            data: { "RUC": $("#txt_RUC").val() },
+            success: function (data) {
+                document.getElementById('lbl_carga_data_dir').innerHTML = "";
+                $.each(data, function (id, option) {
+                    var nuevoTD = '<tr>';
+                    nuevoTD += '<td hidden="hidden">' + option.activo + '</td>';
+                    nuevoTD += '<td style=" text-align:center;">' + option.direccion + '</td>';
+                    nuevoTD += '<td style="width:100px; text-align:center;">' + option.ubigeo + '</td>';
+                    if (option.activo == "0") {
+                        nuevoTD += '<td style="text-align:center;" class="seleccionar"> <ul class="list-inline" style="margin-bottom:0"> <li> <a class="seleccionar" href="#" id="' + option.id_oficina_direccion_legal + '||' + option.id_sede + '" title="seleccionar"> <i class="glyphicon glyphicon-ok"></i> </a> </li> </ul> </td>';
+                    }
+                    else {
+                        nuevoTD += '<td style="text-align:center;"> DIRECCION LEGAL ACTUAL</td>';
+                    }
+                    nuevoTD += '</tr>';
+
+                    jQuery("#tbl_dir_legal").append(nuevoTD);
+                });
+
+                $("#tbl_dir_legal").DataTable({
+                    "lengthChange": false,
+                    "searching": false,
+                    "ordering": false,
+                    "order": [[0, "desc"], [1, "desc"]],
+                    "info": false,
+                    "language": {
+                        "paginate": {
+                            "previous": "Anterior",
+                            "next": "Siguiente"
+                        }
+                    }
+                });
+
+                $("#tbl_dir_legal thead tr th").eq(1).css({ "width": 250 });
+                $("#tbl_dir_legal thead tr th").eq(2).css({ "width": 30 });
+                $("#tbl_dir_legal thead tr th").eq(2).css({ "width": 20 });
+            },
+            error: function (xhr, ajaxOptions, thrownError) {
+                alert('Failed to retrieve states.');
+            }
+        });
+    });
+    $(function () {
+        $('#dtpFechainicio').datetimepicker({
+            pickTime: false,
+            format: 'dd/MM/yyyy',
+            language: 'es'
+        });
+    });
+
+    $('#btn_aceptar_evaluador').click(function () {
+
+        setTimeout(function () {
+            window.location = '@Url.Action("Consulta_seguimiento_evaluador", "Habilitaciones")';
+        }, 300);
+
+    });
+
+    $('#btn_aceptar_asistente').click(function () {
+
+        setTimeout(function () {
+            window.location = '@Url.Action("Consulta_seguimiento_asitente", "Habilitaciones")';
+        }, 300);
+
+    });
+
+    $('.regresar').click(function () {
+        var url = "javascript:history.back(1)";
+        window.location.href = url;
+    });
+
+
+    $('#nuevoForm').submit(function (e) {
+
+        e.preventDefault();
+
+        document.getElementById('lbl_valida_nombre').innerHTML = "";
+        document.getElementById('lbl_valida_resolucion').innerHTML = "";
+
+        if ($("#txt_id_condicion").val() == "1") {
+            document.getElementById('lbl_valida_direccion_legal').innerHTML = "";
+            document.getElementById('lbl_valida_nombre_legal').innerHTML = "";
+            $("#lbl_valida_direccion_legal").attr("hidden", "hidden");
+            $("#lbl_valida_nombre_legal").attr("hidden", "hidden");
+        }
+        else {
+            document.getElementById('lbl_valida_persona_natural').innerHTML = "";
+
+            $("#lbl_valida_persona_natural").attr("hidden", "hidden");
+        }
+
+        $('#btnGrabar').attr("disabled", "disabled");
+
+        var entra = 0;
+
+        if ($("#txtFechainicio").val().trim() == "") {
+            var f = new Date();
+            var fechaActual = (f.getDate() < 10 ? "0" + f.getDate() : f.getDate()) + "/" + ((f.getMonth() + 1) < 10 ? "0" + (f.getMonth() + 1) : (f.getMonth() + 1)) + "/" + f.getFullYear();
+
+            $("#txtFechainicio").val(fechaActual);
+        }
+        if ($("#cmbtipo_protocolo_emb").val() == "2") {
+            if ($("#txt_resolucion").val().trim() == "") {
+                document.getElementById('lbl_valida_resolucion').innerHTML = "Ingresar Resolucion";
+                entra = 1;
+            }
+        }
+
+        if ($("#txt_nombre").val().trim() == "") {
+            document.getElementById('lbl_valida_nombre').innerHTML = "Ingresar nombre";
+            entra = 1;
+        }
+
+
+        if ($("#cmb_lst_indicadorprotocoloespecie").val() == 3 || $("#cmb_lst_indicadorprotocoloespecie").val() == 4) {
+            if ($('#tbl_protocolo_especie >tbody >tr').length == 0)//Valida que haya elementos en la tabla
+            {
+                $('#myModal_especie').modal();
+                entra = 1;
+            }
+        }
+        if ($("#txt_id_condicion") == "1")
+        {
+            if ($("#txt_id_direccion_legal").val() == "") {
+                $('#lbl_valida_direccion_legal').removeAttr("hidden", "hidden");
+                document.getElementById('lbl_valida_direccion_legal').innerHTML = "Falta Registrar Dirección Legal, comunicarse con asistente de la Sub Dirección";
+                entra = 1;
+            }
+
+            if ($("#txt_id_nombre_legal").val() == "") {
+                $('#lbl_valida_nombre_legal').removeAttr("hidden", "hidden");
+                document.getElementById('lbl_valida_nombre_legal').innerHTML = "Falta Registrar Persona Legal, comunicarse con asistente de la Sub Dirección";
+                entra = 1;
+            }
+        }
+
+        if (entra == 1) {
+            $('#btnGrabar').removeAttr("disabled", "disabled");
+            return;
+        }
+
+        $("#txt_especie_add").val("");
+
+        if ($("#cmb_lst_indicadorprotocoloespecie").val() == 3 || $("#cmb_lst_indicadorprotocoloespecie").val() == 4) {
+            if ($('#tbl_protocolo_especie >tbody >tr').length >= 0)//Valida que haya elementos en la tabla
+            {
+                $('#tbl_protocolo_especie tr').each(function () {
+                    var val_espe = $(this).find("td").eq(0).html();
+                    if (val_espe != null) {
+                        if ($("#txt_especie_add").val() == "") {
+                            $("#txt_especie_add").val(val_espe);
+                        } else {
+                            $("#txt_especie_add").val($("#txt_especie_add").val() + "|" + val_espe);
+                        }
+                    }
+                });
+            }
+        }
+
+
+        $("#txt_fecha_inicio").val($("#txtFechainicio").val());
+
+        $.ajax({
+            url: this.action,
+            type: this.method,
+            data: new FormData(this),
+            processData: false,
+            contentType: false,
+            beforeSend: function () {
+                $('#loaderImage').removeClass("hidden").addClass("show");
+                $('#btnGrabar').attr("disabled", "disabled");
+            },
+            complete: function () {
+                $('#loaderImage').removeClass("show").addClass("hidden");
+                $('#btnGrabar').removeAttr("disabled", "disabled");
+            },
+            success: function (result) {
+
+                $('.field-validation-error').each(function () {
+                    $(this).removeClass("field-validation-error").addClass("field-validation-valid");
+                    $(this).html('');
+                });
+
+                $("#conformidad").html(result)
+                $('#mdlConformidad').modal();
+            },
+
+            error: function (result) {
+                if (result.status == 500) {
+                    $("#mensajes").html(result.responseText).hide();
+                    $("html, body").animate({ scrollTop: 0 }, '500', 'swing', function () {
+                        $("#mensajes").slideDown(500, function () { });
+                    });
+                }
+                else if (result.status == 400) {
+                    $('.field-validation-error').each(function () {
+                        $(this).removeClass("field-validation-error").addClass("field-validation-valid");
+                        $(this).html('');
+                    });
+                    $.each(result.responseJSON.errors, function (key, value) {
+                        if (value != null) {
+                            var container = $('span[data-valmsg-for="' + key + '"]');
+                            container.removeClass("field-validation-valid").addClass("field-validation-error");
+                            container.html(value);
+                        }
+                    });
+                    $("#mensajes").html(result.responseJSON.summary).hide();
+                    if (result.responseJSON.summary != "") {
+                        $("html, body").animate({ scrollTop: 0 }, '500', 'swing', function () {
+                            $("#mensajes").slideDown(500, function () { });
+                        });
+                    }
+                }
+            }
+        });
+
+
+    });
+
+
+    });
+</script>

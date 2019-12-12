@@ -1,0 +1,498 @@
+﻿@using SIGESDOC.Web.Seguridad
+
+@model IEnumerable<SIGESDOC.Response.DocumentoResponse>
+@{
+    //WebGrid grid = new WebGrid(rowsPerPage: ServiceConfiguration.PageSize, ajaxUpdateContainerId: "grid");    grid.Bind(Model, autoSortAndPage: false, rowCount: ViewBag.TotalRows);
+    ViewBag.Title = "Consulta General de Hoja de Trámite";
+}
+
+<ol class="breadcrumb" style="margin-bottom: 5px;">
+    <li><a href="#">Hoja de Trámite</a></li>
+    <li class="active">Consulta General de HT</li>
+</ol>
+
+<div class="bs-callout bs-callout-info">
+    <h4>Consultar Hojas de Trámite</h4>
+    <p>En esta sección usted puede Consultar las Hojas de Trámite</p>
+</div>
+
+<div class="modal fade" id="mdl_detalle_3" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-width">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title" id="myModalLabel">Lista de Documentos <label id="titulo_100">  </label> </h4>
+
+            </div>
+
+            <div class="modal-body">
+                <div class="form-horizontal">
+
+                    <label class="control-label" style="font-weight: bold;">Listado de Documentos</label>
+
+                    <div class="row">
+
+                        <div id="grid_documentos">
+                            <table class="table table-striped table-hover table-condensed tabla small" data-swhgajax="true" data-swhgcontainer="grid" data-swhgcallback="" id="tbl_lista_documentos">
+                                <thead>
+                                    <tr class="cabecera">
+                                        <th scope="col"> </th>
+                                        <th scope="col">Fecha Registro</th>
+                                        <th scope="col">Documento</th>
+                                        <th scope="col">Folios</th>
+                                        <th scope="col">Anexos</th>
+                                    </tr>
+                                </thead>
+                                <tbody></tbody>
+                            </table>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default btn-sm" data-dismiss="modal">Salir</button>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<div class="panel panel-primary">
+    <div class="panel-heading panet-heading-sm">Búsqueda de hoja de trámite</div>
+    <div class="panel-body">
+        @using (Ajax.BeginForm(new AjaxOptions { HttpMethod = "Get" }))
+        {
+
+            <div class="row">
+                
+                <div class="row hidden">
+                    @Html.TextBox("val_txtfechainicio", null, new { @class = "form-control input-sm", @maxlength = "50" })
+                    @Html.TextBox("val_txtfechafin", null, new { @class = "form-control input-sm", @maxlength = "50" })
+                </div>
+
+                <div class="col-lg-6">
+                    <div class="input-group input-group-sm">
+                        <span class="input-group-addon">TUPA: </span>
+                        @Html.DropDownList("cmbtupa", (IEnumerable<SelectListItem>)ViewBag.lst_tupa, new { @class = "form-control input-sm" })
+                    </div>
+                </div>
+
+                <div class="col-lg-5" >
+                    <div class="input-group input-group-sm">
+                        <span class="input-group-addon">Fecha</span>
+                        <div class="input-group date input-group-sm" id="dtpFechainicio">
+                            <input class="form-control input-sm validaFechaInicio" id="txtFechainicio" type="text" name="txtFechainicio" value="">
+                            <span class="input-group-addon input-sm add-on">
+                                <a href="#">
+                                    <i class="glyphicon glyphicon-calendar" data-date-icon="glyphicon glyphicon-calendar"></i>
+                                </a>
+                            </span>
+                        </div>
+                        <span class="input-group-addon">Hasta</span>
+                        <div class="input-group date input-group-sm" id="dtpFechafin">
+                            <input class="form-control input-sm validaFechaFin" id="txtFechafin" type="text" name="txtFechafin" value="">
+                            <span class="input-group-addon input-sm add-on">
+                                <a href="#">
+                                    <i class="glyphicon glyphicon-calendar" data-date-icon="glyphicon glyphicon-calendar"></i>
+                                </a>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <br>
+            
+            <div class="row">
+
+                <div class="col-lg-3">
+                    <div class="input-group input-group-sm">
+                        <span class="input-group-addon">Hoja Trámite</span>
+                        @Html.TextBox("HT", null, new { @class = "form-control input-sm", @maxlength = "11" })
+                    </div>
+                </div>
+
+                <div class="col-lg-3">
+                    <div class="input-group input-group-sm">
+                        <span class="input-group-addon">Asunto</span>
+                        @Html.TextBox("Asunto", null, new { @class = "form-control input-sm", @maxlength = "500" })
+                    </div>
+                </div>
+
+                <div class="col-lg-4">
+                    <div class="input-group input-group-sm">
+                        <span class="input-group-addon">Entidad/Persona Natural</span>
+                        @Html.TextBox("Empresa", null, new { @class = "form-control input-sm", @maxlength = "500", style = "width:265px" })
+                    </div>
+                </div>
+
+            </div>
+
+            <br>
+
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="input-group input-group-sm">
+                        <span class="input-group-addon">Tipo Documento: </span>
+                        @Html.DropDownList("cmbtipo_documento", (IEnumerable<SelectListItem>)ViewBag.lst_tipo_documento, new { @class = "form-control input-sm" })
+                    </div>
+                </div>
+
+                <div class="col-lg-6">
+                    <div class="input-group input-group-sm">
+                        <span class="input-group-addon">Nro / Nombre</span>
+                        <div class="row">
+                            <div class="col-lg-3">
+                                @Html.TextBox("num_documento", null, new { @class = " form-control input-sm", @onpaste = "return false;", @maxlength = "11", @onkeypress = "return IsNumeric_vista(this.value);" })
+                            </div>
+                            <div class="col-lg-6">
+                                @Html.TextBox("nom_documento", null, new { @class = " form-control input-sm" })
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <br>
+
+            <div class="row">
+                <div class="col-lg-1">
+                    <input type="submit" id="btnBuscar" class="btn btn-primary btn-sm pull-left" value="Actualizar" />
+                </div>
+            </div>
+        }
+    </div>
+</div>
+
+<div id="grid">
+    <table id="grid_HT_General" class="table table-striped table-hover table-condensed table-bordered tabla small">
+        <thead>
+            <tr class="cabecera text-center">
+                <th scope="col">Nro HT</th>
+                <th scope="col" class="visible-lg">Tipo HT</th>
+                <th scope="col" class="visible-lg">TUPA</th>
+                <th scope="col" class="visible-lg">Documento</th>
+                <th scope="col">Asunto</th>
+                <th scope="col" class="visible-lg">Referencia</th>
+                <th scope="col" class="visible-lg visible-md">Fecha Emisión</th>
+                <th scope="col" class="visible-lg visible-md">Entidad/Persona Natural</th>
+                <th scope="col" class="visible-lg visible-md">Clave</th>
+                <th scope="col" class="visible-lg visible-md">Estado</th>
+                <th scope="col">Opciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            @if (ViewData["HT_General_Tabla"] != null)
+            {
+                foreach (System.Data.DataRow dr in (ViewData["HT_General_Tabla"] as System.Data.DataTable).Rows)
+                {
+                    <tr>
+                        <td style=" text-align:center;"> @dr["HOJA_TRAMITE"] </td>
+                        <td style=" text-align:center;" class="visible-lg"> @dr["NOMBRE_TIPO_TRAMITE"] </td>
+                        <td style=" text-align:center;" class="visible-lg"> @dr["TUPA"] </td>
+                        <td class="visible-lg"> @dr["NOMBRE_DOCUMENTO"] </td>
+                        <td> @dr["ASUNTO"] </td>
+                        <td class="visible-lg"> @dr["REFERENCIA"] </td>
+                        <td class="visible-lg visible-md"> @dr["FECHA_EMISION"] </td>
+                        <td class="visible-lg visible-md"> @dr["NOMBRE_OFICINA"] </td>
+                        <td class="visible-lg visible-md"> @dr["CLAVE"] </td> 
+                        <td class="visible-lg visible-md"> @dr["NOM_ESTADO"] </td>
+                        
+                        <td style="text-align:center;">
+                            <ul class="list-inline" style="margin-bottom:0">
+                                <li>
+                                    <a class="Imprimir_Administrado" id=@dr["NUMERO_HOJA_TRAMITE"] href="#" title="Administrado">
+                                        <i class="red glyphicon glyphicon-print"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="Imprimir_Inicio" id=@dr["NUMERO_HOJA_TRAMITE"] href="#" title="Inicial">
+                                        <i class="green glyphicon glyphicon-print"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="Imprimir" id=@dr["NUMERO_HOJA_TRAMITE"] href="#" title="Vacia">
+                                        <i class="blue glyphicon glyphicon-print"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="Imprimir_History" id=@dr["NUMERO_HOJA_TRAMITE"] href="#" title="Historial">
+                                        <i class="blue glyphicon glyphicon-th-list"></i>
+                                    </a>
+                                </li>
+
+                                <li>
+                                    <a class="Imprimir_History_reload" id=@dr["NUMERO_HOJA_TRAMITE"] href="#" title="Nuevo Historial">
+                                        <i class="blue glyphicon glyphicon-tree-conifer"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="ver_documentos" id=@dr["NUMERO_ID_HT_TEXTO"] href="#" title="Listado de Documentos">
+                                        <i class="red glyphicon glyphicon-th-list"></i>
+                                    </a>
+                                </li>
+                                <li>
+
+                                </li>
+                            </ul>
+                        </td>
+                    </tr>
+                }
+            }
+        </tbody>
+
+    </table>
+</div>
+
+
+@*<div id="grid">    @grid.GetHtml(        tableStyle: "table table-striped table-hover table-condensed tabla small",        headerStyle: "cabecera",        columns: new[] {            grid.Column(null, header:"Nro HT",format: p=> p.hoja_tramite.hoja_tramite),            grid.Column(null, header:"Externa/Interna",format: p=>(p.hoja_tramite.nombre_tipo_tramite)),            grid.Column(null, header:"Documento",format: p=>p.nom_doc),            grid.Column(null, header:"Asunto",format: p=>p.hoja_tramite.asunto),            grid.Column(null, header:"Referencia",format: p=>p.hoja_tramite.referencia),            grid.Column(null, header:"Fecha Emisión", format: p=> p.hoja_tramite.fecha_emision),            grid.Column(null, header:"Entidad/Persona Natural",format: p=>p.hoja_tramite.nombre_oficina),            grid.Column(null, header:"Opciones",format: p => MvcHtmlString.Create("<ul class='list-inline' style='margin-bottom:0'><li>"+                            Html.IconlinkItem("Inicial", "Imprimir_Inicio", (string)p.hoja_tramite.numero.ToString(), "glyphicon glyphicon-print", "green", true).ToString()  + "</li><li>" +                            Html.IconlinkItem("Vacia", "Imprimir", (string)p.hoja_tramite.numero.ToString(), "glyphicon glyphicon-print", "blue", true).ToString()  + "</li><li>" +                            Html.IconlinkItem("Historial", "Imprimir_History", (string)p.hoja_tramite.numero.ToString(), "glyphicon glyphicon-th-list", "blue", true).ToString()  + "</li><li>" +                            Html.IconlinkItem("PDF", "Ver_PDF", (string)p.hoja_tramite.hoja_tramite.ToString(), "glyphicon glyphicon-file", "blue", (bool)p.hoja_tramite.ver_pdf).ToString() + "</li></ul>")                                                        )        }                                         , footerStyle: "hidden"                                         )    @if (Model.Count() == 0)    {        <div class="row">            <div class="col-lg-12 text-center">                <div class="well well-sm">                    No se encontraron registros                </div>            </div>        </div>    }    else    {        <div class="row">            <div id="paginator" class="col-lg-12">                @grid.PagerList(mode: WebGridPagerModes.All, firstText: "Primero", previousText: "Anterior", nextText: "Siguiente", lastText: "Último")                Se encontraron: @ViewBag.TotalRows Registros            </div>                    </div>    }</div>*@
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
+
+<script type="text/javascript">
+
+
+    function IsNumeric_vista(dato) {
+        var valor = dato.indexOf(".");
+        var evento = window.event || dato;
+        if ((window.event.keyCode > 47 && window.event.keyCode < 58) || window.event.keyCode == 13) {
+            window.event.returnValue = true;
+        }
+        else {
+            window.event.returnValue = false;
+        }
+    }
+
+    function compare_dates(fecha, fecha2) {
+        var xMonth = fecha.substring(3, 5);
+        var xDay = fecha.substring(0, 2);
+        var xYear = fecha.substring(6, 10);
+        var yMonth = fecha2.substring(3, 5);
+        var yDay = fecha2.substring(0, 2);
+        var yYear = fecha2.substring(6, 10);
+        if (xYear > yYear) {
+            return (true)
+        }
+        else {
+            if (xYear == yYear) {
+                if (xMonth > yMonth) {
+                    return (true)
+                }
+                else {
+                    if (xMonth == yMonth) {
+                        if (xDay > yDay)
+                            return (true);
+                        else
+                            return (false);
+                    }
+                    else
+                        return (false);
+                }
+            }
+            else
+                return (false);
+        }
+    }
+
+    function sumarDias(fecha, dias) {
+        fecha.setDate(fecha.getDate() + dias);
+        return fecha;
+    }
+
+    $(document).ready(function () {
+
+        $("#txtFechainicio").val($("#val_txtfechainicio").val());
+        $("#txtFechafin").val($("#val_txtfechafin").val());
+        $(function () {
+            $('#dtpFechafin').datetimepicker({
+                pickTime: false,
+                format: 'dd/MM/yyyy',
+                language: 'es'
+            });
+
+            $('#dtpFechainicio').datetimepicker({
+                pickTime: false,
+                format: 'dd/MM/yyyy',
+                language: 'es'
+            });
+        });
+
+        //$(function () {            $('#paginator ul li a').click(function () {                var url = $(this).attr('href') + '&' + $('form').serialize();                $(this).attr('href', url);            });        });
+
+        $("#grid_HT_General").DataTable({
+            "ordering": false,
+            "lengthChange": false,
+            "searching": false,
+            //"info": false,
+            "language": {
+                "paginate": {
+                    "previous": "Anterior",
+                    "next": "Siguiente"
+                }
+            }
+        });
+
+
+        $(document).on('click', '.Imprimir', function () {
+            var hoja_tramite = $(this).attr('id');
+            var url = "/Hojatramite/Imprimir_Vacia/" + hoja_tramite;
+            window.location.href = url;
+        });
+
+        $(document).on('click', '.Imprimir_History', function () {
+            var hoja_tramite = $(this).attr('id');
+            var url = "/Hojatramite/Imprimir_History/" + hoja_tramite;
+            window.location.href = url;
+        });
+
+        $(document).on('click', '.Imprimir_History_reload', function () {
+            var hoja_tramite = $(this).attr('id');
+            var url = "/Hojatramite/Ver_Historial_HT/" + hoja_tramite;
+            window.location.href = url;
+        });
+
+        
+
+        $(document).on('click', '.Imprimir_Administrado', function () {
+            var hoja_tramite = $(this).attr('id');
+            var url = "/Hojatramite/Imprimir_Administrado/" + hoja_tramite;
+            window.location.href = url;
+        });
+
+        $(document).on('click', '.Imprimir_Inicio', function () {
+            var hoja_tramite = $(this).attr('id');
+            var url = "/Hojatramite/Imprimir_Nuevo/" + hoja_tramite;
+            window.location.href = url;
+        });
+
+
+        $(document).on('click', '.ver_documentos', function () {
+            $('#mdl_detalle_3').modal('show');
+            var datos_ht = $(this).attr('id').split('|');
+            document.getElementById('titulo_100').innerHTML = " - " + datos_ht[1];
+
+            $("#tbl_lista_documentos td").remove();
+
+            $.ajax({
+                cache: false,
+                type: "GET",
+                url: "@(Url.RouteUrl("llenar_documentos_hoja_tramite"))",
+                data: { "numero_ht": datos_ht[0] },
+                success: function (data) {
+                    $.each(data, function (id, option) {
+                        $.ajax({
+                            cache: false,
+                            type: "GET",
+                            url: "@(Url.RouteUrl("llenar_documento_anexo"))",
+                            data: { "id_documento": option.id_documento },
+                            success: function (data) {
+                                var nuevoTD = '<tr>';
+                                //Add by HM
+                                nuevoTD += '<td><ul class="list-inline" style="margin-bottom:0"><li><a class="Ver_hijo" id=' + option.id_documento + ' href="#" title="Detalle"><i class="blue glyphicon glyphicon-plus"></i></a></li></ul></td>';
+
+                                nuevoTD += '<td style="text-align:center;">' + option.fecha_texto_corto + '</td>';
+                                if (option.ruta_pdf == "" || option.ruta_pdf == null) {
+                                    nuevoTD += '<td style="text-align:center;">' + option.documento_completo + '</td>';
+                                } else {
+                                    nuevoTD += '<td style="text-align:center;"><ul class="list-inline" style="margin-bottom:0"><li><a href="#" class="ver_pdf_docu" id="' + option.id_documento + '" >' + option.documento_completo + '</a></li></ul></td>';
+                                }
+                                nuevoTD += '<td style="text-align:center;">' + option.folios + '</td>';
+                                if (option.ruta_pdf == "" || option.ruta_pdf == null) {
+                                    nuevoTD += '<td></td>';
+                                }
+                                else {
+                                    nuevoTD += '<td>' + option.anexos + '</td>';
+                                }
+                                nuevoTD += '</tr>';
+                                jQuery("#tbl_lista_documentos").append(nuevoTD);
+
+                                //Add by HM
+                                nuevoTD = '';
+                                $.each(data, function (id, var_option) {
+                                    nuevoTD += '<tr>';
+                                    nuevoTD += '<td><ul class="list-inline" style="margin-bottom:0"><li><a class="Ver_doc_adjunto" id=' + var_option.id_documento_anexo + ' href="#" title="PDF"> - ' + var_option.descripcion + '</a></li></ul></td>';
+                                    nuevoTD += '</tr>';
+                                });
+
+                                if (nuevoTD == '') {
+                                    nuevoTD = '<tr class="class_ver_hijo' + option.id_documento + ' hidden" >' +
+                                        '<td colspan="7">' +
+                                        '<table>'
+                                        + '<tr>'
+                                        + '<td>NO HAY DOCUMENTOS ADJUNTOS</td>'
+                                        + '</tr>'
+                                        + '</table>' +
+                                        '</td>' +
+                                        '</tr>';
+                                }
+                                else {
+                                    nuevoTD = '<tr class="class_ver_hijo' + option.id_documento + ' hidden" >'
+                                        + '<td colspan="7">'
+                                        + '<table>'
+                                        + nuevoTD
+                                        + '</table>'
+                                        + '</td>'
+                                        + '</tr>';
+                                }
+                                jQuery("#tbl_lista_documentos").append(nuevoTD);
+                            },
+                            error: function (xhr, ajaxOptions, thrownError) {
+                                alert('Failed to retrieve states.');
+                            }
+                        });
+                    });
+                },
+                error: function (xhr, ajaxOptions, thrownError) {
+                    alert('Failed to retrieve states.');
+                }
+            });
+
+        });
+
+        $(this).submit(function (e) {
+
+            var var_fecha_fin = $("#txtFechafin").val();
+            var var_fecha_ini = $("#txtFechainicio").val();
+            if (var_fecha_ini != "" && var_fecha_fin != "")
+            {
+                if (compare_dates(var_fecha_ini, var_fecha_fin)) {
+                    $("#txtFechafin").val($("#txtFechainicio").val());
+                }
+            }
+            $("#val_txtfechainicio").val($("#txtFechainicio").val());
+            $("#val_txtfechafin").val($("#txtFechafin").val());
+        });
+
+        $(document).on('click', '.ver_pdf_docu', function () {
+            var docu = $(this).attr('id');
+            var url = "/Hojatramite/Ver_docu_ht_PDF/" + docu;
+            window.open(url, '_blank');
+        });
+
+        //Add by HM
+        $(document).on('click', '.Ver_doc_adjunto', function () {
+            var id = $(this).attr('id');
+            var url = "/HojaTramite/descargar_anexo/" + id;
+            window.open(url, '_blank');
+        });
+
+        //Add by HM
+        $(document).on('click', '.Ver_hijo', function () {
+            var id_hijo = $(this).attr('id');
+            if ($(".class_ver_hijo" + id_hijo).hasClass("hidden")) {
+                $(".class_ver_hijo" + id_hijo).removeClass("hidden");
+            }
+            else {
+                $(".class_ver_hijo" + id_hijo).addClass("hidden");
+            };
+        });
+
+
+    });
+
+</script>

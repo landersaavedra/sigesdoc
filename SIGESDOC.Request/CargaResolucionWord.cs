@@ -9,5 +9,6 @@ namespace SIGESDOC.Request
    public class CargaResolucionWord
     {
         public string FECHA_ACTUAL { get; set; }
+        public string NOM_DOC { get; set; }
     }
 }

@@ -236,6 +236,9 @@
     <Compile Include="DestinoSolicitudInspeccionRepositorio.cs">
       <DependentUpon>RepositorioObjects.tt</DependentUpon>
     </Compile>
+    <Compile Include="DetalleMaeDocumentoRepositorio.cs">
+      <DependentUpon>RepositorioObjects.tt</DependentUpon>
+    </Compile>
     <Compile Include="DetDocFactRepositorio.cs">
       <DependentUpon>RepositorioObjects.tt</DependentUpon>
     </Compile>

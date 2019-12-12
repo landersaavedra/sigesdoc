@@ -36,6 +36,7 @@ namespace SIGESDOC.Response
         public string exp_o_ht_cdl_notif { get; set; }
         public string exp_o_ht_n_cdl_notif { get; set; }
         public string ruc { get; set; }
+        public Nullable<int> id_det_documento { get; set; }
     
         public virtual List<DetSegDocDhcpaResponse> det_seg_doc_dhcpa { get; set; }
         public virtual List<DocumentoDhcpaDetalleResponse> documento_dhcpa_detalle { get; set; }

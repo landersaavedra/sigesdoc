@@ -56,6 +56,8 @@ namespace SIGESDOC.Entidades
         public string OBSERVACION_ATENDIDO { get; set; }
         public string NOM_OFICINA_CREA { get; set; }
         public string NOM_OFICINA_DESTINO { get; set; }
+        public Nullable<bool> FLAG_TIPO_MEMORANDO { get; set; }
+        public Nullable<bool> FLAG_DESTINO_PRINCIPAL { get; set; }
     
         public virtual MAE_ESTADO_TRAMITE MAE_ESTADO_TRAMITE { get; set; }
         public virtual ICollection<DAT_LOG_DESARCHIVO_DESATENDIDO> DAT_LOG_DESARCHIVO_DESATENDIDO { get; set; }

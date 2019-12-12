@@ -15,6 +15,5 @@ namespace SIGESDOC.IRepositorio
     
     public partial interface ISeguimientoDhcpaRepositorio : IBaseRepositorio<MAE_SEGUIMIENTO_DHCPA>
     {
-
     }
 }

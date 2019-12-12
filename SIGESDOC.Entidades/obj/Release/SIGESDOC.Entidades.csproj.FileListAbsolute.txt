@@ -14,3 +14,8 @@ C:\Users\PSSPERU069\Documents\Proyecto\sigesdoc_sanipes\sigesdoc\SIGESDOC.Entida
 C:\Users\PSSPERU069\Documents\Proyecto\sigesdoc_sanipes\sigesdoc\SIGESDOC.Entidades\obj\Release\SIGESDOC.Entidades.csproj.CoreCompileInputs.cache
 C:\Users\PSSPERU069\Documents\Proyecto\sigesdoc_sanipes\sigesdoc\SIGESDOC.Entidades\obj\Release\SIGESDOC.Entidades.dll
 C:\Users\PSSPERU069\Documents\Proyecto\sigesdoc_sanipes\sigesdoc\SIGESDOC.Entidades\obj\Release\SIGESDOC.Entidades.pdb
+C:\Users\andres.albarracin\Desktop\PROYECTO LANDER\sigesdoc\SIGESDOC.Entidades\bin\Release\SIGESDOC.Entidades.dll
+C:\Users\andres.albarracin\Desktop\PROYECTO LANDER\sigesdoc\SIGESDOC.Entidades\bin\Release\SIGESDOC.Entidades.pdb
+C:\Users\andres.albarracin\Desktop\PROYECTO LANDER\sigesdoc\SIGESDOC.Entidades\obj\Release\SIGESDOC.Entidades.csprojAssemblyReference.cache
+C:\Users\andres.albarracin\Desktop\PROYECTO LANDER\sigesdoc\SIGESDOC.Entidades\obj\Release\SIGESDOC.Entidades.dll
+C:\Users\andres.albarracin\Desktop\PROYECTO LANDER\sigesdoc\SIGESDOC.Entidades\obj\Release\SIGESDOC.Entidades.pdb

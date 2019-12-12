@@ -228,9 +228,11 @@
     <table id="grid_HT_General" class="table table-striped table-hover table-condensed table-bordered tabla small">
         <thead>
             <tr class="cabecera text-center">
+
                 <th scope="col" class="visible-lg visible-md">Opciones</th>
                 <th scope="col" class="visible-lg">Documento</th>
                 <th scope="col" class="visible-lg visible-md">Fecha crea</th>
+                <th scope="col" hidden="hidden">id_documento</th>
                 <th scope="col">Nro HT</th>
                 <th scope="col" class="visible-lg">Tipo HT</th>
                 <th scope="col" class="visible-lg">TUPA</th>
@@ -245,53 +247,55 @@
             {
                 foreach (System.Data.DataRow dr in (ViewData["HT_General_Tabla"] as System.Data.DataTable).Rows)
                 {
-                    <tr>
+            <tr>
 
-                        <td style="text-align:center;">
-                            <ul class="list-inline" style="margin-bottom:0">
-                                <li>
-                                    <a class="Imprimir_Inicio" id=@dr["NUMERO_HOJA_TRAMITE"] href="#" title="Inicial">
-                                        <i class="green glyphicon glyphicon-print"></i>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a class="Imprimir" id=@dr["NUMERO_HOJA_TRAMITE"] href="#" title="Vacia">
-                                        <i class="blue glyphicon glyphicon-print"></i>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a class="Subir_archivo" id=@dr["ID_DOCUMENTO"] href="#" title="Subir Archivo">
-                                        <i class="blue glyphicon glyphicon-upload"></i>
-                                    </a>
-                                </li>
 
-                                <li>
-                                    <a class="ver_documentos_anexos" id=@dr["ID_DOCUMENTO"] href="#" title="Anexos">
-                                        <i class="blue glyphicon glyphicon-paperclip"></i>
-                                    </a>
-                                </li>
-                            </ul>
-                        </td>
-                        @if (dr["PDF"].ToString() == "1")
-                        {
-                            <td style=" text-align:center;">
-                                <ul class="list-inline" style="margin-bottom:0"><li><a class="ver_pdf" id=@dr["ID_DOCUMENTO"] href="#"> @dr["NOMBRE_DOCUMENTO"] </a></li></ul>
-                            </td>
+                <td style="text-align:center;">
+                    <ul class="list-inline" style="margin-bottom:0">
+                        <li>
+                            <a class="Imprimir_Inicio" id=@dr["NUMERO_HOJA_TRAMITE"] href="#" title="Inicial">
+                                <i class="green glyphicon glyphicon-print"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a class="Imprimir" id=@dr["NUMERO_HOJA_TRAMITE"] href="#" title="Vacia">
+                                <i class="blue glyphicon glyphicon-print"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a class="Subir_archivo" id=@dr["ID_DOCUMENTO"] href="#" title="Subir Archivo">
+                                <i class="blue glyphicon glyphicon-upload"></i>
+                            </a>
+                        </li>
 
-                        }
-                        else
-                        {
-                            <td style=" text-align:center;"> @dr["NOMBRE_DOCUMENTO"] </td>
-                        }
-                        <td class="visible-lg visible-md"> @dr["FECHA_CREA"] </td>
-                        <td style=" text-align:center;"> @dr["HOJA_TRAMITE"] </td>
-                        <td style=" text-align:center;" class="visible-lg"> @dr["NOMBRE_TIPO_TRAMITE"] </td>
-                        <td style=" text-align:center;" class="visible-lg"> @dr["TUPA"] </td>
-                        <td class="visible-lg visible-md"> @dr["NOMBRE_OFICINA"] </td>
-                        <td> @dr["ASUNTO"] </td>
-                        <td class="visible-lg"> @dr["REFERENCIA"] </td>
-                        <td class="visible-lg"> @dr["ANEXOS"] </td>
-                    </tr>
+                        <li>
+                            <a class="ver_documentos_anexos" id=@dr["ID_DOCUMENTO"] href="#" title="Anexos">
+                                <i class="blue glyphicon glyphicon-paperclip"></i>
+                            </a>
+                        </li>
+                    </ul>
+                </td>
+                @if (dr["PDF"].ToString() == "1")
+                {
+                    <td style=" text-align:center;">
+                        <ul class="list-inline" style="margin-bottom:0"><li><a class="ver_pdf" id=@dr["ID_DOCUMENTO"] href="#"> @dr["NOMBRE_DOCUMENTO"] </a></li></ul>
+                    </td>
+
+                }
+                else
+                {
+                    <td style=" text-align:center;"><a>@dr["NOMBRE_DOCUMENTO"]</a> </td>
+                }
+                <td class="visible-lg visible-md"> @dr["FECHA_CREA"] </td>
+                <td hidden="hidden" > @dr["ID_DOCUMENTO"] </td>
+                <td style=" text-align:center;"> @dr["HOJA_TRAMITE"] </td>
+                <td style=" text-align:center;" class="visible-lg"> @dr["NOMBRE_TIPO_TRAMITE"] </td>
+                <td style=" text-align:center;" class="visible-lg"> @dr["TUPA"] </td>
+                <td class="visible-lg visible-md"> @dr["NOMBRE_OFICINA"] </td>
+                <td> @dr["ASUNTO"] </td>
+                <td class="visible-lg"> @dr["REFERENCIA"] </td>
+                <td class="visible-lg"> @dr["ANEXOS"] </td>
+            </tr>
                 }
             }
         </tbody>
@@ -481,6 +485,298 @@
             window.location.href = url;
         });
         
+        $('#grid tr').click(function () {
+            var tableData = $(this).children("td").map(function () {
+                return $(this).text();
+            }).get();
+
+            console.log(tableData);
+
+            var oficina = tableData[1].trim();
+            var id_documento = tableData[3].trim();
+            var documento = oficina.split(" ");
+            console.log(documento[0].trim());
+            var nom_documento;
+            var num_documento;
+            console.log(documento);
+            if (documento.length== 4) {
+                
+                nom_documento = documento[0].trim() + " " + documento[1].trim();
+                num_documento = documento[2].trim();
+
+            } else {
+                nom_documento = documento[0].trim();
+                num_documento = documento[1].trim();
+            }
+
+            if (nom_documento == "CEDULA DE NOTIFICACION") {
+
+                $.ajax({
+                    cache: false,
+                    type: "GET",
+                    url: "/Documents/CedulaNotificacionWord",
+                    data: {
+                        "NON_DOC": tableData[1],
+                        "ASUNTO": tableData[3],
+                        "DIRECCION_CDL_NOTIF": tableData[7],
+                        "EMPRESA_CDL_NOTIF": tableData[8],
+                        "FOLIA_CDL_NOTIF": tableData[9],
+                        "DOC_NOTIFICAR_CDL_NOTIF": tableData[10],
+                        "EXP_O_HT_N_CDL_NOTIF": tableData[12],
+
+                    },
+                    sucess: function () {
+                        window.Alert('Documento Encontrado');
+                    },
+                    error: function (xhr, ajaxOptions, thownError) {
+                        alert('Failed to retrieve states.');
+                    }
+
+                });
+
+            } else if (nom_documento == "RESOLUCION DIRECTORAL") {
+
+                $.ajax({
+                    cache: false,
+                    type: "GET",
+                    url: "/Documents/ResolucionDirectoralWord",
+                    data: {
+                        "NOM_DOC": tableData[1],
+                        "EXPEDIENTE": tableData[5],
+                        "EMPRESA_CDL_NOTIF": tableData[8],
+                        "RUC": tableData[13],
+                    },
+                    sucess: function () {
+                        window.Alert('Documento Encontrado');
+                    },
+                    error: function (xhr, ajaxOptions, thownError) {
+                        alert('Failed to retrieve states.');
+                    }
+
+                });
+            } else if (nom_documento == "OFICIO") {
+
+                $.ajax({
+
+                    cache: false,
+                    type: "GET",
+                    url: "/Documents/OficioWord",
+                    data: {
+                        "NOM_DOC": tableData[1],
+                        "EXPEDIENTE": tableData[5],
+                        "ASUNTO": tableData[5],
+                        "CARGO": tableData[5],
+                        "DIRECCION": tableData[5],
+                        "NOMBRES": tableData[5],
+                        "REFERENCIA": tableData[5],
+                    },
+                    sucess: function () {
+                        window.Alert('Documento Encontrado');
+                    },
+                    error: function (xhr, ajaxOptions, thownError) {
+                        alert('Failed to retrieve states.');
+                    }
+
+                });
+
+            } else if (nom_documento == "INVITACION") {
+
+                $.ajax({
+
+                    cache: false,
+                    type: "GET",
+                    url: "/Documents/InvitacionWord",
+                    data: {
+                        "NON_DOC": tableData[1],
+                        "EXPEDIENTE": tableData[5],
+                    },
+                    sucess: function () {
+                        window.Alert('Documento Encontrado');
+                    },
+                    error: function (xhr, ajaxOptions, thownError) {
+                        alert('Failed to retrieve states.');
+                    }
+
+                });
+
+            } else if (nom_documento == "RESOLUCION") {
+
+                $.ajax({
+
+                    cache: false,
+                    type: "GET",
+                    url: "/Documents/ResolucionWord",
+                    data: {
+                        "NON_DOC": tableData[1],
+                        "EXPEDIENTE": tableData[5],
+                    },
+                    sucess: function () {
+                        window.Alert('Documento Encontrado');
+                    },
+                    error: function (xhr, ajaxOptions, thownError) {
+                        alert('Failed to retrieve states.');
+                    }
+
+                });
+
+            } else if (nom_documento == "INFORME") {
+
+                $.ajax({
+
+                    cache: false,
+                    type: "GET",
+                    url: "/Documents/InformeWord",
+                    data: {
+                        "NON_DOC": tableData[1],
+                        "ASUNTO": tableData[5],
+                        "REFERENCIA": tableData[5],
+                        "NOMBRES": tableData[5],
+                    },
+                    sucess: function () {
+                        window.Alert('Documento Encontrado');
+                    },
+                    error: function (xhr, ajaxOptions, thownError) {
+                        alert('Failed to retrieve states.');
+                    }
+
+                });
+
+            } else if (nom_documento == "COMUNICADO") {
+
+                $.ajax({
+
+                    cache: false,
+                    type: "GET",
+                    url: "/Documents/ComunicadoWord",
+                    data: {
+                        "NON_DOC": tableData[1],
+                        "EXPEDIENTE": tableData[5],
+                    },
+                    sucess: function () {
+                        window.Alert('Documento Encontrado');
+                    },
+                    error: function (xhr, ajaxOptions, thownError) {
+                        alert('Failed to retrieve states.');
+                    }
+
+                });
+
+            } else if (nom_documento == "CARTA MULTIPLE") {
+
+                $.ajax({
+
+                    cache: false,
+                    type: "GET",
+                    url: "/Documents/CartaMultipleWord",
+                    data: {
+                        "NON_DOC": tableData[1],
+                        "EXPEDIENTE": tableData[5],
+                    },
+                    sucess: function () {
+                        window.Alert('Documento Encontrado');
+                    },
+                    error: function (xhr, ajaxOptions, thownError) {
+                        alert('Failed to retrieve states.');
+                    }
+
+                });
+
+            } else if (nom_documento == "OFICIO MULTIPLE") {
+
+                $.ajax({
+
+                    cache: false,
+                    type: "GET",
+                    url: "/Documents/OficioMultipleWord",
+                    data: {
+                        "NON_DOC": tableData[1],
+                        "EXPEDIENTE": tableData[5],
+                    },
+                    sucess: function () {
+                        window.Alert('Documento Encontrado');
+                    },
+                    error: function (xhr, ajaxOptions, thownError) {
+                        alert('Failed to retrieve states.');
+                    }
+
+                });
+
+            } else if (nom_documento == "MEMORANDO") {
+
+                $.ajax({
+
+                    cache: false,
+                    type: "GET",
+                    url: "/Documents/MemorandoWord",
+                    data: {
+                        "NOM_DOC": tableData[1],
+                        "ASUNTO": tableData[3],
+                        "REFERENCIA": tableData[1],
+                        "NOMBRES": tableData[5],
+                    },
+                    sucess: function () {
+                        window.Alert('Documento Encontrado');
+                    },
+                    error: function (xhr, ajaxOptions, thownError) {
+                        alert('Failed to retrieve states.');
+                    }
+
+                });
+
+            } else if (nom_documento == "MEMORANDO MULTIPLE") {
+
+                $.ajax({
+
+                    cache: false,
+                    type: "GET",
+                    url: "/Documents/MemorandoMultipleWord",
+                    data: {
+                        "NON_DOC": tableData[1],
+                        "NUM_DOC": num_documento,
+                        "ID_DOCUMENTO": id_documento,
+                        "EXPEDIENTE": tableData[5],
+                    },
+                    sucess: function () {
+                        window.Alert('Documento Encontrado');
+                    },
+                    error: function (xhr, ajaxOptions, thownError) {
+                        alert('Failed to retrieve states.');
+                    }
+
+                });
+
+            } else if (nom_documento == "CARTA") {
+
+                $.ajax({
+
+                    cache: false,
+                    type: "GET",
+                    url: "/Documents/CartaWord",
+                    data: {
+                        "NON_DOC": tableData[1],
+                        "EXPEDIENTE": tableData[5],
+                    },
+                    sucess: function () {
+                        window.Alert('Documento Encontrado');
+                    },
+                    error: function (xhr, ajaxOptions, thownError) {
+                        alert('Failed to retrieve states.');
+                    }
+                });
+
+            }
+
+        });
+
+        $(document).ready(function () {
+
+            $("#icon_word").click(function () {
+                window.alert('Word');
+
+            });
+
+        });
+
     });
 
 </script>

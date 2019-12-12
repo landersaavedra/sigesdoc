@@ -9,5 +9,6 @@ namespace SIGESDOC.Request
     public class CargaOficioMultipleWord
     {
         public string FECHA_ACTUAL { get; set; }
+        public string ID_DOCUMENTO { get; set; }
     }
 }

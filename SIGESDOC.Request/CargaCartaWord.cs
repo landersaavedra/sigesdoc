@@ -16,5 +16,6 @@ namespace SIGESDOC.Request
         public string EMPRESA { get; set; }
         public string DIRECCION { get; set; }
 
+
     }
 }

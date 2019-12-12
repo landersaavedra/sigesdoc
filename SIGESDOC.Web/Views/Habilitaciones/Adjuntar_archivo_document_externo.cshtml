@@ -1,0 +1,97 @@
+﻿
+<div class="bottom hidden"></div>
+<div id="mensajes"></div>
+
+<ol class="breadcrumb" style="margin-bottom: 5px;">
+    <li>Adjuntar Archivo PDF</li>
+</ol>
+
+<div class="bs-callout bs-callout-info">
+    <h4>@Html.Label("", (string)ViewBag.Str_documento) </h4>
+    <h4>Adjuntar archivo PDF </h4>
+    <p>Use el siguiente formulario para Adjuntar un archivo PDF al documento</p>
+</div>
+
+@using (Html.BeginForm("Adjuntar_archivo_document_externo", "Habilitaciones", FormMethod.Post, new { @id = "nuevoForm", @enctype = "multipart/form-data" }))
+{
+
+    @Html.AntiForgeryToken()
+    <div class="form-horizontal">
+
+        <div class="row hidden">
+            @Html.TextBox("id_doc_dhcpa", (string)ViewBag.id_documento_dhcpa)
+        </div>
+
+        <div class="form-group col-md-12">
+            @Html.Label("DOCUMENTO ESCANEADO", new { @class = "col-md-3 control-label" })
+            <div class="col-md-3">
+                <input type="file" name="file" accept=".pdf">
+            </div>
+            <div class="progress col-md-3" style="width:50%">
+                <div class="progress-bar"></div>
+                <div class="percent">0%</div>
+            </div>
+
+            <div class="col-md-3" id="status"></div>
+        </div>
+
+        <div class="form-group">
+            <input id="btnGrabar" type="submit" value="Guardar Archivo" class="btn btn-primary btn-sm" />
+            <button type="button" class="btn btn-default btn-sm regresar">Cancelar</button>
+        </div>
+    </div>
+}
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
+
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.js"></script>
+<script src="http://malsup.github.com/jquery.form.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+
+<script>
+    $.noConflict();
+    jQuery(document).ready(function ($) {
+
+        $(document).on("click", ".regresar", function () {
+            window.location = '@Url.Action("Consulta_Documentos_emitidos_Externos", "Habilitaciones")';
+        });
+
+        var bar = $('.progress-bar');
+        var percent = $('.percent');
+        var status = $('#status');
+
+        $('#nuevoForm').ajaxForm({
+            beforeSend: function () {
+                $('#btnGrabar').attr("disabled", "disabled");
+                status.empty();
+                var percentVal = '0%';
+                bar.width(percentVal);
+                percent.html(percentVal);
+            },
+            uploadProgress: function (event, position, total, percentComplete) {
+                var percentVal = percentComplete + '%';
+                bar.width(percentVal);
+                percent.html(percentVal);
+            },
+            success: function (result) {
+
+                $('.field-validation-error').each(function () {
+                    $(this).removeClass("field-validation-error").addClass("field-validation-valid");
+                    $(this).html('');
+                });
+
+                $("#mensajes").html(result).hide();
+                $("html, body").animate({ scrollTop: 0 }, '1000', 'swing', function () {
+                    $("#mensajes").slideDown(1000, function () { });
+                    setTimeout(function () {
+                        window.location = '@Url.Action("Consulta_Documentos_emitidos_Externos", "Habilitaciones")';
+                    }, 2000);
+                });
+            },
+        });
+    });
+</script>

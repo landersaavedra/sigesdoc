@@ -464,6 +464,11 @@
                                         <i class="red glyphicon glyphicon-th-list"></i>
                                     </a>
                                 </li>
+                                <li>
+                                    <a class="agregar_documento_externo" id=@dr["ID_DET_DOCUMENTO_HOJA_TRAMITE_NRO_HT"] href="#" title="Agregar Documento Externo">
+                                        <i class="blue-light glyphicon glyphicon-new-window"></i>
+                                    </a>
+                                </li>
                                 @if ((string)dr["ESTADO"] == "")
                                 {
 
@@ -836,6 +841,12 @@
             window.location.href = url;
         });
 
+        //Add by HM - 28/11/2019
+        $(document).on('click', '.agregar_documento_externo', function () {
+            var datos_ht = $(this).attr('id').split('|');
+            var url = "/HojaTramite/Nuevo_Documento_Externos?IdRegistro=" + datos_ht[2];
+            window.location.href = url;
+        });
 
         $(document).on('click', '.ver_documentos', function () {
 

@@ -419,5 +419,19 @@ namespace SIGESDOC.IAplicacionService
 
         [OperationContract]
         IEnumerable<DocumentoSeguimientoResponse> GetAllDocumentos_x_rec(string estado, string indicador, string evaluador, string asunto, string externo, string id_tipo_documento, string num_doc, string nom_doc, int oficina_crea, string expediente);
+        //Add by HM - 28/11/2019
+        [OperationContract]
+        IEnumerable<DocumentoDhcpaResponse> Lista_Documentos_dhcpa_externos(string evaluador, int tipo_doc_dhcpa, string asunto, int anno, int oficina_direccion);
+
+        //Add by HM - 28/11/2019
+        [OperationContract]
+        int CountDocumentos_x_tipo_oficina_direccion(int id_tipo_documento, int oficina_direccion);
+
+        [OperationContract]
+        IEnumerable<DocumentoDhcpaResponse> Lista_Documentos_x_tipo_documento_oficina_direccion(int id_tipo_documento, int anno, int oficina_direccion);
+
+        [OperationContract]
+        IEnumerable<DocumentoDhcpaResponse> Lista_Documentos_externos(string evaluador, int tipo_doc_dhcpa, string asunto, int anno, int oficina_direccion);
     }
 }
+

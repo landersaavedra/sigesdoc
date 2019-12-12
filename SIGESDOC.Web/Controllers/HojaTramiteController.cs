@@ -71,12 +71,14 @@ namespace SIGESDOC.Web.Controllers
         private readonly IHojaTramiteService _HojaTramiteService;
         private readonly IGeneralService _GeneralService;
         private readonly IOficinaService _OficinaService;
+        private readonly IHabilitacionesService _HabilitacionesService;
         
-        public HojaTramiteController(IHojaTramiteService HojaTramiteService, IGeneralService GeneralService, IOficinaService OficinaService)
+        public HojaTramiteController(IHojaTramiteService HojaTramiteService, IGeneralService GeneralService, IOficinaService OficinaService, IHabilitacionesService HabilitacionesService)
         {
             _HojaTramiteService = HojaTramiteService;
             _GeneralService = GeneralService;
             _OficinaService = OficinaService;
+            _HabilitacionesService = HabilitacionesService;
         }
 
         [AllowAnonymous]
@@ -7153,8 +7155,307 @@ namespace SIGESDOC.Web.Controllers
 
         }
 
-       
-        
+
+
+        //Add by HM - 28/11/2019
+        [AllowAnonymous]
+        public ActionResult Nuevo_Documento_Externos(int IdRegistro)
+        {
+            if (HttpContext.Request.IsAuthenticated)
+            {
+                if (HttpContext.User.Identity.Name.Split('|')[7].Trim() == "2" && // Sistema N° 2: Sistema de Gestión de Documentos
+                    (HttpContext.User.Identity.Name.Split('|')[5].ToString().Split(',')[0].Trim() == "16" || //Administrador
+                    (HttpContext.User.Identity.Name.Split('|')[9].Trim().Split(',')[14].Trim() == "1" // Acceso a Nuevo Documento DHCPA
+                    && (HttpContext.User.Identity.Name.Split('|')[4].Trim() == "17" || HttpContext.User.Identity.Name.Split('|')[4].Trim() == "7" || HttpContext.User.Identity.Name.Split('|')[4].Trim() == "28"))))
+                // Oficina 17: Sub Dirección de Certificaciones ó Oficina 7: Direccion de HyCPA ó Oficina 28: Atención al Cliente
+                {
+
+                    List<SelectListItem> lista_sedes_externo = new List<SelectListItem>();
+                    List<SelectListItem> list_combo = new List<SelectListItem>();
+                    ViewBag.lista_combo = list_combo;
+
+                    lista_sedes_externo.Add(new SelectListItem()
+                    {
+                        Text = "SELECCIONAR SEDE",
+                        Value = "0"
+                    });
+
+                    List<SelectListItem> lista_sedes = new List<SelectListItem>();
+                    List<SelectListItem> Lista_Oficina_destino = new List<SelectListItem>();
+                    List<SelectListItem> lista_personal = new List<SelectListItem>();
+
+                    lista_sedes.Add(new SelectListItem()
+                    {
+                        Text = "SELECCIONAR SEDE",
+                        Value = "0"
+                    });
+
+                    int id_ofi_ruc = 0;
+
+                    foreach (var result in _GeneralService.Recupera_oficina_all_x_ruc("20565429656"))
+                    {
+                        if (result.id_ofi_padre == null)
+                        {
+                            id_ofi_ruc = result.id_oficina;
+                        }
+                    };
+
+
+                    foreach (var result in _GeneralService.Recupera_sede_all(id_ofi_ruc))
+                    {
+                        lista_sedes.Add(new SelectListItem()
+                        {
+                            Text = result.nombre,
+                            Value = result.id_sede.ToString()
+                        }
+                        );
+                    };
+
+                    Lista_Oficina_destino.Add(new SelectListItem()
+                    {
+                        Text = "SELECCIONAR OFICINA",
+                        Value = "0"
+                    });
+
+                    lista_personal.Add(new SelectListItem()
+                    {
+                        Text = "SELECCIONAR PERSONAL",
+                        Value = ""
+                    });
+
+                    List<SelectListItem> lista_tipo_documento = new List<SelectListItem>();
+
+                    foreach (var result in _GeneralService.Recupera_tipo_documento_some())
+                    {
+                        lista_tipo_documento.Add
+                            (new SelectListItem()
+                            {
+                                Text = result.nombre,
+                                Value = result.id_tipo_documento.ToString()
+                            });
+                    };
+
+                    List<SelectListItem> lista_archivadores = new List<SelectListItem>();
+
+                    lista_archivadores.Add(new SelectListItem()
+                    {
+                        Text = "SELECCIONAR ARCHIVADOR",
+                        Value = ""
+                    });
+
+                    foreach (var result in _HabilitacionesService.GetAll_Archivador())
+                    {
+                        lista_archivadores.Add
+                            (new SelectListItem()
+                            {
+                                Text = result.nombre,
+                                Value = result.id_archivador.ToString()
+                            });
+                    };
+
+                    List<SelectListItem> lista_filiales = new List<SelectListItem>();
+
+                    lista_filiales.Add(new SelectListItem()
+                    {
+                        Text = "SELECCIONAR FILIALES",
+                        Value = ""
+                    });
+
+                    foreach (var result in _HabilitacionesService.GetAll_Filial())
+                    {
+                        lista_filiales.Add
+                            (new SelectListItem()
+                            {
+                                Text = result.nombre,
+                                Value = result.id_filial.ToString()
+                            });
+                    };
+
+                    List<SelectListItem> Lista_per_crea = new List<SelectListItem>();
+
+                    var recupera_persona = _GeneralService.Recupera_personal_oficina(Convert.ToInt32(HttpContext.User.Identity.Name.Split('|')[4].Trim()));
+                    foreach (var result in recupera_persona)
+                    {
+                        Lista_per_crea.Add(new SelectListItem()
+                        {
+                            Text = result.nom_persona,
+                            Value = result.persona_num_documento.ToString()
+                        }
+                        );
+                    };
+
+                    ViewBag.lstsede_destino = lista_sedes;
+                    ViewBag.lstOficina_destino = Lista_Oficina_destino;
+                    ViewBag.lstpersonal_oficina = lista_personal;
+
+                    ViewBag.lstsede_destino_externo = lista_sedes_externo;
+                    ViewBag.lstOficina_destino_externo = Lista_Oficina_destino;
+                    ViewBag.lstpersonal_oficina_externo = lista_personal;
+
+                    ViewBag.lst_persona_crea = Lista_per_crea;
+                    ViewBag.list_tip_documento_dhcpa = lista_tipo_documento;
+                    ViewBag.list_archivador = lista_archivadores;
+                    ViewBag.lista_filiales = lista_filiales;
+
+                    ViewBag.user_document = HttpContext.User.Identity.Name.Split('|')[1].Trim();
+                    ViewBag.user_perfil = HttpContext.User.Identity.Name.Split('|')[5].ToString().Split(',')[0].Trim();
+
+                    //Enviamos la Oficina Para Verificacion en JAVASCRIPT
+                    ViewBag.ID_OFICINA_DIRECCION = Convert.ToInt32(HttpContext.User.Identity.Name.Split('|')[4].Trim());
+
+                    //Enviamos el ID Registro del Documento
+                    ViewBag.ID_REGISTRO = Convert.ToInt32(IdRegistro);
+
+                    DocumentodhcpaViewModel model_doc_dhcpa = new DocumentodhcpaViewModel();
+
+                    return View(model_doc_dhcpa);
+
+                }
+                else
+                {
+                    return RedirectToAction("Error_Logeo", "Account");
+                }
+            }
+            else
+            {
+                return RedirectToAction("Index", "Inicio");
+            }
+        }
+
+        //Add by HM - 28/11/2019
+        [AcceptVerbs(HttpVerbs.Post)]
+        public ActionResult Nuevo_Documento_Externos(DocumentodhcpaViewModel model)
+        {
+            var Oficina_Global = Convert.ToInt32(HttpContext.User.Identity.Name.Split('|')[4].Trim());
+
+            if (HttpContext.Request.IsAuthenticated)
+            {
+                if (HttpContext.User.Identity.Name.Split('|')[7].Trim() == "2" && // Sistema N° 2: Sistema de Gestión de Documentos
+                    (HttpContext.User.Identity.Name.Split('|')[5].ToString().Split(',')[0].Trim() == "16" || //Administrador
+                    (HttpContext.User.Identity.Name.Split('|')[9].Trim().Split(',')[14].Trim() == "1" // Acceso a Nuevo Documento DHCPA
+                    && (HttpContext.User.Identity.Name.Split('|')[4].Trim() == "17" || HttpContext.User.Identity.Name.Split('|')[4].Trim() == "7" || HttpContext.User.Identity.Name.Split('|')[4].Trim() == "28"))))
+                // Oficina 17: Sub Dirección de Certificaciones ó Oficina 7: Direccion de HyCPA ó Oficina 28 : Atención al Cliente
+                {
+                    model.num_doc = _HabilitacionesService.CountDocumentos_x_tipo_oficina_direccion(model.id_tipo_documento, Oficina_Global) + 1;
+                    model.nom_doc = "-" + DateTime.Now.Year.ToString() + "- DHCPA/SANIPES";
+                    DocumentoDhcpaRequest req_documento_dhcpa = ModelToRequest.Documento_dhcpa(model);
+                    req_documento_dhcpa.fecha_registro = DateTime.Now;
+                    req_documento_dhcpa.usuario_registro = HttpContext.User.Identity.Name.Split('|')[0].Trim() + " - " + HttpContext.User.Identity.Name.Split('|')[1].Trim();
+                    req_documento_dhcpa.id_oficina_direccion = Oficina_Global;//Nuevo
+                                                                              //req_documento_dhcpa.id_det_documento = 
+
+                    model.id_doc_dhcpa = _HabilitacionesService.Create_documento_dhcpa(req_documento_dhcpa);
+                    req_documento_dhcpa.id_doc_dhcpa = model.id_doc_dhcpa;
+
+                    if (model.exp_o_ht_n_cdl_notif != "" && model.exp_o_ht_n_cdl_notif != null)
+                    {
+                        try
+                        {
+                            DetSegDocDhcpaRequest req_documento_dhcpa_seguimiento = new DetSegDocDhcpaRequest();
+                            req_documento_dhcpa_seguimiento.id_seguimiento = _HabilitacionesService.Consulta_expediente_x_expediente(model.exp_o_ht_n_cdl_notif).id_seguimiento;
+                            req_documento_dhcpa_seguimiento.id_doc_dhcpa = req_documento_dhcpa.id_doc_dhcpa;
+                            req_documento_dhcpa_seguimiento.activo = "1";
+                            req_documento_dhcpa_seguimiento.id_det_dsdhcpa = _HabilitacionesService.Create_documento_dhcpa_seguimiento(req_documento_dhcpa_seguimiento);
+                        }
+                        catch (Exception) { }
+                    }
+
+                    if (model.documento_dhcpa_detalle != null)
+                    {
+                        foreach (detDocdhcpaViewModel obj in model.documento_dhcpa_detalle)
+                        {
+                            DocumentoDhcpaDetalleRequest req_documento_dhcpa_detalle = ModelToRequest.Documento_dhcpa_detalle(obj);
+                            req_documento_dhcpa_detalle.id_doc_dhcpa = req_documento_dhcpa.id_doc_dhcpa;
+                            req_documento_dhcpa_detalle.activo = "1";
+                            req_documento_dhcpa_detalle.usuario_registro = HttpContext.User.Identity.Name.Split('|')[0].Trim() + " - " + HttpContext.User.Identity.Name.Split('|')[1].Trim();
+                            req_documento_dhcpa_detalle.fecha_registro = DateTime.Now;
+                            obj.id_doc_dhcpa_det = _HabilitacionesService.Create_documento_dhcpa_detalle(req_documento_dhcpa_detalle);
+                        }
+                    }
+
+                    if (model.ind_agregar_celula == 1)
+                    {
+                        string mensaje = "";
+                        mensaje = "Se creó el Documento : " + model.nom_tipo_documento + " N° " + model.num_doc.ToString() + model.nom_doc;
+
+                        if (model.id_tipo_documento == 136)
+                        {
+                            model.doc_notificar_cdl_notif = model.nom_tipo_documento + " N° " + model.num_doc.ToString() + model.nom_doc;
+                        }
+
+                        // 21 : CEDULA DE NOTIFICACION
+                        model.id_tipo_documento = 21;
+                        model.num_doc = _HabilitacionesService.CountDocumentos_x_tipo(model.id_tipo_documento) + 1;
+
+                        DocumentoDhcpaRequest req_documento_dhcpa2 = ModelToRequest.Documento_dhcpa(model);
+                        req_documento_dhcpa2.fecha_registro = DateTime.Now;
+                        req_documento_dhcpa2.usuario_registro = HttpContext.User.Identity.Name.Split('|')[0].Trim() + " - " + HttpContext.User.Identity.Name.Split('|')[1].Trim();
+                        req_documento_dhcpa2.id_oficina_direccion = Oficina_Global;//nuevo
+
+                        model.id_doc_dhcpa = _HabilitacionesService.Create_documento_dhcpa(req_documento_dhcpa2);
+                        req_documento_dhcpa2.id_doc_dhcpa = model.id_doc_dhcpa;
+
+                        if (model.exp_o_ht_n_cdl_notif != "" && model.exp_o_ht_n_cdl_notif != null)
+                        {
+                            try
+                            {
+                                DetSegDocDhcpaRequest req_documento_dhcpa_seguimiento = new DetSegDocDhcpaRequest();
+                                req_documento_dhcpa_seguimiento.id_seguimiento = _HabilitacionesService.Consulta_expediente_x_expediente(model.exp_o_ht_n_cdl_notif).id_seguimiento;
+                                req_documento_dhcpa_seguimiento.id_doc_dhcpa = req_documento_dhcpa2.id_doc_dhcpa;
+                                req_documento_dhcpa_seguimiento.activo = "1";
+                                req_documento_dhcpa_seguimiento.id_det_dsdhcpa = _HabilitacionesService.Create_documento_dhcpa_seguimiento(req_documento_dhcpa_seguimiento);
+                            }
+                            catch (Exception) { }
+                        }
+
+                        if (model.documento_dhcpa_detalle != null)
+                        {
+                            foreach (detDocdhcpaViewModel obj in model.documento_dhcpa_detalle)
+                            {
+                                DocumentoDhcpaDetalleRequest req_documento_dhcpa_detalle = ModelToRequest.Documento_dhcpa_detalle(obj);
+                                req_documento_dhcpa_detalle.id_doc_dhcpa = req_documento_dhcpa2.id_doc_dhcpa;
+                                req_documento_dhcpa_detalle.activo = "1";
+                                req_documento_dhcpa_detalle.usuario_registro = HttpContext.User.Identity.Name.Split('|')[0].Trim() + " - " + HttpContext.User.Identity.Name.Split('|')[1].Trim();
+                                req_documento_dhcpa_detalle.fecha_registro = DateTime.Now;
+                                obj.id_doc_dhcpa_det = _HabilitacionesService.Create_documento_dhcpa_detalle(req_documento_dhcpa_detalle);
+                            }
+                        }
+
+                        try
+                        {
+                            mensaje = mensaje + ", Se creó el Documento : CEDULA DE NOTIFICACION N° " + model.num_doc.ToString() + model.nom_doc;
+                            @ViewBag.Mensaje = mensaje;
+                        }
+                        catch (Exception)
+                        {
+                            @ViewBag.Mensaje = "";
+                        }
+
+                    }
+                    else
+                    {
+                        try
+                        {
+                            @ViewBag.Mensaje = "Se creó el Documento : " + model.nom_tipo_documento + " N° " + model.num_doc.ToString() + model.nom_doc;
+                        }
+                        catch (Exception)
+                        {
+                            @ViewBag.Mensaje = "";
+                        }
+                    }
+
+                    return PartialView("_Success");
+                }
+                else
+                {
+                    return RedirectToAction("Error_Logeo", "Account");
+                }
+            }
+            else
+            {
+                return RedirectToAction("Index", "Inicio");
+            }
+        }
     }
 }
 

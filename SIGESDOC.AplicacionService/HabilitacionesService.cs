@@ -2275,6 +2275,44 @@ namespace SIGESDOC.AplicacionService
         {
             return _DocumentoSeguimientoRepositorio.GetAllDocumentos_x_rec(estado, indicador, evaluador, asunto, externo, id_tipo_documento, num_doc, nom_doc, oficina_crea, expediente);
         }
-        
+
+        //Add by HM - 28/11/2019
+        public IEnumerable<DocumentoDhcpaResponse> Lista_Documentos_dhcpa_externos(string evaluador, int tipo_doc_dhcpa, string asunto, int anno, int oficina_direccion)
+        {
+            return _SeguimientoDhcpaRepositorio.Lista_Documentos_dhcpa_externos(evaluador, tipo_doc_dhcpa, asunto, anno, oficina_direccion);
+        }
+
+        //Add by HM - 28/11/2019
+        public int CountDocumentos_x_tipo_oficina_direccion(int id_tipo_documento, int oficina_direccion)
+        {
+
+            var result2 = (from zp in _DocumentoDhcpaRepositorio.Listar(x => x.ID_TIPO_DOCUMENTO == id_tipo_documento && x.FECHA_REGISTRO.Value.Year == DateTime.Now.Year && x.ID_OFICINA_DIRECCION == oficina_direccion)
+                           select new DocumentoDhcpaResponse
+                           {
+                               id_doc_dhcpa = zp.ID_DOC_DHCPA,
+                               id_tipo_documento = zp.ID_TIPO_DOCUMENTO,
+                               num_doc = zp.NUM_DOC
+                           }).ToList().OrderByDescending(x => x.num_doc);
+
+            int result_numero = result2.Count();
+
+            if (result2.Count() > 0)
+            {
+                result_numero = result2.First().num_doc;
+            }
+
+            return result_numero;
+
+        }
+
+        public IEnumerable<DocumentoDhcpaResponse> Lista_Documentos_x_tipo_documento_oficina_direccion(int id_tipo_documento, int anno, int oficina_direccion)
+        {
+            return _SeguimientoDhcpaRepositorio.Lista_Documentos_x_tipo_documento_oficina_direccion(id_tipo_documento, anno, oficina_direccion);
+        }
+
+        public IEnumerable<DocumentoDhcpaResponse> Lista_Documentos_externos(string evaluador, int tipo_doc_dhcpa, string asunto, int anno, int oficina_direccion)
+        {
+            return _SeguimientoDhcpaRepositorio.Lista_Documentos_externos(evaluador, tipo_doc_dhcpa, asunto, anno, oficina_direccion);
+        }
     }
 }

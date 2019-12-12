@@ -477,6 +477,10 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Views\Recepcion\Detalle_Recepcion.cshtml" />
+    <Content Include="Views\Habilitaciones\Consulta_Documentos_emitidos_Externos.cshtml" />
+    <Content Include="Views\Habilitaciones\Nuevo_Documento_Externos.cshtml" />
+    <Content Include="Views\Habilitaciones\Adjuntar_archivo_document_externo.cshtml" />
+    <Content Include="Views\HojaTramite\Nuevo_Documento_Externos.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

@@ -4276,5 +4276,180 @@ namespace SIGESDOC.Repositorio
             }
             return seg_respo;
         }
+        //Add by HM - 28/11/2019
+        public IEnumerable<DocumentoDhcpaResponse> Lista_Documentos_dhcpa_externos(string evaluador, int tipo_doc_dhcpa, string asunto, int anno, int oficina_direccion)
+        {
+            DB_GESDOCEntities _dataContext = base.Context.GetContext() as DB_GESDOCEntities;
+
+            var result = (from MDCHPA in _dataContext.MAE_DOCUMENTO_DHCPA
+
+                          from MTDOC in _dataContext.MAE_TIPO_DOCUMENTO
+                          .Where(MTDOC => MDCHPA.ID_TIPO_DOCUMENTO == MTDOC.ID_TIPO_DOCUMENTO)
+                          .DefaultIfEmpty()
+
+                          where (evaluador == "" || (evaluador != "" && MDCHPA.USUARIO_REGISTRO == evaluador)) &&
+                          (tipo_doc_dhcpa == 0 || (tipo_doc_dhcpa != 0 && MDCHPA.ID_TIPO_DOCUMENTO == tipo_doc_dhcpa)) &&
+                          (asunto.Trim() == "" || (asunto.Trim() != "" && MDCHPA.ASUNTO.Contains(asunto.Trim()))) &&
+                          anno == MDCHPA.FECHA_DOC.Value.Year &&
+                          MDCHPA.ID_OFICINA_DIRECCION == oficina_direccion
+
+                          select new DocumentoDhcpaResponse
+                          {
+                              id_doc_dhcpa = MDCHPA.ID_DOC_DHCPA,
+                              fecha_doc = MDCHPA.FECHA_DOC,
+                              num_doc = MDCHPA.NUM_DOC,
+                              nom_doc = MDCHPA.NOM_DOC,
+                              nom_tipo_documento = MTDOC.NOMBRE,
+                              asunto = MDCHPA.ASUNTO,
+                              anexos = MDCHPA.ANEXOS,
+                              pdf = MDCHPA.PDF,
+                              id_oficina_direccion = MDCHPA.ID_OFICINA_DIRECCION,
+
+                              //Add by HM - 13/11/2019
+
+                              ruc = MDCHPA.RUC,
+                              evaluador_cdl_notif = MDCHPA.EVALUADOR_CDL_NOTIF,
+                              direccion_cdl_notif = MDCHPA.DIRECCION_CDL_NOTIF,
+                              empresa_cdl_notif = MDCHPA.EMPRESA_CDL_NOTIF,
+                              folia_cdl_notif = MDCHPA.FOLIA_CDL_NOTIF,
+                              doc_notificar_cdl_notif = MDCHPA.DOC_NOTIFICAR_CDL_NOTIF,
+                              exp_o_ht_cdl_notif = MDCHPA.EXP_O_HT_CDL_NOTIF,
+                              exp_o_ht_n_cdl_notif = MDCHPA.EXP_O_HT_N_CDL_NOTIF
+
+                              //nom_documento = MTD.NOMBRE + " " + (MDS.NUM_DOCUMENTO == null ? "" : " N° " + MDS.NUM_DOCUMENTO.ToString()) + " " + MDS.NOM_DOCUMENTO, // documento
+                          }).OrderByDescending(r => r.id_doc_dhcpa).Take(500).AsEnumerable();
+            return result;
+        }
+
+
+        //Add by HM - 28/11/2019
+        public IEnumerable<DocumentoDhcpaResponse> Lista_Documentos_x_tipo_documento_oficina_direccion(int id_tipo_documento, int anno, int oficina_direccion)
+        {
+            DB_GESDOCEntities _dataContext = base.Context.GetContext() as DB_GESDOCEntities;
+
+            if (id_tipo_documento != 0)
+            {
+                #region con tipo documento
+                var result = from MDCHPA in _dataContext.MAE_DOCUMENTO_DHCPA
+
+                             from MPER in _dataContext.vw_CONSULTAR_DNI
+                             .Where(MPER => MDCHPA.USUARIO_REGISTRO == ("20565429656 - " + MPER.persona_num_documento))
+                             .DefaultIfEmpty()
+
+                             from MTDOC in _dataContext.MAE_TIPO_DOCUMENTO
+                             .Where(MTDOC => MDCHPA.ID_TIPO_DOCUMENTO == MTDOC.ID_TIPO_DOCUMENTO)
+                             .DefaultIfEmpty()
+
+                             from MFILIAL in _dataContext.MAE_FILIAL_DHCPA
+                             .Where(MFILIAL => MDCHPA.ID_FILIAL == MFILIAL.ID_FILIAL)
+                             .DefaultIfEmpty()
+
+                             where MDCHPA.ID_TIPO_DOCUMENTO == id_tipo_documento && MDCHPA.FECHA_DOC.Value.Year == anno && MDCHPA.ID_OFICINA_DIRECCION == oficina_direccion
+                             select new DocumentoDhcpaResponse
+                             {
+                                 id_doc_dhcpa = MDCHPA.ID_DOC_DHCPA,
+                                 num_doc = MDCHPA.NUM_DOC,
+                                 nom_doc = MDCHPA.NOM_DOC,
+                                 nom_tipo_documento = MTDOC.NOMBRE,
+                                 asunto = MDCHPA.ASUNTO,
+                                 anexos = MDCHPA.ANEXOS,
+                                 nom_filial = MFILIAL.NOMBRE,
+                                 fecha_doc = MDCHPA.FECHA_DOC,
+                                 usuario_registro = MPER.paterno + " " + MPER.materno + ", " + MPER.nombres,
+                                 id_oficina_direccion = MDCHPA.ID_OFICINA_DIRECCION
+
+                                 //nom_documento = MTD.NOMBRE + " " + (MDS.NUM_DOCUMENTO == null ? "" : " N° " + MDS.NUM_DOCUMENTO.ToString()) + " " + MDS.NOM_DOCUMENTO, // documento
+                             } into document
+                             orderby document.nom_tipo_documento, document.num_doc ascending
+                             select document;
+                return result;
+                #endregion
+            }
+            else
+            {
+                #region sin tipo documento
+                var result = from MDCHPA in _dataContext.MAE_DOCUMENTO_DHCPA
+
+                             from MPER in _dataContext.vw_CONSULTAR_DNI
+                             .Where(MPER => MDCHPA.USUARIO_REGISTRO == ("20565429656 - " + MPER.persona_num_documento))
+                             .DefaultIfEmpty()
+
+                             from MTDOC in _dataContext.MAE_TIPO_DOCUMENTO
+                             .Where(MTDOC => MDCHPA.ID_TIPO_DOCUMENTO == MTDOC.ID_TIPO_DOCUMENTO)
+                             .DefaultIfEmpty()
+
+                             from MFILIAL in _dataContext.MAE_FILIAL_DHCPA
+                             .Where(MFILIAL => MDCHPA.ID_FILIAL == MFILIAL.ID_FILIAL)
+                             .DefaultIfEmpty()
+
+                             where MDCHPA.FECHA_DOC.Value.Year == anno && MDCHPA.ID_OFICINA_DIRECCION == oficina_direccion
+
+                             select new DocumentoDhcpaResponse
+                             {
+                                 id_doc_dhcpa = MDCHPA.ID_DOC_DHCPA,
+                                 num_doc = MDCHPA.NUM_DOC,
+                                 nom_doc = MDCHPA.NOM_DOC,
+                                 nom_tipo_documento = MTDOC.NOMBRE,
+                                 asunto = MDCHPA.ASUNTO,
+                                 anexos = MDCHPA.ANEXOS,
+                                 nom_filial = MFILIAL.NOMBRE,
+                                 fecha_doc = MDCHPA.FECHA_DOC,
+                                 usuario_registro = MPER.paterno + " " + MPER.materno + ", " + MPER.nombres
+
+                                 //nom_documento = MTD.NOMBRE + " " + (MDS.NUM_DOCUMENTO == null ? "" : " N° " + MDS.NUM_DOCUMENTO.ToString()) + " " + MDS.NOM_DOCUMENTO, // documento
+                             } into document
+                             orderby document.nom_tipo_documento, document.num_doc ascending
+                             select document;
+                return result;
+                #endregion
+            }
+
+        }
+
+        public IEnumerable<DocumentoDhcpaResponse> Lista_Documentos_externos(string evaluador, int tipo_doc_dhcpa, string asunto, int anno, int oficina_direccion)
+        {
+            DB_GESDOCEntities _dataContext = base.Context.GetContext() as DB_GESDOCEntities;
+
+            var result = (from MDCHPA in _dataContext.MAE_DOCUMENTO_DHCPA
+
+                          from MTDOC in _dataContext.MAE_TIPO_DOCUMENTO
+                          .Where(MTDOC => MDCHPA.ID_TIPO_DOCUMENTO == MTDOC.ID_TIPO_DOCUMENTO)
+                          .DefaultIfEmpty()
+
+                          where (evaluador == "" || (evaluador != "" && MDCHPA.USUARIO_REGISTRO == evaluador)) &&
+                          (tipo_doc_dhcpa == 0 || (tipo_doc_dhcpa != 0 && MDCHPA.ID_TIPO_DOCUMENTO == tipo_doc_dhcpa)) &&
+                          (asunto.Trim() == "" || (asunto.Trim() != "" && MDCHPA.ASUNTO.Contains(asunto.Trim()))) &&
+                          anno == MDCHPA.FECHA_DOC.Value.Year &&
+                          MDCHPA.ID_OFICINA_DIRECCION == oficina_direccion
+
+                          select new DocumentoDhcpaResponse
+                          {
+                              id_doc_dhcpa = MDCHPA.ID_DOC_DHCPA,
+                              fecha_doc = MDCHPA.FECHA_DOC,
+                              num_doc = MDCHPA.NUM_DOC,
+                              nom_doc = MDCHPA.NOM_DOC,
+                              nom_tipo_documento = MTDOC.NOMBRE,
+                              asunto = MDCHPA.ASUNTO,
+                              anexos = MDCHPA.ANEXOS,
+                              pdf = MDCHPA.PDF,
+                              id_oficina_direccion = MDCHPA.ID_OFICINA_DIRECCION,
+
+                              //Add by HM - 13/11/2019
+
+                              ruc = MDCHPA.RUC,
+                              evaluador_cdl_notif = MDCHPA.EVALUADOR_CDL_NOTIF,
+                              direccion_cdl_notif = MDCHPA.DIRECCION_CDL_NOTIF,
+                              empresa_cdl_notif = MDCHPA.EMPRESA_CDL_NOTIF,
+                              folia_cdl_notif = MDCHPA.FOLIA_CDL_NOTIF,
+                              doc_notificar_cdl_notif = MDCHPA.DOC_NOTIFICAR_CDL_NOTIF,
+                              exp_o_ht_cdl_notif = MDCHPA.EXP_O_HT_CDL_NOTIF,
+                              exp_o_ht_n_cdl_notif = MDCHPA.EXP_O_HT_N_CDL_NOTIF
+
+                              //nom_documento = MTD.NOMBRE + " " + (MDS.NUM_DOCUMENTO == null ? "" : " N° " + MDS.NUM_DOCUMENTO.ToString()) + " " + MDS.NOM_DOCUMENTO, // documento
+                          }).OrderByDescending(r => r.id_doc_dhcpa).Take(500).AsEnumerable();
+            return result;
+        }
+
     }
 }
+

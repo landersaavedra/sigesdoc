@@ -1640,5 +1640,28 @@ namespace SIGESDOC.AplicacionService
         {
             return _ConsultarOficinaRepositorio.Edita_db_general_nom_empresa(nombres, ruc, usuario);
         }
+
+        /// <summary>
+        /// Recupera Tipo de documento Algunos segun los tipos que desee ejemplo de envio
+        /// parametro -- "T","E","R"
+        /// </summary>
+        /// <param name="tipo_e_i"></param>
+        /// <param name="tipo_e_i_2"></param>
+        /// <returns></returns>
+        public IEnumerable<TipoDocumentoResponse> Recupera_tipo_documento_some()
+        {
+
+            var result = (from zp in _TipoDocumentoRepositorio.Listar((x => x.TP_E_I.Trim() == "T" || x.TP_E_I.Trim() == "E"))
+                          select new TipoDocumentoResponse
+                          {
+                              id_tipo_documento = zp.ID_TIPO_DOCUMENTO,
+                              nombre = zp.NOMBRE,
+                              tp_e_i = zp.TP_E_I
+                          }).OrderBy(r => r.nombre);
+
+            return result.ToList();
+
+        }
     }
 }
+

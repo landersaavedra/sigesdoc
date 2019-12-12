@@ -360,5 +360,8 @@ namespace SIGESDOC.IAplicacionService
         IEnumerable<Response.SP_CONSULTAR_DOCUMENTOS_PENDIENTES_DETALLE_DESAGREGADO_Result> Consultar_documentos_pendientes_detalle_desagregado(string documento, int id_ofi_dir, string fecha);
         [OperationContract]
         IEnumerable<Response.SP_ACTUALIZA_NOM_EMPRESA_Result> Edita_db_general_nom_empresa(string nombres, string ruc, string usuario);
+        [OperationContract]
+        IEnumerable<TipoDocumentoResponse> Recupera_tipo_documento_some();
     }
 }
+

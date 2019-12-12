@@ -39,6 +39,12 @@ namespace SIGESDOC.IRepositorio
         SeguimientoDhcpaResponse Lista_datos_evaluador(int id_seguimiento);
         IEnumerable<Response.SP_CONSULTAR_TRANSPORTES_CON_PROTOCOLO_HABILITADO_Result> lista_transportes_con_protocolo_habilitado();
         IEnumerable<Response.SP_CONSULTAR_ACTA_CHKL_INFO_PRU_SI_Result> Lista_acta_info_pru_por_si(int id_sol_ins);
-        
+
+        //Add by HM - 28/11/2019
+        IEnumerable<DocumentoDhcpaResponse> Lista_Documentos_dhcpa_externos(string evaluador, int tipo_doc_dhcpa, string asunto, int anno, int oficina_direccion);
+        //Add by HM - 28/11/2019
+        IEnumerable<DocumentoDhcpaResponse> Lista_Documentos_x_tipo_documento_oficina_direccion(int id_tipo_documento, int anno, int oficina_direccion);
+        IEnumerable<DocumentoDhcpaResponse> Lista_Documentos_externos(string evaluador, int tipo_doc_dhcpa, string asunto, int anno, int oficina_direccion);
     }
 }
+

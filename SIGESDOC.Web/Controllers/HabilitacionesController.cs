@@ -11325,6 +11325,602 @@ namespace SIGESDOC.Web.Controllers
 
         #endregion
 
-       
+        //Add by HM - 27/11/2019
+        [AllowAnonymous]
+        public ActionResult Consulta_Documentos_emitidos_Externos(int page = 1, int cmbtipo_documento = 0, string asunto = "", int cmbanno_documento = 0)
+        {
+            if (HttpContext.Request.IsAuthenticated)
+            {
+                if (HttpContext.User.Identity.Name.Split('|')[7].Trim() == "2" && // Sistema N° 2: Sistema de Gestión de Documentos
+                    (HttpContext.User.Identity.Name.Split('|')[5].ToString().Split(',')[0].Trim() == "16" || //Administrador
+                    HttpContext.User.Identity.Name.Split('|')[9].Trim().Split(',')[14].Trim() == "1" // Acceso a Nuevo Documento
+                    ))
+                {
+
+                    List<SelectListItem> lista_documentos = new List<SelectListItem>();
+
+                    lista_documentos.Add(new SelectListItem()
+                    {
+                        Text = "TODO",
+                        Value = "0"
+                    });
+
+                    if (cmbanno_documento == 0)
+                    {
+                        cmbanno_documento = DateTime.Now.Year;
+                    }
+
+                    foreach (var result in _GeneralService.Recupera_tipo_documento_todo("", "0"))
+                    {
+                        lista_documentos.Add
+                            (new SelectListItem()
+                            {
+                                Text = result.nombre,
+                                Value = result.id_tipo_documento.ToString()
+                            });
+                    };
+
+                    List<SelectListItem> anno_Documento = new List<SelectListItem>();
+
+                    for (int i = DateTime.Now.Year; i >= 2015; i--)
+                    {
+
+                        anno_Documento.Add(new SelectListItem()
+                        {
+                            Text = i.ToString(),
+                            Value = i.ToString()
+                        });
+                    }
+                    ViewBag.lst_anno_documento = anno_Documento;
+
+                    ViewBag.lst_tipo_documento = lista_documentos;
+
+                    //Enviamos la Oficina Para Verificacion en JAVASCRIPT
+                    ViewBag.ID_OFICINA_DIRECCION = Convert.ToInt32(HttpContext.User.Identity.Name.Split('|')[4].Trim());
+
+                    string var_evaluador = "";
+                    if (HttpContext.User.Identity.Name.Split('|')[5].ToString().Split(',')[0].Trim() == "18")
+                    {
+                        var_evaluador = "20565429656 - " + HttpContext.User.Identity.Name.Split('|')[1].Trim();
+                    }
+
+                    DataTable tbl = new DataTable();
+
+                    tbl.Columns.Add("NOM_TIPO_DOCUMENTO");
+                    tbl.Columns.Add("DOCUMENTO");
+                    tbl.Columns.Add("FECHA_DOCUMENTO");
+                    tbl.Columns.Add("ASUNTO");
+                    tbl.Columns.Add("ANEXO");
+                    tbl.Columns.Add("ID_DOC_DHCPA");
+                    tbl.Columns.Add("PDF");
+                    tbl.Columns.Add("RUTA_PDF");
+
+                    //Add by HM - 13/11/2019
+                    tbl.Columns.Add("RUC");
+                    tbl.Columns.Add("NUM_DOC");
+                    tbl.Columns.Add("EVALUADOR_CDL_NOTIF");
+                    tbl.Columns.Add("DIRECCION_CDL_NOTIF");
+                    tbl.Columns.Add("EMPRESA_CDL_NOTIF");
+                    tbl.Columns.Add("FOLIA_CDL_NOTIF");
+                    tbl.Columns.Add("DOC_NOTIFICAR_CDL_NOTIF");
+                    tbl.Columns.Add("EXP_O_HT_CDL_NOTIF");
+                    tbl.Columns.Add("EXP_O_HT_N_CDL_NOTIF");
+
+
+                    var Oficina_Global = Convert.ToInt32(HttpContext.User.Identity.Name.Split('|')[4].Trim());
+
+                    var documento_dhcpa = _HabilitacionesService.Lista_Documentos_externos(var_evaluador, cmbtipo_documento, asunto, cmbanno_documento, Oficina_Global);
+
+                    foreach (var result in documento_dhcpa)
+                    {
+                        string ruta_x = "";
+                        if (result.pdf == "1")
+                        {
+                            ruta_x = "/Habilitaciones/var_documento_dhcpa_pdf/" + result.id_doc_dhcpa.ToString();
+                        }
+                        tbl.Rows.Add(
+                            result.nom_tipo_documento,
+                            result.num_doc.ToString() + result.nom_doc,
+                            result.fecha_doc.Value.ToShortDateString(),
+                            result.asunto,
+                            result.anexos,
+                            result.id_doc_dhcpa,
+                            result.pdf,
+                            ruta_x,
+
+                            //Add by HM - 13/11/2019
+                            result.ruc,
+                            result.num_doc,
+                            result.evaluador_cdl_notif,
+                            result.direccion_cdl_notif,
+                            result.empresa_cdl_notif,
+                            result.folia_cdl_notif,
+                            result.doc_notificar_cdl_notif,
+                            result.exp_o_ht_cdl_notif,
+                            result.exp_o_ht_n_cdl_notif
+                            );
+                    };
+
+                    ViewData["documentos_tabla"] = tbl;
+
+                    return View();
+                }
+                else
+                {
+                    return RedirectToAction("Error_Logeo", "Account");
+                }
+
+            }
+            else
+            {
+                return RedirectToAction("Index", "Inicio");
+            }
+        }
+
+        //Add by HM - 28/11/2019
+        [AllowAnonymous]
+        public ActionResult Nuevo_Documento_Externos()
+        {
+            if (HttpContext.Request.IsAuthenticated)
+            {
+                if (HttpContext.User.Identity.Name.Split('|')[7].Trim() == "2" && // Sistema N° 2: Sistema de Gestión de Documentos
+                    (HttpContext.User.Identity.Name.Split('|')[5].ToString().Split(',')[0].Trim() == "16" || //Administrador
+                    (HttpContext.User.Identity.Name.Split('|')[9].Trim().Split(',')[14].Trim() == "1" // Acceso a Nuevo Documento DHCPA
+                    && (HttpContext.User.Identity.Name.Split('|')[4].Trim() == "17" || HttpContext.User.Identity.Name.Split('|')[4].Trim() == "7" || HttpContext.User.Identity.Name.Split('|')[4].Trim() == "28"))))
+                // Oficina 17: Sub Dirección de Certificaciones ó Oficina 7: Direccion de HyCPA ó Oficina 28: Atención al Cliente
+                {
+
+                    List<SelectListItem> lista_sedes_externo = new List<SelectListItem>();
+                    List<SelectListItem> list_combo = new List<SelectListItem>();
+                    ViewBag.lista_combo = list_combo;
+
+                    lista_sedes_externo.Add(new SelectListItem()
+                    {
+                        Text = "SELECCIONAR SEDE",
+                        Value = "0"
+                    });
+
+                    List<SelectListItem> lista_sedes = new List<SelectListItem>();
+                    List<SelectListItem> Lista_Oficina_destino = new List<SelectListItem>();
+                    List<SelectListItem> lista_personal = new List<SelectListItem>();
+
+                    lista_sedes.Add(new SelectListItem()
+                    {
+                        Text = "SELECCIONAR SEDE",
+                        Value = "0"
+                    });
+
+                    int id_ofi_ruc = 0;
+
+                    foreach (var result in _GeneralService.Recupera_oficina_all_x_ruc("20565429656"))
+                    {
+                        if (result.id_ofi_padre == null)
+                        {
+                            id_ofi_ruc = result.id_oficina;
+                        }
+                    };
+
+
+                    foreach (var result in _GeneralService.Recupera_sede_all(id_ofi_ruc))
+                    {
+                        lista_sedes.Add(new SelectListItem()
+                        {
+                            Text = result.nombre,
+                            Value = result.id_sede.ToString()
+                        }
+                        );
+                    };
+
+                    Lista_Oficina_destino.Add(new SelectListItem()
+                    {
+                        Text = "SELECCIONAR OFICINA",
+                        Value = "0"
+                    });
+
+                    lista_personal.Add(new SelectListItem()
+                    {
+                        Text = "SELECCIONAR PERSONAL",
+                        Value = ""
+                    });
+
+                    List<SelectListItem> lista_tipo_documento = new List<SelectListItem>();
+
+                    foreach (var result in _GeneralService.Recupera_tipo_documento_todo("", "0"))
+                    {
+                        lista_tipo_documento.Add
+                            (new SelectListItem()
+                            {
+                                Text = result.nombre,
+                                Value = result.id_tipo_documento.ToString()
+                            });
+                    };
+
+                    List<SelectListItem> lista_archivadores = new List<SelectListItem>();
+
+                    lista_archivadores.Add(new SelectListItem()
+                    {
+                        Text = "SELECCIONAR ARCHIVADOR",
+                        Value = ""
+                    });
+
+                    foreach (var result in _HabilitacionesService.GetAll_Archivador())
+                    {
+                        lista_archivadores.Add
+                            (new SelectListItem()
+                            {
+                                Text = result.nombre,
+                                Value = result.id_archivador.ToString()
+                            });
+                    };
+
+                    List<SelectListItem> lista_filiales = new List<SelectListItem>();
+
+                    lista_filiales.Add(new SelectListItem()
+                    {
+                        Text = "SELECCIONAR FILIALES",
+                        Value = ""
+                    });
+
+                    foreach (var result in _HabilitacionesService.GetAll_Filial())
+                    {
+                        lista_filiales.Add
+                            (new SelectListItem()
+                            {
+                                Text = result.nombre,
+                                Value = result.id_filial.ToString()
+                            });
+                    };
+
+                    List<SelectListItem> Lista_per_crea = new List<SelectListItem>();
+
+                    var recupera_persona = _GeneralService.Recupera_personal_oficina(Convert.ToInt32(HttpContext.User.Identity.Name.Split('|')[4].Trim()));
+                    foreach (var result in recupera_persona)
+                    {
+                        Lista_per_crea.Add(new SelectListItem()
+                        {
+                            Text = result.nom_persona,
+                            Value = result.persona_num_documento.ToString()
+                        }
+                        );
+                    };
+
+                    ViewBag.lstsede_destino = lista_sedes;
+                    ViewBag.lstOficina_destino = Lista_Oficina_destino;
+                    ViewBag.lstpersonal_oficina = lista_personal;
+
+                    ViewBag.lstsede_destino_externo = lista_sedes_externo;
+                    ViewBag.lstOficina_destino_externo = Lista_Oficina_destino;
+                    ViewBag.lstpersonal_oficina_externo = lista_personal;
+
+                    ViewBag.lst_persona_crea = Lista_per_crea;
+                    ViewBag.list_tip_documento_dhcpa = lista_tipo_documento;
+                    ViewBag.list_archivador = lista_archivadores;
+                    ViewBag.lista_filiales = lista_filiales;
+
+                    ViewBag.user_document = HttpContext.User.Identity.Name.Split('|')[1].Trim();
+                    ViewBag.user_perfil = HttpContext.User.Identity.Name.Split('|')[5].ToString().Split(',')[0].Trim();
+
+                    //Enviamos la Oficina Para Verificacion en JAVASCRIPT
+                    ViewBag.ID_OFICINA_DIRECCION = Convert.ToInt32(HttpContext.User.Identity.Name.Split('|')[4].Trim());
+
+                    DocumentodhcpaViewModel model_doc_dhcpa = new DocumentodhcpaViewModel();
+
+                    return View(model_doc_dhcpa);
+
+                }
+                else
+                {
+                    return RedirectToAction("Error_Logeo", "Account");
+                }
+            }
+            else
+            {
+                return RedirectToAction("Index", "Inicio");
+            }
+        }
+
+        //Add by HM - 28/11/2019
+        [AcceptVerbs(HttpVerbs.Post)]
+        public ActionResult Nuevo_Documento_Externos(DocumentodhcpaViewModel model)
+        {
+            var Oficina_Global = Convert.ToInt32(HttpContext.User.Identity.Name.Split('|')[4].Trim());
+
+            if (HttpContext.Request.IsAuthenticated)
+            {
+                if (HttpContext.User.Identity.Name.Split('|')[7].Trim() == "2" && // Sistema N° 2: Sistema de Gestión de Documentos
+                    (HttpContext.User.Identity.Name.Split('|')[5].ToString().Split(',')[0].Trim() == "16" || //Administrador
+                    (HttpContext.User.Identity.Name.Split('|')[9].Trim().Split(',')[14].Trim() == "1" // Acceso a Nuevo Documento DHCPA
+                    && (HttpContext.User.Identity.Name.Split('|')[4].Trim() == "17" || HttpContext.User.Identity.Name.Split('|')[4].Trim() == "7" || HttpContext.User.Identity.Name.Split('|')[4].Trim() == "28"))))
+                // Oficina 17: Sub Dirección de Certificaciones ó Oficina 7: Direccion de HyCPA ó Oficina 28 : Atención al Cliente
+                {
+                    model.num_doc = _HabilitacionesService.CountDocumentos_x_tipo_oficina_direccion(model.id_tipo_documento, Oficina_Global) + 1;
+                    model.nom_doc = "-" + DateTime.Now.Year.ToString() + "- DHCPA/SANIPES";
+                    DocumentoDhcpaRequest req_documento_dhcpa = ModelToRequest.Documento_dhcpa(model);
+                    req_documento_dhcpa.fecha_registro = DateTime.Now;
+                    req_documento_dhcpa.usuario_registro = HttpContext.User.Identity.Name.Split('|')[0].Trim() + " - " + HttpContext.User.Identity.Name.Split('|')[1].Trim();
+                    req_documento_dhcpa.id_oficina_direccion = Oficina_Global;//Nuevo
+
+                    model.id_doc_dhcpa = _HabilitacionesService.Create_documento_dhcpa(req_documento_dhcpa);
+                    req_documento_dhcpa.id_doc_dhcpa = model.id_doc_dhcpa;
+
+                    if (model.exp_o_ht_n_cdl_notif != "" && model.exp_o_ht_n_cdl_notif != null)
+                    {
+                        try
+                        {
+                            DetSegDocDhcpaRequest req_documento_dhcpa_seguimiento = new DetSegDocDhcpaRequest();
+                            req_documento_dhcpa_seguimiento.id_seguimiento = _HabilitacionesService.Consulta_expediente_x_expediente(model.exp_o_ht_n_cdl_notif).id_seguimiento;
+                            req_documento_dhcpa_seguimiento.id_doc_dhcpa = req_documento_dhcpa.id_doc_dhcpa;
+                            req_documento_dhcpa_seguimiento.activo = "1";
+                            req_documento_dhcpa_seguimiento.id_det_dsdhcpa = _HabilitacionesService.Create_documento_dhcpa_seguimiento(req_documento_dhcpa_seguimiento);
+                        }
+                        catch (Exception) { }
+                    }
+
+                    if (model.documento_dhcpa_detalle != null)
+                    {
+                        foreach (detDocdhcpaViewModel obj in model.documento_dhcpa_detalle)
+                        {
+                            DocumentoDhcpaDetalleRequest req_documento_dhcpa_detalle = ModelToRequest.Documento_dhcpa_detalle(obj);
+                            req_documento_dhcpa_detalle.id_doc_dhcpa = req_documento_dhcpa.id_doc_dhcpa;
+                            req_documento_dhcpa_detalle.activo = "1";
+                            req_documento_dhcpa_detalle.usuario_registro = HttpContext.User.Identity.Name.Split('|')[0].Trim() + " - " + HttpContext.User.Identity.Name.Split('|')[1].Trim();
+                            req_documento_dhcpa_detalle.fecha_registro = DateTime.Now;
+                            obj.id_doc_dhcpa_det = _HabilitacionesService.Create_documento_dhcpa_detalle(req_documento_dhcpa_detalle);
+                        }
+                    }
+
+                    if (model.ind_agregar_celula == 1)
+                    {
+                        string mensaje = "";
+                        mensaje = "Se creó el Documento : " + model.nom_tipo_documento + " N° " + model.num_doc.ToString() + model.nom_doc;
+
+                        if (model.id_tipo_documento == 136)
+                        {
+                            model.doc_notificar_cdl_notif = model.nom_tipo_documento + " N° " + model.num_doc.ToString() + model.nom_doc;
+                        }
+
+                        // 21 : CEDULA DE NOTIFICACION
+                        model.id_tipo_documento = 21;
+                        model.num_doc = _HabilitacionesService.CountDocumentos_x_tipo(model.id_tipo_documento) + 1;
+
+                        DocumentoDhcpaRequest req_documento_dhcpa2 = ModelToRequest.Documento_dhcpa(model);
+                        req_documento_dhcpa2.fecha_registro = DateTime.Now;
+                        req_documento_dhcpa2.usuario_registro = HttpContext.User.Identity.Name.Split('|')[0].Trim() + " - " + HttpContext.User.Identity.Name.Split('|')[1].Trim();
+                        req_documento_dhcpa2.id_oficina_direccion = Oficina_Global;//nuevo
+
+                        model.id_doc_dhcpa = _HabilitacionesService.Create_documento_dhcpa(req_documento_dhcpa2);
+                        req_documento_dhcpa2.id_doc_dhcpa = model.id_doc_dhcpa;
+
+                        if (model.exp_o_ht_n_cdl_notif != "" && model.exp_o_ht_n_cdl_notif != null)
+                        {
+                            try
+                            {
+                                DetSegDocDhcpaRequest req_documento_dhcpa_seguimiento = new DetSegDocDhcpaRequest();
+                                req_documento_dhcpa_seguimiento.id_seguimiento = _HabilitacionesService.Consulta_expediente_x_expediente(model.exp_o_ht_n_cdl_notif).id_seguimiento;
+                                req_documento_dhcpa_seguimiento.id_doc_dhcpa = req_documento_dhcpa2.id_doc_dhcpa;
+                                req_documento_dhcpa_seguimiento.activo = "1";
+                                req_documento_dhcpa_seguimiento.id_det_dsdhcpa = _HabilitacionesService.Create_documento_dhcpa_seguimiento(req_documento_dhcpa_seguimiento);
+                            }
+                            catch (Exception) { }
+                        }
+
+                        if (model.documento_dhcpa_detalle != null)
+                        {
+                            foreach (detDocdhcpaViewModel obj in model.documento_dhcpa_detalle)
+                            {
+                                DocumentoDhcpaDetalleRequest req_documento_dhcpa_detalle = ModelToRequest.Documento_dhcpa_detalle(obj);
+                                req_documento_dhcpa_detalle.id_doc_dhcpa = req_documento_dhcpa2.id_doc_dhcpa;
+                                req_documento_dhcpa_detalle.activo = "1";
+                                req_documento_dhcpa_detalle.usuario_registro = HttpContext.User.Identity.Name.Split('|')[0].Trim() + " - " + HttpContext.User.Identity.Name.Split('|')[1].Trim();
+                                req_documento_dhcpa_detalle.fecha_registro = DateTime.Now;
+                                obj.id_doc_dhcpa_det = _HabilitacionesService.Create_documento_dhcpa_detalle(req_documento_dhcpa_detalle);
+                            }
+                        }
+
+                        try
+                        {
+                            mensaje = mensaje + ", Se creó el Documento : CEDULA DE NOTIFICACION N° " + model.num_doc.ToString() + model.nom_doc;
+                            @ViewBag.Mensaje = mensaje;
+                        }
+                        catch (Exception)
+                        {
+                            @ViewBag.Mensaje = "";
+                        }
+
+                    }
+                    else
+                    {
+                        try
+                        {
+                            @ViewBag.Mensaje = "Se creó el Documento : " + model.nom_tipo_documento + " N° " + model.num_doc.ToString() + model.nom_doc;
+                        }
+                        catch (Exception)
+                        {
+                            @ViewBag.Mensaje = "";
+                        }
+                    }
+
+                    return PartialView("_Success");
+                }
+                else
+                {
+                    return RedirectToAction("Error_Logeo", "Account");
+                }
+            }
+            else
+            {
+                return RedirectToAction("Index", "Inicio");
+            }
+        }
+
+        //Add by HM - 28/11/2019
+        [AllowAnonymous]
+        public ActionResult Adjuntar_archivo_document_externo()
+        {
+            if (HttpContext.Request.IsAuthenticated)
+            {
+                if (HttpContext.User.Identity.Name.Split('|')[7].Trim() == "2" && // Sistema N° 2: Sistema de Gestión de Documentos
+                    (HttpContext.User.Identity.Name.Split('|')[5].ToString().Split(',')[0].Trim() == "16" || //Administrador
+                    (HttpContext.User.Identity.Name.Split('|')[9].Trim().Split(',')[14].Trim() == "1" // Acceso a Nuevo Documento DHCPA
+                    && (HttpContext.User.Identity.Name.Split('|')[4].Trim() == "17" || HttpContext.User.Identity.Name.Split('|')[4].Trim() == "7" || HttpContext.User.Identity.Name.Split('|')[4].Trim() == "28" || HttpContext.User.Identity.Name.Split('|')[4].Trim() == "18"))))
+                // Oficina 17: Sub Dirección de Certificaciones ó Oficina 7: Direccion de HyCPA ó Oficina 28: Atención al Cliente
+                {
+
+                    int id_doc_dhcpa = 0;
+
+                    try
+                    {
+                        id_doc_dhcpa = Convert.ToInt32(Session["archivo_document_id_doc_dhcpa"].ToString());
+                        Session.Remove("archivo_document_id_doc_dhcpa");
+                    }
+                    catch
+                    {
+                        return RedirectToAction("Index", "Inicio");
+                    }
+
+                    DocumentoDhcpaResponse doc = new DocumentoDhcpaResponse();
+                    doc = _HabilitacionesService.Lista_Documento_dhcpa_x_id_rs(id_doc_dhcpa);
+
+                    ViewBag.Str_documento = "Documento: " + _HojaTramiteService.Consult_tipo_docuemnto(doc.id_tipo_documento ?? 0) + " Nº " + doc.num_doc.ToString() + " " + doc.nom_doc;
+                    ViewBag.id_documento_dhcpa = id_doc_dhcpa.ToString();
+                    return View();
+                }
+                else
+                {
+                    return RedirectToAction("Error_Logeo", "Account");
+                }
+            }
+            else
+            {
+                return RedirectToAction("Index", "Inicio");
+            }
+        }
+
+        //Add by HM - 28/11/2019
+        [HttpPost]
+        public ActionResult Adjuntar_archivo_document_externo(HttpPostedFileBase file, int id_doc_dhcpa)
+        {
+            if (HttpContext.Request.IsAuthenticated)
+            {
+                if (HttpContext.User.Identity.Name.Split('|')[7].Trim() == "2" && // Sistema N° 2: Sistema de Gestión de Documentos
+                     (HttpContext.User.Identity.Name.Split('|')[5].ToString().Split(',')[0].Trim() == "16" || //Administrador
+                     (HttpContext.User.Identity.Name.Split('|')[9].Trim().Split(',')[14].Trim() == "1" // Acceso a Nuevo Documento DHCPA
+                     && (HttpContext.User.Identity.Name.Split('|')[4].Trim() == "17" || HttpContext.User.Identity.Name.Split('|')[4].Trim() == "7" || HttpContext.User.Identity.Name.Split('|')[4].Trim() == "28" || HttpContext.User.Identity.Name.Split('|')[4].Trim() == "18"))))
+                // Oficina 17: Sub Dirección de Certificaciones ó Oficina 7: Direccion de HyCPA ó Oficina 28: Atención al Cliente
+                {
+
+                    DocumentoDhcpaRequest doc_rq = new DocumentoDhcpaRequest();
+                    doc_rq = _HabilitacionesService.Lista_Documento_dhcpa_x_id_rq(id_doc_dhcpa);
+
+                    doc_rq.pdf = "1";
+
+                    string ruta_pdf = ConfigurationManager.AppSettings["RUTA_PDF_DOCUMENTOS_DHCPA"].ToString();
+                    if (file != null && file.ContentLength > 0)
+                    {
+                        file.SaveAs(Path.Combine(ruta_pdf, doc_rq.id_doc_dhcpa.ToString() + ".pdf"));
+                        _HabilitacionesService.Update_documento_dhcpa(doc_rq);
+                    }
+                    //return File("//Srvdnet/sigesdoc/PE-OCTUBRE15.pdf", "application/pdf");
+                    @ViewBag.Mensaje = "Se guardo el archivo correctamente";
+                    return PartialView("_Success");
+                }
+                else
+                {
+                    return RedirectToAction("Error_Logeo", "Account");
+                }
+            }
+            else
+            {
+                return RedirectToAction("Index", "Inicio");
+            }
+        }
+
+        //Add by HM - 28/11/2019
+        [AllowAnonymous]
+        public ActionResult variable_Subir_archivo_doc_externo(string id)
+        {
+            if (id != null && id != "")
+            {
+                Session["archivo_document_id_doc_dhcpa"] = id;
+                return RedirectToAction("Adjuntar_archivo_document_externo", "Habilitaciones");
+            }
+            else
+            {
+                return RedirectToAction("Index", "Inicio");
+            }
+        }
+
+        //Add by HM - 28/11/2019
+        public ActionResult Export_Excel_documentos_emitidos_externo(string para1 = "", string para2 = "", string para3 = "")
+        {
+
+            DataTable tbl_documento = new DataTable();
+            tbl_documento.Columns.Add("Nro Documento");
+            tbl_documento.Columns.Add("Fecha Documento");
+            tbl_documento.Columns.Add("Destinatario");
+            tbl_documento.Columns.Add("Destino");
+            tbl_documento.Columns.Add("Tipo Documento");
+            tbl_documento.Columns.Add("Asunto");
+            tbl_documento.Columns.Add("Anexo");
+            tbl_documento.Columns.Add("OD");
+            tbl_documento.Columns.Add("EVALUADOR");
+
+            var list = _HabilitacionesService.Lista_Documentos_x_tipo_documento_oficina_direccion(Convert.ToInt32(para1), Convert.ToInt32(para2), Convert.ToInt32(para3));
+
+            DataRow tbl_row_documento;
+            foreach (var document in list)
+            {
+
+                string lugar_destino = "";
+                string persona_destino = "";
+
+                var var_destin = _HabilitacionesService.Lista_Destino_Documentos_x_tipo_documento(document.id_doc_dhcpa);
+
+                foreach (var destinity in var_destin)
+                {
+                    if (lugar_destino == "")
+                    {
+                        lugar_destino = destinity.lugar_destino;
+                        persona_destino = destinity.persona_destino;
+                    }
+                    else
+                    {
+                        lugar_destino = lugar_destino + "/" + destinity.lugar_destino;
+                        persona_destino = persona_destino + "/" + destinity.persona_destino;
+                    }
+                }
+
+                tbl_row_documento = tbl_documento.NewRow();
+                tbl_row_documento["Nro Documento"] = document.num_doc.ToString();
+                tbl_row_documento["Fecha Documento"] = document.fecha_doc.Value.ToShortDateString();
+                tbl_row_documento["Destinatario"] = persona_destino;
+                tbl_row_documento["Destino"] = lugar_destino;
+                tbl_row_documento["Tipo Documento"] = document.nom_tipo_documento;
+                tbl_row_documento["Asunto"] = document.asunto;
+                tbl_row_documento["Anexo"] = document.anexos;
+                tbl_row_documento["OD"] = document.nom_filial;
+                tbl_row_documento["EVALUADOR"] = document.usuario_registro;
+                tbl_documento.Rows.Add(tbl_row_documento);
+            }
+
+            GridView gv = new GridView();
+            gv.DataSource = tbl_documento;
+            gv.DataBind();
+            Response.ClearContent();
+            Response.Buffer = true;
+            Response.AddHeader("content-disposition", "attachment; filename=Reporte_Documentos.xls");
+            Response.ContentType = "application/ms-excel";
+            Response.Charset = "";
+            StringWriter sw = new StringWriter();
+            HtmlTextWriter htw = new HtmlTextWriter(sw);
+            gv.RenderControl(htw);
+            Response.Output.Write(sw.ToString());
+            Response.Flush();
+            Response.End();
+
+            return Json("Success");
+        }
+
+
     }
 }

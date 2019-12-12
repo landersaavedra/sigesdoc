@@ -783,10 +783,7 @@
       <Parameter Name="msg" Mode="InOut" Type="Int16" />
     </FunctionImport>
     <EntitySet Name="VW_CONSULTA_EXPEDIENTE_X_EXPEDIENTE" EntityType="DB_GESDOCModel.VW_CONSULTA_EXPEDIENTE_X_EXPEDIENTE" />
-<<<<<<< HEAD
     <EntitySet Name="Consulta_Detalle_Mae_Documento" EntityType="DB_GESDOCModel.Consulta_Detalle_Mae_Documento" />
-=======
->>>>>>> 4149157722c0d014f3b3429a5b62471beaf3ca1f
   </EntityContainer>
   <ComplexType Name="p_MODIFICAR_CONTRASEÑA_Result">
     <Property Type="String" Name="ruc" Nullable="false" MaxLength="11" />
@@ -1262,11 +1259,8 @@
     <NavigationProperty Name="MAE_DOCUMENTO" Relationship="DB_GESDOCModel.FK_DAT_DOCUMENTO_DETALLE_MAE_DOCUMENTO" FromRole="DAT_DOCUMENTO_DETALLE" ToRole="MAE_DOCUMENTO" />
     <Property Name="NOM_OFICINA_CREA" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
     <Property Name="NOM_OFICINA_DESTINO" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
-<<<<<<< HEAD
     <Property Name="FLAG_TIPO_MEMORANDO" Type="Boolean" />
     <Property Name="FLAG_DESTINO_PRINCIPAL" Type="Boolean" />
-=======
->>>>>>> 4149157722c0d014f3b3429a5b62471beaf3ca1f
   </EntityType>
   <EntityType Name="DAT_DOCUMENTO_DHCPA_DETALLE">
     <Key>
@@ -1283,10 +1277,7 @@
     <Property Name="FECHA_MODIFICA" Type="DateTime" Precision="3" />
     <Property Name="NOMBRE_PERSONA_DESTINO" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
     <NavigationProperty Name="MAE_DOCUMENTO_DHCPA" Relationship="DB_GESDOCModel.FK_DAT_DOCUMENTO_DHCPA_DETALLE_MAE_DOCUMENTO_DHCPA" FromRole="DAT_DOCUMENTO_DHCPA_DETALLE" ToRole="MAE_DOCUMENTO_DHCPA" />
-<<<<<<< HEAD
     <Property Name="FLAG_TIPO_CARTA" Type="Boolean" />
-=======
->>>>>>> 4149157722c0d014f3b3429a5b62471beaf3ca1f
   </EntityType>
   <EntityType Name="DAT_ESPECIES_HABILITACIONES">
     <Key>
@@ -1488,10 +1479,7 @@
     <Property Name="EXP_O_HT_CDL_NOTIF" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
     <Property Name="EXP_O_HT_N_CDL_NOTIF" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
     <Property Name="RUC" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-<<<<<<< HEAD
     <Property Name="ID_DET_DOCUMENTO" Type="Int32" />
-=======
->>>>>>> 4149157722c0d014f3b3429a5b62471beaf3ca1f
   </EntityType>
   <EntityType Name="MAE_DOCUMENTO_INDICADOR">
     <Key>
@@ -3960,7 +3948,6 @@
     <Property Name="DIRECCION" Type="String" MaxLength="359" FixedLength="false" Unicode="false" />
     <Property Name="EVALUADOR" Type="String" MaxLength="152" FixedLength="false" Unicode="false" />
   </EntityType>
-<<<<<<< HEAD
   <EntityType Name="Consulta_Detalle_Mae_Documento">
     <Key>
       <PropertyRef Name="ID_DOCUMENTO" />
@@ -3979,6 +3966,4 @@
     <Property Name="NOMBRES" Type="String" MaxLength="153" FixedLength="false" Unicode="false" />
     <Property Name="ASUNTO" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
   </EntityType>
-=======
->>>>>>> 4149157722c0d014f3b3429a5b62471beaf3ca1f
 </Schema>

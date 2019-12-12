@@ -1,9 +1,0 @@
-C:\Users\PC_NET\Desktop\PROYECTOS\SISBIVALVOS_SANIPES\SISBIVALVOS.Entidades\bin\Release\SISBIVALVOS.Entidades.dll
-C:\Users\PC_NET\Desktop\PROYECTOS\SISBIVALVOS_SANIPES\SISBIVALVOS.Entidades\bin\Release\SISBIVALVOS.Entidades.pdb
-C:\Users\PC_NET\Desktop\PROYECTOS\SISBIVALVOS_SANIPES\SISBIVALVOS.Entidades\obj\Release\SISBIVALVOS.Entidades.dll
-C:\Users\PC_NET\Desktop\PROYECTOS\SISBIVALVOS_SANIPES\SISBIVALVOS.Entidades\obj\Release\SISBIVALVOS.Entidades.pdb
-C:\Users\Administrator\Desktop\SISBIVALVOS_SANIPES\SISBIVALVOS.Entidades\bin\Release\SISBIVALVOS.Entidades.dll
-C:\Users\Administrator\Desktop\SISBIVALVOS_SANIPES\SISBIVALVOS.Entidades\bin\Release\SISBIVALVOS.Entidades.pdb
-C:\Users\Administrator\Desktop\SISBIVALVOS_SANIPES\SISBIVALVOS.Entidades\obj\Release\SISBIVALVOS.Entidades.dll
-C:\Users\Administrator\Desktop\SISBIVALVOS_SANIPES\SISBIVALVOS.Entidades\obj\Release\SISBIVALVOS.Entidades.pdb
-C:\Users\Administrator\Desktop\SISBIVALVOS_SANIPES\SISBIVALVOS.Entidades\obj\Release\SISBIVALVOS.Entidades.csprojResolveAssemblyReference.cache

@@ -114,11 +114,8 @@
     <Property Name="OBSERVACION_ATENDIDO" Type="varchar" MaxLength="500" />
     <Property Name="NOM_OFICINA_CREA" Type="varchar" MaxLength="500" />
     <Property Name="NOM_OFICINA_DESTINO" Type="varchar" MaxLength="500" />
-<<<<<<< HEAD
     <Property Name="FLAG_TIPO_MEMORANDO" Type="bit" />
     <Property Name="FLAG_DESTINO_PRINCIPAL" Type="bit" />
-=======
->>>>>>> 4149157722c0d014f3b3429a5b62471beaf3ca1f
   </EntityType>
   <EntityType Name="DAT_DOCUMENTO_DHCPA_DETALLE">
     <Key>
@@ -134,10 +131,7 @@
     <Property Name="USUARIO_MODIFICA" Type="varchar" MaxLength="50" />
     <Property Name="FECHA_MODIFICA" Type="datetime" />
     <Property Name="NOMBRE_PERSONA_DESTINO" Type="varchar" MaxLength="250" />
-<<<<<<< HEAD
     <Property Name="FLAG_TIPO_CARTA" Type="bit" />
-=======
->>>>>>> 4149157722c0d014f3b3429a5b62471beaf3ca1f
   </EntityType>
   <EntityType Name="DAT_ESPECIES_HABILITACIONES">
     <Key>
@@ -426,10 +420,7 @@
     <Property Name="EXP_O_HT_CDL_NOTIF" Type="varchar" MaxLength="50" />
     <Property Name="EXP_O_HT_N_CDL_NOTIF" Type="varchar" MaxLength="50" />
     <Property Name="RUC" Type="varchar" MaxLength="50" />
-<<<<<<< HEAD
     <Property Name="ID_DET_DOCUMENTO" Type="int" />
-=======
->>>>>>> 4149157722c0d014f3b3429a5b62471beaf3ca1f
   </EntityType>
   <EntityType Name="MAE_DOCUMENTO_INDICADOR">
     <Key>
@@ -910,7 +901,6 @@
     <Property Name="USUARIO_CREA" Type="varchar" MaxLength="50" />
   </EntityType>
   <!--Errores durante la generación:
-<<<<<<< HEAD
 advertencia 6002: La tabla o vista 'DB_GESDOC.dbo.Consulta_Detalle_Mae_Documento' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
   <EntityType Name="Consulta_Detalle_Mae_Documento">
     <Key>
@@ -931,8 +921,6 @@ advertencia 6002: La tabla o vista 'DB_GESDOC.dbo.Consulta_Detalle_Mae_Documento
     <Property Name="ASUNTO" Type="varchar" MaxLength="500" />
   </EntityType>
   <!--Errores durante la generación:
-=======
->>>>>>> 4149157722c0d014f3b3429a5b62471beaf3ca1f
 advertencia 6002: La tabla o vista 'DB_GESDOC.dbo.Consultar_ptocolo_transporte_x_id_transporte_2018_v1' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
   <EntityType Name="Consultar_ptocolo_transporte_x_id_transporte_2018_v1">
     <Key>
@@ -2898,7 +2886,6 @@ advertencia 6002: La tabla o vista 'DB_GESDOC.dbo.VW_VER_PEDIENTES_GESDOC' no ti
     <EntitySet Name="MAE_TIPO_TUPA" EntityType="Self.MAE_TIPO_TUPA" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="MAE_TUPA" EntityType="Self.MAE_TUPA" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="MAE_VERSION_SOLICITUD" EntityType="Self.MAE_VERSION_SOLICITUD" Schema="dbo" store:Type="Tables" />
-<<<<<<< HEAD
     <EntitySet Name="Consulta_Detalle_Mae_Documento" EntityType="Self.Consulta_Detalle_Mae_Documento" store:Type="Views" store:Schema="dbo">
       <DefiningQuery>SELECT 
     [Consulta_Detalle_Mae_Documento].[NOMBRES] AS [NOMBRES], 
@@ -2913,8 +2900,6 @@ advertencia 6002: La tabla o vista 'DB_GESDOC.dbo.VW_VER_PEDIENTES_GESDOC' no ti
     [Consulta_Detalle_Mae_Documento].[ASUNTO] AS [ASUNTO]
     FROM [dbo].[Consulta_Detalle_Mae_Documento] AS [Consulta_Detalle_Mae_Documento]</DefiningQuery>
     </EntitySet>
-=======
->>>>>>> 4149157722c0d014f3b3429a5b62471beaf3ca1f
     <EntitySet Name="Consultar_ptocolo_transporte_x_id_transporte_2018_v1" EntityType="Self.Consultar_ptocolo_transporte_x_id_transporte_2018_v1" store:Type="Views" store:Schema="dbo">
       <DefiningQuery>SELECT 
     [Consultar_ptocolo_transporte_x_id_transporte_2018_v1].[ID_PROTOCOLO] AS [ID_PROTOCOLO], 

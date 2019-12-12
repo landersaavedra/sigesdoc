@@ -515,11 +515,8 @@
     <EntitySetMapping Name="DAT_DOCUMENTO_DETALLE">
       <EntityTypeMapping TypeName="DB_GESDOCModel.DAT_DOCUMENTO_DETALLE">
         <MappingFragment StoreEntitySet="DAT_DOCUMENTO_DETALLE">
-<<<<<<< HEAD
           <ScalarProperty Name="FLAG_DESTINO_PRINCIPAL" ColumnName="FLAG_DESTINO_PRINCIPAL" />
           <ScalarProperty Name="FLAG_TIPO_MEMORANDO" ColumnName="FLAG_TIPO_MEMORANDO" />
-=======
->>>>>>> 4149157722c0d014f3b3429a5b62471beaf3ca1f
           <ScalarProperty Name="NOM_OFICINA_DESTINO" ColumnName="NOM_OFICINA_DESTINO" />
           <ScalarProperty Name="NOM_OFICINA_CREA" ColumnName="NOM_OFICINA_CREA" />
           <ScalarProperty Name="OBSERVACION_ATENDIDO" ColumnName="OBSERVACION_ATENDIDO" />
@@ -562,10 +559,7 @@
     <EntitySetMapping Name="DAT_DOCUMENTO_DHCPA_DETALLE">
       <EntityTypeMapping TypeName="DB_GESDOCModel.DAT_DOCUMENTO_DHCPA_DETALLE">
         <MappingFragment StoreEntitySet="DAT_DOCUMENTO_DHCPA_DETALLE">
-<<<<<<< HEAD
           <ScalarProperty Name="FLAG_TIPO_CARTA" ColumnName="FLAG_TIPO_CARTA" />
-=======
->>>>>>> 4149157722c0d014f3b3429a5b62471beaf3ca1f
           <ScalarProperty Name="NOMBRE_PERSONA_DESTINO" ColumnName="NOMBRE_PERSONA_DESTINO" />
           <ScalarProperty Name="FECHA_MODIFICA" ColumnName="FECHA_MODIFICA" />
           <ScalarProperty Name="USUARIO_MODIFICA" ColumnName="USUARIO_MODIFICA" />
@@ -750,10 +744,7 @@
     <EntitySetMapping Name="MAE_DOCUMENTO_DHCPA">
       <EntityTypeMapping TypeName="DB_GESDOCModel.MAE_DOCUMENTO_DHCPA">
         <MappingFragment StoreEntitySet="MAE_DOCUMENTO_DHCPA">
-<<<<<<< HEAD
           <ScalarProperty Name="ID_DET_DOCUMENTO" ColumnName="ID_DET_DOCUMENTO" />
-=======
->>>>>>> 4149157722c0d014f3b3429a5b62471beaf3ca1f
           <ScalarProperty Name="RUC" ColumnName="RUC" />
           <ScalarProperty Name="EXP_O_HT_N_CDL_NOTIF" ColumnName="EXP_O_HT_N_CDL_NOTIF" />
           <ScalarProperty Name="EXP_O_HT_CDL_NOTIF" ColumnName="EXP_O_HT_CDL_NOTIF" />
@@ -2768,7 +2759,6 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-<<<<<<< HEAD
     <EntitySetMapping Name="Consulta_Detalle_Mae_Documento">
       <EntityTypeMapping TypeName="DB_GESDOCModel.Consulta_Detalle_Mae_Documento">
         <MappingFragment StoreEntitySet="Consulta_Detalle_Mae_Documento">
@@ -2785,7 +2775,5 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-=======
->>>>>>> 4149157722c0d014f3b3429a5b62471beaf3ca1f
   </EntityContainerMapping>
 </Mapping>

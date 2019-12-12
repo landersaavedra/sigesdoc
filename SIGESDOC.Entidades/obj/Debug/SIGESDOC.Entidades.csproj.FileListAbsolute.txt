@@ -98,8 +98,16 @@ C:\Users\PSSPERU069\Documents\Proyecto\sigesdoc_sanipes\sigesdoc\SIGESDOC.Entida
 C:\Users\PSSPERU069\Documents\Proyecto\sigesdoc_sanipes\sigesdoc\SIGESDOC.Entidades\obj\Debug\SIGESDOC.Entidades.csproj.CoreCompileInputs.cache
 C:\Users\PSSPERU069\Documents\Proyecto\sigesdoc_sanipes\sigesdoc\SIGESDOC.Entidades\obj\Debug\SIGESDOC.Entidades.dll
 C:\Users\PSSPERU069\Documents\Proyecto\sigesdoc_sanipes\sigesdoc\SIGESDOC.Entidades\obj\Debug\SIGESDOC.Entidades.pdb
+<<<<<<< HEAD
 C:\Users\PSSPERU069\Documents\Proyecto\sigesdoc_sanipes\sigesdoc\SIGESDOC.Entidades\obj\Debug\SIGESDOC.Entidades.csprojAssemblyReference.cache
 C:\Users\PSSERU-TI\Source\Repos\landersaavedra\sigesdoc\SIGESDOC.Entidades\bin\Debug\SIGESDOC.Entidades.dll
 C:\Users\PSSERU-TI\Source\Repos\landersaavedra\sigesdoc\SIGESDOC.Entidades\bin\Debug\SIGESDOC.Entidades.pdb
 C:\Users\PSSERU-TI\Source\Repos\landersaavedra\sigesdoc\SIGESDOC.Entidades\obj\Debug\SIGESDOC.Entidades.dll
 C:\Users\PSSERU-TI\Source\Repos\landersaavedra\sigesdoc\SIGESDOC.Entidades\obj\Debug\SIGESDOC.Entidades.pdb
+=======
+C:\Users\PSSERU-TI\Documents\PROYECTOS\sigesdoc\SIGESDOC.Entidades\bin\Debug\SIGESDOC.Entidades.dll
+C:\Users\PSSERU-TI\Documents\PROYECTOS\sigesdoc\SIGESDOC.Entidades\bin\Debug\SIGESDOC.Entidades.pdb
+C:\Users\PSSERU-TI\Documents\PROYECTOS\sigesdoc\SIGESDOC.Entidades\obj\Debug\SIGESDOC.Entidades.csprojAssemblyReference.cache
+C:\Users\PSSERU-TI\Documents\PROYECTOS\sigesdoc\SIGESDOC.Entidades\obj\Debug\SIGESDOC.Entidades.dll
+C:\Users\PSSERU-TI\Documents\PROYECTOS\sigesdoc\SIGESDOC.Entidades\obj\Debug\SIGESDOC.Entidades.pdb
+>>>>>>> 4149157722c0d014f3b3429a5b62471beaf3ca1f

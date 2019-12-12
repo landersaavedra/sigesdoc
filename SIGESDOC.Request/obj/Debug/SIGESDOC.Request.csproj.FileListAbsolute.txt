@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 C:\inetpub\wwwroot\sigesdoc\SIGESDOC.Request\bin\Debug\SIGESDOC.Request.dll
 C:\inetpub\wwwroot\sigesdoc\SIGESDOC.Request\bin\Debug\SIGESDOC.Request.pdb
 C:\inetpub\wwwroot\sigesdoc\SIGESDOC.Request\obj\Debug\SIGESDOC.Request.csprojAssemblyReference.cache
@@ -19,3 +20,10 @@ C:\Users\PSSERU-TI\Source\Repos\landersaavedra\sigesdoc\SIGESDOC.Request\bin\Deb
 C:\Users\PSSERU-TI\Source\Repos\landersaavedra\sigesdoc\SIGESDOC.Request\obj\Debug\SIGESDOC.Request.dll
 C:\Users\PSSERU-TI\Source\Repos\landersaavedra\sigesdoc\SIGESDOC.Request\obj\Debug\SIGESDOC.Request.pdb
 C:\Users\PSSERU-TI\Source\Repos\landersaavedra\sigesdoc\SIGESDOC.Request\obj\Debug\SIGESDOC.Request.csprojAssemblyReference.cache
+=======
+C:\Users\PSSERU-TI\Documents\PROYECTOS\sigesdoc\SIGESDOC.Request\bin\Debug\SIGESDOC.Request.dll
+C:\Users\PSSERU-TI\Documents\PROYECTOS\sigesdoc\SIGESDOC.Request\bin\Debug\SIGESDOC.Request.pdb
+C:\Users\PSSERU-TI\Documents\PROYECTOS\sigesdoc\SIGESDOC.Request\obj\Debug\SIGESDOC.Request.csprojAssemblyReference.cache
+C:\Users\PSSERU-TI\Documents\PROYECTOS\sigesdoc\SIGESDOC.Request\obj\Debug\SIGESDOC.Request.dll
+C:\Users\PSSERU-TI\Documents\PROYECTOS\sigesdoc\SIGESDOC.Request\obj\Debug\SIGESDOC.Request.pdb
+>>>>>>> 4149157722c0d014f3b3429a5b62471beaf3ca1f

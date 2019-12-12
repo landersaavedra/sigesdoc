@@ -52,6 +52,7 @@ C:\Users\PSSPERU069\Documents\Proyecto\sigesdoc_sanipes\sigesdoc\SIGESDOC.IAplic
 C:\Users\PSSPERU069\Documents\Proyecto\sigesdoc_sanipes\sigesdoc\SIGESDOC.IAplicacionService\obj\Debug\SIGESDOC.IAplicacionService.csproj.CopyComplete
 C:\Users\PSSPERU069\Documents\Proyecto\sigesdoc_sanipes\sigesdoc\SIGESDOC.IAplicacionService\obj\Debug\SIGESDOC.IAplicacionService.dll
 C:\Users\PSSPERU069\Documents\Proyecto\sigesdoc_sanipes\sigesdoc\SIGESDOC.IAplicacionService\obj\Debug\SIGESDOC.IAplicacionService.pdb
+<<<<<<< HEAD
 C:\Users\PSSERU-TI\Source\Repos\landersaavedra\sigesdoc\SIGESDOC.IAplicacionService\bin\Debug\SIGESDOC.IAplicacionService.dll
 C:\Users\PSSERU-TI\Source\Repos\landersaavedra\sigesdoc\SIGESDOC.IAplicacionService\bin\Debug\SIGESDOC.IAplicacionService.pdb
 C:\Users\PSSERU-TI\Source\Repos\landersaavedra\sigesdoc\SIGESDOC.IAplicacionService\bin\Debug\SIGESDOC.Request.dll
@@ -62,3 +63,15 @@ C:\Users\PSSERU-TI\Source\Repos\landersaavedra\sigesdoc\SIGESDOC.IAplicacionServ
 C:\Users\PSSERU-TI\Source\Repos\landersaavedra\sigesdoc\SIGESDOC.IAplicacionService\obj\Debug\SIGESDOC.IAplicacionService.csproj.CopyComplete
 C:\Users\PSSERU-TI\Source\Repos\landersaavedra\sigesdoc\SIGESDOC.IAplicacionService\obj\Debug\SIGESDOC.IAplicacionService.dll
 C:\Users\PSSERU-TI\Source\Repos\landersaavedra\sigesdoc\SIGESDOC.IAplicacionService\obj\Debug\SIGESDOC.IAplicacionService.pdb
+=======
+C:\Users\PSSERU-TI\Documents\PROYECTOS\sigesdoc\SIGESDOC.IAplicacionService\bin\Debug\SIGESDOC.IAplicacionService.dll
+C:\Users\PSSERU-TI\Documents\PROYECTOS\sigesdoc\SIGESDOC.IAplicacionService\bin\Debug\SIGESDOC.IAplicacionService.pdb
+C:\Users\PSSERU-TI\Documents\PROYECTOS\sigesdoc\SIGESDOC.IAplicacionService\bin\Debug\SIGESDOC.Request.dll
+C:\Users\PSSERU-TI\Documents\PROYECTOS\sigesdoc\SIGESDOC.IAplicacionService\bin\Debug\SIGESDOC.Response.dll
+C:\Users\PSSERU-TI\Documents\PROYECTOS\sigesdoc\SIGESDOC.IAplicacionService\bin\Debug\SIGESDOC.Request.pdb
+C:\Users\PSSERU-TI\Documents\PROYECTOS\sigesdoc\SIGESDOC.IAplicacionService\bin\Debug\SIGESDOC.Response.pdb
+C:\Users\PSSERU-TI\Documents\PROYECTOS\sigesdoc\SIGESDOC.IAplicacionService\obj\Debug\SIGESDOC.IAplicacionService.csprojAssemblyReference.cache
+C:\Users\PSSERU-TI\Documents\PROYECTOS\sigesdoc\SIGESDOC.IAplicacionService\obj\Debug\SIGESDOC.IAplicacionService.csproj.CopyComplete
+C:\Users\PSSERU-TI\Documents\PROYECTOS\sigesdoc\SIGESDOC.IAplicacionService\obj\Debug\SIGESDOC.IAplicacionService.dll
+C:\Users\PSSERU-TI\Documents\PROYECTOS\sigesdoc\SIGESDOC.IAplicacionService\obj\Debug\SIGESDOC.IAplicacionService.pdb
+>>>>>>> 4149157722c0d014f3b3429a5b62471beaf3ca1f
